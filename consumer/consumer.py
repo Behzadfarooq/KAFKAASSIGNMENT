@@ -3,11 +3,11 @@ from kafka import KafkaConsumer
 import mysql.connector
 import logging
 
-# Configure logging
+
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-# Kafka Consumer setup
+
 consumer = KafkaConsumer(
     'word-entity-topic',
     bootstrap_servers=['kafka:9092'],  
@@ -17,21 +17,21 @@ consumer = KafkaConsumer(
     value_deserializer=lambda x: json.loads(x.decode('utf-8'))
 )
 
-# MySQL Database configuration
+
 mysql_config = {
-    'host': 'localhost',  # Assuming MySQL is running on localhost
-    'user': 'root',  # Assuming MySQL user is root
-    'password': 'root',  # Assuming MySQL password is root
-    'database': 'kafka',  # Your database name
-    'port': 3306  # MySQL default port
+    'host': 'localhost', 
+    'user': 'root', 
+    'password': 'root',  
+    'database': 'kafka', 
+    'port': 3306  
 }
 
-# Connect to MySQL database
+
 try:
     conn = mysql.connector.connect(**mysql_config)
     cursor = conn.cursor()
 
-    # Create table if not exists
+
     create_table_query = '''
         CREATE TABLE IF NOT EXISTS word_frequency (
             word VARCHAR(255),
@@ -47,7 +47,6 @@ except mysql.connector.Error as e:
     logger.error(f"Error connecting to MySQL database: {e}")
     exit(1)
 
-# Function to update word frequency in the database
 def update_word_frequency(word, entity):
     try:
         insert_query = '''
@@ -62,7 +61,7 @@ def update_word_frequency(word, entity):
         conn.rollback()
         logger.error(f"MySQL error: {e}")
 
-# Main consumer loop
+
 def consume_messages():
     try:
         for message in consumer:

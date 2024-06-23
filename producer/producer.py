@@ -4,20 +4,20 @@ import spacy
 from bs4 import BeautifulSoup
 from kafka import KafkaProducer
 
-# Load SpaCy model
+
 nlp = spacy.load("en_core_web_sm")
 
-# Kafka Producer setup
+
 producer = KafkaProducer(
-    bootstrap_servers=['kafka:9092'],  # Changed to localhost
+    bootstrap_servers=['kafka:9092'],  
     value_serializer=lambda v: json.dumps(v).encode('utf-8')
 )
 
-# Directory and file path settings
+
 articles_dir = './articles'
 html_list_file = './html.lst.0'
 
-# Function to process individual files
+
 def process_file(file_path):
     with open(file_path, 'r', encoding='utf-8') as file:
         content = file.read()
@@ -33,7 +33,7 @@ def process_file(file_path):
         producer.send('word-entity-topic', value=message)
         print(f"Produced: {message}")
 
-# Function to process the list of files
+
 def process_files():
     with open(html_list_file, 'r') as file:
         files = file.readlines()
