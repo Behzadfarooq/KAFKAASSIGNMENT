@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bra-ket notation,Abuse of notation,Axiom,Banach space,Basis,Complex conjugate,Complex number,Conjugate transpose,Coordinates vector,Dirac delta function,Dual space" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bra-ket notation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bra-ket notation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Bra-ket notation</b> is the standard notation for describing <a href="../../../q/u/a/Quantum_state.html" title="Quantum state">quantum states</a> in the theory of <a href="../../../q/u/a/Quantum_mechanics.html" title="Quantum mechanics">quantum mechanics</a>. It can also be used to denote abstract <a href="../../../v/e/c/Vector_space.html" title="Vector space">vectors</a> and <a href="../../../l/i/n/Linear_functional.html" title="Linear functional">linear functionals</a> in pure <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>. It is so called because the <a href="../../../i/n/n/Inner_product.html" title="Inner product">inner product</a> of two states is denoted by a <b>bra</b>c<b>ket</b>, <img class='tex' src="../../../math/6/6/4/664ca32352cafa2b361f0ee9a807ac2f.png" alt="\langle\phi|\psi\rangle" />, consisting of a left part, <img class='tex' src="../../../math/2/6/c/26c149f89e6a941ebcf665bee475c9f0.png" alt="\langle\phi|" />, called the <b>bra</b>, and a right part, <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" />, called the <b>ket</b>. The notation was invented by <a href="../../../p/a/u/Paul_Dirac_db66.html" title="Paul Dirac">Paul Dirac</a>, and is also known as <b>Dirac notation</b>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Bras_and_kets"><span class="tocnumber">1</span> <span class="toctext">Bras and kets</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Most_common_use:_Quantum_mechanics"><span class="tocnumber">1.1</span> <span class="toctext">Most common use: Quantum mechanics</span></a></li>
+<li class="toclevel-2"><a href="#More_general_uses"><span class="tocnumber">1.2</span> <span class="toctext">More general uses</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-1"><a href="#Linear_operators"><span class="tocnumber">3</span> <span class="toctext">Linear operators</span></a></li>
+<li class="toclevel-1"><a href="#Composite_bras_and_kets"><span class="tocnumber">4</span> <span class="toctext">Composite bras and kets</span></a></li>
+<li class="toclevel-1"><a href="#Representations_in_terms_of_bras_and_kets"><span class="tocnumber">5</span> <span class="toctext">Representations in terms of bras and kets</span></a></li>
+<li class="toclevel-1"><a href="#The_unit_operator"><span class="tocnumber">6</span> <span class="toctext">The unit operator</span></a></li>
+<li class="toclevel-1"><a href="#Notation_used_by_mathematicians"><span class="tocnumber">7</span> <span class="toctext">Notation used by mathematicians</span></a></li>
+<li class="toclevel-1"><a href="#Further_reading"><span class="tocnumber">8</span> <span class="toctext">Further reading</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Bras_and_kets" id="Bras_and_kets"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: Bras and kets">edit</a>]</span> <span class="mw-headline">Bras and kets</span></h2>
+<p><a name="Most_common_use:_Quantum_mechanics" id="Most_common_use:_Quantum_mechanics"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: Most common use: Quantum mechanics">edit</a>]</span> <span class="mw-headline">Most common use: Quantum mechanics</span></h3>
+<p>In <a href="../../../q/u/a/Quantum_mechanics.html" title="Quantum mechanics">quantum mechanics</a>, the state of a <a href="../../../p/h/y/Physics.html" title="Physics">physical</a> system is identified with a unit ray in a <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex</a> <a href="../../../s/e/p/Separable_space.html" title="Separable space">separable</a> <a href="../../../h/i/l/Hilbert_space.html" title="Hilbert space">Hilbert space</a>, <img class='tex' src="../../../math/3/5/0/350860cf68ca8fd18af87b6ee9044fc7.png" alt="\mathcal{H}" />, or, equivalently, by a point in the projective Hilbert space of the system. Each <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector</a> in the ray is called a "<b>ket</b>" and written as <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" />, which would be read as "<i>psi ket</i>". The ket can be viewed as a column vector and (given a basis for the Hilbert space) written out in components,</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/0/8/c08f70c6f5a5f578e305a553610f5bb8.png" alt="|\psi\rangle = (c_0, c_1, c_2, ...)^T," /></dd>
+</dl>
+<p>when the considered Hilbert space is finite-dimensional. In infinite-dimensional spaces there are infinitely many components (possibly even uncountably many) and the ket may be written in function notation, by prepending it with a <b>bra</b> (see below). For example,</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/f/f/9ffdc9370429802ce51dce09d5b1293a.png" alt="\langle x|\phi\rangle = e^{- x^2}." /></dd>
+</dl>
+<p>Every ket <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> has a <a href="../../../d/u/a/Dual_space.html" title="Dual space">dual</a> <b>bra</b>, written as <img class='tex' src="../../../math/7/6/7/767f114e44e041fe87827c0f4b2af884.png" alt="\langle\psi|" />. For example, the bra corresponding to the ket <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> above would be the row vector</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/0/7/207c31ab6bc76c9f2b745525705c6e5f.png" alt="\langle\psi| = (c_0^*, c_1^*, c_2^*, ...)." /></dd>
+</dl>
+<p>This is a continuous <a href="../../../l/i/n/Linear_functional.html" title="Linear functional">linear functional</a> from <span class="texhtml"><i>H</i></span> to the complex numbers <img class='tex' src="../../../math/f/0/b/f0b01fe0a1eec87c634584ac0694fb71.png" alt="\mathbb{C}" />, defined by:</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/a/3/ea3f1044a57cbc4637a925d4962e1113.png" alt="\langle\psi|&#160;: H \to \mathbb{C}: \langle \psi | \left( |\rho\rangle \right) = \operatorname{IP}\left( |\psi\rangle \;,\; |\rho\rangle \right)" /> for all kets <img class='tex' src="../../../math/1/3/d/13d3843088d06b0fe7ab921c0cc092b0.png" alt="|\rho\rangle" /></dd>
+</dl>
+<p>where <img class='tex' src="../../../math/3/0/e/30edd71d6161736420f0fb7d71e76b32.png" alt="\operatorname{IP}( \cdot , \cdot )" /> denotes the <a href="../../../i/n/n/Inner_product.html" title="Inner product">inner product</a> defined on the <a href="../../../h/i/l/Hilbert_space.html" title="Hilbert space">Hilbert space</a>. Here an advantage of the bra-ket notation becomes clear: when we drop the parentheses (as is common with linear functionals) and melt the bars together we get <img class='tex' src="../../../math/3/1/d/31dd2919c01a33cbe4e007cd3d027167.png" alt="\langle\psi|\rho\rangle" />, which is common notation for an inner product in a Hilbert space. This combination of a bra with a ket to form a complex number is called a <i>bra-ket</i> or <i>bracket</i>.</p>
+<p>In quantum mechanics the expression <img class='tex' src="../../../math/6/6/4/664ca32352cafa2b361f0ee9a807ac2f.png" alt="\langle\phi|\psi\rangle" /> (mathematically: the coefficient for the projection of <img class='tex' src="../../../math/6/f/1/6f14906cf0297269bad39030de63e7f3.png" alt="\psi\!" /> onto <img class='tex' src="../../../math/9/1/8/918838c8c6871b15d39e101abb0137ae.png" alt="\phi\!" />) is typically interpreted as the <a href="../../../p/r/o/Probability_amplitude.html" title="Probability amplitude">probability amplitude</a> for the state <img class='tex' src="../../../math/6/f/1/6f14906cf0297269bad39030de63e7f3.png" alt="\psi\!" /> to <a href="../../../w/a/v/Wavefunction_collapse.html" title="Wavefunction collapse">collapse</a> into the state <img class='tex' src="../../../math/2/e/4/2e4a5fa5a9dac2043d1a35f4e6e32bf2.png" alt="\phi.\!" /></p>
+<p><a name="More_general_uses" id="More_general_uses"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: More general uses">edit</a>]</span> <span class="mw-headline">More general uses</span></h3>
+<p>The bra is simply the <a href="../../../c/o/n/Conjugate_transpose.html" title="Conjugate transpose">conjugate transpose</a> (also called the <a href="../../../h/e/r/Hermitian_conjugate.html" title="Hermitian conjugate">Hermitian conjugate</a>) of the ket and vice versa. The notation is justified by the <a href="../../../r/i/e/Riesz_representation_theorem.html" title="Riesz representation theorem">Riesz representation theorem</a>, which states that a Hilbert space and its <a href="../../../d/u/a/Dual_space.html" title="Dual space">dual space</a> are isometrically conjugate isomorphic. Thus, each bra corresponds to exactly one ket, and vice versa. However, this is not always the case; on page 111 of Quantum Mechanics by Cohen-Tannoudji <i>et al.</i> it is clarified that there is such a relationship between bras and kets, so long as the defining functions used are <a href="../../../s/q/u/Square_integrable.html" title="Square integrable">square integrable</a>. This does not hinder quantum mechanics because all physically realistic wave functions are square integrable and thus elements of the Hilbert space L2, whereas sine and cosine are not in L2 and the <a href="../../../d/i/r/Dirac_delta_function.html" title="Dirac delta function">Dirac delta function</a> is not even a function, but a measure.</p>
+<p>Bra-ket notation can be used even if the vector space is not a <a href="../../../h/i/l/Hilbert_space.html" title="Hilbert space">Hilbert space</a>. In any <a href="../../../b/a/n/Banach_space.html" title="Banach space">Banach space</a> <i>B</i>, the vectors may be notated by kets and the continuous <a href="../../../l/i/n/Linear_functional.html" title="Linear functional">linear functionals</a> by bras. Over any vector space without topology, we may also notate the vectors by kets and the linear functionals by bras. In these more general contexts, the bracket does not have the meaning of an inner product, because the Riesz representation theorem does not apply.</p>
+<p><a name="Properties" id="Properties"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: Properties">edit</a>]</span> <span class="mw-headline">Properties</span></h2>
+<p>Because each ket is a <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector</a> in a <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex</a> <a href="../../../h/i/l/Hilbert_space.html" title="Hilbert space">Hilbert space</a> and each bra-ket is an <a href="../../../i/n/n/Inner_product.html" title="Inner product">inner product</a>, it follows directly that bras and kets can be manipulated in the following ways:</p>
+<ul>
+<li>Given any bra <img class='tex' src="../../../math/2/6/c/26c149f89e6a941ebcf665bee475c9f0.png" alt="\langle\phi|" />, kets <img class='tex' src="../../../math/c/4/8/c48a5522f4dcc87b53b677de09bb0827.png" alt="|\psi_1\rangle" /> and <img class='tex' src="../../../math/e/b/3/eb3d893757e666569a11f393543c947b.png" alt="|\psi_2\rangle" />, and <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex numbers</a> <i>c</i><sub>1</sub> and <i>c</i><sub>2</sub>, then, since bras are <i>linear</i> functionals,</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/a/0/a/a0a7c9571ec8ed1026f4744e88223835.png" alt="\langle\phi| \; \bigg( c_1|\psi_1\rangle + c_2|\psi_2\rangle \bigg) = c_1\langle\phi|\psi_1\rangle + c_2\langle\phi|\psi_2\rangle." /></dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>Given any ket <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" />, bras <img class='tex' src="../../../math/c/e/4/ce45f72df35311463f41fa89f628dd42.png" alt="\langle\phi_1|" /> and <img class='tex' src="../../../math/2/e/7/2e72823162b399a3266ff9a50522f739.png" alt="\langle\phi_2|" />, and complex numbers <i>c</i><sub>1</sub> and <i>c</i><sub>2</sub>, then, by the definition of addition and scalar multiplication of linear functionals,</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/d/9/3/d937994adeb07b75b7a984799d7035b2.png" alt="\bigg(c_1 \langle\phi_1| + c_2 \langle\phi_2|\bigg) \; |\psi\rangle = c_1 \langle\phi_1|\psi\rangle + c_2\langle\phi_2|\psi\rangle." /></dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>Given any kets <img class='tex' src="../../../math/c/4/8/c48a5522f4dcc87b53b677de09bb0827.png" alt="|\psi_1\rangle" /> and <img class='tex' src="../../../math/e/b/3/eb3d893757e666569a11f393543c947b.png" alt="|\psi_2\rangle" />, and <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex numbers</a> <i>c</i><sub>1</sub> and <i>c</i><sub>2</sub>, from the properties of the inner product (with c* denoting the <a href="../../../c/o/m/Complex_conjugate.html" title="Complex conjugate">complex conjugate</a> of c),</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/f/a/a/faae6d8012cace28134d02d7574c9428.png" alt="c_1|\psi_1\rangle + c_2|\psi_2\rangle" /> is dual to <img class='tex' src="../../../math/3/5/d/35d98d3b42f7d824fc4794350bcfb4c3.png" alt="c_1^* \langle\psi_1| + c_2^* \langle\psi_2|." /></dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>Given any bra <img class='tex' src="../../../math/2/6/c/26c149f89e6a941ebcf665bee475c9f0.png" alt="\langle\phi|" /> and ket <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" />, an axiomatic property of the inner product gives</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/b/9/e/b9ef5e060e4b1c7c0fd0ef3dd669cc4b.png" alt="\langle\phi|\psi\rangle = \langle\psi|\phi\rangle^*." /></dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Linear_operators" id="Linear_operators"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: Linear operators">edit</a>]</span> <span class="mw-headline">Linear operators</span></h2>
+<p>If <i>A</i>&#160;: <i>H</i> → <i>H</i> is a <a href="../../../l/i/n/Linear_operator.html" title="Linear operator">linear operator</a>, we can apply <i>A</i> to the ket <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> to obtain the ket <img class='tex' src="../../../math/7/5/7/757e22e14e0523bf34afd4658421084e.png" alt="(A|\psi\rangle)" />. Linear operators are ubiquitous in the theory of quantum mechanics. For example, observable physical quantities are represented by <a href="../../../s/e/l/Self-adjoint_operator.html" title="Self-adjoint operator">self-adjoint operators</a>, such as <a href="../../../e/n/e/Energy.html" title="Energy">energy</a> or <a href="../../../m/o/m/Momentum.html" title="Momentum">momentum</a>, whereas transformative processes are represented by <a href="../../../u/n/i/Unitary_operator.html" title="Unitary operator">unitary</a> linear operators such as rotation or the progression of time.</p>
+<p>Operators can also be viewed as acting on bras <i>from the right hand side</i>. Composing the bra <img class='tex' src="../../../math/2/6/c/26c149f89e6a941ebcf665bee475c9f0.png" alt="\langle\phi|" /> with the operator <i>A</i> results in the bra <img class='tex' src="../../../math/d/c/2/dc2d6fbe3babd0aff320998193bfb5c9.png" alt="(\langle\phi|A)" />, defined as a linear functional on <i>H</i> by the rule</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/0/b/20b874d56012c4560743b49566cec9cc.png" alt="\bigg(\langle\phi|A\bigg) \; |\psi\rangle = \langle\phi| \; \bigg(A|\psi\rangle\bigg)" />.</dd>
+</dl>
+<p>This expression is commonly written as</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/7/0/170a091767765a481b9919dd52c55c14.png" alt="\langle\phi|A|\psi\rangle." /></dd>
+</dl>
+<p>A convenient way to define linear operators on <i>H</i> is given by the <a href="../../../o/u/t/Outer_product.html" title="Outer product">outer product</a>: if <img class='tex' src="../../../math/2/6/c/26c149f89e6a941ebcf665bee475c9f0.png" alt="\langle\phi|" /> is a bra and <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> is a ket, the outer product</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/a/4/da4fa9270c1fd5cb55772773d972df88.png" alt="|\phi\rang \lang \psi|" /></dd>
+</dl>
+<p>denotes the rank one operator that maps the ket <img class='tex' src="../../../math/1/3/d/13d3843088d06b0fe7ab921c0cc092b0.png" alt="|\rho\rangle" /> to the ket <img class='tex' src="../../../math/0/6/2/062b77016b3b599e6c35f1d9af672558.png" alt="|\phi\rangle\langle\psi|\rho\rangle" /> (where <img class='tex' src="../../../math/3/1/d/31dd2919c01a33cbe4e007cd3d027167.png" alt="\langle\psi|\rho\rangle" /> is a scalar multiplying the vector <img class='tex' src="../../../math/6/4/7/647e7b8a3252e5f6eac8022f9ca5de17.png" alt="|\phi\rangle" />). One of the uses of the outer product is to construct <a href="../../../p/r/o/Projection_operator.html" title="Projection operator">projection operators</a>. Given a ket <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> of norm 1, the orthogonal projection onto the <a href="../../../l/i/n/Linear_subspace.html" title="Linear subspace">subspace</a> spanned by <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> is</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/9/8/998b8cffb5be84f480a0d84e63a79505.png" alt="|\psi\rangle\langle\psi|." /></dd>
+</dl>
+<p>Just as kets and bras can be transformed into each other (making <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> into <img class='tex' src="../../../math/7/6/7/767f114e44e041fe87827c0f4b2af884.png" alt="\langle\psi|" />) the element from the dual space corresponding with <img class='tex' src="../../../math/4/5/5/455d208cd4e64ef474b874b8d1040b27.png" alt="A|\psi\rangle" /> is <img class='tex' src="../../../math/0/8/4/08490a3a8f07acd4386ae7b4958ea30e.png" alt="\langle \psi | A^\dagger" /> where <i>A<sup>†</sup></i> denotes the <a href="../../../h/e/r/Hermitian_conjugate.html" title="Hermitian conjugate">Hermitian conjugate</a> of the operator <i>A</i>.</p>
+<p>It is usually taken as a <a href="../../../p/o/s/Postulate.html" title="Postulate">postulate</a> or <a href="../../../a/x/i/Axiom.html" title="Axiom">axiom</a> of <a href="../../../q/u/a/Quantum_mechanics.html" title="Quantum mechanics">quantum mechanics</a>, that any operator corresponding to an <a href="../../../o/b/s/Observable.html" title="Observable">observable</a> <a href="../../../q/u/a/Quantity.html" title="Quantity">quantity</a> (shortly called <i>observable</i>) is self-adjoint, that is, it satisfies <i>A<sup>†</sup> = A</i>. Then the identity</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/4/5/d4569f21d05a15bb4817a69762856580.png" alt="\langle \psi | A | \psi \rangle^\star = \langle \psi |A^\dagger |\psi \rangle = \langle \psi | A | \psi \rangle" /></dd>
+</dl>
+<p>holds (for the first equality, use the scalar product's <a href="../../../i/n/n/Inner_product_space.html" title="Inner product space">conjugate symmetry</a> and the conversion rule from the preceding paragraph). This implies that <a href="../../../e/x/p/Expected_value.html" title="Expected value">expectation values</a> of observables are real.</p>
+<p><a name="Composite_bras_and_kets" id="Composite_bras_and_kets"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: Composite bras and kets">edit</a>]</span> <span class="mw-headline">Composite bras and kets</span></h2>
+<p>Two Hilbert spaces <i>V</i> and <i>W</i> may form a third space <img class='tex' src="../../../math/3/5/8/35817982ecdd60b2b429d08ed6f1e24d.png" alt="V \otimes W" /> by a <a href="../../../t/e/n/Tensor_product.html" title="Tensor product">tensor product</a>. In quantum mechanics, this is used for describing composite systems. If a system is composed of two subsystems described by <i>V</i> and <i>W</i> respectively, then the Hilbert space of the entire system is the tensor product of the two spaces. (The exception to this is if the subsystems are actually <a href="../../../i/d/e/Identical_particles.html" title="Identical particles">identical particles</a>. In that case, the situation is a little more complicated.)</p>
+<p>If <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> is a ket in V and <img class='tex' src="../../../math/6/4/7/647e7b8a3252e5f6eac8022f9ca5de17.png" alt="|\phi\rangle" /> is a ket in W, the tensor product of the two kets is a ket in <img class='tex' src="../../../math/3/5/8/35817982ecdd60b2b429d08ed6f1e24d.png" alt="V \otimes W" />. This is written variously as</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/a/e/2ae04ed676e752d2d25b133f9d013915.png" alt="|\psi\rangle|\phi\rangle" /> or <img class='tex' src="../../../math/c/1/7/c17fb07c09cd0fc1ba0833033e32c34a.png" alt="|\psi\rangle \otimes |\phi\rangle" /> or <img class='tex' src="../../../math/0/f/2/0f2cb3713127f4bb6281560ad89310d1.png" alt="|\psi \phi\rangle" /> or <img class='tex' src="../../../math/7/4/a/74a68e500ad79c81d068f88585bb5283.png" alt="|\psi ,\phi\rangle." /></dd>
+</dl>
+<p><a name="Representations_in_terms_of_bras_and_kets" id="Representations_in_terms_of_bras_and_kets"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: Representations in terms of bras and kets">edit</a>]</span> <span class="mw-headline">Representations in terms of bras and kets</span></h2>
+<p>In quantum mechanics, it is often convenient to work with the projections of state vectors onto a particular basis, rather than the vectors themselves. The reason is that the former are simply <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex numbers</a>, and can be formulated in terms of <a href="../../../p/a/r/Partial_differential_equation.html" title="Partial differential equation">partial differential equations</a> (see, for example, the derivation of the position-basis <a href="../../../s/c/h/Schr%C3%B6dinger_equation.html" title="Schrödinger equation">Schrödinger equation</a>). This process is very similar to the use of <a href="../../../c/o/o/Coordinates_vector.html" title="Coordinates vector">coordinate vectors</a> in <a href="../../../l/i/n/Linear_algebra.html" title="Linear algebra">linear algebra</a>.</p>
+<p>For instance, the Hilbert space of a <a href="../../../s/p/i/Spin_%28physics%29.html" title="Spin (physics)">zero-spin</a> point particle is spanned by a position basis <img class='tex' src="../../../math/6/5/4/6544f2b77c716bbc1dc35150b78a9b02.png" alt="\lbrace|\mathbf{x}\rangle\rbrace" />, where the label <b>x</b> extends over the set of position vectors. Starting from any ket <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> in this Hilbert space, we can <i>define</i> a complex scalar function of <b>x</b>, known as a <a href="../../../w/a/v/Wavefunction.html" title="Wavefunction">wavefunction</a>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/b/7/0b7bc4a4e4f86265ca2e2739afd34b5a.png" alt="\psi(\mathbf{x}) \ \stackrel{\mathrm{def}}{=}\ \lang \mathbf{x}|\psi\rang." /></dd>
+</dl>
+<p>It is then customary to define linear operators acting on wavefunctions in terms of linear operators acting on kets, by</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/5/0/c50651d5a6736acf2cb291fccd4ea485.png" alt="A \psi(\mathbf{x}) \ \stackrel{\mathrm{def}}{=}\  \lang \mathbf{x}|A|\psi\rang." /></dd>
+</dl>
+<p>For instance, the <a href="../../../m/o/m/Momentum.html" title="Momentum">momentum</a> operator <b>p</b> has the following form:</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/0/0/b0008dc889bf436120a65c1cf067dd83.png" alt="\mathbf{p} \psi(\mathbf{x}) \ \stackrel{\mathrm{def}}{=}\  \lang \mathbf{x} |\mathbf{p}|\psi\rang = - i \hbar \nabla \psi(x)." /></dd>
+</dl>
+<p>One occasionally encounters an expression like</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/f/1/0f12a38e06f94d5ee1a89911ef578cf2.png" alt="- i \hbar \nabla |\psi\rang." /></dd>
+</dl>
+<p>This is something of an <a href="../../../a/b/u/Abuse_of_notation.html" title="Abuse of notation">abuse of notation</a>, though a fairly common one. The differential operator must be understood to be an abstract operator, acting on kets, that has the effect of differentiating wavefunctions once the expression is projected into the position basis:</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/e/2/de214f3b3528ae20e81988ea1aee6102.png" alt="- i \hbar \nabla \lang\mathbf{x}|\psi\rang." /></dd>
+</dl>
+<p><i>For further details, see <a href="../../../r/i/g/Rigged_Hilbert_space_e3b5.html" title="Rigged Hilbert space">rigged Hilbert space</a>.</i></p>
+<p><a name="The_unit_operator" id="The_unit_operator"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: The unit operator">edit</a>]</span> <span class="mw-headline">The unit operator</span></h2>
+<p>Consider a complete <a href="../../../o/r/t/Orthonormal.html" title="Orthonormal">orthonormal</a> system (<i><a href="../../../b/a/s/Basis.html" title="Basis">basis</a></i>), <img class='tex' src="../../../math/d/7/c/d7c7fda2308876ffe461b5b3c61a630c.png" alt="\{ e_i \  | \  i \in \mathbb{N} \}" />, for a Hilbert space <i>H</i>, with respect to the norm from an inner product <img class='tex' src="../../../math/e/0/2/e02eaeb6eb365f078ca029f67f7a6973.png" alt="\langle\cdot,\cdot\rangle" />. From basic <a href="../../../f/u/n/Functional_analysis.html" title="Functional analysis">functional analysis</a> we know that any ket <img class='tex' src="../../../math/6/0/5/605b44d27aad3e8e841b1dd43053faa1.png" alt="|\psi\rangle" /> can be written as</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/e/6/5e6f0e6dc307f0303eea9ce85d022bf8.png" alt="|\psi\rangle = \sum_{i \in \mathbb{N}} \langle e_i | \psi \rangle | e_i \rangle," /></dd>
+</dl>
+<p>with <img class='tex' src="../../../math/e/0/2/e02eaeb6eb365f078ca029f67f7a6973.png" alt="\langle\cdot,\cdot\rangle" /> the inner product on the Hilbert space. From the commutativity of kets with (complex) scalars now follows that</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/0/d/c0d35f5a5604875b481bdb1dcf4af994.png" alt="\sum_{i \in \mathbb{N}} | e_i \rangle \langle e_i | = \hat{1}" /></dd>
+</dl>
+<p>must be the unit operator, which sends each vector to itself. This can be inserted in any expression without affecting its value, for example</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/8/f/e8f211854033f00bf2934f23504a6969.png" alt="\langle v | w \rangle = \langle v | \sum_{i \in \mathbb{N}} | e_i \rangle \langle e_i | w \rangle = \langle v | \sum_{i \in \mathbb{N}} | e_i \rangle \langle e_i | \sum_{j \in \mathbb{N}} | e_j \rangle \langle e_j | w \rangle = \langle w | e_i \rangle \langle e_i | e_j \rangle \langle e_j | v \rangle" /></dd>
+</dl>
+<p>where in the last identity <a href="../../../e/i/n/Einstein_summation_convention.html" title="Einstein summation convention">Einstein summation convention</a> has been used.</p>
+<p>In <a href="../../../q/u/a/Quantum_mechanics.html" title="Quantum mechanics">quantum mechanics</a> it often occurs that little or no information about the inner product <img class='tex' src="../../../math/c/1/d/c1d834a3f21e20f1c3ded5ff464b0091.png" alt="\langle\psi|\phi\rangle" /> of two arbitrary (state) kets is present, while it is possible to say something about the expansion coefficients <img class='tex' src="../../../math/6/c/3/6c3c6843819666121e6d0deb6cef0f96.png" alt="\langle\psi|e_i\rangle = \langle e_i|\psi\rangle^*" /> and <img class='tex' src="../../../math/7/c/0/7c079554b29f6f6ae9e687e64dbbddf7.png" alt="\langle e_i|\phi\rangle" /> of those vectors with respect to a chosen (orthonormalized) basis. In this case it is particularly useful to insert the unit operator into the bracket one time or more.</p>
+<p><a name="Notation_used_by_mathematicians" id="Notation_used_by_mathematicians"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: Notation used by mathematicians">edit</a>]</span> <span class="mw-headline">Notation used by mathematicians</span></h2>
+<p>The object physicists are considering when using the "bra-ket" notation is a <a href="../../../h/i/l/Hilbert_space.html" title="Hilbert space">Hilbert space</a> (a complete inner product space).</p>
+<p>Let <img class='tex' src="../../../math/3/5/0/350860cf68ca8fd18af87b6ee9044fc7.png" alt="\mathcal{H}" /> be a Hilbert space and <img class='tex' src="../../../math/3/5/7/357bf06be900e382792bd9c7c74f40db.png" alt="h\in\mathcal{H}" />. What physicists would denote as <img class='tex' src="../../../math/2/8/e/28e243dd9c6541829b846fe1ae1b66d0.png" alt="|h\rangle" /> is the vector itself. That is</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/9/3/7/93754a60615b0612697c9d1e3caf7975.png" alt="(|h\rangle)\in \mathcal{H}" />.</dd>
+</dl>
+</dd>
+</dl>
+<p>Let <img class='tex' src="../../../math/3/0/4/3044d52bb6bdc051344ee2d6ca30358c.png" alt="\mathcal{H}^*" /> be the dual space of <img class='tex' src="../../../math/3/5/0/350860cf68ca8fd18af87b6ee9044fc7.png" alt="\mathcal{H}" />. This is the space of linear functionals on <img class='tex' src="../../../math/3/5/0/350860cf68ca8fd18af87b6ee9044fc7.png" alt="\mathcal{H}" />. The isomorphism <img class='tex' src="../../../math/9/2/f/92f62064c5cab1c853cb1011f7f7d8cc.png" alt="\Phi:\mathcal{H}\to\mathcal{H}^*" /> is defined by <span class="texhtml">Φ(<i>h</i>) = φ<sub><i>h</i></sub></span> where for all <img class='tex' src="../../../math/7/3/4/734a1a75293349f6bcd1eadedec5ceeb.png" alt="g\in\mathcal{H}" /> we have</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/6/7/d/67d3d77ad05934608d0d0ba104389fe2.png" alt="\phi_h(g) = \mbox{IP}(h,g) = (h,g) = \langle h,g \rangle  = \langle h|g \rangle" />,</dd>
+</dl>
+</dd>
+</dl>
+<p>Where</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/6/8/2/6829628ec37e76f41eb92ec750b67742.png" alt="\mbox{IP}(\cdot,\cdot), (\cdot,\cdot),\langle \cdot,\cdot \rangle, \langle \cdot | \cdot \rangle" /></dd>
+</dl>
+</dd>
+</dl>
+<p>are just different notations for expressing an inner product between two elements in a Hilbert space (or for the first three, in <i>any</i> inner product space). Notational confusion arises when identifying <span class="texhtml">φ<sub><i>h</i></sub></span> and <span class="texhtml"><i>g</i></span> with <img class='tex' src="../../../math/f/9/7/f97a33face8ce55531da9ef369a468ee.png" alt="\langle h |" /> and <img class='tex' src="../../../math/e/6/e/e6e02f9f4e55d61f5e98a1068fe0e436.png" alt="|g \rangle" /> respectively. This is because of literal symbolic substitutions. Let <img class='tex' src="../../../math/2/9/2/2924861ed185b1499c04f040f9f32cbb.png" alt="\phi_h = H = \langle h|" /> and <img class='tex' src="../../../math/f/e/2/fe284f47d557f0ebe8fa7b2ddf031ef4.png" alt="g=G=|g\rangle" />. This gives</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/8/1/4/814804c3251708f1e2b04ed959a83199.png" alt="\phi_h(g) = H(g) = H(G)=\langle h|(G) = \langle h|( |g\rangle)" /></dd>
+</dl>
+</dd>
+</dl>
+<p>One ignores the parentheses and removes the double bars. Some properties of this notation are convenient since we are dealing with linear operators and composition acts like a ring multiplication.</p>
+<p><a name="Further_reading" id="Further_reading"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Bra-ket_notation.html" title="Edit section: Further reading">edit</a>]</span> <span class="mw-headline">Further reading</span></h2>
+<ul>
+<li><cite class="book" style="font-style:normal">Feynman, Leighton and Sands (1965). <i>The Feynman Lectures on Physics Vol. III</i>. Addison-Wesley. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-201-02115-3</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=The+Feynman+Lectures+on+Physics+Vol.+III&amp;rft.title=The+Feynman+Lectures+on+Physics+Vol.+III&amp;rft.au=Feynman%2C+Leighton+and+Sands&amp;rft.date=1965&amp;rft.pub=Addison-Wesley">&#160;</span></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 4939 bytes
+Post-expand include size: 1371 bytes
+Template argument size: 1108 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/a/Bra-ket_notation.html">http://en.wikipedia.org../../../b/r/a/Bra-ket_notation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../q/u/a/Category%7EQuantum_mechanics_1c02.html" title="Category:Quantum mechanics">Quantum mechanics</a></span> | <span dir='ltr'><a href="../../../i/n/f/Category%7EInformation_theory_9e5e.html" title="Category:Information theory">Information theory</a></span> | <span dir='ltr'><a href="../../../q/u/a/Category%7EQuantum_information_science_c7c4.html" title="Category:Quantum information science">Quantum information science</a></span> | <span dir='ltr'><a href="../../../l/i/n/Category%7ELinear_algebra_5c7d.html" title="Category:Linear algebra">Linear algebra</a></span> | <span dir='ltr'><a href="../../../n/o/t/Category%7ENotation_b00e.html" title="Category:Notation">Notation</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/a/Bra-ket_notation.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/r/a/Talk%7EBra-ket_notation_a298.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bra-ket_notation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../cs/d/i/r/Diracova_notace.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/b/r/a/Bra-Ket_8b15.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/n/o/t/Notaci%C3%B3n_cor-chete.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/n/o/t/Notation_bra-ket.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EB%B8%8C/%EB%9D%BC/-/%EB%B8%8C%EB%9D%BC-%EC%BC%93_%ED%91%9C%EA%B8%B0%EB%B2%95.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ia/n/o/t/Notation_bra-ket.html">Interlingua</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/n/o/t/Notazione_bra-ket.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%A1/%D7%99/%D7%9E/%D7%A1%D7%99%D7%9E%D7%95%D7%9F_%D7%93%D7%99%D7%A8%D7%90%D7%A7.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hu/b/r/a/Braket-jel%C3%B6l%C3%A9s.html">Magyar</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/b/r/a/Bra-ket.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/n/o/t/Notacja_Diraca_080c.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sl/d/i/r/Diracov_zapis.html">Slovenščina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../uk/%D0%BA/%D0%B5/%D1%82/%D0%9A%D0%B5%D1%82-%D0%B2%D0%B5%D0%BA%D1%82%D0%BE%D1%80.html">Українська</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E7%8B%84/%E6%8B%89/%E5%85%8B/%E7%8B%84%E6%8B%89%E5%85%8B%E7%AC%A6%E5%8F%B7.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 23:51, 29 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../c/u/s/User%7ECustos0_c296.html" title="User:Custos0">Custos0</a>, <a href="../../../l/e/a/User%7ELeafyplant_05ff.html" title="User:Leafyplant">Leafyplant</a>, <a href="../../../f/i/l/User%7EFilipeS_f1e1.html" title="User:FilipeS">FilipeS</a>, Mikegretton, Dextercioby, <a href="../../../a/4/b/User%7EA4bot_20ff.html" title="User:A4bot">A4bot</a>, <a href="../../../c/o/m/User%7ECompuChip_8693.html" title="User:CompuChip">CompuChip</a>, <a href="../../../m/a/t/User%7EMathchem271828_9344.html" title="User:Mathchem271828">Mathchem271828</a>, <a href="../../../b/e/n/User%7EBenFrantzDale_c7e5.html" title="User:BenFrantzDale">BenFrantzDale</a>, <a href="../../../y/%21/q/User%7EY%21qtr9f_15c9.html" title="User:Y!qtr9f">Y!qtr9f</a>, <a href="../../../s/e/b/User%7ESebastianHelm_63db.html" title="User:SebastianHelm">SebastianHelm</a>, <a href="../../../j/u/l/User%7EJulian_Mendez_e1cf.html" title="User:Julian Mendez">Julian Mendez</a>, <a href="../../../h/2/g/User%7EH2g2bob_b842.html" title="User:H2g2bob">H2g2bob</a>, <a href="../../../a/w/a/User%7EAwakeforever_4bd3.html" title="User:Awakeforever">Awakeforever</a>, Anders Kaseorg, <a href="../../../f/r/e/User%7EFresheneesz_184e.html" title="User:Fresheneesz">Fresheneesz</a>, <a href="../../../j/a/p/User%7EJapo_2681.html" title="User:Japo">Japo</a>, <a href="../../../g/r/i/User%7EGrinBot_48c7.html" title="User:GrinBot">GrinBot</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../m/c/t/User%7EMct_mht_d584.html" title="User:Mct mht">Mct mht</a>, <a href="../../../t/e/p/User%7ETeply_e197.html" title="User:Teply">Teply</a>, <a href="../../../m/a/k/User%7EMako098765_2591.html" title="User:Mako098765">Mako098765</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../t/r/e/User%7ETregoweth_2a9b.html" title="User:Tregoweth">Tregoweth</a>, <a href="../../../s/c/z/User%7ESCZenz_212c.html" title="User:SCZenz">SCZenz</a>, <a href="../../../f/o/r/User%7EFornita_0b8b.html" title="User:Fornita">Fornita</a>, <a href="../../../l/o/m/User%7ELomask_74c6.html" title="User:Lomask">Lomask</a>, <a href="../../../f/a/s/User%7EFastfission_730f.html" title="User:Fastfission">Fastfission</a>, <a href="../../../s/t/r/User%7EStromal_8d24.html" title="User:Stromal">Stromal</a>, <a href="../../../w/i/s/User%7EWISo_1675.html" title="User:WISo">WISo</a>, <a href="../../../t/r/e/User%7ETrewornan_d3d5.html" title="User:Trewornan">Trewornan</a>, <a href="../../../t/a/w/User%7ETawkerbot2_313a.html" title="User:Tawkerbot2">Tawkerbot2</a>, <a href="../../../l/a/u/User%7ELaurascudder_7cfd.html" title="User:Laurascudder">Laurascudder</a>, <a href="../../../a/5/_/User%7EA5_333e.html" title="User:A5">A5</a>, Shahram 77, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../k/n/i/User%7EKnightRider_ec3b.html" title="User:KnightRider">KnightRider</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../r/a/v/User%7ERavedave_48c1.html" title="User:Ravedave">Ravedave</a>, <a href="../../../a/n/c/User%7EAncheta_Wis_6134.html" title="User:Ancheta Wis">Ancheta Wis</a>, <a href="../../../b/e/v/User%7EBevo_cf25.html" title="User:Bevo">Bevo</a>, <a href="../../../d/r/a/User%7EDragonflySixtyseven_c6ee.html" title="User:DragonflySixtyseven">DragonflySixtyseven</a>, <a href="../../../s/t/e/User%7EStepa_5c07.html" title="User:Stepa">Stepa</a>, <a href="../../../g/a/u/User%7EGauge_3e29.html" title="User:Gauge">Gauge</a>, DannyWilde, <a href="../../../v/a/l/User%7EVald_d11b.html" title="User:Vald">Vald</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../j/a/b/User%7EJabberWok_d9be.html" title="User:JabberWok">JabberWok</a>, Jmhodges, <a href="../../../m/o/n/User%7EMontyy0_1dc4.html" title="User:Montyy0">Montyy0</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../c/e/s/User%7ECesarB_5f7f.html" title="User:CesarB">CesarB</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../g/r/a/User%7EGrammarbot_5e0a.html" title="User:Grammarbot">Grammarbot</a>, <a href="../../../l/u/p/User%7ELupin_68a5.html" title="User:Lupin">Lupin</a>, <a href="../../../w/i/k/User%7EWikiborg_3c13.html" title="User:Wikiborg">Wikiborg</a>, <a href="../../../n/i/k/User%7ENikai_7c15.html" title="User:Nikai">Nikai</a>, <a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>, <a href="../../../e/d/s/User%7EEdsanville_3a05.html" title="User:Edsanville">Edsanville</a>, <a href="../../../c/y/d/User%7ECYD_b425.html" title="User:CYD">CYD</a>, <a href="../../../a/n/d/User%7EAndris_6e9c.html" title="User:Andris">Andris</a>, <a href="../../../d/o/l/User%7EDolda2000_a592.html" title="User:Dolda2000">Dolda2000</a>, <a href="../../../j/u/m/User%7EJumbuck_a815.html" title="User:Jumbuck">Jumbuck</a>, <a href="../../../p/a/s/User%7EPassw0rd_c0db.html" title="User:Passw0rd">Passw0rd</a>, <a href="../../../l/y/s/User%7ELysdexia_bda0.html" title="User:Lysdexia">Lysdexia</a>, <a href="../../../g/e/n/User%7EGene_Ward_Smith_f812.html" title="User:Gene Ward Smith">Gene Ward Smith</a>, <a href="../../../p/h/y/User%7EPhys_1a7b.html" title="User:Phys">Phys</a>, <a href="../../../f/i/b/User%7EFibonacci_80f7.html" title="User:Fibonacci">Fibonacci</a>, <a href="../../../g/u/a/User%7EGuanabot_b902.html" title="User:Guanabot">Guanabot</a>, <a href="../../../a/l/e/User%7EAlexChurchill_813e.html" title="User:AlexChurchill">AlexChurchill</a>, <a href="../../../m/a/t/User%7EMathKnight_e2bc.html" title="User:MathKnight">MathKnight</a>, Gianluigi, <a href="../../../p/j/2E/User%7EPj.de.bruin_72a4.html" title="User:Pj.de.bruin">Pj.de.bruin</a>, PhotoBox, Weialawaga, <a href="../../../d/e/c/User%7EDecumanus_9e44.html" title="User:Decumanus">Decumanus</a>, <a href="../../../a/u/g/User%7EAugPi_061d.html" title="User:AugPi">AugPi</a>, <a href="../../../r/o/s/User%7ERossami_1228.html" title="User:Rossami">Rossami</a>, <a href="../../../t/h/e/User%7EThe_Anomebot_5ea9.html" title="User:The Anomebot">The Anomebot</a>, <a href="../../../l/a/u/User%7ELaussy_ce07.html" title="User:Laussy">Laussy</a>, <a href="../../../l/o/o/User%7ELooxix_ce1b.html" title="User:Looxix">Looxix</a>, <a href="../../../t/h/e/User%7ETheresa_knott_8b13.html" title="User:Theresa knott">Theresa knott</a>, <a href="../../../p/a/t/User%7EPatrick_7b47.html" title="User:Patrick">Patrick</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and <a href="../../../s/e/b/User%7ESeb_8aa8.html" title="User:Seb">Seb</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

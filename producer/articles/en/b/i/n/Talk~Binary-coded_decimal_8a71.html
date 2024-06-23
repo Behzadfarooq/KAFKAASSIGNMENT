@@ -1,0 +1,734 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Binary-coded decimal,COBOL,Frequency synthesiser,IBM DB2,IEEE 754r,Radiotelephone,Rational number,SAP AG,Sign,Signedness,Significant figures" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Binary-coded decimal - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Binary-coded decimal</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Intro_definition"><span class="tocnumber">1</span> <span class="toctext">Intro definition</span></a></li>
+<li class="toclevel-1"><a href="#Other_bit_combinations"><span class="tocnumber">2</span> <span class="toctext">Other bit combinations</span></a></li>
+<li class="toclevel-1"><a href="#Why_doesn.27t_it_say_why_BCD_is_so_bad.3F"><span class="tocnumber">3</span> <span class="toctext">Why doesn't it say why BCD is so bad?</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Rounding"><span class="tocnumber">3.1</span> <span class="toctext">Rounding</span></a></li>
+<li class="toclevel-2"><a href="#Too_long_reply"><span class="tocnumber">3.2</span> <span class="toctext">Too long reply</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#FBLD_instruction"><span class="tocnumber">4</span> <span class="toctext">FBLD instruction</span></a></li>
+<li class="toclevel-1"><a href="#Encodings.3F"><span class="tocnumber">5</span> <span class="toctext">Encodings?</span></a></li>
+<li class="toclevel-1"><a href="#shift-mask-add"><span class="tocnumber">6</span> <span class="toctext">shift-mask-add</span></a></li>
+<li class="toclevel-1"><a href="#binary_to_BCD_the_easy_way"><span class="tocnumber">7</span> <span class="toctext">binary to BCD the easy way</span></a></li>
+<li class="toclevel-1"><a href="#Addition_with_BCD"><span class="tocnumber">8</span> <span class="toctext">Addition with BCD</span></a></li>
+<li class="toclevel-1"><a href="#References_and_verification"><span class="tocnumber">9</span> <span class="toctext">References and verification</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Intro_definition" id="Intro_definition"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: Intro definition">edit</a>]</span> <span class="mw-headline">Intro definition</span></h2>
+<p><i>Binary-coded decimal (BCD) is, after character encodings, the most common way of encoding decimal digits in computing and in electronic systems</i></p>
+<p>This opening sentence is, to my mind, a bit confusing. I know what it is trying to say, but the term "decimal digits" is just too vague, especially in the context of computers. If I declare an int, that's a decimal number. Internally it's represented as binary, not BCD. If I declare a float, that's a decimal number, internally represented using IEEE floating point (binary) notation, not BCD. My point is that any time you use a (decimal) number in a computer program, 99% of the time it will be internally represented as binary. This is probably so obvious it doesn't seem to count as an "encoding", but it is one. In addition, in practice decimal numbers are usually displayed as part of the source text of a program, where they are actually represented as character strings - the compiler converts these to/from binary when it compiles the program. Unless it's a specialised program or particular microprocessor target (6502 anyone?), BCD will never come into it. So, saying "...the most common way...in computing" is simply wrong. BCD is sometimes used in computing for sure, (I've used it myself) but in practice pretty rarely. In electronics however, no contest. It is probably also pretty common in embedded systems, but whether you count these as computing or electronics depends on whether your a hardware person or a software one... <a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">Graham</a> 00:13, 7 Apr 2005 (UTC)</p>
+<dl>
+<dd>In some ways you're right, but also not quite right. In a programming language such as C, the declaration:</dd>
+</dl>
+<pre>
+ int a=12;
+</pre>
+<dl>
+<dd>might be shorthand for saying "there is a 32-bit binary integer, called 'a' in the rest of the programme, initialised to the bit pattern 1100". The fact that the initialisation string is written in decimal is a convenience for the programmer, not an attribute of 'a'. The declaration could just as well have been written:</dd>
+</dl>
+<pre>
+ int a=0x0c;
+</pre>
+<dl>
+<dd>(or in various other ways, such as octal). So 'a' is not "encoding" anything at all. It's just a container for bits.</dd>
+</dl>
+<dl>
+<dd>I agree that the first paragraph has room for improvement, though&#160;:-) <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Well, I'm not sure I agree. Binary is just as much an encoding as anything else, albeit the most obvious and natural one. This is more noticable for negative numbers, where two's complement is used, obviously for very good reasons, but this is just as much an 'artificial' encoding as BCD is. Perhaps this is hair-splitting. However I think what is misleading about the article's opening para as it stands is that it would lead the lay person to conclude that this is how computers store numbers in general ("the most common encoding'), which is most definitely not the case. I really think that a wording needs to be found which makes this clear - that BCD has its place, and may be common in some circumstances, but you won't in practice find BCD encodings used very much in the average computer.<a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">Graham</a> 00:20, 11 Apr 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>It sounds to me that you <i>do</i> agree that the first paragraph has room for improvement...&#160;:-).</p>
+<p>By the way – BCD is more common than you may realise; almost every mainframe database uses BCD for decimal data, and decimal numbers are more common than binary in those databases. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></p>
+<dl>
+<dd>Yes, I agree there is room for improvement in the opening para. I don't know anything about databases on mainframes, so I'm willing to be educated about that. I've done a lot of programming though on everything from embedded 8-bit micros to well, Mac OS X, so I know a bit about it... BCD is definitely used at the embedded end of things, but never seen it in OS X, Windows, etc.<a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">Graham</a> 11:53, 19 Apr 2005 (UTC)</dd>
+</dl>
+<p><a name="Other_bit_combinations" id="Other_bit_combinations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: Other bit combinations">edit</a>]</span> <span class="mw-headline">Other bit combinations</span></h2>
+<p>Near the beginning of the article is the following line: "<i>Other (bit) combinations are sometimes used for <a href="../../../s/i/g/Sign.html" title="Sign">sign</a> or other indications</i>". The "sign" link leads to a disambiguation page, which is a bit confusing. I'd fix it, but I think a sign indicating negative (or positive) numbers is meant, and there doesn't seem to be an article for that. Should this be clarified somehow? (I'm not a native English speaker, and am not sure if it's obvious what is meant to people that are.) Oh, I noticed the "sign" page has a computer-specific meaning linked, namely <a href="../../../s/i/g/Signedness.html" title="Signedness">signedness</a>. Again, not sure if that's the right meaning, or the general math one is. <a href="../../../r/e/t/User%7ERetodon8_9229.html" title="User:Retodon8">Retodon8</a> 16:03, 23 November 2005 (UTC)</p>
+<p><a name="Why_doesn.27t_it_say_why_BCD_is_so_bad.3F" id="Why_doesn.27t_it_say_why_BCD_is_so_bad.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: Why doesn't it say why BCD is so bad?">edit</a>]</span> <span class="mw-headline">Why doesn't it say why BCD is so bad?</span></h2>
+<p>Practically the first (okay, perhaps the second) thing one would expect in an article about BCD is some statement as to why it is so horrendously stupid in 99% of the cases. No newly written software that I'm aware of uses it anymore. Indeed, modern programming languages provide no native support for it, and rightly so. When it's all said and done BCD is just a fancy way to waste memory and clock cycles. This is not to say that BCD isn't interesting from a historical perspective, on the contrary, it gives nice insights about the way the minds of some people work. But as long as no clear, factual comparison the normal (binary) way of doing things is given this article will always be incomplete, and possibly flawed. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 08:01, 24 November 2005 (UTC)</p>
+<dl>
+<dd>used correctly bcd can be a very usefull tool for some uses especially in the embedded space where conversion between binary and decimal is expensive. For serious processing i agree though forget it. <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 00:16, 9 December 2005 (UTC)
+<dl>
+<dd>I have to disagree – for any serious commercial processing, decimal arithmetic is essential. So essential that IBM is adding decimal floaating-point to hardware, and decimal floating-point types are being added to C, IEEE 754, etc. For some reasons why, see <a href="http://www2.hursley.ibm.com/decimal/decifaq.html" class="external text" title="http://www2.hursley.ibm.com/decimal/decifaq.html" rel="nofollow">my Decimal FAQ pages</a>. And, in hardware, using BCD internally to implement decimal arithmetic is still a good design.</dd>
+<dd>I also disagree that binary is the 'normal' way of doing things. It just happens to be the way most computers work today. Working is decimal is much closer to the way people work, and that will make computers easier to use. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 07:51, 15 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>The first three are all caused by not understanding what a significant digit is. Working in decimal won't make your calculations any more precise, as any competent mathematician can tell you.</p>
+<p>Complying with EU regulations is simpler by using a factor so that your data is not floating point anymore. That way you can still work in binary.</p>
+<p>Converting to and from decimal is not a problem anymore: one divide per digit, which is usually a lot less work than the calculation that resulted in the number to be converted. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 16:21, 15 December 2005 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>Sigh – please read the FAQ again (and if it's not clear, please explain why so I can try and clarify!). The difference is between an <i>exact</i> result for (say) 0.1×8 and an approximation. If you use binary floating point for 0.1×8 you will get a different result from adding 0.1 to zero eight times (accumulating) in the same binary floating-point format. If you do the same calculations in decimal floating-point, you will get 0.8, exactly, in both calculations. This has nothing to do with <a href="../../../s/i/g/Significant_figures.html" title="Significant figures">significant figures</a>. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>indeed mfc that very article you linked said that the most common way of working on "decimal" numbers was to use a binary number with a decimal scaling factor. The issues of how the scale factor is specified (power of two or power of 10) and how the mantissa is specified (BCD or pure binary) are really totally orthogonal to each other. <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 16:58, 15 December 2005 (UTC)
+<dl>
+<dd>Absolutely. But if the scale factor is a power of ten then having the significand be specified in a base-ten-related notation such as BCD has clear advantages, for example when shifting left or right by a digit, or when rounding to a certain number of digits or places after the decimal point. If the scale factor is a power of two then a binary significand is better than a decimal significand, and vice versa. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>However i belive that most artihmetic is MUCH harder on bcd than on binary. With binary for example you can do multiplication by a simple shift-mask-add process. Is there a relatively simple procedure for BCD or is it far more complex? Would the extra difficulty in BCD math be made up for by the fact that the digit shift often needed after multiplication could be done with a plain shift operation? <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 23:02, 15 December 2005 (UTC)
+<dl>
+<dd>The same simplifications apply when working in decimal as for binary – you can do multiplications byt shifting and adding the partial products. Binary is slightly simpler because you only have to multiply by 0 or 1, whereas in decimal you have to multiply by 0 through 9. But you have fewer digits to do that on, so it's not much worse than binary, overall. Where decimal 'wins' is where the result has to be rounded to a given number of decimal digits or places. With a decimal representation such as BCD the digit boundary is known; it is much harder if the result is a binary encoding. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 15:17, 18 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Shinobu, imagine you have this design task. You have some sort of processor-controlled instrument to design, with a keypad and 7-segment display with say, 5 or 6 digits. A frequency generator, say. The control task is pretty minor so you use something like an 8-bit CPU with 1K of onboard RAM and about 4K of ROM. I don't know if this is still typical, but it sure was when I was designing this sort of thing - a while ago I admit. Without BCD, driving those displays and scanning that keypad is a royal pain, because BCD is very natural for driving displays and representing key sequences. In fact I don't know of any off the shelf binary-to-7-segment decoder devices for multiple digits. If you keep all your internal calculations in binary and convert to BCD for display you'll find that conversion routine is half your ROM gone. If you can simply do all your arithmetic in BCD all the way through (if the CPU supports it, rather than writing your own arithmetic routines, which will also chew up your ROM), you can get your code down to a much smaller size. When ROM is that tight this really does matter. However, I could be out of touch and now even such small hardware design tasks are done with huge overkill CPUs where these sort of issues are irrelevant. <a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">Graham</a> 00:23, 16 December 2005 (UTC)</dd>
+</dl>
+<p>For <i>exact</i> values you should never use floating point, period. When working base 10, this might help you for neat fractions like 1/10, but it won't work for say 1/13. Instead of using some binary coded radix-13 scheme it's better not to use floating point at all.</p>
+<dl>
+<dd>Floating-point representations are fine so long as the result is exact (for example: 1.2 x 1.2 -&gt; 1.44). If the result is not exact and must be rounded then the base used matters little. But if you want the approximations in the latter case to match the approximations that people arrive at using calculators or on paper, you should use base 10. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 15:32, 18 December 2005 (UTC)</dd>
+</dl>
+<p>Using a factor always works.</p>
+<dl>
+<dd>Hmm, for calculating pi or e? <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 15:32, 18 December 2005 (UTC)</dd>
+</dl>
+<p>I conceed that it might be possible to conjure up a system where BCD helps, but I don't know if your example is very good, since 4K seems plenty enough for a conversion routine, if your control task is that simple. Still, when I said 99% of the cases, I really didn't mean 100%.</p>
+<p>Using decimal integers the way the z900 does however, is totally unbelievably, erm, <i>odd</i>, to phrase it politely.</p>
+<dl>
+<dd>
+<dl>
+<dd>So how do you do calculations on paper? Oddly? &#160;:-) <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<p>To walk by your examples: 1. Take the number 12 and repeatedly divide by 13.</p>
+<dl>
+<dd>Using decimal won't help you here; you could do your calculations radix 13. This holds for all situations where the divisor contains other factors than 2 or 5. Don't use floating point for exact values. Just don't.
+<dl>
+<dd>(See above)</dd>
+</dl>
+</dd>
+</dl>
+<p>2. These are all fixed point calculations.</p>
+<dl>
+<dd>130 * 105 = 13650. It's actually easier to implement bankers rounding reliably when using integer numbers, because integer compares are always safe.
+<dl>
+<dd>Yes, but in this case the floating-point decimal is equivalent to using integers, becuase that's what in effect people do on paper. But their numbers are base 5 + base 2.</dd>
+</dl>
+</dd>
+</dl>
+<p>3. Comparing floats this way is bad programming practice, whether they are radix-2 or radix-10.</p>
+<dl>
+<dd>
+<dl>
+<dd>Nonsense – it is perfectly safe and exact so long as the base of literals matches the base of the underlying arithmetic. If you express your literals in the C99 base-2 form, it's safe for binary floats, too. But as most people like to express literals in a decimal form, the floating-point format needs to be base 10 for this to be safe. Fix the languages and hardware, not the people...&#160;:-)</dd>
+</dl>
+</dd>
+</dl>
+<p>4. I've already explained this above; there's nothing to add. No reason at all to use BCD.</p>
+<dl>
+<dd>
+<dl>
+<dd>Not BCD as such, necessarily, but some form of decimal representation is needed.</dd>
+</dl>
+</dd>
+</dl>
+<p>If you can do something in BCD, you can usually do it in binary. It will run faster and consume less memory. It will be just as precise as when you would do it in BCD, as the radix used to represent a number doesn't change the value of said number.</p>
+<dl>
+<dd>
+<dl>
+<dd>Unfortunately it does, if you have a fixed size representation. Representing 0.1 in any of today's common binary floating-point formats does not give you a value of 0.1.</dd>
+</dl>
+</dd>
+</dl>
+<p>@I also disagree that binary is the 'normal' way of doing things. It just happens to be the way most computers work today. Working is decimal is much closer to the way people work, and that will make computers easier to use.:</p>
+<dl>
+<dd>Surely you're joking. The reason binary is so much better because a binary digit can be stored in the basic unit of information: a bit.
+<dl>
+<dd>Not joking at all. BCD is not hugely worse than binary, and more densely packed version are a few percent at most worse -- three digits can be stored in 10 bits with only tiny wastage (which happens to be useful, as one can indicate 'uninitialized value' and the like with the unused codes). <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>The same applies to hexadecimal and other power of two radices. This has implications for efficiency, both in storage and speed. What the computer internally uses to do its calculations won't affect user-friendlyness at all, since the time needed for converting to and from decimal for display is negligible. (Even when compared to displaying the number, that is, parsing the font, scaling and adjusting the outlines of the digits, running the font program and the glyph program for the digits, and eventually drawing the pixels, shading them if necessary. You could use text-mode to avoid this, but if you want your programs to be as user-friendly as possible I would advice against that. Even for text-mode indexing in the array of displayed characters is for most numbers more work than the conversion in any case (conversion = div; display = or + sto + inc).)</dd>
+</dl>
+<p><a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 02:24, 16 December 2005 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>[aside] the display of the result is not the main performance issue; if the data is stored in decimal (XML, Oracle databases, IBM databases, for example) then converting the data to binary then doing (say) an add or two and then converting it back to decimal is expensive: the conversions cost more than the arithmetic. If the data are encoded in binary, use binary arithmetic; if the data are in decimal, then use decimal arithmetic. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 15:17, 18 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>This discussion is getting off the point. There are definitely valid issues with number storage, but it's your statement that "BCD is horrendously stupid in 99% of cases" that I am taking issue with. How many embedded systems are there, compared with your usual PC? It's not 1%... in fact, embedded system far, far, far outstrip the numbers of general purpose computers that exist. Think of the number of washing machines, TV sets, hi-fi systems, in-car computers, mobile phones, video recorders, instruments.. and that's just the obviously visible applications. Many of these will probably benefit from using BCD representation because a) they have to drive real-world displays, where BCD is a no-brainer, and b) complex arithmetic and accuracy of the results are largely unimportant. Integers rule. Most of the processors that are used for this type of work don't even have multiply instructions, let alone divide - and most of the time you don't need them in these applications. Addition and subtraction however, are commonly needed but if you are displaying numbers on displays, BCD representation and support for BCD addition and subtraction is highly valuable. A conversion routine from binary CAN take up a substantial portion of a 4K ROM - by which I mean maybe 1K or so. Remember that such conversions can't use multiplies. Try writing one in, say 8051 assembler sometime - it's not quite the same as writing it in C. Better to avoid the need altogether. The article is about BCD, as a concept. It is NOT about whether a particular application would be better off using it or not, so going back to your opening sentence for this discussion topic, the figure of 99% is not only incorrect, it is irrelevant to the article. <a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">Graham</a> 03:12, 16 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>I think even for most embedded systems using BCD is not useful. To walk along your list:</p>
+<ul>
+<li>washing machines - most I know of are purely mechanical devices and seem to work fine nonetheless.</li>
+<li>TV sets - are really normal cumputers these days; they won't use BCD; the processors most run on don't support it. For older tv's it's possible.</li>
+<li>hi-fi systems - perhaps, but if they support mp3 you can be pretty sure they don't use BCD.</li>
+<li>in-car computers - mostly GPS devices, route planners, etc. I would be surprised if they use BCD. Perhaps fuel regulators and such - but BCD would only be useful if they have a display.</li>
+<li>mobile phones - don't use BCD nowadays. I don't know if that was ever common, but nowadays they don't.</li>
+<li>video recorders - possibly, but DVD players/recorders won't use BCD.</li>
+<li>instruments - for industrial applications, and in university labs computers are becoming more and more ubiquitous.</li>
+</ul>
+<p>How much embedded devices there are, and how much use BCD is largely irrelevant. Try to count in terms of variables and one p.c. or mobile phone will outnumber all embedded devices in the area. Try to count in terms of distinct applications, and the number of embedded devices becomes unimportant. I started this discussion because I felt the article focussed way to much on the positive aspects of BCD. This is of course a necessarily subjective opinion and I didn't mean to thread on the toes of BCD fans. However, from an objective point of view, it at least deserves some mention that at least in the world of personal computers, BCD is not used anymore, and there is no reason to. Still, while I think mfc is simply misinformed, or possibly doesn't understand the mathematical backgrounds of computing (remember he's talking about pc's and mainframes)</p>
+<dl>
+<dd>&lt;mutter&gt;Do please spend a few minutes reading my papers on the topic&#160;:-) A good start might be the one at: <a href="http://www2.hursley.ibm.com/decimal/IEEE-cowlishaw-arith16.pdf" class="external free" title="http://www2.hursley.ibm.com/decimal/IEEE-cowlishaw-arith16.pdf" rel="nofollow">http://www2.hursley.ibm.com/decimal/IEEE-cowlishaw-arith16.pdf</a> &lt;/mutter&gt;</dd>
+</dl>
+<p>I think Graham has got a point, when using devices that are severely restricted in terms of intruction-set (e.g. the 8052), registers, and memory. It's confusing that there are two largely separate discussions going on in the same topic, but that just sort of happened. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 17:23, 16 December 2005 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>An interesting point is that since numbers represented in ascii/ebcdic are simply bcd with defined values in the high nibble, converting a number to text is essentially the same thing as converting it to BCD and all but the most primitive digital systems have to do that. <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 18:10, 16 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>Similarly my phone stores phonenumbers per digit in it's little memory. However, it stores things like flash-signals and * / # as well so I don't think that qualifies as true BCD. In my opinion this is true for ASCII/Unicode/etc. as well, but you could make a point that all applications that handle decimal numbers entered/viewed by the user essentially use BCD. This would exclude hex dumpers and some East Asian systems, but that's beside the point. I don't think this is commonly called BCD, but it's a nice point. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 19:19, 16 December 2005 (UTC)</p>
+<p>Wherever a device has a 7-segment display, chances are that BCD comes into play at some point. Whether the device uses BCD arithmetic internally is a moot point, since the source code of such devices is largely unavailable. I only go by my own experience as a hardware designer, which I admit was a long time ago, and so my view may be out of date. That said, I don't feel strongly that BCD is good or bad, it's just a technique that is used. I also don't feel that the article is biased in favour of BCD, it simply is about BCD. In fact, adding a statement such as you are calling for, namely, "why it is so horrendously stupid in 99% of the cases" , would not be permitted under the NPOV rules. As an encyclopedia article, there is no merit in entering into a debate about whether a given application should or shouldn't use it - the article explains what BCD is, that's all it has to do. Wikipedia isn't a textbook for budding system designers, so we don't need to worry about whether or not BCD is a good thing. <a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">Graham</a> 06:09, 17 December 2005 (UTC)</p>
+<p>@<i>why it is so horrendously stupid in 99% of the cases</i>: don't get me wrong there - I never meant to imply that I should be quoted on that! There is a difference between articles and talk pages. If you don't feel that the article is in favour of BCD, then that's probably just me. There are two small bits I think deserve a mention on this talk page though, so here goes:</p>
+<ul>
+<li>BCD is still in wide use, and decimal arithmetic is often carried out using BCD or similar encodings.
+<dl>
+<dd>A number of articles referring here are pc/mainframe-related articles. Probably one of those articles landed me here - this must have done a lot to set my mood, so to speak (as for pc's/mainframes BCD is inherently <s>evil</s>bad). I'm not much of a writer, so I don't know how to fix this, but this sentence gives a kind of implied endorsement when you read it for the first time.
+<dl>
+<dd>But BCD is not bad, for PCs or mainframes&#160;:-) And it is quite relevant for anyone who uses any kind of banking system (ATMs, banks, checks, mobile phones) .. because in more than 95% of cases (probably much more) .. the representation of your money is being stored in BCD or some equivalent&#160;:-) <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+<ul>
+<li>By working throughout with BCD, a much simpler overall system results.
+<dl>
+<dd>This is only true if the rest of the system isn't much more complicated than the conversion in the first place. (As I've said above.) How about "may result" instead of "results"?</dd>
+</dl>
+</li>
+</ul>
+<p>As I said, it was a subjective feeling, so I shouldn't have let this discussion slip out of control, but then mfc entered with all his pc/mainframe-related BCD-endorsement and I just didn't realize that that's not what the article is about. Oh well, at least I got a view from an embedded systems programmer's perspective, which is interesting, because for smaller embedded systems there's a real trade-off that's not present in larger computers. Thankfully I usually complain on talk pages, and leave articles alone unless I really know what I'm doing. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 16:23, 17 December 2005 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>Good comments all .. that's why there are Talk pages. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>The only thing to mention here is that the sentence you are referring to: "By working throughout with BCD, a much simpler overall system results" is in the "BCD in Electronics" section. There is no doubt that a simpler system will always result in such a circuit, because any conversion circuitry will add complexity. If you think a conversion routine in a limited processor is expensive, try it with logic gates! One system I worked on a very long time ago (~1980) did in fact do this, and the solution arrived at in the end was to use a pair of EPROMs to simply make a huge look-up table, with the binary input forming the address, and the resulting BCD data driving some displays. Or it might have been the other way around - I forget now. The reason for needing this was that the system in question was a <a href="../../../r/a/d/Radiotelephone.html" title="Radiotelephone">radiotelephone</a> with a <a href="../../../f/r/e/Frequency_synthesiser.html" title="Frequency synthesiser">frequency synthesiser</a> - the synthesiser required its frequency to be set using a binary number, but the frequency display or channel number used 7-segment displays and therefore worked in BCD. At the time we cursed the synthesiser chip manufacturer (Motorola) for not allowing the thing to be programmed in BCD, which would have simplified the design substantially. However, a few years after that, embedded processors became much more widely available, and the binary programming of the synthesiser became much less of an issue, because the conversion could be done in software. It was still an expensive process, but much cheaper than using two whole EPROMs to store a table! This might seem prehistoric, and no longer of relevance, but it's still true that a numeric display with a binary input doesn't exist - they are still all BCD. Then again, many embedded systems drive the actual segments directly these days, rather than relying on external hardware decoding, so they can implement binary-&gt;7 segment decoding internally without requiring BCD representation, though they will get awfully close to it nevertheless, since at some point you have to convert a string of bits into decades for human decimal comprehension. And that is BCD by any other name. <a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">Graham</a> 04:11, 18 December 2005 (UTC)
+<dl>
+<dd>Indeed. I predict that binary representations will die out, or be relegated to applications where a tiny performance improvement is still significant. Computers are tools for people to use, not the other way around, so there's no real advantage to using binary encodings in many cases. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 15:57, 18 December 2005 (UTC)
+<dl>
+<dd>People will use whatever thier programming languages make it easy to use unless they are trying for absoloute maximum performance. afaict most common programming langauges use binary for thier standard integer and floating point types. <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 01:03, 19 December 2005 (UTC)
+<dl>
+<dd>Indeed, but finally language designers are seeing the advantages of decimal types. The BigDecimal class in Java is widely used (though unfortunately it's not a primary type yet, as it is in C# and the other .Net languages). C and C++ are adding decimal types (see <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1150.pdf" class="external text" title="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1150.pdf" rel="nofollow">the draft Technical Report</a>), and many languages use decimal as their default type (Basic, Rexx, etc.). But they don't necessarily use BCD, so we are drifting off-topic, here. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 17:45, 19 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>I already acknowledged that for embedded systems there is a tradeoff. However, technically speaking the CPU in a pc also falls in the category electronics. Since a CPU has to have a divide operation (imagine a computer not being able to do division) and some control flow, you can program a bin-&gt;BCD converter in a handful of bytes, while saving a lot of logic in the actual ALU, since most math algorithms are significantly easier (and use less gates for instance) in binary. As I said, if your problem gets big enough it will reach a cut-off beyond which BCD is only harmful. I have to add though, that I would probably have cursed the synthesizer manufacturer as well, although the manufacturer had probably other things in mind when they designed the thing.</p>
+<p>And oh, mfc, do you realize that for every digit shown on screen a lot of calculations are done <i>just to show that digit</i>? Most of the numbers being crunched will never reach a display device in human-readable form, so BCD will do only harm. Since bin-&gt;BCD conversion is very cheap compared to even the process of displaying one digit, there is no reason to add BCD support to the ALU, runtime, or API. I have noticed that you are a big BCD fan, but it's a fact that BCD doesn't make computers any more easy to use either. After all, the user is never confronted with the encoding of the number in any case. BigDecimal by the way is not the same as BCD. BigDecimal is an <b>int</b> scale and a <b>BigInteger</b> value, which in turn is either an <b>int</b> or an <b>int[]</b>. For the reasons extensively discussed above <b>int'</b>s are always binary on modern systems. As for the PDF you cited, it's so full of errors that I couldn't read it through till the end, my apologies for that. VB (the mostly used Basic dialect today) doesn't use BCD. It's default type is Variant, which means "whatever you assign to it", but it will still contain one of the VB data types, so it will never be BCD. By the way, I don't recommend using Variants unless you really need them.</p>
+<p>@<i>because in more than 95% of cases (probably much more) .. the representation of your money is being stored in BCD or some equivalent</i>: Even if this is the case, that doesn't make is a good thing. They probably just suck the extra cost in incurred storage space and other overhead from the consumers (that's us).</p>
+<p>@<i>I predict that</i>: I don't believe in trying to be a human crystal ball.</p>
+<p>Okay, this reply turned out longer than I expected. Respect if you read it through to here. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 20:23, 19 December 2005 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>Indeed I did read through to here (and I have no difficulty in imagining computers without division&#160;:-)), and as this is now far off-topic for BCD I shall just make the one comment: you said: "After all, the user is never confronted with the encoding of the number in any case". It may be true that they may never see the actual bit-patterns, but they are <i>often</i> confronted by the consequences of using the wrong encoding (google 'rounding bug', for example, or check out the C FAQ on this topic). And that waste of programmers' and users' time is a real and completely avoidable problem, far more wasteful than a few extra gates or bits. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 21:16, 19 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>The only "rounding bugs" I could find would have been there if BCD had been used as well. That's not evil binary, that's just crappy coding (which <i>is</i> a real and avoidable problem, but that's even too far off-topic for me). As far as I'm concerned a programmer is just another user - the actual way a number is stored is completely transparent. 010 + 010 = 0x10, regardless whether you use bin or BCD;</p>
+<dl>
+<dd>
+<dl>
+<dd>(This is only true for integers <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a>)</dd>
+</dl>
+</dd>
+</dl>
+<p>the internal representation of numbers is invisible to the programmer (as long as he sticks with math operators anyway). <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 02:50, 20 December 2005 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>It is only transparent if the conversion from programmer-written literals to the stored form (and from the stored form to a displayed version) is exact. If the literals are (or displayed version) are decimal then the stored form needs to be decimal. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 16:23, 20 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>No one who needs to work with exact fractions (be it decimal or otherwise) uses floats. Switching to another radix may solve the problem for some fractions, but not for all. Programming manuals and tutorials warn future programmers not to use floats for exact fractions too. For decimal fractions you would use BigDecimal or something similar. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 19:11, 20 December 2005 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>I need to work with exact fractions, and I use floating-point almost exclusively, so that is a false claim. Floating-point is perfectly fine for exact fractions <i>so long as you use the right base</i>. BigDecimal is a floating-point class; it conforms to <a href="../../../i/e/e/IEEE_754r_01d6.html" title="IEEE 754r">IEEE 754r</a> almost completely -- it's missing NaNs and infinities, but that does not affect fractions. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 20:01, 21 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>I hesitate to wade in here, since I know far less about this than I do about embedded... but surely what you're saying there can't be true. For one, you don't have any choice over which base to use, it's down to the designer of the system and it's certain to be base 2.
+<dl>
+<dd>Even in hardware that's not true for all systems, and will be even less true in future systems -- but for now, decimal arithmetic software packages are widely available (and are standard parts of some languages, like C#, Java, and Rexx). For some typical packages, see <a href="http://www2.hursley.ibm.com/decimal/#links" class="external text" title="http://www2.hursley.ibm.com/decimal/#links" rel="nofollow">here</a>.</dd>
+</dl>
+</dd>
+<dd>Secondly, how can you represent, say 1/3 exactly in floating point? You can't, as it's an infinite expansion (0.3333 recurring), and you only have 32 bits or whatever. Or are you talking about writing your own math libraries that store numbers in much larger blocks? You will still surely run into problems with some fractions since an infinite expansion would still require infinite memory to store it. OK, you can encode it as "1/3" which is very finite, but then surely you'd run into problems with other numbers, such as pi, which is an irrational. You have to cut off at some point, so there is going to be some rounding error. This rounding error is very small even for the usual 32-bit float type, but it's not zero. So therefore it's not 'exact', though good enough for sure. <a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">Graham</a> 00:12, 22 December 2005 (UTC)
+<dl>
+<dd>As Shinobu points out below, you can use a <a href="../../../r/a/t/Rational_number.html" title="Rational number">rational number</a> representation to represent 1/3. But where decimal/BCD comes in is where you are trying to represent numbers from the restricted set of "what people write down". If (in a programming language) one writes <tt>x=0.33333333;</tt> then that can be represented <i>exactly</i> in a decimal floating-point type but not in a binary floating-point type. In the first case, 'what you see is exactly what you've got', which makes it much easier for the programmer to predict what is going to happen if (say) you multiply it by 3 you'd get exactly 0.99999999 (assuming there's enough precision available). In the second case the internal representation of the 0.33333333 is not exact, so the result after the multiply won't be 0.99999999 (in fact you get 0.99999998999999994975240...). Indeed the error is small, but if you need the exact result, it can be critical. See <a href="http://www2.hursley.ibm.com/decimal/decifaq1.html#inexact" class="external text" title="http://www2.hursley.ibm.com/decimal/decifaq1.html#inexact" rel="nofollow">here</a> for some examples. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 10:12, 22 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>You can indeed represent "1/3" as "1" / "3". These things are already available of the shelf, both general and with a specific class of denominators (such as BigDecimal, which is essentially x / 10^y). Even if you need to work with exact irrationals, there often are ways to do this, for instance with a computer algebra system. If you don't need to represent a number exactly in the mathematical sense, then the only considerations left are storage and performance and possibly space on the processor. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 01:42, 22 December 2005 (UTC)</p>
+<p>It'd still be better to do it using integer arithmetic, because then you can use the substantially faster integer ALU. You've shown me the examples before. Not the use of binary is where the problem lies, but the use of the wrong datatype for the task at hand. After all 1111111001010000001010101 * 11 = 101111101011110000011111111. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 17:42, 23 December 2005 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>I think we may be talking at cross-purposes. Yes of course a scaled integer (in any base, where the scale is a power of ten) will be exact for decimal fractions. But if we are working in decimal then having that integer also in base ten is simplest, because if you want to (say) to round to a certain number of digits then no base conversions are needed. Example: 1.2345 x 1.2345 rounded to five digits. Working with scaled decimal integers this can be written as 12345E-4 squared. To calculate the exact answer, square the integer part and double the exponent, giving 152399025E-8. Now we need to round that to 5 digits; this is rather trivial in decimal -- you only have to look at the sixth digit (and sometimes check the others for 0, for certain rounding modes). Now think about how to do that rounding if the integer were encoded as a binary integer. (And it gets worse as the numbers get longer). <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 19:46, 23 December 2005 (UTC)</dd>
+</dl>
+</dd>
+<dd>sure its certainly an advantage to have the mantissa in the same base as the exponent and decimal predictability (e.g. getting the same answers a human would) is nessacery in some cases (finance mainly i'd imagine) but is it a big enough advantage? especially as standard general pupose processors can't do bcd natively! <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 00:12, 24 December 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Isn't this a bit of a moot point? I mean, BCD libraries certainly exist. There is an industry standard for them. Therefore it's clear that there are plenty of smart people who consider it worthwhile to write them. Surely that's all we need to know - if there were no point to them surely engineers wouldn't have bothered. Modern processors may not have native BCD modes any more, but on the other hand they do have tremendous speed, meaning that the whole arithmetic library can be written in a high-level language and who cares if it runs ten times slower than the native binary arithmetic? (Actually I suspect that its performance wouldn't be that bad, BCD arithmetic isn't all that tricky to program). So yes, the answer must be that the advantages are indeed 'big enough'. <a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">Graham</a> 00:41, 24 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Following up Plugwash's point: <i>"especially as standard general purpose processors can't do bcd natively!"</i> .. why are y'all so passive? The problem is exactly that -- most processors are locked into a model that made sense in the 1950s and 1960s. It doesn't make sense any more: 20% more transistors in the ALU and/or FPUs is a negligible increment compared to the chip as a whole. So it makes far more sense to do arithmetic in computers the way people do arithmetic, so people don't get 'surprised'. Make it nice and fast, and dump the way that causes people problems. Why make people learn to deal with binary floating-point when there's no need for that, and they could spend the time doing something new and creative? <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 19:44, 24 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>And while we're at it, why not make all our software store text strings internally as bitmaps.... <a href="../../../d/m/h/User%7EDmharvey_69fb.html" title="User:Dmharvey">Dmharvey</a> 01:30, 26 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I'll assume that's an attempt at sarcasm, and therefore refrain from pointing out that glyphs and encodings are not the same thing, and no one above has suggested storing ones, zeros, or the digits two through nine, as images of glyphs&#160;:-) <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 17:19, 26 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Rounding" id="Rounding"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: Rounding">edit</a>]</span> <span class="mw-headline">Rounding</span></h3>
+<p>(Made into a new topic as per excellent suggestion below&#160;:-))</p>
+<p>@<i>Now think about how to do that rounding if the integer were encoded as a binary integer</i>:</p>
+<p>Example in a C-like language for clarity. It's not much harder in assembler (in fact most C operations correspond to 1 opcode).</p>
+<dl>
+<dt>a = 12345;</dt>
+<dd>a: 12345</dd>
+<dt>a *= a;</dt>
+<dd>a: 152399025</dd>
+</dl>
+<p>Now if you want rounding, you only want it for output.</p>
+<dl>
+<dd>
+<dl>
+<dd>Not true .. you need it any time you have an inexact answer or one that will not fit in a fixed-size destination. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<p>You state that you only have to look at the 6th digit, but this isn't true; you need round-to-even because of statistical subtleties (regardless of whether you use binary or decimal representation).</p>
+<dl>
+<dd>
+<dl>
+<dd>Yes, if the 6th digit is a 5 you need to know whether the rest are all zeros .. but they can be accumulated into a single bit during calculation. For a pictorial on that, see charts 39+ at: <a href="http://www2.hursley.ibm.com/decimal/754r3.pdf" class="external text" title="http://www2.hursley.ibm.com/decimal/754r3.pdf" rel="nofollow">754r3.pdf</a> <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dt>q = a / 10000; m = a % 10000;</dt>
+<dd>q: 15239</dd>
+<dd>m: 9025</dd>
+<dd>These will be compiled down to one div instruction. As I've said before div may (depending on the implementation) be expensive, but not enough so to justify using BCD.
+<dl>
+<dd>We will have to disagree on that. On Pentioum, at least, a div is tens of cycles; one of the multiply-by-inverse tricks is much faster. And decimal arithmetic in hardware will be faster still. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dt>if(m &gt; 5000) q++;</dt>
+<dd>Note that the &gt; and == tests will be compiled down to one cmp instruction.</dd>
+<dd>q: 15240 (which is correct)</dd>
+<dt>else if(m == 5000) if(q &amp; 1) q++;</dt>
+<dd>I've used &amp;, defining it to be an operation on a binary number. Alternatively you could use (q % 2 == 1) and have the compiler optimize it in case the number system used is binary.</dd>
+</dl>
+<p>Algorithm for variable scale and/or length is left as an exercise to the reader. Note that these things are available of-the-shelf.</p>
+<dl>
+<dd>
+<dl>
+<dd>Only because people like me have to write them, and it's a pain.&#160;:-) In particular, your assumption of the point at which to round (for example, after a multiply) is in general invalid. You need to count digits from the left. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<p>Instructions used for rounding: div; cmp; 1.5 * j.; 0.5 * inc ~ 45 clocks. The 1.5 is an average; the kind of jumps used will be chosen by the compiler - it will try to make sure that in most cases the ip falls through the jump, so the second if might become a jne, the body ending with a jmp to get the ip back on track. If you're really a performance freak I suggest hand-compiling your code. This is a simple algorithm so it shouldn't be hard.</p>
+<p>Instructions used for BCD specific rounding: cmp; 1.5 * j.; shift; 0.5 * inc ~ 7 clocks assuming a native BCD processor. The shift might be cheaper than the round, but not excessively so, and not enough to compensate for the advantages of using binary.</p>
+<p>In both cases the clocks used to perform the rounding is dwarfed by the clocks needed to branch to the OS and draw the result. The BCD case is faster, which was to be expected, because you can use the shift instruction. But does it justify expanding the size of ALU, the registers and the cache, as well as slowing down the ALU? I think not - the difference is just too small. A factor 16% may look like a huge speed improvement, but it's 16% of only 45 clocks of an operation that's relatively rare.</p>
+<dl>
+<dd>
+<dl>
+<dd>Check out: <a href="http://www2.hursley.ibm.com/decimal/telco.html" class="external text" title="http://www2.hursley.ibm.com/decimal/telco.html" rel="nofollow">the telco benchmark</a></dd>
+</dl>
+</dd>
+</dl>
+<p>Considering the amount of calculations a computer performs, I think a more compact ALU can compensate that. And the fact that without BCD I have 20% extra memory, cache and disk space doesn't hurt either. Yes, you could pack your data, but that costs enough to eliminate the only useful aspect of BCD.</p>
+<dl>
+<dd>
+<dl>
+<dd>Packing the data costs only 2-3 gate delays (or one instruction per digit, in software). So even in software it's reasonable. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<p>@Graham:</p>
+<p>The only real advantage is a speed improvement when a lot of rounding is needed dealing with numbers that span several words. In normal calculations emulating BCD is a pain, not for the programmer (as you said it's easy to program), but for the processor. A normal arithmetic operation costs about 2 clocks. Emulating BCD the same operation in BCD will cost several dozens.</p>
+<dl>
+<dd>
+<dl>
+<dd>Hmm, a BCD add of eight digits is about 6 instructions (See, for example, near the end of: <a href="http://www.cs.uiowa.edu/~jones/assem/notes/09muldiv.shtml" class="external autonumber" title="http://www.cs.uiowa.edu/~jones/assem/notes/09muldiv.shtml" rel="nofollow">[1]</a> ). Though with a BCD ALU it will be one. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<p>Whereas rounding is relatively rare, actual arithmetic is a very common instruction. I wouldn't accept a factor 10 spead decrease. At least not for scientific modelling, not for memory indexing and not for drawing. Even if your numbers are already stored in BCD (legacy database for instance) first converting to binary and converting back when you're done is probably cheaper.</p>
+<dl>
+<dd>
+<dl>
+<dd>(Yes, that's why we want/need decimal arithmetic in hardware. Then you can drop the binary arithmetic.) <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<p>@<i>20% more transistors in the ALU and/or FPUs is a negligible increment compared to the chip as a whole</i>:</p>
+<p>It's not just the ALU and/or FPUs. It's the registers, the data lines and the cache as well.</p>
+<dl>
+<dd>
+<dl>
+<dd>Why does it affect the registers, data, etc.? <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<p>Considering the very slim advantages of using BCD, changing processor architecture to BCD is just not justified. I personally don't think it's hard to adjust to the binary internals of the machine. Normally, for integer arithmetic it doesn't matter, and you only use floats when it doesn't matter.</p>
+<dl>
+<dd>
+<dl>
+<dd>Binary integers we agree on. Used with care, for writing 'system software' they are fine. They are not good for applications, however. And for floating-point, decimal has useful advantages and few (if any) significant disadvantages. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+</dd>
+</dl>
+<p>This topic is getting way too long; it starts to get awkward when editing. I suggest that, if any more discussion on this is needed, a new section should be started.</p>
+<dl>
+<dd>
+<dl>
+<dd>[done]</dd>
+</dl>
+</dd>
+</dl>
+<p>On a different note, the x86's contain an instruction which according to the docs convert BCD to real for use in the FPU, I quote, "without rounding errors". I wonder if it's true, and if so, how they do that. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 05:16, 29 December 2005 (UTC)</p>
+<p><a name="Too_long_reply" id="Too_long_reply"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: Too long reply">edit</a>]</span> <span class="mw-headline">Too long reply</span></h3>
+<p>@<i>Not true .. you need it any time you have an inexact answer or one that will not fit in a fixed-size destination. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></i></p>
+<p>In which case there is no need for BCD. We have already discussed this.</p>
+<p>@<i>We will have to disagree on that. On Pentium, at least, a div is tens of cycles; one of the multiply-by-inverse tricks is much faster. And decimal arithmetic in hardware will be faster still.</i>:</p>
+<p>I didn't intend to present the most optimal algorithm. Rather, I've shown that the trivial algorithm is good enough. If better algorithms achieve better performance than the point of using BCD diminishes even more.</p>
+<p>@<i>Only because people like me have to write them, and it's a pain.&#160;:-)</i>:</p>
+<p>Yes, it is. But while you are programming this, someone else is having a hard time debugging something that you can use. And it only needs to be done once.</p>
+<p>@<i>In particular, your assumption of the point at which to round (for example, after a multiply) is in general invalid. You need to count digits from the left.</i>:</p>
+<p>I know. Again, variable scale algorithms are left as an exercise to the reader.&#160;:-)</p>
+<p>@<i>Check out: the telco benchmark</i>:</p>
+<p>for simple calculations, like a telco's, File I/O will always be a most time consuming activity. But not because of rounding, but because of the general bottlenecks and overhead of storing stuff to a disc, tape or network.</p>
+<dl>
+<dd>Please go and look at the measurements recorded for the telco benchmark. File I/O was a problem twenty years ago; nowadays it is <b>not</b> the 'most time consuming activity'. That's a myth; that's exactly what the benchmark was and is able to show. Try it for yourself! <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+<p>@<i>Packing the data costs only 2-3 gate delays (or one instruction per digit, in software). So even in software it's reasonable.</i>:</p>
+<p>If you can do [0, 999] to [0, 1023] encoding in 2-3 delays then it's reasonable for a HDU; it's not reasonable for memory and cache because then those gate delays would force your clock slower.</p>
+<dl>
+<dd>I don't understand .. a typical processor clock is tens of gate delays, and the 2-3 delays for decimal unpacking only apply when loading from register to the ALU anyway -- so have no effect on (or from) memory or cache. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+<p>A computer is a multi-purpose machine; most applications don't benefit from BCD so you don't want to slow down your clock for it. There is certainly a difference between different contexts here as well. A telco may or may not choose to store decimal numbers, but for the data on my personal computer, binary is the only logical choice. An option would be an extra instruction (presumably 1 clock).</p>
+<dl>
+<dd>So you store no data in decimal? No numbers in ASCII, XML, or Unicode? If so, then yes, you have no need of decimal processing. (But it would not hurt your existing applications appreciably.) <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+<p>@<i>Hmm, a BCD add of eight digits is about 6 instructions (See, for example, near the end of: [1] ). Though with a BCD ALU it will be one.</i>:</p>
+<p>Considering most instructions are 2-3 clocks, I'd say that was a fair estimate.</p>
+<p>@<i>(Yes, that's why we want/need decimal arithmetic in hardware. Then you can drop the binary arithmetic.)</i>:</p>
+<p>And if you choose to do binary arithmetic in hardware you can drop the decimal arithmetic. But given a choice between a binary ALU and a BCD ALU, I would still choose the binary ALU.</p>
+<dl>
+<dd>All true for integers (as we've discussed). But you still do not seem to grasp that decimal fractions cannot be represented exactly in binary floating-point, whereas any binary fraction can be represented exactly in decimal. (For example, 0.1 in binary is exactly 0.5 in decimal. 0.1 in decimal has no exact binary fractional representation. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+<p>@<i>Why does it affect the registers, data, etc.?</i>:</p>
+<p>It's the old 20% again. Unless you're okay with storing fewer digits.</p>
+<dl>
+<dd>The number of digits stored is not 'the old 20%'. That's for decimal arithmetic. In 10 bits of storage you can store 0-1023 in binary or 0-999 for decimal. The difference is negligible (I've yet to hear of any application where that slight difference in significant). <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+<p>@<i>Binary integers we agree on. Used with care, for writing 'system software' they are fine. They are not good for applications, however. And for floating-point, decimal has useful advantages and few (if any) significant disadvantages.</i>:</p>
+<p>Although I think not that much care is needed, and they are most certainly suitable for most applications as well.</p>
+<dl>
+<dd>The use of binary integers, with their quite failure modes, has cost millions of dollars/euros/pounds. See:
+<dl>
+<dd><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dncode/html/secure04102003.asp" class="external autonumber" title="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dncode/html/secure04102003.asp" rel="nofollow">[2]</a></dd>
+</dl>
+</dd>
+<dd>for just a few examples. They are sufficient, but hardly suitable, for applications. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a></dd>
+</dl>
+<p>Most numbers used in most applications are only used in internal calculations and never directly shown on screen. I still think BCD is only useful when you really need a massive number of decimal rounding operations or something similar. In the end the base you use is of course arbitrary. Every advantage base-10 has is paired with a similar advantage in base-2 (or base-13 even). But binary has the advantage of being the most efficient in most calculations occurring on a normal computer.</p>
+<p><a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 04:28, 3 January 2006 (UTC)</p>
+<p><a name="FBLD_instruction" id="FBLD_instruction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: FBLD instruction">edit</a>]</span> <span class="mw-headline">FBLD instruction</span></h2>
+<p><i>(see topic above)</i></p>
+<p>By sticking with integers. I should have known.</p>
+<p>13d = 1101 = [1.]101e-11</p>
+<p>As you can see, this is indeed an exact operation. <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Shinobu</a> 05:41, 29 December 2005 (UTC)</p>
+<p><a name="Encodings.3F" id="Encodings.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: Encodings?">edit</a>]</span> <span class="mw-headline">Encodings?</span></h2>
+<p>From the article:</p>
+<dl>
+<dd><i>While BCD does not make optimal use of storage (about 1/6 of the available memory is not used in packed BCD), conversion to ASCII, EBCDIC, or the various encodings of Unicode is trivial, as no arithmetic operations are required. More dense packings of BCD exist; these avoid the storage penalty and also need no arithmetic operations for common conversions.</i></dd>
+</dl>
+<p>I don't understand this. To my mind, BCD is a way of representing numbers only, not characters. BCD isn't an encoding, so you can't convert to ASCII, EBCDIC, or other encodings. However, I'm not an expert on BCD so I could be wrong. If I am wrong, the article probably needs to be a little clearer on what BCD is. If I'm right, though, the above sentence should probably be taken out. I'd like to hear others' views on this. --<a href="../../../c/i/a/User%7ECiaran_H_1b23.html" title="User:Ciaran H">Ciaran H</a> 19:10, 23 January 2006 (UTC)</p>
+<dl>
+<dd>BCD is a way of representing decimal digits so of course it can be converted to decimal digits in a character encoding. <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 19:19, 23 January 2006 (UTC)
+<dl>
+<dd>Yes, I understand that, but the article implies that BCD is an encoding alongside ASCII, EBCDIC, etc. You can't convert to ASCII since it's not an encoding. Or to put it another way, what's represented in the BCD might already be ASCII or EBCDIC. For example, an "A" in BCD-coded ASCII would be:</dd>
+</dl>
+</dd>
+</dl>
+<pre>
+0000 0110 0101
+</pre>
+<dl>
+<dd>
+<dl>
+<dd>And likewise, in EBCDIC:</dd>
+</dl>
+</dd>
+</dl>
+<pre>
+0001 1001 0011
+</pre>
+<dl>
+<dd>
+<dl>
+<dd>Do you understand me now? Sorry if I made myself unclear before. --<a href="../../../c/i/a/User%7ECiaran_H_1b23.html" title="User:Ciaran H">Ciaran H</a> 11:42, 25 January 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Taking the decimal values which are just there to help humans from a standard thats meant to map characters to bytes is just perverse. It gets even more perverse with EBCDIC which is essentially based on BCD with the gaps filled in and some extra bits added. <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 16:18, 21 March 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>I know - that's my point. It's *not* an encoding alongside ASCII and EBCDIC so saying that BCD can be converted into ASCII or EBCDIC (which the paragraph quoted does) is nonsensical. --<a href="../../../c/i/a/User%7ECiaran_H_1b23.html" title="User:Ciaran H">Ciaran H</a> 17:41, 28 March 2006 (UTC)
+<dl>
+<dd>But it is an encoding, BCD maps a series of decimal digits to bit patterns, ascii maps a series of characters to bit patterns. decimal digits are a subset of ascii characters. <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 01:27, 29 March 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="shift-mask-add" id="shift-mask-add"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: shift-mask-add">edit</a>]</span> <span class="mw-headline">shift-mask-add</span></h2>
+<p>"Multiplication can be done by a simple shift-mask-add process in base ten."</p>
+<p>afaict the shift-mask-add method of multiplication only works for binary. For higher bases you have to use shift-multiply by single digit number-add which is a somewhat more complex process. <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 00:22, 14 March 2006 (UTC)</p>
+<p><a name="binary_to_BCD_the_easy_way" id="binary_to_BCD_the_easy_way"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: binary to BCD the easy way">edit</a>]</span> <span class="mw-headline">binary to BCD the easy way</span></h2>
+<p>i think there is an easy way to go from pure binary to BCD (and hence easilly to any other encoding of decimal) in n^2 (where n is the number of bits) time using only bit shifts, masking and BCD addition</p>
+<p>something like:</p>
+<pre>
+output = 0; 
+addnext = 1;
+while (input != 0) {
+  if (input &amp; 1) output = bcdadd(output,addnext);
+  input = input &gt;&gt; 1;
+  addnext = bcdadd(addnext,addnext);
+}
+</pre>
+<p>n^2 time as both the number of iterations and the complexity of each iteration is proportional to n.</p>
+<p>am i the only one to think of this method? <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a> 13:02, 21 March 2006 (UTC)</p>
+<p><a name="Addition_with_BCD" id="Addition_with_BCD"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: Addition with BCD">edit</a>]</span> <span class="mw-headline">Addition with BCD</span></h2>
+<p>Can someone please edit the section on Addition with BCD. Im sure it can be rewritten to make it clearer</p>
+<p><a name="References_and_verification" id="References_and_verification"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html" title="Edit section: References and verification">edit</a>]</span> <span class="mw-headline">References and verification</span></h2>
+<p>This page is largely unreferenced, and a quick look at what comes up on google isn't very helpful. I'm a little skeptical at the use of BCD, as are many other people who have visited this page. System designs that require the output of decimal numbers at a high enough rate to make BCD worth while should not be built in the first place. BCD floating point arithmetic is no more accurate than normal floating point - the possible representations of numbers are simply *different* - and in fact BCD has less possible representations (per amount of space used), and so would introduce many more problems when being combined with normal floating point numbers.</p>
+<dl>
+<dd>"I'm a little skeptical at the use of BCD, as are many other people who have visited this page."</dd>
+<dd>This is wikipedia at its worst. Look, mfc is employed by IBM to work at these things, he knows of which he speaks. The many other people who think they can just use a double don't have a clue, but unless they admit it to themselves and are capable of listening to the actual experts, this article will stay one of wikipedia's shames. 213.184.192.82 09:14, 4 April 2007 (UTC)</dd>
+</dl>
+<p><br /></p>
+<p>Of course, i'm only asserting these things, because they're obvious to me. I invite anyone to find a *source* that says differently. <a href="../../../f/r/e/User%7EFresheneesz_184e.html" title="User:Fresheneesz">Fresheneesz</a> 20:17, 18 October 2006 (UTC)</p>
+<dl>
+<dd>I added a much more recent reference - Brown and Vranesic's Fundamentals of Digital Logic design from 2003, which say that BCD is not an important encoding any more. I don't think we should be going by a 1973 publication anymore. <a href="../../../f/r/e/User%7EFresheneesz_184e.html" title="User:Fresheneesz">Fresheneesz</a> 20:58, 18 October 2006 (UTC)</dd>
+</dl>
+<p>BCD is use quite extensively in hand-held calculators. BCD arithmetic is more accurate when dealing with values that are converted into decimal (character) format, such as payroll/accounting applications; representing a number like 150.33 can be done <i>exactly</i> in fixed-point or floating-point BCD, but only <i>approximately</i> in binary floating-point. BCD arithmetic therefore does not suffer from round-off, nor bit loss when converting the result into character form. You will find that the majority of high-volume business applications are written in <a href="../../../c/o/b/COBOL_14eb.html" title="COBOL">COBOL</a>, one of the reasons being that it provides very nice and precise decimal arithmetic. — <a href="../../../l/o/a/User%7ELoadmaster_9161.html" title="User:Loadmaster">Loadmaster</a> 19:24, 6 March 2007 (UTC)</p>
+<p>BCD is also the internal format for decimal numbers in the <a href="../../../i/b/m/IBM_DB2_3de5.html" title="IBM DB2">IBM DB2</a> database and in the <a href="../../../s/a/p/SAP_AG_9f43.html" title="SAP AG">SAP</a> database and applications. Oracle databases similarly use a BCD-like encoding (two digits in a byte, but not simple BCD). Those three uses alone probably represent 80%–90% of decimal processing today.</p>
+<p>Over time, BCD data will probably gradually be replaced by the new <a href="../../../i/e/e/IEEE_754r_01d6.html" title="IEEE 754r">IEEE 754r</a> formats, but for the present BCD is critical to businesses, world-wide. If you have a bank account, the data in it and the transactions upon it are almost certainly represented in some form of BCD. I'll try and dig up some references. <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">mfc</a> 09:22, 7 March 2007 (UTC)</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html">http://en.wikipedia.org../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/i/n/Binary-coded_decimal.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/i/n/Talk%7EBinary-coded_decimal_8a71.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Binary-coded_decimal">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 09:14, 4 April 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../m/f/c/User%7EMfc_c18a.html" title="User:Mfc">Mfc</a>, <a href="../../../l/o/a/User%7ELoadmaster_9161.html" title="User:Loadmaster">Loadmaster</a>, <a href="../../../f/r/e/User%7EFresheneesz_184e.html" title="User:Fresheneesz">Fresheneesz</a>, Graemec2, <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a>, <a href="../../../c/i/a/User%7ECiaran_H_1b23.html" title="User:Ciaran H">Ciaran H</a>, <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Gerbrant</a>, <a href="../../../d/m/h/User%7EDmharvey_69fb.html" title="User:Dmharvey">Dmharvey</a>, <a href="../../../g/r/a/User%7EGRAHAMUK_f38c.html" title="User:GRAHAMUK">GRAHAMUK</a> and <a href="../../../r/e/t/User%7ERetodon8_9229.html" title="User:Retodon8">Retodon8</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,3 +1,4 @@
+
 version: '2'
 services:
   zookeeper:
@@ -8,6 +9,8 @@ services:
       - "2181:2181"
     platform: linux/arm64
     restart: always
+    networks:
+      - kafka_network
 
   kafka:
     image: wurstmeister/kafka:latest
@@ -16,24 +19,28 @@ services:
       KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
-      KAFKA_CREATE_TOPICS: "word-entity-topic"
+      KAFKA_CREATE_TOPICS: "wordentity:1:1"
     ports:
       - "9092:9092"
     depends_on:
       - zookeeper
     platform: linux/arm64
     restart: always
+    networks:
+      - kafka_network
 
   mysql:
     image: mysql
     container_name: mydb
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: kafka
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DB_NAME}
     ports:
       - "3306:3306"
     platform: linux/arm64
+    networks:
+      - kafka_network
 
   producer:
     build:
@@ -42,12 +49,14 @@ services:
     depends_on:
       - kafka
     environment:
-      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
-      KAFKA_TOPIC: word-entity-topic
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_BOOTSTRAP_SERVERS}
+      KAFKA_TOPIC: wordentity
     ports:
-      - "5000:5000"  
+      - "5000:5000"
     platform: linux/arm64
     restart: always
+    networks:
+      - kafka_network
 
   consumer:
     build:
@@ -57,14 +66,18 @@ services:
       - producer
       - mysql
     environment:
-      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
-      - MYSQL_HOST=mysql
-      - MYSQL_PASSWORD=root
-      - MYSQL_PORT=3306
-      - MYSQL_DB_NAME=kafka
-      - MYSQL_USER=root
+      KAFKA_BOOTSTRAP_SERVERS: ${KAFKA_BOOTSTRAP_SERVERS}
+      MYSQL_HOST: ${MYSQL_HOST}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DB_NAME: ${MYSQL_DB_NAME}
+      MYSQL_PORT: ${MYSQL_PORT}
     ports:
-      - "8080:8080"  
+      - "8080:8080"
     platform: linux/arm64
     restart: always
+    networks:
+      - kafka_network
 
+networks:
+  kafka_network:

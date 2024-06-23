@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Bell-LaPadula model,Bell-LaPadula model,High watermark,Principle of Least Authority,Cryptosmith,Dthvt,Mattpalmer1086,Rygar81,Davidelliottbell,DavidHopwood" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Bell-LaPadula model - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Bell-LaPadula model</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><a name="Cleanup_Request_August_.2706" id="Cleanup_Request_August_.2706"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Talk%7EBell-LaPadula_model_aae6.html" title="Edit section: Cleanup Request August '06">edit</a>]</span> <span class="mw-headline">Cleanup Request August '06</span></h2>
+<p>I put in the 'cleanup request for the following reasons:</p>
+<ol>
+<li>The article doesn't distinguish between the abstract mathematical model and the implementation. The article probably needs separate sections to talk about them.</li>
+<li>The "See Also" section points to some other models, but the article may need some discussion of how the other models are related.</li>
+<li>Having a section on "Strong * Property" suggests that the article should talk more specifically about BLP extensions of all kinds. I think the only reason Strong * Property is in there is because some deluded person in the CISSP training world included it in study materials, despite its relative unimportance. But we can't talk about extensions unless we distinguish between those that extend the theoretical model (System Z for example) and those that seem more implementation related (Strong * Property).</li>
+</ol>
+<p>If the cleanup doesn't happen otherwise I might get to it in a month or two. <a href="../../../c/r/y/User%7ECryptosmith_60ca.html" title="User:Cryptosmith">Cryptosmith (Rick Smith)</a> 15:50, 14 August 2006 (UTC)</p>
+<dl>
+<dd>This article desperately needs a section on criticisms of the Bell-LaPadula model. One of the most serious criticisms is that the *-property, by requiring "high" processes to only communicate with other "high" processes, forces many processes by to labelled higher than they would otherwise need to be, and that this works directly against the Principle of Least Authority. Other criticisms of BLP and skepticism about its real-world relevance are discussed in these threads:
+<dl>
+<dd><a href="http://www.eros-os.org/pipermail/cap-talk/2005-December/004597.html" class="external free" title="http://www.eros-os.org/pipermail/cap-talk/2005-December/004597.html" rel="nofollow">http://www.eros-os.org/pipermail/cap-talk/2005-December/004597.html</a></dd>
+<dd><a href="http://www.eros-os.org/pipermail/cap-talk/2006-January/004712.html" class="external free" title="http://www.eros-os.org/pipermail/cap-talk/2006-January/004712.html" rel="nofollow">http://www.eros-os.org/pipermail/cap-talk/2006-January/004712.html</a></dd>
+<dd><a href="http://www.eros-os.org/pipermail/cap-talk/2006-July/005501.html" class="external free" title="http://www.eros-os.org/pipermail/cap-talk/2006-July/005501.html" rel="nofollow">http://www.eros-os.org/pipermail/cap-talk/2006-July/005501.html</a></dd>
+</dl>
+</dd>
+<dd>--DavidHopwood 15:17, 31 December 2006 (UTC)</dd>
+</dl>
+<p>--Mattpalmer1086 13:53, 2 March 2007 (UTC) Matt Palmer: I second that this article be cleaned up... can I suggest whoever does so actually reads the original paper by Bell and LaPadula? Especially on the topic of the *-property, which is stated in the original as "in any state, a current access (subject, object, attribute) implies: level(object) dominates current-level (subject) if attribute is a; level (object) equals current-level (subject) if attribute is w; and level (object) is dominated by current-level (object) if attribute is r." The * property does NOT prevent high level subjects from writing to low level objects. It merely prevents an access state existing that would allow downwards information flow. A high level subject, if he doesn't hold any observe access at a high level, is free to operate at a lower level, and write to a low level object. It's all in the original - this extra stuff seems to be a bit like chinese whispers (even the way I was taught it was actually wrong by the terms of the original paper that * property implies level(object) &gt;= level(subject).). It doesn't - it just says no alter access can be granted lower than current observe access, and no observe access higher than current alter access. This implies that a subject can only write at a single leve, as the write operation in BLP implies both observe and alter. The single level requirements follows from the * property - a write at two levels would involve an observe access dominating an alter access - which is prohibited.</p>
+<p>I may have a go at rewriting myself if I get time. By the way, the links to the capability section is interesting (eros), but they aren't the best people to criticise MLS approaches. Personally, I love capabilities and the E language stuff - but it's a million miles away from MLS. Finally, the article as it stands does not do justice to security levels - some more examples would be nice.</p>
+<p><a name="Features_section" id="Features_section"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Talk%7EBell-LaPadula_model_aae6.html" title="Edit section: Features section">edit</a>]</span> <span class="mw-headline">Features section</span></h2>
+<p>The article is not mentioning the property called the Strong * Property value. According to this property, the subject can only read/write at the same security level (clearance and classification must be equal). In some resources, this property is cited instead of the The Discretionary Security Property.</p>
+<p>Please refer to:</p>
+<p>Chapter 5 - Security Models and Architecture</p>
+<p>CISSP: All-in-One Exam Guide, Third Edition by Shon Harris McGraw-Hill/Osborne © 2005</p>
+<p>--Rygar81 22:08, 6 August 2006 (UTC)</p>
+<ul>
+<li>This appears to be a bogus term, even if it shows up in a CISSP Study Guide (yes, even such writers are human). A Google search uncovered two references - one to that Study Guide itself, and one to Rob Slade (he reviews a lot of security books) who argues that the term is bogus. I've seen systems implement such a property, but it's usually because the system has no way of allowing <i>write only</i> access to objects, so they need to make the shortcoming sound like a feature. Certainly it is <b>not</b> part of the classic BLP model. I know of no formal mathematical arguments that rely on defining a strong * property (anyone else know of one?). If Rygar81 would like to include a description in the BLP entry, go ahead, but be sure to cite the source (which I don't have) and note that the term is not widely used. <a href="../../../c/r/y/User%7ECryptosmith_60ca.html" title="User:Cryptosmith">Rick Smith</a> 18:41, 7 August 2006 (UTC) (PhD, CISSP, ISSAP, ISSEP).</li>
+<li>I did a bit more poking around with Google (search: bell la padula "strong * property") and I can't find <b>any</b> primary references that use the term. I can find two sources: CISSP Exam Prep Guides of various sorts, a book <i>Secured Computing</i> published in '02 by one Carl Endorf, and reviews by Rob Slade of said books (including a suggestion that Endorf's book is essentially a prep guide, too). The definition is, as I said above, somewhat plausible, but I suspect it's a marketing term introduced by a vendor rather than a serious term used in the industry. I've been dealing with mulitlevel models and technology for a long time, and I can say that I've never used it myself. <a href="../../../c/r/y/User%7ECryptosmith_60ca.html" title="User:Cryptosmith">Rick Smith</a> 19:21, 7 August 2006 (UTC)</li>
+<li>OK, I've found <a href="http://searchsecurity.techtarget.com/searchSecurity/downloads/29667C05.pdf" class="external text" title="http://searchsecurity.techtarget.com/searchSecurity/downloads/29667C05.pdf" rel="nofollow">a link</a> that appears to be to a relevant chapter of the 2nd edition of the Shon Harris book. On page 213 Harris illustrates a total lack of understanding of the BLP model, by claiming that it consists of 3 parts: the Simple Security Property, the * Property, and the Srong * Property, with the latter defined as above (write to current level only!!!). In fact, <b>you only need one of those * properties, not both.</b> So Harris is <b>not</b> a reliable source and should <b>not</b> be used as a reference for defining the Strong * Property, assuming it really exists. <a href="../../../c/r/y/User%7ECryptosmith_60ca.html" title="User:Cryptosmith">Rick Smith</a> 19:21, 7 August 2006 (UTC)</li>
+<li>Hi Rick, I have also made some researches.</li>
+</ul>
+<p>From:</p>
+<p>Chapter 5 - Security Architecture and Models The CISSP Prep Guide: Mastering the CISSP and ISSEP Exams, Second Edition by Ronald L. Krutz and Russell Dean Vines John Wiley &amp; Sons © 2004</p>
+<p>"In some instances, a property called the Strong * Property is cited. This property states that reading or writing is permitted at a particular level of sensitivity but not to either higher or lower levels of sensitivity."</p>
+<p>This is another source which talks about this property. I infer it is not a bogus term. I agree with you that Shon Harris book is confusing about BLP model. However this term seems to exist. Rygar81 00:20, 11 August 2006 (UTC)</p>
+<ul>
+<li>Let me say that Shon Harris is not <i>confusing</i> so much as she is <b>wrong</b>. I haven't been able to find the term anywhere except in CISSP study guides. I find that very suspicious, but I will go ahead and add something about it, based on my research on the subject. <a href="../../../c/r/y/User%7ECryptosmith_60ca.html" title="User:Cryptosmith">Cryptosmith (Rick Smith)</a> 20:15, 12 August 2006 (UTC)</li>
+</ul>
+<p><b>Success!</b> I found a reference to a paper by Ravi Sandhu that defines the Strong * Property. The article will be edited accordingly. <a href="../../../c/r/y/User%7ECryptosmith_60ca.html" title="User:Cryptosmith">Cryptosmith (Rick Smith)</a> 21:27, 12 August 2006 (UTC)</p>
+<p>That's great! I completely agree with your last change about Strong * Property. Rygar81 21:29, 13 August 2006 (UTC)</p>
+<p>--Mattpalmer1086 13:23, 2 March 2007 (UTC) The Strong *-Property is a complete red-herring. It's not used by anyone who does work on MLS models as far as I'm aware (and I've built database systems based on BLP). The paper by Ravi Sandhu states that "It is motivated by integrity considerations. The (weak) star-property allows a U user to write S-data. This can result in overwriting...". This is just not true by the terms of BLP, but may be true in other mandatory models. In BLP, a U user can never write to S data - they can only append - which is an alter without an observe. So no data can be overwritten. He is talking specifically in the context of database systems that are mandatory and multi-level secure. Although a better reference for MLS databases is the work on SeaView by Dorothy Denning. Anyway, at best it's an almost unheard of security property that no-one in the industry uses. It would be far better to spend time getting the actual *-property right. We must make the general distinction between mandatory multi-level secure systems in general - whether database oriented or not - and the specific BLP model.</p>
+<p><a name="Merge_High_watermark" id="Merge_High_watermark"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Talk%7EBell-LaPadula_model_aae6.html" title="Edit section: Merge High watermark">edit</a>]</span> <span class="mw-headline">Merge High watermark</span></h2>
+<p><a href="../../../h/i/g/High_watermark.html" title="High watermark">High watermark</a> was introduced in Clark Weissman's <i>Security controls in the ADEPT-50 timesharing system</i> that appeared in the AFIPS Conference Proceedings, volume 35, pages 119--133. FJCC, 1969. As such it preceded the Bell-La Padula work. Volume 1 appeared in 1972. It is not appropriate to include as part of the BLP. David Bell 21:31, 18 December 2006 (UTC)</p>
+<p>Proposing that <a href="../../../h/i/g/High_watermark.html" title="High watermark">High watermark</a> be merged into <a href="../../../b/e/l/Bell-LaPadula_model_0b10.html" title="Bell-LaPadula model">Bell-LaPadula model</a> as it is an extension of that model &amp; the current article is very short. <a href="../../../d/t/h/User%7EDthvt_9861.html" title="User:Dthvt">Dthvt</a> 04:45, 9 December 2006 (UTC)</p>
+<p>--Mattpalmer1086 13:30, 2 March 2007 (UTC) But it has nothing specifically to do with the actual BLP model! It's related by the more general concept of multi-level secure systems, but BLP doesn't work like this. A link would be OK, but it has no direct relevance.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/l/Talk%7EBell-LaPadula_model_aae6.html">http://en.wikipedia.org../../../b/e/l/Talk%7EBell-LaPadula_model_aae6.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/e/l/Bell-LaPadula_model_0b10.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/e/l/Talk%7EBell-LaPadula_model_aae6.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Bell-LaPadula_model">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:54, 2 March 2007 by Wikipedia user Mattpalmer1086. Based on work by Wikipedia user(s) DavidHopwood, Davidelliottbell, <a href="../../../d/t/h/User%7EDthvt_9861.html" title="User:Dthvt">Dthvt</a>, <a href="../../../c/r/y/User%7ECryptosmith_60ca.html" title="User:Cryptosmith">Cryptosmith</a>, Rygar81, <a href="../../../j/o/s/User%7EJoseREMY_3459.html" title="User:JoseREMY">JoseREMY</a> and <a href="../../../i/b/r/User%7EIbroadfo_6f9a.html" title="User:Ibroadfo">Ibroadfo</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

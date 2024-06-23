@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Beamforming,Adaptive beamformer,Amplitude,Antenna (radio),Aperture synthesis,Bandwidth,Digital computers,Ears,Electromagnetic,Field programmable gate array,Frequency domain" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Beamforming - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Beamforming</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Beamforming</b> is a <a href="../../../s/i/g/Signal_processing.html" title="Signal processing">signal processing</a> technique used with arrays of transmitting or receiving <a href="../../../t/r/a/Transducers.html" title="Transducers">transducers</a> that control the directionality of, or sensitivity to, a <a href="../../../r/a/d/Radiation_pattern.html" title="Radiation pattern">radiation pattern</a>. When receiving a signal, beamforming can increase the receiver <a href="../../../s/e/n/Sensitivity.html" title="Sensitivity">sensitivity</a> in the direction of wanted signals and decrease the sensitivity in the direction of interference and <a href="../../../n/o/i/Noise.html" title="Noise">noise</a>. When transmitting a signal, beamforming can increase the power in the direction the signal is to be sent. The change compared with an <a href="../../../o/m/n/Omnidirectional.html" title="Omnidirectional">omnidirectional</a> receiving pattern is known as the receive <a href="../../../g/a/i/Gain.html" title="Gain">gain</a> (or loss). The change compared with an omnidirectional <a href="../../../t/r/a/Transmission.html" title="Transmission">transmission</a> is known as the transmission gain. These changes are done by creating beams and nulls in the radiation pattern.</p>
+<p>Beamforming can be done with either <a href="../../../r/a/d/Radio.html" title="Radio">radio</a> or <a href="../../../s/o/u/Sound.html" title="Sound">sound</a> <a href="../../../w/a/v/Waves.html" title="Waves">waves</a>, and can also be thought of as <a href="../../../s/p/a/Spatial_filtering.html" title="Spatial filtering">spatial filtering</a>. As an everyday analogy, the <a href="../../../h/u/m/Human_brain.html" title="Human brain">human brain</a> uses a form of signal processing on its two sound transducers (<a href="../../../e/a/r/Ears.html" title="Ears">ears</a>) and determines where the sound came from {<a href="../../../s/o/u/Sound_localization.html" title="Sound localization">sound localization</a>}. In the comparable beamforming analogy, <a href="../../../d/i/g/Digital_computers.html" title="Digital computers">digital computers</a> use signal processing on an array of two (or generally more) <a href="../../../e/l/e/Electromagnetic.html" title="Electromagnetic">electromagnetic</a> sound transducers (<a href="../../../m/i/c/Microphones.html" title="Microphones">microphones</a>) to determine the direction of maximum <a href="../../../s/i/g/Signal_strength.html" title="Signal strength">signal strength</a>, and thus the likely origin of the sound.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Beamforming_techniques"><span class="tocnumber">1</span> <span class="toctext">Beamforming techniques</span></a></li>
+<li class="toclevel-1"><a href="#Sonar_beamforming_requirements"><span class="tocnumber">2</span> <span class="toctext">Sonar beamforming requirements</span></a></li>
+<li class="toclevel-1"><a href="#Beamforming_schemes"><span class="tocnumber">3</span> <span class="toctext">Beamforming schemes</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Beamforming_techniques" id="Beamforming_techniques"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/a/Beamforming.html" title="Edit section: Beamforming techniques">edit</a>]</span> <span class="mw-headline">Beamforming techniques</span></h2>
+<p>Beamforming takes advantage of <a href="../../../i/n/t/Interference.html" title="Interference">interference</a> to change the directionality of the array. When transmitting, a beamformer controls the <a href="../../../p/h/a/Phase.html" title="Phase">phase</a> and relative <a href="../../../a/m/p/Amplitude.html" title="Amplitude">amplitude</a> of the signal at each transmitter, in order to create a pattern of constructive and destructive interference in the wavefront. When receiving, information from different sensors is combined in such a way that the expected pattern of radiation is preferentially observed.</p>
+<p>For example in <a href="../../../s/o/n/Sonar.html" title="Sonar">sonar</a>, to send a sharp pulse of underwater sound towards a ship in the distance, simply transmitting that sharp pulse from every sonar projector in an array simultaneously fails because the ship will first hear the pulse from the speaker that happens to be nearest the ship, then later pulses from speakers that happen to be the further from the ship. The beamforming technique involves sending the pulse from each projector at slightly different times (the projector closest to the ship last), so that every pulse hits the ship at exactly the same time, producing the effect of a single strong pulse from a single powerful projector. The same thing can be carried out in air using <a href="../../../l/o/u/Loudspeaker.html" title="Loudspeaker">loudspeakers</a>, or in radar/radio using <a href="../../../a/n/t/Antenna_%28radio%29.html" title="Antenna (radio)">antennae</a>.</p>
+<p>In passive sonar, and in reception in active sonar, the beamforming technique involves combining delayed signals from each <a href="../../../h/y/d/Hydrophone.html" title="Hydrophone">hydrophone</a> at slightly different times (the hydrophone closest to the target has the longest delay), so that every signal reaches the output at exactly the same time, making one loud signal, as if the signal came from a single, very sensitive hydrophone. Receive beamforming can also be used with microphones or radar antennae.</p>
+<p>With narrow band systems the time delay is equivalent to a "phase shift", so in this case the array of antennas, each one shifted a slightly different amount, is called a <a href="../../../p/h/a/Phased_array.html" title="Phased array">phased array</a>. A narrow band system, typical of <a href="../../../r/a/d/Radar.html" title="Radar">radars</a>, is one where the <a href="../../../b/a/n/Bandwidth.html" title="Bandwidth">bandwidth</a> is only a small fraction of the centre frequency. With wide band systems this approximation no longer holds, which is typical in sonars.</p>
+<p>In the receive beamfomer the signal from each antenna may be amplified by a different "weight." Different weighting patterns (eg Dolph-Chebyshev) can be used to achieve the desired sensitivity patterns. . A main lobe is produced together with nulls and sidelobes. As well as controlling the main lobe width (the beam) and the sidelobe levels, the position of a null can be controlled. This is useful to ignore noise or <a href="../../../j/a/m/Jammer.html" title="Jammer">jammers</a> in one particular direction, while listening for events in other directions. A similar result can be obtained on transmission.</p>
+<p>For the full mathematics on directing beams using amplitude and phase shifts, see the mathematical section in <a href="../../../p/h/a/Phased_array.html" title="Phased array">phased array</a>.</p>
+<p>Beamforming techniques can be broadly divided into two categories:</p>
+<ul>
+<li>conventional (fixed) beamformers or switched beam <a href="../../../s/m/a/Smart_antenna.html" title="Smart antenna">smart antennas</a></li>
+<li>adaptive beamformers or adaptive array <a href="../../../s/m/a/Smart_antenna.html" title="Smart antenna">smart antennas</a></li>
+</ul>
+<p>Conventional beamformers use a fixed set of weightings and time-delays (or phasings) to combine the signals from the sensors in the array, primarily using only information about the location of the sensors in space and the wave directions of interest. In contrast, adaptive beamforming techniques, generally combine this information with properties of the signals actually received by the array, typically to improve rejection of unwanted signals from other directions. This process may be carried out in the time or frequency domains.</p>
+<p>As the name indicates, an <a href="../../../a/d/a/Adaptive_beamformer.html" title="Adaptive beamformer">adaptive beamformer</a> is able to adapt automatically its response to different situations. Some criterion has to be set up to allow the adaption to proceed such as minimising the total noise output. Because of the variation of noise with frequency, in wide band systems it may be desirable to carry out the process in the <a href="../../../f/r/e/Frequency_domain.html" title="Frequency domain">frequency domain</a>.</p>
+<p>Beamforming can be computationally intensive. Sonar phased array has a data rate slow enough that it can be processed in <a href="../../../r/e/a/Real-time.html" title="Real-time">real-time</a> in <a href="../../../s/o/f/Software.html" title="Software">software</a>, which is flexible enough to transmit and/or receive in several directions at once. In contrast, radar phased array has a data rate so fast that it usually requires dedicated <a href="../../../h/a/r/Hardware.html" title="Hardware">hardware</a> processing, which is hard-wired to transmit and/or receive in only one direction at a time. However, newer <a href="../../../f/i/e/Field_programmable_gate_array.html" title="Field programmable gate array">field programmable gate arrays</a> are fast enough to handle radar data in real-time, and can be quickly re-programmed like software, blurring the hardware/software distinction.</p>
+<p><a name="Sonar_beamforming_requirements" id="Sonar_beamforming_requirements"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/a/Beamforming.html" title="Edit section: Sonar beamforming requirements">edit</a>]</span> <span class="mw-headline">Sonar beamforming requirements</span></h2>
+<p>Sonar itself has many applications, such as wide-area-search-and-ranging, underwater imaging sonars such as <a href="../../../s/i/d/Side-scan_sonar.html" title="Side-scan sonar">side-scan sonar</a> and acoustic cameras.</p>
+<p><a href="../../../s/o/n/Sonar.html" title="Sonar">Sonar</a> beamforming implementation is similar in general technique but varies significantly in detail compared to electromagnetic system beamforming implementation. Sonar applications vary from 1 Hz to as high as 2 MHz, and array elements may be few and large, or number in the hundreds yet vary small. This will shift sonar beamforming design efforts significantly between demands of such system components as the "front end" (transducers, preamps and digitizers) and the actual beamformer computational hardware downstream. High frequency, focused beam, multi-element imaging-search sonars and acoustic cameras often implement fifth-order spatial processing that places strains equivalent to Aegis radar demands on the processors.</p>
+<p>Many sonar systems, such as on torpedos, are made up of arrays of up to 100 elements that must accomplish beamsteering over a 100 degree field of view and work in both active and passive modes.</p>
+<p>Sonar arrays are used both actively and passively in 1, 2, and 3 dimensional arrays.</p>
+<ul>
+<li>1 dimensional "line" arrays are usually in multi-element passive systems towed behind ships and in single or multi-element side scan sonar.</li>
+<li>2 dimensional "planar" arrays are common in active/passive ship hull mounted sonars and some <a href="../../../s/i/d/Side-scan_sonar.html" title="Side-scan sonar">side-scan sonar</a>.</li>
+<li>3 dimensional spherical and cylindrical arrays are used in 'sonar domes' in the modern <a href="../../../s/u/b/Submarine.html" title="Submarine">submarine</a> and ships.</li>
+</ul>
+<p>Sonar differs from radar in that in some applications such as wide-area-search all directions often need to be listened to, and in some applications broadcast to, simultaneously. Thus a multibeam system is needed. In a narrowband sonar receiver the phases for each beam can be manipulated entirely by signal processing software, as compared to present radar systems that use hardware to 'listen' in a single direction at a time.</p>
+<p>Sonar also uses beamforming to compensate for the significant problem of slower sound propagation of sound as compared to that of electromagnetic radiation. In side-look-sonars, the speed of the towing system or vehicle carrying the sonar is moving at sufficient speed to move the sonar out of the field of the returning sound "ping". In addition to focusing algorithms intended to improve reception, many side scan sonars also employ beam steering to look forward and backward to "catch" incoming pulses that would have been missed by a single sidelooking beam.</p>
+<p><a name="Beamforming_schemes" id="Beamforming_schemes"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/a/Beamforming.html" title="Edit section: Beamforming schemes">edit</a>]</span> <span class="mw-headline">Beamforming schemes</span></h2>
+<ul>
+<li>A conventional beamformer can be a simple beamformer also known as delay-and-sum beamformer. All the weights of the antenna elements can have equal magnitudes. The beamformer is steered to a specified direction only by selecting appropriate phases for each antenna. If the noise is uncorrelated and there are no directional interferences, the <a href="../../../s/i/g/Signal-to-noise_ratio.html" title="Signal-to-noise ratio">signal-to-noise ratio</a> of a beamformer with <span class="texhtml"><i>L</i></span> antennas receiving a signal of power <span class="texhtml"><i>P</i></span> is <img class='tex' src="../../../math/f/e/9/fe9b322cc25a84133cd687e1a47050f0.png" alt="\frac{P\cdot L}{\sigma_n^2}" />.</li>
+<li>Null-steering beamformer</li>
+<li>Frequency domain beamformer</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/a/Beamforming.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../p/h/a/Phased_array.html" title="Phased array">Phased array</a> antennas, which uses beamforming to steer the beam</li>
+<li><a href="../../../a/p/e/Aperture_synthesis.html" title="Aperture synthesis">aperture synthesis</a></li>
+<li><a href="../../../s/y/n/Synthetic_aperture_radar.html" title="Synthetic aperture radar">synthetic aperture radar</a></li>
+<li><a href="../../../s/y/n/Synthetic_aperture_sonar.html" title="Synthetic aperture sonar">synthetic aperture sonar</a></li>
+<li><a href="../../../i/n/v/Inverse_synthetic_aperture_radar.html" title="Inverse synthetic aperture radar">inverse synthetic aperture radar</a> (ISAR)</li>
+<li><a href="../../../s/i/d/Side-scan_sonar.html" title="Side-scan sonar">side-scan sonar</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/a/Beamforming.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.embedded.com/showArticle.jhtml?articleID=60401726" class="external text" title="http://www.embedded.com/showArticle.jhtml?articleID=60401726" rel="nofollow">"How to create beam-forming smart antennas using FPGAS"</a>by Deepak Boppana and Asif Batada in <i>Embedded Systems Programming</i> 2005-02-17</li>
+<li><a href="http://www.spectrumsignal.com/publications/beamform_primer.pdf" class="external text" title="http://www.spectrumsignal.com/publications/beamform_primer.pdf" rel="nofollow">"A Primer on Digital Beamforming"</a> by Toby Haynes, March 26, 1998</li>
+<li><a href="http://www.ece.utexas.edu/~allen/Beamforming" class="external autonumber" title="http://www.ece.utexas.edu/~allen/Beamforming" rel="nofollow">[1]</a></li>
+<li><a href="http://www.vissta.ncsu.edu/publications/ahk/spm1996.pdf" class="external text" title="http://www.vissta.ncsu.edu/publications/ahk/spm1996.pdf" rel="nofollow">"Two Decades of Array Signal Processing Research"</a> by Hamid Krim and Mats Viberg in <i>IEEE Signal Processing Magazine</i>, July 1996</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/a/Beamforming.html">http://en.wikipedia.org../../../b/e/a/Beamforming.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../s/i/g/Category%7ESignal_processing_58c0.html" title="Category:Signal processing">Signal processing</a></span> | <span dir='ltr'><a href="../../../r/a/d/Category%7ERadar_2641.html" title="Category:Radar">Radar</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/e/a/Beamforming.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/e/a/Talk%7EBeamforming_2110.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Beamforming">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 18:40, 13 March 2007 by Wikipedia user Mbutts. Based on work by Wikipedia user(s) Hooperbloob, <a href="../../../p/i/g/User%7EPigman_d995.html" title="User:Pigman">Pigman</a>, <a href="../../../v/a/n/User%7EVan_der_Hoorn_e41e.html" title="User:Van der Hoorn">Van der Hoorn</a>, <a href="../../../f/i/r/User%7EFirsfron_bff1.html" title="User:Firsfron">Firsfron</a>, Chimpex, <a href="../../../s/p/l/User%7ESplash_a61b.html" title="User:Splash">Splash</a>, <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a>, Tom Holroyd, MadRat Jack, <a href="../../../d/a/v/User%7EDavidCary_1a42.html" title="User:DavidCary">DavidCary</a>, <a href="../../../p/h/a/User%7EPhandel_b760.html" title="User:Phandel">Phandel</a>, Deckard05, Rwp, Thota santhosh, <a href="../../../r/n/t/User%7ERnt20_32c8.html" title="User:Rnt20">Rnt20</a>, <a href="../../../m/e/g/User%7EMegapixie_ea09.html" title="User:Megapixie">Megapixie</a>, <a href="../../../o/r/d/User%7EOrderud_9d90.html" title="User:Orderud">Orderud</a> and Janki and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

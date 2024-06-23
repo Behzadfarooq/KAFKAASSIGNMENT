@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bresenham's line algorithm,Absolute value,Algorithm,Antialiasing,Arc (geometry),Association for Computing Machinery,Bitwise operation,Calcomp plotter,Circle,Computer graphics,Ellipse" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bresenham's line algorithm - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bresenham's line algorithm</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Bresenham's line algorithm</b> is an <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a> that determines which points in an n-dimensional <a href="../../../r/a/s/Raster.html" title="Raster">raster</a> should be plotted in order to form a close approximation to a straight line between two given points. It is commonly used to draw lines on a computer screen, as it uses only integer addition, subtraction and <a href="../../../b/i/t/Bitwise_operation.html" title="Bitwise operation">bit shifting</a> all of which are very cheap operations in standard computer architectures. It is one of the earliest algorithms developed in the field of <a href="../../../c/o/m/Computer_graphics.html" title="Computer graphics">computer graphics</a>.</p>
+<p>Through a minor expansion, the original algorithm for lines can also be used to draw circles. Also this can be done with simple arithmetic operations; quadratic or trigonometric expressions can be avoided or recursively dissolved into simpler steps.</p>
+<p>The mentioned properties make it still an important algorithm, and it is used among others in <a href="../../../p/l/o/Plotter.html" title="Plotter">plotters</a>, in <a href="../../../g/r/a/Graphics_processing_unit.html" title="Graphics processing unit">graphics chips</a> of modern <a href="../../../g/r/a/Graphics_card.html" title="Graphics card">graphics cards</a>, and in many <a href="../../../g/r/a/Graphics_library.html" title="Graphics library">graphics libraries</a>. As it is so simple, it is not only implemented in the <a href="../../../f/i/r/Firmware.html" title="Firmware">firmware</a> of such devices, but is also <i>cast into hardware</i> of those graphics chips.</p>
+<p>To be precise, the label "Bresenham" is today often used for a whole family of algorithms, which have actually been developed by others, later, yet in succession of Bresenham and with a similar basic approach. See deeper references below.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#The_algorithm"><span class="tocnumber">1</span> <span class="toctext">The algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Generalization"><span class="tocnumber">2</span> <span class="toctext">Generalization</span></a></li>
+<li class="toclevel-1"><a href="#Optimization"><span class="tocnumber">3</span> <span class="toctext">Optimization</span></a></li>
+<li class="toclevel-1"><a href="#Different_approach_to_the_algorithm"><span class="tocnumber">4</span> <span class="toctext">Different approach to the algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Circle_Variant"><span class="tocnumber">5</span> <span class="toctext">Circle Variant</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Drawing_incomplete_octants"><span class="tocnumber">5.1</span> <span class="toctext">Drawing incomplete octants</span></a></li>
+<li class="toclevel-2"><a href="#Ellipses"><span class="tocnumber">5.2</span> <span class="toctext">Ellipses</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">6</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="The_algorithm" id="The_algorithm"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: The algorithm">edit</a>]</span> <span class="mw-headline">The algorithm</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:302px;"><a href="../../../b/r/e/Image%7EBresenham.png_9983.html" class="internal" title="Illustration of the result of Bresenham's line algorithm."><img src="../../../upload/shared/thumb/d/d4/Bresenham.png/300px-Bresenham.png" alt="Illustration of the result of Bresenham's line algorithm." width="300" height="161" longdesc="../../../b/r/e/Image%7EBresenham.png_9983.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/r/e/Image%7EBresenham.png_9983.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Illustration of the result of Bresenham's line algorithm.</div>
+</div>
+</div>
+<p>The line is drawn between two points (<i>x</i><sub>0</sub>, <i>y</i><sub>0</sub>) and (<i>x</i><sub>1</sub>, <i>y</i><sub>1</sub>), where these pairs indicate column and row, respectively, <em>increasing in the down and right directions</em> (as is common in computer programming).</p>
+<p>We will initially assume that our line goes down and to the right, and that the horizontal distance <span class="texhtml"><i>x</i><sub>1</sub> − <i>x</i><sub>0</sub></span> exceeds the vertical distance <i>y</i><sub>1</sub>-<i>y</i><sub>0</sub> (that is, the line has a <a href="../../../s/l/o/Slope.html" title="Slope">slope</a> greater than <span class="texhtml">− 1</span> and less than 0.) Our goal is, for each column <i>x</i> between <span class="texhtml"><i>x</i><sub>0</sub></span> and <span class="texhtml"><i>x</i><sub>1</sub></span>, to identify the row <i>y</i> in that column which is closest to the line and plot a pixel at (x,y).</p>
+<p>Now, how do we figure out which pixel is closest to the line for a given column? The general formula for the line between the two points is given by:</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/6/4/4645e993c52f1ce96153ef69b1159742.png" alt="y - y_0 = \frac{y_1-y_0}{x_1-x_0} (x-x_0)." /></dd>
+</dl>
+<p>Since we know the column, <i>x</i>, the pixel's row, <i>y</i>, is given by rounding this quantity to the nearest integer:</p>
+<p><img class='tex' src="../../../math/2/8/4/28472daff0e1a363818221eb4ba8c569.png" alt="\frac{y_1-y_0}{x_1-x_0} (x-x_0) + y_0." /></p>
+<p>However, explicitly calculating this value for each column, <i>x</i>, is silly; we need only note that <i>y</i> starts at <i>y</i><sub>0</sub>, and each time we add 1 to <i>x</i>, we add the fixed value <span class="texhtml">(<i>y</i><sub>1</sub> − <i>y</i><sub>0</sub>) / (<i>x</i><sub>1</sub> − <i>x</i><sub>0</sub>)</span>, which we can precalculate, to the exact <i>y</i>. Moreover, since this is the slope of the line, by assumption it is between 0 and 1; in other words, after rounding, in each column we either use the same <i>y</i> as in the previous column, or we add one to it.</p>
+<p>We can decide which of these to do by keeping track of an <i>error value</i> which denotes the vertical distance between the current <i>y</i> value and the exact <i>y</i> value of the line for the current <i>x</i>. Each time we increment <i>x</i>, we increase the error by the slope value above. Each time the error surpasses 0.5, the line has become closer to the next <i>y</i> value, so we add 1 to <i>y</i>, simultaneously decreasing the error by 1. The procedure looks like this, assuming <code>plot(x,y)</code> plots a point and <code>abs</code> returns <a href="../../../a/b/s/Absolute_value.html" title="Absolute value">absolute value</a>:</p>
+<p>Expressed in <a href="../../../p/s/e/Pseudo_code.html" title="Pseudo code">pseudo code</a>, the naive implementation below uses comparatively expensive <a href="../../../f/l/o/Floating_point_arithmetic.html" title="Floating point arithmetic">floating point arithmetic</a>, but it can be easily tweaked (see optimization section) to use integer math:</p>
+<pre>
+ <b>function</b> line(x0, x1, y0, y1)
+     <i>int</i> deltax := abs(x1 - x0)
+     <i>int</i> deltay := abs(y1 - y0)
+     <i>real</i> error := 0
+     <i>real</i> deltaerr := deltay / deltax    // Assume deltax != 0 (line is not vertical)
+     <i>int</i> y := y0
+     <b>for</b> x <b>from</b> x0 <b>to</b> x1
+         plot(x,y)
+         error := error + deltaerr
+         <b>if</b> error ≥ 0.5 <b>then</b>
+             y := y + 1
+             error := error - 1.0
+</pre>
+<p><a name="Generalization" id="Generalization"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: Generalization">edit</a>]</span> <span class="mw-headline">Generalization</span></h2>
+<p>This first version only handles lines that descend to the right. We would of course like to be able to draw all lines. The first case is allowing us to draw lines that still slope downwards but head in the opposite direction. This is a simple matter of swapping the initial points if <code>x0 &gt; x1</code>. Trickier is determining how to draw lines that go up. To do this, we check if <i>y</i><sub>0</sub> ≥ <i>y</i><sub>1</sub>; if so, we step <i>y</i> by -1 instead of 1. Lastly, We still need to generalize the algorithm to drawing lines in <i>all</i> directions. Up until now we have only been able to draw lines with a slope less than one. To be able to draw lines with a steeper slope, we take advantage of the fact that a steep line can be reflected across the line <i>y=x</i> to obtain a line with a small slope. The effect is to switch the <i>x</i> and <i>y</i> variables throughout, including switching the parameters to <i>plot</i>. The code looks like this:</p>
+<pre>
+ <b>function</b> line(x0, x1, y0, y1)
+     <i>boolean</i> steep := abs(y1 - y0) &gt; abs(x1 - x0)
+     <b>if</b> steep <b>then</b>
+         swap(x0, y0)
+         swap(x1, y1)
+     <b>if</b> x0 &gt; x1 <b>then</b>
+         swap(x0, x1)
+         swap(y0, y1)
+     <i>int</i> deltax := x1 - x0
+     <i>int</i> deltay := abs(y1 - y0)
+     <i>real</i> error := 0
+     <i>real</i> deltaerr := deltay / deltax
+     <i>int</i> ystep
+     <i>int</i> y := y0
+     <b>if</b> y0 &lt; y1 <b>then</b> ystep := 1 <b>else</b> ystep := -1
+     <b>for</b> x <b>from</b> x0 <b>to</b> x1
+         <b>if</b> steep <b>then</b> plot(y,x) <b>else</b> plot(x,y)
+         error := error + deltaerr
+         <b>if</b> error ≥ 0.5 <b>then</b>
+             y := y + ystep
+             error := error - 1.0
+</pre>
+<p>The function now handles all lines and implements the complete Bresenham's algorithm.</p>
+<p><a name="Optimization" id="Optimization"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: Optimization">edit</a>]</span> <span class="mw-headline">Optimization</span></h2>
+<p>The problem with this approach is that computers operate relatively slowly on fractional numbers like <code>error</code> and <code>deltaerr</code>; moreover, errors can accumulate over many floating-point additions. Working with integers will be both faster and more accurate. The trick we use is to multiply all the fractional numbers above by <code>deltax</code>, which enables us to express them as integers. The only problem remaining is the constant 0.5—to deal with this, we change the initialization of the variable <code>error</code>. The new program looks like this:</p>
+<pre>
+ <b>function</b> line(x0, x1, y0, y1)
+     <i>boolean</i> steep := abs(y1 - y0) &gt; abs(x1 - x0)
+     <b>if</b> steep <b>then</b>
+         swap(x0, y0)
+         swap(x1, y1)
+     <b>if</b> x0 &gt; x1 <b>then</b>
+         swap(x0, x1)
+         swap(y0, y1)
+     <i>int</i> deltax := x1 - x0
+     <i>int</i> deltay := abs(y1 - y0)
+     <i>int</i> error := -deltax / 2
+     <i>int</i> ystep
+     <i>int</i> y := y0
+     <b>if</b> y0 &lt; y1 <b>then</b> ystep := 1 <b>else</b> ystep := -1
+     <b>for</b> x <b>from</b> x0 <b>to</b> x1
+         <b>if</b> steep <b>then</b> plot(y,x) <b>else</b> plot(x,y)
+         error := error + deltay
+         <b>if</b> error &gt; 0 <b>then</b>
+             y := y + ystep
+             error := error - deltax
+</pre>
+<p><a name="Different_approach_to_the_algorithm" id="Different_approach_to_the_algorithm"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: Different approach to the algorithm">edit</a>]</span> <span class="mw-headline">Different approach to the algorithm</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:302px;"><a href="../../../b/r/e/Image%7EBresenhamLine2.png_6e93.html" class="internal" title="Principle of the Bresenham line algorithm, the lower part showing the error term"><img src="../../../upload/thumb/6/66/BresenhamLine2.png/300px-BresenhamLine2.png" alt="Principle of the Bresenham line algorithm, the lower part showing the error term" width="300" height="298" longdesc="../../../b/r/e/Image%7EBresenhamLine2.png_6e93.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/r/e/Image%7EBresenhamLine2.png_6e93.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Principle of the Bresenham line algorithm, the lower part showing the error term</div>
+</div>
+</div>
+<p>A different approach to the Bresenham algorithm works more from the practical side. It was published by <i>Pitteway</i> <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> and confirmed by <i>van Aken</i> <sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup>. Again we first consider a line in the first <a href="../../../o/c/t/Octant.html" title="Octant">octant</a>, which means a slope between 0 and 1. Mathematically spoken, we want to draw a line from point (x<sub>1</sub>,y<sub>1</sub>) to (x<sub>2</sub>,y<sub>2</sub>). The intervals in the two directions are dx=x<sub>2</sub>-x<sub>1</sub> and dy=y<sub>2</sub>-y<sub>1</sub>, and the slope is dy/dx. The <a href="../../../l/i/n/Line_%28mathematics%29.html" title="Line (mathematics)">line equation</a> can be written as y=y<sub>1</sub>+(x-x<sub>1</sub>)*dy/dx. In this first octant, we have 0&lt;dy&lt;=dx.</p>
+<p>So, when working pixel-wise along this line, we have one "fast" direction, the positive x direction, and a "slow" direction, the positive y direction, where fewer steps have to be done than in the fast one. So the algorithm simply goes like this: a) Always do a single pixel step in the fast direction. b) Every now and then also do a step in the slow direction.</p>
+<p>Bresenham's trick is the introduction of an error term, which deals with the decision, when to do also this extra step in the slow direction. The line equation is transformed into 0=dx*(y-y<sub>1</sub>)-dy*(x-x<sub>1</sub>), and then the null on the left side is replaced by the error term. A step by 1 in the x direction (variable x) causes a decrement of the error term by one times dy. If the error term gets below zero due to this, it will be increased by one times dx through a step by 1 in the y direction (variable y). Because of dx&gt;=dy, this will render the error term positive again in any case, at least brought back to zero.</p>
+<p>You realize a cross-wise subtraction of dy from the error term for any x step and an addition of dx for any y step. This way, the division dy/dx for the slope is dissolved into a number of more elementar operations.</p>
+<p>A critical issue is the initialisation of the error term. In this approach here, we simply consider a line with dy=1, so with only one single step in the y direction along the whole line. Of course for the best look of the line, we want this step to happen right in the middle of the line. This leads to initialising the error term to dx/2. (Rounding this term to integers in case of odd dx is no problem.)</p>
+<p>This approach comes out a little different from the original, as it avoids the additional factor of 2 on both sides, which has to do with the initialisation.</p>
+<p>To generalize this algorithm for all octants, you will again have to do role changes of x and y and consider the different signs of dx and dy.</p>
+<p>A simple implementation of this approach is not very elegant, but demonstrates the principle of the algorithm fairly well.</p>
+<pre>
+REM Bresenham algorithm for a line in the first octant in Pseudo Basic
+dx = xend-xstart
+dy = yend-ystart
+REM in first octant, we have 0 &lt; dy &lt;= dx
+
+REM Initialisations
+x = xstart
+y = ystart
+SETPIXEL x,y
+error = dx/2 
+
+REM Pixel loop: always do a step in fast direction, every now and then also one in the slow direction
+WHILE x &lt; xend
+   REM Step in fast direction
+   x = x + 1
+   error = error-dy
+   IF error &lt; 0 THEN
+      REM Step in slow direction
+      y = y + 1
+      error = error + dx
+      END IF
+   SETPIXEL x,y
+   WEND
+</pre>
+<p><a name="Circle_Variant" id="Circle_Variant"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: Circle Variant">edit</a>]</span> <span class="mw-headline">Circle Variant</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:285px;"><a href="../../../b/r/e/Image%7EBresenham_circle3.png_9b32.html" class="internal" title="Rasterisation of a circle by the Bresenham algorithm"><img src="../../../upload/b/b6/Bresenham_circle3.png" alt="Rasterisation of a circle by the Bresenham algorithm" width="283" height="284" longdesc="../../../b/r/e/Image%7EBresenham_circle3.png_9b32.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/r/e/Image%7EBresenham_circle3.png_9b32.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Rasterisation of a circle by the Bresenham algorithm</div>
+</div>
+</div>
+<p>The approach for the <i>Circle Variant</i> shown here is also not originally from Bresenham, see again references to <i>Pitteway</i> and <i>van Aken</i> below. The algorithm starts accordingly with the <a href="../../../c/i/r/Circle.html" title="Circle">circle</a> equation x²+y²=r². Again we consider first only the first octant. Here you want to draw a curve which starts at point (r,0) and then proceeds to the top left, up to reaching the angle of 45°.</p>
+<p>The "fast" direction here is the y direction. You always do a step in the positive y direction (upwards), and every now and then you also have to do a step in the "slow" direction, the negative x direction.</p>
+<p>The frequent computations of <a href="../../../s/q/u/Square_%28algebra%29.html" title="Square (algebra)">squares</a> in the circle equation, <a href="../../../t/r/i/Trigonometry.html" title="Trigonometry">trigonometric</a> expressions or <a href="../../../s/q/u/Square_root.html" title="Square root">square roots</a> can again be avoided by dissolving everything into single steps and recursive computation of the quadratic terms from the preceding ones.</p>
+<p>From the circle equation you get to the transformed equation 0=x²+y²-r² with r² to be computed only a single time during initialisation, x²=(xpreceding-1)²=xpreceding²-2*xpreceding+1 (according for y), where x² (or xpreceding²) is kept as an own variable. Additionally you need to add the mid point coordinates when setting a pixel. These frequent integer additions do not limit the <a href="../../../p/e/r/Performance_tuning.html" title="Performance tuning">performance</a> much, as you spare those square (root) computations in the inner loop in turn. Again the zero in the transformed circle equation is replaced by the error term.</p>
+<p>The initialization of the error term is derived from an offset of ½ pixel at the start. Until the intersection with the perpendicular line, this leads to an accumulated value of r in the error term, so that this value is used for initialisation.</p>
+<p>The following implementation is shown here only for the first octant, and again the other octants need sign changes for x and/or y and the swapping of x and y. An easy expansion for full circles, as it is possible for graphics displays, but not for plotters, is added in the comments.</p>
+<pre>
+REM Bresenham Algorithm for one eighth of a circle in Pseudo-Basic
+REM given: r, xmid, ymid
+REM initialisations for the first octant
+r2 = r*r : REM single multiplication
+x = r
+x2 = r2
+y = 0
+y2 = 0
+error = r
+REM Watch out, danger of rounding errors:
+yend = INT(r*0.70710678) : REM = INT(SQR(r2/2)) = INT(r*SQR(1/2)), a constant is usable
+REM "fast" direction here is y!
+SETPIXEL xmid + x, ymid + y
+
+REM Pixel loop: always a step in fast direction, every now and then also in slow one
+WHILE y &lt;= yend
+   REM step in fast direction (positive y direction)
+   dy = y*2+1 : REM in Assembler implementation *2 per Shift
+   y = y+1
+   y2 = y2+dy
+   error = error-dy
+   IF error&lt;0 THEN
+      REM step in slow direction (here the negative x direction)
+      dx = 1-x*2 : REM in Assembler implementation *2 per Shift
+      x = x-1
+      x2 = x2+dx
+      error = error-dx
+      END IF
+   SETPIXEL  xmid+x, ymid+y
+   REM If this deals with a screen and not a mechanical plotter,
+   REM you can cover simultaneously also the other octants:
+   REM SETPIXEL xmid-x, ymid+y
+   REM SETPIXEL xmid-x, ymid-y
+   REM SETPIXEL xmid+x, ymid-y
+   REM SETPIXEL xmid+y, ymid+x
+   REM SETPIXEL xmid-y, ymid+x
+   REM SETPIXEL xmid-y, ymid-x
+   REM SETPIXEL xmid+y, ymid-x
+   WEND
+</pre>
+<p>A possible implementation of the Bresenham Algorithm for a full circle in C. Here another variable for recursive computation of the quadratic terms is used, which corresponds with the term 2*n+1 above. It just has to be increased by 2 from one step to the next:</p>
+<pre>
+ void rasterCircle(int x0, int y0, int radius)
+ {
+   int f = 1 - radius;
+   int ddF_x = 0;
+   int ddF_y = -2 * radius;
+   int x = 0;
+   int y = radius;
+ 
+   setPixel(x0, y0 + radius);
+   setPixel(x0, y0 - radius);
+   setPixel(x0 + radius, y0);
+   setPixel(x0 - radius, y0);
+ 
+   while(x &lt; y) 
+   {
+     if(f &gt;= 0) 
+     {
+       y--;
+       ddF_y += 2;
+       f += ddF_y;
+     }
+     x++;
+     ddF_x += 2;
+     f += ddF_x + 1;    
+     setPixel(x0 + x, y0 + y);
+     setPixel(x0 - x, y0 + y);
+     setPixel(x0 + x, y0 - y);
+     setPixel(x0 - x, y0 - y);
+     setPixel(x0 + y, y0 + x);
+     setPixel(x0 - y, y0 + x);
+     setPixel(x0 + y, y0 - x);
+     setPixel(x0 - y, y0 - x);
+   }
+ }
+</pre>
+<p><a name="Drawing_incomplete_octants" id="Drawing_incomplete_octants"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: Drawing incomplete octants">edit</a>]</span> <span class="mw-headline">Drawing incomplete octants</span></h3>
+<p>The implementations above always only draw complete octants or circles. If you want to draw only a certain <a href="../../../a/r/c/Arc_%28geometry%29.html" title="Arc (geometry)">arc</a> from an angle α to an angle β, you have to implement it in a way to first calculate the x and y coordinates of these end points, where you inevitably have to resort to trigonometric or square root computations (see <a href="../../../m/e/t/Methods_of_computing_square_roots.html" title="Methods of computing square roots">Methods of computing square roots</a>). Then you run the Bresenham algorithm over the complete octant or circle and set the pixels only if they fall into the wanted interval. After finishing this arc, you can abort the algorithm prematurely.</p>
+<p><a name="Ellipses" id="Ellipses"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: Ellipses">edit</a>]</span> <span class="mw-headline">Ellipses</span></h3>
+<p>By <a href="../../../s/c/a/Scaling.html" title="Scaling">scaling</a> the drawn x and y values (and horizontal or vertical line expansion, respectively) you can produce even <a href="../../../e/l/l/Ellipse.html" title="Ellipse">ellipses</a> parallel to the x or y axis. For this, you use the circle algorithm with the smaller ellipse axis as radius and add a value in the other direction, which again is computed through another Bresenham line algorithm increasing from the pole to the equator. As the ellipse has to be elongated into the longer axis direction, you don't set single pixels anymore, but have to draw lines (though simple ones, only horizontal or vertical) from the previous to the next point.</p>
+<p>A general ellipse can be derived from such an axis-parallel one by application of a <a href="../../../s/h/e/Shear_%28mathematics%29.html" title="Shear (mathematics)">shearing</a> operation on it. Again you use an additional Bresenham line algorithm to compute the offset increasing in one of the axis directions and to let it contribute to every drawn coordinate.</p>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>The algorithm was developed by <a href="../../../j/a/c/Jack_E._Bresenham_b040.html" title="Jack E. Bresenham">Jack E. Bresenham</a> in 1962 at <a href="../../../i/n/t/International_Business_Machines_94e5.html" title="International Business Machines">IBM</a>. In 2001 Bresenham wrote:</p>
+<dl>
+<dd>"<i>I was working in the computation lab at IBM's San Jose development lab. A <a href="../../../c/a/l/Calcomp_plotter.html" title="Calcomp plotter">Calcomp plotter</a> had been attached to an <a href="../../../i/b/m/IBM_1401_29a3.html" title="IBM 1401">IBM 1401</a> via the 1407 typewriter console. [The algorithm] was in production use by summer 1962, possibly a month or so earlier. Programs in those days were freely exchanged among corporations so Calcomp (Jim Newland and Calvin Hefte) had copies. When I returned to Stanford in Fall 1962, I put a copy in the Stanford comp center library.</i></dd>
+</dl>
+<dl>
+<dd><i>A description of the line drawing routine was accepted for presentation at the 1963 <a href="../../../a/s/s/Association_for_Computing_Machinery_40e2.html" title="Association for Computing Machinery">ACM</a> national convention in Denver, Colorado. It was a year in which no proceedings were published, only the agenda of speakers and topics in an issue of Communications of the ACM. A person from the IBM Systems Journal asked me after I made my presentation if they could publish the paper. I happily agreed, and they printed it in 1965.</i>"</dd>
+</dl>
+<p>Bresenham later modified his algorithm to produce circles.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="http://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html" class="external text" title="http://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html" rel="nofollow">"The Bresenham Line-Drawing Algorithm"</a>, by Colin Flanagan</li>
+</ul>
+<p>Bresenham also published a Run-Slice (as opposed to the Run-Length) computational algorithm.</p>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Pitteway, M.L.V., "Algorithm for Drawing Ellipses or Hyperbolae with a Digital Plotter", Computer J., 10(3) November 1967, pp 282-289</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> Van Aken, J.R., "An Efficient Ellipse Drawing Algorithm", CG&amp;A, 4(9), September 1984, pp 24-35</li>
+</ol>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="http://www.chez.com/pmaillot" class="external text" title="http://www.chez.com/pmaillot" rel="nofollow">Patrick-Gilles Maillot's Thesis</a> an extension of the Bresenham line drawing algorithm to perform 3D hidden lines removal; also published in MICAD '87 proceedings on CAD/CAM and Computer Graphics, page 591 - <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 2-86601-084-1</a>.</li>
+</ul>
+<ul>
+<li><a href="../../../x/i/a/Xiaolin_Wu%27s_line_algorithm_4f19.html" title="Xiaolin Wu's line algorithm">Xiaolin Wu's line algorithm</a>, a similarly fast method of drawing lines with <a href="../../../a/n/t/Antialiasing.html" title="Antialiasing">antialiasing</a>.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Bresenham%27s_line_algorithm.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://tide4javascript.com/?s=Bresenham" class="external text" title="http://tide4javascript.com/?s=Bresenham" rel="nofollow">Analyze Bresenham's line algorithm in an online Javascript IDE</a></li>
+<li><a href="http://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html" class="external text" title="http://www.cs.helsinki.fi/group/goa/mallinnus/lines/bresenh.html" rel="nofollow"><i>The Bresenham Line-Drawing Algorithm</i> by Colin Flanagan</a></li>
+<li><a href="http://www.nist.gov/dads/HTML/bresenham.html" class="external text" title="http://www.nist.gov/dads/HTML/bresenham.html" rel="nofollow">National Institute of Standards and Technology page on Bresenham's algorithm</a></li>
+<li><a href="http://www.pdp8.net/563/563.shtml" class="external text" title="http://www.pdp8.net/563/563.shtml" rel="nofollow">Calcomp 563 Incremental Plotter Information</a></li>
+<li><a href="http://www.research.ibm.com/journal/sj/041/ibmsjIVRIC.pdf" class="external text" title="http://www.research.ibm.com/journal/sj/041/ibmsjIVRIC.pdf" rel="nofollow">Bresenham's Original Paper</a></li>
+<li><a href="http://www.codecodex.com/wiki/index.php?title=Bresenham%27s_line_algorithm" class="external text" title="http://www.codecodex.com/wiki/index.php?title=Bresenham%27s_line_algorithm" rel="nofollow">An implementation in Java</a> at the Code Codex</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/e/Bresenham%27s_line_algorithm.html">http://en.wikipedia.org../../../b/r/e/Bresenham%27s_line_algorithm.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../g/e/o/Category%7EGeometric_algorithms_2779.html" title="Category:Geometric algorithms">Geometric algorithms</a></span> | <span dir='ltr'><a href="../../../d/i/g/Category%7EDigital_geometry_3fcc.html" title="Category:Digital geometry">Digital geometry</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/e/Bresenham%27s_line_algorithm.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/r/e/Talk%7EBresenham%27s_line_algorithm_9942.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/r/e/Bresenham-Algorithmus_2acd.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/l/g/Algorithme_de_trac%C3%A9_de_segment_de_Bresenham_9371.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/a/l/g/Algoritmo_della_linea_di_Bresenham_201c.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/a/l/g/Algoritmo_de_Bresenham_b1da.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B0/%D0%BB/%D0%B3/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D1%80%D0%B5%D0%B7%D0%B5%D0%BD%D1%85%D1%8D%D0%BC%D0%B0_9765.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../tr/b/r/e/Bresenham%27%C4%B1n_%C3%A7izgi_algoritmas%C4%B1.html">Türkçe</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:48, 4 April 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../a/n/t/User%7EAntiVandalBot_aa84.html" title="User:AntiVandalBot">AntiVandalBot</a>, Subhranath, PeterFrankfurt, <a href="../../../b/e/n/User%7EBenFrantzDale_c7e5.html" title="User:BenFrantzDale">BenFrantzDale</a>, <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a>, Intrivious, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, <a href="../../../d/z/h/User%7EDzhim_91dd.html" title="User:Dzhim">Dzhim</a>, <a href="../../../s/w/a/User%7ESWAdair_e7db.html" title="User:SWAdair">SWAdair</a>, Eelkefolmer, <a href="../../../e/g/i/User%7EEgil530_5263.html" title="User:Egil530">Egil530</a>, Cbmeeks, <a href="../../../g/e/o/User%7EGeorgeMoney_583b.html" title="User:GeorgeMoney">GeorgeMoney</a>, <a href="../../../n/u/n/User%7ENuno_Tavares_6b5f.html" title="User:Nuno Tavares">Nuno Tavares</a>, <a href="../../../i/_/h/User%7EI_hate_to_register_7601.html" title="User:I hate to register">I hate to register</a>, <a href="../../../a/l/l/User%7EAllan_McInnes_23d1.html" title="User:Allan McInnes">Allan McInnes</a>, <a href="../../../h/e/n/User%7EHenrik_6ef6.html" title="User:Henrik">Henrik</a>, Mlshoe, <a href="../../../b/m/f/User%7EBMF81_a4e8.html" title="User:BMF81">BMF81</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../h/a/s/User%7EHasharBot_fdaa.html" title="User:HasharBot">HasharBot</a>, <a href="../../../a/l/a/User%7EAlan_De_Smet_d95a.html" title="User:Alan De Smet">Alan De Smet</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../b/e/v/User%7EBevo_cf25.html" title="User:Bevo">Bevo</a>, <a href="../../../r/j/e/User%7ERje_9381.html" title="User:Rje">Rje</a>, <a href="../../../v/i/k/User%7EVikreykja_0ecb.html" title="User:Vikreykja">Vikreykja</a>, <a href="../../../r/e/d/User%7ERedWolf_0f32.html" title="User:RedWolf">RedWolf</a>, <a href="../../../a/r/n/User%7EArnoldReinhold_8f4c.html" title="User:ArnoldReinhold">ArnoldReinhold</a>, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, <a href="../../../j/a/r/User%7EJaredwf_4536.html" title="User:Jaredwf">Jaredwf</a>, <a href="../../../d/m/s/User%7EDmsar_0fc6.html" title="User:Dmsar">Dmsar</a>, <a href="../../../w/a/p/User%7EWapcaplet_7f49.html" title="User:Wapcaplet">Wapcaplet</a>, <a href="../../../r/l/e/User%7ERlee0001_9e38.html" title="User:Rlee0001">Rlee0001</a>, <a href="../../../b/4/h/User%7EB4hand_8888.html" title="User:B4hand">B4hand</a> and <a href="../../../j/e/r/User%7EJeronimo_378d.html" title="User:Jeronimo">Jeronimo</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

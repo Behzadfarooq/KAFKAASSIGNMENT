@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Atiyah–Singer index theorem,2004,Abel Prize,Armand Borel,Ascending and Descending,Chern character,Cobordism,Cobordism theory,Cokernel,Compact,Compact manifold" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Atiyah–Singer index theorem - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Atiyah–Singer index theorem</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In the <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a> of <a href="../../../m/a/n/Manifold.html" title="Manifold">manifolds</a> and <a href="../../../d/i/f/Differential_operator.html" title="Differential operator">differential operators</a>, the <b>Atiyah–Singer index theorem</b> states that for an <a href="../../../e/l/l/Elliptic_operator.html" title="Elliptic operator">elliptic differential operator</a> on a <a href="../../../c/o/m/Compact_manifold.html" title="Compact manifold">compact manifold</a>, the <b>analytical index</b> (closely related to the dimension of the space of solutions) is equal to the <b>topological index</b> (defined in terms of some topological data). It includes many other important theorems (such as the <a href="../../../r/i/e/Riemann-Roch_theorem_f9bb.html" title="Riemann-Roch theorem">Riemann-Roch theorem</a>) as special cases, and has applications in <a href="../../../t/h/e/Theoretical_physics.html" title="Theoretical physics">theoretical physics</a>.</p>
+<p>It was proved by <a href="../../../m/i/c/Michael_Atiyah_c834.html" title="Michael Atiyah">Michael Atiyah</a> and <a href="../../../i/s/a/Isadore_Singer_75c2.html" title="Isadore Singer">Isadore Singer</a> in 1963.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Notation"><span class="tocnumber">1</span> <span class="toctext">Notation</span></a></li>
+<li class="toclevel-1"><a href="#The_symbol_of_a_differential_operator"><span class="tocnumber">2</span> <span class="toctext">The symbol of a differential operator</span></a></li>
+<li class="toclevel-1"><a href="#The_analytical_index"><span class="tocnumber">3</span> <span class="toctext">The analytical index</span></a></li>
+<li class="toclevel-1"><a href="#The_topological_index"><span class="tocnumber">4</span> <span class="toctext">The topological index</span></a></li>
+<li class="toclevel-1"><a href="#The_Atiyah-Singer_index_theorem"><span class="tocnumber">5</span> <span class="toctext">The Atiyah-Singer index theorem</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">6</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_Euler_characteristic"><span class="tocnumber">6.1</span> <span class="toctext">The Euler characteristic</span></a></li>
+<li class="toclevel-2"><a href="#Hirzebruch-Riemann-Roch_theorem"><span class="tocnumber">6.2</span> <span class="toctext">Hirzebruch-Riemann-Roch theorem</span></a></li>
+<li class="toclevel-2"><a href="#Hirzebruch_signature_theorem"><span class="tocnumber">6.3</span> <span class="toctext">Hirzebruch signature theorem</span></a></li>
+<li class="toclevel-2"><a href="#The_.C3.82_genus_and_Rochlin.27s_theorem"><span class="tocnumber">6.4</span> <span class="toctext">The Â genus and Rochlin's theorem</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">7</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#Proof_techniques"><span class="tocnumber">8</span> <span class="toctext">Proof techniques</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Pseudodifferential_operators"><span class="tocnumber">8.1</span> <span class="toctext">Pseudodifferential operators</span></a></li>
+<li class="toclevel-2"><a href="#Cobordism"><span class="tocnumber">8.2</span> <span class="toctext">Cobordism</span></a></li>
+<li class="toclevel-2"><a href="#K_theory"><span class="tocnumber">8.3</span> <span class="toctext">K theory</span></a></li>
+<li class="toclevel-2"><a href="#Heat_equation"><span class="tocnumber">8.4</span> <span class="toctext">Heat equation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Generalizations"><span class="tocnumber">9</span> <span class="toctext">Generalizations</span></a></li>
+<li class="toclevel-1"><a href="#Abel_Prize_citation"><span class="tocnumber">10</span> <span class="toctext">Abel Prize citation</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">11</span> <span class="toctext">References</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Books"><span class="tocnumber">11.1</span> <span class="toctext">Books</span></a></li>
+<li class="toclevel-2"><a href="#Papers"><span class="tocnumber">11.2</span> <span class="toctext">Papers</span></a></li>
+<li class="toclevel-2"><a href="#External_links"><span class="tocnumber">11.3</span> <span class="toctext">External links</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Notation" id="Notation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Notation">edit</a>]</span> <span class="mw-headline">Notation</span></h2>
+<ul>
+<li><i>X</i> is a <a href="../../../c/o/m/Compact.html" title="Compact">compact</a> smooth <a href="../../../m/a/n/Manifold.html" title="Manifold">manifold</a> <i>M</i> (without boundary).</li>
+<li><i>E</i> and <i>F</i> are smooth <a href="../../../v/e/c/Vector_bundle.html" title="Vector bundle">vector bundles</a> over <i>X</i>.</li>
+<li><i>D</i> is an elliptic differential operator from <i>E</i> to <i>F</i>. So in local coordinates it acts as a differential operator, taking smooth sections of <i>E</i> to smooth sections of <i>F</i>.</li>
+</ul>
+<p><a name="The_symbol_of_a_differential_operator" id="The_symbol_of_a_differential_operator"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: The symbol of a differential operator">edit</a>]</span> <span class="mw-headline">The symbol of a differential operator</span></h2>
+<p>If <i>D</i> is a differential operator of order <i>n</i> in <i>k</i> variables</p>
+<dl>
+<dd><i>x</i><sub>1</sub>, ..., <i>x</i><sub><i>k</i></sub>,</dd>
+</dl>
+<p>then its symbol is the function of 2<i>k</i> variables</p>
+<dl>
+<dd><i>x</i><sub>1</sub>, ... , <i>x</i><sub><i>k</i></sub>, <i>y</i><sub>1</sub>, ..., <i>y</i><sub><i>k</i></sub>,</dd>
+</dl>
+<p>given by dropping all terms of order less than <i>n</i> and replacing ∂/∂<i>x</i><sub><i>i</i></sub> by <i>y</i><sub><i>i</i></sub>. So the symbol is homogeneous in the variables <i>y</i>, of degree <i>n</i>. The symbol is well defined even though ∂/∂<i>x</i><sub><i>i</i></sub> does not commute with <i>x</i><sub><i>i</i></sub> because we only keep the highest order terms and differential operators commute "up to lower-order terms". The operator is called <b>elliptic</b> if the symbol is nonzero whenever at least one <i>y</i> is nonzero.</p>
+<p>Example: The Laplace operator in <i>k</i> variables has symbol <i>y</i><sub>1</sub><sup>2</sup> + ... + <i>y</i><sub><i>k</i></sub><sup>2</sup>, and so is elliptic as this is nonzero whenever all the <i>y'</i>s are nonzero. The wave operator has symbol −<i>y</i><sub>1</sub><sup>2</sup> + ... + <i>y</i><sub><i>k</i></sub><sup>2</sup>, which is not elliptic if <i>k</i> ≥ 2, as the symbol vanishes for some non-zero values of the <i>y</i>s.</p>
+<p>The symbol of a differential operator of order <i>n</i> on a smooth manifold <i>X</i> is defined in much the same way using local coordinate charts, and is a function on the <a href="../../../c/o/t/Cotangent_bundle.html" title="Cotangent bundle">cotangent bundle</a> of <i>X</i>, homogeneous of degree <i>n</i> on each cotangent space. (In general, differential operators transform in a rather complicated way under coordinate transforms (see <a href="../../../j/e/t/Jet_bundle.html" title="Jet bundle">jet bundle</a>); however, the highest order terms transform like tensors so we get well defined homogeneous functions on the cotangent spaces that are independent of the choice of local charts.) More generally, the symbol of a differential operator between two vector bundles <i>E</i> and <i>F</i> is a section of the pullback of the bundle</p>
+<dl>
+<dd>Hom(<i>E</i>, <i>F</i>)</dd>
+</dl>
+<p>to the cotangent space of <i>X</i>. The differential operator is called <i>elliptic</i> if the element of Hom(<i>E</i><sub><i>x</i></sub>,&#160;<i>F</i><sub><i>x</i></sub>) is invertible for all non-zero cotangent vectors at any point <i>x</i> of <i>X</i>.</p>
+<p>A key property of elliptic operators is that they are almost invertible; this is closely related to the fact that their symbols are almost invertible. More precisely, an elliptic operator <i>D</i> on a compact manifold has a (non-unique) <b><a href="../../../p/s/e/Pseudoinverse.html" title="Pseudoinverse">pseudoinverse</a></b> <i>D</i>′ such that <i>DD</i>′&#160;−&#160;1 and <i>D′D</i>&#160;−&#160;1 are both compact operators. An important consequence is that the kernel of <i>D</i> is finite dimensional, because all eigenspaces of compact operators are finite-dimensional. (The pseudoinverse of an elliptic differential operator is almost never a differential operator. However, it is an elliptic pseudodifferential operator.)</p>
+<p><a name="The_analytical_index" id="The_analytical_index"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: The analytical index">edit</a>]</span> <span class="mw-headline">The analytical index</span></h2>
+<p>As the elliptic differential operator <i>D</i> has a pseudoinverse, it is a <a href="../../../f/r/e/Fredholm_operator.html" title="Fredholm operator">Fredholm operator</a>. Any Fredholm operator has an <i>index</i>, defined as the difference between the (finite) dimension of the <a href="../../../k/e/r/Kernel_%28algebra%29.html" title="Kernel (algebra)">kernel</a> of <i>D</i> (solutions of <i>Df</i> = 0), and the (finite) dimension of the <a href="../../../c/o/k/Cokernel.html" title="Cokernel">cokernel</a> of <i>D</i> (the constraints on the right-hand-side of an inhomogeneous equation like <i>Df</i> = <i>g</i>, or equivalently the kernel of the adjoint operator). In other words,</p>
+<dl>
+<dd>Index(<i>D</i>) = Dim Ker(D) − Dim Coker(<i>D</i>) = Dim Ker(D) − Dim Ker(<i>D</i><sup>*</sup>).</dd>
+</dl>
+<p>This is sometimes called the <b>analytical index</b> of <i>D</i>.</p>
+<p>Example. Suppose that the manifold is the circle (thought of as <b>R</b>/<b>Z</b>), and <i>D</i> is the operator d/dx − λ for some complex constant λ. (This is the simplest example of an elliptic operator.) Then the kernel is the space of multiples of exp(λ<i>x</i>) if λ is an integral multiple of 2π<i>i</i> and is 0 otherwise, and the kernel of the adjoint is a similar space with λ replaced by its complex conjugate. So <i>D</i> has index 0. This example shows that the kernel and cokernel of elliptic operators can jump discontinuously as the elliptic operator varies, so there is no nice formula for their dimensions in terms of continuous topological data. However the jumps in the dimensions of the kernel and cokernel are the same, so the index, given by the difference of their dimensions, does vary continuously, and can be given in terms of topological data by the index theorem.</p>
+<p><a name="The_topological_index" id="The_topological_index"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: The topological index">edit</a>]</span> <span class="mw-headline">The topological index</span></h2>
+<p>The <b>topological index</b> of an elliptic differential operator <i>D</i> between smooth vector bundles <i>E</i> and <i>F</i> on an <i>n</i>-dimensional compact manifold <i>X</i> is given by</p>
+<dl>
+<dd>ch(<i>D</i>)Td(<i>X</i>)[<i>X</i>],</dd>
+</dl>
+<p>in other words the value of the top dimensional component of the mixed cohomology class ch(<i>D</i>)Td(<i>X</i>) on the <a href="../../../f/u/n/Fundamental_homology_class.html" title="Fundamental homology class">fundamental homology class</a> of the manifold <i>X</i>. Here,</p>
+<ul>
+<li>Td(<i>X</i>) is the <a href="../../../t/o/d/Todd_class.html" title="Todd class">Todd class</a> of the manifold <i>X</i>.</li>
+<li>ch(<i>D</i>) is equal to φ<sup>−1</sup>(ch(d(<i>E</i>,<i>F</i>, σ(<i>D</i>)), where</li>
+<li>φ is the <a href="../../../t/h/o/Thom_isomorphism.html" title="Thom isomorphism">Thom isomorphism</a> from H<sup><i>k</i></sup>(<i>X</i>,<b>Q</b>) to H<sup><i>n+k</i></sup>(<i>B</i>(<i>X</i>)/<i>S</i>(<i>X</i>),<b>Q</b>)</li>
+<li><i>B</i>(<i>X</i>) is the unit ball bundle of the cotangent bundle of <i>X</i>, and <i>S</i>(<i>X</i>) is its boundary, and <i>p</i> is the projection to <i>X</i>.</li>
+<li>ch is the <a href="../../../c/h/e/Chern_character.html" title="Chern character">Chern character</a> from K-theory K(<i>X</i>) to the rational cohomology ring H(<i>X</i>,<b>Q</b>).</li>
+<li>d(<i>p</i><sup>*</sup><i>E</i>,<i>p</i><sup>*</sup><i>F</i>, σ(<i>D</i>)) is the "difference element" of K(<i>B</i>(<i>X</i>)/<i>S</i>(<i>X</i>)) associated to two vector bundles <i>p</i><sup>*</sup><i>E</i> and <i>p</i><sup>*</sup><i>F</i> on <i>B</i>(<i>X</i>) and an isomorphism σ(<i>D</i>) between them on the subspace <i>S</i>(<i>X</i>).</li>
+<li>σ(<i>D</i>) is the symbol of <i>D</i></li>
+</ul>
+<p>Another method of defining the topological index uses K theory. If <i>X</i> is a compact submanifold of a manifold <i>Y</i> then there is a pushforward operation from K(<i>TX</i>) to K(<i>TY</i>). The topological index of an element of K(<i>TX</i>) is defined to be the image of this operation with <i>Y</i> some Euclidean space, for which K(<i>TY</i>) can be naturally identified with the integers <b>Z</b>. This index is independent of the embedding of <i>X</i> in Euclidean space.</p>
+<p><a name="The_Atiyah-Singer_index_theorem" id="The_Atiyah-Singer_index_theorem"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: The Atiyah-Singer index theorem">edit</a>]</span> <span class="mw-headline">The Atiyah-Singer index theorem</span></h2>
+<p>As usual, <i>D</i> is an elliptic differential operator between vector bundles <i>E</i> and <i>F</i> over a compact manifold <i>X</i>.</p>
+<p>The <i>index problem</i> is the following: compute the (analytical) index of <i>D</i> using only the symbol <i>s</i> and <i>topological</i> data derived from the manifold and the vector bundle. The Atiyah-Singer index theorem solves this problem, and states:</p>
+<dl>
+<dd><b>The analytical index of <i>D</i> is equal to its topological index.</b></dd>
+</dl>
+<p>In spite of its formidable definition, the topological index is usually straightforward to evaluate explicitly. So this makes it possible to evaluate the analytical index. (The cokernel and kernel of an elliptic operator are in general extremely hard to evaluate individually; the index theorem shows that we can usually at least evaluate their <b>difference</b>.) Many important invariants of a manifold (such as the signature) can be given as the index of suitable differential operators, so the index theorem allows us to evaluate these invariants in terms of topological data.</p>
+<p>Although the analytical index is usually hard to evaluate directly, it is at least obviously an integer. The topological index is by definition a rational number, but it is usually not at all obvious from the definition that it is also integral. So the Atiyah-Singer index theorem implies some deep integrality properties, as it implies that the topological index is integral.</p>
+<p>The index of an elliptic differential operator obviously vanishes if the operator is self adjoint. It also vanishes if the manifold <i>X</i> has odd dimension, though there are pseudodifferential elliptic operators whose index does not vanish in odd dimensions.</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p><a name="The_Euler_characteristic" id="The_Euler_characteristic"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: The Euler characteristic">edit</a>]</span> <span class="mw-headline">The Euler characteristic</span></h3>
+<p>Suppose that <i>X</i> is a compact oriented manifold. If we take <i>E</i> to be the sum of the even exterior powers of the cotangent bundle, and <i>F</i> to be the sum of the odd powers, define <i>D</i> to be <i>d</i>&#160;+&#160;<i>d</i><sup>*</sup>, considered as a map from <i>E</i> to F. Then the topological index of <i>D</i> is the <a href="../../../e/u/l/Euler_characteristic.html" title="Euler characteristic">Euler characteristic</a> of <i>M</i> and the analytical index is the alternating sum of the dimensions of the de Rham cohomology groups.</p>
+<p><a name="Hirzebruch-Riemann-Roch_theorem" id="Hirzebruch-Riemann-Roch_theorem"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Hirzebruch-Riemann-Roch theorem">edit</a>]</span> <span class="mw-headline">Hirzebruch-Riemann-Roch theorem</span></h3>
+<p>Take <i>X</i> to be a <a href="../../../c/o/m/Complex_manifold.html" title="Complex manifold">complex manifold</a> with a complex vector bundle <i>V</i>. We let the vector bundles <i>E</i> and <i>F</i> be the sums of the bundles of differential forms with coefficients in <i>V</i> of type (0,<i>i</i>) with <i>i</i> even or odd, and we let the differential operator <i>D</i> be the sum</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/a/2/7a2204481a8f2362ddb0a1f73a2eebe9.png" alt="\overline\partial + \overline\partial^*" /></dd>
+</dl>
+<p>restricted to <i>E</i>. Then the analytical index of <i>D</i> is the <a href="../../../h/o/l/Holomorphic_Euler_characteristic_04ff.html" title="Holomorphic Euler characteristic">holomorphic Euler characteristic</a> of <i>V</i>:</p>
+<dl>
+<dd>index(<i>D</i>) = Σ(−1)<sup><i>p</i></sup> dim <i>H</i><sup><i>p</i></sup>(<i>X</i>,<i>V</i>)</dd>
+</dl>
+<p>The topological index of <i>D</i> is given by</p>
+<dl>
+<dd>index(<i>D</i>) = ch(<i>V</i>)Td(<i>X</i>)[<i>X</i>],</dd>
+</dl>
+<p>the product of the Chern character of <i>V</i> and the Todd class of <i>X</i> evaluated on the fundamental class of <i>X</i>. By equating the topological and analytical indices we get the <a href="../../../h/i/r/Hirzebruch-Riemann-Roch_theorem_a8db.html" title="Hirzebruch-Riemann-Roch theorem">Hirzebruch-Riemann-Roch theorem</a>. In fact we get a generalization of it to all complex manifolds: Hirzebruch's proof only worked for <b>projective</b> complex manifolds <i>X</i>.</p>
+<p>This derivation of the Hirzebruch-Riemann-Roch theorem is more natural if we use the index theorem for elliptic complexes rather than elliptic operators. We can take the complex to be</p>
+<dl>
+<dd>0→<i>V</i>→<i>V</i>⊗Λ<sup>0,1</sup><i>T</i><sup>*</sup>(<i>X</i>)→<i>V</i>⊗Λ<sup>0,2</sup><i>T</i><sup>*</sup>(<i>X</i>)...</dd>
+</dl>
+<p>with the differential given by <img class='tex' src="../../../math/9/f/8/9f8d7183cde096bd7d29773fbaaefd65.png" alt="\overline\partial" />. Then the <i>i'</i>th cohomology group is just the coherent cohomology group H<sup><i>i</i></sup>(<i>X</i>, <i>V</i>), so the analytical index of this complex is the holomorphic Euler characteristic Σ (−1)<sup><i>i</i></sup> dim(H<sup><i>i</i></sup>(<i>X</i>, <i>V</i>)). As before, the topological index is ch(<i>W</i>)Td(<i>X</i>)[<i>X</i>].</p>
+<p><a name="Hirzebruch_signature_theorem" id="Hirzebruch_signature_theorem"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Hirzebruch signature theorem">edit</a>]</span> <span class="mw-headline">Hirzebruch signature theorem</span></h3>
+<p>The <a href="../../../h/i/r/Hirzebruch_signature_theorem.html" title="Hirzebruch signature theorem">Hirzebruch signature theorem</a> states that the signature of a compact smooth manifold <i>X</i> of dimension 4<i>k</i> is given by the <a href="../../../l/_/g/L_genus.html" title="L genus">L genus</a> of the manifold. This follows from the Atiyah-Singer index theorem applied to the following <b>signature operator</b>.</p>
+<p>The bundles <i>E</i> and <i>F</i> are given by the +1 and −1 eigenspaces of the operator on the bundle of differential forms of <i>X</i>, that acts on <i>k</i>-forms as</p>
+<dl>
+<dd><i>i</i><sup><i>k</i>(<i>k</i>−1)</sup></dd>
+</dl>
+<p>times the <a href="../../../h/o/d/Hodge_dual.html" title="Hodge dual">Hodge * operator</a>. The operator <i>D</i> is</p>
+<dl>
+<dd><i>d</i> + <i>d</i><sup>*</sup></dd>
+</dl>
+<p>restricted to <i>E</i>, where <i>d</i> is the Cartan <a href="../../../e/x/t/Exterior_derivative.html" title="Exterior derivative">exterior derivative</a> and <i>d</i><sup>*</sup> is its adjoint.</p>
+<p>The analytic index of <i>D</i> is the signature of the manifold <i>X</i>, and its topological index is the L genus of <i>X</i>, so these are equal.</p>
+<p><a name="The_.C3.82_genus_and_Rochlin.27s_theorem" id="The_.C3.82_genus_and_Rochlin.27s_theorem"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: The Â genus and Rochlin's theorem">edit</a>]</span> <span class="mw-headline">The Â genus and Rochlin's theorem</span></h3>
+<p>The <a href="../../../%C3%A2/_/g/%C3%82_genus.html" title="Â genus">Â genus</a> is a rational number defined for any manifold, but is in general not an integer. Borel and Hirzebruch showed that it is integral for spin manifolds, and even if in addition the dimension is 4 mod 8. This can be deduced from the index theorem, which implies that the Â genus for spin manifolds is the index of a Dirac operator. The extra factor of 2 in dimensions 4 mod 8 comes from the fact that in this case the kernel and cokernel of the Dirac operator have a quaternionic structure, so as complex vector spaces they have even dimensions, so the index is even.</p>
+<p>In dimension 4 this result implies <a href="../../../r/o/c/Rochlin%27s_theorem.html" title="Rochlin's theorem">Rochlin's theorem</a> that the signature of a 4 dimensional spin manifold is divisible by 16: this follows because in dimension 4 the Â genus is minus one eighth of the signature.</p>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>The index problem for elliptic differential operators was posed in 1959 by <a href="../../../i/s/r/Israel_Gelfand_c289.html" title="Israel Gelfand">Israel Gelfand</a> (<i>On Elliptic Equations</i>, in <i>Russian Mathematical Surveys</i>, 1960). He noticed the homotopy invariance of the index, and asked for a formula for it by means of <a href="../../../t/o/p/Topological_invariant.html" title="Topological invariant">topological invariants</a>. Some of the motivating examples included the <a href="../../../r/i/e/Riemann-Roch_theorem_f9bb.html" title="Riemann-Roch theorem">Riemann-Roch theorem</a> and its generalization the <a href="../../../h/i/r/Hirzebruch-Riemann-Roch_theorem_a8db.html" title="Hirzebruch-Riemann-Roch theorem">Hirzebruch-Riemann-Roch theorem</a>, and the <a href="../../../h/i/r/Hirzebruch_signature_theorem.html" title="Hirzebruch signature theorem">Hirzebruch signature theorem</a>. <a href="../../../f/r/i/Friedrich_Hirzebruch_fb73.html" title="Friedrich Hirzebruch">Hirzebruch</a> and <a href="../../../a/r/m/Armand_Borel_6995.html" title="Armand Borel">Borel</a> had proved the integrality of the <a href="../../../%C3%A2/_/g/%C3%82_genus.html" title="Â genus">Â genus</a> of a spin manifold, and Atiyah suggested that this integrality could be explained if it were the index of the <a href="../../../d/i/r/Dirac_operator.html" title="Dirac operator">Dirac operator</a> (which was rediscovered by Atiyah and Singer in 1961).</p>
+<p>The first research announcement was a 1963 paper (Atiyah-Singer). The proof sketched in this announcement was never published by them, though it appears in the book by Palais. Their first published proof replaced the <a href="../../../c/o/b/Cobordism.html" title="Cobordism">cobordism</a> theory of the first proof with <a href="../../../k/-/t/K-theory.html" title="K-theory">K-theory</a>, and they used this to give proofs of various generalizations in a sequence of papers (listed in the references below).</p>
+<p>In 1973 Atiyah, <a href="../../../r/a/o/Raoul_Bott_b207.html" title="Raoul Bott">Bott</a>, and <a href="../../../v/i/j/Vijay_Kumar_Patodi_793b.html" title="Vijay Kumar Patodi">Patodi</a> gave a new proof of the index theorem using the <a href="../../../h/e/a/Heat_equation.html" title="Heat equation">heat equation</a>.</p>
+<p>In 1983 Getzler, motivated by ideas of <a href="../../../e/d/w/Edward_Witten_3887.html" title="Edward Witten">Witten</a> and Alvarez-Gaume, gave a short proof of the local index theorem for operators that are locally <a href="../../../d/i/r/Dirac_operator.html" title="Dirac operator">Dirac operators</a>. (This covers most of the useful cases.)</p>
+<p><a name="Proof_techniques" id="Proof_techniques"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Proof techniques">edit</a>]</span> <span class="mw-headline">Proof techniques</span></h2>
+<p><a name="Pseudodifferential_operators" id="Pseudodifferential_operators"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Pseudodifferential operators">edit</a>]</span> <span class="mw-headline">Pseudodifferential operators</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../p/s/e/Pseudodifferential_operator.html" title="Pseudodifferential operator">pseudodifferential operator</a></i></div>
+</dd>
+</dl>
+<p>Pseudodifferential operators can be explained easily in the case of constant coefficient operators on Euclidean space. In this case, constant coefficient differential operators are just the Fourier transforms of multiplication by polynomials, and constant coefficient pseudodifferential operators are just the Fourier transforms of multiplication by more general functions.</p>
+<p>Many proofs of the index theorem use pseudodifferential operators rather than differential operators. The reason for this is that for many purposes there are not enough differential operators. For example, a pseudoinverse of an elliptic differential operator is almost never a differential operator, but is a pseudodifferential operator. Also it is not true in general that all elements of K(B(<i>X</i>),<i>S</i>(<i>X</i>)) are represented by symbols of differential operators, and not all homotopies between symbols can be raised to homotopies between differential operators. However the analogous facts are true for pseudodifferential operators.</p>
+<p>Pseudodifferential operators have an order, which can be any real number or even −∞, and have symbols (which are no longer polynomials on the cotangent space), and elliptic differential operators are those whose symbols are invertible for sufficiently large cotangent vectors. Most version of the index theorem can be extended from elliptic differential operators to elliptic pseudodifferential operators.</p>
+<p><a name="Cobordism" id="Cobordism"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Cobordism">edit</a>]</span> <span class="mw-headline">Cobordism</span></h3>
+<p>The initial proof was based on that of the <a href="../../../h/i/r/Hirzebruch-Riemann-Roch_theorem_a8db.html" title="Hirzebruch-Riemann-Roch theorem">Hirzebruch-Riemann-Roch theorem</a> (1954), and involved <a href="../../../c/o/b/Cobordism_theory.html" title="Cobordism theory">cobordism theory</a> and pseudodifferential operators.</p>
+<p>The idea of this first proof is roughly as follows. Consider the ring generated by pairs (<i>X</i>,<i>V</i>) where <i>V</i> is a smooth vector bundle on the compact smooth oriented manifold <i>X</i>, with relations that the sum and product of the ring on these generators are given by disjoint union and product of manifolds (with the obvious operations on the vector bundles), and any boundary of a manifold with vector bundle is 0. This is similar to the cobordism ring of oriented manifolds, except that the manifolds also have a vector bundle. The topological and analytical indices are both reinterpreted as functions from this ring to the integers. Then one checks that these two functions are in fact both ring homomorphisms. In order to prove they are the same, it is then only necessary to check they are the same on a set of generators of this ring. Thom's cobordism theory gives a set of generators; for example, complex vector spaces with the trivial bundle together with certain bundles over even dimensional spheres. So the index theorem can be proved by checking it on these particularly simple cases.</p>
+<p><a name="K_theory" id="K_theory"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: K theory">edit</a>]</span> <span class="mw-headline">K theory</span></h3>
+<p>Atiyah and Singer's first published proof used K theory rather than cobordism. If <i>i</i> is any inclusion of compact manifolds from <i>X</i> to <i>Y</i>, they defined a 'pushforward' operation <i>i</i><sub>!</sub> on elliptic operators of <i>X</i> to elliptic operators of <i>Y</i> that preserves the index. By taking <i>Y</i> so be some sphere that <i>X</i> embeds in this reduces the index theorem to the case of spheres. If <i>Y</i> is a sphere and <i>X</i> is some point embedded in <i>Y</i>, then any elliptic operator on <i>Y</i> is the image under <i>i</i><sub>!</sub> of some elliptic operator on the point. This reduces the index theorem to the case of a point, when it is trivial.</p>
+<p><a name="Heat_equation" id="Heat_equation"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Heat equation">edit</a>]</span> <span class="mw-headline">Heat equation</span></h3>
+<div class="notice metadata plainlinks" id="stub">
+<table style="width:auto;background:none">
+<tr>
+<td width="40px"><a href="../../../w/i/k/Image%7EWiki_letter_w.svg_e974.html" class="image" title=""><img src="../../../upload/shared/thumb/6/6c/Wiki_letter_w.svg/35px-Wiki_letter_w.svg.png" alt="" width="35" height="35" longdesc="../../../w/i/k/Image%7EWiki_letter_w.svg_e974.html" /></a></td>
+<td><i>This section is a <a href="../../../s/t/u/Wikipedia%7EStub_72af.html" title="Wikipedia:Stub">stub</a>. You can help by <a href="http://en.wikipedia.org../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" class="external text" title="http://en.wikipedia.org../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" rel="nofollow">expanding it</a>.</i></td>
+</tr>
+</table>
+</div>
+<p><a name="Generalizations" id="Generalizations"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Generalizations">edit</a>]</span> <span class="mw-headline">Generalizations</span></h2>
+<ul>
+<li>The Atiyah-Singer theorem applies to elliptic <a href="../../../p/s/e/Pseudodifferential_operator.html" title="Pseudodifferential operator">pseudodifferential operators</a> in much the same way as for elliptic differential operators. In fact, for technical reasons most of the early proofs worked with pseudodifferential rather than differential operators: their extra flexibility made some steps of the proofs easier.</li>
+</ul>
+<ul>
+<li>Instead of working with an elliptic operator between two vector bundles, it is sometimes more convenient to work with an <i><a href="../../../e/l/l/Elliptic_complex.html" title="Elliptic complex">elliptic complex</a></i></li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>0 → <i>E</i><sub>0</sub> → <i>E</i><sub>1</sub> →<i>E</i><sub>2</sub> → ... → <i>E</i><sub><i>m</i></sub> →0</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>of vector bundles. The difference is that the symbols now form an exact sequence (off the zero section). In the case when there are just two non-zero bundles in the complex this implies that the symbol is an isomorphism off the zero section, so an elliptic complex with 2 terms is essentially the same as an elliptic operator between two vector bundles. Conversely the index theorem for an elliptic complex can easily be reduced to the case of an elliptic operator: the two vector bundles are given by the sums of the even or odd terms of the complex, and the elliptic operator is the sum of the operators of the elliptic complex and their adjoints, restricted to the sum of the even bundles.</dd>
+</dl>
+<ul>
+<li>If the <a href="../../../m/a/n/Manifold.html" title="Manifold">manifold</a> is allowed to have boundary, then some restrictions must be put on the domain of the elliptic operator in order to ensure a finite index. These conditions can be local (like demanding that the sections in the domain vanish at the boundary) or more complicated global conditions (like requiring that the sections in the domain solve some differential equation). The local case was worked out by Atiyah and Bott, but they showed that many interesting operators (e.g., the signature operator) do not admit local boundary conditions. To handle these operators, <a href="../../../m/i/c/Michael_Atiyah_c834.html" title="Michael Atiyah">Atiyah</a>, <a href="../../../v/i/j/Vijay_Kumar_Patodi_793b.html" title="Vijay Kumar Patodi">Patodi</a> and <a href="../../../i/s/a/Isadore_Singer_75c2.html" title="Isadore Singer">Singer</a> introduced global boundary conditions equivalent to attaching a cylinder to the manifold along the boundary and then restricting the domain to those sections that are square integrable along the cylinder. This point of view is adopted in the proof of Melrose of the Atiyah-Patodi-Singer index theorem (see reference below).</li>
+</ul>
+<ul>
+<li>Instead of just one elliptic operator, one can consider a family of elliptic operators parameterized by some space <i>Y</i>. In this case the index is an element of the K-theory of <i>Y</i>, rather than an integer. If the operators in the family are real, then the index lies in the real K-theory of <i>Y</i>. This gives a little extra information, as the map from the real K theory of <i>Y</i> to the complex K theory is not always injective.</li>
+</ul>
+<ul>
+<li>If there is a <a href="../../../g/r/o/Group_action.html" title="Group action">group action</a> of a group <i>G</i> on the compact manifold <i>X</i>, commuting with the elliptic operator, then one replaces ordinary K theory with equivariant K-theory. Moreover, one gets generalizations of the <a href="../../../l/e/f/Lefschetz_fixed_point_theorem.html" title="Lefschetz fixed point theorem">Lefschetz fixed point theorem</a>, with terms coming from fixed point submanifolds of the group <i>G</i>.</li>
+</ul>
+<ul>
+<li>Atiyah showed how to extend the index theorem to some non-compact manifolds, acted on by a discrete group with compact quotient. The kernel of the elliptic operator is in general infinite dimensional in this case, but it is possible to get a finite index using the dimension of a module over a <a href="../../../v/o/n/Von_Neumann_algebra_2a8c.html" title="Von Neumann algebra">von Neumann algebra</a>; this index is in general real rather than integer valued. This version is called the <b>L<sup>2</sup> index theorem</b>, and was used by Atiyah and Wilfried Schmid to rederive properties of the <a href="../../../d/i/s/Discrete_series_representation.html" title="Discrete series representation">discrete series representations</a> of <a href="../../../s/e/m/Semisimple_Lie_group_4b06.html" title="Semisimple Lie group">semisimple Lie groups</a>. See Astérisque 32-3 (9176) 43-72.</li>
+</ul>
+<p><a name="Abel_Prize_citation" id="Abel_Prize_citation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Abel Prize citation">edit</a>]</span> <span class="mw-headline">Abel Prize citation</span></h2>
+<p>When <a href="../../../m/i/c/Michael_Atiyah_c834.html" title="Michael Atiyah">Michael Atiyah</a> and <a href="../../../i/s/a/Isadore_Singer_75c2.html" title="Isadore Singer">Isadore Singer</a> were awarded the <a href="../../../a/b/e/Abel_Prize_e790.html" title="Abel Prize">Abel Prize</a> by the <a href="../../../n/o/r/Norwegian_Academy_of_Science_and_Letters_fe50.html" title="Norwegian Academy of Science and Letters">Norwegian Academy of Science and Letters</a> in <a href="../../../2/0/0/2004.html" title="2004">2004</a>, the prize announcement explained the Atiyah–Singer index theorem in these words:</p>
+<table align="center" style="border-collapse:collapse; border-style:none; background-color:transparent;" class="cquote">
+<tr>
+<td width="20" valign="top" style="color:#B2B7F2;font-size:35px;font-family:'Times New Roman',serif;font-weight:bold;text-align:left;padding:10px 10px;">“</td>
+<td valign="top" style="padding:4px 10px;">Scientists describe the world by measuring quantities and forces that vary over time and space. The rules of nature are often expressed by formulas, called differential equations, involving their rates of change. Such formulas may have an "index," the number of solutions of the formulas minus the number of restrictions that they impose on the values of the quantities being computed. The Atiyah–Singer index theorem calculated this number in terms of the geometry of the surrounding space.
+<p>A simple case is illustrated by a famous paradoxical etching of <a href="../../../m/2E/_/M._C._Escher_c947.html" title="M. C. Escher">M. C. Escher</a>, "<a href="../../../a/s/c/Ascending_and_Descending_bb18.html" title="Ascending and Descending">Ascending and Descending</a>," where the people, going uphill all the time, still manage to circle the castle courtyard. The index theorem would have told them this was impossible.</p>
+</td>
+<td width="20" valign="bottom" style="color:#B2B7F2;font-size:36px;font-family:'Times New Roman',serif;font-weight:bold;text-align:right;padding:10px 10px;">”</td>
+</tr>
+</table>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<p><a name="Books" id="Books"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Books">edit</a>]</span> <span class="mw-headline">Books</span></h3>
+<ul>
+<li>Peter B. Gilkey: <a href="http://www.emis.de/monographs/gilkey/" class="external text" title="http://www.emis.de/monographs/gilkey/" rel="nofollow"><i>Invariance Theory, the Heat Equation, and the Atiyah–Singer Theorem</i></a>. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0849378745</a> Free online textbook that proves the Atiyah–Singer theorem with a heat equation approach</li>
+<li>Nicole Berline, Ezra Getzler, Michèle Vergne <i>Heat Kernels and Dirac Operators</i> <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 3540200622</a>. This gives an elementary proof of the index theorem for the Dirac operator, using the heat equation and supersymmetry.</li>
+<li>Richard S. Palais <i>Seminar on the Atiyah-Singer Index Theorem</i> (Annals of Mathematics Studies 57) <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0691080313</a>. This describes the original proof of the theorem (Atiyah and Singer never published their original proof themselves, but only improved versions of it.)</li>
+<li>Richard B. Melrose: <a href="http://www-math.mit.edu/~rbm/book.html" class="external text" title="http://www-math.mit.edu/~rbm/book.html" rel="nofollow"><i>The Atiyah-Patodi-Singer Index Theorem</i></a>. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 1568810024</a> Free online textbook.</li>
+<li>Shanahan P. <a href="http://thepiratebay.org/tor/3524522/Shanahan_P._The_Atiyah-Singer_index_theorem__an_introduction_(Le" class="external text" title="http://thepiratebay.org/tor/3524522/Shanahan_P._The_Atiyah-Singer_index_theorem__an_introduction_(Le" rel="nofollow">The Atiyah-Singer index theorem: an introduction</a><a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0387086609</a> Lecture Notes in Mathematics 638, Springer, 1978</li>
+</ul>
+<p><a name="Papers" id="Papers"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: Papers">edit</a>]</span> <span class="mw-headline">Papers</span></h3>
+<p>The papers by Atiyah are reprinted in volume 3 of his collected works, <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-19-853277-6</a>.</p>
+<ul>
+<li>Atiyah, Michael F. and Singer, Isadore M., <i>The Index of Elliptic Operators on Compact Manifolds</i>, Bull. Amer. Math. Soc. 69, 322-433, 1963. An announcement of the index theorem.</li>
+<li>Atiyah, Michael F. and Singer, Isadore M., <a href="http://links.jstor.org/sici?sici=0003-486X%28196805%292%3A87%3A3%3C484%3ATIOEOI%3E2.0.CO%3B2-M" class="external text" title="http://links.jstor.org/sici?sici=0003-486X%28196805%292%3A87%3A3%3C484%3ATIOEOI%3E2.0.CO%3B2-M" rel="nofollow"><i>The Index of Elliptic Operators I</i></a> Ann. Math. 87, 484-530, 1968. This gives a proof using K theory instead of cohomology.</li>
+<li>M. F. Atiyah; G. B. Segal <a href="http://links.jstor.org/sici?sici=0003-486X%28196805%292%3A87%3A3%3C531%3ATIOEOI%3E2.0.CO%3B2-2" class="external text" title="http://links.jstor.org/sici?sici=0003-486X%28196805%292%3A87%3A3%3C531%3ATIOEOI%3E2.0.CO%3B2-2" rel="nofollow"><i>The Index of Elliptic Operators: II</i></a> The Annals of Mathematics 2nd Ser., Vol. 87, No. 3 (May, 1968), pp. 531-545 This reformulates the result as a sort of Lefschetz fixed point theorem, using equivariant K theory.</li>
+<li>Atiyah, Michael F. and Singer, Isadore M.,<a href="http://links.jstor.org/sici?sici=0003-486X%28196805%292%3A87%3A3%3C546%3ATIOEOI%3E2.0.CO%3B2-V" class="external text" title="http://links.jstor.org/sici?sici=0003-486X%28196805%292%3A87%3A3%3C546%3ATIOEOI%3E2.0.CO%3B2-V" rel="nofollow"><i>The Index of Elliptic Operators III.</i></a>The Annals of Mathematics 2nd Ser., Vol. 87, No. 3 (May, 1968), pp. 546-604. This papers hows how to convert from the K-theory version to a version using cohomology.</li>
+<li>Atiyah, Michael F. and Singer, Isadore M.,<a href="http://links.jstor.org/sici?sici=0003-486X%28197101%292%3A93%3A1%3C119%3ATIOEOI%3E2.0.CO%3B2-2" class="external text" title="http://links.jstor.org/sici?sici=0003-486X%28197101%292%3A93%3A1%3C119%3ATIOEOI%3E2.0.CO%3B2-2" rel="nofollow"><i>The Index of Elliptic Operators IV.</i></a> The Annals of Mathematics 2nd Ser., Vol. 93, No. 1 (Jan., 1971), pp. 119-138. This paper studies families of elliptic operators, where the index is now an element of the K-theory of the space parametrizing the family.</li>
+<li>Atiyah, Michael F. and Singer, Isadore <a href="http://links.jstor.org/sici?sici=0003-486X%28197101%292%3A93%3A1%3C139%3ATIOEOV%3E2.0.CO%3B2-V" class="external text" title="http://links.jstor.org/sici?sici=0003-486X%28197101%292%3A93%3A1%3C139%3ATIOEOV%3E2.0.CO%3B2-V" rel="nofollow"><i>The Index of Elliptic Operators V.</i></a> The Annals of Mathematics 2nd Ser., Vol. 93, No. 1 (Jan., 1971), pp. 139-149. This studies families of real (rather than complex) elliptic operators, when one can sometimes squeeze out a little extra information.</li>
+<li>M. F. Atiyah; R. Bott <i>A Lefschetz Fixed Point Formula for Elliptic Differential Operators.</i> Bull. Am. Math. Soc. 72 (1966), 245-50. This states a theorem calculating the Lefschetz number of an endomorphism of an elliptic complex.</li>
+<li>M. F. Atiyah; R. Bott <i>A Lefschetz Fixed Point Formula for Elliptic Complexes:</i> <a href="http://links.jstor.org/sici?sici=0003-486X%28196709%292%3A86%3A2%3C374%3AALFPFF%3E2.0.CO%3B2-N" class="external text" title="http://links.jstor.org/sici?sici=0003-486X%28196709%292%3A86%3A2%3C374%3AALFPFF%3E2.0.CO%3B2-N" rel="nofollow"><i>A Lefschetz Fixed Point Formula for Elliptic Complexes: I</i></a> <a href="http://links.jstor.org/sici?sici=0003-486X%28196811%292%3A88%3A3%3C451%3AALFPFF%3E2.0.CO%3B2-B" class="external text" title="http://links.jstor.org/sici?sici=0003-486X%28196811%292%3A88%3A3%3C451%3AALFPFF%3E2.0.CO%3B2-B" rel="nofollow"><i>II. Applications</i></a> The Annals of Mathematics 2nd Ser., Vol. 86, No. 2 (Sep., 1967), pp. 374-407 and Vol. 88, No. 3 (Nov., 1968), pp. 451-491. These gives the proofs and some applications of the results announced in the previous paper.</li>
+<li>I. M. Gel'fand, <i>On elliptic equations</i>, Russ. Math.Surv. 15 (3) (1960) p 113-123, reprinted in volume 1 of his collected works, p. 65-75, <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-387-13619-3</a>. On page 120 Gel'fand suggests that the index of an elliptic operator should be expressible in terms of topological data.</li>
+<li>E. Getzler, <a href="http://projecteuclid.org/Dienst/UI/1.0/Summarize/euclid.cmp/1103940796" class="external text" title="http://projecteuclid.org/Dienst/UI/1.0/Summarize/euclid.cmp/1103940796" rel="nofollow"><i>Pseudodifferential operators on supermanifolds and the Atiyah–Singer index theorem</i></a> Commun. Math. Phys., 92 (1983) pp. 163–178</li>
+<li>E. Getzler, <a href="http://dx.doi.org/10.1016/0040-9383(86)90008-X" class="external text" title="http://dx.doi.org/10.1016/0040-9383(86)90008-X" rel="nofollow"><i>A short proof of the local Atiyah–Singer index theorem</i></a> Topology, 25 (1988) pp. 111–117</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h3><span class="editsection">[<a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h3>
+<ul>
+<li>R. R. Seeley and other, <a href="http://mmf.ruc.dk/~Booss/recoll.pdf" class="external text" title="http://mmf.ruc.dk/~Booss/recoll.pdf" rel="nofollow">Recollections from the early days of index theory and pseudo-differential operators</a></li>
+<li>Rafe Mazzeo: <a href="http://math.stanford.edu/~mazzeo/Web/Talks/asit3.pdf" class="external text" title="http://math.stanford.edu/~mazzeo/Web/Talks/asit3.pdf" rel="nofollow"><i>The Atiyah-Singer Index Theorem: What it is and why you should care</i></a>. Pdf presentation.</li>
+<li>M.I. Voitsekhovskii,M.A. Shubin, "<a href="http://eom.springer.de/I/i050650.htm" class="external text" title="http://eom.springer.de/I/i050650.htm" rel="nofollow">Index formulas</a>" <i>SpringerLink Encyclopaedia of Mathematics</i> (2001)</li>
+<li>A. J. Wassermann, <a href="http://iml.univ-mrs.fr/~wasserm/" class="external text" title="http://iml.univ-mrs.fr/~wasserm/" rel="nofollow">Lecture Notes on the Atiyah-Singer Index Theorem</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 3687 bytes
+Post-expand include size: 2089 bytes
+Template argument size: 1138 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html">http://en.wikipedia.org../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_sections_needing_expansion_5edb.html" title="Category:Articles with sections needing expansion">Articles with sections needing expansion</a></span> | <span dir='ltr'><a href="../../../d/i/f/Category%7EDifferential_operators_1cb9.html" title="Category:Differential operators">Differential operators</a></span> | <span dir='ltr'><a href="../../../e/l/l/Category%7EElliptic_partial_differential_equations_22db.html" title="Category:Elliptic partial differential equations">Elliptic partial differential equations</a></span> | <span dir='ltr'><a href="../../../d/i/f/Category%7EDifferential_geometry_d5df.html" title="Category:Differential geometry">Differential geometry</a></span> | <span dir='ltr'><a href="../../../m/a/t/Category%7EMathematical_theorems_3848.html" title="Category:Mathematical theorems">Mathematical theorems</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/t/i/Atiyah%E2%80%93Singer_index_theorem_f1c5.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/t/i/Talk%7EAtiyah%E2%80%93Singer_index_theorem_2e74.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Atiyah%E2%80%93Singer_index_theorem">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 15:58, 7 April 2007 by Wikipedia user <a href="../../../r/2E/e/User%7ER.e.b._6838.html" title="User:R.e.b.">R.e.b.</a>. Based on work by Wikipedia user(s) <a href="../../../s/m/b/User%7ESmb1001_1f43.html" title="User:Smb1001">Smb1001</a>, <a href="../../../i/c/a/User%7EIcairns_bb52.html" title="User:Icairns">Icairns</a>, Kawakameha, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../d/a/r/User%7EDarklilac_3c11.html" title="User:Darklilac">Darklilac</a>, <a href="../../../f/r/o/User%7EFropuff_31b9.html" title="User:Fropuff">Fropuff</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../m/i/c/User%7EMichael_Kinyon_5edc.html" title="User:Michael Kinyon">Michael Kinyon</a>, <a href="../../../l/e/t/User%7ELethe_ae09.html" title="User:Lethe">Lethe</a>, Quarague, <a href="../../../g/r/e/User%7EGregorB_c220.html" title="User:GregorB">GregorB</a>, Rastaco, <a href="../../../r/m/h/User%7ERmhermen_d338.html" title="User:Rmhermen">Rmhermen</a>, <a href="../../../s/t/e/User%7ESteuard_a577.html" title="User:Steuard">Steuard</a>, <a href="../../../r/j/b/User%7ERJBurkhart_5817.html" title="User:RJBurkhart">RJBurkhart</a>, <a href="../../../b/e/t/User%7EBeteNoir_e731.html" title="User:BeteNoir">BeteNoir</a>, <a href="../../../p/s/y/User%7EPsychonaut_e6a0.html" title="User:Psychonaut">Psychonaut</a>, <a href="../../../h/u/m/User%7EHumus_sapiens_f37b.html" title="User:Humus sapiens">Humus sapiens</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../s/c/h/User%7ESchneelocke_ee99.html" title="User:Schneelocke">Schneelocke</a>, <a href="../../../t/o/s/User%7ETosha_2812.html" title="User:Tosha">Tosha</a>, <a href="../../../l/u/p/User%7ELupin_68a5.html" title="User:Lupin">Lupin</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, <a href="../../../s/h/a/User%7EShaunMacPherson_703f.html" title="User:ShaunMacPherson">ShaunMacPherson</a>, <a href="../../../d/a/v/User%7EDavid_Newton_8a3b.html" title="User:David Newton">David Newton</a>, <a href="../../../l/o/r/User%7ELoren_Rosen_2e64.html" title="User:Loren Rosen">Loren Rosen</a> and <a href="../../../a/n/g/User%7EAngela_56ea.html" title="User:Angela">Angela</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

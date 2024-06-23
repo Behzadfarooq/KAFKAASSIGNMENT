@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="ATM Adaptation Layer 5,ATM Adaptation Layers,Appletalk,Asynchronous Transfer Mode,Cyclic redundancy check,DECnet,Datagram,Ethernet,Field (computer science),Header (information technology),IEEE 802.2" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>ATM Adaptation Layer 5 - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">ATM Adaptation Layer 5</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div class="messagebox cleanup metadata plainlinks">
+<table style="width:100%;background:none">
+<tr>
+<td><b>This article (or section) may need to be <a href="../../../w/i/k/WP%7EWIKIFY_0f2f.html" title="WP:WIKIFY">wikified</a> to meet Wikipedia's <a href="../../../s/t/y/WP%7ESTYLE_9c31.html" title="WP:STYLE">quality standards</a>.</b><br />
+<small>Please help <a href="http://en.wikipedia.org../../../a/t/m/ATM_Adaptation_Layer_5_50c8.html" class="external text" title="http://en.wikipedia.org../../../a/t/m/ATM_Adaptation_Layer_5_50c8.html" rel="nofollow">improve this article</a>, especially its <a href="../../../l/a/y/WP%7ELAYOUT_2f12.html" title="WP:LAYOUT">section layout</a>, and <a href="../../../c/o/n/WP%7ECONTEXT_5f0d.html" title="WP:CONTEXT">relevant</a> <a href="../../../b/t/w/WP%7EBTW_16cd.html" title="WP:BTW">internal links</a>. (<a href="../../../e/d/i/WP%7EEDIT_5cab.html" title="WP:EDIT">help</a>)<br />
+This article has been tagged since <b>February 2007</b>.</small></td>
+</tr>
+</table>
+</div>
+<p><br />
+Computers use <i><a href="../../../a/t/m/ATM_Adaptation_Layers_b1fb.html" title="ATM Adaptation Layers">ATM Adaptation Layer</a> 5</i> (AAL5) to send variable-length <a href="../../../p/a/c/Packet.html" title="Packet">packets</a> up to 65,535 <a href="../../../o/c/t/Octet_%28computing%29.html" title="Octet (computing)">octets</a> in size across an <a href="../../../a/s/y/Asynchronous_Transfer_Mode_e26a.html" title="Asynchronous Transfer Mode">ATM</a> network.</p>
+<p>Unlike most network frames that place control information in the <a href="../../../h/e/a/Header_%28information_technology%29.html" title="Header (information technology)">header</a>, AAL5 places control information in an 8-octet <a href="../../../t/r/a/Trailer_%28information_technology%29.html" title="Trailer (information technology)">trailer</a> at the end of the packet. The AAL5 trailer contains a 16-bit length <a href="../../../f/i/e/Field_%28computer_science%29.html" title="Field (computer science)">field</a>, a 32-bit <a href="../../../c/y/c/Cyclic_redundancy_check.html" title="Cyclic redundancy check">cyclic redundancy check</a> <i>(CRC)</i> and two 8-bit fields labeled <i>UU</i> and <i>CPI</i> that are currently unused.</p>
+<p>Each AAL5 packet is divided into an integral number of ATM cells and reassembled into a packet before delivery to the receiving host. The last cell contains padding to ensure that the entire packet is a multiple of 48 octets long. The final cell contains up to 40 octets of data, followed by padding bytes and the 8-octet trailer. In other words, AAL5 places the trailer in the last 8 octets of the final cell where it can be found without knowing the length of the packet; the final cell is identified by a bit in the ATM header (see below), and the trailer is always in the last 8 octets of that cell.</p>
+<p><a name="AAL5_Convergence.2C_Segmentation.2C_and_Reassembly" id="AAL5_Convergence.2C_Segmentation.2C_and_Reassembly"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/m/ATM_Adaptation_Layer_5_50c8.html" title="Edit section: AAL5 Convergence, Segmentation, and Reassembly">edit</a>]</span> <span class="mw-headline"><b>AAL5 Convergence, <a href="../../../s/e/g/Segmentation_and_Reassembly_c7af.html" title="Segmentation and Reassembly">Segmentation, and Reassembly</a></b></span></h2>
+<p>When an application sends data over an ATM connection using AAL5, the host delivers a block of data to the AAL5 interface. AAL5 generates a trailer, divides the information into 48-octet pieces, and transfers each piece across the ATM network in a single cell. On the receiving end of the connection, AAL5 reassembles incoming cells into a packet, checks the CRC to ensure that all pieces arrived correctly, and passes the resulting block of data to the host software. The process of dividing a block of data into cells and regrouping them is known as ATM segmentation and reassembly <i>(SAR)</i>.</p>
+<p>By separating the functions of segmentation and reassembly from cell transport, AAL5 follows the layering principle. The ATM cell transfer layer is classified as <i>machine-to-machine</i> because the layering principle applies from one machine to the next (e.g., between a host and a switch or between two switches). The AAL5 layer is classified as <i>end-to-end</i> because the layering principle applies from the source to the destination - AAL5 presents the receiving software with data in exactly the same size blocks as the application passed to the AAL5 on the sending end.</p>
+<p>How does AAL5 on the receiving side know how many cells comprise a packet? The sending AAL5 uses the low-order bit of the <i>PAYLOAD TYPE</i> field of the ATM cell header to mark the final cell in a packet. One can think of it as an <i>end-to-end bit</i>. Thus, the receiving AAL5 collects incoming cells until it finds one with an end-of-packet bit set. ATM standards use the term <i>convergence</i> to describe mechanisms that recognize the end of a packet. Although AAL5 uses a single bit in the cell header for convergence, other ATM adaptation layer protocols are free to use other convergence mechanisms.</p>
+<p>To summarize: <i>A computer uses ATM Adaptation Layer 5 to transfer a large block of data over an ATM virtual circuit. On the sending host, AAL5 generates a trailer, segments the block of data into cells, and transmits each cell over the virtual circuit. On the receiving host, AAL5 reassembles the cells to reproduce the original block of data, strips off the trailer, and delivers the block of data to the receiving host software. A single bit in the cell header marks the final cell of a given data block.</i></p>
+<p><a name="Datagram_Encapsulation_and_IP_MTU_size" id="Datagram_Encapsulation_and_IP_MTU_size"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/m/ATM_Adaptation_Layer_5_50c8.html" title="Edit section: Datagram Encapsulation and IP MTU size">edit</a>]</span> <span class="mw-headline"><b><a href="../../../d/a/t/Datagram.html" title="Datagram">Datagram</a> Encapsulation and IP <a href="../../../m/t/u/MTU_1a03.html" title="MTU">MTU</a> size</b></span></h2>
+<p><a href="../../../i/n/t/Internet_Protocol_7ac7.html" title="Internet Protocol">Internet Protocol (IP)</a> uses AAL5 to transfer datagrams across an ATM network. Before data can be sent, a virtual circuit (PVC or SVC) must be in place to the destination computer and both ends must agree to use AAL5 on the circuit. To transfer a datagram, the sender passes it to AAL5 along with the VPI/VCI identifying the circuit. AAL5 generates a trailer, divides the datagram into cells, and transfers the cells across the network. At the receiving end, AAL5 reassembles the cells, checks the CRC to verify that no bits were lost or corrupted, extracts the datagram, and passes it to the IP layer.</p>
+<p>In reality, AAL5 uses a 16-bit length field, making it possible to send 65,535 (2^16-1) octets in a single packet. Despite the capabilities of AAL5, IP restricts the size of the datagrams that can be sent over ATM. The standards impose a default of 9180 octets per datagram. Thus, AAL5 accepts, transfers, and delivers datagrams of 9180 octets or less. To summarize:</p>
+<p><i>When IP is used to send data across an ATM network, it transfers an entire datagram using ATM Adaptation Layer 5. Although AAL5 can accept and transfer packets that contain up to 64K octets, the IP standards specify a default MTU of 9180 octets or less. IP must fragment any datagram larger than 9180 octets before passing it to AAL5.</i></p>
+<p><a name="Packet_Type_and_Multiplexing" id="Packet_Type_and_Multiplexing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/m/ATM_Adaptation_Layer_5_50c8.html" title="Edit section: Packet Type and Multiplexing">edit</a>]</span> <span class="mw-headline"><b>Packet Type and <a href="../../../m/u/l/Multiplexing.html" title="Multiplexing">Multiplexing</a></b></span></h2>
+<p>Observant readers will have noticed that the AAL5 trailer does not include a <i>type</i> field. Thus, an AAL5 frame is not self-identifying. As a result, the simplest form of encapsulation described above does not suffice if the two ends want to send more than one type of data across a single ATM connection (or <a href="../../../v/i/r/Virtual_circuit.html" title="Virtual circuit">virtual circuit</a>). (e.g., packets defined by <a href="../../../p/r/o/Protocol_%28computing%29.html" title="Protocol (computing)">protocols</a> other than IP, such as <a href="../../../i/p/x/IPX_7c3f.html" title="IPX">IPX</a>, <a href="../../../d/e/c/DECnet_3098.html" title="DECnet">DECnet</a> or <a href="../../../a/p/p/Appletalk.html" title="Appletalk">Appletalk</a>). Two possibilities exist:</p>
+<ul>
+<li>The two computers at the ends of a virtual circuit agree <i>a priori</i> that the circuit will be used for one specific protocol (e.g., the circuit will only be used to send IP datagrams).</li>
+</ul>
+<ul>
+<li>The two computers at the ends of a virtual circuit agree <i>a priori</i> that some octets of the data area will be reserved for use as a type field to distinguish packets containing one protocol's data from packets containing another protocol's data.</li>
+</ul>
+<p>The former scheme, in which the computers agree on the high-level protocol for a given circuit, has the advantage of not requiring additional information in a packet, which minimises the overhead. For example, if the computers agree to transfer IP, a sender can pass each datagram directly to AAL5 to transfer, nothing needs to be sent besides the datagram and the AAL5 trailer. The chief disadvantage of such a scheme lies in duplication of virtual circuits: a computer must create a separate virtual circuit for each high-level protocol if more than one protocol is used. Because most carriers charge for each virtual circuit, customers try to avoid using multiple circuits because it adds unnecessary cost.</p>
+<p>The latter scheme, in which two computers use a single virtual circuit for multiple protocols, has the advantage of allowing all traffic over the same circuit, but the disadvantage of requiring each packet to contain octets that identify the protocol type, which adds overhead. The scheme also has the disadvantage that packets from all protocols travel with the same delay and priority.</p>
+<p>The IP standards specify that computers can choose between the two methods of using AAL5. Both the sender and receiver must agree on how the circuit will be used, the agreement may involve manual configuration. Furthermore, the standards suggest that when computers choose to include type information in the packet, they should use a standard <a href="../../../i/e/e/IEEE_802.2_e3c6.html" title="IEEE 802.2">IEEE 802.2</a> <i><a href="../../../l/o/g/Logical_Link_Control_b7e2.html" title="Logical Link Control">Logical Link Control</a></i> (LLC) header followed by a <i><a href="../../../s/u/b/Subnetwork_Access_Protocol_b051.html" title="Subnetwork Access Protocol">Subnetwork Access Protocol</a></i> (SNAP) header.</p>
+<p>The LLC field consists of three octets that contain the hexadecimal values <i>AA.AA.03</i>. The SNAP header consists of five octets: three that contain an <i><a href="../../../o/r/g/Organizationally_Unique_Identifier_d7ca.html" title="Organizationally Unique Identifier">Organizationally Unique Identifier</a></i> (OUI) and two for a type. Field OUI identifies the packet type. For an IP datagram, the <i>OUI</i> field contains <i>00.00.00</i> to identify the organization responsible for <a href="../../../e/t/h/Ethernet.html" title="Ethernet">Ethernet</a> standards, and the <i>TYPE</i> field contains <i>08.00</i>, the value used when encapsulation IP in an Ethernet frame. Software on the sending host must prefix the LLC/SNAP header to each packet before sending it on to AAL5, and software on the receiving host must examine the header to determine how to handle the packet.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/t/m/ATM_Adaptation_Layer_5_50c8.html">http://en.wikipedia.org../../../a/t/m/ATM_Adaptation_Layer_5_50c8.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/l/l/Category%7EAll_pages_needing_to_be_wikified_fc1c.html" title="Category:All pages needing to be wikified">All pages needing to be wikified</a></span> | <span dir='ltr'><a href="../../../w/i/k/Category%7EWikify_from_February_2007_286e.html" title="Category:Wikify from February 2007">Wikify from February 2007</a></span> | <span dir='ltr'><a href="../../../n/e/t/Category%7ENetwork_protocols_8662.html" title="Category:Network protocols">Network protocols</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/t/m/ATM_Adaptation_Layer_5_50c8.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/t/m/Talk%7EATM_Adaptation_Layer_5_ad98.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/ATM_Adaptation_Layer_5">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../es/a/t/m/ATM_Adaptation_Layer_5_50c8.html">Español</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 07:19, 17 March 2007 by Wikipedia user <a href="../../../g/u/y/User%7EGuy_Harris_fa37.html" title="User:Guy Harris">Guy Harris</a>. Based on work by Wikipedia user(s) <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, Agam3, <a href="../../../b/o/t/User%7EBOT-Superzerocool_f6ae.html" title="User:BOT-Superzerocool">BOT-Superzerocool</a>, <a href="../../../t/r/e/User%7ETrebor_34b5.html" title="User:Trebor">Trebor</a>, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, <a href="../../../d/s/t/User%7EDStoykov_a603.html" title="User:DStoykov">DStoykov</a>, Martinpdeb, <a href="../../../q/u/a/User%7EQuadm_b123.html" title="User:Quadm">Quadm</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../j/o/h/User%7EJohnteslade_69f5.html" title="User:Johnteslade">Johnteslade</a>, <a href="../../../c/h/r/User%7EChris_the_speller_fea2.html" title="User:Chris the speller">Chris the speller</a>, <a href="../../../k/a/r/User%7EKarn_1b90.html" title="User:Karn">Karn</a>, <a href="../../../s/c/e/User%7ESCEhardt_7145.html" title="User:SCEhardt">SCEhardt</a>, <a href="../../../w/e/s/User%7EWest_London_Dweller_79a2.html" title="User:West London Dweller">West London Dweller</a>, <a href="../../../s/h/a/User%7EShanedidona_a695.html" title="User:Shanedidona">Shanedidona</a>, <a href="../../../r/l/_/User%7ERl_43ae.html" title="User:Rl">Rl</a> and Pbook8989 and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

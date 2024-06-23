@@ -1,0 +1,280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Business Process Execution Language,2004,BEA Systems,BPEL4WS,BPMN,Business Process Management,Business Process Modeling Notation,Business process,Business process modeling,Choreography,Computer file" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Business Process Execution Language - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Business Process Execution Language</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Business Process Execution Language</b> (or <b>BPEL</b>, pronounced 'bipple', or 'bee-pell'), is a <a href="../../../b/u/s/Business_process_modeling.html" title="Business process modeling">business process modeling</a> language that is executable. The origins of BPEL can be traced to <a href="../../../w/e/b/Web_Services_Flow_Language_a6f1.html" title="Web Services Flow Language">WSFL</a> and <a href="../../../x/l/a/Xlang.html" title="Xlang">XLANG</a>. It is serialized in <a href="../../../e/x/t/Extensible_Markup_Language_15dd.html" title="Extensible Markup Language">XML</a> and aims to enable <i><a href="../../../p/r/o/Programming_in_the_large.html" title="Programming in the large">programming in the large</a></i>. The concepts of <i>programming in the large</i> and <i><a href="../../../p/r/o/Programming_in_the_small.html" title="Programming in the small">programming in the small</a></i> distinguish between two aspects of writing the type of long-running asynchronous processes that one typically sees in <a href="../../../b/u/s/Business_process.html" title="Business process">business processes</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Purpose"><span class="tocnumber">1</span> <span class="toctext">Purpose</span></a></li>
+<li class="toclevel-1"><a href="#BPEL_Design_Goals"><span class="tocnumber">2</span> <span class="toctext">BPEL Design Goals</span></a></li>
+<li class="toclevel-1"><a href="#The_BPEL_language"><span class="tocnumber">3</span> <span class="toctext">The BPEL language</span></a></li>
+<li class="toclevel-1"><a href="#What.27s_new_in_WS-BPEL_2.0.3F"><span class="tocnumber">4</span> <span class="toctext">What's new in WS-BPEL 2.0?</span></a></li>
+<li class="toclevel-1"><a href="#Adding_.27programming_in_the_small.27_support_to_BPEL"><span class="tocnumber">5</span> <span class="toctext">Adding 'programming in the small' support to BPEL</span></a></li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">6</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#Relationship_of_BPEL_to_BPMN"><span class="tocnumber">7</span> <span class="toctext">Relationship of BPEL to BPMN</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Standards"><span class="tocnumber">8.1</span> <span class="toctext">Standards</span></a></li>
+<li class="toclevel-2"><a href="#BPEL_and_business_process_sites"><span class="tocnumber">8.2</span> <span class="toctext">BPEL and business process sites</span></a></li>
+<li class="toclevel-2"><a href="#BPEL_articles"><span class="tocnumber">8.3</span> <span class="toctext">BPEL articles</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Purpose" id="Purpose"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: Purpose">edit</a>]</span> <span class="mw-headline">Purpose</span></h2>
+<p><i>Programming in the large</i> generally refers to the high-level <a href="../../../s/t/a/State_transition_system.html" title="State transition system">state transition</a> interactions of a process—BPEL refers to this concept as an Abstract Process. A BPEL Abstract Process represents a set of publicly observable behaviors in a standardized fashion. An Abstract Process includes information such as when to wait for <a href="../../../m/e/s/Message_%28computer_science%29.html" title="Message (computer science)">messages</a>, when to send messages, when to compensate for failed transactions, etc. <i>Programming in the small</i>, in contrast, deals with short-lived programmatic behavior, often executed as a single transaction and involving access to local logic and resources such as <a href="../../../c/o/m/Computer_file.html" title="Computer file">files</a>, <a href="../../../d/a/t/Database.html" title="Database">databases</a>, etc. BPEL's development came out of the notion that programming in the large and programming in the small required different types of languages.</p>
+<p><a name="BPEL_Design_Goals" id="BPEL_Design_Goals"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: BPEL Design Goals">edit</a>]</span> <span class="mw-headline">BPEL Design Goals</span></h2>
+<p>There were ten original design goals associated with BPEL:</p>
+<ol>
+<li>Define business processes that interact with external entities through <a href="../../../w/e/b/Web_service.html" title="Web service">Web Service</a> operations defined using <a href="../../../w/e/b/Web_Services_Description_Language_f5c8.html" title="Web Services Description Language">WSDL</a> 1.1, and that manifest themselves as Web services defined using WSDL 1.1. The interactions are “abstract” in the sense that the dependence is on portType definitions, not on port definitions.</li>
+<li>Define business processes using an XML based language. Do not define a graphical representation of processes or provide any particular design methodology for processes.</li>
+<li>Define a set of Web service orchestration concepts that are meant to be used by both the external (abstract) and internal (executable) views of a business process. Such a business process defines the behavior of a single autonomous entity, typically operating in interaction with other similar peer entities. It is recognized that each usage pattern (i.e. abstract view and executable view) will require a few specialized extensions, but these extensions are to be kept to a minimum and tested against requirements such as import/export and conformance checking that link the two usage patterns.</li>
+<li>Provide both hierarchical and graph-like control regimes, and allow their use to be blended as seamlessly as possible. This should reduce the fragmentation of the process modeling space.</li>
+<li>Provide data manipulation functions for the simple manipulation of data needed to define process data and control flow.</li>
+<li>Support an identification mechanism for process instances that allows the definition of instance identifiers at the application message level. Instance identifiers should be defined by partners and may change.</li>
+<li>Support the implicit creation and termination of process instances as the basic lifecycle mechanism. Advanced lifecycle operations such as "suspend" and "resume" may be added in future releases for enhanced lifecycle management.</li>
+<li>Define a long-running transaction model that is based on proven techniques like compensation actions and scoping to support failure recovery for parts of long-running business processes.</li>
+<li>Use Web Services as the model for process decomposition and assembly.</li>
+<li>Build on Web services standards (approved and proposed) as much as possible in a composable and modular manner.</li>
+</ol>
+<p><a name="The_BPEL_language" id="The_BPEL_language"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: The BPEL language">edit</a>]</span> <span class="mw-headline">The BPEL language</span></h2>
+<p>BPEL is an <a href="../../../o/r/c/Orchestration_%28computers%29.html" title="Orchestration (computers)">Orchestration</a> language, not a <a href="../../../c/h/o/Choreography.html" title="Choreography">choreography</a> language. The primary difference between orchestration and choreography is scope. A choreography model provides a scope specifically focusing on the view of one participant (e.g. a peer to peer model). Instead, an orchestration model encompasses all parties and their associated interactions giving a global view of the system. The orchestration and the choreography distinctions are based on analogies: orchestration describes central control of behavior as a conductor in an orchestra, while choreography is about distributed control of behavior where individual participants perform processing based on outside events, as in a choreographed dance where dancers react to behaviors of their peers.</p>
+<p>BPEL's focus on modern <a href="../../../b/u/s/Business_process.html" title="Business process">business processes</a>, plus the histories of <a href="../../../w/e/b/Web_Services_Flow_Language_a6f1.html" title="Web Services Flow Language">WSFL</a> and XLANG, led BPEL to adopt <a href="../../../w/e/b/Web_services.html" title="Web services">web services</a> as its external communication mechanism. Thus BPEL's messaging facilities depend on the use of the <a href="../../../w/e/b/Web_Services_Description_Language_f5c8.html" title="Web Services Description Language">Web Services Description Language</a> (WSDL) 1.1 to describe outgoing and incoming <a href="../../../m/e/s/Message_%28computer_science%29.html" title="Message (computer science)">messages</a>.</p>
+<p>In addition to providing facilities to enable sending and receiving messages, the BPEL programming language also supports:</p>
+<ul>
+<li>A property-based message correlation mechanism</li>
+<li>XML and WSDL typed variables</li>
+<li>An extensible language plug-in model to allow writing expressions and queries in multiple languages: BPEL supports <a href="../../../x/p/a/Xpath.html" title="Xpath">Xpath</a> 1.0 by default</li>
+<li><a href="../../../s/t/r/Structured_programming.html" title="Structured programming">Structured-programming</a> constructs including if-then-elseif-else, while, sequence (to enable executing commands in order) and flow (to enable executing commands in parallel)</li>
+<li>A <a href="../../../s/c/o/Scope_%28programming%29.html" title="Scope (programming)">scoping</a> system to allow the <a href="../../../e/n/c/Encapsulation.html" title="Encapsulation">encapsulation</a> of logic with <a href="../../../l/o/c/Local_variable.html" title="Local variable">local variables</a>, fault-<a href="../../../h/a/n/Handler.html" title="Handler">handlers</a>, compensation-handlers and <a href="../../../e/v/e/Event_handler.html" title="Event handler">event-handlers</a></li>
+<li>Serialized scopes to control concurrent access to <a href="../../../v/a/r/Variable.html" title="Variable">variables</a></li>
+</ul>
+<p><a name="What.27s_new_in_WS-BPEL_2.0.3F" id="What.27s_new_in_WS-BPEL_2.0.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: What's new in WS-BPEL 2.0?">edit</a>]</span> <span class="mw-headline">What's new in WS-BPEL 2.0?</span></h2>
+<ul>
+<li>New activity types: if-then-else, repeatUntil, validate, forEach (parallel and sequential), rethrow, extensionActivity</li>
+<li>Completion condition in forEach activity</li>
+<li>Variable initialization</li>
+<li>XSLT for variable transformations (New XPath extension function bpws:doXslTransform)</li>
+<li>XPath access to variable data (XPath variable syntax $variable[.part]/location)</li>
+<li>XML schema variables in Web service activities (for WS-I doc/lit style service interactions)</li>
+<li>Locally declared messageExchange (internal correlation of receive and reply activities)</li>
+<li>Clarification of Abstract Processes (syntax and semantics)</li>
+</ul>
+<p><a name="Adding_.27programming_in_the_small.27_support_to_BPEL" id="Adding_.27programming_in_the_small.27_support_to_BPEL"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: Adding 'programming in the small' support to BPEL">edit</a>]</span> <span class="mw-headline">Adding 'programming in the small' support to BPEL</span></h2>
+<p>BPEL's control structures such as 'if-then-elseif-else' and 'while' as well as its variable manipulation facilities depend on the use of 'programming in the small' languages to provide logic. All BPEL implementations must support <a href="../../../x/p/a/XPath_b645.html" title="XPath">XPath</a> 1.0 as a default language. But the design of BPEL envisages extensibility so that systems builders can use other languages as well. <a href="http://ftpna2.bea.com/pub/downloads/ws-bpelj.pdf" class="external text" title="http://ftpna2.bea.com/pub/downloads/ws-bpelj.pdf" rel="nofollow">BPELJ</a> is an effort related to <a href="http://www.jcp.org/en/jsr/detail?id=207" class="external text" title="http://www.jcp.org/en/jsr/detail?id=207" rel="nofollow">JSR 207</a> that may enable Java to function as a 'programming in the small' language within BPEL.</p>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p><a href="../../../i/b/m/IBM_cbf4.html" title="IBM">IBM</a> and <a href="../../../m/i/c/Microsoft.html" title="Microsoft">Microsoft</a> had each defined their own, fairly similar, 'programming in the large' languages, <a href="../../../w/e/b/Web_Services_Flow_Language_a6f1.html" title="Web Services Flow Language">WSFL</a> and <a href="../../../x/l/a/Xlang.html" title="Xlang">XLANG</a>, respectively. IBM and Microsoft decided to combine these languages into a new language, BPEL4WS. In April 2003, <a href="../../../b/e/a/BEA_Systems_b6e2.html" title="BEA Systems">BEA Systems</a>, IBM, Microsoft, <a href="../../../s/a/p/SAP_AG_9f43.html" title="SAP AG">SAP</a> and <a href="../../../s/i/e/Siebel_Systems_b4c8.html" title="Siebel Systems">Siebel Systems</a> submitted BPEL4WS 1.1 to <a href="../../../o/a/s/OASIS_%28organization%29_0762.html" title="OASIS (organization)">OASIS</a> for standardization via the <a href="http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel" class="external text" title="http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel" rel="nofollow">Web Services BPEL Technical Committee</a>. Although <a href="../../../b/p/e/BPEL4WS_5935.html" title="BPEL4WS">BPEL4WS</a> appeared as both a 1.0 and 1.1 version, the OASIS WS-BPEL technical committee <a href="http://www.choreology.com/external/WS_BPEL_issues_list.html#Issue98" class="external text" title="http://www.choreology.com/external/WS_BPEL_issues_list.html#Issue98" rel="nofollow">voted</a> on <a href="../../../s/e/p/September_14.html" title="September 14">14 September</a> <a href="../../../2/0/0/2004.html" title="2004">2004</a> to name their spec <a href="../../../w/s/-/WS-BPEL_a709.html" title="WS-BPEL">WS-BPEL</a> 2.0. This change in name was done to align BPEL with other Web Service standard naming conventions which start with WS- and accounts for the significant enhancements between <b>BPEL4WS</b> 1.1 and <b>WS-BPEL</b> 2.0. If you are not discussing a specific version, <b>BPEL</b> is sufficient.</p>
+<p><a name="Relationship_of_BPEL_to_BPMN" id="Relationship_of_BPEL_to_BPMN"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: Relationship of BPEL to BPMN">edit</a>]</span> <span class="mw-headline">Relationship of BPEL to BPMN</span></h2>
+<p>There is no standard graphical notation for WS-BPEL, as the OASIS technical committee decided this was out of scope. Some vendors have invented their own notations. These notations take advantage of the fact that most constructs in BPEL are block-structured (e.g. sequence, while, pick, scope, etc.) This feature enables a direct visual representation of BPEL process descriptions in the form of <i>structograms</i>, in a style reminiscent of a <a href="../../../n/a/s/Nassi-Shneiderman_diagram_596e.html" title="Nassi-Shneiderman diagram">Nassi-Shneiderman diagram</a>.</p>
+<p>Others have proposed to use a substantially different <a href="../../../b/u/s/Business_process_modeling.html" title="Business process modeling">business process modeling</a> language, namely <a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Business Process Modeling Notation">Business Process Modeling Notation</a> (<a href="../../../b/p/m/BPMN_e3d6.html" title="BPMN">BPMN</a>), as a graphical front-end to capture BPEL process descriptions. As an illustration of the feasibility of this approach, the BPMN specification includes an informal and partial <a href="http://www.bpmn.org/Documents/Mapping%20BPMN%20to%20BPEL%20Example.pdf" class="external text" title="http://www.bpmn.org/Documents/Mapping%20BPMN%20to%20BPEL%20Example.pdf" rel="nofollow">mapping</a> from BPMN to BPEL 1.1. A more detailed mapping of BPMN to BPEL has been implemented in a number of tools, including an open-source tool known as <a href="http://www.bpm.fit.qut.edu.au/projects/babel/tools/" class="external text" title="http://www.bpm.fit.qut.edu.au/projects/babel/tools/" rel="nofollow">BPMN2BPEL</a>. However, the development of these tools has exposed fundamental differences between BPMN and BPEL, which make it very difficult, and in some cases impossible, to generate human-readable BPEL code from BPMN models. Even more difficult is the problem of BPMN-to-BPEL <i>round-trip</i> engineering: generating BPEL code from BPMN diagrams and maintaining the original BPMN model and the generated BPEL code synchronized, in the sense that any modification to one is propagated to the other.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../l/i/s/List_of_BPEL_engines_7ab9.html" title="List of BPEL engines">List of BPEL engines</a></li>
+<li><a href="../../../b/u/s/Business_Process_Management_ccc9.html" title="Business Process Management">Business Process Management</a></li>
+<li><a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Business Process Modeling Notation">Business Process Modeling Notation</a></li>
+<li><a href="../../../w/s/c/WSCL_76d1.html" title="WSCL">Web Services Conversation Language</a></li>
+<li>WS-CDL <a href="http://www.w3.org/TR/ws-cdl-10/" class="external autonumber" title="http://www.w3.org/TR/ws-cdl-10/" rel="nofollow">[1]</a></li>
+<li><a href="../../../w/o/r/Workflow.html" title="Workflow">Workflow</a></li>
+<li><a href="../../../x/p/d/XPDL_83ef.html" title="XPDL">XML Process Definition Language</a></li>
+<li><a href="../../../y/a/w/YAWL_f6a0.html" title="YAWL">Yet Another Workflow Language</a></li>
+</ul>
+<p><a name="Standards" id="Standards"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: Standards">edit</a>]</span> <span class="mw-headline">Standards</span></h3>
+<ul>
+<li><a href="http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel" class="external text" title="http://www.oasis-open.org/committees/tc_home.php?wg_abbrev=wsbpel" rel="nofollow">OASIS WSBPEL TC Webpage</a></li>
+<li><a href="http://www.choreology.com/external/WS_BPEL_issues_list.html" class="external text" title="http://www.choreology.com/external/WS_BPEL_issues_list.html" rel="nofollow">OASIS WSBPEL TC Issues List</a></li>
+<li><a href="http://wsbpeltc.cvs.sourceforge.net/wsbpeltc/specifications/" class="external text" title="http://wsbpeltc.cvs.sourceforge.net/wsbpeltc/specifications/" rel="nofollow">Latest editor's copies of OASIS WSBPEL TC Specs</a></li>
+<li><a href="http://www-128.ibm.com/developerworks/library/specification/ws-bpel/" class="external text" title="http://www-128.ibm.com/developerworks/library/specification/ws-bpel/" rel="nofollow">The BPEL4WS 1.1 specification</a></li>
+</ul>
+<p><a name="BPEL_and_business_process_sites" id="BPEL_and_business_process_sites"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: BPEL and business process sites">edit</a>]</span> <span class="mw-headline">BPEL and business process sites</span></h3>
+<ul>
+<li><a href="http://www.eclipse.org/stp/bpmn/" class="external text" title="http://www.eclipse.org/stp/bpmn/" rel="nofollow">The Eclipse STP BPMN Diagram Editor</a></li>
+<li><a href="http://orchestra.objectweb.org/" class="external text" title="http://orchestra.objectweb.org/" rel="nofollow">Orchestra, Open source BPEL Engine, designer, admin and real time monitoring tool</a></li>
+<li><a href="http://www.activebpel.org/" class="external text" title="http://www.activebpel.org/" rel="nofollow">ActiveBPEL, Open source BPEL server and BPEL samples</a></li>
+<li><a href="http://www.bpmi.org/" class="external text" title="http://www.bpmi.org/" rel="nofollow">Business Process Management Initiative Web Site</a></li>
+<li><a href="http://www.BusinessModelingForum.com" class="external text" title="http://www.BusinessModelingForum.com" rel="nofollow">Business Modeling Forum</a></li>
+<li><a href="http://www.bpelsource.com/bpel_info/defined.html" class="external text" title="http://www.bpelsource.com/bpel_info/defined.html" rel="nofollow">BPEL Resource Guide</a></li>
+<li><a href="http://www.serviceinteraction.com" class="external text" title="http://www.serviceinteraction.com" rel="nofollow">Service Interaction Patterns (with BPEL code samples)</a></li>
+<li><a href="http://www.eclarus.com/bpel_bpmn_examples.html" class="external text" title="http://www.eclarus.com/bpel_bpmn_examples.html" rel="nofollow">Service Interaction Patterns (with BPMN diagrams that match BPEL code samples)</a></li>
+<li><a href="http://www.intalio.com" class="external text" title="http://www.intalio.com" rel="nofollow">The Open Source BPMS (Eclipse and Apache-based)</a></li>
+<li><a href="http://incubator.apache.org/projects/ode.html" class="external text" title="http://incubator.apache.org/projects/ode.html" rel="nofollow">Apache ODE, Open source BPEL server</a></li>
+<li><a href="http://www.netbeans.org/products/enterprise/" class="external text" title="http://www.netbeans.org/products/enterprise/" rel="nofollow">NetBeans Enterprise Pack</a></li>
+<li><a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=6D0DAF00-F689-4E61-88E6-CBE6F668E6A3&amp;displaylang=en" class="external text" title="http://www.microsoft.com/downloads/details.aspx?FamilyID=6D0DAF00-F689-4E61-88E6-CBE6F668E6A3&amp;displaylang=en" rel="nofollow">BPEL for Windows Workflow Foundation</a></li>
+</ul>
+<p><a name="BPEL_articles" id="BPEL_articles"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Execution_Language_780e.html" title="Edit section: BPEL articles">edit</a>]</span> <span class="mw-headline">BPEL articles</span></h3>
+<ul>
+<li><a href="http://blueprints.dev.java.net/bpcatalog/ee5/soa/" class="external text" title="http://blueprints.dev.java.net/bpcatalog/ee5/soa/" rel="nofollow">BPEL BluePrints: Web Services Orchestration Using BPEL - presented by the Java BluePrints Solutions Catalog</a></li>
+<li><a href="http://www.oracle.com/technology/pub/articles/bpel_cookbook/index.html" class="external text" title="http://www.oracle.com/technology/pub/articles/bpel_cookbook/index.html" rel="nofollow">"SOA Best Practices: The BPEL Cookbook" - BPEL howto's from Oracle</a></li>
+<li><a href="http://is.tm.tue.nl/research/patterns/download/Oracle_BPEL_v.10.1.2.pdf" class="external text" title="http://is.tm.tue.nl/research/patterns/download/Oracle_BPEL_v.10.1.2.pdf" rel="nofollow">"Pattern-based Evaluation of Oracle BPEL"</a></li>
+<li><a href="http://www.softcare.com/whitepapers/wp_whatis_bpel.php" class="external text" title="http://www.softcare.com/whitepapers/wp_whatis_bpel.php" rel="nofollow">"What is BPEL and Why is it so important to my business?" - BPEL Primer from SoftCare</a></li>
+<li><a href="http://webservices.sys-con.com/read/155617.htm" class="external text" title="http://webservices.sys-con.com/read/155617.htm" rel="nofollow">Description of the upcoming changes from BPEL 1.1 to BPEL 2.0</a></li>
+<li><a href="http://www.oracle.com/technology/oramag/oracle/04-jul/o44dev_web.html" class="external text" title="http://www.oracle.com/technology/oramag/oracle/04-jul/o44dev_web.html" rel="nofollow">Oracle Article: Weaving Web Services Together</a></li>
+<li><a href="http://www.bptrends.com/publicationfiles/BPEL4ProgArchies.pdf" class="external text" title="http://www.bptrends.com/publicationfiles/BPEL4ProgArchies.pdf" rel="nofollow">BPEL for Programmers and Architects</a> <i>(slides)</i></li>
+<li><a href="http://ftpna2.bea.com/pub/downloads/BPEL4WS_WSJ.PDF" class="external text" title="http://ftpna2.bea.com/pub/downloads/BPEL4WS_WSJ.PDF" rel="nofollow">The Promise of Portable Business Processes</a></li>
+<li><a href="http://www.theserverside.com/tt/articles/article.tss?l=BPELJava" class="external text" title="http://www.theserverside.com/tt/articles/article.tss?l=BPELJava" rel="nofollow">BPEL and Java</a></li>
+<li><a href="http://webservices.sys-con.com/read/46870.htm?CFID=131177&amp;CFTOKEN=141F4729-FFA1-12C2-68DED6CB7C6E5134" class="external text" title="http://webservices.sys-con.com/read/46870.htm?CFID=131177&amp;CFTOKEN=141F4729-FFA1-12C2-68DED6CB7C6E5134" rel="nofollow">Process-centric realization of SOA: BPEL moves into the limelight</a></li>
+<li><a href="http://www.cs.kent.ac.uk/pubs/2004/2027/content.pdf" class="external text" title="http://www.cs.kent.ac.uk/pubs/2004/2027/content.pdf" rel="nofollow">Validating BPEL Specifications using OCL</a></li>
+<li><a href="http://www.research.ibm.com/journal/sj/432/kloppmann.html" class="external text" title="http://www.research.ibm.com/journal/sj/432/kloppmann.html" rel="nofollow">IBM Article: Business Process Choreography in WebSphere: Combining the Power of BPEL and J2EE</a></li>
+<li><a href="http://elementallinks.typepad.com/bmichelson/2005/09/view_bpel_proce.html" class="external text" title="http://elementallinks.typepad.com/bmichelson/2005/09/view_bpel_proce.html" rel="nofollow">BPEL Primer</a></li>
+<li><a href="http://www.sdn.sap.com/irj/servlet/prt/portal/prtroot/docs/library/uuid/5cbf3ac6-0601-0010-25ae-ccb3dba1ef47" class="external text" title="http://www.sdn.sap.com/irj/servlet/prt/portal/prtroot/docs/library/uuid/5cbf3ac6-0601-0010-25ae-ccb3dba1ef47" rel="nofollow">WS-BPEL Extension for Sub-processes, BPEL-SPE</a></li>
+<li><a href="http://www.sdn.sap.com/irj/servlet/prt/portal/prtroot/docs/library/uuid/cfab6fdd-0501-0010-bc82-f5c2414080ed" class="external text" title="http://www.sdn.sap.com/irj/servlet/prt/portal/prtroot/docs/library/uuid/cfab6fdd-0501-0010-bc82-f5c2414080ed" rel="nofollow">WS-BPEL Extensions for People—BPEL4People</a></li>
+<li><a href="http://eprints.qut.edu.au/archive/00001776" class="external text" title="http://eprints.qut.edu.au/archive/00001776" rel="nofollow">Analysis of Web Services Composition Languages: The Case of BPEL4WS</a></li>
+<li><a href="http://blog.whatfettle.com/2007/01/13/bpel-begone/" class="external text" title="http://blog.whatfettle.com/2007/01/13/bpel-begone/" rel="nofollow">BPEL Begone - How useful is this Standard?</a></li>
+<li><a href="ftp://ftp.informatik.uni-stuttgart.de/pub/library/medoc.ustuttgart_fi/STUD-2052/STUD-2052.pdf" class="external text" title="ftp://ftp.informatik.uni-stuttgart.de/pub/library/medoc.ustuttgart_fi/STUD-2052/STUD-2052.pdf" rel="nofollow">Pattern-based Evaluation of IBM WebSphere BPEL</a></li>
+</ul>
+<ul>
+<li><a href="http://khanderaotech.blogspot.com/2007/02/bpel-in-sca-assembly-model.html" class="external text" title="http://khanderaotech.blogspot.com/2007/02/bpel-in-sca-assembly-model.html" rel="nofollow">BPEL in SCA assembly model</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/u/s/Business_Process_Execution_Language_780e.html">http://en.wikipedia.org../../../b/u/s/Business_Process_Execution_Language_780e.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../x/m/l/Category%7EXML-based_standards_8d02.html" title="Category:XML-based standards">XML-based standards</a></span> | <span dir='ltr'><a href="../../../s/o/f/Category%7ESoftware_engineering_d46f.html" title="Category:Software engineering">Software engineering</a></span> | <span dir='ltr'><a href="../../../w/e/b/Category%7EWeb_service_specifications_51b9.html" title="Category:Web service specifications">Web service specifications</a></span> | <span dir='ltr'><a href="../../../i/b/m/Category%7EIBM_software_7634.html" title="Category:IBM software">IBM software</a></span> | <span dir='ltr'><a href="../../../w/o/r/Category%7EWorkflow_technology_c867.html" title="Category:Workflow technology">Workflow technology</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/u/s/Business_Process_Execution_Language_780e.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/u/s/Talk%7EBusiness_Process_Execution_Language_421a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Business_Process_Execution_Language">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../da/b/p/e/BPEL_bf2c.html">Dansk</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/b/u/s/Business_Process_Execution_Language_780e.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/b/p/e/BPEL_bf2c.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/b/u/s/Business_Process_Execution_Language_780e.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/b/p/e/BPEL_bf2c.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/b/p/e/BPEL_bf2c.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/b/u/s/Business_Process_Execution_Language_780e.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/b/p/e/BPEL_bf2c.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/b/p/e/BPEL_bf2c.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:31, 29 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, Dpattison2007, <a href="../../../r/u/g/User%7ERugops_856d.html" title="User:Rugops">Rugops</a>, <a href="../../../k/m/o/User%7EKmorozov_7742.html" title="User:Kmorozov">Kmorozov</a>, MME, <a href="../../../a/r/n/User%7EArnauldvm_a42e.html" title="User:Arnauldvm">Arnauldvm</a>, <a href="../../../p/s/d/User%7EPsd_fae3.html" title="User:Psd">Psd</a>, <a href="../../../r/e/n/User%7ERenesis_2e6a.html" title="User:Renesis">Renesis</a>, Vojtech huser, <a href="../../../h/e/r/User%7EHere_05b1.html" title="User:Here">Here</a>, <a href="../../../k/u/r/User%7EKuru_b024.html" title="User:Kuru">Kuru</a>, <a href="../../../j/a/y/User%7EJayvdb_61b3.html" title="User:Jayvdb">Jayvdb</a>, <a href="../../../n/i/c/User%7ENicholsr_d050.html" title="User:Nicholsr">Nicholsr</a>, Wires, S.K., Marlon.dumas, <a href="../../../a/s/t/User%7EAsterion_ed2e.html" title="User:Asterion">Asterion</a>, <a href="../../../d/r/e/User%7EDreftymac_20ab.html" title="User:Dreftymac">Dreftymac</a>, Kintar, Turbogeek, <a href="../../../p/s/y/User%7EPsychoSafari_5c43.html" title="User:PsychoSafari">PsychoSafari</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../p/h/i/User%7EPhilip_ea_c925.html" title="User:Philip ea">Philip ea</a>, <a href="../../../t/h/u/User%7EThurnerRupert_d9d2.html" title="User:ThurnerRupert">ThurnerRupert</a>, <a href="../../../s/o/l/User%7ESoloturn99_073b.html" title="User:Soloturn99">Soloturn99</a>, <a href="../../../r/w/2/User%7ERw2_300d.html" title="User:Rw2">Rw2</a>, <a href="../../../s/l/e/User%7ESleepyhead81_fac2.html" title="User:Sleepyhead81">Sleepyhead81</a>, <a href="../../../g/l/e/User%7EGlenn4pr_55cc.html" title="User:Glenn4pr">Glenn4pr</a>, <a href="../../../d/o/u/User%7EDoug_Bell_8398.html" title="User:Doug Bell">Doug Bell</a>, <a href="../../../d/m/h/User%7EDmh_6fde.html" title="User:Dmh">Dmh</a>, Stevemidgley, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, Gackerman, Jevdemon, <a href="../../../u/z/u/User%7EUzume_509b.html" title="User:Uzume">Uzume</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../g/a/i/User%7EGaius_Cornelius_c35a.html" title="User:Gaius Cornelius">Gaius Cornelius</a>, BBCWatcher, <a href="../../../a/u/m/User%7EAuminski_7423.html" title="User:Auminski">Auminski</a>, <a href="../../../d/p/m/User%7EDpm64_5105.html" title="User:Dpm64">Dpm64</a>, <a href="../../../k/e/n/User%7EKenmccallum_cc0f.html" title="User:Kenmccallum">Kenmccallum</a>, AlanRickayzen, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../d/m/c/User%7EDmccreary_e0f7.html" title="User:Dmccreary">Dmccreary</a>, <a href="../../../d/o/c/User%7EDocendoDiscimus_4b33.html" title="User:DocendoDiscimus">DocendoDiscimus</a>, Davidogren, <a href="../../../e/d/c/User%7EEdcolins_06ae.html" title="User:Edcolins">Edcolins</a>, <a href="../../../s/t/a/User%7EStack_eb6a.html" title="User:Stack">Stack</a>, <a href="../../../e/b/e/User%7EEbeisher_4e78.html" title="User:Ebeisher">Ebeisher</a>, <a href="../../../k/h/a/User%7EKhalid_hassani_3476.html" title="User:Khalid hassani">Khalid hassani</a>, <a href="../../../e/h/n/User%7EEhn_23d5.html" title="User:Ehn">Ehn</a>, Ygoland, Shantoki, MacTed, <a href="../../../f/r/i/User%7EFrieda_ff93.html" title="User:Frieda">Frieda</a>, Warpsmith, Wikipawel, <a href="../../../g/l/e/User%7EGlenn_a98b.html" title="User:Glenn">Glenn</a>, <a href="../../../k/u/s/User%7EKustere_b7b1.html" title="User:Kustere">Kustere</a>, <a href="../../../w/i/k/User%7EWik_19d3.html" title="User:Wik">Wik</a> and <a href="../../../a/v/e/User%7EAvernet_96d4.html" title="User:Avernet">Avernet</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

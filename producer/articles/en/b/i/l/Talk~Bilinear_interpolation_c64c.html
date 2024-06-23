@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Bilinear interpolation,Barycentric coordinates (mathematics),Finite element analysis,Trilinear interpolation,Jitse Niesen,Nwerneck,Safetycritical,TomViza,Drf5n,Jitse Niesen" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Bilinear interpolation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Bilinear interpolation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Rewrite"><span class="tocnumber">1</span> <span class="toctext">Rewrite</span></a></li>
+<li class="toclevel-1"><a href="#Error_in_matrix_formulation"><span class="tocnumber">2</span> <span class="toctext">Error in matrix formulation</span></a></li>
+<li class="toclevel-1"><a href="#Error_in_Big_equations"><span class="tocnumber">3</span> <span class="toctext">Error in Big equations</span></a></li>
+<li class="toclevel-1"><a href="#Better_form_of_equation"><span class="tocnumber">4</span> <span class="toctext">Better form of equation</span></a></li>
+<li class="toclevel-1"><a href="#Linearities"><span class="tocnumber">5</span> <span class="toctext">Linearities</span></a></li>
+<li class="toclevel-1"><a href="#Excel_Bilinear_Interpolation_Function"><span class="tocnumber">6</span> <span class="toctext">Excel Bilinear Interpolation Function</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Rewrite" id="Rewrite"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/l/Talk%7EBilinear_interpolation_c64c.html" title="Edit section: Rewrite">edit</a>]</span> <span class="mw-headline">Rewrite</span></h2>
+<p>I think that this article explains the topic in not the best way and I propose a major rewrite.</p>
+<p>The idea of explaining the method using the "capital-H" (or capital-I) shape may help less mathematically skilled readers, but overcomplicates it, IMHO. After reading (and before some thinking) I was left with the impression that three separate linear operations were required, but the meaning of the intermediates was not explained.</p>
+<p>I would describe the process as a weighted average of the four nearest points, with the weights being determined by the areas of the four rectangles divided by their sum. This sum is the area of the rectangle QQQQ.</p>
+<p>Even if you don't like my alternative interpretation, it'd be easier to read if 1/( (x2-x1)(y2-y1) ) were in a sigle term at the start.</p>
+<p>thoughts? <a href="../../../t/o/m/User%7ETomViza_e2ec.html" title="User:TomViza">TomViza</a> 02:24, 19 January 2006 (UTC)</p>
+<dl>
+<dd>I like your idea of coupling the areas with the weights very much. It is easy to see it as a generalization of the one-dimensional case, where the weights are determined by the distances. I agree that this will be less complicated than the H-shape.</dd>
+<dd>However, explaining bilinear interpolation as successive 1d linear interpolations also has its advantages. It explains the name (you do first an interpolation in the x-direction and then one in the y-direction) and it points to an easy way to do an error analysis.</dd>
+<dd>So, what do you think of the following outline: First give the formula and your area-based explanation and then say that the formula can also be derived via the H-shape. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 13:27, 19 January 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>I think it is an excellent formulation for interpretation -- the weights of each corner are proportional to the area of the opposing sub-rectangle. The (x2-x1)(y2-y1) term is the area of the whole rectangle, and, for instance, the (x-x1)(y-y1) is the area of the rectangle opposite Q_22. That would hold to higher dimensions: In trilinear, the weights of each component are proportional to the size of the opposing volume. Back down to the univariate linear, case, the weight of each extreme is proportional to the distance opposite the extreme. Conceptually, it seems equivalent to the <a href="../../../b/a/r/Barycentric_coordinates_%28mathematics%29.html" title="Barycentric coordinates (mathematics)">Barycentric_coordinates_(mathematics)</a> interpolation often used in <a href="../../../f/i/n/Finite_element_analysis.html" title="Finite element analysis">Finite_element_analysis</a>.</dd>
+<dd>Also, the 'four nearest points' idea works this way only if the points are on a regular grid. If the points are irregular, one violates the first assumption on the page. Drf5n 19:11, 24 September 2006 (UTC)</dd>
+</dl>
+<p><a name="Error_in_matrix_formulation" id="Error_in_matrix_formulation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/l/Talk%7EBilinear_interpolation_c64c.html" title="Edit section: Error in matrix formulation">edit</a>]</span> <span class="mw-headline">Error in matrix formulation</span></h2>
+<p>I think there is an error in the matrix formulation. Product of 2x2 and 1x2?</p>
+<dl>
+<dd>Yes, you're right. Thanks for the notice. The error is now fixed. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 05:53, 20 April 2006 (UTC)</dd>
+</dl>
+<p><br /></p>
+<p><a name="Error_in_Big_equations" id="Error_in_Big_equations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/l/Talk%7EBilinear_interpolation_c64c.html" title="Edit section: Error in Big equations">edit</a>]</span> <span class="mw-headline">Error in Big equations</span></h2>
+<p>On using this page to check some interpolations we noticed that some minus signs should be plus signs. These have been changed. Otherwise this page is excellent. How about something similar in the tri-linear equations page?</p>
+<dl>
+<dd>Are you sure? The formula used to be:
+<dl>
+<dd><img class='tex' src="../../../math/c/4/1/c416a2d0912b836d122633c42363ff8d.png" alt="f(x,y) \approx \frac{f(Q_{11})}{(x_1-x_2)(y_1-y_2)} (x-x_2)(y-y_2) - \frac{f(Q_{21})}{(x_1-x_2)(y_1-y_2)} (x-x_1)(y-y_2)" />
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/9/d/1/9d15567b941a8a9bc3cd3d9d3e0ccb1b.png" alt="{} - \frac{f(Q_{12})}{(x_1-x_2)(y_1-y_2)} (x-x_2)(y-y_1) + \frac{f(Q_{22})}{(x_1-x_2)(y_1-y_2)} (x-x_1)(y-y_1)." /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>Substituing <span class="texhtml">(<i>x</i>,<i>y</i>) = (<i>x</i><sub>1</sub>,<i>y</i><sub>2</sub>)</span>, the right-hand side evaluates to
+<dl>
+<dd><img class='tex' src="../../../math/7/e/b/7ebc9d4c6851d1f3b877b581efb8b451.png" alt="- \frac{f(Q_{12})}{(x_1-x_2)(y_1-y_2)} (x_1-x_2)(y_2-y_1) = f(Q_{12})." /></dd>
+</dl>
+</dd>
+<dd>So the minus sign seems correct to me.</dd>
+<dd>It would be great if you could edit the <a href="../../../t/r/i/Trilinear_interpolation.html" title="Trilinear interpolation">trilinear interpolation</a> page along similar lines. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 04:09, 17 May 2006 (UTC)</dd>
+</dl>
+<p><br />
+(continued)</p>
+<p>We did a test in a spread sheet - with all plus signs the answers were correct - minus signs would have given an incorrect answer. If the f(p) equation is plugged into the the f(R1) and f(R2) equations then minus signs do not seem to occur. We could be wrong though ..&#160;:-) I can provide a link to a page with a C code listing showing all plus signs - but I'm not sure if such links are allowed on these pages. I won't change the page. <a href="../../../s/a/f/User%7ESafetycritical_c61e.html" title="User:Safetycritical">safetycritical</a> 21:38, 17 May 2006 (UTC)</p>
+<dl>
+<dd>Of course, I could also be wrong. Please post the link, or email the code to me directly (you can find my email address by going to my user page and following the link to my home page). -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 03:43, 18 May 2006 (UTC)</dd>
+</dl>
+<p><a name="Better_form_of_equation" id="Better_form_of_equation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/l/Talk%7EBilinear_interpolation_c64c.html" title="Edit section: Better form of equation">edit</a>]</span> <span class="mw-headline">Better form of equation</span></h2>
+<p>Wouldn't it be much more intuitive to replace</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/f/5/bf540da4d4b88596f1184f8888946b54.png" alt="f(x,y) \approx f(0,0) \, (x-1)(y-1) - f(1,0) \, x(y-1) - f(0,1) \, (x-1)y + f(1,1) xy." /></dd>
+</dl>
+<p>with</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/8/3/1831a0c3c97e1a3deaa44f68cc752f6d.png" alt="f(x,y) \approx f(0,0) \, (1-x)(1-y) + f(1,0) \, x(1-y) + f(0,1) \, (1-x)y + f(1,1) xy." /></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>You're probably right. I modified the formulas to avoid negative quantities like <i>x</i> − 1. I hope I did not introduce errors in the process. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 04:50, 22 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Maybe it's just me, but I find this way easier because in this case the (1 − <i>x</i>) and (1 − <i>y</i>) represent the weights on the pixels, and this way the alternate weights ( (1 − <i>x</i>) and <i>x</i> ) add up to 1.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Linearities" id="Linearities"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/l/Talk%7EBilinear_interpolation_c64c.html" title="Edit section: Linearities">edit</a>]</span> <span class="mw-headline">Linearities</span></h2>
+<p>Hi there...</p>
+<p>The text mentions the fact that "the interpolant is not linear", but have you ever seen a linear interpolant?... Linear in relation to what, after all??</p>
+<p>I don't know why this phrase is bothering me... Perhaps because I also want to include a dicussion on the fact that this non-linear interpolant actually generates a linear filter that will be used to process the image (as you all know). Wat do you think?... -- <a href="../../../n/w/e/User%7ENwerneck_ab15.html" title="User:Nwerneck">NIC1138</a> 14:18, 25 August 2006 (UTC)</p>
+<dl>
+<dd>The interpolant is the function <i>f</i>, which is a linear function. So "the interpolant is not linear" means nonlinear with respect to the arguments of <i>f</i>, which are <i>x</i> and <i>y</i>.</dd>
+<dd>If the phrase is bothering you, then perhaps you could try reformulating it? By the way, I don't know that this non-linear interpolant actually generates a linear filter that will be used to process the image. Different editors come from different backgrounds, and I don't do image manipulation. Please do add something about this application. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 14:54, 25 August 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>Applying the interpolation is a linear transform of the input variables (Q_**), but the surface between the points is not a plane. Three points specify a plane, and the fourth would require some sort of curvature. If you were interpolating on a triangle by finding the point on the plane defined by the triangle, then you'd have a linear interpolant. Drf5n 01:13, 25 September 2006 (UTC)</dd>
+</dl>
+<p><br /></p>
+<p><a name="Excel_Bilinear_Interpolation_Function" id="Excel_Bilinear_Interpolation_Function"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/l/Talk%7EBilinear_interpolation_c64c.html" title="Edit section: Excel Bilinear Interpolation Function">edit</a>]</span> <span class="mw-headline">Excel Bilinear Interpolation Function</span></h2>
+<p>It would seem useful to include software code for many of these excellent mathematical explanations/algorithms. I've included here an Excel user function I wrote yesterday that should work with nearly any 2D table in Excel. The algorithm is based on the algorithm on the main page. There has been very little testing so take this as a starting point.</p>
+<p>Public Function Interp2D(ByVal x As Double, ByVal y As Double, ByVal rgTable As Range) As Double</p>
+<pre>
+   '**** Interp2D BILINEAR INTERPOLATION FUNCTION ****
+   '(From <a href="http://en.wikipedia.org/wiki/Bilinear_interpolation" class="external free" title="http://en.wikipedia.org/wiki/Bilinear_interpolation" rel="nofollow">http://en.wikipedia.org/wiki/Bilinear_interpolation</a>)
+   'In mathematics, bilinear interpolation is an extension of linear interpolation
+   'for interpolating functions of two variables. The key idea is to perform linear
+   'interpolation first in one direction, and then in the other direction.
+   '
+   'Suppose that we want to find the value of the unknown function f at
+   'the point P = (x, y). It is assumed that we know the value of f at the four
+   'points Q11 = (x1, y1), Q12 = (x1, y2), Q21 = (x2, y1), and Q22 = (x2, y2).
+   '
+   'We first do linear interpolation in the x-direction. This yields
+   '
+   ' f(R1) = (x2 - x)/(x2 - x1) * f(Q11) + (x - x1)/(x2 - x1)*f(Q21)
+   '   where R1 = (x, y1)
+   'and
+   ' f(R2) = (x2 - x)/(x2 - x1) * f(Q12) + (x - x1)/(x2 - x1)*f(Q22)
+   '   where R2 = (x, y2)
+   '
+   'We then proceed by interpolating in the y-direction.
+   '
+   ' f(P) = (y2 - y)/(y2-y1) * f(R1) + (y - y1)/(y2 - y1) * f(R2)
+   '   where P = (x, y)
+   '
+   'Constraints:
+   '   x is a Double and xHeaderRowMinValue &lt;= x &lt;= xHeaderRowMaxValue
+   '   y is a Double and yHeaderColumnMinValue &lt;= y &lt;= yHeaderColumnMaxValue
+   '   rgTable is an Excel range, specified in the normal Excel way
+   '       The range should be a rectangle including the xHeader Row,
+   '        the yHeaderRow, and all of the data table.
+   '   xHeaderRow values increase to the right
+   '   yHeaderColumn values increase downward
+   
+   Const minPositiveDouble As Double = 4.94065645841247E-324
+   Const maxPositiveDouble As Double = 1.7976931348623E+308
+   Const Epsilon As Double = 0.0001  'Tolerable error allowed
+   
+   Dim rgXHdr, rgYHdr, rgXYData As Range
+   Dim xHdr(), yHdr(), xyData() As Double  'Array sizes still unknown
+   Dim xHdrMin, xHdrMax, yHdrMin, yHdrMax As Double
+   
+   Dim x1, x2, y1, y2, ixX1, ixX2, ixY1, ixY2, fQ11, fQ12, fQ21, fQ22, fR1, fR2, fP As Double
+   Dim row, col As Range
+   Dim i, j As Integer
+   Dim t As Variant
+       
+   'Get xHeaderRow, and set up array to hold values
+   Set rgXHdr = rgTable.Offset(0, 1).Resize(1, rgTable.columns.Count - 1)
+   ReDim xHdr(rgXHdr.columns.Count - 1)    'Size the array
+   
+   'Find min/max limits for xHeaderRow, and read values into array
+   '  Assumes minimum xHeader value is 0, ie no negative numbers
+   xHdrMin = maxPositiveDouble
+   xHdrMax = 0
+   i = 0
+   For Each col In rgXHdr.columns
+       If xHdrMax &lt; col.Cells(1, 1).Value Then
+           xHdrMax = col.Cells(1, 1).Value
+       End If
+       
+       If xHdrMin &gt; col.Cells(1, 1).Value Then
+           xHdrMin = col.Cells(1, 1).Value
+       End If
+       
+       xHdr(i) = col.Cells(1, 1).Value
+       i = i + 1
+   Next
+</pre>
+<pre>
+   'Get yHeaderColumn, and set up array to hold values
+   Set rgYHdr = rgTable.Offset(1, 0).Resize(rgTable.rows.Count - 1, 1)
+   ReDim yHdr(rgYHdr.rows.Count - 1)    'Size the array
+   
+   'Find min/max limits for yHeaderColumn, and read values into array
+   '  Assumes minimum yHeader value is 0, ie no negative numbers
+   yHdrMin = maxPositiveDouble
+   yHdrMax = 0
+   i = 0
+   For Each row In rgYHdr.rows
+       If yHdrMax &lt; row.Cells(1, 1).Value Then
+           yHdrMax = row.Cells(1, 1).Value
+       End If
+       
+       If yHdrMin &gt; row.Cells(1, 1).Value Then
+           yHdrMin = row.Cells(1, 1).Value
+       End If
+       
+       yHdr(i) = row.Cells(1, 1).Value
+       i = i + 1
+   Next
+   
+   'Verify that x &amp; y are in proper range,
+   '  after allowing for Epsilon differences in values
+   If x &lt; xHdrMin And x &gt;= xHdrMin - Epsilon Then
+           x = xHdrMin
+   End If
+   If x &gt; xHdrMax And x &lt;= xHdrMax + Epsilon Then
+           x = xHdrMax
+   End If
+   If y &lt; yHdrMin And y &gt;= yHdrMin - Epsilon Then
+           y = yHdrMin
+   End If
+   If y &gt; yHdrMax And y &lt;= yHdrMax + Epsilon Then
+           y = yHdrMax
+   End If
+   
+   If x &lt; xHdrMin Or x &gt; xHdrMax Or y &lt; yHdrMin Or y &gt; yHdrMax Then
+       MsgBox ("Interp2D: x or y value out of range: x= " &amp; x &amp; " y= " &amp; y)
+       End
+   End If
+       
+   'Get xyData, and set up array to hold values
+   Set rgXYData = rgTable.Offset(1, 1).Resize(rgTable.rows.Count - 1, rgTable.columns.Count - 1)
+   ReDim xyData(rgXYData.columns.Count - 1, rgXYData.rows.Count - 1)    'Size the 2D array
+   
+   'Read Excel table values into xyData array
+   i = 0
+   For Each col In rgXYData.columns
+       j = 0
+       For Each row In col.rows
+           xyData(i, j) = row.Cells(1, 1).Value
+           j = j + 1
+       Next
+       i = i + 1
+   Next
+   
+   'Find x1, x2, and corresponding indices ixX1, ixX2 in xHdr
+   i = 0
+   x1 = xHdrMin
+   x2 = xHdrMin
+   ixX1 = 0
+   ixX2 = 0
+   For Each t In xHdr
+       If x = t Then
+           x1 = t
+           x2 = t
+           ixX1 = i
+           ixX2 = i
+           Exit For
+       ElseIf x &gt; t Then
+           x1 = t
+           x2 = xHdr(i + 1)
+           ixX1 = i
+           ixX2 = i + 1
+       End If
+       i = i + 1
+   Next
+   
+   'Find y1, y2, and corresponding indices ixY1, ixY2 in yHdr
+   i = 0
+   y1 = yHdrMin
+   y2 = yHdrMin
+   ixY1 = 0
+   ixY2 = 0
+   For Each t In yHdr
+       If y = t Then
+           y1 = t
+           y2 = t
+           ixY1 = i
+           ixY2 = i
+           Exit For
+       ElseIf y &gt; t Then
+           y1 = t
+           y2 = yHdr(i + 1)
+           ixY1 = i
+           ixY2 = i + 1
+       End If
+       i = i + 1
+   Next
+   
+   'Get fQ11, fQ12, fQ21, fQ22
+   fQ11 = xyData(ixX1, ixY1)
+   fQ12 = xyData(ixX1, ixY2)
+   fQ21 = xyData(ixX2, ixY1)
+   fQ22 = xyData(ixX2, ixY2)
+   
+   'Get f(R1) and f(R2)
+   If x1 = x2 Then
+       fR1 = fQ11
+       fR2 = fQ12
+   Else
+       fR1 = ((x2 - x) / (x2 - x1)) * fQ11 + ((x - x1) / (x2 - x1)) * fQ21
+       fR2 = ((x2 - x) / (x2 - x1)) * fQ12 + ((x - x1) / (x2 - x1)) * fQ22
+   End If
+   
+   'Get f(P)
+   If y1 = y2 Then
+       fP = fR1
+   Else
+       fP = ((y2 - y) / (y2 - y1)) * fR1 + ((y - y1) / (y2 - y1)) * fR2
+   End If
+       
+   Interp2D = fP
+   
+</pre>
+<p>End Function</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/l/Talk%7EBilinear_interpolation_c64c.html">http://en.wikipedia.org../../../b/i/l/Talk%7EBilinear_interpolation_c64c.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/i/l/Bilinear_interpolation.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/i/l/Talk%7EBilinear_interpolation_c64c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Bilinear_interpolation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 06:36, 30 September 2006 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) Drf5n, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../n/w/e/User%7ENwerneck_ab15.html" title="User:Nwerneck">Nwerneck</a>, <a href="../../../s/a/f/User%7ESafetycritical_c61e.html" title="User:Safetycritical">Safetycritical</a> and <a href="../../../t/o/m/User%7ETomViza_e2ec.html" title="User:TomViza">TomViza</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

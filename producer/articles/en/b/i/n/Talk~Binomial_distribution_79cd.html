@@ -1,0 +1,360 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Binomial distribution,Bernstein polynomial,Binomial coefficient,GNU Scientific Library,Lottery Mathematics,Wp:nor,Dick Beldin,MarkSweep,McKay,Michael Hardy,New Thought" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Binomial distribution - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Binomial distribution</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>If you go to previous versions and look at the first one, 02/15/2001, which is yours?, you will see&#160;:</p>
+<p><br />
+1). q (1-p), maybe a typo?</p>
+<p><br />
+2). And the formula for the numbers of ways of picking X items out of N items was: N!/X!/(N-X)!. This is plain wrong. Yes, after requesting a change for a week, I changed it.</p>
+<p>3).There were also wording problems. RoseParks.</p>
+<hr />
+<p>I see now the problem. (1-p) was intended as a parenthetical definition. I guess N1/X!/(N-X)! worked in my programming codes so I couldn't see the ambiguity. How would you calculate N!/X!/(N-X)!? From right to left? On the other hand, Today is 02/20/2001, so I think your "requesting a change for a week" is a bit off. Today is only the 20th by my calendar. In any case, the criticism has led to something better. <a href="../../../d/i/c/User%7EDick_Beldin_a8ac.html" title="User:Dick Beldin">Dick Beldin</a>---- In answer to your question on how you evaluate, N!/X!/(X-N)!, this is ambiguous. In any easy example.</p>
+<p><br />
+2/4/12 is ambiguous since</p>
+<ul>
+<li>(2/4)/12= 2/48=1/24 while</li>
+<li>2/(4/12)= 24/4= 6.</li>
+</ul>
+<p>Multiplication is associative over the reals. If you look at division as the inverse operation of multplication, i.e. 2/4/12=2*4^1*12^1=1/24 you are okay. If you look at division in the ordinary sense, you must specify the order of operations.RoseParks</p>
+<hr />
+<p>I agree that an expression with successive divisions appears ambiguous. Most mathematicians I know do indeed consider division as the inverse of multiplication and many programming languages explicitly specify that multiplication and divisions are performed left to right. You are correct, it is not a universal convention. In addition, the vertical placement of numerator and denominator is clearer. <a href="../../../d/i/c/User%7EDick_Beldin_a8ac.html" title="User:Dick Beldin">Dick Beldin</a></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Confidence_Interval.3F"><span class="tocnumber">1</span> <span class="toctext">Confidence Interval?</span></a></li>
+<li class="toclevel-1"><a href="#Simulation.3F"><span class="tocnumber">2</span> <span class="toctext">Simulation?</span></a></li>
+<li class="toclevel-1"><a href="#HIV_positive.3F"><span class="tocnumber">3</span> <span class="toctext">HIV positive?</span></a></li>
+<li class="toclevel-1"><a href="#Probability_mass_function.3F"><span class="tocnumber">4</span> <span class="toctext">Probability mass function?</span></a></li>
+<li class="toclevel-1"><a href="#CDF_Example_Request"><span class="tocnumber">5</span> <span class="toctext">CDF Example Request</span></a></li>
+<li class="toclevel-1"><a href="#.22nmemonic.22_section"><span class="tocnumber">6</span> <span class="toctext">"nmemonic" section</span></a></li>
+<li class="toclevel-1"><a href="#Relationship_to_Bezier_curves.3F"><span class="tocnumber">7</span> <span class="toctext">Relationship to Bezier curves?</span></a></li>
+<li class="toclevel-1"><a href="#Better_Example"><span class="tocnumber">8</span> <span class="toctext">Better Example</span></a></li>
+<li class="toclevel-1"><a href="#.22Kitchen.27s_theorem.22"><span class="tocnumber">9</span> <span class="toctext">"Kitchen's theorem"</span></a></li>
+<li class="toclevel-1"><a href="#.22Kitchen.27s_Theorem.22"><span class="tocnumber">10</span> <span class="toctext">"Kitchen's Theorem"</span></a></li>
+<li class="toclevel-1"><a href="#Normal_Approximation"><span class="tocnumber">11</span> <span class="toctext">Normal Approximation</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Confidence_Interval.3F" id="Confidence_Interval.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: Confidence Interval?">edit</a>]</span> <span class="mw-headline">Confidence Interval?</span></h2>
+<p>I was looking for information about confidence intervals on a binomial distribution, but was surprised not to find it here. I know this case isn't quite as simple as for normal distributions, but it would be nice to have here, if somebody would like to contribute the information.</p>
+<p>You mean CI of p, the success probability, as estimated from the data. If 70 successes in 100 trials, then p_est = 0.7, and your question is what is standard deviation of p_est. It is sqrt(p_est(1-p_est)/n_trials). The 95% confidence interval is +/- 2 standard deviations. My question is what happens if the CI range is outside the allowed 0 to 1 range for a probability. This can happen if p_est is ~1 or ~0. The CI has to be assymetric. Any ideas?</p>
+<dl>
+<dd>In the case where the confidence interval gets close to 0 or 1, the normal approximation of the binomial distribution is not accurate and rules like your "2 standard deviations" that are derived from the normal distribution are not accurate either. Depending on the circumstances, one can use a different approximation (such as the Poisson distribution) or the exact values of the binomial distribution. <a href="../../../m/c/k/User%7EMcKay_32b8.html" title="User:McKay">McKay</a> 06:36, 27 October 2006 (UTC)</dd>
+</dl>
+<p><a name="Simulation.3F" id="Simulation.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: Simulation?">edit</a>]</span> <span class="mw-headline">Simulation?</span></h2>
+<p>I was looking for a pointer to quickly simulate a Binomial trial. That is, given a p and an n, I want to randomly select a result with a Binomial distribution. I know I can approximate this with a normal distribution, but I would prefer an exact result if it can be calculated quickly for n &lt; 10,000. I'm sure others have come here looking as well. Thanks.</p>
+<dl>
+<dd>I added two references to the article which describe binomial random variate generation. A modern C implementation of Kachitvichyanukul and Schmeiser's BTPE algorithm is available as part of the <a href="../../../g/n/u/GNU_Scientific_Library_c13f.html" title="GNU Scientific Library">GNU Scientific Library</a>. --<a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a><big><a href="../../../m/a/r/User_talk%7EMarkSweep_9d72.html" title="User talk:MarkSweep">✍</a></big> 04:08, 8 October 2005 (UTC)</dd>
+</dl>
+<p><a name="HIV_positive.3F" id="HIV_positive.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: HIV positive?">edit</a>]</span> <span class="mw-headline">HIV positive?</span></h2>
+<p>Is it me, or should the "A typical example is the following: assume 5% of the population is HIV-positive." part in the second paragraph be changed to something a little less... you know... The HIV part is just not encyclopedia-ish...</p>
+<dl>
+<dd>That might depend on which population. <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> 19:42, 22 October 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>Spot on. I thought exactly the same and immediately looked at the discussion. All political correctness aside, I just don't think anyone would feel harassed if we wrote "assume 5% of the population carry a certain gene" or "are infected with a certain desease", while I am very sure that everyone with an HIV-infection or someone who knows someone closely who is infected will at least feel strange on reading this paragraph. I am all against political correctness for its own sake, but if there's no need whatsoever to use a certain formulation that might be considered inappropriate, why use it?</dd>
+</dl>
+<p><a name="Probability_mass_function.3F" id="Probability_mass_function.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: Probability mass function?">edit</a>]</span> <span class="mw-headline">Probability mass function?</span></h2>
+<p>Okay, maybe this is standard jargon somewhere, but I've never come across it until today. I guess "mass" makes sense by the physical analogy to density. Honestly, I think it's stupid language. Should we also speak of cumulative mass distribution functions? Be consistent! I'm not going to change it, but a mathematician should. At the very least link it to the pmf page.</p>
+<dl>
+<dd>pmf is fairly standard. It is linked there now. No, cumulative mass distribution function is not a phrase I have heard. --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 08:25, 6 February 2006 (UTC)</dd>
+</dl>
+<p><a name="CDF_Example_Request" id="CDF_Example_Request"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: CDF Example Request">edit</a>]</span> <span class="mw-headline">CDF Example Request</span></h2>
+<p>The article gives the following example: "A typical example is the following: assume 5% of the population is green-eyed. You pick 500 people randomly. How likely is it that you get 30 or more green-eyed people?".</p>
+<p>This is a CDF example. Unfortunately, the expression given for CDF is not very clear to me. How about giving a worked example with the green-eyed people given in the article as a good example, please? --<a href="../../../n/e/w/User%7ENew_Thought_c61c.html" title="User:New Thought">New Thought</a> 15:12, 8 May 2006 (UTC)</p>
+<dl>
+<dd>I think the given CDF is really merely an introduction of notation. Perhaps there is no simple closed-form expression for the CDF, although there is an obvious algorithm for computing its values (just add up the appropriate values of the mass function). <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> 18:27, 8 May 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>aha - that's the answer I was looking for! In that case, why not say something like, "The value can be computed with..."</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/3/e/9/3e97c1f754cb4fcd85ae84832d4c3179.png" alt="cdf(k;n,p) = \sum_{k=1}^n {n\choose k}p^k(1-p)^{n-k}\," /> --<a href="../../../n/e/w/User%7ENew_Thought_c61c.html" title="User:New Thought">New Thought</a> 09:14, 9 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Actually, in this case the CDF is
+<dl>
+<dd><img class='tex' src="../../../math/a/3/8/a38d2d69003381fe1d5de9deeff4b2b6.png" alt="F(k;n,p) = \sum_{j=0}^k {n\choose j}p^j(1-p)^{n-j}" /></dd>
+</dl>
+</dd>
+<dd>--<a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>&#160;<small><a href="../../../m/a/r/User_talk%7EMarkSweep_9d72.html" title="User talk:MarkSweep">(call me collect)</a></small> 10:43, 9 May 2006 (UTC)
+<dl>
+<dd>
+<dl>
+<dd>Good corection - I have added this expression to the article! --<a href="../../../n/e/w/User%7ENew_Thought_c61c.html" title="User:New Thought">New Thought</a> 13:04, 9 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>That is correct only when <i>k</i> is an integer, and only when 0&#160;≤&#160;<i>k</i>&#160;≤&#160;<i>n</i>. <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> 21:29, 9 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>This is the binomial distribution - how can <i>k</i> not be either 0 or a positive integer? --<a href="../../../n/e/w/User%7ENew_Thought_c61c.html" title="User:New Thought">New Thought</a> 08:30, 10 May 2006 (UTC)</dd>
+<dd>Just wanted to add - thanks for your help in getting to this article improvement! --<a href="../../../n/e/w/User%7ENew_Thought_c61c.html" title="User:New Thought">New Thought</a> 16:34, 10 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>In that specific example, we have
+<dl>
+<dd><img class='tex' src="../../../math/a/8/5/a859748dcea33e169dada33677c5c708.png" alt="\Pr[X \geq 30] = 1 - \Pr[X \leq 29] = 1 - F(29; 500, 0.05)" /></dd>
+<dd><img class='tex' src="../../../math/d/5/9/d59b59177f274d777639bdb804459daa.png" alt="= 1 - I_{0.95}(471,30) = I_{0.05}(30,471) \approx 17.647\%." /></dd>
+</dl>
+</dd>
+<dd>You can compute this in terms of the incomplete Beta function, as indicated in the article, using your favorite numerical software. For example, in Mathematica this becomes <code>BetaRegularized[0.05, 30, 471]</code>. Direct summation is likely going to be less numerically stable than a carefully designed subroutine for evaluating the incomplete Beta function. --<a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>&#160;<small><a href="../../../m/a/r/User_talk%7EMarkSweep_9d72.html" title="User talk:MarkSweep">(call me collect)</a></small> 06:11, 9 May 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Thanks very much for your response. I agree with you - and as it happens, I do use Maxima, which has a shed-load of distribution functions (<i>load(distrib);</i> followed by <i>functions;</i> will show them) - but I wanted to write the functions in Javascript for a web page. I went ahead and wrote the web page using the Poisson distribution - but I still think that this article should give expressions that people can use in normal languages and spreadsheets! I feel I've done my bit for Wikipedia maths clarity - in the <a href="../../../l/o/t/Lottery_Mathematics_5251.html" title="Lottery Mathematics">Lottery_Mathematics</a> article, mostly written by me, I did my best to make it clear <i>exactly</i> how to do each calculation! --<a href="../../../n/e/w/User%7ENew_Thought_c61c.html" title="User:New Thought">New Thought</a> 09:14, 9 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name=".22nmemonic.22_section"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: &quot;nmemonic&quot; section">edit</a>]</span> <span class="mw-headline">"nmemonic" section</span></h2>
+<p>I really dislike the "nmemonic" section. If anyone else agrees, please delete it. <a href="../../../m/c/k/User%7EMcKay_32b8.html" title="User:McKay">McKay</a> 14:55, 11 June 2006 (UTC)</p>
+<dl>
+<dd>I agree. The mnemonic section is laughable. I'm deleting it. Rjmorris 14:44, 18 June 2006 (UTC)</dd>
+</dl>
+<p><a name="Relationship_to_Bezier_curves.3F" id="Relationship_to_Bezier_curves.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: Relationship to Bezier curves?">edit</a>]</span> <span class="mw-headline">Relationship to Bezier curves?</span></h2>
+<p>The article currently states: <i>The formula for Bézier curves was inspired by the binomial distribution.</i></p>
+<p>Would someone care to source that statement? It seems rather dubious to me, but if it's true it's worthy of a proper explanation and not the vague description of being "inspired by". Certainly the <a href="../../../b/e/r/Bernstein_polynomial.html" title="Bernstein polynomial">Bernstein polynomials</a>, which constitute the basis functions for Béziers, contain a <a href="../../../b/i/n/Binomial_coefficient.html" title="Binomial coefficient">Binomial coefficient</a>. But binomial coefficients exist all over the place. It doesn't necessarily imply that they have much at all to do with the Binomial <i>distribution</i>.</p>
+<p>From reading about Bézier curves I've always had the impression that the decision to use Bersteins as their parametrization wasn't 'inspired' by anything, but merely <i>chosen</i> from a group of candidates on the merit of their desireable properties. (Being such properties as the fact that curve is guaranteed to be contained within the convex hull of the control points, that reversing the control points does not change the curve, that the tangents at the endpoints consist of the line between the endpoint and the neighboring control point, etc). --130.237.179.166 14:48, 3 September 2006 (UTC)</p>
+<dl>
+<dd>I'm deleting this since no justification has been offered. Zillions of things are "inspired" by the binomial distribution anyway and I don't see why this one is important enough to single out even if it is true. <a href="../../../m/c/k/User%7EMcKay_32b8.html" title="User:McKay">McKay</a> 04:31, 28 October 2006 (UTC)</dd>
+</dl>
+<p><a name="Better_Example" id="Better_Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: Better Example">edit</a>]</span> <span class="mw-headline">Better Example</span></h2>
+<p>I feel like there could be a better example than picking 500 people out of a population "with replacement" and seeing how many were green-eyed. Perhaps a more sensical and applicable example could be: out of 50 web servers, each of which has a 1% chance of failing by the end of the day, how many failed servers do you have at the end of the day?</p>
+<p><small>—The preceding <a href="../../../s/i/g/Wikipedia%7ESign_your_posts_on_talk_pages_ee53.html" title="Wikipedia:Sign your posts on talk pages">unsigned</a> comment was added by 18.216.0.100 (talk • <a href="../../../c/o/n/Special%7EContributions_18.216.0.100_7c2b.html" title="Special:Contributions/18.216.0.100">contribs</a>) .</small></p>
+<dl>
+<dd>I agree. The current example suffers from the need to do sampling with replacement, which will seem unnatural to people unaccustomed to sampling theory. --<a href="../../../m/c/k/User%7EMcKay_32b8.html" title="User:McKay">McKay</a> 05:52, 29 November 2006 (UTC)</dd>
+</dl>
+<p><a name=".22Kitchen.27s_theorem.22"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: &quot;Kitchen's theorem&quot;">edit</a>]</span> <span class="mw-headline">"Kitchen's theorem"</span></h2>
+<p>I deleted a new section on "Kitchen's theorem". It began by saying "...we can see by Kitchen's Theorem that..." without having first said what "Kitchen's theorem" is. That is not appropriate. Then, as far as I can tell, the theorem turned out to be a proposition found in many textbooks without the name "Kitchen's theorem". The notation in which it is written includes the use of the same letter for two different random variables in the same equality. Near the bottom it has some notation that is less than correct and that includes some very clumsy language. Then there is a signature---appropriate for a talk page but not for an article. In includes "Dr. William Kitchen PhD (Psychology)", apparently identifying that person as the one who added this material. It looks like an attempt to name after himself a proposition found in innumerable textbooks since before the births of most (or all?) people now living. <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> 20:11, 23 March 2007 (UTC)</p>
+<p><a name=".22Kitchen.27s_Theorem.22"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: &quot;Kitchen's Theorem&quot;">edit</a>]</span> <span class="mw-headline">"Kitchen's Theorem"</span></h2>
+<p>Well Michael, it's nice to see a fellow 'Mathematician' scrutinising my work, labellng it a 'proposition'. Given the fact that my Theorom has went under rigorous investigation within a university, I fail to see how you can ever have seen it in "innumerable" textbooks. Perhaps you could name a few of them for my reference. And lets not get into a Mathematical jargon slanging match; whoever you are, I would be confident in my own Mathemaical standing to stand before anyone and prove my Theorem/ lemma. And, if it is indeed in many textbooks, I'd urge you to publish a proof of my statement. I have it on good authority, from highly esteemed Mathematicians, that the Theorem I put online is indeed a new and may I add correct proposition. It wasn't a Theorem as such, hence why I referred to it as the Binomial Lemma. I trust you know what a Lemma is! In future, before you make such claims, ensure that the nature of your statements is true. Do that rather than correcting me. And in response to this, if you do indeed give one, I'd appreciate being referred to as Dr. William Kitchen.</p>
+<dl>
+<dd>From <i>A First Course in Probability, Fourth Edition</i> (1994) by Sheldon Ross, page 181, exercise 26, quoted verbatim:
+<dl>
+<dd>
+<dl>
+<dd>Let <i>X</i> be a negative binomial random variable with parameters <i>r</i> and <i>p</i>, and let <i>Y</i> be a binomial random variable with parameters <i>n</i> and <i>p</i>. Show that</dd>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/8/d/1/8d12af64c85a721e7687e8b339232d48.png" alt="P\left\{X &gt; n\right\} = P\left\{Y &lt; r\right\}\," /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>If you want to attribute this result to yourself in a Wikipedia article, may I suggest that you cite some published paper that you've written in which you state it? What was the nature of this "rigorous investigation"? Was it simply mathematicians confirming that the result is correct? If so, that's hardly surprising. Was it mathematicians with expertise in probability theory saying the result is <i>new</i> and was unknown before you introduced it? If so, I would find that surprising and I would dispute it. Or was it a professor saying he did not happen to have seen it before? If he's not a probabilist, that's not too surprising and is not the same as saying that it is novel. <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> 20:14, 29 March 2007 (UTC)
+<dl>
+<dd>...oh, and since you emphasize that it's your own result, you should not put it in the article unless you also cite some place where you've published it in a journal, since otherwise it would be original research being presented here for the first time. Original research is contrary to Wikipedia policy. <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> 21:57, 29 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>What you quoted from this textbook isn't even the same as my Theorem. And do not quote Wikipedia policy to me - take me to court, sue me, do whatever you wish. I have this Theorem in a journal, and have had it copyrighted to my name, so that scavengers on internet sites cannot attribute a novel idea to a text book they happen to have read. I had it checked, along with a proof by a university Professor who specialises in the concpets of probability and statisitics. It then underwent a stage of 'gaining plausibility', and under futher rigorous proof. There was a work through proof, and a proof by induction which clearly shows that the NEW theorem works, for all the possible values it outlines. I think you'll find the quote you have from your book involves a different concept to what I outlined before. I'll tell you what&#160;: take a look at it, and as Fermat said before he published his last Theorem "prove me wrong": I've got a mortgage on it saying you can't!! All the best, Dr. William Kitchen</p>
+<dl>
+<dd>OK, I will go back and look carefully at what you added to the article. But if it is to be included, it should be written clearly, using standard notation (not, for example, using the same letter for two different random variables in the same breath), standard language and spelling (e.g. "theorem", not "theorom" as you wrote above) and following standard Wikipedia conventions (e.g. who wrote what is in the edit history, NOT in the article itself). However, it would be a lot more efficient for you simply to tell me where to find your published article in the library than for you to go on at length about the whole history of your writing the article. (Oh, and I trust when you mention the copyright, you mean copyright on the article you wrote rather than on the theorem itself.) <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> 23:34, 29 March 2007 (UTC)</dd>
+</dl>
+<p>Well, I appreciate that. Like all Mathematicians, I like recognition for my work. I had to have it rigorously checked and compared with similar Theorems and Lemmas, to ensure I wasn't putting my name to a piece of work that someone else had previously discovered. Notation is a blunder, I hold my hands up on that front, and I understand the elementary nature of my error. I can provide you with my proof for the Theorem as soon as I finish my textbook which is in finalisation at the moment. All my work is momentarily on hold becasue of that. I welcome any scrutiny of my work - I feel that Mathematics is best done when under pressure from other esteemed Mathematicians. The workings of Wikipedia, however, are something I am not aware of, and I appreciate any guidelines you offer me to follow. Again, however, as I have already said, I know I can stand before any Mathematician and prove my Theorem. Regards Dr. William Kitchen</p>
+<dl>
+<dd>Hello Dr. William Kitchen, please try to relax a bit, nobody is trying to discredit your work. But we are talking about cross purposes. What one wants for an encyclopedia article on the binomial distribution is the fact that it is related to the negative Binomial distribution. Ideally such a statement should be sourced. If appropriate a proof can be added. There where a number of problems however with your contribution and Michael rightly reversed it. The notation is problematic (using X twice, using r both as an index and a parameter). The proof doesn't add to this article since it doesn't actually <i>prove</i> the theorem, it only give some basic definition and a referral. And finally, the theorem quoted is unknown to mathematicians, so it doesn't help one at all.</dd>
+</dl>
+<dl>
+<dd>In my view the statement related the two distribution can stay in the article. But the proof you supplied should either be replaced by a proper proof or by a reference to a published book or peer reviewed paper.</dd>
+</dl>
+<dl>
+<dd>As one final point, please do not make legal threats. Also <a href="../../../n/o/r/Wp%7Enor.html" title="Wp:nor">wp:nor</a> is established wikipedia policy, and this is not the place to put it to discussion. <a href="../../../s/a/n/User%7ESander123_7c7c.html" title="User:Sander123">Sander123</a> 12:09, 30 March 2007 (UTC)</dd>
+</dl>
+<p>Dr. Kitchen, could you tell us the title of the paper and the name of the journal and which issue it's in?</p>
+<p>That would really be a whole lot more to the point than telling us how confident you are that everything about it is sound. <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> 20:31, 30 March 2007 (UTC)</p>
+<p><a name="Normal_Approximation" id="Normal_Approximation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html" title="Edit section: Normal Approximation">edit</a>]</span> <span class="mw-headline">Normal Approximation</span></h2>
+<p>Not sure about the statement</p>
+<dl>
+<dd>This approximation is a huge time-saver (exact calculations with large n are very onerous);</dd>
+</dl>
+<p>The exact calculations are only onerous if one doesn't have a computer. Considering that virtually all statistics is done over computers these days the above seems unimportant. 128.195.106.28 23:55, 31 March 2007 (UTC)</p>
+<dl>
+<dd>It is less important than it used to be, but if <i>n</i> is very large the exact computation can still be onerous. Perhaps more important is that the normal approximation means that a great many statistical tests designed for the normal distribution (such as the Student <i>t</i>-test, the <i>F</i>-test) can also be used for the binomial distribution under the right conditions. --<a href="../../../m/c/k/User%7EMcKay_32b8.html" title="User:McKay">McKay</a> 05:38, 1 April 2007 (UTC)</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Talk%7EBinomial_distribution_79cd.html">http://en.wikipedia.org../../../b/i/n/Talk%7EBinomial_distribution_79cd.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/i/n/Binomial_distribution.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/i/n/Talk%7EBinomial_distribution_79cd.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Binomial_distribution">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 05:38, 1 April 2007 by Wikipedia user <a href="../../../m/c/k/User%7EMcKay_32b8.html" title="User:McKay">McKay</a>. Based on work by Wikipedia user(s) <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../s/a/n/User%7ESander123_7c7c.html" title="User:Sander123">Sander123</a>, <a href="../../../h/a/g/User%7EHagermanBot_d869.html" title="User:HagermanBot">HagermanBot</a>, <a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a>, Dpc10, Rjmorris, <a href="../../../n/e/w/User%7ENew_Thought_c61c.html" title="User:New Thought">New Thought</a>, <a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>, <a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Rgclegg</a>, Dataphile and <a href="../../../t/e/x/User%7ETexture_fd4f.html" title="User:Texture">Texture</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

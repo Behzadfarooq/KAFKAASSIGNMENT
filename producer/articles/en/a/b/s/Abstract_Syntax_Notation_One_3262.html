@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Abstract Syntax Notation One,1984,1988,1995,Abstract syntax,Application layer,Augmented Backus-Naur form,Basic Encoding Rules,C (programming language),Canonical Encoding Rules,Communication protocol" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Abstract Syntax Notation One - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Abstract Syntax Notation One</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../t/e/l/Telecommunication.html" title="Telecommunication">telecommunications</a> and <a href="../../../c/o/m/Computer_networking.html" title="Computer networking">computer networking</a>, <b>Abstract Syntax Notation One</b> (<b>ASN.1</b>) is a <a href="../../../s/t/a/Standardization.html" title="Standardization">standard</a> and flexible notation that describes <a href="../../../d/a/t/Data.html" title="Data">data</a> structures for representing, encoding, transmitting, and decoding data. It provides a set of formal rules for describing the structure of objects that are independent of machine-specific encoding techniques and is a precise, formal notation that removes ambiguities.</p>
+<p>ASN.1 is a joint <a href="../../../i/n/t/International_Organization_for_Standardization_b57e.html" title="International Organization for Standardization">ISO</a> and <a href="../../../i/t/u/ITU-T_5ab6.html" title="ITU-T">ITU-T</a> standard, originally defined in <a href="../../../1/9/8/1984.html" title="1984">1984</a> as part of CCITT X.409:1984. ASN.1 moved to its own standard, <b>X.208</b>, in <a href="../../../1/9/8/1988.html" title="1988">1988</a> due to wide applicability. The substantially revised <a href="../../../1/9/9/1995.html" title="1995">1995</a> version is covered by the <b>X.680</b> series.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#ASN.1_in_transfer"><span class="tocnumber">1</span> <span class="toctext">ASN.1 in transfer</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">2</span> <span class="toctext">Example</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Example_encoded_in_DER"><span class="tocnumber">2.1</span> <span class="toctext">Example encoded in DER</span></a></li>
+<li class="toclevel-2"><a href="#Example_encoded_in_XER"><span class="tocnumber">2.2</span> <span class="toctext">Example encoded in XER</span></a></li>
+<li class="toclevel-2"><a href="#Example_encoded_in_PER_.28unaligned.29"><span class="tocnumber">2.3</span> <span class="toctext">Example encoded in PER (unaligned)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#ASN.1_versus_other_data_structure_definition_schemes"><span class="tocnumber">3</span> <span class="toctext">ASN.1 versus other data structure definition schemes</span></a></li>
+<li class="toclevel-1"><a href="#Using_ASN.1_in_practice"><span class="tocnumber">4</span> <span class="toctext">Using ASN.1 in practice</span></a></li>
+<li class="toclevel-1"><a href="#Standards"><span class="tocnumber">5</span> <span class="toctext">Standards</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="ASN.1_in_transfer" id="ASN.1_in_transfer"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: ASN.1 in transfer">edit</a>]</span> <span class="mw-headline">ASN.1 in transfer</span></h2>
+<p>ASN.1 defines the <a href="../../../a/b/s/Abstract_syntax.html" title="Abstract syntax">abstract syntax</a> of information but does not restrict the way the information is encoded. Various ASN.1 encoding rules provide the transfer syntax (a concrete representation) of the data values whose abstract syntax is described in ASN.1.</p>
+<p>The standard ASN.1 encoding rules include:</p>
+<ul>
+<li><a href="../../../b/a/s/Basic_Encoding_Rules_3d64.html" title="Basic Encoding Rules">Basic Encoding Rules</a> (BER)</li>
+<li><a href="../../../c/a/n/Canonical_Encoding_Rules_1ffd.html" title="Canonical Encoding Rules">Canonical Encoding Rules</a> (CER)</li>
+<li><a href="../../../d/i/s/Distinguished_Encoding_Rules_f63c.html" title="Distinguished Encoding Rules">Distinguished Encoding Rules</a> (DER)</li>
+<li><a href="../../../x/m/l/XML_Encoding_Rules_3ced.html" title="XML Encoding Rules">XML Encoding Rules</a> (XER)</li>
+<li><a href="../../../p/a/c/Packed_Encoding_Rules_b9e6.html" title="Packed Encoding Rules">Packed Encoding Rules</a> (PER)</li>
+<li><a href="../../../g/e/n/Generic_String_Encoding_Rules_ddf3.html" title="Generic String Encoding Rules">Generic String Encoding Rules</a> (GSER)</li>
+</ul>
+<p>ASN.1 together with specific ASN.1 encoding rules facilitates the exchange of structured data especially between application programs over networks by describing data structures in a way that is independent of machine architecture and implementation language.</p>
+<p><a href="../../../a/p/p/Application_layer.html" title="Application layer">Application layer</a> protocols such as <a href="../../../x/2E/4/X.400.html" title="X.400">X.400</a> <a href="../../../e/l/e/Electronic_mail.html" title="Electronic mail">electronic mail</a>, <a href="../../../x/2E/5/X.500.html" title="X.500">X.500</a> and <a href="../../../l/i/g/Lightweight_Directory_Access_Protocol_8c1b.html" title="Lightweight Directory Access Protocol">LDAP</a> <a href="../../../d/i/r/Directory_service.html" title="Directory service">directory services</a>, <a href="../../../h/2E/3/H.323.html" title="H.323">H.323</a> (<a href="../../../v/o/i/VoIP_c2bd.html" title="VoIP">VoIP</a>) and <a href="../../../s/i/m/Simple_network_management_protocol.html" title="Simple network management protocol">SNMP</a> use ASN.1 to describe the <a href="../../../p/r/o/Protocol_data_unit.html" title="Protocol data unit">PDUs</a> they exchange. It is also extensively used in the Access and Non-Access Strata of <a href="../../../u/m/t/UMTS_cd6a.html" title="UMTS">UMTS</a>. There are many other application domains of ASN.1 <a href="http://asn1.elibel.tm.fr/en/uses/index.htm" class="external autonumber" title="http://asn1.elibel.tm.fr/en/uses/index.htm" rel="nofollow">[1]</a>.</p>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>Data structures of FooProtocol defined using the ASN.1 notation:</p>
+<pre>
+FooProtocol DEFINITIONS ::= BEGIN
+
+    FooQuestion ::= SEQUENCE {
+        trackingNumber INTEGER,
+        question       VisibleString
+    }
+
+    FooAnswer ::= SEQUENCE {
+        questionNumber INTEGER,
+        answer         BOOLEAN
+    }
+
+END
+</pre>
+<p>This could be a specification published by creators of Foo protocol. ASN.1 does not define conversation flows, this is up to the textual description of the protocol.</p>
+<p>Let's assume you have a message, which complies Foo protocol and which you would like to send to the receiving party. This particular message (<a href="../../../p/r/o/Protocol_data_unit.html" title="Protocol data unit">PDU</a>) is:</p>
+<pre>
+myQuestion FooQuestion ::= {
+    trackingNumber     5,
+    question           "Anybody there?"
+}
+</pre>
+<p>Now, to actually send above message through the network we need to encode it to a string of bits. ASN.1 defines various algorithms to accomplish that task, called <i>Encoding rules</i>. There are plenty of them; one of the simplest is <i>Distinguished Encoding Rules</i> (<i>DER</i>).</p>
+<p>Foo protocol specification should have explicitly named one set of encoding rules to use. So now it is well known between users of Foo protocol to use DER.</p>
+<p><a name="Example_encoded_in_DER" id="Example_encoded_in_DER"></a></p>
+<h4><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: Example encoded in DER">edit</a>]</span> <span class="mw-headline">Example encoded in DER</span></h4>
+<p>Above particular data structure encoded in the DER format:</p>
+<pre>
+30 -- tag indicating SEQUENCE
+13 -- length in octets
+
+02 -- tag indicating INTEGER
+01 -- length in octets
+05 -- value
+
+1a -- tag indicating VisibleString
+0e -- length in octets
+41 6e 79 62 6f 64 79 20 74 68 65 72 65 3f -- value ("Anybody there?" in ASCII)
+</pre>
+<p>(Note DER uses a pattern of <a href="../../../t/y/p/Type-length-value.html" title="Type-length-value">tag-length-value</a> triplets)</p>
+<p>So what you actually get is the string of 21 octets:</p>
+<pre>
+30 13 02 01 05 1a 0e 41  6e 79 62 6f 64 79 20 74  68 65 72 65 3f
+</pre>
+<p>This is the end of ASN.1 and DER scope. You may transmit this encoded message to your party by any means (it is out of concern now if you use <a href="../../../t/r/a/Transmission_Control_Protocol_c142.html" title="Transmission Control Protocol">TCP</a> or other protocol for transfer). Your party will be able to decode octets back using DER.</p>
+<p><a name="Example_encoded_in_XER" id="Example_encoded_in_XER"></a></p>
+<h4><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: Example encoded in XER">edit</a>]</span> <span class="mw-headline">Example encoded in XER</span></h4>
+<p>Alternatively, you may encode the same ASN.1 data structure with XER (<i>XML Encoding Rules</i>) to achieve greater human readability "over the wire". It would then look like those 108 octets:</p>
+<pre>
+&lt;FooQuestion&gt;
+    &lt;trackingNumber&gt;5&lt;/trackingNumber&gt;
+    &lt;question&gt;Anybody there?&lt;/question&gt;
+&lt;/FooQuestion&gt;
+</pre>
+<p><a name="Example_encoded_in_PER_.28unaligned.29" id="Example_encoded_in_PER_.28unaligned.29"></a></p>
+<h4><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: Example encoded in PER (unaligned)">edit</a>]</span> <span class="mw-headline">Example encoded in PER (unaligned)</span></h4>
+<p>Alternatively, if Packed Encoding Rules are employed, the following 122 bits (less than 16 octets) will be produced:</p>
+<pre>
+01 05 0e 83 bb ce 2d f9  3c a0 e9 a3 2f 2c af c0
+</pre>
+<p><br /></p>
+<p><a name="ASN.1_versus_other_data_structure_definition_schemes" id="ASN.1_versus_other_data_structure_definition_schemes"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: ASN.1 versus other data structure definition schemes">edit</a>]</span> <span class="mw-headline">ASN.1 versus other data structure definition schemes</span></h2>
+<p>As commonly used for defining messages for <a href="../../../c/o/m/Communication_protocol.html" title="Communication protocol">communication protocols</a>, ASN.1, with its associated encoding rules, results in a binary encoding.</p>
+<p>Other communication protocols, such as Internet protocols <a href="../../../h/t/t/HTTP_293c.html" title="HTTP">HTTP</a> and <a href="../../../s/m/t/SMTP_c223.html" title="SMTP">SMTP</a>, define messages using text tags and values, sometimes based on the <a href="../../../a/u/g/Augmented_Backus-Naur_form_cace.html" title="Augmented Backus-Naur form">Augmented Backus-Naur form</a> (ABNF) notation. The definition also defines the encoding, which is in text.</p>
+<p>There has been much debate over the two approaches, and both have their merits; the ASN.1 approach is believed to be more efficient, and with <a href="../../../p/a/c/Packed_Encoding_Rules_b9e6.html" title="Packed Encoding Rules">Packed Encoding Rules</a>, certainly provides a more compact encoding. The textual approach is claimed to be easier to implement (through creation and parsing of text strings) and easier to debug, as one can simply read an encoded message. In the case of the <a href="../../../m/e/g/Megaco.html" title="Megaco">Megaco</a> protocol, consensus between the two points of view was not reached and so two encodings, one based on ASN.1 and one on ABNF, were defined.</p>
+<p>The ASN.1 <a href="../../../x/m/l/XML_Encoding_Rules_3ced.html" title="XML Encoding Rules">XML Encoding Rules</a> (XER) attempts to bridge the gap by providing a textual encoding of data structures defined using ASN.1 notation. <a href="../../../g/e/n/Generic_String_Encoding_Rules_ddf3.html" title="Generic String Encoding Rules">Generic String Encoding Rules</a> were also defined for the sole purpose of presenting and inputting data to/from a user.</p>
+<p><a name="Using_ASN.1_in_practice" id="Using_ASN.1_in_practice"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: Using ASN.1 in practice">edit</a>]</span> <span class="mw-headline">Using ASN.1 in practice</span></h2>
+<p>One may use an ASN compiler which takes as input an ASN.1 specification and generates computer code (for example in the C programming language) for an equivalent representation of the data structures. This computer code, together with supplied run-time libraries, can then convert encoded data structures to and from the computer language representation. Alternatively, one can manually write encoding and decoding routines.</p>
+<p><a name="Standards" id="Standards"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: Standards">edit</a>]</span> <span class="mw-headline">Standards</span></h2>
+<p>Standards describing the ASN.1 notation (<a href="http://www.itu.int/ITU-T/studygroups/com17/languages/" class="external text" title="http://www.itu.int/ITU-T/studygroups/com17/languages/" rel="nofollow">free download from the ITU-T website</a>):</p>
+<ul>
+<li>ITU-T Rec. X.680 | ISO/IEC 8824-1</li>
+<li>ITU-T Rec. X.681 | ISO/IEC 8824-2</li>
+<li>ITU-T Rec. X.682 | ISO/IEC 8824-3</li>
+<li>ITU-T Rec. X.683 | ISO/IEC 8824-4</li>
+</ul>
+<p>Standards describing the ASN.1 encoding rules (<a href="http://www.itu.int/ITU-T/studygroups/com17/languages/" class="external text" title="http://www.itu.int/ITU-T/studygroups/com17/languages/" rel="nofollow">free download from the ITU-T website</a>):</p>
+<ul>
+<li>ITU-T Rec. X.690 | ISO/IEC 8825-1 (BER, CER and DER)</li>
+<li>ITU-T Rec. X.691 | ISO/IEC 8825-2 (PER)</li>
+<li>ITU-T Rec. X.693 | ISO/IEC 8825-4 (XER)</li>
+<li>ITU-T Rec. X.694 | ISO/IEC 8825-5 (XSD mapping)</li>
+<li><a href="http://tools.ietf.org/html/rfc3641" class="external" title="http://tools.ietf.org/html/rfc3641">RFC 3641</a> (GSER)</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../t/t/c/TTCN_0cd1.html" title="TTCN">TTCN</a></li>
+<li><a href="../../../e/x/t/Extensible_Binary_Meta_Language_65c5.html" title="Extensible Binary Meta Language">EBML</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="../../../f/e/d/Federal_Standard_1037C_b08c.html" title="Federal Standard 1037C">Federal Standard 1037C</a></li>
+<li><a href="../../../m/i/l/MIL-STD-188_d6ed.html" title="MIL-STD-188">MIL-STD-188</a>.</li>
+<li><a href="http://asn1.elibel.tm.fr/fr/biblio/index.htm" class="external text" title="http://asn1.elibel.tm.fr/fr/biblio/index.htm" rel="nofollow">Other references in French</a></li>
+</ul>
+<p><span class="boilerplate" id="foldoc"><i>This article was originally based on material from the <a href="../../../f/r/e/Free_On-line_Dictionary_of_Computing_81c7.html" title="Free On-line Dictionary of Computing">Free On-line Dictionary of Computing</a>, which is <a href="../../../f/o/l/Wikipedia%7EFoldoc_license_9ee2.html" title="Wikipedia:Foldoc license">licensed</a> under the <a href="../../../g/n/u/GNU_Free_Documentation_License_9d01.html" title="GNU Free Documentation License">GFDL</a>.</i></span></p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.asn1.org/" class="external text" title="http://www.asn1.org/" rel="nofollow">The ASN.1 Consortium</a></li>
+<li><a href="http://asn1.elibel.tm.fr/" class="external text" title="http://asn1.elibel.tm.fr/" rel="nofollow">A comprehensive ASN.1 information site</a></li>
+<li><a href="http://lionet.info/asn1c/" class="external text" title="http://lionet.info/asn1c/" rel="nofollow">asn1c</a>, free, open source ASN.1 to <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> compiler</li>
+<li><a href="http://pyasn1.sf.net" class="external text" title="http://pyasn1.sf.net" rel="nofollow">pyasn1</a>: ASN.1 types and codecs implemented in <a href="../../../p/y/t/Python_%28programming_language%29.html" title="Python (programming language)">Python</a></li>
+<li><a href="http://www.columbia.edu/~ariel/ssleay/layman.html" class="external text" title="http://www.columbia.edu/~ariel/ssleay/layman.html" rel="nofollow">A Layman's Guide to a Subset of ASN.1, BER, and DER</a>: A comprehensible introduction to ASN.1, BER and DER</li>
+<li><a href="http://bnotes.sf.net" class="external text" title="http://bnotes.sf.net" rel="nofollow">BinaryNotes</a>: The Open Source ASN.1 Framework for <a href="../../../j/a/v/Java_%28programming_language%29.html" title="Java (programming language)">Java</a> and <a href="../../../m/i/c/Microsoft_.NET_1c77.html" title="Microsoft .NET">.NET</a></li>
+<li><a href="http://www.oss.com/asn1/dubuisson.html" class="external text" title="http://www.oss.com/asn1/dubuisson.html" rel="nofollow">A free book about ASN.1 from Olivier Dubuisson</a></li>
+<li><a href="http://www.oss.com/asn1/larmouth.html" class="external text" title="http://www.oss.com/asn1/larmouth.html" rel="nofollow">Another free book about ASN.1 from John Larmouth</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/b/s/Abstract_Syntax_Notation_One_3262.html">http://en.wikipedia.org../../../a/b/s/Abstract_Syntax_Notation_One_3262.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../f/o/l/Category%7EFOLDOC_sourced_articles_b3fe.html" title="Category:FOLDOC sourced articles">FOLDOC sourced articles</a></span> | <span dir='ltr'><a href="../../../i/t/u/Category%7EITU-T_recommendations_3ee2.html" title="Category:ITU-T recommendations">ITU-T recommendations</a></span> | <span dir='ltr'><a href="../../../d/a/t/Category%7EData_modeling_languages_8a5d.html" title="Category:Data modeling languages">Data modeling languages</a></span> | <span dir='ltr'><a href="../../../d/a/t/Category%7EData_serialization_formats_77ee.html" title="Category:Data serialization formats">Data serialization formats</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/b/s/Abstract_Syntax_Notation_One_3262.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/b/s/Talk%7EAbstract_Syntax_Notation_One_c9cd.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Abstract_Syntax_Notation_One">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/b/s/Abstract_Syntax_Notation_One_3262.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/a/s/n/ASN.1_fc68.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../eu/a/s/n/ASN.1_fc68.html">Euskara</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/s/n/ASN.1_fc68.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../gl/a/s/n/ASN1_4638.html">Galego</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/a/s/n/ASN.1_fc68.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/a/b/s/Abstract_Syntax_Notation_One_3262.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/b/s/Abstract_Syntax_Notation_One_3262.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/a/s/n/ASN.1_fc68.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../tr/a/b/s/Abstract_Syntax_Notation_One_3262.html">Türkçe</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/a/s/n/ASN.1_fc68.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:27, 23 March 2007 by Wikipedia user <a href="../../../t/x/i/User%7ETXiKiBoT_8a77.html" title="User:TXiKiBoT">TXiKiBoT</a>. Based on work by Wikipedia user(s) CrazyLemurBoy, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, <a href="../../../i/n/t/User%7EIntgr_3172.html" title="User:Intgr">Intgr</a>, <a href="../../../o/d/_/User%7EOd_Mishehu_bdc0.html" title="User:Od Mishehu">Od Mishehu</a>, Grumpycraig, <a href="../../../e/d/c/User%7EEdcolins_06ae.html" title="User:Edcolins">Edcolins</a>, <a href="../../../k/u/b/User%7EKubanczyk_1cff.html" title="User:Kubanczyk">Kubanczyk</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../e/s/c/User%7EEscarbot_9d83.html" title="User:Escarbot">Escarbot</a>, <a href="../../../v/l/m/User%7EVlm_3867.html" title="User:Vlm">Vlm</a>, <a href="../../../2E/a/n/User%7E.anacondabot.html" title="User:.anacondabot">.anacondabot</a>, RKT, <a href="../../../c/o/m/User%7EComte0_c1bb.html" title="User:Comte0">Comte0</a>, JMCE, <a href="../../../e/n/g/User%7EEngineerScotty_c6c0.html" title="User:EngineerScotty">EngineerScotty</a>, <a href="../../../t/h/a/User%7EThat_Guy%2C_From_That_Show%21_4388.html" title="User:That Guy, From That Show!">That Guy, From That Show!</a>, <a href="../../../a/n/r/User%7EAnrie_Nord_4815.html" title="User:Anrie Nord">Anrie Nord</a>, <a href="../../../k/s/n/User%7EKsn_fc8f.html" title="User:Ksn">Ksn</a>, <a href="../../../k/d/z/User%7EKdz_39dc.html" title="User:Kdz">Kdz</a>, <a href="../../../q/u/a/User%7EQuarl_316b.html" title="User:Quarl">Quarl</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../p/a/b/User%7EPablo-flores_ce81.html" title="User:Pablo-flores">Pablo-flores</a>, Infofarmer, <a href="../../../m/u/l/User%7EMulad_41c3.html" title="User:Mulad">Mulad</a>, <a href="../../../a/g/e/User%7EAgentsoo_cc19.html" title="User:Agentsoo">Agentsoo</a>, <a href="../../../b/o/n/User%7EBonsaiViking_8e61.html" title="User:BonsaiViking">BonsaiViking</a>, <a href="../../../p/e/a/User%7EPeak_ed3e.html" title="User:Peak">Peak</a>, <a href="../../../r/o/c/User%7ERocastelo_9595.html" title="User:Rocastelo">Rocastelo</a>, <a href="../../../h/u/a/User%7EHuaiwei_49ed.html" title="User:Huaiwei">Huaiwei</a>, <a href="../../../l/o/g/User%7ELogixoul_b212.html" title="User:Logixoul">Logixoul</a>, <a href="../../../n/a/b/User%7ENabla_d282.html" title="User:Nabla">Nabla</a>, M·D, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../h/a/s/User%7EHasharBot_fdaa.html" title="User:HasharBot">HasharBot</a>, <a href="../../../s/m/y/User%7ESmyth_5631.html" title="User:Smyth">Smyth</a>, <a href="../../../m/a/r/User%7EMarkWahl_073e.html" title="User:MarkWahl">MarkWahl</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../j/i/d/User%7EJidGom_82cb.html" title="User:JidGom">JidGom</a>, <a href="../../../e/m/p/User%7EEmperorbma_7b7a.html" title="User:Emperorbma">Emperorbma</a>, <a href="../../../f/u/z/User%7EFuzzy_Logic_babe.html" title="User:Fuzzy Logic">Fuzzy Logic</a>, <a href="../../../m/a/t/User%7EMatusz_a1b4.html" title="User:Matusz">Matusz</a>, <a href="../../../j/o/n/User%7EJonth_f984.html" title="User:Jonth">Jonth</a>, <a href="../../../d/i/l/User%7EDilbert_3151.html" title="User:Dilbert">Dilbert</a>, <a href="../../../b/4/h/User%7EB4hand_8888.html" title="User:B4hand">B4hand</a>, Wellithy, <a href="../../../d/e/r/User%7EDerek_Ross_f2d2.html" title="User:Derek Ross">Derek Ross</a>, <a href="../../../a/l/d/User%7EAldie_5969.html" title="User:Aldie">Aldie</a>, <a href="../../../u/r/i/User%7EUriyan_1dfa.html" title="User:Uriyan">Uriyan</a> and <a href="../../../e/l/l/User%7EEllmist_6655.html" title="User:Ellmist">Ellmist</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

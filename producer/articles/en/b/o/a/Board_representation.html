@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Board representation,64-bit,Array,Bishop (chess),Bit parallel,Bitboard,Castling,Computer chess,En passant,Fifty move rule,Knight (chess)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Board representation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Board representation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_chess.html" title="Computer chess">computer chess</a> software developers must choose a data structure to represent chess positions. This is called the <b>board representation</b>. The choice made will affect the entire software project.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Requirements"><span class="tocnumber">1</span> <span class="toctext">Requirements</span></a></li>
+<li class="toclevel-1"><a href="#Types"><span class="tocnumber">2</span> <span class="toctext">Types</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Piece_lists"><span class="tocnumber">2.1</span> <span class="toctext">Piece lists</span></a></li>
+<li class="toclevel-2"><a href="#Array_based"><span class="tocnumber">2.2</span> <span class="toctext">Array based</span></a>
+<ul>
+<li class="toclevel-3"><a href="#0x88_method"><span class="tocnumber">2.2.1</span> <span class="toctext">0x88 method</span></a>
+<ul>
+<li class="toclevel-4"><a href="#Implementations"><span class="tocnumber">2.2.1.1</span> <span class="toctext">Implementations</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Bitboard"><span class="tocnumber">2.3</span> <span class="toctext">Bitboard</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">3</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Requirements" id="Requirements"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/a/Board_representation.html" title="Edit section: Requirements">edit</a>]</span> <span class="mw-headline">Requirements</span></h2>
+<p>A full description of a chess position, i.e. the game "state", should contain the following elements:</p>
+<ul>
+<li>The location of each piece on the board</li>
+<li>Whose turn it is to move</li>
+<li>Status of the <a href="../../../t/h/r/Threefold_repetition.html" title="Threefold repetition">threefold repetition draw rule</a>. For example, a certain move might lead to a draw by threefold repetition based on the previous game history.</li>
+<li>Status of the <a href="../../../f/i/f/Fifty_move_rule.html" title="Fifty move rule">50-move draw rule</a>. For example, if the previous 40 moves passed without a capture or a pawn move, the fifty-move rule will kick in after another ten moves.</li>
+<li>Whether each player is permanently disqualified to <a href="../../../c/a/s/Castling.html" title="Castling">castle</a></li>
+<li>If an <a href="../../../e/n/_/En_passant.html" title="En passant">en passant</a> capture is possible.</li>
+</ul>
+<p><a name="Types" id="Types"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/a/Board_representation.html" title="Edit section: Types">edit</a>]</span> <span class="mw-headline">Types</span></h2>
+<p><a name="Piece_lists" id="Piece_lists"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/a/Board_representation.html" title="Edit section: Piece lists">edit</a>]</span> <span class="mw-headline">Piece lists</span></h3>
+<p>Some of the very earliest chess programs were working with extremely limited amounts of memory, such that even the 64 memory locations required to represent a chess board was too much to spend. These early programs would instead maintain lists of the locations of the up to 16 black and white pieces,</p>
+<p><a name="Array_based" id="Array_based"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/a/Board_representation.html" title="Edit section: Array based">edit</a>]</span> <span class="mw-headline">Array based</span></h3>
+<p>One of the simplest ways to represent a board is to create an 8x8 two-dimensional <a href="../../../a/r/r/Array.html" title="Array">array</a> (or, equivalently, a 64 element one-dimensional array). Each array element would identify what piece or pawn occupied the given square, or alternatively, if the square is empty. A common encoding is to consider 0 as empty, positive as white, and negative as black, e.g., white <a href="../../../p/a/w/Pawn_%28chess%29.html" title="Pawn (chess)">pawn</a> +1, black pawn -1, white <a href="../../../k/n/i/Knight_%28chess%29.html" title="Knight (chess)">knight</a> +2, black knight -2, white <a href="../../../b/i/s/Bishop_%28chess%29.html" title="Bishop (chess)">bishop</a> +3, and so on.</p>
+<p>A problem with this approach arises during move generation. Each move has to be checked to ensure it is on the board, significantly slowing down the process.</p>
+<p>One solution is to use a 12x12 array instead, with the outer edges filled with, say, the value 99. During move generation, the operation to check for a piece on the destination square will also indicate whether the destination square is off the board.</p>
+<p>Better memory usage can be achieved with a 10x12 array, which provides the same functionalities as a 12x12 one by overlapping the leftmost and rightmost edge files (which are marked as off-the board). Some chess engines use 16x16 arrays to improve the speed of the rank and file number conversion and allow some special coding tricks for attacks etc.</p>
+<p>Machine code programmers have another alternative. Using 4 bits per square, an entire row can be represented in 32 bits, and the board in 8 registers (with an additional one for remaining position information). By use of a jump table, adding the piece value to the program counter can go directly to the code to generate moves for this type of piece on this square. Although the program is longer than for a conventional move generation methods, no checks for the edge of the board are required, and no moves off the board are considered, increasing move generation speed. Modern CPU caches allow code relevant to the current position to be cached, giving move generation times of a few clock cycles per position.</p>
+<p><a name="0x88_method"></a></p>
+<h4><span class="editsection">[<a href="../../../b/o/a/Board_representation.html" title="Edit section: 0x88 method">edit</a>]</span> <span class="mw-headline">0x88 method</span></h4>
+<p>The 0x88 method uses an array of size 16x8 = 128, numbered 0 to 127. It is basically 2 boards next to each other. The actual board is on the left, and the board on the right represents illegal moves. When generating moves from the main board, one can check that the destination square is on the main board simply by ANDing the square number with 0x88. A non zero result indicates that the square is off the main board and on the illegal-move board. This generates a speed-up. See Hyatt's website for an explanation (link below).</p>
+<p><a name="Implementations" id="Implementations"></a></p>
+<h5><span class="editsection">[<a href="../../../b/o/a/Board_representation.html" title="Edit section: Implementations">edit</a>]</span> <span class="mw-headline">Implementations</span></h5>
+<ul>
+<li><a href="http://www.geocities.com/pallavnawani/chess-natwarlal.html" class="external text" title="http://www.geocities.com/pallavnawani/chess-natwarlal.html" rel="nofollow">Natwarlal</a> Open source 0x88 engine rated at about 2200 ELO.</li>
+</ul>
+<p><a name="Bitboard" id="Bitboard"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/a/Board_representation.html" title="Edit section: Bitboard">edit</a>]</span> <span class="mw-headline">Bitboard</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../b/i/t/Bitboard.html" title="Bitboard">Bitboard</a></i></div>
+</dd>
+</dl>
+<p>The most advanced board representation is the <a href="../../../b/i/t/Bitboard.html" title="Bitboard">bitboard</a>. A bitboard is a 64-bit sequence of bits (0 or 1), which indicates the absence or presence (false or true) of some state about each place on the board. A board position can then be represented using a series of bitboards. For example, a series of bitboards for each piece type or pawn, for each side, can represent the board position.</p>
+<p>The advantage to this representation is the ability to use <a href="../../../b/i/t/Bit_parallel.html" title="Bit parallel">bit parallel</a> operations upon the <a href="../../../6/4/-/64-bit.html" title="64-bit">64-bit</a> entities instead of iteration to manipulate and derive information about the state of the board. This makes maximal use of the hardware available, especially as once exotic <a href="../../../6/4/-/64-bit.html" title="64-bit">64-bit</a> processors become mainstream.</p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/a/Board_representation.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.cis.uab.edu/hyatt/boardrep.html" class="external text" title="http://www.cis.uab.edu/hyatt/boardrep.html" rel="nofollow">Hyatt-- full article</a>.</li>
+<li><a href="http://www.seanet.com/~brucemo/topics/0x88.htm" class="external text" title="http://www.seanet.com/~brucemo/topics/0x88.htm" rel="nofollow">0x88 method. Bruce Moreland</a>.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1114 bytes
+Post-expand include size: 182 bytes
+Template argument size: 218 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/a/Board_representation.html">http://en.wikipedia.org../../../b/o/a/Board_representation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_chess_9c1f.html" title="Category:Computer chess">Computer chess</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/a/Board_representation.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/o/a/Talk%7EBoard_representation_e62f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Board_representation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:38, 2 January 2007 by Wikipedia user <a href="../../../r/y/a/User%7ERyan_Delaney_f359.html" title="User:Ryan Delaney">Ryan Delaney</a>. Based on work by Wikipedia user(s) <a href="../../../i/a/n/User%7EIanOsgood_81a9.html" title="User:IanOsgood">IanOsgood</a>, <a href="../../../d/m/r/User%7EDmr2_db9e.html" title="User:Dmr2">Dmr2</a>, <a href="../../../s/l/o/User%7ESloppy_1410.html" title="User:Sloppy">Sloppy</a>, <a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a>, Vvarkey, <a href="../../../s/t/e/User%7EStephen_B_Streater_f6ab.html" title="User:Stephen B Streater">Stephen B Streater</a>, <a href="../../../g/r/e/User%7EGreatWhiteNortherner_ca92.html" title="User:GreatWhiteNortherner">GreatWhiteNortherner</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a> and <a href="../../../g/l/e/User%7EGlen_Pepicelli_2a9e.html" title="User:Glen Pepicelli">Glen Pepicelli</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

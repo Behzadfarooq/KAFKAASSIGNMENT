@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="A20 handler,A20 line,Binary,Central processing unit,Computer software,Computer storage,Extended memory,Free On-line Dictionary of Computing,GNU Free Documentation License,Hexadecimal,High Memory Area" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>A20 handler - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">A20 handler</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>The <b>A20 handler</b> is <a href="../../../i/b/m/IBM_PC_7073.html" title="IBM PC">IBM PC</a> <a href="../../../m/e/m/Memory_manager.html" title="Memory manager">memory manager</a> software controlling access to the <a href="../../../h/i/g/High_Memory_Area_97a0.html" title="High Memory Area">High Memory Area</a>. <a href="../../../e/x/t/Extended_memory.html" title="Extended memory">Extended memory</a> managers usually provide this functionality. A20 handlers are named after the 21st address line of the microprocessor, the <a href="../../../a/2/0/A20_line.html" title="A20 line">A20 line</a>.</p>
+<p>The <a href="../../../i/n/t/Intel_8088.html" title="Intel 8088">Intel 8088</a> <a href="../../../c/e/n/Central_processing_unit.html" title="Central processing unit">CPU</a> used in the original IBM PC was capable of addressing memory using 20 <a href="../../../b/i/n/Binary.html" title="Binary">binary</a> digits ("bits"). But the registers in the 8088 were only 16 bits wide. A 20 bit <a href="../../../m/e/m/Memory_address.html" title="Memory address">memory address</a> was created by left shifting the 16 bit Segment Address (in effect multiplying it by 16) and adding the 16 bit offset address to it yielding a 20 bit result.</p>
+<p>For example, using <a href="../../../h/e/x/Hexadecimal.html" title="Hexadecimal">hexadecimal</a> values with a Code Segment (CS) of 1000 and an Instruction Pointer (IP) of 2000, the actual memory address of CS:IP is, as follows:</p>
+<pre>
+ CS : 1000 shifted left by 4 bits gives 10000
+ 
+ So the result is 10000 + 
+                   2000 
+                = 12000
+</pre>
+<p>In reality, the result can be 21 bits wide since the total of the two registers can be more than FFFFF hexadecimal, e.g. repeating the above example with CS = FF00 and IP = FFFF. It is possible to generate references to slightly less that 64K bytes that are outside the addressing range of the 8088. When the 80286 CPU which had more than 20 address lines was developed, it became necessary to deal with code that referenced the 64K addressable by ordinary addressing but not present in the 8088. As it turned out, it was sometimes desirable to set the 21st address line, and sometimes desirable not to. A <a href="../../../l/o/g/Logic_gate.html" title="Logic gate">logic gate</a> was added on the <a href="../../../m/o/t/Motherboard.html" title="Motherboard">motherboard</a> to control the 21st address line. Not surprisingly, this was called the "A20 gate".</p>
+<p>Controlling the A20 line was an important feature at one stage in the growth of the IBM PC architecture, as it added access to an additional 65520 (64K - 16) bytes of memory in real mode without dramatic software changes.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2/0/A20_handler.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../c/o/m/Computer_storage.html" title="Computer storage">Computer storage</a></li>
+<li><a href="../../../c/o/m/Computer_software.html" title="Computer software">Computer software</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2/0/A20_handler.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="../../../i/n/t/Intel_8086.html" title="Intel 8086">Intel 8086</a></li>
+<li><a href="../../../i/n/t/Intel_80286.html" title="Intel 80286">Intel 80286</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2/0/A20_handler.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.win.tue.nl/~aeb/linux/kbd/A20.html" class="external text" title="http://www.win.tue.nl/~aeb/linux/kbd/A20.html" rel="nofollow">A20 - a pain from the past</a></li>
+</ul>
+<p><span class="boilerplate" id="foldoc"><i>This article was originally based on material from the <a href="../../../f/r/e/Free_On-line_Dictionary_of_Computing_81c7.html" title="Free On-line Dictionary of Computing">Free On-line Dictionary of Computing</a>, which is <a href="../../../f/o/l/Wikipedia%7EFoldoc_license_9ee2.html" title="Wikipedia:Foldoc license">licensed</a> under the <a href="../../../g/n/u/GNU_Free_Documentation_License_9d01.html" title="GNU Free Documentation License">GFDL</a>.</i></span></p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/2/0/A20_handler.html">http://en.wikipedia.org../../../a/2/0/A20_handler.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../f/o/l/Category%7EFOLDOC_sourced_articles_b3fe.html" title="Category:FOLDOC sourced articles">FOLDOC sourced articles</a></span> | <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_memory_a9df.html" title="Category:Computer memory">Computer memory</a></span> | <span dir='ltr'><a href="../../../x/8/6/Category%7EX86_memory_management_b401.html" title="Category:X86 memory management">X86 memory management</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/2/0/A20_handler.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/2/0/Talk%7EA20_handler_d587.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/A20_handler">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 04:15, 12 March 2007 by Wikipedia user <a href="../../../t/u/s/User%7ETuscon_b7eb.html" title="User:Tuscon">Tuscon</a>. Based on work by Wikipedia user(s) <a href="../../../s/c/e/User%7ESCEhardt_7145.html" title="User:SCEhardt">SCEhardt</a>, <a href="../../../g/e/n/User%7EGeneb1955_ac1e.html" title="User:Geneb1955">Geneb1955</a>, <a href="../../../f/r/a/User%7EFrap_bccb.html" title="User:Frap">Frap</a>, <a href="../../../d/y/l/User%7EDyl_bfb4.html" title="User:Dyl">Dyl</a>, <a href="../../../a/r/m/User%7EArmistej_25d8.html" title="User:Armistej">Armistej</a>, <a href="../../../b/r/y/User%7EBryan_Derksen_3ce8.html" title="User:Bryan Derksen">Bryan Derksen</a>, <a href="../../../e/m/p/User%7EEmperorbma_7b7a.html" title="User:Emperorbma">Emperorbma</a> and <a href="../../../e/l/l/User%7EEllmist_6655.html" title="User:Ellmist">Ellmist</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

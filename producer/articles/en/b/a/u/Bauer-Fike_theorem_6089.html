@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bauer-Fike theorem,Condition number,Diagonalizable,Eigenvalue,Eigenvector,Friedrich L. Bauer,Hermitian matrix,Mathematics,Matrix norm,Normal matrix,Perturbation theory" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bauer-Fike theorem - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bauer-Fike theorem</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, the <b>Bauer-Fike theorem</b> is a standard result in the <a href="../../../p/e/r/Perturbation_theory.html" title="Perturbation theory">perturbation theory</a> of the <a href="../../../e/i/g/Eigenvalue.html" title="Eigenvalue">eigenvalue</a> of a complex-valued <a href="../../../d/i/a/Diagonalizable.html" title="Diagonalizable">diagonalizable matrix</a>. In its substance, it states an absolute upper bound for the deviation of one perturbed matrix eigenvalue from a properly chosen eigenvalue of the exact matrix. Informally speaking, what it says is that <i>the sensitivity of the eigenvalues is estimated by the condition number of the matrix of eigenvectors</i>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Theorem_.28Friedrich_L._Bauer.2C_C.T.Fike_-_1960.29"><span class="tocnumber">1</span> <span class="toctext">Theorem (Friedrich L. Bauer, C.T.Fike - 1960)</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Proof"><span class="tocnumber">1.1</span> <span class="toctext">Proof</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Theorem_.28Friedrich_L._Bauer.2C_C.T.Fike_-_1960.29_.28alternative_statement.29"><span class="tocnumber">2</span> <span class="toctext">Theorem (Friedrich L. Bauer, C.T.Fike - 1960) (alternative statement)</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Proof_2"><span class="tocnumber">2.1</span> <span class="toctext">Proof</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Corollary"><span class="tocnumber">3</span> <span class="toctext">Corollary</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Proof_3"><span class="tocnumber">3.1</span> <span class="toctext">Proof</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Remark"><span class="tocnumber">4</span> <span class="toctext">Remark</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Theorem_.28Friedrich_L._Bauer.2C_C.T.Fike_-_1960.29" id="Theorem_.28Friedrich_L._Bauer.2C_C.T.Fike_-_1960.29"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/u/Bauer-Fike_theorem_6089.html" title="Edit section: Theorem (Friedrich L. Bauer, C.T.Fike - 1960)">edit</a>]</span> <span class="mw-headline">Theorem (<a href="../../../f/r/i/Friedrich_L._Bauer_3b40.html" title="Friedrich L. Bauer">Friedrich L. Bauer</a>, C.T.Fike - 1960)</span></h2>
+<p>Let <img class='tex' src="../../../math/d/a/0/da0f0b6113c99d7d8bdbfc661a866cf6.png" alt="A\in\mathbb{C}^{n,n}" /> be a <a href="../../../d/i/a/Diagonalizable.html" title="Diagonalizable">diagonalizable matrix</a>, and be <img class='tex' src="../../../math/c/5/c/c5c7e16d9d1642b4dbc14c6aed180591.png" alt="V\in\mathbb{C}^{n,n}" /> the non singular <a href="../../../e/i/g/Eigenvector.html" title="Eigenvector">eigenvector</a> matrix such that <span class="texhtml"><i>A</i> = <i>V</i>Λ<i>V</i> <sup>− 1</sup></span>. Be moreover <span class="texhtml">μ</span> an eigenvalue of the matrix <span class="texhtml"><i>A</i> + δ<i>A</i></span>; then an eigenvalue <img class='tex' src="../../../math/e/0/1/e01d3f1ea5c22da5d0dca1fe577bad47.png" alt="\lambda\in\sigma(A)" /> exists such that:</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/d/c/fdcd56271449bb73c3cf3aae6c712841.png" alt="|\lambda-\mu|\leq\kappa_p (V)\|\delta A\|_p" /></dd>
+</dl>
+<p>where <img class='tex' src="../../../math/7/f/2/7f2596dc44b89851f3dd5b22243ab353.png" alt="\kappa_p(V)=\|V\|_p\|V^{-1}\|_p" /> is the usual <a href="../../../c/o/n/Condition_number.html" title="Condition number">condition number</a> in <a href="../../../m/a/t/Matrix_norm.html" title="Matrix norm">p-norm</a>.</p>
+<p><a name="Proof" id="Proof"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/u/Bauer-Fike_theorem_6089.html" title="Edit section: Proof">edit</a>]</span> <span class="mw-headline">Proof</span></h3>
+<p>If <img class='tex' src="../../../math/2/4/7/2473b92c37ecb5bb28ff09540b8e6968.png" alt="\mu\in\sigma(A)" />, we can choose <span class="texhtml">λ = μ</span> and the thesis is trivially verified (since <img class='tex' src="../../../math/8/3/b/83b3302e69309927be902723892ea72a.png" alt="\kappa_p(V)\geq 1" />).</p>
+<p>So, be <img class='tex' src="../../../math/0/0/7/0070778bfd56809fa837c7274f8b60b2.png" alt="\mu\notin\sigma(A)" />. Then <img class='tex' src="../../../math/3/5/1/3513f8c450c032e64016ce12c64bee38.png" alt="det(\Lambda-\mu I)\ \ne\  0" />. <span class="texhtml">μ</span> being an eigenvalue of <span class="texhtml"><i>A</i> + δ<i>A</i></span>, we have <span class="texhtml"><i>d</i><i>e</i><i>t</i>(<i>A</i> + δ<i>A</i> − μ<i>I</i>) = 0</span> and so</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/4/e/b4e83e5d615738d3f5790a30da584481.png" alt="0=\ det(V^{-1})\ det(A+\delta A-\mu I)\ det(V)=det(\Lambda+V^{-1}\delta AV-\mu I)=" /></dd>
+<dd><img class='tex' src="../../../math/a/4/8/a48ccb433c7506ae2aac9215cee5ba1b.png" alt="=det(\Lambda-\mu I)\ det[(\Lambda-\mu I)^{-1}V^{-1}\delta AV +I]" /></dd>
+</dl>
+<p>and, since <img class='tex' src="../../../math/3/5/1/3513f8c450c032e64016ce12c64bee38.png" alt="det(\Lambda-\mu I)\ \ne\  0" /> as stated above, we must have</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/d/b/fdb22a23d40248a970d66425723d7717.png" alt="det[(\Lambda-\mu I)^{-1}V^{-1}\delta AV +I]=\ 0" /></dd>
+</dl>
+<p>which reveals the value -1 to be an eigenvalue of the matrix <span class="texhtml">(Λ − μ<i>I</i>) <sup>− 1</sup><i>V</i> <sup>− 1</sup>δ<i>A</i><i>V</i></span>.</p>
+<p>For each <a href="../../../m/a/t/Matrix_norm.html" title="Matrix norm">consistent matrix norm</a>, we have <img class='tex' src="../../../math/e/5/2/e52c72fad09675bd2bc80619639b6b0c.png" alt="|\lambda|\leq\|A\|" />, so, being all p-norms consistent, we can write:</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/c/7/8c775a521072ec087721946c34c38f59.png" alt="1\leq\|(\Lambda-\mu I)^{-1}V^{-1}\delta AV\|_p\leq\|(\Lambda-\mu I)^{-1}\|_p\|V^{-1}\|_p\|V\|_p\|\delta A\|_p=" /></dd>
+<dd><img class='tex' src="../../../math/a/7/4/a74ed5a94920b57df5e8105a39190909.png" alt="=\|(\Lambda-\mu I)^{-1}\|_p\ \kappa_p(V)\|\delta A\|_p" /></dd>
+</dl>
+<p>But <span class="texhtml">(Λ − μ<i>I</i>) <sup>− 1</sup></span> being a diagonal matrix, the p-norm is easily computed, and yields:</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/1/8/d184e4e23f783110deae5837c0f4494f.png" alt="\|(\Lambda-\mu I)^{-1}\|_p\ =\ max_{\|\mathbf{x}\|_p\ne 0} \frac{\|(\Lambda-\mu I)^{-1}\mathbf{x}\|_p}{\|\mathbf{x}\|_p}\ =" /></dd>
+<dd><img class='tex' src="../../../math/f/0/4/f042f5d0f8198b263045e31d2a7b8e07.png" alt="=max_{\lambda\in\sigma(A)}\frac{1}{|\lambda -\mu|}\ =\ \frac{1}{min_{\lambda\in\sigma(A)}|\lambda-\mu|}" /></dd>
+</dl>
+<p>whence:</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/6/2/9620edd9e32abe2794ab5f60a5438268.png" alt="min_{\lambda\in\sigma(A)}|\lambda-\mu|\leq\ \kappa_p(V)\|\delta A\|_p" />.</dd>
+</dl>
+<p><br /></p>
+<p><br />
+The theorem can also be reformulated to better suit numerical methods. In fact, dealing with real eigensystem problems, one often has an exact matrix <span class="texhtml"><i>A</i></span>, but knows only an approximate eigenvalue-eigenvector couple, (<img class='tex' src="../../../math/7/c/0/7c099070b0d3a8b3f5279c9ae6734e17.png" alt="\tilde{\lambda}" />,<img class='tex' src="../../../math/4/6/e/46ed414828771c57248ed7ee0b3b8fc7.png" alt="\tilde{\mathbf{v}}" />), and needs to bound the error. The following version comes in help.</p>
+<p><a name="Theorem_.28Friedrich_L._Bauer.2C_C.T.Fike_-_1960.29_.28alternative_statement.29" id="Theorem_.28Friedrich_L._Bauer.2C_C.T.Fike_-_1960.29_.28alternative_statement.29"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/u/Bauer-Fike_theorem_6089.html" title="Edit section: Theorem (Friedrich L. Bauer, C.T.Fike - 1960) (alternative statement)">edit</a>]</span> <span class="mw-headline">Theorem (<a href="../../../f/r/i/Friedrich_L._Bauer_3b40.html" title="Friedrich L. Bauer">Friedrich L. Bauer</a>, C.T.Fike - 1960) (alternative statement)</span></h2>
+<p>Let <img class='tex' src="../../../math/d/a/0/da0f0b6113c99d7d8bdbfc661a866cf6.png" alt="A\in\mathbb{C}^{n,n}" /> be a <a href="../../../d/i/a/Diagonalizable.html" title="Diagonalizable">diagonalizable matrix</a>, and be <img class='tex' src="../../../math/c/5/c/c5c7e16d9d1642b4dbc14c6aed180591.png" alt="V\in\mathbb{C}^{n,n}" /> the non singular <a href="../../../e/i/g/Eigenvector.html" title="Eigenvector">eigenvector</a> matrix such as <span class="texhtml"><i>A</i> = <i>V</i>Λ<i>V</i> <sup>− 1</sup></span>. Be moreover (<img class='tex' src="../../../math/7/c/0/7c099070b0d3a8b3f5279c9ae6734e17.png" alt="\tilde{\lambda}" />,<img class='tex' src="../../../math/8/4/2/842ade8aae26ee05894cb6bb3a796d0c.png" alt="\mathbf{\tilde{v}}" />) an approximate eigenvalue-eigenvector couple, and <img class='tex' src="../../../math/1/0/8/108bae3d87fce82efedd5a0c3bb14aa2.png" alt="\mathbf{r}=A\mathbf{\tilde{v}}-\tilde{\lambda}\mathbf{\tilde{v}}" />; then an eigenvalue <img class='tex' src="../../../math/e/0/1/e01d3f1ea5c22da5d0dca1fe577bad47.png" alt="\lambda\in\sigma(A)" /> exists such that:</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/a/3/fa3a35a8f25f78f559f765cead66f4c9.png" alt="|\lambda-\tilde{\lambda}|\leq\kappa_p (V)\frac{\|\mathbf{r}\|_p}{\|\mathbf{\tilde{v}}\|_p}" /></dd>
+</dl>
+<p>where <img class='tex' src="../../../math/7/f/2/7f2596dc44b89851f3dd5b22243ab353.png" alt="\kappa_p(V)=\|V\|_p\|V^{-1}\|_p" /> is the usual <a href="../../../c/o/n/Condition_number.html" title="Condition number">condition number</a> in <a href="../../../m/a/t/Matrix_norm.html" title="Matrix norm">p-norm</a>.</p>
+<p><a name="Proof_2" id="Proof_2"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/u/Bauer-Fike_theorem_6089.html" title="Edit section: Proof">edit</a>]</span> <span class="mw-headline">Proof</span></h3>
+<p>We can assume <img class='tex' src="../../../math/2/0/9/2096b774bfa38de8c2e04d6dbaedc9e5.png" alt="\tilde{\lambda}\notin\sigma(A)" /> (otherwise, we can choose <img class='tex' src="../../../math/c/c/3/cc38eb0be7e27d9cbd9be94ba6286278.png" alt="\lambda=\tilde{\lambda}" /> and theorem is proven, since <img class='tex' src="../../../math/8/3/b/83b3302e69309927be902723892ea72a.png" alt="\kappa_p(V)\geq 1" />). Then <img class='tex' src="../../../math/b/e/8/be816933726521ad0a23b6ebf462c8f6.png" alt="(A-\tilde{\lambda} I)^{-1}" /> exists, so we can write:</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/0/5/8052f952c5582b27e44ef8a20e3f5102.png" alt="\mathbf{\tilde{v}}=(A-\tilde{\lambda} I)^{-1}\mathbf{r}=V(D-\tilde{\lambda} I)^{-1}V^{-1}\mathbf{r}" /></dd>
+</dl>
+<p>since <span class="texhtml"><i>A</i></span> is diagonalizable; taking the p-norm of both sides, we obtain:</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/c/5/4c5de98adb72213839b0af37716b87b4.png" alt="\|\mathbf{\tilde{v}}\|_p=\|V(D-\tilde{\lambda} I)^{-1}V^{-1}\mathbf{r}\|_p \leq \|V\|_p \|(D-\tilde{\lambda} I)^{-1}\|_p \|V^{-1}\|_p \|\mathbf{r}\|_p=" /></dd>
+</dl>
+<p><img class='tex' src="../../../math/1/e/d/1edf3c2c2dc7369611a36a0f593d701c.png" alt="=\kappa_p(V)\|(D-\tilde{\lambda} I)^{-1}\|_p \|\mathbf{r}\|_p." /></p>
+<p>But, since <img class='tex' src="../../../math/3/5/5/3555c4f4945c9a330958dc68dc2535ca.png" alt="(D-\tilde{\lambda} I)^{-1}" /> is a diagonal matrix, the p-norm is easily computed, and yields:</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/d/0/8d02d2f51df3222830f35a9565d5c37e.png" alt="\|(D-\tilde{\lambda} I)^{-1}\|_p=max_{\|\mathbf{x}\|_p \ne 0}\frac{\|(D-\tilde{\lambda} I)^{-1}\mathbf{x}\|_p}{\|\mathbf{x}\|_p}=" /></dd>
+<dd><img class='tex' src="../../../math/f/7/0/f70acc70bb0eb4947b8612285ed7ec4a.png" alt="=max_{\lambda\in\sigma(A)} \frac{1}{|\lambda-\tilde{\lambda}|}=\frac{1}{min_{\lambda\in\sigma(A)}|\lambda-\tilde{\lambda}|}" /></dd>
+</dl>
+<p>whence:</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/3/b/b3b8f1039b90f6df768e1b131b49bd6b.png" alt="min_{\lambda\in\sigma(A)}|\lambda-\tilde{\lambda}|\leq\kappa_p(V)\frac{\|\mathbf{r}\|_p}{\|\mathbf{\tilde{v}}\|_p}." /></dd>
+</dl>
+<p><br /></p>
+<p><br />
+The Bauer-Fike theorem, in both versions, yields an absolute bound. The following corollary, which, besides all the hypothesis of Bauer-Fike theorem, requires also the non-singularity of A, turns out to be useful whenever a relative bound is needed.</p>
+<p><a name="Corollary" id="Corollary"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/u/Bauer-Fike_theorem_6089.html" title="Edit section: Corollary">edit</a>]</span> <span class="mw-headline">Corollary</span></h2>
+<p>Be <img class='tex' src="../../../math/d/a/0/da0f0b6113c99d7d8bdbfc661a866cf6.png" alt="A\in\mathbb{C}^{n,n}" /> a non-singular, <a href="../../../d/i/a/Diagonalizable.html" title="Diagonalizable">diagonalizable matrix</a>, and be <img class='tex' src="../../../math/c/5/c/c5c7e16d9d1642b4dbc14c6aed180591.png" alt="V\in\mathbb{C}^{n,n}" /> the non singular <a href="../../../e/i/g/Eigenvector.html" title="Eigenvector">eigenvector</a> matrix such as <span class="texhtml"><i>A</i> = <i>V</i>Λ<i>V</i> <sup>− 1</sup></span>. Be moreover <span class="texhtml">μ</span> an eigenvalue of the matrix <span class="texhtml"><i>A</i> + δ<i>A</i></span>; then an eigenvalue <img class='tex' src="../../../math/e/0/1/e01d3f1ea5c22da5d0dca1fe577bad47.png" alt="\lambda\in\sigma(A)" /> exists such that:</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/2/3/4239349231c468f2914f8f9479327990.png" alt="\frac{|\lambda-\mu|}{|\lambda|}\leq\kappa_p (V)\|A^{-1}\delta A\|_p" /></dd>
+</dl>
+<p>(Note: <img class='tex' src="../../../math/4/1/9/41997d4400447c1518f154f48ff10ddb.png" alt="\|A^{-1}\delta A\|" />can be formally viewed as the "relative variation of A", just as <span class="texhtml">| λ − μ | | λ | <sup>− 1</sup></span> is the relative variation of λ.)</p>
+<p><br /></p>
+<p><a name="Proof_3" id="Proof_3"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/u/Bauer-Fike_theorem_6089.html" title="Edit section: Proof">edit</a>]</span> <span class="mw-headline">Proof</span></h3>
+<p>Since μ is an eigenvalue of (A+δA) and <img class='tex' src="../../../math/d/7/f/d7f145c0bf06c8446be7dda0ce7dae84.png" alt="det(A)\ne 0" />, we have, left-multiplying by <span class="texhtml">− <i>A</i> <sup>− 1</sup></span>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/4/1/6417040675c6c9fe55252e51cf9f03c5.png" alt="-A^{-1}(A+\delta A)\mathbf{v}=-\mu A^{-1}\mathbf{v}" /></dd>
+</dl>
+<p>that is, putting<img class='tex' src="../../../math/2/c/9/2c917809c8009226d46e3f7122d79ce6.png" alt="\tilde{A}=\mu A^{-1}" /> and <img class='tex' src="../../../math/0/f/5/0f5d248737b69dacdbc0674697accf5d.png" alt="\tilde{\delta A}=-A^{-1}\delta A" />:</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/4/c/b4cb2f4317e4b1c676f8cf93d4bde35e.png" alt="(\tilde{A}+\tilde{\delta A}-I)\mathbf{v}=\mathbf{0}" /></dd>
+</dl>
+<p>which means that<img class='tex' src="../../../math/5/7/3/573e048acce949eb0f6db4f973619437.png" alt="\tilde{\mu}=1" />is an eigenvalue of<img class='tex' src="../../../math/d/6/1/d61cc9b0fd144db17b247a4098b45f62.png" alt="(\tilde{A}+\tilde{\delta A})" />, with <img class='tex' src="../../../math/0/a/a/0aa3ec374bdc0d6a17aecbb6bcda6a89.png" alt="\mathbf{v}" />eigenvector. Now, the eigenvalues of <img class='tex' src="../../../math/6/c/4/6c44055434bd354611f3c3935be0c198.png" alt="\tilde{A}" />are <img class='tex' src="../../../math/8/7/d/87dc4057fa66dc0e7a0436c2af7f2a0a.png" alt="\frac{\mu}{\lambda_i}" />, while its eigenvector matrix is the same as A. Applying Bauer-Fike theorem to the matrix<img class='tex' src="../../../math/7/6/3/7631a078affbd3855bf7efbad12570b1.png" alt="\tilde{A}+\tilde{\delta A}" /> and to its eigenvalue<img class='tex' src="../../../math/5/7/3/573e048acce949eb0f6db4f973619437.png" alt="\tilde{\mu}=1" />, we obtain:</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/9/c/69cc9ae6995a4210c6811fb20143d7f7.png" alt="min_{\lambda\in\sigma(A)}\left|\frac{\mu}{\lambda}-1\right|=\ min_{\lambda\in\sigma(A)}\frac{|\lambda-\mu|}{|\lambda|}\leq\kappa_p (V)\|A^{-1}\delta A\|_p" /></dd>
+</dl>
+<p><br /></p>
+<p><br /></p>
+<p><a name="Remark" id="Remark"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/u/Bauer-Fike_theorem_6089.html" title="Edit section: Remark">edit</a>]</span> <span class="mw-headline">Remark</span></h2>
+<p>If A is <a href="../../../n/o/r/Normal_matrix.html" title="Normal matrix">normal</a>, V is a <a href="../../../u/n/i/Unitary_matrix.html" title="Unitary matrix">unitary matrix</a>, and <img class='tex' src="../../../math/c/f/6/cf690a8c14df12dc9d310fe2d076ef7c.png" alt="\|V\|_2=\|V^{-1}\|_2=1" />, so that <span class="texhtml">κ<sub>2</sub>(<i>V</i>) = 1</span>.</p>
+<p>The Bauer-Fike theorem then becomes:</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/5/e/05e3708ab6ff2d48e6ddb38f6cd53e6d.png" alt="\exists\lambda\in\sigma(A): |\lambda-\mu|\leq\|\delta A\|_2" /></dd>
+</dl>
+<dl>
+<dd>(<img class='tex' src="../../../math/d/f/1/df182576075484c7e62fe1a3f0be90be.png" alt="\exists\lambda\in\sigma(A): |\lambda-\tilde{\lambda}|\leq\frac{\|\mathbf{r}\|_2}{\|\mathbf{\tilde{v}}\|_2}" /> in the alternative formulation)</dd>
+</dl>
+<p>which obviously remains true if A is a <a href="../../../h/e/r/Hermitian_matrix.html" title="Hermitian matrix">Hermitian matrix</a>. In this case, however, a much stronger result holds, known as the <b>Weyl theorem</b>.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/u/Bauer-Fike_theorem_6089.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol>
+<li>F. L. Bauer and C. T. Fike. <i>Norms and exclusion theorems</i>. Numer. Math. 2 (1960), 137-141.</li>
+</ol>
+<ol>
+<li>S. C. Eisenstat and I. C. F. Ipsen. <i>Three absolute perturbation bounds for matrix eigenvalues imply relative bounds</i>. SIAM Journal on Matrix Analysis and Applications Vol. 20, N. 1 (1998), 149-158</li>
+</ol>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/u/Bauer-Fike_theorem_6089.html">http://en.wikipedia.org../../../b/a/u/Bauer-Fike_theorem_6089.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../s/p/e/Category%7ESpectral_theory_c798.html" title="Category:Spectral theory">Spectral theory</a></span> | <span dir='ltr'><a href="../../../m/a/t/Category%7EMathematical_theorems_3848.html" title="Category:Mathematical theorems">Mathematical theorems</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/u/Bauer-Fike_theorem_6089.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/a/u/Talk%7EBauer-Fike_theorem_58af.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bauer-Fike_theorem">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/s/a/t/Satz_von_Bauer-Fike_953b.html">Deutsch</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 21:52, 22 May 2006 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../w/d/v/User%7EWdvorak_01f2.html" title="User:Wdvorak">Wdvorak</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../b/e/t/User%7EBeteNoir_e731.html" title="User:BeteNoir">BeteNoir</a>, Andrea Ambrosio and <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

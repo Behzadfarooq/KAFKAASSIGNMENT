@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Binomial proportion confidence interval,Beta distribution,Binomial distribution,Central limit theorem,Confidence interval,F-distribution,Normal distribution,Sampling error,Score test,Standard normal distribution,Statistical population" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Binomial proportion confidence interval - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Binomial proportion confidence interval</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../s/t/a/Statistics.html" title="Statistics">Statistics</a>, a <b>Binomial Proportion Confidence Interval</b> is a <a href="../../../c/o/n/Confidence_interval.html" title="Confidence interval">confidence interval</a> for a proportion in a <a href="../../../s/t/a/Statistical_population.html" title="Statistical population">statistical population</a>. It uses the proportion estimated in a <a href="../../../s/t/a/Statistical_sample.html" title="Statistical sample">statistical sample</a> and allows for <a href="../../../s/a/m/Sampling_error.html" title="Sampling error">sampling error</a>. There are several formulas for a binomial confidence interval, but all of them rely on the assumption of a <a href="../../../b/i/n/Binomial_distribution.html" title="Binomial distribution">binomial distribution</a>. A simple example of a binomial distribution is the number of heads observed when a coin is flipped ten times. In general, a binomial distribution applies when an experiment is repeated a fixed number of times, each trial of the experiment has two possible outcomes (labeled arbitrarily success and failure), the probability of success is the same for each trial, and the trials are <a href="../../../s/t/a/Statistically_independent.html" title="Statistically independent">statistically independent</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Normal_approximation_interval"><span class="tocnumber">1</span> <span class="toctext">Normal approximation interval</span></a></li>
+<li class="toclevel-1"><a href="#Wilson_score_interval"><span class="tocnumber">2</span> <span class="toctext">Wilson score interval</span></a></li>
+<li class="toclevel-1"><a href="#Clopper-Pearson_interval"><span class="tocnumber">3</span> <span class="toctext">Clopper-Pearson interval</span></a></li>
+<li class="toclevel-1"><a href="#Comparison_of_different_intervals"><span class="tocnumber">4</span> <span class="toctext">Comparison of different intervals</span></a></li>
+<li class="toclevel-1"><a href="#Web-based_calculators"><span class="tocnumber">5</span> <span class="toctext">Web-based calculators</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Normal_approximation_interval" id="Normal_approximation_interval"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binomial_proportion_confidence_interval.html" title="Edit section: Normal approximation interval">edit</a>]</span> <span class="mw-headline">Normal approximation interval</span></h2>
+<p>The simplest and most commonly used formula for a binomial confidence interval relies on approximating the binomial distribution with a <a href="../../../n/o/r/Normal_distribution.html" title="Normal distribution">normal distribution</a>. This approximation is justified by the <a href="../../../c/e/n/Central_limit_theorem.html" title="Central limit theorem">central limit theorem</a>. The formula is</p>
+<p><img class='tex' src="../../../math/3/d/c/3dc45eb811251ca0b6ea7529d48ab2fe.png" alt="\hat p \pm z_{1- \alpha /2}" /> <img class='tex' src="../../../math/8/5/9/859c3363d38370016a293f0b349ae1fe.png" alt="\sqrt{ \frac{\hat p \left ( 1- \hat p \right )}{n}}" /></p>
+<p>where <img class='tex' src="../../../math/2/2/b/22b0c93c3d471ddc904bc3ee883d8884.png" alt="\hat p" /> is the proportion estimated from the statistical sample, <span class="texhtml"><i>z</i><sub>1 − α / 2</sub></span> is the <span class="texhtml">1 − α / 2</span> percentile of a <a href="../../../s/t/a/Standard_normal_distribution.html" title="Standard normal distribution">standard normal distribution</a>, and n is the sample size.</p>
+<p>The <a href="../../../c/e/n/Central_limit_theorem.html" title="Central limit theorem">central limit theorem</a> applies well to a binomial distribution, even with a sample size less than 30, as long as the proportion is not too close to 0 or 1. For very extreme probabilities, though, a sample size of 30 or more may still be inadequate. The normal approximation fails totally when the sample proportion is exactly zero or exactly one. A frequently cited rule of thumb is that the normal approximation works well as long as np&gt;5 and n(1-p)&gt;5; see however Brown et al. 2001.</p>
+<p>An important theoretical derivation of this confidence interval involves the inversion of a hypothesis test. Under this formulation, the confidence interval represents those values of the population parameter that would have large p-values if they were tested as a hypothesized population proportion. The normal approximation interval can be represented as</p>
+<p><img class='tex' src="../../../math/8/e/c/8ec6be0d0bce7a8cf0fa6962e78b2137.png" alt="\left \{ \theta; Z_{\alpha / 2} \le \frac{{\hat p - \theta}}{{\sqrt{\hat p \left ( {1-\hat p} \right ) / n}}} \le Z_{1-\alpha / 2} \right \}" /></p>
+<p>Since the test in the middle of the inequality is a <a href="../../../w/a/l/Wald_test.html" title="Wald test">Wald test</a>, the normal approximation interval is sometimes called the Wald interval.</p>
+<p><a name="Wilson_score_interval" id="Wilson_score_interval"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binomial_proportion_confidence_interval.html" title="Edit section: Wilson score interval">edit</a>]</span> <span class="mw-headline">Wilson score interval</span></h2>
+<p>The Wilson interval is an improvement over the normal approximation interval and was first developed in Wilson (1927).</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/e/6/5e69175644ccad57faa744c46751be83.png" alt="\frac{{ {\hat p + \frac{{1}}{{2n}}  z_{1- \alpha / 2}^2  \pm z_{1- \alpha / 2} \sqrt {\frac{{1}}{n} \left[ {\hat p\left( {1 - \hat p} \right) + \frac{{1}} {{4n^2}}}z_{1- \alpha / 2}^2  \right]}} }} {{ {1 + \frac{{1}}{n}} z_{1- \alpha / 2}^2 }}" /></dd>
+</dl>
+<p>This interval has good properties even for a small number of trials and/or an extreme probability. The center of the Wilson interval</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/7/0/37042df92a5aed696b3e26121fa5fecd.png" alt="\frac{{ {\hat p + \frac{{1}}{{2n}}  z_{1- \alpha / 2}^2 } }} {{ {1 + \frac{{1}}{n}} z_{1- \alpha / 2}^2 }}" /></dd>
+</dl>
+<p>can be shown to be a weighted average of <img class='tex' src="../../../math/2/2/b/22b0c93c3d471ddc904bc3ee883d8884.png" alt="\hat p" /> and 1/2, with <img class='tex' src="../../../math/2/2/b/22b0c93c3d471ddc904bc3ee883d8884.png" alt="\hat p" /> receiving greater weight as the sample size increases.</p>
+<p>The Wilson interval can be derived as</p>
+<p><img class='tex' src="../../../math/3/9/e/39e9a67be3551072c1a0d1aba8daadbc.png" alt="\left \{ \theta; Z_{\alpha / 2} \le \frac{{\hat p - \theta}}{{\sqrt{\theta \left ( {1-\theta} \right ) / n}}} \le Z_{1-\alpha / 2} \right \}" /></p>
+<p>The test in the middle of the inequality is a <a href="../../../s/c/o/Score_test.html" title="Score test">score test</a>, so the Wilson interval is sometimes called the Wilson score interval.</p>
+<p><a name="Clopper-Pearson_interval" id="Clopper-Pearson_interval"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binomial_proportion_confidence_interval.html" title="Edit section: Clopper-Pearson interval">edit</a>]</span> <span class="mw-headline">Clopper-Pearson interval</span></h2>
+<p>The Clopper-Pearson interval is an early and very common method for calculating exact binomial confidence intervals (Clopper and Pearson 1934). This method uses the cumulative probabilities of the binomial distribution. The Clopper-Pearson interval can be written as</p>
+<p><img class='tex' src="../../../math/5/a/3/5a396d598a5483efb3b91228d336c22a.png" alt="\left \{ \theta; P  \left [ Bin \left ( n; \theta \right ) \le X \right ] \ge \alpha /2 \right \}" /> <img class='tex' src="../../../math/d/d/f/ddf86464dcc2190258c76ddc1da7032a.png" alt="\bigcap" /> <img class='tex' src="../../../math/d/4/7/d474a3f554eaaf3f3958a24fd6b25061.png" alt="\left \{ \theta; P  \left [ Bin \left ( n; \theta \right ) \ge X \right ] \ge \alpha /2 \right \}" /></p>
+<p>where X is the number of successes observed in the sample and Bin(n;<span class="texhtml">θ</span>) is a binomial random variable with n trials and probability of success <span class="texhtml">θ</span>.</p>
+<p>Because of a relationship between the cumulative binomial distribution and the <a href="../../../b/e/t/Beta_distribution.html" title="Beta distribution">beta distribution</a>, the Clopper-Pearson interval is sometimes presented in an alternate format that uses percentiles from the beta distribution. The beta distribution is, in turn, related to the <a href="../../../f/-/d/F-distribution.html" title="F-distribution">F-distribution</a> so a third formulation of the Clopper-Pearson interval uses F percentiles.</p>
+<p>The Clopper-Pearson interval is an exact interval since it is based directly on the binomial distribution rather than any approximation to the binomial distribution. This interval, however, can be conservative because of the discrete nature of the binomial distribution.</p>
+<p><a name="Comparison_of_different_intervals" id="Comparison_of_different_intervals"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binomial_proportion_confidence_interval.html" title="Edit section: Comparison of different intervals">edit</a>]</span> <span class="mw-headline">Comparison of different intervals</span></h2>
+<p>There are several research papers that compare these and other confidence intervals for the binomial proportion. A good starting point is Agresti and Coull (1998) which points out that exact methods such as the Clopper-Pearson interval may not work as well as certain approximations.</p>
+<p><a name="Web-based_calculators" id="Web-based_calculators"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binomial_proportion_confidence_interval.html" title="Edit section: Web-based calculators">edit</a>]</span> <span class="mw-headline">Web-based calculators</span></h2>
+<p>There are numerous web sites that will calculate a binomial proportion confidence interval.</p>
+<ul>
+<li><a href="http://www.dimensionresearch.com/resources/calculators/conf_prop.html" class="external text" title="http://www.dimensionresearch.com/resources/calculators/conf_prop.html" rel="nofollow">Dimension Research. Confidence Interval for Proportions Calculator</a> uses the normal approximation.</li>
+<li><a href="http://faculty.vassar.edu/lowry/prop1.html" class="external text" title="http://faculty.vassar.edu/lowry/prop1.html" rel="nofollow">VassarStats. Confidence Interval of a Proportion</a> uses the Wilson score interval method.</li>
+<li><a href="http://www.causascientia.org/math_stat/ProportionCI.html" class="external text" title="http://www.causascientia.org/math_stat/ProportionCI.html" rel="nofollow">causaScientia. Exact Confidence Interval for a Proportion</a> uses a Bayesian interval with an uninformative prior distribution.</li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binomial_proportion_confidence_interval.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Agresti, A., and Coull, B. Approximate is better than 'exact' for interval estimation of binomial proportions. <i>The American Statistician</i> 52: 119-126, 1998.</li>
+<li>Brown, L. D., Cai, T. T., and DasGupta, A. Interval Estimation for a Binomial Proportion. <i>Statistical Science</i> 16(2): 101-117, 2001.</li>
+<li>Clopper, C. and Pearson, S. The use of confidence or fiducial limits illustrated in the case of the binomial. <i>Biometrika</i> 26: 404-413, 1934.</li>
+<li>Wilson, E. B. Probable inference, the law of succession, and statistical inference. <i>Journal of the American Statistical Association</i> 22: 209-212, 1927.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Binomial_proportion_confidence_interval.html">http://en.wikipedia.org../../../b/i/n/Binomial_proportion_confidence_interval.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../s/t/a/Category%7EStatistical_theory_4cba.html" title="Category:Statistical theory">Statistical theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/n/Binomial_proportion_confidence_interval.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/n/Talk%7EBinomial_proportion_confidence_interval_1c06.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Binomial_proportion_confidence_interval">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/k/o/n/Konfidenzintervall_einer_unbekannten_Wahrscheinlichkeit_f83e.html">Deutsch</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:45, 21 February 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) P¤ntus, Simon66217, <a href="../../../l/a/r/User%7ELARS_3a1f.html" title="User:LARS">LARS</a>, Kisdi, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../h/e/n/User%7EHenrik_6ef6.html" title="User:Henrik">Henrik</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a> and Kanderson117.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

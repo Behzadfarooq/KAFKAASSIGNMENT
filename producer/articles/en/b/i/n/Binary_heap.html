@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Binary heap,Array,Big O notation,Binary tree,Binomial heap,Data structure,Fibonacci heap,Floor function,Heap (data structure),Heapsort,Implicit data structure" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Binary heap - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Binary heap</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div class="thumb tright">
+<div class="thumbinner" style="width:242px;"><a href="../../../m/a/x/Image%7EMax-heap.png_f598.html" class="internal" title="Example of a complete binary max heap."><img src="../../../upload/thumb/b/bf/Max-heap.png/240px-Max-heap.png" alt="Example of a complete binary max heap." width="240" height="161" longdesc="../../../m/a/x/Image%7EMax-heap.png_f598.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../m/a/x/Image%7EMax-heap.png_f598.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Example of a complete binary max heap.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:242px;"><a href="../../../m/i/n/Image%7EMin-heap.png_0833.html" class="internal" title="Example of a complete binary min heap."><img src="../../../upload/thumb/6/69/Min-heap.png/240px-Min-heap.png" alt="Example of a complete binary min heap." width="240" height="155" longdesc="../../../m/i/n/Image%7EMin-heap.png_0833.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../m/i/n/Image%7EMin-heap.png_0833.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Example of a complete binary min heap.</div>
+</div>
+</div>
+<p><b>Binary heaps</b> are a particularly simple kind of <a href="../../../h/e/a/Heap_%28data_structure%29.html" title="Heap (data structure)">heap</a> <a href="../../../d/a/t/Data_structure.html" title="Data structure">data structure</a> created using a <a href="../../../b/i/n/Binary_tree.html" title="Binary tree">binary tree</a>. It can be seen as a binary tree with two additional constraints:</p>
+<ul>
+<li>The <i>shape property</i>: the tree is either a perfectly balanced binary tree (all leaves are at the same level), or, if the last level of the tree is not complete, the nodes are filled from left to right.</li>
+<li>The <i>heap property</i>: each node is greater than or equal to each of its children according to some comparison predicate which is fixed for the entire data structure.</li>
+</ul>
+<p>“Greater than” means according to whatever comparison function is chosen to sort the heap, not necessarily “greater than” in the mathematical sense (since the quantities are not even always numerical). Heaps where the comparison function is mathematical “greater than” are called max-heaps; those where the comparison function is mathematical “less than” are called “min-heaps.” Conventionally, min-heaps are used, since they are readily applicable for use in <a href="../../../p/r/i/Priority_queue.html" title="Priority queue">priority queues</a>.</p>
+<p>Note that the ordering of siblings in a heap is not specified by the heap property, so the two children of a parent can be freely interchanged (as long as this does not violate the shape property, compare with <a href="../../../t/r/e/Treap.html" title="Treap">treap</a>).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Heap_operations"><span class="tocnumber">1</span> <span class="toctext">Heap operations</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Adding_to_the_heap"><span class="tocnumber">1.1</span> <span class="toctext">Adding to the heap</span></a></li>
+<li class="toclevel-2"><a href="#Deleting_the_root_from_the_heap"><span class="tocnumber">1.2</span> <span class="toctext">Deleting the root from the heap</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Heap_implementation"><span class="tocnumber">2</span> <span class="toctext">Heap implementation</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Heap_operations" id="Heap_operations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_heap.html" title="Edit section: Heap operations">edit</a>]</span> <span class="mw-headline">Heap operations</span></h2>
+<p><a name="Adding_to_the_heap" id="Adding_to_the_heap"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Binary_heap.html" title="Edit section: Adding to the heap">edit</a>]</span> <span class="mw-headline">Adding to the heap</span></h3>
+<p>If we have a heap, and we add an element, we can perform an operation known as <i>up-heap</i>, <i>bubble-up</i>, <i>percolate-up</i>, or <i>sift-up</i> in order to restore the heap property. We can do this in <a href="../../../b/i/g/Big_O_notation_de3e.html" title="Big O notation">O</a>(log <i>n</i>) time, using a binary heap, by following this algorithm:</p>
+<ol>
+<li>Add the element on the bottom level of the heap.</li>
+<li>Compare the added element with its parent; if they are in the correct order, stop.</li>
+<li>If not, swap the element with its parent and return to the previous step.</li>
+</ol>
+<p>We do this at maximum for each level in the tree — the height of the tree, which is O(log <i>n</i>). However, since approximately 50% of the elements are leaves and 75% are in the bottom two levels, it is likely that the new element to be inserted will only move a few levels upwards to maintain the heap. Thus, binary heaps support insertion in <i>average</i> constant time, O(1).</p>
+<p>Say we have a max-heap</p>
+<dl>
+<dd>
+<dl>
+<dd><a href="../../../h/e/a/Image%7EHeap_add_step1.svg_2aa5.html" class="image" title=""><img src="../../../upload/shared/thumb/a/ac/Heap_add_step1.svg/150px-Heap_add_step1.svg.png" alt="" width="150" height="90" longdesc="../../../h/e/a/Image%7EHeap_add_step1.svg_2aa5.html" /></a></dd>
+</dl>
+</dd>
+</dl>
+<p>and we want to add the number 15 to the heap. We first place the 15 in the position marked by the X. However the heap property is violated since 15 is greater than 8, so we need to swap the 15 and the 8. So, we have the heap looking as follows after the first swap:</p>
+<dl>
+<dd>
+<dl>
+<dd><a href="../../../h/e/a/Image%7EHeap_add_step2.svg_a3cd.html" class="image" title=""><img src="../../../upload/shared/thumb/1/16/Heap_add_step2.svg/150px-Heap_add_step2.svg.png" alt="" width="150" height="90" longdesc="../../../h/e/a/Image%7EHeap_add_step2.svg_a3cd.html" /></a></dd>
+</dl>
+</dd>
+</dl>
+<p>However the heap property is still violated since 15 is greater than 11, so we need to swap again:</p>
+<dl>
+<dd>
+<dl>
+<dd><a href="../../../h/e/a/Image%7EHeap_add_step3.svg_41f0.html" class="image" title=""><img src="../../../upload/shared/thumb/5/51/Heap_add_step3.svg/150px-Heap_add_step3.svg.png" alt="" width="150" height="90" longdesc="../../../h/e/a/Image%7EHeap_add_step3.svg_41f0.html" /></a></dd>
+</dl>
+</dd>
+</dl>
+<p>which is a valid max-heap.</p>
+<p><a name="Deleting_the_root_from_the_heap" id="Deleting_the_root_from_the_heap"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Binary_heap.html" title="Edit section: Deleting the root from the heap">edit</a>]</span> <span class="mw-headline">Deleting the root from the heap</span></h3>
+<p>The procedure for deleting the root from the heap — effectively extracting the maximum element in a max-heap or the minimum element in a min-heap — starts by swapping it with the last element on the last level. So, if we have the same max-heap as before, we remove the 11 and replace it with the 4.</p>
+<dl>
+<dd>
+<dl>
+<dd><a href="../../../h/e/a/Image%7EHeap_remove_step1.svg_0192.html" class="image" title=""><img src="../../../upload/shared/thumb/e/ee/Heap_remove_step1.svg/150px-Heap_remove_step1.svg.png" alt="" width="150" height="90" longdesc="../../../h/e/a/Image%7EHeap_remove_step1.svg_0192.html" /></a></dd>
+</dl>
+</dd>
+</dl>
+<p>Now the heap property is violated since 8 is greater than 4. The operation that restores the property is called <i>down-heap</i>, <i>bubble-down</i>, <i>percolate-down</i>, or <i>sift-down</i>. In this case, swapping the two elements 4 and 8, is enough to restore the heap property and we need not swap elements further:</p>
+<dl>
+<dd>
+<dl>
+<dd><a href="../../../h/e/a/Image%7EHeap_remove_step2.svg_6519.html" class="image" title=""><img src="../../../upload/shared/thumb/2/22/Heap_remove_step2.svg/150px-Heap_remove_step2.svg.png" alt="" width="150" height="90" longdesc="../../../h/e/a/Image%7EHeap_remove_step2.svg_6519.html" /></a></dd>
+</dl>
+</dd>
+</dl>
+<p>In general, the wrong node is swapped with its larger child in a max-heap (in a min-heap it would be swapped with its smaller child), until it satisfies the heap property in its new position. Note that the down-heap operation (without the preceding swap) can be used in general to modify the value of the root, even when no element is being deleted.</p>
+<p><a name="Heap_implementation" id="Heap_implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_heap.html" title="Edit section: Heap implementation">edit</a>]</span> <span class="mw-headline">Heap implementation</span></h2>
+<p>It is perfectly possible to use a traditional binary tree data structure to implement a binary heap. There is an issue with finding the adjacent element on the last level on the binary heap when adding an element which can be resolved algorithmically or by adding extra data to the nodes, called “threading” the tree — that is, instead of merely storing references to the children, we store the <a href="../../../i/n/o/Inorder.html" title="Inorder">inorder</a> successor of the node as well.</p>
+<div class="floatright"><span><a href="../../../b/i/n/Image%7EBinary_tree_in_array.svg_5c5d.html" class="image" title="A small complete binary tree stored in an array"><img src="../../../upload/shared/thumb/8/86/Binary_tree_in_array.svg/300px-Binary_tree_in_array.svg.png" alt="A small complete binary tree stored in an array" width="300" height="75" longdesc="../../../b/i/n/Image%7EBinary_tree_in_array.svg_5c5d.html" /></a></span></div>
+<p>However, a more common approach, and an approach aligned with the theory behind heaps, is to store the heap in an <a href="../../../a/r/r/Array.html" title="Array">array</a>. Any binary tree can be stored in an array, but because a heap is always an almost complete binary tree, it can be stored compactly. No space is required for pointers; instead, for each index <i>i</i>, element <i>a</i>[<i>i</i>] is the parent of two children <i>a</i>[2<i>i</i>+1] and <i>a</i>[2<i>i</i>+2], as shown in the figure. (Note that with an implementation starting at 0 for the root, the parent of <i>a</i>[<i>i</i>] is <i>a</i>[ <a href="../../../f/l/o/Floor_function.html" title="Floor function">floor</a> ((<i>i</i>−1)/2)]. ) This is a simple example of an <a href="../../../i/m/p/Implicit_data_structure.html" title="Implicit data structure">implicit data structure</a>.</p>
+<p>This approach is particularly useful in the <a href="../../../h/e/a/Heapsort.html" title="Heapsort">heapsort</a> algorithm, where it allows the space in the input array to be reused to store the heap.</p>
+<p>The upheap/downheap operations can be stated then in terms of an array as follows: suppose that the heap property holds for the indices <i>b</i>, <i>b</i>+1, ..., <i>e</i>. The sift-down function extends the heap property to <i>b</i>-1, <i>b</i>, <i>b</i>+1, ..., <i>e</i>. Only index <i>i</i> = <i>b</i>-1 can violate the heap property. Let <i>j</i> be the index of the largest child of <i>a</i>[<i>i</i>] (for a max-heap, or the smallest child for a min-heap) within the range <i>b</i>, ..., <i>e</i>. (If no such index exists because 2<i>i</i> &gt; <i>e</i> then the heap property holds for the newly extended range and nothing needs to be done.) By swapping the values <i>a</i>[<i>i</i>] and <i>a</i>[<i>j</i>] the heap property for position <i>i</i> is established. At this point, the only problem is that the heap property might not hold for index <i>j</i>. The sift-down function is applied tail-recursively to index <i>j</i> until the heap property is established for all elements.</p>
+<p>The sift-down function is fast. In each step it only needs two comparisons and one swap. The index value where it is working doubles in each iteration, so that at most log<sub>2</sub> <i>e</i> steps are required.</p>
+<p>The merge operation in a binary heap takes Θ(<i>n</i>) for equal-sized heaps. When merging is a common task, a different heap implementation is recommended, such as a <a href="../../../b/i/n/Binomial_heap.html" title="Binomial heap">binomial heap</a>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_heap.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/i/n/Binomial_heap.html" title="Binomial heap">Binomial heap</a></li>
+<li><a href="../../../f/i/b/Fibonacci_heap.html" title="Fibonacci heap">Fibonacci heap</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_heap.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://mathworld.wolfram.com/Heap.html" class="external free" title="http://mathworld.wolfram.com/Heap.html" rel="nofollow">http://mathworld.wolfram.com/Heap.html</a></li>
+<li><a href="http://www.policyalmanac.org/games/binaryHeaps.htm" class="external free" title="http://www.policyalmanac.org/games/binaryHeaps.htm" rel="nofollow">http://www.policyalmanac.org/games/binaryHeaps.htm</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Binary_heap.html">http://en.wikipedia.org../../../b/i/n/Binary_heap.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../h/e/a/Category%7EHeaps_%28structure%29_847c.html" title="Category:Heaps (structure)">Heaps (structure)</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/n/Binary_heap.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/n/Talk%7EBinary_heap_1b5a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Binary_heap">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/i/n/Bin%C3%A4rer_Heap_48bb.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E4%BA%8C/%E5%88%86/%E3%83%92/%E4%BA%8C%E5%88%86%E3%83%92%E3%83%BC%E3%83%97.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/k/o/p/Kopiec_binarny.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E5%A0%86/_/_/%E5%A0%86.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:01, 14 March 2007 by Wikipedia user <a href="../../../m/o/n/User%7EMonoNexo_ae46.html" title="User:MonoNexo">MonoNexo</a>. Based on work by Wikipedia user(s) <a href="../../../l/e/v/User%7ELevin_f100.html" title="User:Levin">Levin</a>, <a href="../../../v/k/o/User%7EVKokielov_dc04.html" title="User:VKokielov">VKokielov</a>, <a href="../../../c/o/d/User%7ECodetiger_4d43.html" title="User:Codetiger">Codetiger</a>, <a href="../../../t/h/e/User%7ETheone256_2864.html" title="User:Theone256">Theone256</a>, Wsloand, <a href="../../../i/l/m/User%7EIlmari_Karonen_d189.html" title="User:Ilmari Karonen">Ilmari Karonen</a>, Seshu pv, <a href="../../../r/2/7/User%7ER27182818_c6ab.html" title="User:R27182818">R27182818</a>, <a href="../../../w/i/n/User%7EWinBot_3e52.html" title="User:WinBot">WinBot</a>, <a href="../../../h/t/o/User%7EHtonl_fb13.html" title="User:Htonl">Htonl</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, Danielcer, Bsdlogical, <a href="../../../d/o/u/User%7EDoug_Bell_8398.html" title="User:Doug Bell">Doug Bell</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../d/j/c/User%7EDjcmackay_5976.html" title="User:Djcmackay">Djcmackay</a>, <a href="../../../v/i/k/User%7EVikingstad_a5e4.html" title="User:Vikingstad">Vikingstad</a>, <a href="../../../s/h/d/User%7EShd_d446.html" title="User:Shd">Shd</a>, <a href="../../../m/a/h/User%7EMahanga_6077.html" title="User:Mahanga">Mahanga</a>, Schellhammer, <a href="../../../b/r/i/User%7EBrighterorange_f618.html" title="User:Brighterorange">Brighterorange</a>, <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../i/r/o/User%7EIron_Wallaby_7657.html" title="User:Iron Wallaby">Iron Wallaby</a>, <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a>, <a href="../../../m/i/k/User%7EMikkalai_a7bb.html" title="User:Mikkalai">Mikkalai</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../s/n/o/User%7ESnoyes_3ec6.html" title="User:Snoyes">Snoyes</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../b/r/y/User%7EBryanlharris_923e.html" title="User:Bryanlharris">Bryanlharris</a>, Laurens, <a href="../../../n/i/x/User%7ENixdorf_8d7c.html" title="User:Nixdorf">Nixdorf</a>, <a href="../../../p/i/t/User%7EPit_aba8.html" title="User:Pit">Pit</a>, <a href="../../../n/o/t/User%7ENotheruser_b27a.html" title="User:Notheruser">Notheruser</a>, <a href="../../../k/y/o/User%7EKyokpae_6fb5.html" title="User:Kyokpae">Kyokpae</a>, <a href="../../../t/a/w/User%7ETaw_8bc0.html" title="User:Taw">Taw</a> and <a href="../../../b/4/h/User%7EB4hand_8888.html" title="User:B4hand">B4hand</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

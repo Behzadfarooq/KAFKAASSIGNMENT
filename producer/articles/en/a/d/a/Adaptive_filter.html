@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Adaptive filter,Adaptive feedback cancellation,Cost function,Digital filter,Digital signal processing,Digital signal processor,ECG,Filter (signal processing),Finite impulse response,Heart,Hertz" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Adaptive filter - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Adaptive filter</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>An <b>adaptive filter</b> is a filter which <i><b>self-adjusts</b></i> its <a href="../../../t/r/a/Transfer_function.html" title="Transfer function">transfer function</a> according to an optimizing algorithm. Because of the complexity of the optimizing algorithms, most adaptive filters are <a href="../../../d/i/g/Digital_filter.html" title="Digital filter">digital filters</a> that perform <a href="../../../d/i/g/Digital_signal_processing.html" title="Digital signal processing">digital signal processing</a> and adapt their performance based on the input signal. By way of contrast, a non-adaptive filter has static filter coefficients (which collectively form the <a href="../../../t/r/a/Transfer_function.html" title="Transfer function">transfer function</a>).</p>
+<p>For some applications, adaptive coefficients are required since some parameters of the desired processing operation (for instance, the properties of some noise signal) are not known in advance. In these situations it is common to employ an adaptive filter, which uses feedback to refine the values of the filter coefficients and hence its frequency response.</p>
+<p>Generally speaking, the adapting process involves the use of a <a href="../../../c/o/s/Cost_function.html" title="Cost function">cost function</a>, which is a criterion for optimum performance of the filter (for example, minimizing the noise component of the input), to feed an algorithm, which determines how to modify of the filter coefficients to minimize the cost on the next iteration.</p>
+<p>As the power of <a href="../../../d/i/g/Digital_signal_processor.html" title="Digital signal processor">digital signal processors</a> has increased, adaptive filters have become much more common and are now routinely used in devices such as mobile phones and other communication devices, camcorders and digital cameras, and medical monitoring equipment.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">1</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Block_diagram"><span class="tocnumber">2</span> <span class="toctext">Block diagram</span></a></li>
+<li class="toclevel-1"><a href="#Applications_of_adaptive_filters"><span class="tocnumber">3</span> <span class="toctext">Applications of adaptive filters</span></a></li>
+<li class="toclevel-1"><a href="#Filter_implementations"><span class="tocnumber">4</span> <span class="toctext">Filter implementations</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/a/Adaptive_filter.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>Suppose a <a href="../../../h/o/s/Hospital.html" title="Hospital">hospital</a> is recording a <a href="../../../h/e/a/Heart.html" title="Heart">heart</a> beat (an <a href="../../../e/c/g/ECG_0cb2.html" title="ECG">ECG</a>), which is being corrupted by a 50 <a href="../../../h/e/r/Hertz.html" title="Hertz">Hz</a> noise (the frequency coming from the <a href="../../../p/o/w/Power_supply.html" title="Power supply">power supply</a> in many countries).</p>
+<p>One way to remove the noise is to filter the signal with a <a href="../../../n/o/t/Notch_filter.html" title="Notch filter">notch filter</a> at 50 Hz. However, due to slight variations in the power supply to the hospital, the exact frequency of the power supply might (hypothetically) wander between 47 Hz and 53 Hz. A static filter would need to remove all the frequencies between 47 and 53 Hz, which could excessively degrade the quality of the ECG since the heart beat would also likely have frequency components in the rejected range.</p>
+<p>To circumvent this potential loss of information, an adaptive filter could be used. The adaptive filter would take input both from the patient and from the power supply directly and would thus be able to track the actual frequency of the noise as it fluctuates. Such an adaptive technique generally allows for a filter with a smaller rejection range, which means, in our case, that the quality of the output signal is more accurate for medical diagnosis.</p>
+<p><a name="Block_diagram" id="Block_diagram"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/a/Adaptive_filter.html" title="Edit section: Block diagram">edit</a>]</span> <span class="mw-headline">Block diagram</span></h2>
+<p>The block diagram, shown in the following figure, serves as a foundation for particular adaptive filter realisations, such as <a href="../../../l/e/a/Least_mean_squares_filter.html" title="Least mean squares filter">Least Mean Squares (LMS)</a> and <a href="../../../r/e/c/Recursive_least_squares_filter.html" title="Recursive least squares filter">Recursive Least Squares (RLS)</a>. The idea behind the block diagram is that a variable filter extracts an estimate of the desired signal.</p>
+<dl>
+<dd><a href="../../../a/d/a/Image%7EAdaptiveFilter_C.png_2aa4.html" class="image" title="Block diagram"><img src="../../../upload/thumb/f/f6/AdaptiveFilter_C.png/500px-AdaptiveFilter_C.png" alt="Block diagram" width="500" height="194" longdesc="../../../a/d/a/Image%7EAdaptiveFilter_C.png_2aa4.html" /></a></dd>
+</dl>
+<p>To start the discussion of the block diagram we take the following assumptions:</p>
+<ul>
+<li>The input signal is the sum of a desired signal <span class="texhtml"><i>d</i>(<i>n</i>)</span> and interfering noise <span class="texhtml"><i>v</i>(<i>n</i>)</span></li>
+</ul>
+<dl>
+<dd><span class="texhtml"><i>x</i>(<i>n</i>) = <i>d</i>(<i>n</i>) + <i>v</i>(<i>n</i>)</span></dd>
+</dl>
+<ul>
+<li>The variable filter has a <a href="../../../f/i/n/Finite_impulse_response.html" title="Finite impulse response">Finite Impulse Response (FIR)</a> structure. For such structures the impulse response is equal to the filter coefficients. The coefficients for a filter of order <span class="texhtml"><i>p</i></span> are defined as</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/c/1/5/c150085d7e0c9358af6ba9282af46a28.png" alt="\mathbf{w}_{n}=\left[w_{n}(0),\,w_{n}(1),\, ...,\,w_{n}(p)\right]^{T}" />.</dd>
+</dl>
+<ul>
+<li>The error signal or <a href="../../../c/o/s/Cost_function.html" title="Cost function">cost function</a> is the difference between the desired and the estimated signal</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/a/3/4/a34a77ece049c6b62d059da52f873c86.png" alt="e(n) = d(n)-\hat{d}(n)" /></dd>
+</dl>
+<p>The variable filter estimates the desired signal by convolving the input signal with the impulse response. In vector notation this is expressed as</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/8/5/d854a2851ddf62bde12a45db79f98ed8.png" alt="\hat{d}(n) = \mathbf{w}_{n}^{T}\mathbf{x}(n)" /></dd>
+</dl>
+<p>where</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/3/4/33419c642f6bbf163193ab84201a5a31.png" alt="\mathbf{x}(n)=\left[x(n),\,x(n-1),\,...,\,x(n-p)\right]^{T}" /></dd>
+</dl>
+<p>is an input signal vector. Moreover, the variable filter updates the filter coefficients at every time instant</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/2/8/b285fd6c64e2d2fc0365d709d9b6d188.png" alt="\mathbf{w}_{n+1} = \mathbf{w}_{n}+\Delta\mathbf{w}_{n}" /></dd>
+</dl>
+<p>where <img class='tex' src="../../../math/8/a/8/8a8fadc19eb6d053eaf3a9e2794ee165.png" alt="\Delta\mathbf{w}_{n}" /> is a correction factor for the filter coefficients. The adaptive algorithm generates this correction factor based on the input and error signals. LMS and RLS define two different coefficient update algorithms.</p>
+<p><a name="Applications_of_adaptive_filters" id="Applications_of_adaptive_filters"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/a/Adaptive_filter.html" title="Edit section: Applications of adaptive filters">edit</a>]</span> <span class="mw-headline">Applications of adaptive filters</span></h2>
+<ul>
+<li>Channel equalization</li>
+<li>Channel identification</li>
+<li><a href="../../../n/o/i/Noise_cancellation.html" title="Noise cancellation">Noise cancellation</a></li>
+<li>Signal prediction</li>
+<li><a href="../../../a/d/a/Adaptive_feedback_cancellation.html" title="Adaptive feedback cancellation">Adaptive Feedback Cancellation</a></li>
+</ul>
+<p><a name="Filter_implementations" id="Filter_implementations"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/a/Adaptive_filter.html" title="Edit section: Filter implementations">edit</a>]</span> <span class="mw-headline">Filter implementations</span></h2>
+<ul>
+<li><a href="../../../l/e/a/Least_mean_squares_filter.html" title="Least mean squares filter">Least mean squares filter</a></li>
+<li><a href="../../../r/e/c/Recursive_least_squares_filter.html" title="Recursive least squares filter">Recursive least squares filter</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/a/Adaptive_filter.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Monson H. Hayes <i>Statistical Digital Signal Processing and Modeling,</i> Wiley, 1996, <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-471-59431-8</a></li>
+<li>Simon Haykin <i>Adaptive Filter Theory,</i> Prentice Hall, 2002, <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-13-048434-2</a></li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/a/Adaptive_filter.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../k/a/l/Kalman_filter.html" title="Kalman filter">Kalman filter</a></li>
+<li><a href="../../../w/i/e/Wiener_filter.html" title="Wiener filter">Wiener filter</a></li>
+<li><a href="../../../l/i/n/Linear_prediction.html" title="Linear prediction">linear prediction</a></li>
+<li><a href="../../../f/i/l/Filter_%28signal_processing%29.html" title="Filter (signal processing)">filter (signal processing)</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/a/Adaptive_filter.html">http://en.wikipedia.org../../../a/d/a/Adaptive_filter.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../d/i/g/Category%7EDigital_signal_processing_a269.html" title="Category:Digital signal processing">Digital signal processing</a></span> | <span dir='ltr'><a href="../../../n/o/n/Category%7ENon-linear_filters_f74a.html" title="Category:Non-linear filters">Non-linear filters</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/a/Adaptive_filter.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/d/a/Talk%7EAdaptive_filter_cedc.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Adaptive_filter">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/d/a/Adaptiver_Filter_0902.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/f/i/l/Filtro_adaptativo.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E8%87%AA/%E9%80%82/%E5%BA%94/%E8%87%AA%E9%80%82%E5%BA%94%E6%BB%A4%E6%B3%A2%E5%99%A8.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 05:46, 10 March 2007 by Wikipedia user <a href="../../../m/e/g/User%7EMeggar_5476.html" title="User:Meggar">Meggar</a>. Based on work by Wikipedia user(s) Pradipta 40, <a href="../../../b/a/l/User%7EBalloonguy_1ec0.html" title="User:Balloonguy">Balloonguy</a>, Sterrys, <a href="../../../c/m/d/User%7ECmdrjameson_3c06.html" title="User:Cmdrjameson">Cmdrjameson</a>, Faust o, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../s/a/l/User%7ESalix_alba_9f89.html" title="User:Salix alba">Salix alba</a>, <a href="../../../k/n/i/User%7EKnightRider_ec3b.html" title="User:KnightRider">KnightRider</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../b/a/z/User%7EBazz_6e23.html" title="User:Bazz">Bazz</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../c/b/u/User%7ECburnett_adfd.html" title="User:Cburnett">Cburnett</a>, <a href="../../../i/a/n/User%7EIanharvey_e3cf.html" title="User:Ianharvey">Ianharvey</a>, <a href="../../../f/l/e/User%7EFlex_173c.html" title="User:Flex">Flex</a>, <a href="../../../t/i/m/User%7ETimo_Honkasalo_9467.html" title="User:Timo Honkasalo">Timo Honkasalo</a>, <a href="../../../k/k/u/User%7EKku_5886.html" title="User:Kku">Kku</a>, Wall0159 and <a href="../../../m/a/v/User%7EMaveric149_24ee.html" title="User:Maveric149">Maveric149</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

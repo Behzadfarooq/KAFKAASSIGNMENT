@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Busy waiting,BogoMips,C (programming language),Central processing unit,Computer keyboard,Input,Integer,Lock (computer science),Maurice Herlihy,Memory barrier,Priority inheritance" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Busy waiting - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Busy waiting</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../s/o/f/Software_engineering.html" title="Software engineering">software engineering</a>, <b>busy waiting</b> or <b>spinning</b> is a technique in which a <a href="../../../p/r/o/Process_%28computing%29.html" title="Process (computing)">process</a> repeatedly checks to see if a condition is true, such as waiting for <a href="../../../c/o/m/Computer_keyboard.html" title="Computer keyboard">keyboard</a> <a href="../../../i/n/p/Input.html" title="Input">input</a> or waiting for a <a href="../../../l/o/c/Lock_%28computer_science%29.html" title="Lock (computer science)">lock</a> to become available. It can also be used to delay execution for some amount of time; this was necessary on old computers that had no method of waiting a specific length of time other than by repeating a useless loop a specific number of times, but on modern computers with clocks and different processor speeds, this form of time delay is often inaccurate and a sign of a naïve attempt at programming. Spinning can be a valid strategy in certain special circumstances, most notably in the implementation of <a href="../../../s/p/i/Spinlock.html" title="Spinlock">spinlocks</a> within operating systems designed to run on <a href="../../../s/y/m/Symmetric_multiprocessing.html" title="Symmetric multiprocessing">SMP</a> systems. In general, however, it should be avoided, as the <a href="../../../c/e/n/Central_processing_unit.html" title="Central processing unit">CPU</a> time spent waiting could have been reassigned to another <a href="../../../t/h/r/Thread_%28computer_science%29.html" title="Thread (computer science)">task</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Example_C_code"><span class="tocnumber">1</span> <span class="toctext">Example C code</span></a></li>
+<li class="toclevel-1"><a href="#CPU_utilization"><span class="tocnumber">2</span> <span class="toctext">CPU utilization</span></a></li>
+<li class="toclevel-1"><a href="#Alternatives_to_busy_waiting"><span class="tocnumber">3</span> <span class="toctext">Alternatives to busy waiting</span></a></li>
+<li class="toclevel-1"><a href="#When_busy_waits_are_appropriate"><span class="tocnumber">4</span> <span class="toctext">When busy waits are appropriate</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Example_C_code" id="Example_C_code"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Busy_waiting.html" title="Edit section: Example C code">edit</a>]</span> <span class="mw-headline">Example C code</span></h2>
+<p>The <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> code below shows two threads that share a global <a href="../../../i/n/t/Integer.html" title="Integer">integer</a> i. The first thread uses busy waiting to check for a change in the value of i.</p>
+<pre>
+#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;unistd.h&gt;
+
+volatile int i; /* i is global, so it is visible to all functions.
+                   it's also marked volatile, because it will change in
+                   a way which is not predictable by the compiler (here:
+                   from a different thread.) */
+
+/* t1 uses spin lock to wait for i to change from 0. */
+static void *f1()
+{
+    while (i==0)
+    {
+        /* do nothing - just keep checking over and over. */
+    } 
+    printf("i's value has changed to %d.\n", i);
+  
+    return;
+}
+
+static void *f2()
+{
+    sleep(60); /* sleep for 60 seconds. */
+    i = 99;
+    printf("t2 changing the value of i to %d.\n", i);
+
+    return;
+}
+
+int main()
+{
+    int x;
+    pthread_t t1, t2;
+    i = 0; /* set global int i to 0. */
+ 
+    x = pthread_create(&amp;t1, NULL, f1, NULL);
+    if (x != 0)
+    {
+        printf("pthread foo failed.\n");
+    }
+ 
+    x = pthread_create(&amp;t2, NULL, f2, NULL);
+    if (x != 0)
+    {
+        printf("pthread bar failed.\n");
+    }
+ 
+    pthread_join(t1, NULL);
+    pthread_join(t2, NULL);
+    printf("all pthreads finished.\n");
+    return 0;
+}
+</pre>
+<p>On a Unix-like system, you can compile the above code like so:</p>
+<pre>
+$ cc spinlock.c -lpthread
+</pre>
+<p><a name="CPU_utilization" id="CPU_utilization"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Busy_waiting.html" title="Edit section: CPU utilization">edit</a>]</span> <span class="mw-headline">CPU utilization</span></h2>
+<p>In the above code, the second thread immediately goes to sleep for 60 seconds. Meanwhile, the first thread checks repeatedly if the second thread has changed the value of i.</p>
+<p>You can use the <code>top</code> or <code>uptime</code> utility found on <a href="../../../u/n/i/Unix-like.html" title="Unix-like">Unix-like</a> operating systems to see how this program utilizes the CPU. Run the program like this:</p>
+<pre>
+$ uptime; ./a.out ; uptime
+13:25:47 up 53 days, 23:50,  4 users,  load average: 0.00, 0.00, 0.00
+t2 changing the value of i to 99.
+i's value has changed to 99.
+all pthreads finished.
+13:26:47 up 53 days, 23:51,  4 users,  load average: 0.75, 0.21, 0.07
+</pre>
+<p>Of course, every system will return slightly different numbers, but the important thing to notice is that before we ran the program, the system load average for the previous 60 seconds was 0.00. After the program ran, the system load average bumped up to 0.75 for the last minute.</p>
+<p><a name="Alternatives_to_busy_waiting" id="Alternatives_to_busy_waiting"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Busy_waiting.html" title="Edit section: Alternatives to busy waiting">edit</a>]</span> <span class="mw-headline">Alternatives to busy waiting</span></h2>
+<p>Most operating systems and threading libraries provide a wide set of <a href="../../../s/y/s/System_call.html" title="System call">system calls</a> which will <a href="../../../p/r/o/Process_states.html#Blocked" title="Process states">block</a> the process on an event, such as lock acquisitions, timers, I/O availability, or <a href="../../../s/i/g/Signal_%28computing%29.html" title="Signal (computing)">signals</a>. This is often the simplest, most efficient, fair, and <a href="../../../r/a/c/Race_condition.html" title="Race condition">race</a>-free way. A single call checks, informs the scheduler of the event it is waiting for, inserts a <a href="../../../m/e/m/Memory_barrier.html" title="Memory barrier">memory barrier</a> where applicable, and may perform a requested I/O operation before returning. Other processes can use the CPU while the caller is blocked. The scheduler is given the information needed to implement <a href="../../../p/r/i/Priority_inheritance.html" title="Priority inheritance">priority inheritance</a> or other mechanisms to avoid <a href="../../../r/e/s/Resource_starvation.html" title="Resource starvation">starvation</a>.</p>
+<p>Busy waiting itself can be made much less wasteful by using a "delay" function found on most operating systems. This puts a thread to sleep for a specified time, during which the thread will waste no CPU time. If the loop is checking something simple then it will spend most of its time asleep and will not waste a large proportion of the available CPU time. It will still consume some CPU time though.</p>
+<p><a name="When_busy_waits_are_appropriate" id="When_busy_waits_are_appropriate"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Busy_waiting.html" title="Edit section: When busy waits are appropriate">edit</a>]</span> <span class="mw-headline">When busy waits are appropriate</span></h2>
+<p>In low-level hardware driver programming, sometimes busy waits are actually desirable. It is not practical to implement hardware interrupt-based signalling for every hardware device, particularly for devices that are seldom accessed. Sometimes it is necessary to write some sort of control data to a hardware device and then read back some sort of status data, which is not valid until several, perhaps even tens of clock cycles later. The programmer could call an operating system delay function, but more time would be spent simply performing the function call (let alone switching to an interim thread) than is required by the hardware. In such cases, it is common to implement a busy wait that keeps reading the status data until it is valid. Calling a delay function in this case would actually waste CPU time due to the comparatively large overhead involved in the function call and thread switching.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Busy_waiting.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../s/y/n/Synchronization.html" title="Synchronization">synchronization</a></li>
+<li><a href="../../../s/p/i/Spinlock.html" title="Spinlock">spinlock</a></li>
+<li><a href="../../../b/o/g/BogoMips_ff60.html" title="BogoMips">BogoMips</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Busy_waiting.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.opengroup.org/onlinepubs/009695399/functions/pthread_spin_lock.html" class="external text" title="http://www.opengroup.org/onlinepubs/009695399/functions/pthread_spin_lock.html" rel="nofollow">Description</a> from The Open Group Base Specifications Issue 6, IEEE Std 1003.1, 2004 Edition</li>
+<li><a href="http://citeseer.ist.psu.edu/cis?q=spin+and+lock" class="external text" title="http://citeseer.ist.psu.edu/cis?q=spin+and+lock" rel="nofollow">Citations from CiteSeer</a></li>
+<li>Article "<a href="http://codeproject.com/threads/spinlocks.asp" class="external text" title="http://codeproject.com/threads/spinlocks.asp" rel="nofollow">User-Level Spin Locks - Threads, Processes &amp; IPC</a>" by Gert Boddaert</li>
+<li>Course "<a href="http://www.cs.brown.edu/courses/cs176/spin.pdf" class="external text" title="http://www.cs.brown.edu/courses/cs176/spin.pdf" rel="nofollow">Introduction to Multiprocessors: Algorithms, Data Structures, and Programming - Spin Locks and Contention</a>" by <a href="../../../m/a/u/Maurice_Herlihy_2729.html" title="Maurice Herlihy">Maurice Herlihy</a> and Nir Shavit</li>
+<li><a href="http://austria.sourceforge.net/dox/html/classSpinLock.html" class="external text" title="http://austria.sourceforge.net/dox/html/classSpinLock.html" rel="nofollow">Austria SpinLock Class Reference</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/u/s/Busy_waiting.html">http://en.wikipedia.org../../../b/u/s/Busy_waiting.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../s/o/f/Category%7ESoftware_engineering_d46f.html" title="Category:Software engineering">Software engineering</a></span> | <span dir='ltr'><a href="../../../a/n/t/Category%7EAnti-patterns_4541.html" title="Category:Anti-patterns">Anti-patterns</a></span> | <span dir='ltr'><a href="../../../p/r/o/Category%7EProgramming_constructs_6564.html" title="Category:Programming constructs">Programming constructs</a></span> | <span dir='ltr'><a href="../../../c/o/n/Category%7EConcurrency_control_f141.html" title="Category:Concurrency control">Concurrency control</a></span> | <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_example_C_code_0fd2.html" title="Category:Articles with example C code">Articles with example C code</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/u/s/Busy_waiting.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/u/s/Talk%7EBusy_waiting_c5c1.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Busy_waiting">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/k/t/Aktives_Warten_ae25.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/e/s/p/Espera_activa.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/t/t/Attente_active.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/b/u/s/Busy_waiting.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%83%93/%E3%82%B8/%E3%83%BC/%E3%83%93%E3%82%B8%E3%83%BC%E3%82%A6%E3%82%A7%E3%82%A4%E3%83%88.html">日本語</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 21:43, 2 April 2007 by Wikipedia user <a href="../../../r/a/d/User%7ERadagast83_195a.html" title="User:Radagast83">Radagast83</a>. Based on work by Wikipedia user(s) <a href="../../../f/u/r/User%7EFurrykef_4620.html" title="User:Furrykef">Furrykef</a>, <a href="../../../c/o/l/User%7EColonies_Chris_c27e.html" title="User:Colonies Chris">Colonies Chris</a>, Abednigo, <a href="../../../a/l/p/User%7EAlphachimpbot_48b3.html" title="User:Alphachimpbot">Alphachimpbot</a>, <a href="../../../a/b/d/User%7EAbdull_b6f2.html" title="User:Abdull">Abdull</a>, Elesueur, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, <a href="../../../s/l/a/User%7ESlamb_293b.html" title="User:Slamb">Slamb</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../k/a/l/User%7EKaldosh_f723.html" title="User:Kaldosh">Kaldosh</a>, <a href="../../../c/w/o/User%7ECwolfsheep_0066.html" title="User:Cwolfsheep">Cwolfsheep</a>, <a href="../../../h/a/s/User%7EHasharBot_fdaa.html" title="User:HasharBot">HasharBot</a>, <a href="../../../w/i/m/User%7EWimvandorst_0265.html" title="User:Wimvandorst">Wimvandorst</a>, <a href="../../../p/h/o/User%7EPhonetagger_f333.html" title="User:Phonetagger">Phonetagger</a>, <a href="../../../c/l/o/User%7ECloseapple_0d0e.html" title="User:Closeapple">Closeapple</a>, <a href="../../../j/u/l/User%7EJulesH_8c63.html" title="User:JulesH">JulesH</a>, <a href="../../../m/a/r/User%7EMarudubshinki_b9b7.html" title="User:Marudubshinki">Marudubshinki</a>, <a href="../../../c/a/r/User%7ECarnildo_80ca.html" title="User:Carnildo">Carnildo</a>, <a href="../../../n/j/m/User%7ENJM_fc56.html" title="User:NJM">NJM</a>, <a href="../../../r/o/b/User%7ERobyWayne_5f41.html" title="User:RobyWayne">RobyWayne</a>, <a href="../../../k/e/e/User%7EKeenan_Pepper_34f0.html" title="User:Keenan Pepper">Keenan Pepper</a>, <a href="../../../k/a/r/User%7EKarada_595b.html" title="User:Karada">Karada</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, <a href="../../../h/e/m/User%7EHemanshu_2a0a.html" title="User:Hemanshu">Hemanshu</a>, <a href="../../../m/a/t/User%7EMathx314_f9e3.html" title="User:Mathx314">Mathx314</a> and <a href="../../../w/a/x/User%7EWaxmop_76ff.html" title="User:Waxmop">Waxmop</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

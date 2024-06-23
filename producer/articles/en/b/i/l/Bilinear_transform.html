@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bilinear transform,DSP,DSP,Advanced Z-transform,Aliasing,All-pass filter,Analog filter,Anti-aliasing filter,Audio signal processing,BIBO stability,Charge-coupled device" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bilinear transform - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bilinear transform</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../d/i/g/Digital_signal_processing.html" title="Digital signal processing">digital signal processing</a>, the <b>bilinear transform</b> is a <a href="../../../c/o/n/Conformal_map.html" title="Conformal map">conformal mapping</a>, often used to convert a <a href="../../../t/r/a/Transfer_function.html" title="Transfer function">transfer function</a> <img class='tex' src="../../../math/e/e/e/eee4131ecc06dfba72864b518a7490d2.png" alt="H_a(s) \" /> of a <a href="../../../l/i/n/Linear.html" title="Linear">linear</a>, <a href="../../../t/i/m/Time-invariant.html" title="Time-invariant">time-invariant</a> (<a href="../../../l/t/i/LTI_system_theory_51b3.html" title="LTI system theory">LTI</a>) filter in the <a href="../../../c/o/n/Continuous_function.html" title="Continuous function">continuous</a>-time domain (often called an <a href="../../../a/n/a/Analog_filter.html" title="Analog filter">analog filter</a>) to a transfer function <img class='tex' src="../../../math/0/b/3/0b38fbacc1c2f8cd38fa13305fc68ff0.png" alt="H_d(z) \" /> of a linear, shift-invariant filter in the <a href="../../../d/i/s/Discrete_signal.html" title="Discrete signal">discrete</a>-time domain (often called a <a href="../../../d/i/g/Digital_filter.html" title="Digital filter">digital filter</a> although there are analog filters constructed with <a href="../../../c/h/a/Charge-coupled_device.html" title="Charge-coupled device">charge-coupled devices</a> that are discrete-time filters). It maps positions on the <img class='tex' src="../../../math/0/6/f/06f5f6fbd302401fecb15a2cdd9df002.png" alt="j \omega \" /> axis, <img class='tex' src="../../../math/2/8/2/282f7fa569f3314835482c172efffdcb.png" alt="Re[s]=0 \" />, in the <a href="../../../s/-/p/S-plane.html" title="S-plane">s-plane</a> to the <a href="../../../u/n/i/Unit_circle.html" title="Unit circle">unit circle</a>, <img class='tex' src="../../../math/5/6/e/56e3e89137424149a97f566deb5c6fca.png" alt="|z| = 1 \" />, in the <a href="../../../c/o/m/Complex_plane.html" title="Complex plane">z-plane</a>. Other bilinear transforms can be used to warp the <a href="../../../f/r/e/Frequency_response.html" title="Frequency response">frequency response</a> of any discrete-time linear system (e.g., to approximate the human auditory's non-linear frequency resolution) and are implementable in the discrete domain by replacing a system's unit delays <img class='tex' src="../../../math/f/0/9/f097f817ac78b711c3a74df50b7f3bf5.png" alt="\left( z^{-1} \right) \" /> with first order <a href="../../../a/l/l/All-pass_filter.html" title="All-pass filter">all-pass filters</a>.</p>
+<p>The transform preserves <a href="../../../s/t/a/Stability.html" title="Stability">stability</a> and maps every point of the <a href="../../../f/r/e/Frequency_response.html" title="Frequency response">frequency response</a> of the continuous-time filter, <img class='tex' src="../../../math/7/c/4/7c49b2e6063d06746e53a4f5f513ec54.png" alt="H_a(j \omega_a) \" /> to a corresponding point in the frequency response of the discrete-time filter, <img class='tex' src="../../../math/2/7/4/2748ad595a06dd455b00c835fe3ef880.png" alt="H_d(e^{j \omega_d T}) \" /> although to a somewhat different frequency, as shown in the Frequency Warping section below. This means that for every feature that one sees in the frequency response of the analog filter, there is a corresponding feature, with identical gain and phase shift, in the frequency response of the digital filter but, perhaps, at a somewhat different frequency. This is barely noticeable at low frequencies but is quite evident at frequencies close to the <a href="../../../n/y/q/Nyquist_frequency.html" title="Nyquist frequency">Nyquist frequency</a>.</p>
+<p>The bilinear transform is a first-order approximation of the natural logarithm function that is an exact mapping of the z-plane to the s-plane. When the <a href="../../../l/a/p/Laplace_transform.html" title="Laplace transform">Laplace transform</a> is performed on a discrete-time signal (with each element of the discrete-time sequence attached to a correspondingly delayed <a href="../../../d/i/r/Dirac_delta_function.html" title="Dirac delta function">unit impulse</a>), the result is precisely the <a href="../../../z/_/t/Z_transform.html" title="Z transform">Z transform</a> of the discrete-time sequence with the substitution of</p>
+<dl>
+<dd>
+<table>
+<tr>
+<td><img class='tex' src="../../../math/e/6/f/e6fe694d6a4e47ed33dd75bfd5653443.png" alt="z = e^{sT} \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/d/e/4/de4ab654def53a6538b8f5f6788c8835.png" alt="= \frac{e^{sT/2}}{e^{-sT/2}} \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/a/2/d/a2dcfc5daff962c39499d511238af72e.png" alt="\approx \frac{1 + s T / 2}{1 - s T / 2} \" /></td>
+</tr>
+</table>
+</dd>
+</dl>
+<p>where <img class='tex' src="../../../math/9/9/5/995e7dbf64a664994f3d2582eb857dd7.png" alt="T \" /> is the <a href="../../../s/a/m/Sample_time.html" title="Sample time">sample time</a> (the reciprocal of the <a href="../../../s/a/m/Sampling_frequency.html" title="Sampling frequency">sampling frequency</a>) of the discrete-time filter. The above bilinear approximation can be solved for <img class='tex' src="../../../math/f/1/9/f195b1c10b793a397aabcd18b71444c4.png" alt="s \" /> or a similar approximation for <img class='tex' src="../../../math/b/8/8/b88ddf12cbdf8234a2b6f39059017fa7.png" alt="s = (1/T) \log(z) \  \" /> can be performed.</p>
+<p>The inverse of this mapping (and its first-order bilinear approximation) is</p>
+<dl>
+<dd>
+<table>
+<tr>
+<td><img class='tex' src="../../../math/f/1/9/f195b1c10b793a397aabcd18b71444c4.png" alt="s \" /></td>
+<td><img class='tex' src="../../../math/4/6/d/46dd17106794a67c0052ee28f30733bb.png" alt="= \frac{1}{T} \log(z) \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/4/5/1/4511b67fb10cc5c112d1f57ca21cab17.png" alt="= \frac{2}{T} \left[\frac{z-1}{z+1} + \frac{1}{3} \left( \frac{z-1}{z+1} \right)^3  + \frac{1}{5} \left( \frac{z-1}{z+1} \right)^5  + \frac{1}{7} \left( \frac{z-1}{z+1} \right)^7 + \ldots \right] \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/5/8/1/581e19263c65749399c4281e3ae7f49d.png" alt="\approx  \frac{2}{T} \frac{z - 1}{z + 1} \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/a/9/c/a9c37d5220d07e0de850303e7c4b897c.png" alt="\approx  \frac{2}{T} \frac{1 - z^{-1}}{1 + z^{-1}} \" /></td>
+</tr>
+</table>
+</dd>
+</dl>
+<p>The bilinear transform essentially uses this first order approximation and substitutes into the continuous-time transfer function, <img class='tex' src="../../../math/e/e/e/eee4131ecc06dfba72864b518a7490d2.png" alt="H_a(s) \" /></p>
+<dl>
+<dd><img class='tex' src="../../../math/a/d/3/ad367ee2cf7d3adbc99bdea52219e4a0.png" alt="s \leftarrow \frac{2}{T} \frac{z - 1}{z + 1}." /></dd>
+</dl>
+<p>That is</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/c/e/cce70a50a265a805d4526e4b6d875621.png" alt="H_d(z) = H_a(s) \bigg|_{s = \frac{2}{T} \frac{z - 1}{z + 1}}= H_a \left( \frac{2}{T} \frac{z-1}{z+1} \right). \" /></dd>
+</dl>
+<p>The bilinear transform is a special case of a <a href="../../../c/o/n/Conformal_map.html" title="Conformal map">conformal mapping</a>, namely, the <a href="../../../m/%C3%B6/b/M%C3%B6bius_transformation.html" title="Möbius transformation">Möbius transformation</a> defined as</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/f/5/9f5bf183a325c5e045c286a7caab364b.png" alt="z^{\prime} = \frac{a z + b}{c z + d}." /></dd>
+</dl>
+<p><a name="Stability_and_minimum-phase_property_preserved" id="Stability_and_minimum-phase_property_preserved"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/l/Bilinear_transform.html" title="Edit section: Stability and minimum-phase property preserved">edit</a>]</span> <span class="mw-headline">Stability and minimum-phase property preserved</span></h2>
+<p>A continuous-time filter is <a href="../../../b/i/b/BIBO_stability_f009.html" title="BIBO stability">stable</a> if the <a href="../../../p/o/l/Pole_%28complex_analysis%29.html" title="Pole (complex analysis)">poles</a> of its transfer function fall in the left half of the <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex</a> <a href="../../../s/-/p/S-plane.html" title="S-plane">s-plane</a>. A discrete-time filter is stable if the poles of its transfer function fall inside the <a href="../../../u/n/i/Unit_circle.html" title="Unit circle">unit circle</a> in the <a href="../../../c/o/m/Complex_plane.html" title="Complex plane">complex z-plane</a>. The bilinear transform maps the left half of the complex s-plane to the interior of the unit circle in the z-plane. Thus filters designed in the continuous-time domain that are stable are converted to filters the discrete-time domain that preserve that stability.</p>
+<p>Likewise, a continuous-time filter is <a href="../../../m/i/n/Minimum-phase.html" title="Minimum-phase">minimum-phase</a> if the <a href="../../../z/e/r/Zero_%28complex_analysis%29.html" title="Zero (complex analysis)">zeros</a> of its transfer function fall in the left half of the complex s-plane. A discrete-time filter is minimum-phase if the zeros of its transfer function fall inside the unit circle in the complex z-plane. Then the same mapping property assures that continuous-time filters that are minimum-phase are converted to discrete-time filters that preserve that property of being minimum-phase.</p>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/l/Bilinear_transform.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>As an example take a simple RC-filter. This continuous-time filter has a transfer function</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/b/8/8b84341cbe9d3d615ac6f516ee211167.png" alt="H_a(s) = \frac{1}{1 + RC s}." /></dd>
+</dl>
+<p>If we wish to implement this filter as a digital filter, we can apply the bilinear transform by substituting for <span class="texhtml"><i>s</i></span> the formula above; after some reworking, we get the following filter representation:</p>
+<dl>
+<dd>
+<table>
+<tr>
+<td><img class='tex' src="../../../math/0/b/3/0b38fbacc1c2f8cd38fa13305fc68ff0.png" alt="H_d(z) \" /></td>
+<td><img class='tex' src="../../../math/9/9/7/997ec00881016d477bb4b6d4db26db80.png" alt="=H_a \left( \frac{2}{T} \frac{z-1}{z+1}\right) \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/b/e/1/be1dbe79b3be54cb313eb11935341fe4.png" alt="= \frac{1}{1 + RC \left( \frac{2}{T} \frac{z-1}{z+1}\right)} \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/7/8/6/786d19e0935cb13aceeb21ddbda4ee56.png" alt="= \frac{1 + z}{(1 - 2 RC / T) + (1 + 2RC / T) z}. \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/7/5/f/75fc6cd099ac84df71f2d3b08922abec.png" alt="= \frac{1 + z^{-1}}{1 + (2RC / T) + (1 - 2RC / T) z^{-1}}. \" /></td>
+</tr>
+</table>
+</dd>
+</dl>
+<p><a name="Frequency_warping" id="Frequency_warping"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/l/Bilinear_transform.html" title="Edit section: Frequency warping">edit</a>]</span> <span class="mw-headline">Frequency warping</span></h2>
+<p>To determine the frequency response of a continuous-time filter, the transfer function <img class='tex' src="../../../math/e/e/e/eee4131ecc06dfba72864b518a7490d2.png" alt="H_a(s) \" /> is evaluated at <img class='tex' src="../../../math/a/5/7/a57c6ecb48af0cfc1005ac249b593989.png" alt="s = j \omega \" /> which is on the <img class='tex' src="../../../math/0/6/f/06f5f6fbd302401fecb15a2cdd9df002.png" alt="j \omega \" /> axis. Likewise, to determine the frequency response of a discrete-time filter, the transfer function <img class='tex' src="../../../math/0/b/3/0b38fbacc1c2f8cd38fa13305fc68ff0.png" alt="H_d(z) \" /> is evaluated at <font style="vertical-align:+30%;"><img class='tex' src="../../../math/2/3/a/23ab1568bbc60c6ee2d0e556d9c73eae.png" alt="z = e^{ j \omega T} \" /></font> which is on the unit circle, <img class='tex' src="../../../math/5/6/e/56e3e89137424149a97f566deb5c6fca.png" alt="|z| = 1 \" />. When the actual frequency of <img class='tex' src="../../../math/5/0/4/5046851ef5f5ec1c23cdb021e9e9c287.png" alt="\omega \" /> is input to the discrete-time filter designed by use of the bilinear transform, it is desired to know at what frequency, <img class='tex' src="../../../math/2/d/0/2d094cdeeb9dfb23b69ccae3c53bde16.png" alt="\omega_a \" />, for the continuous-time filter that this <img class='tex' src="../../../math/5/0/4/5046851ef5f5ec1c23cdb021e9e9c287.png" alt="\omega \" /> is mapped to.</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/1/e/61e5016626eaf1ecf441ca95430c9814.png" alt="H_d(z) = H_a \left( \frac{2}{T} \frac{z-1}{z+1}\right) \" /></dd>
+</dl>
+<dl>
+<dd>
+<table>
+<tr>
+<td><img class='tex' src="../../../math/5/8/a/58a737048aa0946008f75001c689670b.png" alt="H_d(e^{ j \omega T}) \" /></td>
+<td><img class='tex' src="../../../math/f/4/9/f49ff5c895e5d2653c4398e5a6538640.png" alt="= H_a \left( \frac{2}{T} \frac{e^{ j \omega T} - 1}{e^{ j \omega T} + 1}\right) \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/e/f/3/ef3282cf8c1a07c0cec8b9f4471bd529.png" alt="= H_a \left( \frac{2}{T} \cdot \frac{e^{j \omega T/2} \left(e^{j \omega T/2} - e^{-j \omega T/2}\right)}{e^{j \omega T/2} \left(e^{j \omega T/2} + e^{-j \omega T/2 }\right)}\right) \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/7/7/1/771800f02860588eb254bc2e736797c3.png" alt="= H_a \left( \frac{2}{T} \cdot \frac{\left(e^{j \omega T/2} - e^{-j \omega T/2}\right)}{\left(e^{j \omega T/2} + e^{-j \omega T/2 }\right)}\right) \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/c/f/6/cf6cfe1baacebe3e1cc9e10673ed054c.png" alt="= H_a \left(j \frac{2}{T} \cdot \frac{ \left(e^{j \omega T/2} - e^{-j \omega T/2}\right) /(2j)}{\left(e^{j \omega T/2} + e^{-j \omega T/2 }\right) / 2}\right) \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/1/f/b/1fb4efc1c844e1006a5e6c11ce30faff.png" alt="= H_a \left(j \frac{2}{T} \cdot \frac{ \sin(\omega T/2) }{ \cos(\omega T/2) }\right) \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/c/f/2/cf279477e02bb6dd7754094b98b6cc8c.png" alt="= H_a \left(j \frac{2}{T} \cdot \tan \left( \omega \frac{T}{2} \right) \right) \" /></td>
+</tr>
+<tr>
+<td></td>
+<td><img class='tex' src="../../../math/9/a/c/9aca242a9afefb8e16e72d8b49b16fcc.png" alt="= H_a \left(j \omega_a \right). \" /></td>
+</tr>
+</table>
+</dd>
+</dl>
+<p>This shows that every point on the unit circle in the discrete-time filter z-plane, <font style="vertical-align:+30%;"><img class='tex' src="../../../math/2/3/a/23ab1568bbc60c6ee2d0e556d9c73eae.png" alt="z = e^{ j \omega T} \" /></font> is mapped to a point on the <img class='tex' src="../../../math/0/6/f/06f5f6fbd302401fecb15a2cdd9df002.png" alt="j \omega \" /> axis on the continuous-time filter s-plane, <img class='tex' src="../../../math/7/2/0/720820fba28345878ddb7b8407edf591.png" alt="s = j \omega_a \" />. That is, the discrete-time to continuous-time frequency mapping of the bilinear transform is</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/6/1/e61baaac4604514f4c6bd3a4ced457fc.png" alt="\omega_a = \frac{2}{T} \tan \left( \omega \frac{T}{2} \right)" /></dd>
+</dl>
+<p>and the inverse mapping is</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/3/a/a3ae1acd36901fa7c8505d89a5024bd0.png" alt="\omega = \frac{2}{T} \arctan \left( \omega_a \frac{T}{2} \right)." /></dd>
+</dl>
+<p>The discrete-time filter behaves at frequency <img class='tex' src="../../../math/5/0/4/5046851ef5f5ec1c23cdb021e9e9c287.png" alt="\omega \" /> the same way that the continuous-time filter behaves at frequency <img class='tex' src="../../../math/2/e/b/2eb4049a5fe73e55f456c4bae913228f.png" alt="(2/T) \tan(\omega T/2) \" />. Specifically, the gain and phase shift that the discrete-time filter has at frequency <img class='tex' src="../../../math/5/0/4/5046851ef5f5ec1c23cdb021e9e9c287.png" alt="\omega \" /> the same gain and phase shift that the continuous-time filter has at frequency <img class='tex' src="../../../math/2/e/b/2eb4049a5fe73e55f456c4bae913228f.png" alt="(2/T) \tan(\omega T/2) \" />. This means that every feature, every "bump" that is visible in the frequency response of the continuous-time filter is also visible in the discrete-time filter, but at a slightly different frequency. For low frequencies <img class='tex' src="../../../math/0/6/1/0616877374540d81e887d51670c81520.png" alt="\omega \approx \omega_a \" />.</p>
+<p>One can see that the entire continuous frequency range</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/7/a/d7a6234ce39a099610ce87584d31152d.png" alt="-\infty &lt; \omega_a &lt; +\infty \" /></dd>
+</dl>
+<p>is mapped onto the fundamental frequency interval</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/3/c/63c418a72b26c5e669304ef1f00c5cb4.png" alt="-\frac{\pi}{T} &lt; \omega &lt; +\frac{\pi}{T}. \" /></dd>
+</dl>
+<p>The continuous-time filter frequency <img class='tex' src="../../../math/2/1/2/2121ecac5269db1ccf7aac2d8e194662.png" alt="\omega_a = 0 \" /> corresponds to the discrete-time filter frequency <img class='tex' src="../../../math/e/1/a/e1a050e51babacd8ce9aadda3a14a3ab.png" alt="\omega = 0 \" /> and the continuous-time filter frequency <img class='tex' src="../../../math/3/3/9/339f5b8142fa5660b3f0429ed9605b42.png" alt="\omega_a = \pm \infty \" /> correspond to the discrete-time filter frequency <img class='tex' src="../../../math/a/0/e/a0ed68187b44f16bd2bdbf765165ddb5.png" alt="\omega = \pm \pi / T. \" /></p>
+<p>One can also see that there is a nonlinear relationship between <img class='tex' src="../../../math/2/d/0/2d094cdeeb9dfb23b69ccae3c53bde16.png" alt="\omega_a \" /> and <img class='tex' src="../../../math/4/9/a/49ac3544a89a3109f515f23e4070b798.png" alt="\omega. \" /> This effect of the bilinear transform is called <i><b>frequency warping</b></i>. The continuous-time filter can be designed to compensate for this frequency warping by setting <img class='tex' src="../../../math/8/8/3/883fff0f55c2260b73f47dd50eca263c.png" alt="\omega_a = \frac{2}{T} \tan \left( \omega \frac{T}{2} \right) \" /> for every frequency specification that the designer has control over (such as corner frequency or center frequency). This is called <i><b>pre-warping</b></i> the filter design.</p>
+<p>The main advantage of the warping phenomenon is the absence of aliasing distortion of the frequency response characteristic, such as observed with the impulse invariant method. It is necessary, however, to compensate for the frequency warping by pre-warping the given frequency specifications of the continuous-time system. These pre-warped specifications may then be used in the bilinear transform to obtain the desired discrete-time system.</p>
+<table class="navbox">
+<tr>
+<th><a href="../../../d/i/g/Digital_signal_processing.html" title="Digital signal processing">Digital signal processing</a></th>
+</tr>
+<tr>
+<td><b>Theory</b> — <a href="../../../n/y/q/Nyquist%E2%80%93Shannon_sampling_theorem_fd0a.html" title="Nyquist–Shannon sampling theorem">Nyquist–Shannon sampling theorem</a>, <a href="../../../e/s/t/Estimation_theory.html" title="Estimation theory">estimation theory</a>, <a href="../../../d/e/t/Detection_theory.html" title="Detection theory">detection theory</a></td>
+</tr>
+<tr>
+<td><b>Sub-fields</b> — <a href="../../../a/u/d/Audio_signal_processing.html" title="Audio signal processing">audio signal processing</a> | <a href="../../../c/o/n/Control_engineering.html" title="Control engineering">control engineering</a> | <a href="../../../d/i/g/Digital_image_processing.html" title="Digital image processing">digital image processing</a> | <a href="../../../s/p/e/Speech_processing.html" title="Speech processing">speech processing</a> | <a href="../../../s/t/a/Statistical_signal_processing.html" title="Statistical signal processing">statistical signal processing</a></td>
+</tr>
+<tr>
+<td><b>Techniques</b> — <a href="../../../d/i/s/Discrete_Fourier_transform_3a68.html" title="Discrete Fourier transform">Discrete Fourier transform</a> (DFT) | <a href="../../../d/i/s/Discrete-time_Fourier_transform_9a8f.html" title="Discrete-time Fourier transform">Discrete-time Fourier transform</a> (DTFT) | <strong class="selflink">bilinear transform</strong> | <a href="../../../z/-/t/Z-transform.html" title="Z-transform">Z-transform</a>, <a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Advanced Z-transform">advanced Z-transform</a></td>
+</tr>
+<tr>
+<td><b><a href="../../../s/a/m/Sampling_%28signal_processing%29.html" title="Sampling (signal processing)">Sampling</a></b> — <a href="../../../o/v/e/Oversampling.html" title="Oversampling">oversampling</a> | <a href="../../../u/n/d/Undersampling.html" title="Undersampling">undersampling</a> | <a href="../../../d/o/w/Downsampling.html" title="Downsampling">downsampling</a> | <a href="../../../u/p/s/Upsampling.html" title="Upsampling">upsampling</a> | <a href="../../../a/l/i/Aliasing.html" title="Aliasing">aliasing</a> | <a href="../../../a/n/t/Anti-aliasing_filter.html" title="Anti-aliasing filter">anti-aliasing filter</a> | <a href="../../../s/a/m/Sampling_rate.html" title="Sampling rate">sampling rate</a> | <a href="../../../n/y/q/Nyquist_rate.html" title="Nyquist rate">Nyquist rate</a>/<a href="../../../n/y/q/Nyquist_frequency.html" title="Nyquist frequency">frequency</a></td>
+</tr>
+<tr>
+<td>
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color:#000000; white-space:nowrap;">This box:&#160;<a href="../../../d/s/p/Template%7EDSP_2331.html" title="Template:DSP"><span title="View this template">view</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<span style="color: #002bb8;" title="Discussion about this template">talk</span>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org../../../d/s/p/Template%7EDSP_2331.html" class="external text" title="http://en.wikipedia.org../../../d/s/p/Template%7EDSP_2331.html" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">edit</span></a></div>
+</td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 4388 bytes
+Post-expand include size: 2896 bytes
+Template argument size: 162 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/l/Bilinear_transform.html">http://en.wikipedia.org../../../b/i/l/Bilinear_transform.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../d/i/g/Category%7EDigital_signal_processing_a269.html" title="Category:Digital signal processing">Digital signal processing</a></span> | <span dir='ltr'><a href="../../../t/r/a/Category%7ETransforms_dd42.html" title="Category:Transforms">Transforms</a></span> | <span dir='ltr'><a href="../../../c/o/n/Category%7EControl_theory_9b1a.html" title="Category:Control theory">Control theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/l/Bilinear_transform.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/l/Talk%7EBilinear_transform_fdec.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bilinear_transform">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B1/%D0%B8/%D0%BB/%D0%91%D0%B8%D0%BB%D0%B8%D0%BD%D0%B5%D0%B9%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.html">Русский</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 02:30, 15 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../c/b/u/User%7ECburnett_adfd.html" title="User:Cburnett">Cburnett</a>, Joghy, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../m/s/i/User%7EMsiddalingaiah_e84b.html" title="User:Msiddalingaiah">Msiddalingaiah</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../r/b/j/User%7ERbj_42ae.html" title="User:Rbj">Rbj</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../g/a/d/User%7EGadfium_9104.html" title="User:Gadfium">Gadfium</a>, <a href="../../../m/w/i/User%7EMwilde_1c17.html" title="User:Mwilde">Mwilde</a>, <a href="../../../t/b/a/User%7ETbackstr_6d2e.html" title="User:Tbackstr">Tbackstr</a>, <a href="../../../o/a/r/User%7EOarih_2367.html" title="User:Oarih">Oarih</a>, <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../r/s/2/User%7ERs2_db95.html" title="User:Rs2">Rs2</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../n/a/d/User%7ENaddy_8480.html" title="User:Naddy">Naddy</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../a/p/_/User%7EAp_24b6.html" title="User:Ap">Ap</a> and <a href="../../../d/a/m/User%7EDamian_Yerrick_2a18.html" title="User:Damian Yerrick">Damian Yerrick</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

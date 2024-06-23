@@ -1,0 +1,273 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Automatically Tuned Linear Algebra Software,2006,Application programming interface,BSD license,Basic Linear Algebra Subprograms,C programming language,Code generation,Compiler optimization,Cygwin,Dot product,Fortran" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Automatically Tuned Linear Algebra Software - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Automatically Tuned Linear Algebra Software</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Automatically Tuned Linear Algebra Software</b> (ATLAS) is a <a href="../../../l/i/b/Library_%28computer_science%29.html" title="Library (computer science)">software library</a> for <a href="../../../l/i/n/Linear_algebra.html" title="Linear algebra">linear algebra</a>. It provides a mature <a href="../../../o/p/e/Open_source.html" title="Open source">open source</a> implementation of <a href="../../../b/a/s/Basic_Linear_Algebra_Subprograms_efa8.html" title="Basic Linear Algebra Subprograms">BLAS</a> <a href="../../../a/p/p/Application_programming_interface.html" title="Application programming interface">APIs</a> for <a href="../../../c/_/p/C_programming_language.html" title="C programming language">C</a> and <a href="../../../f/o/r/Fortran.html" title="Fortran">Fortran77</a>.</p>
+<p>ATLAS is often recommended as a way to automatically generate an <a href="../../../o/p/t/Optimization_%28computer_science%29.html" title="Optimization (computer science)">optimized</a> BLAS library. While its performance often trails that of specialized libraries written for one specific <a href="../../../p/l/a/Platform_%28computing%29.html" title="Platform (computing)">hardware platform</a>, it is often the first or even only optimized BLAS implementation available on new systems and is a large improvement over the generic BLAS available at <a href="../../../n/e/t/Netlib.html" title="Netlib">Netlib</a>. For this reason, ATLAS is sometimes used as a performance baseline for comparison with other products.</p>
+<p>ATLAS runs on most <a href="../../../u/n/i/Unix.html" title="Unix">Unix</a>-like operating systems and on <a href="../../../m/i/c/Microsoft_Windows_48e2.html" title="Microsoft Windows">Microsoft Windows</a> (using <a href="../../../c/y/g/Cygwin.html" title="Cygwin">Cygwin</a>). It is released under a <a href="../../../b/s/d/BSD_license_12f7.html" title="BSD license">BSD-style license</a> without advertising clause, and many well-known mathematics applications including <a href="../../../m/a/p/Maple_%28software%29.html" title="Maple (software)">Maple</a>, <a href="../../../m/a/t/MATLAB_8f68.html" title="MATLAB">MATLAB</a>, <a href="../../../m/a/t/Mathematica.html" title="Mathematica">Mathematica</a>, and <a href="../../../g/n/u/GNU_Octave_e9e2.html" title="GNU Octave">GNU Octave</a> use it.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Functionality"><span class="tocnumber">1</span> <span class="toctext">Functionality</span></a></li>
+<li class="toclevel-1"><a href="#Optimization_approach"><span class="tocnumber">2</span> <span class="toctext">Optimization approach</span></a></li>
+<li class="toclevel-1"><a href="#Level_3_BLAS"><span class="tocnumber">3</span> <span class="toctext">Level 3 BLAS</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Can_it_afford_to_copy.3F"><span class="tocnumber">3.1</span> <span class="toctext">Can it afford to copy?</span></a></li>
+<li class="toclevel-2"><a href="#Cache_edge"><span class="tocnumber">3.2</span> <span class="toctext">Cache edge</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#LAPACK"><span class="tocnumber">4</span> <span class="toctext">LAPACK</span></a></li>
+<li class="toclevel-1"><a href="#Need_for_installation"><span class="tocnumber">5</span> <span class="toctext">Need for installation</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Functionality" id="Functionality"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html" title="Edit section: Functionality">edit</a>]</span> <span class="mw-headline">Functionality</span></h2>
+<p>ATLAS provides a full implementation of the BLAS APIs as well as some additional functions from <a href="../../../l/a/p/LAPACK_7015.html" title="LAPACK">LAPACK</a>, a higher-level library built on top of BLAS. In BLAS, functionality is divided into three groups called levels 1, 2 and 3.</p>
+<ul>
+<li>Level 1 contains <i>vector operations</i> of the form</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/c/f/5/cf53dec4f9a13202c7b3284c627a4aa0.png" alt="\mathbf{y} \leftarrow \alpha \mathbf{x} + \mathbf{y} \!" /></dd>
+</dl>
+<dl>
+<dd>as well as scalar <a href="../../../d/o/t/Dot_product.html" title="Dot product">dot products</a> and <a href="../../../n/o/r/Norm_%28mathematics%29.html" title="Norm (mathematics)">vector norms</a>, among other things.</dd>
+</dl>
+<ul>
+<li>Level 2 contains <i>matrix-vector operations</i> of the form</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/5/6/1/561faf1910d9d73b64c4f187fbf8fb82.png" alt="\mathbf{y} \leftarrow \alpha A \mathbf{x} + \beta \mathbf{y} \!" /></dd>
+</dl>
+<dl>
+<dd>as well as solving <img class='tex' src="../../../math/f/9/e/f9e46bc63c0febcf8ba7d72218ccfe63.png" alt="T \mathbf{x} = \mathbf{y}" /> for <b>x</b> with <span class="texhtml"><i>T</i></span> being triangular, among other things.</dd>
+</dl>
+<ul>
+<li>Level 3 contains <i>matrix-matrix operations</i> such as the widely used <a href="../../../g/e/n/General_Matrix_Multiply_451e.html" title="General Matrix Multiply">General Matrix Multiply</a> (GEMM) operation</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/c/c/e/cce52452a56df6655d7a71836f90f9b2.png" alt="C \leftarrow \alpha A B + \beta C \!" /></dd>
+</dl>
+<dl>
+<dd>as well as solving <img class='tex' src="../../../math/2/5/7/257be496cca5101b399c487feb2d152b.png" alt="B \leftarrow \alpha T^{-1} B" /> for triangular matrices <span class="texhtml"><i>T</i></span>, among other things.</dd>
+</dl>
+<p><a name="Optimization_approach" id="Optimization_approach"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html" title="Edit section: Optimization approach">edit</a>]</span> <span class="mw-headline">Optimization approach</span></h2>
+<p>The <a href="../../../o/p/t/Optimization_%28computer_science%29.html" title="Optimization (computer science)">optimization</a> approach is called Automated Empirical Optimization of Software (AEOS), which identifies four fundamental approaches to computer assisted optimization of which ATLAS employs three: <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup></p>
+<ol>
+<li><a href="../../../p/a/r/Parameter_%28computer_science%29.html" title="Parameter (computer science)">Parameterization</a> -- searching over the parameter space of a function, used for blocking factor, cache edge, ...</li>
+<li>Multiple implementation -- searching through various approaches to implementing the same function, e.g., for <a href="../../../s/t/r/Streaming_SIMD_Extensions_2b63.html" title="Streaming SIMD Extensions">SSE</a> support before intrinsics made them available in C code</li>
+<li><a href="../../../c/o/d/Code_generation.html" title="Code generation">Code generation</a> -- programs that write programs incorporating what knowledge they can about what will produce the best performance for the system</li>
+</ol>
+<ul>
+<li>Optimization of the level 1 BLAS uses parameterization and multiple implementation</li>
+</ul>
+<dl>
+<dd>Every ATLAS level 1 BLAS function has its own kernel. Since it would be difficult to maintain thousands of cases in ATLAS there is little architecture specific optimization for Level 1 BLAS. Instead multiple implementation is relied upon to allow for <a href="../../../c/o/m/Compiler_optimization.html" title="Compiler optimization">compiler optimization</a> to produce high performance implementation for the system.</dd>
+</dl>
+<ul>
+<li>Optimization of the level 2 BLAS uses parameterization and multiple implementation</li>
+</ul>
+<dl>
+<dd>With <span class="texhtml"><i>N</i><sup>2</sup></span> data and <span class="texhtml"><i>N</i><sup>2</sup></span> operations to perform the function is usually limited by bandwidth to memory, and thus there is not much opportunity for optimization</dd>
+<dd>All routines in the ATLAS level 2 BLAS are built from two Level 2 BLAS kernels:
+<ul>
+<li>GEMV -- matrix by vector multiply update:</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/5/6/1/561faf1910d9d73b64c4f187fbf8fb82.png" alt="\mathbf{y} \leftarrow \alpha A \mathbf{x} + \beta \mathbf{y} \!" /></dd>
+</dl>
+<ul>
+<li>GER -- general rank 1 update from an outer product:</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/f/5/1/f5126f5104c965982a4c552a13cdd3d0.png" alt="\mathbf{y} \leftarrow \alpha \mathbf{x}^T * y + \beta \mathbf{y} \!" /></dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>Optimization of the level 3 BLAS uses code generation and the other two techniques</li>
+</ul>
+<dl>
+<dd>Since we have <span class="texhtml"><i>N</i><sup>3</sup></span> ops with only <span class="texhtml"><i>N</i><sup>2</sup></span> data, many opportunities for optimization</dd>
+</dl>
+<p><a name="Level_3_BLAS" id="Level_3_BLAS"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html" title="Edit section: Level 3 BLAS">edit</a>]</span> <span class="mw-headline">Level 3 BLAS</span></h2>
+<p>Most of the Level 3 BLAS is derived from <a href="../../../g/e/n/General_Matrix_Multiply_451e.html" title="General Matrix Multiply">GEMM</a>, so that is the primary focus of the optimization.</p>
+<dl>
+<dd><span class="texhtml"><i>O</i>(<i>n</i><sup>3</sup>)</span> operations vs. <span class="texhtml"><i>O</i>(<i>n</i><sup>2</sup>)</span> data</dd>
+</dl>
+<p>The intuition that the <span class="texhtml"><i>n</i><sup>3</sup></span> operations will dominate over the <span class="texhtml"><i>n</i><sup>2</sup></span> data accesses only works for roughly square matricies. The real measure should be some kind of surface area to volume. The difference becomes important for very non-square mats.</p>
+<p><a name="Can_it_afford_to_copy.3F" id="Can_it_afford_to_copy.3F"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html" title="Edit section: Can it afford to copy?">edit</a>]</span> <span class="mw-headline">Can it afford to copy?</span></h3>
+<p>Copying the inputs allows the data to be arranged in a way that provides optimal access for the kernel functions, but this comes at the cost of allocating temporary space, and an extra read and write of the inputs.</p>
+<p>So the first question GEMM faces is, can it afford to copy the inputs?</p>
+<p>If so,</p>
+<ul>
+<li>Put into block major format with good alignment</li>
+<li>Take advantage of user contributed kernels and cleanup</li>
+<li>Handle the transpose cases with the copy: make everything into TN (transpose - no-transpose)</li>
+<li>Deal with α in the copy</li>
+</ul>
+<p>If not,</p>
+<ul>
+<li>Use the nocopy version</li>
+<li>Make no assumptions on the stride of matrix <i>A</i> and <i>B</i> in memory</li>
+<li>Handle all transpose cases explicitly</li>
+<li>No guarantee about alignment of data</li>
+<li>Support α specific code</li>
+<li>Run the risk of <a href="../../../t/r/a/Translation_Lookaside_Buffer_dcf8.html" title="Translation Lookaside Buffer">TLB</a> issues, bad strides, ...</li>
+</ul>
+<p>The actual decision is made through a simple <a href="../../../h/e/u/Heuristic_%28computer_science%29.html" title="Heuristic (computer science)">heuristic</a> which checks for "skinny cases".</p>
+<p><a name="Cache_edge" id="Cache_edge"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html" title="Edit section: Cache edge">edit</a>]</span> <span class="mw-headline">Cache edge</span></h3>
+<p>For 2nd Level Cache blocking a single cache edge parameter is used. The high level choose an order to traverse the blocks: <i>ijk, jik, ikj, jki, kij, kji</i>. These need not be the same order as the product is done within a block.</p>
+<p>Typically chosen orders are <i>ijk</i> or <i>jik</i>. For <i>jik</i> the ideal situation would be to copy <i>A</i> and the <i>NB</i> wide panel of <i>B</i>. For <i>ijk</i> swap the role of <i>A</i> and <i>B</i>.</p>
+<p>Choosing the bigger of <i>M</i> or <i>N</i> for the outer loop reduces the footprint of the copy. But for large <i>K</i> ATLAS does not even allocate such a large amount of memory. Instead it defines a parameter, <i>Kp</i>, to give best use of the L2 cache. Panels are limited to <i>Kp</i> in length. It first tries to allocate (in the <i>jik</i> case) <span class="texhtml"><i>M</i> * <i>K</i><i>p</i> + <i>N</i><i>B</i> * <i>K</i><i>p</i> + <i>N</i><i>B</i> * <i>N</i><i>B</i></span>. If that fails it tries <span class="texhtml">2 * <i>K</i><i>p</i> * <i>N</i><i>B</i> + <i>N</i><i>B</i> * <i>N</i><i>B</i></span>. (If that fails it uses the no-copy version of GEMM, but this case is unlikely for reasonable choices of cache edge.) <i>Kp</i> is a function of cache edge and <i>NB</i>.</p>
+<p><a name="LAPACK" id="LAPACK"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html" title="Edit section: LAPACK">edit</a>]</span> <span class="mw-headline">LAPACK</span></h2>
+<p>When integrating the ATLAS BLAS with <a href="../../../l/a/p/LAPACK_7015.html" title="LAPACK">LAPACK</a> an important consideration is the choice of blocking factor for LAPACK. If the ATLAS blocking factor is small enough the blocking factor of LAPACK could be set to match that of ATLAS.</p>
+<p>To take advantage of recursive factorization, ATLAS provides replacement routines for some LAPACK routines. These simply overwrite the corresponding LAPACK routines from <a href="../../../n/e/t/Netlib.html" title="Netlib">Netlib</a>.</p>
+<p><a name="Need_for_installation" id="Need_for_installation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html" title="Edit section: Need for installation">edit</a>]</span> <span class="mw-headline">Need for installation</span></h2>
+<p>Installing ATLAS on a particular platform is a challenging process which is typically done by a system vendor or a local expert and made available to a wider audience.</p>
+<p>For many systems, architectural default parameters are available; these are essentially saved searches plus the results of hand tuning. If the arch defaults work they will likely get 10-15% better performance than the install search. On such systems the installation process is greatly simplified.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> R. Clint Whaley, Antoine Petitet, and Jack J. Dongarra (2000). <a href="http://www.netlib.org/lapack/lawnspdf/lawn147.pdf" class="external text" title="http://www.netlib.org/lapack/lawnspdf/lawn147.pdf" rel="nofollow">Automated Empirical Optimization of Software and the ATLAS Project</a> (<a href="../../../p/o/r/Portable_Document_Format_95a8.html" title="Portable Document Format">PDF</a>). Retrieved on <a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../o/c/t/October_6.html" title="October 6">10-06</a>.</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://math-atlas.sourceforge.net/" class="external text" title="http://math-atlas.sourceforge.net/" rel="nofollow">math-atlas.sourceforge.net</a> Project homepage</li>
+<li><a href="http://math-atlas.sourceforge.net/devel/atlas_contrib/" class="external text" title="http://math-atlas.sourceforge.net/devel/atlas_contrib/" rel="nofollow">User contribution to ATLAS</a></li>
+<li><a href="http://math-atlas.sourceforge.net/devel/atlas_devel/" class="external text" title="http://math-atlas.sourceforge.net/devel/atlas_devel/" rel="nofollow">A Collaborative guide to ATLAS Development</a></li>
+<li>The <a href="http://math-atlas.sourceforge.net/faq.html#doc" class="external text" title="http://math-atlas.sourceforge.net/faq.html#doc" rel="nofollow">FAQ</a> has links to the Quick reference guide to BLAS and Quick reference to ATLAS LAPACK API reference</li>
+<li><a href="http://www.terborg.net/research/kml/installation.html" class="external text" title="http://www.terborg.net/research/kml/installation.html" rel="nofollow">Microsoft Visual C++ Howto</a> for ATLAS</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 3450 bytes
+Post-expand include size: 1202 bytes
+Template argument size: 1395 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html">http://en.wikipedia.org../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/_/l/Category%7EC_libraries_aefe.html" title="Category:C libraries">C libraries</a></span> | <span dir='ltr'><a href="../../../n/u/m/Category%7ENumerical_software_f7d2.html" title="Category:Numerical software">Numerical software</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/u/t/Automatically_Tuned_Linear_Algebra_Software_f502.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/u/t/Talk%7EAutomatically_Tuned_Linear_Algebra_Software_cd3e.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Automatically_Tuned_Linear_Algebra_Software">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/t/l/Atlas_%28Computersoftware_Lineare_Algebra%29_fb20.html">Deutsch</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 06:04, 24 January 2007 by Wikipedia user <a href="../../../c/h/r/User%7EChrisCork_7ea3.html" title="User:ChrisCork">ChrisCork</a>. Based on work by Wikipedia user(s) <a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>, <a href="../../../r/e/d/User%7ERedgecko_746a.html" title="User:Redgecko">Redgecko</a>, <a href="../../../j/a/k/User%7EJakeVortex_215f.html" title="User:JakeVortex">JakeVortex</a>, <a href="../../../r/l/_/User%7ERl_43ae.html" title="User:Rl">Rl</a>, <a href="../../../s/a/n/User%7ESandstein_7344.html" title="User:Sandstein">Sandstein</a>, <a href="../../../k/u/n/User%7EKungfuadam_b5d5.html" title="User:Kungfuadam">Kungfuadam</a>, <a href="../../../o/r/d/User%7EOrderud_9d90.html" title="User:Orderud">Orderud</a>, <a href="../../../s/c/z/User%7ESCZenz_212c.html" title="User:SCZenz">SCZenz</a>, <a href="../../../c/o/l/User%7ECol._Hauler_c352.html" title="User:Col. Hauler">Col. Hauler</a> and <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

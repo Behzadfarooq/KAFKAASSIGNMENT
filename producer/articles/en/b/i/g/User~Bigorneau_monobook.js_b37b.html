@@ -1,0 +1,546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Bigorneau/monobook.js,Blocking policy,Bypass your cache,Village pump (technical)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Bigorneau/monobook.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Bigorneau/monobook.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../b/i/g/User%7EBigorneau_2645.html" title="User:Bigorneau">User:Bigorneau</a></span></div>
+	    	    	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</p>
+<div style="color:darkred;background-color:#EEEEEE;border: darkred 2px solid;padding:5px;" id="jswarning"><div style="clear: both;color:darkred;"></div><b><div style="display:block;">If a message on your talk page led you here, please be wary of who left it.  The code below could contain malicious content capable of compromising your account; if your account appears to be compromised, it will be <a href="../../../b/l/o/Wikipedia%7EBlocking_policy_2eb0.html" title="Wikipedia:Blocking policy">blocked</a>.  If you are unsure whether the code is safe, you can ask at the appropriate <a href="../../../v/i/l/Wikipedia%7EVillage_pump_%28technical%29_e812.html" title="Wikipedia:Village pump (technical)">village pump</a>.</b></div></div></span>
+<pre>//&lt;pre&gt;&lt;nowiki&gt;
+
+
+function stopRedlinksEditing(){ 
+    var len=document.links.length;
+    for(var i=0; i&lt;len; ++i) {
+        var l=document.links[i];
+        if (l.className=='new') {
+            l.href=l.href.replace('&amp;action=edit','')
+                         .replace('Special:Upload&amp;wpDestFile=', 'Image:');
+        }
+    }
+}
+addOnloadHook(stopRedlinksEditing);
+
+function listRedLinks() {
+        var len=document.links.length;
+        var output=document.createElement('div');
+        output.innerHTML='&lt;h2&gt;Red links&lt;/h2&gt;';
+        var gotSome=false;
+        for (var i=0; i&lt;len; ++i) {
+                if (document.links[i].className=='new') {
+                        gotSome=true;
+                        var l=document.links[i].cloneNode(true);
+                        output.appendChild(l);
+                        output.appendChild(document.createElement('br'));
+                }
+        }
+        if (gotSome){
+                output.appendChild(document.createElement('hr'));
+                var h1=document.getElementsByTagName('h1')[0];
+                h1.parentNode.insertBefore(output, h1.nextSibling);
+        }
+}
+addOnloadHook(function(){addToolboxLink('javascript:listRedLinks()', 'List red links');});
+
+document.write('&lt;!--[if IE]&gt;&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;' +
+               'http://localhost:8080/js/ie.css&quot;&gt;&lt;![endif]--&gt;');
+
+window.annoy={ freq: 1000*60*15, duration: 1000*60, 
+  target: 'http://en.wikipedia.org/wiki/Wikipedia:Recovering_from_Wikipediholism' };
+
+
+loadJS('[[User:Lupin/watchlistfilter.js]]');
+//loadJS('[[User:Lupin/annoy.js]]');
+loadJS('[[User:Lupin/listsince.js]]');
+
+// Filter changes live
+loadJS('[[User:Lupin/recent2.js]]');
+
+// Show diffs on recent changes, history pages and so on
+loadJS('[[User:Lupin/recentdiffs.js]]');
+
+var isIE=((self.navigator.appName).indexOf(&quot;Microsoft&quot;)!=-1);
+if (!isIE) loadJS('[[User:Zocky/PicturePopups.js]]');
+
+//loadJS('[[User:Zocky/CategoryBrowser.js]]');
+
+window.localCSS=true;
+//loadJS('[[User:Lupin/popupsdev.js]]');
+tmpJS('popupsdev.js');
+popupAdminLinks=true; popupShortcutKeys=true; popupFixDabs=true;
+popupPreviewKillTemplates=false; popupPreviewFirstParOnly=false;
+popupOnlyArticleLinks=false;
+popupEditCounterTool='interiot';
+popupExtraUserMenu='&lt;menurow&gt;&lt;&lt;monobook|shortcut=M&gt;&gt;|&lt;&lt;editMonobook|edit&gt;&gt;&lt;/menurow&gt;';
+popupFixRedirs=true;
+popupRedlinkRemoval=true;
+popupStructure='menus';
+//removeTitles=false;
+
+extraPopupFilters=[
+ function(data) { if (/[{]{2}[Ff]eatured article[}]{2}/.test(data) )
+   return '&lt;img src=&quot;http://upload.wikimedia.org/wikipedia/en/thumb/c/cf/Cscr-featured.png/7px-Cscr-featured.png&quot;&gt;'; 
+   else return ''; }
+];
+
+//popupLiveOptions=true;
+
+// loadJS('[[User:Lupin/editblind.js]]');
+
+loadJS('[[User:Lupin/sectionkeys.js]]');
+addOnloadHook(function(){window.popupShortcutKeys=true;}); // for testing
+
+if (location.href == &quot;http://en.wikipedia.org/wiki/User:Jitse_Niesen/Client-side_preferences&quot;) loadJS('[[User:Jitse_Niesen/Client-side_preferences/Main.js]]'); 
+
+/////////////////////////
+// messy stuff
+/////////////////////////
+
+addOnloadHook(function(){if (/Special(%3[Aa]|:)(Newpages|Recentchanges)/.test(&quot;Not Your Business!&quot;)) document.getElementsByTagName('h1')[0].innerHTML += ' - &lt;a href=&quot;http://www.google.com/search?q=' + document.title.split(' - ')[0].split(' ').join('+') + '&quot;&gt;FGI&lt;/a&gt;';});
+
+
+function addRefsLinks(btn) {
+  var pageTitle=document.getElementsByTagName('h1')[0].innerHTML;
+  var lks=document.links;
+  var refReq=refsContent(pageTitle);
+  for (var i=0; i&lt;lks.length; ++i) {
+    var article=articleFromURL(lks[i].href);
+    if(!article) continue;
+    var talk=null;
+    if (!userName(article)) continue;
+    talk=talkPage(article);
+    if(!talk) continue;
+    var a=document.createElement('a');
+    a.href=titlebase + talk +
+      '&amp;action=edit&amp;autoedit=s#$#\n' + refReq + ' ~~~~#&amp;autoclick=' +
+      btn + 
+      '&amp;autosummary=References for [['+
+      pageTitle+
+      ']]';
+    var tt=document.createTextNode(' . . ');
+    a.innerHTML='request references';
+    lks[i].parentNode.appendChild(tt);
+    lks[i].parentNode.appendChild(a);
+  }
+}
+function refsContent(pageTitle) {
+  var refRequests=['\\n\\n{{subst:unref-talk|%s}}',
+    '\\n\\n==Missing refs==\\n\\nHi! I noticed that [[%s]] doesn\'t seem to have any refs, and you\'ve written a fair bit of it. Please could you add some when you get a chance? Thanks!',
+    '\\n\\n==Refs?==\\n\\nHello, any chance of adding refs to [[%s]]? Cheers,',
+    '\\n\\n==References for [[%s]]==\\n\\nHowdy. Do you remember the references you used when you wrote [[%s]]? If you could add them in, it\'d improve the article. Thanks in advance,',
+    '\\n\\n==References needed==\\n\\nHello, I\'d like to verify [[%s]] but have no references. Please could you add the sources you used to write the article? Cheers,',
+    '\\n\\n==References==\\n\\nHello! I noticed that [[%s]] doesn\'t have any references or sources. Although the contents of that article do seem like &quot;common knowledge&quot;, it would still be helpful if you could mention your sources. Many thanks,',
+    '\\n\\n==[[%s]]==\\n\\n...is unsourced. Please fix. Thanks,',
+    '\\n\\n==References for [[%s]]==\\n\\nHi! I realise that it\'s been some time since you edited [[%s]], but it would be great if you could remember the references you used and add them to the page. Thanks!'
+  ];
+  var promptText='Select reference request:';
+  for (var i=0; i&lt;refRequests.length; ++i) { promptText += '\n\n'+i+': '+ refRequests[i];}
+  var response=parseInt(prompt(promptText));
+  if(!response || isNaN(response) || response &gt;= refRequests.length || response &lt; 0) response=0;
+  return refRequests[response].split('%s').join(pageTitle);
+}
+
+var refs=addRefsLinks;
+
+//ta['search'] = ['/','Search this wiki'];
+//addOnloadFunction(function(){document.getElementById('searchInput').accessKey='/';});
+
+function removeAccessKeys(keylist) {
+  var t=document.getElementsByTagName('A'), u=document.getElementsByTagName('input');
+  for (var i=0; i&lt;t.length+u.length; ++i) {
+    var s=((i&lt;t.length) ? t[i] : u[i-t.length]);
+    for (var j=0; j&lt;keylist.length; ++j) if (s.accessKey==keylist[j]) s.accessKey='';
+  }
+};
+
+function removeAnnoyingKeys() {removeAccessKeys(['d','f']);}
+addOnloadFunction(removeAnnoyingKeys);
+
+
+function fixWatchlistLink () {
+  for (var i=0; i&lt;document.links.length; ++i) {
+    if (document.links[i].href.indexOf('Special:Watchlist')&gt;0) {
+      document.links[i].href+='?hideOwn=1';
+      break;
+    }
+  }
+};
+
+if (!isIE)
+{
+  addOnloadFunction(fixWatchlistLink);
+}
+
+// summary nag
+
+function perhapsSave(ev)
+{
+   var sum = document.getElementsByName('wpSummary');
+   var submit = true;
+   if (sum.length &gt; 0) {
+      sum = sum[0];
+      if (isBadSummary(sum.value)) {
+         if (!document.getElementById('jn-fillIn')) {
+            var div = document.createElement('p');
+            div.appendChild(document.createTextNode('Fill in the summary!'));
+            div.setAttribute('style', 'color: #f00; font-size: 150%;');
+            div.id = 'jn-fillIn';
+            sum.parentNode.insertBefore(div, sum.nextSibling);
+         }
+         sum.focus();
+         submit = false;
+      }
+   }
+   if (submit) {
+      var btn = document.getElementById('wpSave');
+      btn.onclick = null;
+      btn.setAttribute('type', 'submit');
+      btn.click();
+   }
+}
+
+function isBadSummary(str) {
+  var sumRe=RegExp('^ *$|^/[*].*?[*]/ *$');
+  return (sumRe.test(str));
+}
+
+function modifySaveButton()
+{
+   // action=edit for edit pages, action=submit for previews
+   var loc=window.location.href;
+   if ((loc.indexOf('&amp;action=edit') != -1 || 
+        loc.indexOf('&amp;action=submit') != -1
+       ) &amp;&amp; loc.indexOf(':Lupin') == -1 ) {
+      var btn = document.getElementById('wpSave');
+      if (btn) { 
+	      btn.setAttribute('type', 'button');
+	      btn.onclick = perhapsSave;
+      }
+   }
+}
+
+if(!isIE) addOnloadFunction(modifySaveButton);
+
+
+
+////////////////////////////////////////////////////////////////
+// Evaluator
+// Source: http://krolik.net/js-eval.shtml
+
+var evaluatorHTML='&lt;FORM ID=&quot;Tester&quot; NAME=&quot;Tester&quot; onsubmit=&quot;return TesterExecute();&quot; &gt;' +
+  '&lt;TEXTAREA NAME=&quot;MyCommand&quot; COLS=60 ROWS=25 WRAP=&quot;off&quot;&gt;&lt;/TEXTAREA&gt;' +
+  '&lt;TEXTAREA NAME=&quot;MyResult&quot; COLS=40 ROWS=25 WRAP=&quot;off&quot;&gt;&lt;/TEXTAREA&gt;' + 
+  '&lt;BR&gt;' + 
+  '&lt;INPUT TYPE=BUTTON value=&quot;Show Object&quot; onclick=&quot;ObjectDumpClicked();&quot; &gt;' + 
+  '&lt;INPUT TYPE=BUTTON value=&quot;Execute&quot; onclick=&quot;TesterExecute();&quot;&gt;' + 
+  '&lt;/FORM&gt;';
+
+function ObjectDump(strObject) 
+{
+  var strOutput; 
+  var vTemp; 
+  var vAnotherTemp; 
+  var vElement;
+  vElement = eval(strObject); 
+  strOutput = &quot;typeof = &quot; + typeof(vElement) + &quot;\n\n&quot;;
+  AppendOutput(strOutput);
+  for (var x in vElement )  
+  { 
+   vTemp = strObject + &quot;.&quot; + x.toString() ; 
+   vAnotherTemp = strObject + &quot;[&quot; + x + &quot;]&quot; ; 
+   strOutput = strOutput + vTemp + &quot; = &quot; + eval(vTemp) + &quot;\n&quot;;
+   AppendOutput(vTemp + &quot; = &quot; + eval(vTemp) + &quot;\n&quot;);
+  } 
+  return strOutput ;  
+ } 
+ function AppendOutput(strText)
+ {
+  document.Tester.MyResult.value = document.Tester.MyResult.value + strText;
+ }
+ function Output(strText)
+ {
+  document.Tester.MyResult.value = strText;
+ }
+ function ObjectDumpClicked() 
+ {
+  document.Tester.MyResult.value=&quot;&quot;;
+  ObjectDump(document.Tester.MyCommand.value); 
+  return false;
+ }
+ function TesterExecute() 
+ {       
+  document.Tester.MyResult.value=&quot;&quot;;
+  document.Tester.MyResult.value=eval(document.Tester.MyCommand.value); 
+  return false;
+ }
+
+function addEvaluator() {
+  try { 
+    var evalNode=document.createElement('div');
+    evalNode.id='evalNode';
+    evalNode.innerHTML=evaluatorHTML;
+    document.body.appendChild(evalNode);
+    document.Tester=document.getElementById('Tester'); 
+  }
+  catch(err){};
+}
+
+if(!isIE || true) addOnloadFunction(addEvaluator);
+
+//
+// end evaluator
+////////////////////////////////////////////////////////////////
+
+
+// testing 
+// Useful stuff from [[Wikipedia:WikiProject_User_scripts]]
+
+function addToolboxLink(url, name, id){
+  var tb = document.getElementById('p-tb').getElementsByTagName('ul')[0];
+  addlilink(tb, url, name, id);
+}
+
+function addlilink(tabs, url, name, id, title, key){
+  var na = document.createElement('a');
+  na.href = url;
+  na.appendChild(document.createTextNode(name));
+  var li = document.createElement('li');
+  if(id) li.id = id;
+  li.appendChild(na);
+  tabs.appendChild(li);
+  if(id) {
+    if(key &amp;&amp; title) ta[id] = [key, title];
+    else if(key)     ta[id] = [key, ''];
+    else if(title)   ta[id] = ['', title];
+  }
+  // re-render the title and accesskeys from existing code in wikibits.js
+  akeytt();
+  return li;
+}
+
+function addTab(url, name, id, title, key){
+    var tabs = document.getElementById('p-cactions').getElementsByTagName('ul')[0];
+    addlilink(tabs, url, name, id, title, key);
+}
+
+function addPurge(){
+    ta['ca-purge'] = ['g', 'Purge the internal cache for this page'];
+    var x = document.getElementById('ca-history');
+    if(!x) return;
+    if(x.children) x = x.children[0].href;
+    else x = x.childNodes[0].href;
+    addTab(x.replace(/=history/, &quot;=purge&quot;), 'purge', 'ca-purge');
+    akeytt();
+}
+
+// culled from [[User:Lupin/popups.js]]
+
+function nichalp_articleFromURL(h) {
+  if (typeof h != 'String') h=String(h);
+  h=decodeURI(h);
+  var m=RegExp('[^:]*://en\\.wikipedia\\.org/(wiki/|w/index\\.php\\?title=)([^&amp;?]*)').exec(h);
+  if(m===null) return null;
+  return m[2];
+}
+
+function nichalp_isIpUser(user) {
+  return RegExp('(User:)?' + 
+                '((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\\.){3}' + 
+                '(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])')
+    .test(user);
+}
+
+function nichalp_removeAnchor(article) {
+  // is there a #? if not, we're done
+  var i=article.indexOf('#');
+  if (i == -1) return article;
+  return article.substring(0,i);
+}
+
+function nichalp_userName(article) {
+  var i=article.indexOf('User');
+  var j=article.indexOf(':');
+  if  (i != 0 || j == -1) return null;
+  var k=article.indexOf('/');
+  if (k==-1) return article.substring(j+1);
+  else return article.substring(j+1,k);
+}
+
+// do it
+
+function nichalp_customLinks() {
+  addPurge();
+  var article=nichalp_articleFromURL(document.location.href);
+  if (!article) return;
+  var user=nichalp_userName(article);
+  if(!user) return;
+  user=nichalp_removeAnchor(user);
+  if (!nichalp_isIpUser(user)) {
+    addToolboxLink('http://kohl.wikimedia.org/~kate/cgi-bin/count_edits?dbname=enwiki&amp;user='+user, user+&quot;'s edit count&quot;, 'toolbox_katestool');
+  }
+  var special='http://en.wikipedia.org/w/index.php?title=Special:';
+  addToolboxLink(special + 'Log&amp;user='+user, user+&quot;'s log&quot;, 'toolbox_userlog');
+  addToolboxLink(special + 'Blockip&amp;ip='+user, 'Block '+user, 'toolbox_blockuser'); 
+  addToolboxLink(special + 'Special:Ipblocklist&amp;action=unblock&amp;ip='+user, 'Unblock '+user, 'toolbox_unblockuser'); 
+}
+
+// make it all happen on page load
+
+if (window.addEventListener) window.addEventListener(&quot;load&quot;,nichalp_customLinks,false);
+else if (window.attachEvent) window.attachEvent(&quot;onload&quot;,nichalp_customLinks);
+else {
+  window._old_nichalp_onload = window.onload;
+  window.onload = function() { window._old_nichalp_onload();  nichalp_customLinks(); }
+}
+
+function addOnloadFunction (f) {
+  if (window.addEventListener) window.addEventListener(&quot;load&quot;,f,false);
+  else if (window.attachEvent) window.attachEvent(&quot;onload&quot;,f);
+};
+
+window.focusTextBox=function(exclusions) {
+  var editBox=document.getElementById('wpTextbox1');
+  if (editBox) { editBox.focus(); return; }
+  var inputs=document.getElementsByTagName('input');
+  if(!exclusions) exclusions=[];
+  for (var i=0; i&lt;inputs.length; ++i) {
+    if(inputs[i].type=='text' &amp;&amp; inputs[i].name) {
+      var ignore=false;
+      for (var j=0; j&lt;exclusions.length; ++j) { 
+        if (inputs[i].name==exclusions[j]) {ignore=true; break;} 
+      }
+      if(!ignore) {inputs[i].focus(); return;}
+    }
+  }
+}
+//addOnloadFunction(function() { if (document.title.indexOf('Preview') == -1) //focusTextBox(['wpSummary', 'search']);});
+
+
+loadJS('User:Zocky/SearchBox.js');
+
+function tmpJS(name) {
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' +
+               'http://localhost:8080/js/' + name + '&quot;&gt;&lt;/script&gt;');
+}
+
+function loadJS(page){
+  page=page.replace(/^\[\[(.*)\]\]$/, '$1');
+  document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' +
+                 'http://en.wikipedia.org/w/index.php?title=' + page +
+                 '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+}
+loadJS('User:Bigorneau.DeluxeBar.js')
+function DeluxBar(name) {
+  
+function DeluxeBar(page){
+  page=page.replace(/^\[\[(.*)\]\]$/, '$1');
+  document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' +
+                 'http://en.wikipedia.org/w/index.php?title=' + page +
+                 '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+}
+
+
+/*
+&lt;/nowiki&gt;&lt;/pre&gt;
+*/
+//Interiot's javascript edit counter
+if (document.title.indexOf('User:Interiot/Tool2/code.js') != -1) {
+  document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' 
+    + 'http://en.wikipedia.org/w/index.php?title=User:Interiot/Tool2/code.js' 
+    + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;'); }
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/g/User%7EBigorneau_monobook.js_b37b.html">http://en.wikipedia.org../../../b/i/g/User%7EBigorneau_monobook.js_b37b.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../b/i/g/User%7EBigorneau_monobook.js_b37b.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/i/g/User_talk%7EBigorneau_monobook.js_68ab.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Bigorneau/monobook.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:17, 22 July 2006 by Wikipedia user <a href="../../../b/i/g/User%7EBigorneau_2645.html" title="User:Bigorneau">Bigorneau</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

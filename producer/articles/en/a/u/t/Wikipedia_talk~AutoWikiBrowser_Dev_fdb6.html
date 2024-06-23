@@ -1,0 +1,1100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Wikipedia talk:AutoWikiBrowser/Dev,WT:AWB/DEV,Imagine (song),Saint Petersburg,WP:AWB/DEV,WP:BEANS,WP:VPT,Awbsvn,Bots,John the Scot (bishop),Bluemoose" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Wikipedia talk:AutoWikiBrowser/Dev - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-5">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Wikipedia talk:AutoWikiBrowser/Dev</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_b4e7.html" title="Wikipedia talk:AutoWikiBrowser">Wikipedia talk:AutoWikiBrowser</a></span></div>
+	    	    	    <!-- start content -->
+	    <table class="wikitable" width="100%">
+<tr>
+<th colspan="6" align="center" style="background: #DDFFDD;">
+<p><big><b>AutoWikiBrowser</b> - <b>v3.3.1.0</b></big></p>
+</th>
+</tr>
+<tr>
+<td align="center" valign="top" width="16%" style="background: #EEFFEE;"><b><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_c07e.html" title="Wikipedia:AutoWikiBrowser">Home</a></b>
+<hr />
+<p>General information about AutoWikiBrowser and directions for installation.</p>
+</td>
+<td align="center" valign="top" width="17%" style="background: #EEFFEE;"><b><a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_CheckPage_7df5.html" title="Wikipedia talk:AutoWikiBrowser/CheckPage">Request approval</a></b>
+<hr />
+<p>Request approval to be added to the <a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_CheckPage_526f.html" title="Wikipedia:AutoWikiBrowser/CheckPage">CheckPage</a> to use AutoWikiBrowser.</p>
+</td>
+<td align="center" valign="top" width="16%" style="background: #EEFFEE;"><b><a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_b4e7.html" title="Wikipedia talk:AutoWikiBrowser">Discussion</a></b>
+<hr />
+<p>Discuss the application and ask questions.</p>
+</td>
+<td align="center" valign="top" width="17%" style="background: #EEFFEE;"><b><a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Bugs_2223.html" title="Wikipedia talk:AutoWikiBrowser/Bugs">Bugs</a></b>
+<hr />
+<p>Report bugs in the application.</p>
+</td>
+<td align="center" valign="top" width="17%" style="background: #EEFFEE;"><b><a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Feature_requests_83bb.html" title="Wikipedia talk:AutoWikiBrowser/Feature requests">Feature Requests</a></b>
+<hr />
+<p>Request new features to be implemented into AWB</p>
+</td>
+<td align="center" valign="top" width="16%" style="background: #EEFFEE;"><b><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_User_manual_98d2.html" title="Wikipedia:AutoWikiBrowser/User manual">User manual</a></b>
+<hr />
+<p>The full user manual.</p>
+</td>
+</tr>
+<tr>
+<td align="center" valign="top" style="background: #EEFFEE;" colspan="6"><b><strong class="selflink">Developer Talk Page</strong></b><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <b><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_Typos_c9a0.html" title="Wikipedia:AutoWikiBrowser/Typos">Typos</a></b><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <b><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_User_talk_templates_4a56.html" title="Wikipedia:AutoWikiBrowser/User talk templates">User talk templates</a></b><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <b><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_Plugins_9efd.html" title="Wikipedia:AutoWikiBrowser/Plugins">Plugins</a></b><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <b><a href="../../../i/r/c/Wikipedia%7EIRCMonitor_1af7.html" title="Wikipedia:IRCMonitor">IRCMonitor</a></b><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <b><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_Projects_3280.html" title="Wikipedia:AutoWikiBrowser/Projects">AWB Projects</a></b><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <b><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_History_c450.html" title="Wikipedia:AutoWikiBrowser/History">Changelog</a></b><span style="white-space:nowrap; font-weight:bold;">&#160;·</span> <b><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_Sandbox_52a4.html" title="Wikipedia:AutoWikiBrowser/Sandbox">AWB Sandbox</a></b></td>
+</tr>
+</table>
+<table class="noprint Template-Shortcut" style="border: 1px solid #c0c090; background: #f8eaba; margin: .3em .3em .3em 1em; padding: 3px; float: right">
+<tr>
+<th class="noprint" align="center" valign="top"><small><a href="../../../s/h/o/Wikipedia%7EShortcut_2a54.html" title="Wikipedia:Shortcut">Shortcut</a>:<br />
+<a href="../../../a/w/b/WT%7EAWB_DEV_9b46.html" title="WT:AWB/DEV">WT:AWB/DEV</a><br />
+<a href="../../../a/w/b/WP%7EAWB_DEV_b513.html" title="WP:AWB/DEV">WP:AWB/DEV</a></small></th>
+</tr>
+</table>
+<table class="infobox">
+<tr>
+<th align="center"><a href="../../../v/i/s/Image%7EVista-file-manager.png_cc3f.html" class="image" title="Archive"><img src="../../../upload/thumb/c/c2/Vista-file-manager.png/50px-Vista-file-manager.png" alt="Archive" width="50" height="50" longdesc="../../../v/i/s/Image%7EVista-file-manager.png_cc3f.html" /></a><br />
+<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_Archive_ed0a.html" title="Wikipedia talk:AutoWikiBrowser/Dev/Archive">Archive</a></th>
+</tr>
+</table>
+<table class="infobox">
+<tr>
+<th align="center">AWB Developers
+<hr /></th>
+</tr>
+<tr>
+<td>
+<ul>
+<li><a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">MaxSem</a></li>
+<li><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">Mets501</a></li>
+<li><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a></li>
+<li><a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">Kingboyk</a></li>
+<li><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Martinp23</a></li>
+</ul>
+<p>AWB was created by:</p>
+<ul>
+<li><a href="../../../b/l/u/User%7EBluemoose_d309.html" title="User:Bluemoose">Bluemoose</a> <small>(retired)</small></li>
+</ul>
+</td>
+</tr>
+</table>
+<p>This page is for AWB developers to discuss the development of AWB.</p>
+<p>Please do not post bugs, feature requests, and similar on here, unless it is extremely urgent, but in that case it would probably be better to use <a href="irc://irc.freenode.net/#autowikibrowser" class="external text" title="irc://irc.freenode.net/#autowikibrowser" rel="nofollow">#autowikibrowser on IRC</a> if possible.</p>
+<p>Useful Links:</p>
+<ul>
+<li><a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser/AWB/?view=log" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser/AWB/?view=log" rel="nofollow">SVN Log</a></li>
+<li><a href="http://sourceforge.net/projects/autowikibrowser/" class="external text" title="http://sourceforge.net/projects/autowikibrowser/" rel="nofollow">SourceForge Project Page</a></li>
+</ul>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#WikiDiff2"><span class="tocnumber">1</span> <span class="toctext">WikiDiff2</span></a></li>
+<li class="toclevel-1"><a href="#Sticky_links"><span class="tocnumber">2</span> <span class="toctext">Sticky links</span></a></li>
+<li class="toclevel-1"><a href="#Empty_edit_summary"><span class="tocnumber">3</span> <span class="toctext">Empty edit summary</span></a></li>
+<li class="toclevel-1"><a href="#Autoupdate"><span class="tocnumber">4</span> <span class="toctext">Autoupdate</span></a></li>
+<li class="toclevel-1"><a href="#.7B.7Bbots.7D.7D"><span class="tocnumber">5</span> <span class="toctext">{{bots}}</span></a></li>
+<li class="toclevel-1"><a href="#Nudge_timer"><span class="tocnumber">6</span> <span class="toctext">Nudge timer</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Plugin_code"><span class="tocnumber">6.1</span> <span class="toctext">Plugin code</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#txtSelectSource"><span class="tocnumber">7</span> <span class="toctext">txtSelectSource</span></a></li>
+<li class="toclevel-1"><a href="#WikiFunctions2"><span class="tocnumber">8</span> <span class="toctext">WikiFunctions2</span></a></li>
+<li class="toclevel-1"><a href="#Removal"><span class="tocnumber">9</span> <span class="toctext">Removal</span></a></li>
+<li class="toclevel-1"><a href="#Feature_Request:_Excess_whitespace_as_a_general_option"><span class="tocnumber">10</span> <span class="toctext">Feature Request: Excess whitespace as a general option</span></a></li>
+<li class="toclevel-1"><a href="#IAWBPlugin"><span class="tocnumber">11</span> <span class="toctext">IAWBPlugin</span></a></li>
+<li class="toclevel-1"><a href="#Unicode_problems_--_URGENT"><span class="tocnumber">12</span> <span class="toctext">Unicode problems -- URGENT</span></a></li>
+<li class="toclevel-1"><a href="#Logging_tab"><span class="tocnumber">13</span> <span class="toctext">Logging tab</span></a></li>
+<li class="toclevel-1"><a href="#Ref_formatter"><span class="tocnumber">14</span> <span class="toctext">Ref formatter</span></a></li>
+<li class="toclevel-1"><a href="#DEFAULTSORT"><span class="tocnumber">15</span> <span class="toctext">DEFAULTSORT</span></a></li>
+<li class="toclevel-1"><a href="#New_Template"><span class="tocnumber">16</span> <span class="toctext">New Template</span></a></li>
+<li class="toclevel-1"><a href="#AWB_Accounts.2FProfiles"><span class="tocnumber">17</span> <span class="toctext">AWB Accounts/Profiles</span></a></li>
+<li class="toclevel-1"><a href="#Time_in_log"><span class="tocnumber">18</span> <span class="toctext">Time in log</span></a></li>
+<li class="toclevel-1"><a href="#Error"><span class="tocnumber">19</span> <span class="toctext">Error</span></a></li>
+<li class="toclevel-1"><a href="#Logging_error_or_something_else.3F"><span class="tocnumber">20</span> <span class="toctext">Logging error or something else?</span></a></li>
+<li class="toclevel-1"><a href="#Log_context_menu"><span class="tocnumber">21</span> <span class="toctext">Log context menu</span></a></li>
+<li class="toclevel-1"><a href="#ExpandTemplates_issue"><span class="tocnumber">22</span> <span class="toctext">ExpandTemplates issue</span></a></li>
+<li class="toclevel-1"><a href="#Stub_location_in_article"><span class="tocnumber">23</span> <span class="toctext">Stub location in article</span></a></li>
+<li class="toclevel-1"><a href="#Contributions"><span class="tocnumber">24</span> <span class="toctext">Contributions</span></a></li>
+<li class="toclevel-1"><a href="#Wikipedia:AutoWikiBrowser.2FUser_talk_templates"><span class="tocnumber">25</span> <span class="toctext">Wikipedia:AutoWikiBrowser/User talk templates</span></a></li>
+<li class="toclevel-1"><a href="#AWB_extension_proposal"><span class="tocnumber">26</span> <span class="toctext">AWB extension proposal</span></a></li>
+<li class="toclevel-1"><a href="#Magic_words"><span class="tocnumber">27</span> <span class="toctext">Magic words</span></a></li>
+<li class="toclevel-1"><a href="#Nudge_timer_revisited"><span class="tocnumber">28</span> <span class="toctext">Nudge timer revisited</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="WikiDiff2" id="WikiDiff2"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: WikiDiff2">edit</a>]</span> <span class="mw-headline">WikiDiff2</span></h2>
+<p>What do you think about integrating wikidiff2 into AWB? (See <a href="http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/wikidiff2/" class="external autonumber" title="http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/wikidiff2/" rel="nofollow">[1]</a>) It's the code that generates the diffs. The only problem is that it's written in c++, not c#. Can we "translate" it with that site you told me about to translate the custom module code? That would allow us to generate the diffs locally, saving time for users when using AWB and saving resources. Then we can even eliminate the quick save option from the bots list. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 01:02, 10 March 2007 (UTC)</p>
+<dl>
+<dd>That program will do a version of C++, so we could. What does MaxSem have to say? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 01:09, 10 March 2007 (UTC)
+<dl>
+<dd>Why do we need it? <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 06:57, 10 March 2007 (UTC)
+<dl>
+<dd>Mainly cause if you're working on a slow connection, the extra page load to view the diff wastes a lot of time. It's faster to have it rendered locally on any connection, for that matter. Also, in a much less significant way, it reduces server load, but that alone wouldn't be a reason to do it. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 07:17, 10 March 2007 (UTC)
+<dl>
+<dd>I agree. Apparently, it has not-so-perfect UTF-8 support, so I'd rather port it to C#/.NET. I'll spend next week in <a href="../../../s/a/i/Saint_Petersburg_5667.html" title="Saint Petersburg">SPb</a> and will try to do it, if I have free time. <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 08:08, 10 March 2007 (UTC)
+<dl>
+<dd>Great! —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 16:36, 10 March 2007 (UTC)
+<dl>
+<dd>IIRC it's possible to compile C++ code to .NET then link it with C# code. You may want to consider doing that; I've never tried it though. Note: I am not an AWB developer. Cheers, --<a href="../../../u/n/f/User%7EUnforgettableid_1fd8.html" title="User:Unforgettableid">unforg</a><a href="../../../u/n/f/User%7EUnforgettableid_Esperanza_7223.html" title="User:Unforgettableid/Esperanza"><span style="color:green; cursor:help;">e</span></a><a href="../../../u/n/f/User%7EUnforgettableid_1fd8.html" title="User:Unforgettableid">ttableid</a> | <a href="../../../u/n/f/User_talk%7EUnforgettableid_fa69.html" title="User talk:Unforgettableid">how's my driving?</a> 23:25, 14 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Please check <a href="../../../c/a/c/User%7ECacycle_diff_18b5.html" title="User:Cacycle/diff">User:Cacycle/diff</a> for the diff code that is used for <a href="../../../c/a/c/User%7ECacycle_wikEd_08c8.html" title="User:Cacycle/wikEd">wikEd</a>. It is in JavaScript, but converting it to C++ should be relatively easy. The code is tuned for Wikipedia texts an also detects block moves. It outputs one single text, containing all additions, deletion, and block moves. This is easier to read than the standard Wikipedia output. You can test it by installing <a href="../../../c/a/c/User%7ECacycle_wikEd_08c8.html" title="User:Cacycle/wikEd">wikEd</a> on your monobook.js page and then pushing the new 'diff' button next to the 'View Changes' button. <a href="../../../c/a/c/User%7ECacycle_6f2f.html" title="User:Cacycle">Cacycle</a> 02:12, 16 March 2007 (UTC)</p>
+<dl>
+<dd>Cheers, but we need it into C# or similar rather than C++. But it could be something else to look at - thanks =) <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 08:58, 16 March 2007 (UTC)</dd>
+<dd>I've tried to port wikidiff2 to managed C++, but result crashed in random places, so now I'm playing with <a href="http://www.menees.com/DiffDotNet.htm" class="external text" title="http://www.menees.com/DiffDotNet.htm" rel="nofollow">a native C# diff engine</a>. <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 13:43, 19 March 2007 (UTC)</dd>
+<dd>The diff screen looks very similar to the diff Tortoise SVN uses! <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 13:55, 19 March 2007 (UTC)
+<dl>
+<dd>I think that detecting block moves is a very important feature - in sharp contrast to program code the effects of block moves are relatively small and they are a common change to articles. However, the current MediaWiki diff code cannot handle them and generates paragraphs of red text when in fact not a single word has been changed. I am not that into C#/++ programming, but it should not be too difficult to translate <a href="../../../c/a/c/User%7ECacycle_diff_18b5.html" title="User:Cacycle/diff">this</a> commented JavaScript code to C#. <a href="../../../c/a/c/User%7ECacycle_6f2f.html" title="User:Cacycle">Cacycle</a> 23:11, 19 March 2007 (UTC)
+<dl>
+<dd>It would be great for MediaWiki's DifferenceEngine, but not so useful for AWB that moves things only when sorting metadata. <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 07:17, 20 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Currently workingon it, expect firt results in a week. <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 07:58, 31 March 2007 (UTC)</p>
+<dl>
+<dd>Cool, be good to see some results!! I see a potential feature for releasing as V4!! <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 10:36, 31 March 2007 (UTC)</dd>
+</dl>
+<p><a name="Sticky_links" id="Sticky_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Sticky links">edit</a>]</span> <span class="mw-headline">Sticky links</span></h2>
+<p>I've just committed <code>Parsers.StickyLinks()</code> that makes fixes like turning <code>[[Russian literature|Russian]] literature</code> to <code>[[Russian literature]]</code>. So far it's included only in <code>DabControl</code>. Please review it for inclusion into <i>Common fixes</i>. <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 08:13, 11 March 2007 (UTC)</p>
+<p><a name="Empty_edit_summary" id="Empty_edit_summary"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Empty edit summary">edit</a>]</span> <span class="mw-headline">Empty edit summary</span></h2>
+<p>I turned off a messagebox from AWB which was effecting my plugin (r683), but I'm not sure the replacement code I put in is optimal. I think AWB needs to be checking that the edit summary isn't empty once it's heard back from all installed plugins and not before, and it maybe needs to do something about an empty summary such as stopping the operation. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 12:23, 17 March 2007 (UTC)</p>
+<p><a name="Autoupdate" id="Autoupdate"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Autoupdate">edit</a>]</span> <span class="mw-headline">Autoupdate</span></h2>
+<p>I think we should include an autoupdater for AWB. It would help a lot with users who get pissed when they have to update. If they were to just press "update" when there's a new version available and the program would autoupdate, that would be tons better. If any of you want to tackle it, that would be great; unfortunately, I don't think I quite have the time or the programming experience to actually do it myself&#160;:-) —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 19:39, 17 March 2007 (UTC)</p>
+<dl>
+<dd>Hmmm, We'd need some webspace to get the files from... A simple program to kill the AWB process, download and override and then restart AWB... Or, just have a programmed link for each version (or rather, on the Version checkpage), that they can click ok and have the file downloaded....? Hmmm, somethign that could be done... Just not exactly sure how <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 20:25, 17 March 2007 (UTC)
+<dl>
+<dd>Here's what I'm imagining: AWB checks if the version is current. If it is, then it just keeps going. If it isn't current, but it's still enabled, it asks the user whether to update, otherwise it updates automatically. Then it goes to the version checkpage to fetch the current version file name (which can be labeled like &lt;!-- Current filename: Autowikibrowser4110.zip --&gt;). Then it downloads the file "<a href="http://superb-east.dl.sourceforge.net/sourceforge/autowikibrowser/CURRENTFILENAME" class="external free" title="http://superb-east.dl.sourceforge.net/sourceforge/autowikibrowser/CURRENTFILENAME" rel="nofollow">http://superb-east.dl.sourceforge.net/sourceforge/autowikibrowser/CURRENTFILENAME</a>" (I just selected that mirror randomly, but because the file is small the mirror doesn't really make any difference anyway). Then a new process starts up which shuts down AWB, extracts the downloaded zip file, and replaces the old files with the new ones, and then starts up AWB. Just a vision&#160;:-) —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 21:48, 17 March 2007 (UTC)
+<dl>
+<dd>A more detailed version of what i just said =P <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 21:58, 17 March 2007 (UTC)
+<dl>
+<dd>Yep&#160;:-) —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 22:01, 17 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>I cant see that being difficult. Its just looking up how to download the files and stuff... And the easiest way for the file, i think, would have on the checkpage like a link ot the file that it would download.... Its just then the unzipping the files out... Hmmmm. Want to add a subproject to AWB for us to play about with the idea? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 22:03, 17 March 2007 (UTC)
+<dl>
+<dd>Sure. You can add it. I think the hard parts are unzipping and then replacing the files though. That will be a pain in the ass on Vista. We'll have to set the program to ask for admin privileges I think. Any idea how to do that? Maybe it asks automatically? I don't know. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 22:23, 17 March 2007 (UTC)</dd>
+<dd>I dont have vista... Hmmm.... We may be able to implement it using .NET.... <a href="http://www.dotnetbips.com/articles/3d398664-831e-4599-b04f-66359f1e21ff.aspx" class="external text" title="http://www.dotnetbips.com/articles/3d398664-831e-4599-b04f-66359f1e21ff.aspx" rel="nofollow">j#</a> Anyone? Ah, its C# using j#&#160;:) <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 23:02, 17 March 2007 (UTC)</dd>
+<dd>I would think there would be some free code already out there to do that kind of thing... erm, what's that big dot net code site? --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:18, 17 March 2007 (UTC) <a href="http://www.codeproject.com/info/search.asp?cats=1&amp;searchkw=update+version&amp;sd=11/15/1999&amp;ed=3/17/2007&amp;Page=1" class="external autonumber" title="http://www.codeproject.com/info/search.asp?cats=1&amp;searchkw=update+version&amp;sd=11/15/1999&amp;ed=3/17/2007&amp;Page=1" rel="nofollow">[2]</a> --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:23, 17 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Have a look at the SVN repository. Most of thh basic functionality i have added... <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 23:30, 17 March 2007 (UTC)</p>
+<p>Just commited a version that works. Currently setup to download from my local webserver, with the file link and the filename manually entered</p>
+<p>But tested working from the SF Servers, just a bit slower than a local http server&#160;;)</p>
+<p><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 00:38, 18 March 2007 (UTC)</p>
+<dl>
+<dd>I'm working on it more now. I scrapped all of the j# code, as that means that all users have to download the j# runtime environment. It's working great and almost ready to commit. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 04:59, 18 March 2007 (UTC)
+<dl>
+<dd>OK, I've committed it. As far as I can tell, everything works perfectly. It prompts the user to update when the version is old or not enabled. If you want to test it out, just build the program with a different version number. It will tell you it's not enabled, and ask you to shut down AWB to update it. Then it will do it's magic and voilà, it's updated! —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 05:31, 18 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Mets, You forgot to include the library!! First guess where to put it was correct. I've added it to the SVN now =) <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 11:41, 18 March 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>To counter needing the extra library, (ie the dll), ive put the relevant source files for the ICSharpCode.SharpZipLib.dll, into the Updater. Which increases the updater file size, but it neater. The GNU/GPL License headers are kept.</dd>
+</dl>
+<dl>
+<dd>Myself and Kingboyk were discussing having the updater download only updated features. Ie we release the WF.dll, IRCM, AWB etc etc as seperate, and they are downloaded and updated only if they have been updated. This would be a future thing to do.</dd>
+</dl>
+<dl>
+<dd>Also, we need to cater for any updates of the AWBUpdater. As it cannot update itself, AWB (or something in the WF.dll) would need to update it. Possibly in the same way...? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 13:44, 18 March 2007 (UTC)</dd>
+</dl>
+<p><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 13:44, 18 March 2007 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>Sorry about that. As far as just the updated features, you can package an AutoWikiBrowser3110update.zip with just the new features and have the updater download that. As far as updating the updater, I have no ideas. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 15:24, 18 March 2007 (UTC)
+<dl>
+<dd>That's an excellent idea. I'll take a look at updating the updater this afternoon. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 12:00, 19 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>For updating the updater, i am thinking, we just upload it as an exe to SF, and have AWB download that, and paste it over the existing one. Saves the zip code. Just need to add to/manipulate the AWB update routine to look for an AWBUpdater update... Could just put something on the version checkpage? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 15:51, 18 March 2007 (UTC)
+<dl>
+<dd>Sounds good and no, you can't put it on to the version check page cos you're not an admin&#160;;) - but I'll do it for you! The updater certainly needs to be able to check it's own version (by extending the current code of course, we don't wanna load the page twice) so the version check page is the obvious place to put it. imho. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:48, 18 March 2007 (UTC)
+<dl>
+<dd>Haha... Wiki Politics - Pah&#160;;). We'd just have to work out a way to copy over the file or something as it cant do it onto itself, as it would be in use... Hmm, could we get AWB to do the copy. If it looks in the folder, and there is an awbupater1.exe (or something) when AWB is reloaded, it renames it to replace the old? But the AWBUpdater downloads its own new version? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 10:11, 19 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Ive just commited <a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=750" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=750" rel="nofollow">SVN Rev 750</a>, in which the Updater form is shown, the progress bar updates. I've dont this by a bit of a cheat, using a timer, which allows the form to be shown, and then on the tick (of 1ms) starts the update process. I've also added a routine to make sure AWB is closed, which annoys the user with messageboxes until AWB is closed.... <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 22:02, 18 March 2007 (UTC)
+<dl>
+<dd>Looks good! —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 23:46, 18 March 2007 (UTC)
+<dl>
+<dd>=) <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 10:11, 19 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>OK, here's how I think we should update the updater:</p>
+<ul>
+<li>Move any shareable code in the uploader project to a new source code file</li>
+<li>Compile that new source code file into both the uploader and AWB</li>
+<li>When AWB checks it's version is enabled it should also check - from the same page - the uploader version</li>
+<li>If there's an obligatory new updater it should go ahead and download it, if there's an optional one it should ask (or, to make things easier, we can assume all updater releases are obligatory)</li>
+<li>AWB simply downloads the update using the shared code, moves the file into position, and then calls the new uploader if it's version check revealed the existence of a new version</li>
+</ul>
+<p>Sam could probably get this implemented in a few minutes I reckon as it's mostly the same as what he's already done. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 17:25, 19 March 2007 (UTC)</p>
+<dl>
+<dd>Hmmm Good idea..</dd>
+<dd>Something i just thought of</dd>
+<dd>The updater gets the updated AWB from the internet, and also the zip (or whatever) of the updater if it has been updated. It then extracts the updater to say AWBUpdater.exe.new, and then updates AWB as normal, it then starts AWB and closes itself. If AWB find that AWBUpdater.exe.new (or whatever) exists, it will then delete AWBUpdater, and replace it with AWBUpdater.exe.new (or rename the latter..) <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 19:25, 19 March 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>Added Code to AWB to update the updater if needed, and updater code to download a newer updater version if there is one! <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 22:18, 22 March 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I was thinking (yes yes that's a first) why don't we have the download link on the AWB page just be a permalink to download the updater, and then have the updater install AWB?
+<dl>
+<dd>Also, how about having a proper installation into program files with a start menu\programs entry and everything?</dd>
+<dd>Finally, the updater/installer ought to ask the user what features they want, so that the plugin DLLs get copied to the install folder. That way we won;t get folks using new AWB, old plugin, or people reporting a bug cos they only copied one DLL over not two. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 13:26, 26 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Thats a good point steve, would be useful, and wouldnt require that much work. The Updater will copy over any existing files, and will create a plugins folder whether they use it or not.</dd>
+</dl>
+<dl>
+<dd>The installer is a good idea, and if we put copies of the DLL's in the Plugin folder, and set AWB the ability to 'install' - ie copy them if they want to add it later on...? The updater would work fine like that....</dd>
+</dl>
+<dl>
+<dd>Sounds like we've possibly got some ideas for maybe v4? Or 3.5 or something...?</dd>
+</dl>
+<dl>
+<dd><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 20:35, 26 March 2007 (UTC)</dd>
+</dl>
+<p><a name=".7B.7Bbots.7D.7D"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: {{bots}}">edit</a>]</span> <span class="mw-headline">{{<a href="../../../b/o/t/Template%7EBots_9bfe.html" title="Template:Bots">bots</a>}}</span></h2>
+<p>I added support of these tags, shall we get the rid of blacklisting on checkpage? <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 12:26, 19 March 2007 (UTC)</p>
+<dl>
+<dd>Could be done, after someones tagged the pages in the backlist...? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 19:48, 5 April 2007 (UTC)</dd>
+</dl>
+<p><a name="Nudge_timer" id="Nudge_timer"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Nudge timer">edit</a>]</span> <span class="mw-headline">Nudge timer</span></h2>
+<p>Discussion started at <a href="../../../b/o/t/Wikipedia%7EBot_owners%27_noticeboard_80ae.html" title="Wikipedia:Bot owners' noticeboard">Wikipedia:Bot owners' noticeboard</a>:</p>
+<dl>
+<dd>AWB has long had a habit of stalling: on db-lock, on timeout, on disconnection. I would often wake to find my bot stalled, so I had to resort to putting a nudge timer into my plugin. This is a dirty hack I'd really like to get removed, so any progress on stopping AWB stalling when these things happen (or building the nudge timer into AWB) would be great. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:00, 22 March 2007 (UTC)
+<dl>
+<dd>I'd support the nudge timer built into AWB. Basically, I'm envisioning a timer that starts when AWB is ready to save, and if <i>x</i> seconds pass with no save then it tries to resave, and so on. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 23:07, 22 March 2007 (UTC)
+<dl>
+<dd>That's pretty much how my plugin does it; it starts a timer and if 10 minutes elapse it fires AWB a stop event followed by a start event. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:20, 22 March 2007 (UTC)
+<dl>
+<dd>I would have it more like 60 seconds, but it sounds good. I would implement it. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 23:22, 22 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>I don't feel I know AWB or C# well enough to do this myself. It needs a good understanding of the internals and has to be robust. I will however share a few of my observations having written a reasonable implementation of this in my plugin but one which need to be a bit smarter if it were in AWB:</p>
+<ul>
+<li>Nudge timer should be an <i>option</i>, and should probably only operate in bot mode</li>
+<li>Timer should be no less than 60 seconds; I went for 10 minutes. User configurable is a possible alternative.</li>
+<li>Number of nudges recorded in a label somewhere or on the status bar</li>
+<li>Timer needs to be reset after each successful operation, disabled when there's been no start event (user clicking start <i>or a plugin firing Start()</i>) or when there's been a stop event, disabled if the user has been blocked or has mail, and disabled if the article list is empty.</li>
+<li>I'm happy to share my VB.NET code which I would say is about 90% compliant with this: I've had one report of it starting AWB while the user was still setting up (unverified, but I imagine a slight flaw in state preservation), but it's nudged an unresponsive AWB when I was asleep several times and has been useful.</li>
+</ul>
+<p>HTH. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 14:20, 23 March 2007 (UTC)</p>
+<dl>
+<dd>I committed a nudge timer. Do you want to check it out? —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 15:04, 25 March 2007 (UTC)
+<dl>
+<dd>Ooh, lovely. I will do at some point, yes, but I'm a bit overloaded (pun intended) at the moment. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 15:08, 25 March 2007 (UTC)</dd>
+<dd>Could we increase the nudge timer to say 5 minutes, and also log nudges and/or display the number on the status bar? With regard to the first request, I've been experiencing a bug in my plugin where it keeps adding the same log entry over and over. I've not identified the cause yet but wonder if the new nudge timer isn't allowing enough time for the log upload operations to finish, and the plugin is receiving the next lot of article text and thinking it has to upload logs. This might not be the cause but I'd like to rule it out, and since the idea is to wake up a sleeping bot overnight I think 5 minutes is quite OK&#160;:) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:36, 27 March 2007 (UTC)
+<dl>
+<dd>Working on it. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 00:00, 28 March 2007 (UTC)
+<dl>
+<dd>Alright, update your SVN version and see what it looks like&#160;:-) —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 01:02, 28 March 2007 (UTC)
+<dl>
+<dd><i>Looks</i> fantastic. Will test later. Thanks Mets. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 11:56, 28 March 2007 (UTC)
+<dl>
+<dd>Why don't the cogs on the bot tab <i>move</i>? --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 16:23, 28 March 2007 (UTC)
+<dl>
+<dd>What? —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 22:10, 28 March 2007 (UTC)
+<dl>
+<dd>You forgot the animation! Cogs moving as the bot is operating, with the speed of movement reflecting the edit rate, and the cogs vibrating when nudged!! --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 22:25, 28 March 2007 (UTC)
+<dl>
+<dd>:-) —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 22:58, 28 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>In all seriousness, I added an interface member to allow plugins to override the nudge (but leave the timer running) and tests so far indicate it's solved the error in my logging code. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 22:25, 28 March 2007 (UTC)</p>
+<dl>
+<dd>OK, great. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 22:58, 28 March 2007 (UTC)</dd>
+</dl>
+<p>Could the nudge timer be programmed to go to the next page after <i>x</i> amount of nudges? --<a href="../../../t/e/c/User%7ETeckWiz_cd20.html" title="User:TeckWiz"><b>TeckWiz</b></a> <sup><a href="../../../t/e/c/User_talk%7ETeckWiz_cb9b.html" title="User talk:TeckWiz">Parlate</a></sup><small><a href="../../../c/o/n/Special%7EContributions_TeckWiz_ea80.html" title="Special:Contributions/TeckWiz">Contribs</a><sub><a href="../../../e/m/a/Special%7EEmailuser_TeckWiz_0fa0.html" title="Special:Emailuser/TeckWiz">@</a></sub></small> 23:32, 29 March 2007 (UTC)</p>
+<dl>
+<dd>Sure, will do that. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 23:37, 29 March 2007 (UTC)</dd>
+<dd>OK, I added a checkbox where it asks if it should skip an article if the first nudge doesn't help. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 00:19, 30 March 2007 (UTC)
+<dl>
+<dd>You don't seem to have got these values saving/loading with settings?</dd>
+<dd>I've defaulted the new option to False, as I've found it an annoyance (lots of valid articles skipped when I had a bad connection). --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 16:06, 5 April 2007 (UTC)
+<dl>
+<dd>Oh yeah, sorry, I always forget to have it save as the settings. False as default is fine with me. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 16:32, 5 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Plugin_code" id="Plugin_code"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Plugin code">edit</a>]</span> <span class="mw-headline">Plugin code</span></h3>
+<pre>
+PluginManager Class:
+
+        Public Sub Nudge(ByRef Cancel As Boolean) Implements WikiFunctions.Plugin.IAWBPlugin.Nudge
+            Cancel = PluginSettingsControl.MyTrace.IsUploading
+
+            If Not Cancel Then
+                For Each p As PluginBase In ActivePlugins
+                    If Not p.IAmReady Then
+                        PluginSettingsControl.MyTrace.WriteBulletedLine( _
+                           "Bot mode: Not nudging AWB as a generic plugin isn't ready yet", True, True, True)
+                        Cancel = True
+                        Exit For
+                    End If
+                Next
+            End If
+
+            If Not Cancel Then PluginSettingsControl.MyTrace.WriteBulletedLine("Bot mode: AWB is giving a nudge", _
+               True, False, True)
+        End Sub
+
+PlugingSettingsControl Class:
+
+        Private Sub NudgeCountTextChangedHandler(ByVal sender As Object, ByVal e As EventArgs)
+            lblAWBNudges.Text = "Nudges: " &amp; _
+               DirectCast(sender, Label).Text.Replace(WikiFunctions.AWBSettings.AWBConstants.NudgeTimerString, "")
+        End Sub
+</pre>
+<p>The above should answer the question of why I declared the label string as a constant. Constants are good anyway and AWB probably ought to use more of them rather than liberally redefining strings all over the place. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 11:21, 30 March 2007 (UTC)</p>
+<p>I suppose a better way might be to wrap the nudges variable inside a property, and add a Nudged() method to the plugin interface notifying of changes to the value. I'll take a look at it later. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 14:04, 30 March 2007 (UTC)</p>
+<p><a name="txtSelectSource" id="txtSelectSource"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: txtSelectSource">edit</a>]</span> <span class="mw-headline">txtSelectSource</span></h2>
+<p>Why is the "enter" keypress event not working? It works for txtAdd, and it has the same exact code and same settings. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 15:13, 24 March 2007 (UTC)</p>
+<dl>
+<dd>Mets Brokded it...&#160;:P - Wheres the text box? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 18:06, 24 March 2007 (UTC)
+<dl>
+<dd>The one right below the source selector dropdown menu is the one that doesn't work (in ListMaker.cs). The one that does work is at the bottom (where you add individual articles). —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 05:48, 25 March 2007 (UTC)</dd>
+</dl>
+</dd>
+<dd>I noticed in the code there was some manual watches for keypresses on different controls... <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 10:24, 7 April 2007 (UTC)</dd>
+</dl>
+<p><a name="WikiFunctions2" id="WikiFunctions2"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: WikiFunctions2">edit</a>]</span> <span class="mw-headline"><a href="../../../k/i/n/User%7EKingbotk_Plugin_WikiFunctions2_8cf2.html" title="User:Kingbotk/Plugin/WikiFunctions2">WikiFunctions2</a></span></h2>
+<p>Now that <a href="../../../k/i/n/User%7EKingbotk_Plugin_WikiFunctions2_8cf2.html" title="User:Kingbotk/Plugin/WikiFunctions2">WikiFunctions2</a> is shipped with AWB, I alert devs to the existence of this library in case it contains any code you might want to build on. Currently it supplies logging features to my plugin, and some basic article talk page parsing. I'll be reviewing my codebase soon to see if any other shareable code should move there.</p>
+<p>I'm certainly not saying that there's definitely anything there you want to use, just pointing it out so at least you have the choice. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 14:58, 26 March 2007 (UTC)</p>
+<p><a name="Removal" id="Removal"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Removal">edit</a>]</span> <span class="mw-headline">Removal</span></h2>
+<p>Can someone just check up on <a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=830" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=830" rel="nofollow">my rev</a> to make sure I'm not mistaken? Thanks. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 18:58, 27 March 2007 (UTC)</p>
+<p><a name="Feature_Request:_Excess_whitespace_as_a_general_option" id="Feature_Request:_Excess_whitespace_as_a_general_option"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Feature Request: Excess whitespace as a general option">edit</a>]</span> <span class="mw-headline"><a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Feature_requests_83bb.html#Excess_whitespace_as_a_general_option" title="Wikipedia talk:AutoWikiBrowser/Feature requests">Feature Request: Excess whitespace as a general option</a></span></h2>
+<p>Im not sure if this was removed before, i cant see any real reason not to have it done, unless someone knows something i dont/have forgotten</p>
+<p>Feel free to add it if you agree with me!!</p>
+<p><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 21:00, 27 March 2007 (UTC)</p>
+<dl>
+<dd>Sorry, I disagree. I don't think that removing the excess whitespace which doesn't change the display of the page is necessary. If anything, it makes the source code harder, not easier, to read without changing the output. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 23:12, 27 March 2007 (UTC)
+<dl>
+<dd>It would also be encouraging folks to commit trivial edits. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 15:07, 28 March 2007 (UTC)
+<dl>
+<dd>Well, it would come under the 'insignificant edit' category wouldnt it? If people started just doing that? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 15:11, 28 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>the original reason for the request was specifcally for use within the image namespace, to aid in making fixes like <a href="http://en.wikipedia.org/w/index.php?title=Image:Golbat.png&amp;diff=prev&amp;oldid=114184348" class="external text" title="http://en.wikipedia.org/w/index.php?title=Image:Golbat.png&amp;diff=prev&amp;oldid=114184348" rel="nofollow">this</a> across large categories when doing other work (like image sorting). -<a href="../../../z/a/p/User%7EZappernapper_ad66.html" title="User:Zappernapper">ΖαππερΝαππερ</a> <sup><a href="../../../z/a/p/User_talk%7EZappernapper_cf32.html" title="User talk:Zappernapper">Babel</a></sup><sub><a href="../../../c/o/n/Special%7EContributions_Zappernapper_a171.html" title="Special:Contributions/Zappernapper">Alexandria</a></sub> 19:12, 2 April 2007 (UTC)</p>
+<dl>
+<dd>Fair enough, i think that should be allowed.. Urrrm... We need somewhere to put the checkbox... Or just have it do if in Image is in article title (or rather, the start), it runs the fix whitespace...? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 19:43, 2 April 2007 (UTC)</dd>
+</dl>
+<p>that might cause accidental usage on "Image of" articles (unless you did it for "Image:"). Why not move the skip options button down to where all the other skip options are and then place the option there? -<a href="../../../z/a/p/User%7EZappernapper_ad66.html" title="User:Zappernapper">ΖαππερΝαππερ</a> <sup><a href="../../../z/a/p/User_talk%7EZappernapper_cf32.html" title="User talk:Zappernapper">Babel</a></sup><sub><a href="../../../c/o/n/Special%7EContributions_Zappernapper_a171.html" title="Special:Contributions/Zappernapper">Alexandria</a></sub> 14:15, 3 April 2007 (UTC)</p>
+<p><a name="IAWBPlugin" id="IAWBPlugin"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: IAWBPlugin">edit</a>]</span> <span class="mw-headline">IAWBPlugin</span></h2>
+<p>Are there any plugins out there that we know of, <i>other than</i> those in the AWB repository and the kingbotk plugin? I want to add some functionality to the interface connected with the nudge feature - and undertake to fix the aforementioned plugins - but don't want to flagrantly breach the warning <i>I</i> wrote about not changing the contractual interface&#160;:) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 15:09, 28 March 2007 (UTC)</p>
+<p><a name="Unicode_problems_--_URGENT" id="Unicode_problems_--_URGENT"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Unicode problems -- URGENT">edit</a>]</span> <span class="mw-headline">Unicode problems -- URGENT</span></h2>
+<p>Big problem with new <a href="../../../e/x/p/Special%7EExpandTemplates_10e4.html" title="Special:ExpandTemplates">Special:ExpandTemplates</a> usage: It's not handing HTML entities, unicode, etc. well. See <a href="http://en.wikipedia.org/w/index.php?title=User_talk:Ellomate&amp;diff=118641257&amp;oldid=118574031" class="external text" title="http://en.wikipedia.org/w/index.php?title=User_talk:Ellomate&amp;diff=118641257&amp;oldid=118574031" rel="nofollow">what it did</a> and <a href="http://en.wikipedia.org/w/index.php?title=User_talk:Ellomate&amp;diff=118644991&amp;oldid=118643230" class="external autonumber" title="http://en.wikipedia.org/w/index.php?title=User_talk:Ellomate&amp;diff=118644991&amp;oldid=118643230" rel="nofollow">[3]</a> hat it should have done]. I don't have time to fix it now; a quick fix would be greatly appreciated. I just found out with a huge amount of messages to my talk page and my bot blocked for making that error&#160;:-) —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 00:08, 29 March 2007 (UTC)</p>
+<dl>
+<dd>I've removed this from the code and released another new version disabling the last, as this is too big a bug. It also has problems dealing with any non-English characters. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 02:58, 31 March 2007 (UTC)
+<dl>
+<dd><a href="http://en.wikipedia.org/w/index.php?title=Wikipedia%3AAutoWikiBrowser%2FSandbox&amp;diff=120587388&amp;oldid=120586378" class="external autonumber" title="http://en.wikipedia.org/w/index.php?title=Wikipedia%3AAutoWikiBrowser%2FSandbox&amp;diff=120587388&amp;oldid=120586378" rel="nofollow">[4]</a> To check - is this definately the desired behavoir, and are there any others worth testing on? Thanks, <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 21:47, 5 April 2007 (UTC)
+<dl>
+<dd>Committed a fix in <a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=949" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=949" rel="nofollow">rev 949</a>, but I've not re-added it for handling user talk messages just yet, pending any feedback. <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 21:51, 5 April 2007 (UTC)
+<dl>
+<dd>Seems fully resolved in <a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=950" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=950" rel="nofollow">rev 950</a> <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 22:14, 5 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Logging_tab" id="Logging_tab"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Logging tab">edit</a>]</span> <span class="mw-headline">Logging tab</span></h2>
+<p><i>Moved from <a href="../../../m/e/t/User_talk%7EMets501_fc50.html#Edits_to_Logging" title="User talk:Mets501">User_talk:Mets501#Edits_to_Logging</a></i></p>
+<p>Hey Mets, Can you hold off doing any edits to the logging thing?</p>
+<p>Me and steve are making it Object orientated, and therefore making it a lot more flexible.</p>
+<p>Cheers</p>
+<p><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 17:45, 1 April 2007 (UTC)</p>
+<dl>
+<dd>Sure, no problem&#160;:-). You're right, if we want to expand the log or do anything with it in the future, making it object oriented would be much easier. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 17:48, 1 April 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>Thanks. We're going to do multiple coloums (using a list view), ability to load the page in your web browser and such =). Drop you a message when we are done. <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 18:07, 1 April 2007 (UTC)
+<dl>
+<dd>Great. Just remember that it has to look OK in every resolution from 800x600 to 1680x1050 widescreen, which is a challenge. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 18:14, 1 April 2007 (UTC)</dd>
+</dl>
+</dd>
+<dd>Anchoured to the left, top and right, and i've a neat trick for sorting out the coloumns <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 18:25, 1 April 2007 (UTC)</dd>
+</dl>
+<p>Basically my thought process was this:</p>
+<ul>
+<li>My DLL already has a logging scheme</li>
+<li>I was gonna spend the time by making a tab for my plugin to log to</li>
+<li>The AWB logging tab really needs to be more advanced than just a label,</li>
+<li>Why spend the time making a new tab for my plugin when I could make the AWB logging OOP instead?</li>
+</ul>
+<p>Sam was roped in and here we go. Can't guarantee it'll work but we'll try.</p>
+<p>So,</p>
+<ul>
+<li>WikiFunctions.dll gets the logging interface used by my plugin and previously declared in WikiFunctions2</li>
+<li>I'm writing a new log item class called AWBLogListener which inherits from ListViewItem (so it can easily be added to the relevant list at the end)</li>
+<li>Sam is working on AWB creating the log listener, writing to it, and then adding it to the relevant list</li>
+<li>AWBLogListener also implements IMyTraceListener, this interface will be passed to plugins in ProcessArticle() so they can have their say too</li>
+<li>AWBLogListener will also have methods and properties for use by AWB</li>
+<li>Create an AWBLogListener for each article, write to it during processing, and add it to the relevant list at the end</li>
+<li>AWBLogListener will handle mouseover and click events</li>
+<li>Any extra functionality is easily added by bolting it into AWBLogListener</li>
+</ul>
+<p>--<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 20:35, 1 April 2007 (UTC)</p>
+<dl>
+<dd>Much more advanced than my original&#160;:-) Sounds good! —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 20:39, 1 April 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>Its working.... xD <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 21:07, 1 April 2007 (UTC)
+<dl>
+<dd>Yeah working... passed through and written to by the plugin too. Visually a bit jerky, no mouseover or double click events yet, but as a proof of concept it works&#160;:) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 21:26, 1 April 2007 (UTC)
+<dl>
+<dd>The Save List button isn't working. Other than that, it looks great as far as I can tell. I'm going to test it more now. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 21:37, 1 April 2007 (UTC)
+<dl>
+<dd>Yeah, Sam knows about that and will fix it tommorow (or you can fix it).
+<dl>
+<dd>Fixed, saves a single column of the list view, and also any sub items. Bit of a raw form - Column1 + " " + Coloum2 + " ".... <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 19:38, 2 April 2007 (UTC)</dd>
+</dl>
+</dd>
+<dd>Any idea why the tooltiptext isn't displaying?</dd>
+<dd>I'll now work on double clicking the listitem opening the article in browser. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 21:41, 1 April 2007 (UTC)
+<dl>
+<dd>Oh and don't forget, any extra functionality for a row (such as code used by right click menu items) can be added to AWBLogListener. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 21:42, 1 April 2007 (UTC)
+<dl>
+<dd>Another bug (don't ask how I encountered this&#160;:-)). Try editing the article Hello, and press ignore. Now try the article "Hello/Hello", and press ignore (or AWB with automatically ignore because it doesn't exist. You get a "Cannot insert the item 'Hello' in more than one place. You must first remove it from its current location or clone it. Parameter name: item" message. This only occurs with pages with slashes when the second one (which generates the error) doesn't exist. Also try "Talk:Main Page" and "Talk:Main Page/Archive 13131312" and observe that it does happen, because there is no archive 13131312, but when doing it with "Talk:Main Page" and "Talk:Main Page/Archive 1" there's no error message. Strange. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 21:57, 1 April 2007 (UTC)
+<dl>
+<dd>Just checked Sam's code, and he's adding the listitem by object not by a key. Maybe it's the code which creates the subitems? Any help from the debugger? --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:13, 1 April 2007 (UTC)
+<dl>
+<dd>
+<dl>
+<dd>No help from the debugger. I think it's a handled error which is set to output the exception message. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 00:10, 2 April 2007 (UTC)
+<dl>
+<dd>I guess it has something to do with it being Hello/Hello i.e. X/X, and not Hello/123. Obviously something has a non unique key where it should be unique. We'll look into it tommorow. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 00:16, 2 April 2007 (UTC)
+<dl>
+<dd>Nope. See my main page archive example above. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 00:36, 2 April 2007 (UTC)
+<dl>
+<dd>OK. I doubt it's anything serious, we'll fix it tommorow&#160;:) I'm actually quite impressed that it pretty much worked first time&#160;:) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 01:01, 2 April 2007 (UTC)
+<dl>
+<dd>As am I&#160;:-) —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 01:13, 2 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>It seems possible if the article name doesnt exist, it can/will keep the old one and log as that....</dd>
+<dd>Fixed - Moved
+<pre>
+LogListener = new AWBLogListener(EdittingArticle.Name); 
+</pre>
+from CaseWasLoad, to Start(), so it picks up the article name there. Which, really makes more sense having it there. This has fixed the hello and hello/hello bug. Which also means it picks up invalid titles and stuff. <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 21:29, 2 April 2007 (UTC)
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Doing Hello/Hello first results in a null object error. Could you look at this please Sam, if I don't get to it first? --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:24, 1 April 2007 (UTC)
+<dl>
+<dd>You might have fixed Mets' bug but this error is still happening&#160;:) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 22:27, 2 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Double click now works in both lists: dbl click to open page in browser. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 22:41, 1 April 2007 (UTC)</p>
+<p>Onmouseover now shows a tooltiptext message. This currently only works in the Skipped article list cos Sam hasn't assigned any log messages to the Saved article log entries&#160;:) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 22:58, 1 April 2007 (UTC)</p>
+<dl>
+<dd>Do we need any log messages if it saved all ok...? <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 21:12, 2 April 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>What do you think about adding a time column to both listviews? —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 06:32, 2 April 2007 (UTC)
+<dl>
+<dd>Probably a good idea. Then they know what time it was done. Are we wanting like full date and time, or just time (HH:MM)?
+<dl>
+<dd>Date Added to ignore list view. <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 21:21, 2 April 2007 (UTC)</dd>
+</dl>
+</dd>
+<dd>As previously said, im at my dads work today (Been driving my dads works van about moving rubbish&#160;;D), so im not even really sat at a computer till now when im having a break. Let alone having a copy of C# Express! So tonight, i should be able to at least clear up a few bugs if you havent got round to it.</dd>
+</dl>
+</dd>
+<dd>As something else, i think adding a context menu to each of the list views could be useful, then have an option to open in default internet browser, simple to do. <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 09:21, 2 April 2007 (UTC)
+<dl>
+<dd>Double click does that, although we probably should have a context menu anyway. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 10:13, 2 April 2007 (UTC)</dd>
+<dd>Yup, and then they can add individual articles to the Article List, and copying from list would be useful. Date/time to add tonight i think <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 19:42, 2 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>To try and improve the juttering, i've changed the 2 list views for 'NoFlickerListViews' that are used in IRCMonitor, seems less jerky. See how it goes. <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 20:49, 2 April 2007 (UTC)
+<dl>
+<dd>Something, perhaps that change?, has <b>broken my double click code and my tool tip code</b>. (revs 896, 897) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 17:15, 3 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Ref_formatter" id="Ref_formatter"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Ref formatter">edit</a>]</span> <span class="mw-headline">Ref formatter</span></h2>
+<p>We've got two bugs related to <code>Parsers.FixFootnotes</code>. I suppose it's time to disable it until we can be sure that it will work ok. <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 12:46, 2 April 2007 (UTC)</p>
+<p><a name="DEFAULTSORT" id="DEFAULTSORT"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: DEFAULTSORT">edit</a>]</span> <span class="mw-headline">DEFAULTSORT</span></h2>
+<p><a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=908" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=908" rel="nofollow">r908, might be worth checking</a>. Further to <a href="../../../k/i/n/User_talk%7EKingbotk_Plugin_94fb.html#Listas_and_DEFAULTSORT" title="User talk:Kingbotk/Plugin">User_talk:Kingbotk/Plugin#Listas_and_DEFAULTSORT</a>, and in the interests of code reuse, I've changed AWB to call the DEFAULTSORT regex in the new module I added yesterday. My regex is slightly better anyway, since it deals with <a href="http://en.wikipedia.org/w/index.php?title=Ali-Shir_Nava%27i&amp;diff=119960593&amp;oldid=119960077" class="external text" title="http://en.wikipedia.org/w/index.php?title=Ali-Shir_Nava%27i&amp;diff=119960593&amp;oldid=119960077" rel="nofollow">this perfectly legal scenario</a>. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 13:01, 3 April 2007 (UTC)</p>
+<p><a name="New_Template" id="New_Template"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: New Template">edit</a>]</span> <span class="mw-headline">New Template</span></h2>
+<p>Hey Guys, To make our lives easier, template created to list SVN log Rev: {{<a href="../../../a/w/b/Template%7EAwbsvn_9e7c.html" title="Template:Awbsvn">awbsvn</a>}}</p>
+<p>Gives <a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=666" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=666" rel="nofollow">rev 666</a></p>
+<p><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 21:44, 3 April 2007 (UTC)</p>
+<p><a name="AWB_Accounts.2FProfiles" id="AWB_Accounts.2FProfiles"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: AWB Accounts/Profiles">edit</a>]</span> <span class="mw-headline">AWB Accounts/Profiles</span></h2>
+<p>Another idea</p>
+<p>Was discussing this with Steve first.</p>
+<p>It would be good to have some form of a profile manager in AWB.</p>
+<p>Quite a few people have bot accounts and normal accounts, would be useful if you could easily switch between them, without having to re-login.</p>
+<p>Save account names and possibly a default settings.xml in a generic settings file for AWB, and then save the password, encrypted into say the registry.</p>
+<p><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 20:49, 4 April 2007 (UTC)</p>
+<dl>
+<dd>This is a good idea, but I have security concerns. I absolutely veto storing account info in settings files; storing them encrypted in the registry would usually be OK but since the application is open source I'm a little concerned about even that. I won't say any more of course because of <a href="../../../b/e/a/WP%7EBEANS_2a59.html" title="WP:BEANS">WP:BEANS</a>. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 13:55, 5 April 2007 (UTC)
+<dl>
+<dd>OK, been thinking about this some more:
+<ul>
+<li>We can give the user a security warning and the option of password-protecting their profile, and using that password in the encryption process. If they decline, we'll use the details compiled into AWB. Encryption should be enough to deter any casual hacker who has somehow got access to the registry; any attack specifically against AWB users, well, the onus is on them to password-protect their details. I personally wouldn't bother with using a password, as I think the risk is small and I'm not going to run any malicious code.</li>
+<li>The account info should be an object, but the password shouldn't be passed outside AWB. Instead, plugins should be notified when the user switches accounts, and also there should be an addition/overload to WikiFunctions.Editor: void Login(Profile profile). My plugin already stores account info and uses that class to upload logs; I need a simple transition.</li>
+</ul>
+</dd>
+<dd>If we can do this, I think this is a go-er and another nice addition v4. Thoughts? --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 11:44, 7 April 2007 (UTC)
+<dl>
+<dd>I do like this idea, and it would certainly make things easier for many. The concern about security is always present, and the storage of passwords is an issue. However, it's worth noting that it is up to the user to protect their details, but it would be nice to keep the option open to them to store them encrypted somewhere, on the condition that the security concerns with this are made abundantly clear. The wider idea of profiles for using AWB is great though&#160;:) <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 11:55, 7 April 2007 (UTC)
+<dl>
+<dd>And we can give them the option if they do actually want to save the password for certain accounts. If they didnt want to save, when the selected login, it could give an inputbox asking for the password and login anyway =). Commiting a base mock form to SVN now. <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 12:31, 7 April 2007 (UTC)
+<dl>
+<dd>Yep, but I personally would just trust AWB, because I use the same password for both accounts. Anyrode, if you can check that we can actually do the login code programatically, get the encryption code from that URL I gave you, and port the registry code from wikifunctions2, and do the form... i.e. plenty to be going on with until we decide on the details. Certainly the password field will be private, so that only the Profile object knows it, we might even store it encrypted in memory and decrypt it on the fly... --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 12:36, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Basic viewing form done, and also a basic add (could be used for edit too) form done.</dd>
+<dd>RijndaelSimple module moved into WF.DLL under Encryption.cs</dd>
+<dd><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 12:59, 7 April 2007 (UTC)
+<dl>
+<dd>As you know my desktop PC has stopped working&#160;:( Not fixed it yet, might be terminal. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 14:23, 7 April 2007 (UTC)
+<dl>
+<dd>I'm back, having lost a working day and sans audio. Best guess is that the audio chip on my motherboard is f*cked. (cries) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 17:09, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>I had <a href="../../../k/i/n/User%7EKingboyk_AWB_3b58.html#To-do" title="User:Kingboyk/AWB">all these improvements and fixes</a> planned for today and got <i>none</i> of it done, sigh. What a day! --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 21:20, 7 April 2007 (UTC)</p>
+<p><a name="Time_in_log" id="Time_in_log"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Time in log">edit</a>]</span> <span class="mw-headline">Time in log</span></h2>
+<p>The time isn't added to the "saved" list view. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 21:32, 4 April 2007 (UTC)</p>
+<dl>
+<dd>Update your SVN - Added tonight <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 21:34, 4 April 2007 (UTC)</dd>
+</dl>
+<p><a name="Error" id="Error"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Error">edit</a>]</span> <span class="mw-headline">Error</span></h2>
+<p>I'm getting a "Configuration system failed to initialize" error when I start up the latest SVN build. Any ideas? It's not happening in the debugger, only after actually building the project. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 17:39, 5 April 2007 (UTC)</p>
+<dl>
+<dd>Do you have <i>all</i> the necessary files in place? I seem to recall getting that error when a file was missing.</dd>
+<dd>BTW, I just got a missing object error in an SVN build, but I don't know if it was caused by AWB (e.g. logging object) or plugin. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 17:44, 5 April 2007 (UTC)
+<dl>
+<dd>Yeah, as far as I know everything's in place. I tried deleting the output files and letting them regenerate; same error. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 17:47, 5 April 2007 (UTC)
+<dl>
+<dd>I just deleted the entire folder, and re-checked out everything from SVN, and then rebuilt: same error. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 21:17, 5 April 2007 (UTC)
+<dl>
+<dd>If you've got all files including AutoWikiBrowser.exe.config in place, I don't know what else to say. Mighty strange that it would work in the debugger but not compiled. Both are working for me, btw. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 00:30, 6 April 2007 (UTC)
+<dl>
+<dd>Can you email me your config file and I can compare mine to it to check for problems? <a href="../../../e/m/a/Special%7EEmailuser_Mets501_049e.html" title="Special:Emailuser/Mets501">Special:Emailuser/Mets501</a> works. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 19:49, 6 April 2007 (UTC)
+<dl>
+<dd>
+<dl>
+<dd>I'd be surprised if it's settings, but FWIW I just emailed you the one I use most often. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 20:09, 6 April 2007 (UTC)</dd>
+</dl>
+</dd>
+<dd>I'm getting the same issue in the debugger, but not in compiled (though I am running the program as administrator in Vista). Could this be a permissions issue? If it is, then it has appeared surprisingly suddenly... <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 19:53, 6 April 2007 (UTC)
+<dl>
+<dd>So you have the opposite problem as me&#160;:-) When running Visual Studio with or without admin permissions I get no error on debug, and when running AWB compiled with or without admin permissions I get the error, so I don't think it's a permissions issue. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 19:57, 6 April 2007 (UTC)
+<dl>
+<dd>Almost certainly not permissions then! On a related point - when I had this error on startup, I got a generic WebClient error when doing stuff with ExpandTemplates, though all other connections worked fine. That issue resolved itself after running the program independantly of VS2005 with admin privs (at which point I got a message from McAffee about it...). Hopefully it's something simpler than this though! <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 20:04, 6 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>AWB must have decided it only likes the british - Rule Britannia!!&#160;;) <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 20:00, 6 April 2007 (UTC)
+<dl>
+<dd>(ec) Lol - but I'm British! <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 20:04, 6 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+<dd>Stepping through, I get a System.Configuration.ConfigurationErrorsException error on line 43 of Settings.Designer.cs, which is being called by line 86 of Main.cs. See below for exception detail: <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 20:51, 6 April 2007 (UTC)</dd>
+</dl>
+<pre>
+System.Configuration.ConfigurationErrorsException was caught
+  Message="Configuration system failed to initialize"
+  Source="System.Configuration"
+  BareMessage="Configuration system failed to initialize"
+  Line=0
+  StackTrace:
+       at System.Configuration.ConfigurationManager.RefreshSection(String sectionName)
+       at System.Configuration.ClientSettingsStore.ReadSettings(String sectionName, Boolean isUserScoped)
+       at System.Configuration.LocalFileSettingsProvider.GetPropertyValues(SettingsContext context, SettingsPropertyCollection properties)
+       at System.Configuration.SettingsBase.GetPropertiesFromProvider(SettingsProvider provider)
+       at System.Configuration.SettingsBase.GetPropertyValueByName(String propertyName)
+       at System.Configuration.SettingsBase.get_Item(String propertyName)
+       at System.Configuration.ApplicationSettingsBase.GetPropertyValue(String propertyName)
+       at System.Configuration.ApplicationSettingsBase.get_Item(String propertyName)
+       at AutoWikiBrowser.Properties.Settings.get_StubMaxWordCount() in C:\Users\Martin\Desktop\AWB\AWB\AWB\Properties\Settings.Designer.cs:line 43
+       at AutoWikiBrowser.MainForm..ctor() in C:\Users\Martin\Desktop\AWB\AWB\AWB\Main.cs:line 86
+</pre>
+<dl>
+<dd>
+<dl>
+<dd>This is clearly an issue with the settings file appearing empty, non-existant or inaccessible. The temproary user.config produced by VS when I debug is empty, and presumably there's a similar issue at compilation time on Mets' system (presuming the new config file didn't fix the issue). Does anyone have any ideas? For background info: I'm running VS2005 on Vista Home, with .NET 1.1, 2.0 and 3.0 installed. I can't pinpoint a time tnhat the issue occured, as this is a new PC which I'm still in the process of setting up, so am installing and uninstalling stuff all the time. <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 21:51, 6 April 2007 (UTC)
+<dl>
+<dd>The painful but obvious approach is to check out an old revision, try that, then the next revision, and so on...</dd>
+<dd>Are you using a "full" VS2005 or the Express edition? --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 22:00, 6 April 2007 (UTC)
+<dl>
+<dd>I'm on the full version, SP1 with Vista update. I'll try a few random checkouts from the past to see if there's an issue, and check the various VS settings - <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 22:16, 6 April 2007 (UTC)
+<dl>
+<dd>It's almost certainly an issue with system permissions in both my case and Mets' case. To fix, I set the .sln file to open with VS version selector (rather than devenv.exe), and made devenv.exe open without admin permissions (ie - reset these options to default on Vista). Of course, this is a bit of a pain in terms of Vista/VS interoperability, but resolves my issue. I can't guess at what Mets' issue is, but it may be worth re-building the program making sure that the settings are all at default. <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 22:34, 6 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Logging_error_or_something_else.3F" id="Logging_error_or_something_else.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Logging error or something else?">edit</a>]</span> <span class="mw-headline">Logging error or something else?</span></h2>
+<p>The AWB logging tab (which is proving hugely useful) tells me that AWB skipped <a href="../../../j/o/h/Talk%7EJohn_the_Scot_%28bishop%29_0bf6.html" title="Talk:John the Scot (bishop)">Talk:John the Scot (bishop)</a> because the page is protected. However, it seems that page isn't and has never been protected (unless I made a mistake when looking at the logs). --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 17:49, 5 April 2007 (UTC)</p>
+<dl>
+<dd>Hmm, maybe the database was temporarily locked and AWB confused it for being protected? —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 17:55, 5 April 2007 (UTC)</dd>
+</dl>
+<p><a name="Log_context_menu" id="Log_context_menu"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Log context menu">edit</a>]</span> <span class="mw-headline">Log context menu</span></h2>
+<p>A todo list for items I think should be on the log context menu (not in order):</p>
+<ul>
+<li>Remove</li>
+<li>Open in browser</li>
+<li>Open history in browser</li>
+<li>Add to article list</li>
+<li>Cut/copy</li>
+<li>Select all/none/invert</li>
+</ul>
+<p>Sam suggested making a user control and putting the log list boxes onto that; I think it's a good idea for encapsulating functionality. Maybe, then, the context menu could be developed on that control and passed to each log entry object at the same time as it's added to the list. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 19:27, 5 April 2007 (UTC)</p>
+<dl>
+<dd>Now in a control. <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 21:04, 5 April 2007 (UTC)
+<dl>
+<dd>Yep, a nice bit of OOP and great work from Sam... except he disabled the f*cking double click code again!!! I'll be taking that barnstar back, young man! --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 00:32, 6 April 2007 (UTC)
+<dl>
+<dd>I know for sure i copied it accross, as i did with the colomn click event... <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 09:37, 6 April 2007 (UTC)
+<dl>
+<dd>The event handler was there, but it wasn't attached in the designer. Perhaps I should do it in explicit code so nobody else (or, more likely, me!) breaks it again&#160;:P --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 20:06, 6 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="ExpandTemplates_issue" id="ExpandTemplates_issue"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: ExpandTemplates issue">edit</a>]</span> <span class="mw-headline">ExpandTemplates issue</span></h2>
+<p>The issue which caused unicode problems is now resolved in SVN, however the offending code is still live in the current release, and the program is set to use the expandtemplates feature by default when subst'ing. The result of this is that, although the use of the function when carrying out general fixes is now disabled, it is still readily used by people when subst'ing using the find/replace system. Do you think this is something that a bug fix release should be made for? <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 17:07, 6 April 2007 (UTC)</p>
+<dl>
+<dd>Probably, just we are still working on the logging element... Which works to an extent in its current state, there have been a hell of a lot of changes since <a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=860" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=860" rel="nofollow">rev 860</a> to the current <a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=959" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser?view=rev&amp;revision=959" rel="nofollow">rev 959</a>. Steve and I aren't far off, so we should be able to get one out this weekend!! <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 17:22, 6 April 2007 (UTC)
+<dl>
+<dd>The other option is to checkout a known good revision, apply the new patch, and release <i>that</i>. The logging stuff is mostly great, but I've been getting occasional runtime errors when my bot has been running... I wouldn't recommend release of the current svn version. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 20:05, 6 April 2007 (UTC)
+<dl>
+<dd>Also, I can't compile and run the software and Martinp23 can't run it in debugger mode, so we should probably figure that out first. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 23:31, 6 April 2007 (UTC)
+<dl>
+<dd>Yep, and other supposedly fixed issues remain, like it not exiting cleanly if exited immediately. Sam also had problems just now when exiting. I forget what, but no doubt he'll chip in&#160;:) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:53, 6 April 2007 (UTC)
+<dl>
+<dd>We have an infinite loop, as the web browser control has been disposed, so it isnt going to change status.</dd>
+<dd>
+<pre>
+while (ReadyState != WebBrowserReadyState.Complete) Application.DoEvents();
+</pre></dd>
+<dd><a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 10:22, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Stub_location_in_article" id="Stub_location_in_article"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Stub location in article">edit</a>]</span> <span class="mw-headline">Stub location in article</span></h2>
+<p>After changing it in SVN to comply with simple's system of doing things, I've been asked on IRC why the stub tag is put after the categories by AWB, so mixing up the visible and the invisible content. If made, this would only be a cosmetic change and could reault in meaningless edits - is it worth committing a fix based on the (apparent) support from the community for it? <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 23:08, 6 April 2007 (UTC)</p>
+<dl>
+<dd>I've always disagreed with it being done that way too. How can we determine consensus? (IRC is <b>not</b> consensus, btw!) --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 23:52, 6 April 2007 (UTC)
+<dl>
+<dd>Dunno - an IRC poll?&#160;:P (only joking!). I was told on IRC that the current system goes against common sense, and is against what most would expect (only 2 people voiced their opinions). I'll make a post on <a href="../../../v/p/t/WP%7EVPT_113f.html" title="WP:VPT">the Village Pump</a> about it, and see what we get. <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 11:46, 7 April 2007 (UTC)</dd>
+<dd>I find your lack of faith in mightiness of the IRC cabal, great and mighty, disturbing. <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Cabal's sock</a> 14:58, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Contributions" id="Contributions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Contributions">edit</a>]</span> <span class="mw-headline">Contributions</span></h2>
+<p>I don't think this is related to AWB, but it may be, so I'll post here. I've made 60 edits on AWB, and its been 25 minutes and they're not showing up in my contribs. Very strange. The edits did take place, however, as can be seen from the article edit histories. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 00:08, 7 April 2007 (UTC)</p>
+<dl>
+<dd>OK, they finally showed up. That was weird. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 00:15, 7 April 2007 (UTC)
+<dl>
+<dd>The lag has got worse and worse tonight. It was about 9 minutes, now it's 25 or so. <a href="../../../r/e/c/Special%7ERecentchanges_05b8.html" title="Special:Recentchanges">Special:Recentchanges</a> stays up to date, watchlist and contrins don't. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 00:21, 7 April 2007 (UTC)
+<dl>
+<dd>Yeah, I wonder what happened. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 02:11, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Wikipedia:AutoWikiBrowser.2FUser_talk_templates" id="Wikipedia:AutoWikiBrowser.2FUser_talk_templates"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Wikipedia:AutoWikiBrowser/User talk templates">edit</a>]</span> <span class="mw-headline"><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_User_talk_templates_4a56.html" title="Wikipedia:AutoWikiBrowser/User talk templates">Wikipedia:AutoWikiBrowser/User talk templates</a></span></h2>
+<p>Templates are now loaded from <a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_User_talk_templates_4a56.html" title="Wikipedia:AutoWikiBrowser/User talk templates">Wikipedia:AutoWikiBrowser/User talk templates</a>. I've tested it, and it seems to work perfectly, but someone might want to check it over to make sure. —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 02:10, 7 April 2007 (UTC)</p>
+<dl>
+<dd>Also, do you think that page should be semi- or fully protected? The only argument for semi- is that <a href="../../../t/e/c/User%7ETeckWiz_cd20.html" title="User:TeckWiz">User:TeckWiz</a> isn't an admin, and he probably uses it the most (with his bot). —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 02:13, 7 April 2007 (UTC)
+<dl>
+<dd>I guess semi- would be good until I become an admin&#160;:). I'm guessing alphabetical order isn't necessary? Also, is this list retrieved every time AWB starts? --<a href="../../../t/e/c/User%7ETeckWiz_cd20.html" title="User:TeckWiz"><b>TeckWiz</b></a> <sup><a href="../../../t/e/c/User_talk%7ETeckWiz_cb9b.html" title="User talk:TeckWiz">Parlate</a></sup><small><a href="../../../c/o/n/Special%7EContributions_TeckWiz_ea80.html" title="Special:Contributions/TeckWiz">Contribs</a><sub><a href="../../../e/m/a/Special%7EEmailuser_TeckWiz_0fa0.html" title="Special:Emailuser/TeckWiz">@</a></sub>(Lets go Yankees!)</small> 02:16, 7 April 2007 (UTC)
+<dl>
+<dd>It loads the first time that you try to edit a user talk page with general fixes enabled when you load up AWB. I guess we can semi-protect it; there's really no potential for abuse, aside from it not functioning (i.e. it can't be made to do outrageous things like you can with the typo list). —<span style="color: red;"><a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">M<small>ETS</small>501</a> (<a href="../../../m/e/t/User_talk%7EMets501_fc50.html" title="User talk:Mets501">talk</a>)</span> 03:26, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="AWB_extension_proposal" id="AWB_extension_proposal"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: AWB extension proposal">edit</a>]</span> <span class="mw-headline">AWB extension proposal</span></h2>
+<p>I've got a <a href="http://meta.wikimedia.org/wiki/User:VasilievVV/WikiToolsPack" class="extiw" title="meta:User:VasilievVV/WikiToolsPack">proposal</a> for extension. For somebody it seems vague, so I should explain what I propose:</p>
+<ol>
+<li>Move common UI from WikiFunctionы library to seperate library for common UI</li>
+<li>Move wiki params from static class to normal classes (or you know how to make WikiFunctions library on to wikis in one time?)</li>
+<li>Move IRC access and parsing to seperate library</li>
+<li>Expand WikiFunctions libarary functionality</li>
+<li>Add useful utilities (like local editcounter or watchlist observer)</li>
+<li>Add automatic bots</li>
+<li>Add scripting (I saw a sample in DirectX SDK, that uses C# for scipting. It's written on C++, but I hope it's possible to use it from .NET program)</li>
+</ol>
+<p>- <a href="../../../v/a/s/User%7EVasilievVV_3bc8.html" title="User:VasilievVV">VasilievVV</a> 07:39, 7 April 2007 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>OMG another WikiSuite&#160;:D</dd>
+<dd>I was writing email reply to you when I saw this message, so I'll reply you here.
+<ol>
+<li>Any reason for it? WikiFunctions is just a library for common functions of AWB and things that need to be in a dll due to .NET architecture.</li>
+<li>This would require a substaintial rewrite. Will you do it?
+<dl>
+<dd>Yes, I think I'll try - <a href="../../../v/a/s/User%7EVasilievVV_3bc8.html" title="User:VasilievVV">VasilievVV</a> 11:58, 7 April 2007 (UTC)</dd>
+</dl>
+</li>
+<li>Another dll? Currently AWB is shipped with one library, and you're proposing to split it to 5-6. That would be extremely inconvenient.
+<dl>
+<dd>Maybe. But now it's like a melting pot. - <a href="../../../v/a/s/User%7EVasilievVV_3bc8.html" title="User:VasilievVV">VasilievVV</a> 11:58, 7 April 2007 (UTC)</dd>
+</dl>
+</li>
+<li><i><a href="../../../i/m/a/Imagine_%28song%29.html" title="Imagine (song)">No need for greed or hunger, A brotherhood of man</a></i>. %)</li>
+<li>There's a <a href="http://meta.wikimedia.org/wiki/Toolserver" class="extiw" title="m:Toolserver">m:Toolserver</a> for such things.
+<dl>
+<dd>It can't notify you about something immediately - <a href="../../../v/a/s/User%7EVasilievVV_3bc8.html" title="User:VasilievVV">VasilievVV</a> 11:58, 7 April 2007 (UTC)
+<dl>
+<dd>But good tools on toolserv are better than writing a similar thing for AWB, as using toolserv can reduce strain on the databases and give you a wider range of data available (when replication gts back up to speed). <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 12:17, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li>AWB works fine in bot mode.
+<dl>
+<dd>AWB can't perform some custon actions (like collecting user edit count and put it on his subpage), can it? - <a href="../../../v/a/s/User%7EVasilievVV_3bc8.html" title="User:VasilievVV">VasilievVV</a> 11:58, 7 April 2007 (UTC)
+<dl>
+<dd>Only cause it isn't coded to do so. <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 12:05, 7 April 2007 (UTC)
+<dl>
+<dd>This seems to involve the same as the point above - these things are easy to code for, but haven't been done as they have negligable value (why would the bot need to update its edit count, for example). <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 12:17, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li>Custom C# code for article text modification is supported. Do you want to have a whaladon that would support custom scripting for everything (e.g. selecting next article to edit, switching to another project)?
+<dl>
+<dd>Yes. - <a href="../../../v/a/s/User%7EVasilievVV_3bc8.html" title="User:VasilievVV">VasilievVV</a> 11:58, 7 April 2007 (UTC)</dd>
+</dl>
+</li>
+</ol>
+</dd>
+<dd><a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 08:04, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Hehe. If theres anything you specifically want in AWB let us know, it has support for the different languages and such... MaxSem has pretty well hit the nail on the head <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a> 10:20, 7 April 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>You can always write another DLL which adds these extra features, or send us code for adding to the repository. That's what I did; I just reference wikifunctions.dll and then build on it. Now some of the features I put into that code are working their way into AWB/wikifunctions proper. I'm sure we'd be delighted to have extra features from you. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 12:19, 7 April 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Take a look at the DotNetWikiBot framework (DNWBF), which is also in C#, but is more geared towards bots that AWB is, and is far more generic. Don't forget that Wikifunctions.dll was designed with AWB in mind, and making the library more usable by other programs is a lot of work, and would probably break AWB. DNWBF would be more receptive to changes, as it is designed to be generic. <strong><a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Mart</a><a href="../../../m/a/r/User_talk%7EMartinp23_2732.html" title="User talk:Martinp23"><font color="red">inp23</font></a></strong> 12:25, 7 April 2007 (UTC)
+<dl>
+<dd>Thanks for idea. - <a href="../../../v/a/s/User%7EVasilievVV_3bc8.html" title="User:VasilievVV">VasilievVV</a> 17:10, 7 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Magic_words" id="Magic_words"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Magic words">edit</a>]</span> <span class="mw-headline">Magic words</span></h2>
+<p><a href="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser/AWB/WikiFunctions/ReplaceSpecial/Rule.cs?r1=980&amp;r2=979&amp;pathrev=980" class="external text" title="http://autowikibrowser.svn.sourceforge.net/viewvc/autowikibrowser/AWB/WikiFunctions/ReplaceSpecial/Rule.cs?r1=980&amp;r2=979&amp;pathrev=980" rel="nofollow">This change</a> needs a review. <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">Max<font size="+1"><i>S</i></font>em</a> 17:14, 7 April 2007 (UTC)</p>
+<p><a name="Nudge_timer_revisited" id="Nudge_timer_revisited"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html" title="Edit section: Nudge timer revisited">edit</a>]</span> <span class="mw-headline">Nudge timer revisited</span></h2>
+<p>The new nudge timer seems to be working well, but I think from the logs that 2 minutes as a default is a bit aggressive.</p>
+<p>I'd propose either making the default longer, or perhaps increasing the gap between the event firing by, say, 1 minute increments each time, until it maxes out at 10 minutes.</p>
+<p>Thoughts? --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 17:24, 9 April 2007 (UTC)</p>
+<dl>
+<dd>Unless I'm missing something, what's wrong with having it at 2 minutes? It's just restarting AWB if it stalls. Is it doing anything else? --<a href="../../../t/e/c/User%7ETeckWiz_cd20.html" title="User:TeckWiz"><b>TeckWiz</b></a> <sup><a href="../../../t/e/c/User_talk%7ETeckWiz_cb9b.html" title="User talk:TeckWiz">Parlate</a></sup><small><a href="../../../c/o/n/Special%7EContributions_TeckWiz_ea80.html" title="Special:Contributions/TeckWiz">Contribs</a><sub><a href="../../../e/m/a/Special%7EEmailuser_TeckWiz_0fa0.html" title="Special:Emailuser/TeckWiz">@</a></sub>(Lets go Yankees!)</small> 17:41, 9 April 2007 (UTC)
+<dl>
+<dd>It's adding a line to the log which gets uploaded by my plugin. It's also querying a possibly overloaded server. --<a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">kingboyk</a> 18:01, 9 April 2007 (UTC)
+<dl>
+<dd>Oh...okay. Then it probably would be a good idea. --<a href="../../../t/e/c/User%7ETeckWiz_cd20.html" title="User:TeckWiz"><b>TeckWiz</b></a> <sup><a href="../../../t/e/c/User_talk%7ETeckWiz_cb9b.html" title="User talk:TeckWiz">Parlate</a></sup><small><a href="../../../c/o/n/Special%7EContributions_TeckWiz_ea80.html" title="Special:Contributions/TeckWiz">Contribs</a><sub><a href="../../../e/m/a/Special%7EEmailuser_TeckWiz_0fa0.html" title="Special:Emailuser/TeckWiz">@</a></sub>(Lets go Yankees!)</small> 18:03, 9 April 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<!-- 
+Pre-expand include size: 5836 bytes
+Post-expand include size: 3985 bytes
+Template argument size: 128 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html">http://en.wikipedia.org../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-project"
+	       	       ><a href="../../../a/u/t/Wikipedia%7EAutoWikiBrowser_Dev_ab1b.html">Project page</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/u/t/Wikipedia_talk%7EAutoWikiBrowser_Dev_fdb6.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Wikipedia_talk:AutoWikiBrowser/Dev">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 18:03, 9 April 2007 by Wikipedia user <a href="../../../t/e/c/User%7ETeckWiz_cd20.html" title="User:TeckWiz">TeckWiz</a>. Based on work by Wikipedia user(s) <a href="../../../k/i/n/User%7EKingboyk_1675.html" title="User:Kingboyk">Kingboyk</a>, <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">MaxSem</a>, <a href="../../../v/a/s/User%7EVasilievVV_3bc8.html" title="User:VasilievVV">VasilievVV</a>, <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a>, <a href="../../../m/a/r/User%7EMartinp23_980f.html" title="User:Martinp23">Martinp23</a>, <a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">Mets501</a>, <a href="../../../z/a/p/User%7EZappernapper_ad66.html" title="User:Zappernapper">Zappernapper</a>, <a href="../../../c/a/c/User%7ECacycle_6f2f.html" title="User:Cacycle">Cacycle</a> and <a href="../../../u/n/f/User%7EUnforgettableid_1fd8.html" title="User:Unforgettableid">Unforgettableid</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

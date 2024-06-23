@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Barrier option,American option,Asian option,Basis swap,Bear Call Spread,Bear Put Spread,Binary option,Binomial options pricing model,Black-Scholes,Black model,Bond option" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Barrier option - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Barrier option</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>A <b>barrier option</b> is a type of financial <a href="../../../o/p/t/Option_%28finance%29.html" title="Option (finance)">option</a> where the option to exercise depends on the underlying crossing or reaching a given <i>barrier level</i>.</p>
+<p>Barrier options were created as a way to provide the insurance value of an option without charging as much premium. If you believe that IBM will go up this year, but you're willing to bet that it won't go above $100, then you can buy the barrier and pay less premium than the vanilla option.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Major_types"><span class="tocnumber">1</span> <span class="toctext">Major types</span></a></li>
+<li class="toclevel-1"><a href="#Barrier_events"><span class="tocnumber">2</span> <span class="toctext">Barrier events</span></a></li>
+<li class="toclevel-1"><a href="#Variations"><span class="tocnumber">3</span> <span class="toctext">Variations</span></a></li>
+<li class="toclevel-1"><a href="#Valuation"><span class="tocnumber">4</span> <span class="toctext">Valuation</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Major_types" id="Major_types"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/r/Barrier_option.html" title="Edit section: Major types">edit</a>]</span> <span class="mw-headline">Major types</span></h2>
+<p>Barrier options are path-dependent <a href="../../../e/x/o/Exotic_derivatives.html" title="Exotic derivatives">exotics</a> that are similar in some ways to ordinary options. There are put and call, as well as European and American varieties. But they become activated or, on the contrary, null and void only if the underlier reaches a predetermined level (barrier).</p>
+<p>"In" options start their lives worthless and only become active in the event a predetermined knock-in barrier price is breached. "Out" options start their lives active and become null and void in the event a certain knock-out barrier price is breached.</p>
+<p>In either case, if the option expires inactive, then there may be a cash rebate paid out. This could be nothing, in which case the option ends up worthless, or it could be some fraction of the premium.</p>
+<p>Up-and-out (Down-and-Out): spot price starts below (above) the barrier level and has to move up (down) for the option to be knocked out (become null and void). Up-and-In (Down-and-In): spot price starts below (above) the barrier level and has to move up (down) for the option to become actived.</p>
+<p>For example, a European call option may be written on an underlying with spot price $100, and a knockout barrier of $120. This option behaves in every way like a vanilla European call, except if the spot price ever moves above $120, the option "knocks out" and the contract is null and void. Note that the option does not reactivate if the spot price falls below $120 again. Once it is out, it's out for good.</p>
+<p>In-out parity is the barrier option's answer to put-call parity. If we combine one "in" option and one "out" barrier option with the same strikes and expirations, we get the price of a vanilla option: <span class="texhtml"><i>C</i> = <i>C</i><sub><i>i</i><i>n</i></sub> + <i>C</i><sub><i>o</i><i>u</i><i>t</i></sub></span>. A simple arbitrage argument --- simultaneously holding the "in" and the "out" option guarantees that one and only one of the two will pay off. The argument only works for European options without rebate.</p>
+<p><a name="Barrier_events" id="Barrier_events"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/r/Barrier_option.html" title="Edit section: Barrier events">edit</a>]</span> <span class="mw-headline">Barrier events</span></h2>
+<p>A <i>barrier event</i> occurs when the underlying crosses the barrier level. While it seems straightforward to define a barrier event as "underlying trades at or above a given level," in reality it's not so simple. What if the underlying only trades at the level for a single trade? How big would that trade have to be? Would it have to be on an exchange or could it be between private parties? When barrier options were first introduced to options markets, many banks had legal trouble resulting from a mismatched understanding with their counterparties regarding exactly what constituted a barrier event.</p>
+<p><a name="Variations" id="Variations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/r/Barrier_option.html" title="Edit section: Variations">edit</a>]</span> <span class="mw-headline">Variations</span></h2>
+<p>Barrier options are sometimes accompanied by a <i>rebate</i>, which is a payoff to the option holder in case of a barrier event. Rebates can either be paid at the time of the event or at expiration.</p>
+<p>A <i>discrete barrier</i> is one for which the barrier event is only considered at discrete times, rather than the normal <i>continuous barrier</i> case.</p>
+<p>A <i>Parisian option</i> is a barrier option where the barrier condition only applies once the price of the underlying instrument has spent at least a given period of time on the wrong side of the barrier.</p>
+<p>Barrier options can have either <a href="../../../a/m/e/American_option.html" title="American option">american</a> or <a href="../../../e/u/r/European_option.html" title="European option">european</a> exercise style.</p>
+<p><a name="Valuation" id="Valuation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/r/Barrier_option.html" title="Edit section: Valuation">edit</a>]</span> <span class="mw-headline">Valuation</span></h2>
+<p>The valuation of barrier options can be tricky, because unlike other simpler options they are path-dependent -- that is, the value of the option at any time depends not just on the underlying at that point, but also on the <i>path</i> taken by the underlying (since, if it has crossed the barrier, a barrier event has occurred). Although the classical <a href="../../../b/l/a/Black-Scholes_43a2.html" title="Black-Scholes">Black-Scholes</a> approach does not directly apply, several more complex methods can be used. The most general of these is the <a href="../../../m/o/n/Monte_Carlo_option_model_546e.html" title="Monte Carlo option model">Monte Carlo option model</a>. However, a faster approach is to use finite-differencing techniques to diffuse the PDE backwards from the boundary condition (which is the terminal payoff at expiry, plus the condition that the value along the barrier is always 0 at any time). Both explicit finite-differencing methods and the <a href="../../../c/r/a/Crank-Nicolson_7e8c.html" title="Crank-Nicolson">Crank-Nicolson</a> scheme have their advantages. Yet another way to value Barrier options is using a replicating portfolio of vanilla options (which can be valued with <a href="../../../b/l/a/Black-Scholes_43a2.html" title="Black-Scholes">Black-Scholes</a>), so chosen so as to mimic the value of the barrier at expiry and at selected discrete points in time along the barrier.</p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/r/Barrier_option.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.global-derivatives.com/docs/OverviewofBarrierOptions_(Cheng)_2003.pdf" class="external text" title="http://www.global-derivatives.com/docs/OverviewofBarrierOptions_(Cheng)_2003.pdf" rel="nofollow">An Overview of Barrier Options</a> (<a href="../../../p/o/r/Portable_Document_Format_95a8.html" title="Portable Document Format">PDF</a>), Kevin Cheng, global-derivatives.com</li>
+<li><a href="http://www.derivativeone.com" class="external text" title="http://www.derivativeone.com" rel="nofollow">Option Valuation and Calculators</a>, DerivativeOne.com Derivatives Valuation</li>
+</ul>
+<p><br clear="all" /></p>
+<table class="toccolours" cellspacing="4" align="center" style="padding:0px; font-size: 85%;">
+<tr>
+<td style="padding:0px;">
+<table border="0" style="width:100%;" cellspacing="0" cellpadding="0">
+<tr>
+<td style="padding:0px;">
+<table border="0" style="width:100%;" cellpadding="0">
+<tr>
+<th style="background: #ccccff;" colspan="4">
+<table cellspacing="0" cellpadding="0" border="0" style="background:Transparent" width="100%">
+<tr>
+<td width="30">&#160;</td>
+<td align="center"><a href="../../../d/e/r/Derivative_%28finance%29.html" title="Derivative (finance)">Financial derivatives</a></td>
+<td width="5">&#160;</td>
+</tr>
+</table>
+</th>
+</tr>
+<tr>
+<th style="background: #ddccff;" colspan="4"><a href="../../../o/p/t/Option_%28finance%29.html" title="Option (finance)">Options</a></th>
+</tr>
+<tr>
+<td style="padding-left:5px;" rowspan="2" valign="top"><b><a href="../../../v/a/n/Vanilla_option.html" title="Vanilla option">Vanilla</a></b></td>
+<td><b>Types:</b></td>
+<td colspan="2"><a href="../../../o/p/t/Option_style.html" title="Option style">Option styles</a> | <a href="../../../c/a/l/Call_option.html" title="Call option">Call</a> | <a href="../../../p/u/t/Put_option.html" title="Put option">Put</a> | <a href="../../../w/a/r/Warrant_%28finance%29.html" title="Warrant (finance)">Warrants</a> | <a href="../../../b/o/n/Bond_option.html" title="Bond option">Fixed income</a> | <a href="../../../e/m/p/Employee_stock_option.html" title="Employee stock option">Employee stock option</a> | <a href="../../../f/o/r/Foreign_exchange_option.html" title="Foreign exchange option">FX</a></td>
+</tr>
+<tr>
+<td><b><a href="../../../o/p/t/Options_strategies.html" title="Options strategies">Strategies</a>:</b></td>
+<td colspan="2"><a href="../../../c/o/v/Covered_call.html" title="Covered call">Covered calls</a> | <a href="../../../n/a/k/Naked_put.html" title="Naked put">Naked puts</a> | <a href="../../../b/e/a/Bear_Call_Spread_040b.html" title="Bear Call Spread">Bear Call Spread</a> | <a href="../../../b/e/a/Bear_Put_Spread_094a.html" title="Bear Put Spread">Bear Put Spread</a> | <a href="../../../b/u/l/Bull_Call_Spread_5d98.html" title="Bull Call Spread">Bull Call Spread</a> | <a href="../../../b/u/l/Bull_Put_Spread_3217.html" title="Bull Put Spread">Bull Put Spread</a> | <a href="../../../c/a/l/Calendar_spread.html" title="Calendar spread">Calendar spread</a> | <a href="../../../s/t/r/Straddle.html" title="Straddle">Straddle</a> | <a href="../../../l/o/n/Long_Straddle_f07a.html" title="Long Straddle">Long Straddle</a> | <a href="../../../l/o/n/Long_Strangle_0499.html" title="Long Strangle">Long Strangle</a> | <a href="../../../b/u/t/Butterfly_%28options%29.html" title="Butterfly (options)">Butterfly</a> | <a href="../../../s/h/o/Short_Butterfly_Spread_ed5f.html" title="Short Butterfly Spread">Short Butterfly Spread</a> | <a href="../../../s/h/o/Short_Straddle_99f8.html" title="Short Straddle">Short Straddle</a> | <a href="../../../s/h/o/Short_Strangle_7ff4.html" title="Short Strangle">Short Strangle</a> | <a href="../../../v/e/r/Vertical_spread.html" title="Vertical spread">Vertical spread</a> | <a href="../../../v/o/l/Volatility_arbitrage.html" title="Volatility arbitrage">Volatility arbitrage</a> | <a href="../../../d/e/b/Debit_Spread_c286.html" title="Debit Spread">Debit Spread</a> | <a href="../../../c/r/e/Credit_spread.html" title="Credit spread">Credit spread</a> | <a href="../../../s/y/n/Synthetic_options_position.html" title="Synthetic options position">Synthetic</a></td>
+</tr>
+<tr>
+<td><b><a href="../../../e/x/o/Exotic_option.html" title="Exotic option">Exotics</a>:</b></td>
+<td colspan="2"><a href="../../../a/s/i/Asian_option.html" title="Asian option">Asian</a> | <a href="../../../l/o/o/Lookback_option.html" title="Lookback option">Lookbacks</a> | <strong class="selflink">Barrier</strong> | <a href="../../../b/i/n/Binary_option.html" title="Binary option">Binary</a> | <a href="../../../s/w/a/Swaption.html" title="Swaption">Swaptions</a> | <a href="../../../m/o/u/Mountain_range_%28options%29.html" title="Mountain range (options)">Mountain range</a></td>
+</tr>
+<tr>
+<td><b><a href="../../../v/a/l/Valuation_of_options.html" title="Valuation of options">Valuation</a>:</b></td>
+<td colspan="2"><a href="../../../m/o/n/Moneyness.html" title="Moneyness">Moneyness</a> | <a href="../../../o/p/t/Option_time_value.html" title="Option time value">Option time value</a> | <a href="../../../b/l/a/Black-Scholes_43a2.html" title="Black-Scholes">Black-Scholes</a> | <a href="../../../b/l/a/Black_model.html" title="Black model">Black</a> | <a href="../../../b/i/n/Binomial_options_pricing_model.html" title="Binomial options pricing model">Binomial</a> | <a href="../../../s/t/o/Stochastic_volatility.html" title="Stochastic volatility">Stochastic volatility</a> | <a href="../../../i/m/p/Implied_volatility.html" title="Implied volatility">Implied volatility</a></td>
+</tr>
+<tr>
+<td><b>See Also:</b></td>
+<td colspan="2"><a href="../../../c/b/o/CBOE_41c5.html" title="CBOE">CBOE</a> | <a href="../../../d/e/r/Derivatives_market.html" title="Derivatives market">Derivatives market</a> | <a href="../../../o/p/t/Option_screener.html" title="Option screener">Option Screeners</a> | <a href="../../../o/p/t/Options_strategies.html" title="Options strategies">Option strategies</a></td>
+</tr>
+<tr>
+<th style="background: #ddccff;" colspan="4"><a href="../../../s/w/a/Swap_%28finance%29.html" title="Swap (finance)">Swaps</a></th>
+</tr>
+<tr>
+<td colspan="4"><a href="../../../i/n/t/Interest_rate_swap.html" title="Interest rate swap">Interest rate</a> | <a href="../../../t/o/t/Total_return_swap.html" title="Total return swap">Total return</a> | <a href="../../../e/q/u/Equity_swap.html" title="Equity swap">Equity</a> | <a href="../../../c/r/e/Credit_default_swap.html" title="Credit default swap">Credit default</a> | <a href="../../../f/o/r/Forex_swap.html" title="Forex swap">Forex</a> | <a href="../../../c/u/r/Currency_swap.html" title="Currency swap">Cross-currency</a> | <a href="../../../c/o/n/Constant_maturity_swap.html" title="Constant maturity swap">Constant maturity</a> | <a href="../../../b/a/s/Basis_swap.html" title="Basis swap">Basis</a> | <a href="../../../v/a/r/Variance_swap.html" title="Variance swap">Variance</a></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 2416 bytes
+Post-expand include size: 2416 bytes
+Template argument size: 0 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/r/Barrier_option.html">http://en.wikipedia.org../../../b/a/r/Barrier_option.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../o/p/t/Category%7EOptions_2af3.html" title="Category:Options">Options</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/r/Barrier_option.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/a/r/Talk%7EBarrier_option_dab2.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Barrier_option">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/a/r/Barrier-Option_91c9.html">Deutsch</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:27, 28 March 2007 by Wikipedia user <a href="../../../s/t/e/User%7ESteinbDJ_4543.html" title="User:SteinbDJ">SteinbDJ</a>. Based on work by Wikipedia user(s) <a href="../../../l/e/i/User%7ELeifern_3f3b.html" title="User:Leifern">Leifern</a>, <a href="../../../c/y/k/User%7ECyktsui_8707.html" title="User:Cyktsui">Cyktsui</a>, <a href="../../../s/g/c/User%7ESgcook_ea93.html" title="User:Sgcook">Sgcook</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../j/o/r/User%7EJordanSamuels_40ac.html" title="User:JordanSamuels">JordanSamuels</a>, <a href="../../../o/v/e/User%7EOven_Fresh_99a0.html" title="User:Oven Fresh">Oven Fresh</a>, <a href="../../../c/h/r/User%7EChristofurio_ba82.html" title="User:Christofurio">Christofurio</a> and <a href="../../../c/b/u/User%7ECburnett_adfd.html" title="User:Cburnett">Cburnett</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

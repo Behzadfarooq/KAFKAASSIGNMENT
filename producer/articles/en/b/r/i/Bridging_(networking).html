@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bridging (networking),1999,August 1,Broadcast address,Broadcasting (networks),Computer network,Data frame,Data link layer,Ethernet,IEEE 802.1D,IEEE 802.2" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bridging (networking) - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bridging (networking)</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Bridging</b> is a <a href="../../../p/a/c/Packet_forwarding.html" title="Packet forwarding">forwarding</a> technique used in <a href="../../../p/a/c/Packet_switching.html" title="Packet switching">packet-switched</a> <a href="../../../c/o/m/Computer_network.html" title="Computer network">computer networks</a>. Unlike <a href="../../../r/o/u/Routing.html" title="Routing">routing</a>, bridging makes no assumptions about where in a network a particular address is located. Instead, it depends on <a href="../../../b/r/o/Broadcasting_%28networks%29.html" title="Broadcasting (networks)">broadcasting</a> to locate unknown devices. Once a device has been located, its location is recorded in some fashion so as to preclude the need for further broadcasting.</p>
+<p>The utility of bridging is limited by its dependence on broadcasting, and is thus only used in <a href="../../../l/o/c/Local_area_network.html" title="Local area network">local area networks</a>. Currently, two different bridging technologies are in widespread use. <i>Transparent bridging</i> predominates in <a href="../../../e/t/h/Ethernet.html" title="Ethernet">Ethernet</a> networks; while <i>source routing</i> is used in <a href="../../../t/o/k/Token_ring.html" title="Token ring">token ring</a> networks. Thus, bridging allows you to connect two different networks seamlessly on the <a href="../../../d/a/t/Data_link_layer.html" title="Data link layer">data link layer</a>, e.g. a wireless access point with a wired ethernet switch by using MAC addresses as an addressing system. A bridge and switch are very much alike, except that a bridge is the middle device between two networks, yet separates broadcast traffic between the two networks.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Transparent_bridging"><span class="tocnumber">1</span> <span class="toctext">Transparent bridging</span></a></li>
+<li class="toclevel-1"><a href="#Source_route_bridging"><span class="tocnumber">2</span> <span class="toctext">Source route bridging</span></a></li>
+<li class="toclevel-1"><a href="#Source_routing_transparent_bridging"><span class="tocnumber">3</span> <span class="toctext">Source routing transparent bridging</span></a></li>
+<li class="toclevel-1"><a href="#External_Links"><span class="tocnumber">4</span> <span class="toctext">External Links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Transparent_bridging" id="Transparent_bridging"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Bridging_%28networking%29.html" title="Edit section: Transparent bridging">edit</a>]</span> <span class="mw-headline">Transparent bridging</span></h2>
+<p><i>Transparent bridging</i> refers to a form of bridging "transparent" to the end systems using it, in the sense that the end systems operate as if the bridge isn't there in the way that matters: bridges segment broadcasts between networks, only let specific addresses pass through the bridge to the other network. It is used primarily in Ethernet networks, where it has been standardized as <a href="../../../i/e/e/IEEE_802.1D_8a9a.html" title="IEEE 802.1D">IEEE 802.1D</a>.</p>
+<p>The bridging functions are confined to <a href="../../../n/e/t/Network_bridge.html" title="Network bridge">network bridges</a> which interconnect the <a href="../../../n/e/t/Network_segment.html" title="Network segment">network segments</a>. The active parts of the network must form a <a href="../../../t/r/e/Tree_%28graph_theory%29.html" title="Tree (graph theory)">tree</a>. This can be achieved either by physically building the network as a tree or by using bridges that use the <a href="../../../s/p/a/Spanning_tree_protocol.html" title="Spanning tree protocol">spanning tree protocol</a> to build a loop-free network topology by selectively disabling network <a href="../../../b/r/o/Broadcast_address.html" title="Broadcast address">broadcast addresses</a>. If one computer on network A sent a broadcast packet to address FF:FF:FF:FF:FF:FF, the bridge would stop this from getting to network B. The address FF:FF:FF:FF:FF:FF is the broadcast address for both networks; when a <a href="../../../d/a/t/Data_frame.html" title="Data frame">frame</a> is sent to this address, the frame is then resent out on every available port on that specific network segment. This method allows the bridge to only switch frames that have a specific MAC address, that is, one that is not FF:FF:FF:FF:FF:FF. When an address is specified and a frame is sent, the bridge automatically switches the frame to both network segments while noting the source MAC addresses' home segment. This allows the bridge to send frames across the networks, by recording and resolving MAC addresses of devices on each side. Next, the bridges monitor all frames traveling on the network, noting their source addresses in a table, and then sending the frame to the broadcast address of the other network's broadcast, effectively rebroadcasting it to every MAC address available. Without broadcast segmentation, the bridge would get caught in an infinite loop.</p>
+<p>Note that both source and destination addresses are used in this algorithm. Source addresses are used to record entries in the table, while destination addresses are used to look them up and match them to the proper segment to send it to.</p>
+<p>As an example, consider two hosts (A and B) and a bridge (C). The bridge has two interfaces, (C1, C2) A switches frames between (C1) and (C2) switches frames to B. Note the physical connection is A - C - B, since C has two ports. A sends a frame to (C), and C records the source MAC address into its table. The bridge now has an address for A in its table, so it forwards it to B by broadcasting it to FF:FF:FF:FF:FF:FF, or every address possible. B, having received a packet from A, now transmits a packet in response. This time, the bridge has A's address in the table, so it records B's address sends it to A's unique MAC address specifically. Two-way communication is now possible between A and B without any further broadcasting. Note, however, that only the bridge along the direct path between A and B possess table entries for B. If a third host (D), on the same side as A sends a frame to B, the bridge simply records the address source, and broadcasts it to B's segment.</p>
+<p><a name="Source_route_bridging" id="Source_route_bridging"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Bridging_%28networking%29.html" title="Edit section: Source route bridging">edit</a>]</span> <span class="mw-headline">Source route bridging</span></h2>
+<p><i>Source route bridging</i> is used primarily on <a href="../../../t/o/k/Token_ring.html" title="Token ring">token ring</a> networks, and is standardized in Section 9 of the <a href="../../../i/e/e/IEEE_802.2_e3c6.html" title="IEEE 802.2">IEEE 802.2</a> standard. The <a href="../../../s/p/a/Spanning_tree_protocol.html" title="Spanning tree protocol">spanning tree protocol</a> is not used, the operation of the <a href="../../../n/e/t/Network_bridge.html" title="Network bridge">network bridges</a> is simpler, and much of the bridging functions are performed by the end systems, particularly the sources, giving rise to its name.</p>
+<p>A field in the token ring header, the routing information field (RIF), is used to support source-route bridging. Upon sending a packet, a host attaches a RIF to the packet indicating the series of bridges and network segments to be used for delivering the packet to its destination. The bridges merely follow the list given in the RIF - if a given bridge is next in the list, it forwards the packet, otherwise it ignores it.</p>
+<p>When a host wishes to send a packet to a destination for the first time, it needs to determine an appropriate RIF. A special type of broadcast packet is used, which instructs the network bridges to append their bridge number and network segment number to each packet as it is forwarded. Loops are avoided by requiring each bridge to ignore packets which already contain its bridge number in the RIF field. At the destination, these broadcast packets are modified to be standard unicast packets and returned to the source along the reverse path listed in the RIF. Thus, for each route discovery packet broadcast, the source receives back a set of packets, one for each possible path through the network to the destination. It is then up to the source to choose one of these paths (probably the shortest one) for further communications with the destination.</p>
+<p><a name="Source_routing_transparent_bridging" id="Source_routing_transparent_bridging"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Bridging_%28networking%29.html" title="Edit section: Source routing transparent bridging">edit</a>]</span> <span class="mw-headline">Source routing transparent bridging</span></h2>
+<p><i>Source routing transparent bridging</i>, abbreviated <i>SRT bridging</i>, is a hybrid of source routing and transparent bridging, standardized in Section 9 of the <a href="../../../i/e/e/IEEE_802.2_e3c6.html" title="IEEE 802.2">IEEE 802.2</a> standard. It allows source routing and transparent bridging to coexist on the same bridged network by using source routing with hosts that support it and transparent bridging otherwise.</p>
+<p><a name="External_Links" id="External_Links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Bridging_%28networking%29.html" title="Edit section: External Links">edit</a>]</span> <span class="mw-headline">External Links</span></h2>
+<p>Hamilton, Kenneth; Clark, Kenedy (<a href="../../../1/9/9/1999.html" title="1999">1999</a>-<a href="../../../a/u/g/August_1.html" title="August 1">08-01</a>). <a href="http://www.cisco.com/univercd/cc/td/doc/cisintwk/ito_doc/bridging.htm" class="external text" title="http://www.cisco.com/univercd/cc/td/doc/cisintwk/ito_doc/bridging.htm" rel="nofollow">Cisco LAN Switching</a>. <i>Encyclopedia of Things</i>. Cisco Press. Retrieved on <a href="../../../a/u/g/August_1.html" title="August 1">August 1</a>, <a href="../../../1/9/9/1999.html" title="1999">1999</a>.</p>
+
+<!-- 
+Pre-expand include size: 3388 bytes
+Post-expand include size: 1148 bytes
+Template argument size: 968 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/i/Bridging_%28networking%29.html">http://en.wikipedia.org../../../b/r/i/Bridging_%28networking%29.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../n/e/t/Category%7ENetwork_architecture_e3dd.html" title="Category:Network architecture">Network architecture</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/i/Bridging_%28networking%29.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/r/i/Talk%7EBridging_%28networking%29_ab66.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bridging_%28networking%29">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 21:16, 18 January 2007 by Wikipedia user Tony.cheneau. Based on work by Wikipedia user(s) <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../n/i/t/User%7ENitefood_9acb.html" title="User:Nitefood">Nitefood</a>, <a href="../../../d/a/r/User%7EDarklilac_3c11.html" title="User:Darklilac">Darklilac</a>, <a href="../../../z/a/c/User%7EZachCrichfield_01ed.html" title="User:ZachCrichfield">ZachCrichfield</a>, <a href="../../../k/j/k/User%7EKjkolb_e2d0.html" title="User:Kjkolb">Kjkolb</a>, <a href="../../../j/n/a/User%7EJnavas_d539.html" title="User:Jnavas">Jnavas</a>, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, Rjathar, <a href="../../../c/o/m/User%7EComa28_b7e3.html" title="User:Coma28">Coma28</a>, <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a>, <a href="../../../j/o/n/User%7EJonHarder_ef53.html" title="User:JonHarder">JonHarder</a>, <a href="../../../c/m/d/User%7ECmdrjameson_3c06.html" title="User:Cmdrjameson">Cmdrjameson</a>, <a href="../../../h/e/l/User%7EHelix84_a51c.html" title="User:Helix84">Helix84</a>, <a href="../../../f/r/a/User%7EFraterm_3cdc.html" title="User:Fraterm">Fraterm</a>, <a href="../../../k/g/r/User%7EKgrr_00fe.html" title="User:Kgrr">Kgrr</a> and <a href="../../../b/a/c/User%7EBaccala%40freesoft.org_4f19.html" title="User:Baccala@freesoft.org">Baccala@freesoft.org</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

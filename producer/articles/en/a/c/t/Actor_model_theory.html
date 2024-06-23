@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Actor model theory,Actor model,Actor model and process calculi,Actor model early history,Actor model implementation,Arbiter (electronics),Denotational semantics,Frame of reference,General relativity,Henry Baker (computer scientist),Indeterminacy in concurrent computation" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Actor model theory - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Actor model theory</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../t/h/e/Theoretical_computer_science.html" title="Theoretical computer science">theoretical computer science</a>, <b>Actor model theory</b> concerns theoretical issues for the <a href="../../../a/c/t/Actor_model.html" title="Actor model">Actor model</a>.</p>
+<p>Actors are the primitives that form the basis of the <a href="../../../a/c/t/Actor_model.html" title="Actor model">Actor model</a> of concurrent digital computation. In response to a message that it receives, an Actor can make local decisions, create more Actors, send more messages, and designate how to respond to the next message received. Actor model theory incorporates theories of the events and structures of Actor computations, their proof theory, and <a href="../../../d/e/n/Denotational_semantics.html" title="Denotational semantics">denotational models</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Events_and_their_orderings"><span class="tocnumber">1</span> <span class="toctext">Events and their orderings</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Activation_ordering"><span class="tocnumber">1.1</span> <span class="toctext">Activation ordering</span></a></li>
+<li class="toclevel-2"><a href="#Arrival_orderings"><span class="tocnumber">1.2</span> <span class="toctext">Arrival orderings</span></a></li>
+<li class="toclevel-2"><a href="#Combined_ordering"><span class="tocnumber">1.3</span> <span class="toctext">Combined ordering</span></a></li>
+<li class="toclevel-2"><a href="#Independence_of_the_Law_of_Finite_Chains_Between_Events_in_the_Combined_Ordering"><span class="tocnumber">1.4</span> <span class="toctext">Independence of the Law of Finite Chains Between Events in the Combined Ordering</span></a></li>
+<li class="toclevel-2"><a href="#Law_of_Discreteness"><span class="tocnumber">1.5</span> <span class="toctext">Law of Discreteness</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">2</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Events_and_their_orderings" id="Events_and_their_orderings"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Actor_model_theory.html" title="Edit section: Events and their orderings">edit</a>]</span> <span class="mw-headline">Events and their orderings</span></h2>
+<p>From the definition of an Actor, it can be seen that numerous events take place: local decisions, creating Actors, sending messages, receiving messages, and designating how to respond to the next message received.</p>
+<p>However, this article focuses on just those events that are the arrival of a message sent to an Actor.</p>
+<p>This article reports on the results published in Hewitt [2006].</p>
+<dl>
+<dd><i>Law of Countability</i>: There are at most countably many events.</dd>
+</dl>
+<p><a name="Activation_ordering" id="Activation_ordering"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/t/Actor_model_theory.html" title="Edit section: Activation ordering">edit</a>]</span> <span class="mw-headline">Activation ordering</span></h3>
+<p>The activation ordering (<tt>-≈→</tt>) is a fundamental ordering that models one event activating another (there must be energy flow in the message passing from an event to an event which it activates).</p>
+<ul>
+<li>Because of the transmission of energy, the activation ordering is <i><a href="../../../g/e/n/General_relativity.html" title="General relativity">relativistically</a> <a href="../../../i/n/v/Invariant_%28physics%29.html" title="Invariant (physics)">invariant</a></i>; that is, for all events <tt>e<sub>1</sub></tt>.<tt>e<sub>2</sub></tt>, if <tt>e<sub>1</sub> -≈→ e<sub>2</sub></tt>, then the time of <tt>e<sub>1</sub></tt> precedes the time of <tt>e<sub>2</sub></tt> in the relativistic <a href="../../../f/r/a/Frame_of_reference.html" title="Frame of reference">frames of reference</a> of all observers.</li>
+</ul>
+<ul>
+<li><i>Law of Strict Causality for the Activation Ordering</i>: For no event does <tt>e -≈→ e</tt>.</li>
+</ul>
+<ul>
+<li><i>Law of Finite Predecession in the Activation Ordering</i>: For all events <tt>e<sub>1</sub></tt> the set <tt>{e|e -≈→ e<sub>1<sub>}</sub></sub> <sub>is finite.</sub></tt></li>
+</ul>
+<p><sub><a name="Arrival_orderings" id="Arrival_orderings"></a></sub></p>
+<h3><sub><span class="editsection">[<a href="../../../a/c/t/Actor_model_theory.html" title="Edit section: Arrival orderings">edit</a>]</span> <span class="mw-headline">Arrival orderings</span></sub></h3>
+<p><sub>The arrival ordering of an Actor <tt>x</tt> ( <tt>-x-&gt;</tt> ) models the (total) ordering of events in which a message arrives at <tt>x</tt>. Arrival ordering is determined by <i>arbitration</i> in processing messages (often making use of a digital circuit called an <a href="../../../a/r/b/Arbiter_%28electronics%29.html" title="Arbiter (electronics)">arbiter</a>). The arrival events of an Actor are on its <a href="../../../w/o/r/World_line.html" title="World line">world line</a>. The arrival ordering means that the Actor model inherently has indeterminacy (see <a href="../../../i/n/d/Indeterminacy_in_concurrent_computation.html" title="Indeterminacy in concurrent computation">Indeterminacy in concurrent computation</a>).</sub></p>
+<ul>
+<li><sub>Because all of the events of the arrival ordering of an actor <tt>x</tt> happen on the world line of <tt>x</tt>, the arrival ordering of an actor is <i>relativistically invariant</i>. <i>I.e.</i>, for all actors <tt>x</tt> and events <tt>e<sub>1</sub></tt>.<tt>e<sub>2</sub></tt>, if <tt>e<sub>1</sub> -x→ e<sub>2</sub></tt>, then the time of <tt>e<sub>1</sub></tt> precedes the time of <tt>e<sub>2</sub></tt> in the relativistic frames of reference of all observers.</sub></li>
+</ul>
+<ul>
+<li><i>Law of Finite Predecession in Arrival Orderings</i>: For all events <tt>e<sub>1</sub></tt> and Actors <tt>x</tt> the set <tt>{e|e -x→ e<sub>1<sub>}</sub></sub> <sub>is finite.</sub></tt></li>
+</ul>
+<p><sub><a name="Combined_ordering" id="Combined_ordering"></a></sub></p>
+<h3><sub><span class="editsection">[<a href="../../../a/c/t/Actor_model_theory.html" title="Edit section: Combined ordering">edit</a>]</span> <span class="mw-headline">Combined ordering</span></sub></h3>
+<p><sub>The combined ordering (denoted by <tt>→</tt>) is defined to be the transitive closure of the activation ordering and the arrival orderings of all Actors.</sub></p>
+<ul>
+<li><sub>The combined ordering is relativistically invariant because it is the transitive closure of relativistically invariant orderings. <i>I.e.</i>, for all events <tt>e<sub>1</sub></tt>.<tt>e<sub>2</sub></tt>, if <tt>e<sub>1</sub>→e<sub>2</sub></tt>. then the time of <tt>e<sub>1</sub></tt> precedes the time of <tt>e<sub>2</sub></tt> in the relativistic frames of reference of all observers.</sub></li>
+</ul>
+<ul>
+<li><i>Law of Strict Causality for the Combined Ordering</i>: For no event does <tt>e→e</tt>.</li>
+</ul>
+<p>The combined ordering is obviously transitive by definition.</p>
+<p>In [Baker and Hewitt 197?], it was conjectured that the above laws might entail the following law:</p>
+<dl>
+<dd><i>Law of Finite Chains Between Events in the Combined Ordering</i>: There are no infinite chains (<i>i.e.</i>, linearly ordered sets) of events between two events in the combined ordering →.</dd>
+</dl>
+<p><a name="Independence_of_the_Law_of_Finite_Chains_Between_Events_in_the_Combined_Ordering" id="Independence_of_the_Law_of_Finite_Chains_Between_Events_in_the_Combined_Ordering"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/t/Actor_model_theory.html" title="Edit section: Independence of the Law of Finite Chains Between Events in the Combined Ordering">edit</a>]</span> <span class="mw-headline">Independence of the Law of Finite Chains Between Events in the Combined Ordering</span></h3>
+<p>However, [Clinger 1981] surprisingly proved that the Law of Finite Chains Between Events in the Combined Ordering is independent of the previous laws, <i>i.e.</i>,</p>
+<p>Theorem. <i>The Law of Finite Chains Between Events in the Combined Ordering does not follow from the previously stated laws.</i></p>
+<p>Proof. It is sufficient to show that there is an Actor computation that satisfies the previously stated laws but violates the Law of Finite Chains Between Events in the Combined Ordering.</p>
+<dl>
+<dd>Consider a computation which begins when an actor <i>Initial</i> is sent a <tt>Start</tt> message causing it to take the following actions
+<ol>
+<li>Create a new actor <i>Greeter<sub>1</sub></i> which is sent the message <tt>SayHelloTo</tt> with the address of <i>Greeter<sub>1</sub></i></li>
+<li>Send <i>Initial</i> the message <tt>Again</tt> with the address of <i>Greeter<sub>1</sub></i></li>
+</ol>
+</dd>
+</dl>
+<dl>
+<dd>Thereafter the behavior of <i>Initial</i> is as follows on receipt of an <tt>Again</tt> message with address <i>Greeter<sub>i</sub></i> (which we will call the event <tt><b>Again<sub>i</sub></b></tt>):
+<ol>
+<li>Create a new actor <i>Greeter<sub>i+1</sub></i> which is sent the message <tt>SayHelloTo</tt> with address <i>Greeter<sub>i</sub></i></li>
+<li>Send <i>Initial</i> the message <tt>Again</tt> with the address of <i>Greeter<sub>i+1</sub></i></li>
+</ol>
+</dd>
+<dd>Obviously the computation of <i>Initial</i> sending itself <tt>Again</tt> messages never terminates.</dd>
+</dl>
+<dl>
+<dd>The behavior of each Actor <i>Greeter<sub>i</sub></i> is as follows:
+<ul>
+<li>When it receives a message <tt>SayHelloTo</tt> with address <i>Greeter<sub>i-1</sub></i> (which we will call the event <tt><b>SayHelloTo<sub>i</sub></b></tt>), it sends a <tt>Hello</tt> message to <i>Greeter<sub>i-1</sub></i></li>
+<li>When it receives a <tt>Hello</tt> message (which we will call the event <tt><b>Hello<sub>i</sub></b></tt>), it does nothing.</li>
+</ul>
+</dd>
+<dd>Now it is possible that <tt><b>Hello<sub>i</sub></b> -<i>Greeter<sub>i</sub></i><tt>→ <b>SayHelloTo<sub>i</sub></b></tt> every time and therefore <tt><b>Hello<sub>i</sub></b>→<b>SayHelloTo<sub>i</sub></b></tt>.</tt></dd>
+<dd>Also <tt><b>Again<sub>i</sub></b> -≈→ <b>Again<sub>i+1</sub></b></tt> every time and therefore <tt><b>Again<sub>i</sub></b> → <b>Again<sub>i+1</sub></b></tt>.</dd>
+</dl>
+<dl>
+<dd>Furthermore all of the laws stated before the Law of Strict Causality for the Combined Ordering are satisfied.</dd>
+<dd>However, there may be an infinite number of events in the combined ordering between <tt><b>Again<sub>1</sub></b></tt> and <tt><b>SayHelloTo<sub>1</sub></b></tt> as follows:</dd>
+<dd><tt><b>Again<sub>1</sub></b>→...→<b>Again<sub>i</sub></b>→...<img class='tex' src="../../../math/d/2/4/d245777abca64ece2d5d7ca0d19fddb6.png" alt="\infty" />...→<b>Hello<sub>i</sub></b>→<b>SayHelloTo<sub>i</sub></b>→...→<b>Hello<sub>1</sub></b>→<b>SayHelloTo<sub>1</sub></b></tt></dd>
+</dl>
+<p><tt>However, we know from physics that infinite energy cannot be expended along a finite trajectory (see for example Quantum information and relativity theory). Therefore, since the Actor model is based on physics, the Law of Finite Chains Between Events in the Combined Ordering was taken as an axiom of the Actor model.</tt></p>
+<p><tt><a name="Law_of_Discreteness" id="Law_of_Discreteness"></a></tt></p>
+<h3><tt><span class="editsection">[<a href="../../../a/c/t/Actor_model_theory.html" title="Edit section: Law of Discreteness">edit</a>]</span> <span class="mw-headline">Law of Discreteness</span></tt></h3>
+<p><tt>The Law of Finite Chains Between Events in the Combined Ordering is closely related to the following law:</tt></p>
+<dl>
+<dd><tt><i>Law of Discreteness</i>: For all events <tt>e<sub>1</sub></tt> and <tt>e<sub>2</sub></tt>, the set <tt>{e|e<sub>1</sub>→e→e<sub>2<sub>}</sub></sub> <sub>is finite.</sub></tt></tt></dd>
+</dl>
+<p><sub>In fact the previous two laws have been shown to be equivalent:</sub></p>
+<dl>
+<dd><sub>Theorem [Clinger 1981]. <i>The Law of Discreteness is equivalent to the Law of Finite Chains Between Events in the Combined Ordering</i> (without using the axiom of choice.)</sub></dd>
+</dl>
+<p><sub>The law of discreteness rules out <a href="../../../z/e/n/Zeno_machine.html" title="Zeno machine">Zeno machines</a> and is related to results on Petri nets [Best <i>et. al.</i> 1984, 1987].</sub></p>
+<p><sub>The Law of Discreteness implies the property of <a href="../../../u/n/b/Unbounded_nondeterminism.html" title="Unbounded nondeterminism">unbounded nondeterminism</a>. The combined ordering is used by [Clinger 1981] in the construction of a denotational model of Actors (see <a href="../../../d/e/n/Denotational_semantics.html" title="Denotational semantics">denotational semantics</a>).</sub></p>
+<p><sub><a name="See_also" id="See_also"></a></sub></p>
+<h2><sub><span class="editsection">[<a href="../../../a/c/t/Actor_model_theory.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></sub></h2>
+<ul>
+<li><sub><a href="../../../a/c/t/Actor_model_early_history.html" title="Actor model early history">Actor model early history</a></sub></li>
+<li><sub><a href="../../../a/c/t/Actor_model_and_process_calculi.html" title="Actor model and process calculi">Actor model and process calculi</a></sub></li>
+<li><sub><a href="../../../a/c/t/Actor_model_implementation.html" title="Actor model implementation">Actor model implementation</a></sub></li>
+</ul>
+<p><sub><a name="References" id="References"></a></sub></p>
+<h2><sub><span class="editsection">[<a href="../../../a/c/t/Actor_model_theory.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></sub></h2>
+<ul>
+<li><sub>Carl Hewitt, <i>et. al.</i> <b>Actor Induction and Meta-evaluation</b> Conference Record of ACM Symposium on Principles of Programming Languages, January 1974.</sub></li>
+<li><sub>Irene Greif. <b>Semantics of Communicating Parallel Processes</b> MIT EECS Doctoral Dissertation. August 1975.</sub></li>
+<li><sub>Edsger Dijkstra. <b>A discipline of programming</b> Prentice Hall. 1976.</sub></li>
+<li><sub>Carl Hewitt and <a href="../../../h/e/n/Henry_Baker_%28computer_scientist%29_7615.html" title="Henry Baker (computer scientist)">Henry Baker</a> <b>Actors and Continuous Functionals</b> Proceeding of IFIP Working Conference on Formal Description of Programming Concepts. August 1-5, 1977.</sub></li>
+<li><sub><a href="../../../h/e/n/Henry_Baker_%28computer_scientist%29_7615.html" title="Henry Baker (computer scientist)">Henry Baker</a> and Carl Hewitt <b>The Incremental Garbage Collection of Processes</b> Proceeding of the Symposium on Artificial Intelligence Programming Languages. SIGPLAN Notices 12, August 1977.</sub></li>
+<li><sub>Carl Hewitt and <a href="../../../h/e/n/Henry_Baker_%28computer_scientist%29_7615.html" title="Henry Baker (computer scientist)">Henry Baker</a> <b>Laws for Communicating Parallel Processes</b> IFIP-77, August 1977.</sub></li>
+<li><sub>Aki Yonezawa <b>Specification and Verification Techniques for Parallel Programs Based on Message Passing Semantics</b> MIT EECS Doctoral Dissertation. December 1977.</sub></li>
+<li><sub>Peter Bishop <b>Very Large Address Space Modularly Extensible Computer Systems</b> MIT EECS Doctoral Dissertation. June 1977.</sub></li>
+<li><sub>Carl Hewitt. <b>Viewing Control Structures as Patterns of Passing Messages</b> Journal of Artificial Intelligence. June 1977.</sub></li>
+<li><sub>Henry Baker. <b>Actor Systems for Real-Time Computation</b> MIT EECS Doctoral Dissertation. January 1978.</sub></li>
+<li><sub>Carl Hewitt and Russ Atkinson. <b>Specification and Proof Techniques for Serializers</b> IEEE Journal on Software Engineering. January 1979.</sub></li>
+<li><sub>Carl Hewitt, Beppe Attardi, and Henry Lieberman. <b>Delegation in Message Passing</b> Proceedings of First International Conference on Distributed Systems Huntsville, AL. October 1979.</sub></li>
+<li><sub>Russ Atkinson. <b>Automatic Verification of Serializers</b> MIT Doctoral Dissertation. June, 1980.</sub></li>
+<li><sub>Bill Kornfeld and Carl Hewitt. <b>The Scientific Community Metaphor</b> IEEE Transactions on Systems, Man, and Cybernetics. January 1981.</sub></li>
+<li><sub>Gerry Barber. <b>Reasoning about Change in Knowledgeable Office Systems</b> MIT EECS Doctoral Dissertation. August 1981.</sub></li>
+<li><sub>Bill Kornfeld. <b>Parallelism in Problem Solving</b> MIT EECS Doctoral Dissertation. August 1981.</sub></li>
+<li><sub>Will Clinger. <b>Foundations of Actor Semantics</b> MIT Mathematics Doctoral Dissertation. June 1981.</sub></li>
+<li><sub>Eike Best. <b>Concurrent Behaviour: Sequences, Processes and Axioms</b> Lecture Notes in Computer Science Vol.197 1984.</sub></li>
+<li><sub>Gul Agha. <b><a href="http://hdl.handle.net/1721.1/6952" class="external text" title="http://hdl.handle.net/1721.1/6952" rel="nofollow">Actors: A Model of Concurrent Computation in Distributed Systems</a></b> Doctoral Dissertation. 1986.</sub></li>
+<li><sub>Eike Best and R.Devillers. <b>Sequential and Concurrent Behaviour in Petri Net Theory</b> Theoretical Computer Science Vol.55/1. 1987.</sub></li>
+<li><sub>Gul Agha, Ian Mason, Scott Smith, and Carolyn Talcott. <b>A Foundation for Actor Computation</b> Journal of Functional Programming January 1993.</sub></li>
+<li><sub>Satoshi Matsuoka and Akinori Yonezawa. <b>Analysis of inheritance anomaly in object-oriented concurrent programming languages</b> in Research directions in concurrent object-oriented programming. 1993.</sub></li>
+<li><sub>Jayadev Misra. <b>A Logic for concurrent programming: Safety</b> Journal of Computer Software Engineering. 1995.</sub></li>
+<li><sub>Luca de Alfaro, Zohar Manna, Henry Sipma and Tomás Uribe. <b>Visual Verification of Reactive Systems</b> TACAS 1997.</sub></li>
+<li><sub>Thati, Prasanna, Carolyn Talcott, and Gul Agha. <b>Techniques for Executing and Reasoning About Specification Diagrams</b> International Conference on Algebraic Methodology and Software Technology (AMAST), 2004.</sub></li>
+<li><sub>Giuseppe Milicia and Vladimiro Sassone. <b>The Inheritance Anomaly: Ten Years After</b> Proceedings of the 2004 ACM Symposium on Applied Computing (SAC), Nicosia, Cyprus, March 14-17, 2004.</sub></li>
+<li><sub>Petrus Potgieter. <a href="http://arxiv.org/abs/cs/0412022" class="external text" title="http://arxiv.org/abs/cs/0412022" rel="nofollow"><b>Zeno machines and hypercomputation</b></a> 2005</sub></li>
+<li><sub>Carl Hewitt <a href="http://www.pcs.usp.br/~coin-aamas06/10_commitment-43_16pages.pdf" class="external text" title="http://www.pcs.usp.br/~coin-aamas06/10_commitment-43_16pages.pdf" rel="nofollow">What is Commitment?Physical, Organizational, and Social</a> COINS@AAMAS. 2006.</sub></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/c/t/Actor_model_theory.html">http://en.wikipedia.org../../../a/c/t/Actor_model_theory.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../a/c/t/Category%7EActor_model_53ff.html" title="Category:Actor model">Actor model</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/c/t/Actor_model_theory.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/c/t/Talk%7EActor_model_theory_6ef2.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Actor_model_theory">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 21:33, 22 March 2007 by Wikipedia user <a href="../../../b/e/n/User%7EBen_Standeven_9e0a.html" title="User:Ben Standeven">Ben Standeven</a>. Based on work by Wikipedia user(s) <a href="../../../j/a/n/User%7EJanm67_5342.html" title="User:Janm67">Janm67</a>, <a href="../../../l/e/o/User%7ELeonardo_Lang_f186.html" title="User:Leonardo Lang">Leonardo Lang</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, CarlHewitt, <a href="../../../a/l/l/User%7EAllan_McInnes_23d1.html" title="User:Allan McInnes">Allan McInnes</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../g/a/u/User%7EGauge_3e29.html" title="User:Gauge">Gauge</a>, Kosik, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../j/d/c/User%7EJdcooper_7efd.html" title="User:Jdcooper">Jdcooper</a> and <a href="../../../b/m/i/User%7EBmicomp_d8e7.html" title="User:Bmicomp">Bmicomp</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

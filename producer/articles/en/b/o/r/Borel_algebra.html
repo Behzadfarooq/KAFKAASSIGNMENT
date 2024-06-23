@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Borel algebra,Analytic set,Baire set,Borel measure,Category (mathematics),Compact set,Intersection (set theory),Interval (mathematics),Kuratowski,Limit ordinal,Locally compact" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Borel algebra - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Borel algebra</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, the <b>Borel algebra</b> (or <b>Borel σ-algebra</b>) on a <a href="../../../t/o/p/Topological_space.html" title="Topological space">topological space</a> <i>X</i> is a <a href="../../../s/i/g/Sigma-algebra.html" title="Sigma-algebra">σ-algebra</a> of subsets of <i>X</i> associated to the topology of <i>X</i>. In the mathematics literature, there are at least two <i>nonequivalent</i> definitions of this σ-algebra:</p>
+<ul>
+<li>The minimal σ-algebra containing the <a href="../../../o/p/e/Open_set.html" title="Open set">open sets</a>.</li>
+<li>The minimal σ-algebra containing the <a href="../../../c/o/m/Compact_set.html" title="Compact set">compact sets</a>.</li>
+</ul>
+<p>Here, the <b>minimal σ-algebra</b> containing a collection <i>T</i> of <a href="../../../s/u/b/Subset.html" title="Subset">subsets</a> of <i>X</i> is the smallest σ-algebra containing <i>T</i>. The existence and uniqueness of the minimal σ-algebra is shown by noting that the <a href="../../../i/n/t/Intersection_%28set_theory%29.html" title="Intersection (set theory)">intersection</a> of all σ-algebras containing <i>T</i> is itself a σ-algebra containing <i>T</i>.</p>
+<p>The elements of the Borel algebra are called <b>Borel sets</b>, and a subset of <i>X</i> which is a Borel set is called a <b>Borel subset</b>.</p>
+<p>In general topological spaces, even <a href="../../../l/o/c/Locally_compact.html" title="Locally compact">locally compact</a> ones, the two structures can be different, although this phenomenon is generally considered to be pathological in mathematical analysis. Indeed, the two structures are identical whenever the topological space is a locally compact <a href="../../../s/e/p/Separable_space.html" title="Separable space">separable</a> <a href="../../../m/e/t/Metric_space.html" title="Metric space">metric space</a>.</p>
+<p>These algebras are named after <a href="../../../%C3%A9/m/i/%C3%89mile_Borel_9237.html" title="Émile Borel">Émile Borel</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Generating_the_Borel_algebra"><span class="tocnumber">1</span> <span class="toctext">Generating the Borel algebra</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Example"><span class="tocnumber">1.1</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Standard_Borel_spaces_and_Kuratowski_theorems"><span class="tocnumber">2</span> <span class="toctext">Standard Borel spaces and Kuratowski theorems</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Generating_the_Borel_algebra" id="Generating_the_Borel_algebra"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/r/Borel_algebra.html" title="Edit section: Generating the Borel algebra">edit</a>]</span> <span class="mw-headline">Generating the Borel algebra</span></h2>
+<p>In the case <i>X</i> is a metric space, the Borel algebra in the first sense may be described <i>generatively</i> as follows.</p>
+<p>For a collection <i>T</i> of subsets of <i>X</i> (that is, for any subset of the <a href="../../../p/o/w/Power_set.html" title="Power set">power set</a> P(<i>X</i>) of <i>X</i>), let</p>
+<ul>
+<li><img class='tex' src="../../../math/2/2/1/2217dbe6ab69e4e39e2b07c998d0834a.png" alt="T_\sigma \quad" /> be all countable unions of elements of <i>T</i></li>
+<li><img class='tex' src="../../../math/a/0/2/a02e78f1b880c7fb57e5cf1c3a64eb79.png" alt="T_\delta \quad" /> be all countable intersections of elements of <i>T</i></li>
+<li><img class='tex' src="../../../math/d/e/b/debb2033020718bef1121656eac4d41e.png" alt="T_{\delta\sigma}=(T_\delta)_\sigma.\," /></li>
+</ul>
+<p>Define by <a href="../../../t/r/a/Transfinite_induction.html" title="Transfinite induction">transfinite induction</a> a sequence <i>G<sup>m</sup></i>, where <i>m</i> is an <a href="../../../o/r/d/Ordinal_number.html" title="Ordinal number">ordinal number</a>, in the following manner:</p>
+<ul>
+<li>For the base case of the definition,</li>
+</ul>
+<dl>
+<dd><span class="texhtml"><i>G</i><sup>0</sup></span> = the collection of open subsets of <i>X</i>.</dd>
+</dl>
+<ul>
+<li>If <i>i</i> is not a <a href="../../../l/i/m/Limit_ordinal.html" title="Limit ordinal">limit ordinal</a>, then <i>i</i> has an immediately preceding ordinal <i>i − 1</i>. Let</li>
+</ul>
+<dl>
+<dd><span class="texhtml"><i>G</i><sup><i>i</i></sup> = [<i>G</i><sup><i>i</i> − 1</sup>]<sub>δσ</sub>.</span></dd>
+</dl>
+<ul>
+<li>If <i>i</i> is a limit ordinal, set</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/d/d/7/dd7fa18bf968f9671755a2f3faaffa4c.png" alt="G^i = \bigcup_{j &lt; i} G^j." /></dd>
+</dl>
+<p>We now claim that the Borel algebra is <i>G<sup>m</sup></i> for the first uncountable ordinal number <i>m</i>, that is, the Borel algebra can be <i>generated</i> from the class of open sets by iterating the operation</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/3/5/7358ad6b4b21ac670ab9f5e3595d7496.png" alt="G \mapsto G_{\delta \sigma}." /></dd>
+</dl>
+<p>to the first uncountable ordinal. (Note: for any fixed Borel set, we only have to iterate a countable number of times, but as we vary across all Borel sets, this countable number of times is arbitrarily large and approaches the first uncountable ordinal.)</p>
+<p>To prove this fact, note that any open set in a metric space is the union of an increasing sequence of closed sets. In particular, it is easy to show that complementation of sets maps <i>G<sup>m</sup></i> into itself for any limit ordinal; moreover if <i>m</i> is an uncountable limit ordinal, <i>G<sup>m</sup></i> is closed under countable unions.</p>
+<p>This alternate definition is useful for some set-theoretic considerations, but the minimalist definition is preferred by analysts.</p>
+<p><a name="Example" id="Example"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/r/Borel_algebra.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h3>
+<p>An important example, especially in the <a href="../../../p/r/o/Probability_theory.html" title="Probability theory">theory of probability</a>, is the Borel algebra on the set of <a href="../../../r/e/a/Real_number.html" title="Real number">real numbers</a>. It is the algebra on which the <a href="../../../b/o/r/Borel_measure.html" title="Borel measure">Borel measure</a> is defined. Given a real random variable defined on a <a href="../../../p/r/o/Probability_space.html" title="Probability space">probability space</a>, its <a href="../../../p/r/o/Probability_distribution.html" title="Probability distribution">probability distribution</a> is by definition, also a measure on the Borel algebra. The Borel algebra on the reals is the smallest σ-algebra on <b>R</b> which contains all the <a href="../../../i/n/t/Interval_%28mathematics%29.html" title="Interval (mathematics)">intervals</a>.</p>
+<p><a name="Standard_Borel_spaces_and_Kuratowski_theorems" id="Standard_Borel_spaces_and_Kuratowski_theorems"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/r/Borel_algebra.html" title="Edit section: Standard Borel spaces and Kuratowski theorems">edit</a>]</span> <span class="mw-headline">Standard Borel spaces and Kuratowski theorems</span></h2>
+<p>The following is one of a number of theorems of <a href="../../../k/u/r/Kuratowski.html" title="Kuratowski">Kuratowski</a> on Borel spaces: A <b>Borel space</b> is just another name for a set equipped with a distinguished σ—algebra; by extension elements of the distinguished σ—algebra are called Borel sets. Borel spaces form a <a href="../../../c/a/t/Category_%28mathematics%29.html" title="Category (mathematics)">category</a> in which the maps are Borel measurable mappings between Borel spaces, where</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/1/0/d10653246b8510daf15d33d41141919f.png" alt="f:X \rightarrow Y" /></dd>
+</dl>
+<p>is Borel measurable means that <i>f</i> <sup>− 1</sup>(<i>B</i>) is Borel in <i>X</i> for any Borel subset <i>B</i> of <i>Y</i>.</p>
+<p><b>Theorem</b>. Let <i>X</i> be a <a href="../../../p/o/l/Polish_space.html" title="Polish space">Polish space</a>, that is a topological space such that there is a <a href="../../../m/e/t/Metric_%28mathematics%29.html" title="Metric (mathematics)">metric</a> <i>d</i> on <i>X</i> which defines the topology of <i>X</i> and which makes <i>X</i> a complete separable metric space. Then <i>X</i> as a Borel space is isomorphic to one of (1) <b>R</b>, (2) <b>Z</b> or (3) a finite space.</p>
+<p>Considered as Borel spaces, the real line <b>R</b> and the union of <b>R</b> with a countable set are isomorphic.</p>
+<p>A <b>standard Borel space</b> is the Borel space associated to a Polish space.</p>
+<p>For subsets of Polish spaces, Borel sets can be characterized as those sets which are the ranges of continuous injective maps defined on Polish spaces. Note however, that the range of a continuous noninjective map may fail to be Borel. See <a href="../../../a/n/a/Analytic_set.html" title="Analytic set">analytic set</a>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/r/Borel_algebra.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/a/i/Baire_set.html" title="Baire set">Baire set</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/r/Borel_algebra.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<p>An excellent exposition of the machinery of <i>Polish topology</i> is given in Chapter 3 of the following reference:</p>
+<ul>
+<li><a href="../../../w/i/l/William_Arveson_2a24.html" title="William Arveson">William Arveson</a>, <i>An Invitation to C*-algebras</i>, Springer-Verlag, 1981</li>
+</ul>
+<ul>
+<li>Richard Dudley, <i>Real Analysis and Probability</i>. Wadsworth, Brooks and Cole, 1989</li>
+</ul>
+<ul>
+<li><a href="../../../p/a/u/Paul_Halmos_7591.html" title="Paul Halmos">Paul Halmos</a>, <i>Measure Theory</i>, D.van Nostrand Co., 1950</li>
+</ul>
+<ul>
+<li>Halsey Royden, <i>Real Analysis</i>, Prentice Hall, 1988</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/r/Borel_algebra.html">http://en.wikipedia.org../../../b/o/r/Borel_algebra.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../t/o/p/Category%7ETopology_7bf2.html" title="Category:Topology">Topology</a></span> | <span dir='ltr'><a href="../../../d/e/s/Category%7EDescriptive_set_theory_eafd.html" title="Category:Descriptive set theory">Descriptive set theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/r/Borel_algebra.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/o/r/Talk%7EBorel_algebra_e740.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Borel_algebra">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/o/r/Borelsche_%CF%83-Algebra_d4d0.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/%C3%A1/l/g/%C3%81lgebra_de_Borel_583c.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/t/r/i/Tribu_bor%C3%A9lienne.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%A7/%D7%91/%D7%95/%D7%A7%D7%91%D7%95%D7%A6%D7%AA_%D7%91%D7%95%D7%A8%D7%9C.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/a/l/g/Algebra_di_Borel_7ea5.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/z/b/i/Zbi%C3%B3r_borelowski.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/%C3%A1/l/g/%C3%81lgebra_de_Borel_583c.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B1/%D0%BE/%D1%80/%D0%91%D0%BE%D1%80%D0%B5%D0%BB%D0%B5%D0%B2%D1%81%D0%BA%D0%B0%D1%8F_%D1%81%D0%B8%D0%B3%D0%BC%D0%B0-%D0%B0%D0%BB%D0%B3%D0%B5%D0%B1%D1%80%D0%B0.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/b/o/r/Borel-joukko.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../su/a/l/j/Aljabar_Borel_e569.html">Basa Sunda</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:22, 28 January 2007 by Wikipedia user <a href="../../../c/s/t/User%7ECSTAR_0140.html" title="User:CSTAR">CSTAR</a>. Based on work by Wikipedia user(s) <a href="../../../j/a/y/User%7EJay_Gatsby_4055.html" title="User:Jay Gatsby">Jay Gatsby</a>, <a href="../../../y/k/_/User%7EYK_Times_f4c6.html" title="User:YK Times">YK Times</a>, Lilily, <a href="../../../r/a/j/User%7ERajah_0082.html" title="User:Rajah">Rajah</a>, <a href="../../../g/a/l/User%7EGala.martin_b836.html" title="User:Gala.martin">Gala.martin</a>, <a href="../../../t/o/b/User%7ETobias_Bergemann_bfa6.html" title="User:Tobias Bergemann">Tobias Bergemann</a>, <a href="../../../g/a/u/User%7EGauge_3e29.html" title="User:Gauge">Gauge</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, DavidHouse, <a href="../../../f/i/b/User%7EFibonacci_80f7.html" title="User:Fibonacci">Fibonacci</a>, <a href="../../../h/a/r/User%7EHarriv_f36c.html" title="User:Harriv">Harriv</a>, <a href="../../../t/r/o/User%7ETrovatore_c393.html" title="User:Trovatore">Trovatore</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../r/e/v/User%7ERevolver_5a6c.html" title="User:Revolver">Revolver</a>, <a href="../../../c/m/a/User%7ECmapm_ac09.html" title="User:Cmapm">Cmapm</a>, <a href="../../../p/a/u/User%7EPaul_August_2fe5.html" title="User:Paul August">Paul August</a>, <a href="../../../m/a/r/User%7EMargosbot_a231.html" title="User:Margosbot">Margosbot</a>, <a href="../../../m/a/t/User%7EMathKnight_e2bc.html" title="User:MathKnight">MathKnight</a>, <a href="../../../h/e/n/User%7EHenrygb_9b92.html" title="User:Henrygb">Henrygb</a>, <a href="../../../b/e/r/User%7EBernardH_e470.html" title="User:BernardH">BernardH</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../z/a/m/User%7EZamfi_f99e.html" title="User:Zamfi">Zamfi</a>, Penis-breath, <a href="../../../v/i/v/User%7EVivacissamamente_d5f6.html" title="User:Vivacissamamente">Vivacissamamente</a>, <a href="../../../r/o/m/User%7ERomanm_5283.html" title="User:Romanm">Romanm</a>, <a href="../../../s/j/o/User%7ESjorford_d4b9.html" title="User:Sjorford">Sjorford</a>, <a href="../../../i/s/o/User%7EIsomorphic_e88d.html" title="User:Isomorphic">Isomorphic</a>, Weialawaga, <a href="../../../t/a/k/User%7ETakuyaMurata_085a.html" title="User:TakuyaMurata">TakuyaMurata</a>, <a href="../../../a/h/o/User%7EAhoerstemeier_88c8.html" title="User:Ahoerstemeier">Ahoerstemeier</a>, <a href="../../../m/i/g/User%7EMiguel_74e3.html" title="User:Miguel">Miguel</a> and <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

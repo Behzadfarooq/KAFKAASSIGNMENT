@@ -1,0 +1,435 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Base64,Numeral systems,Numeral systems,1987,64 (number),8BITMIME,ASCII,ASCII85,Abjad numerals,Arabic numerals,Armenian numerals" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Base64 - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Base64</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <div class="messagebox merge metadata">
+<div class="floatleft"><span><a href="../../../m/e/r/Image%7EMergefrom.gif_2e26.html" class="image" title=""><img src="../../../upload/shared/a/ae/Mergefrom.gif" alt="" width="50" height="20" longdesc="../../../m/e/r/Image%7EMergefrom.gif_2e26.html" /></a></span></div>
+It has been suggested that <i><a href="../../../r/a/d/Radix-64.html" title="Radix-64">Radix-64</a></i> be <a href="../../../m/e/r/Wikipedia%7EMerging_and_moving_pages_8b77.html" title="Wikipedia:Merging and moving pages">merged</a> into this article or section. (<a href="../../../b/a/s/Talk%7EBase64_1d57.html" title="Talk:Base64">Discuss</a>)</div>
+<table class="infobox" style="width:18em;">
+<tr>
+<th colspan="2" style="background:#CCF;"><a href="../../../n/u/m/Numeral_system.html" title="Numeral system">Numeral systems</a> by culture</th>
+</tr>
+<tr>
+<th colspan="2"><a href="../../../h/i/n/Hindu-Arabic_numeral_system_5a2e.html" title="Hindu-Arabic numeral system">Hindu-Arabic numerals</a></th>
+</tr>
+<tr>
+<td><a href="../../../a/r/a/Arabic_numerals.html" title="Arabic numerals">Western Arabic</a><br />
+<a href="../../../e/a/s/Eastern_Arabic_numerals_4b50.html" title="Eastern Arabic numerals">Eastern Arabic</a><br />
+<a href="../../../k/h/m/Khmer_numerals.html" title="Khmer numerals">Khmer</a></td>
+<td><a href="../../../i/n/d/Indian_numerals.html" title="Indian numerals">Indian family</a><br />
+<a href="../../../b/r/a/Brahmi_numeral.html" title="Brahmi numeral">Brahmi</a><br />
+<a href="../../../t/h/a/Thai_numerals.html" title="Thai numerals">Thai</a></td>
+</tr>
+<tr>
+<th colspan="2">East Asian numerals</th>
+</tr>
+<tr>
+<td><a href="../../../c/h/i/Chinese_numerals.html" title="Chinese numerals">Chinese</a><br />
+<a href="../../../j/a/p/Japanese_numerals.html" title="Japanese numerals">Japanese</a></td>
+<td><a href="../../../k/o/r/Korean_numerals.html" title="Korean numerals">Korean</a><br />
+&#160;</td>
+</tr>
+<tr>
+<th colspan="2">Alphabetic numerals</th>
+</tr>
+<tr>
+<td><a href="../../../a/b/j/Abjad_numerals.html" title="Abjad numerals">Abjad</a><br />
+<a href="../../../a/r/m/Armenian_numerals.html" title="Armenian numerals">Armenian</a><br />
+<a href="../../../c/y/r/Cyrillic_numerals.html" title="Cyrillic numerals">Cyrillic</a><br />
+<a href="../../../g/e/27/Ge%27ez_alphabet.html#Numerals" title="Ge'ez alphabet">Ge'ez</a></td>
+<td><a href="../../../h/e/b/Hebrew_numerals.html" title="Hebrew numerals">Hebrew</a><br />
+<a href="../../../g/r/e/Greek_numerals.html" title="Greek numerals">Ionian/Greek</a><br />
+<a href="../../../s/a/n/Sanskrit_numerals.html" title="Sanskrit numerals">Sanskrit</a><br />
+&#160;</td>
+</tr>
+<tr>
+<th colspan="2">Other systems</th>
+</tr>
+<tr>
+<td><a href="../../../a/t/t/Attic_numerals.html" title="Attic numerals">Attic</a><br />
+<a href="../../../e/t/r/Etruscan_numerals.html" title="Etruscan numerals">Etruscan</a><br />
+<a href="../../../u/r/n/Urnfield_culture_numerals.html" title="Urnfield culture numerals">Urnfield</a><br />
+<a href="../../../r/o/m/Roman_numerals.html" title="Roman numerals">Roman</a></td>
+<td><a href="../../../b/a/b/Babylonian_numerals.html" title="Babylonian numerals">Babylonian</a><br />
+<a href="../../../e/g/y/Egyptian_numerals.html" title="Egyptian numerals">Egyptian</a><br />
+<a href="../../../m/a/y/Maya_numerals.html" title="Maya numerals">Mayan</a></td>
+</tr>
+<tr>
+<td colspan="2" align="center"><small><a href="../../../l/i/s/List_of_numeral_system_topics.html" title="List of numeral system topics">List of numeral system topics</a></small></td>
+</tr>
+<tr>
+<th colspan="2" style="background:#CCF;"><a href="../../../p/o/s/Positional_notation.html" title="Positional notation">Positional systems</a> by <a href="../../../r/a/d/Radix.html" title="Radix">base</a></th>
+</tr>
+<tr>
+<td colspan="2" align="center"><a href="../../../d/e/c/Decimal.html" title="Decimal">Decimal</a> (10)</td>
+</tr>
+<tr>
+<td colspan="2" align="center"><a href="../../../b/i/n/Binary_numeral_system.html" title="Binary numeral system">2</a>, <a href="../../../q/u/a/Quaternary_numeral_system.html" title="Quaternary numeral system">4</a>, <a href="../../../o/c/t/Octal.html" title="Octal">8</a>, <a href="../../../h/e/x/Hexadecimal.html" title="Hexadecimal">16</a>, <a href="../../../b/a/s/Base_32.html" title="Base 32">32</a>, <strong class="selflink">64</strong></td>
+</tr>
+<tr>
+<td colspan="2" align="center"><a href="../../../t/e/r/Ternary_numeral_system.html" title="Ternary numeral system">3</a>, <a href="../../../n/o/n/Nonary.html" title="Nonary">9</a>, <a href="../../../d/u/o/Duodecimal.html" title="Duodecimal">12</a>, <a href="../../../b/a/s/Base_24.html" title="Base 24">24</a>, <a href="../../../b/a/s/Base_30.html" title="Base 30">30</a>, <a href="../../../b/a/s/Base_36.html" title="Base 36">36</a>, <a href="../../../s/e/x/Sexagesimal.html" title="Sexagesimal">60</a>, <a href="../../../p/o/s/Category%7EPositional_numeral_systems_c3fc.html" title="Category:Positional numeral systems">more…</a></td>
+</tr>
+<tr>
+<td colspan="2" align="right">
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color:#000000; white-space:nowrap;"><a href="../../../n/u/m/Template%7ENumeral_systems_4cae.html" title="Template:Numeral systems"><span title="View this template">v</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="../../../n/u/m/Template_talk%7ENumeral_systems_b51b.html" title="Template talk:Numeral systems"><span title="Discussion about this template">d</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org../../../n/u/m/Template%7ENumeral_systems_4cae.html" class="external text" title="http://en.wikipedia.org../../../n/u/m/Template%7ENumeral_systems_4cae.html" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">e</span></a></div>
+</td>
+</tr>
+</table>
+<p><b>Base64</b> or <b>quadrosexagesimal</b> is a <a href="../../../p/o/s/Positional_notation.html" title="Positional notation">positional notation</a> using a <a href="../../../r/a/d/Radix.html" title="Radix">base</a> of <a href="../../../6/4/_/64_%28number%29.html" title="64 (number)">64</a>. It is the largest <a href="../../../p/o/w/Power_of_two.html" title="Power of two">power-of-two</a> base that can be represented using only printable <a href="../../../a/s/c/ASCII_d2cd.html" title="ASCII">ASCII</a> characters. This has led to its use as a transfer encoding for e-mail among other things. All well-known variants that are known by the name <i>Base64</i> use the characters A–Z, a–z, and 0–9 in that order for the first 62 digits but the symbols chosen for the last two digits vary considerably between different systems. Several other encoding methods such as <a href="../../../u/u/e/Uuencode.html" title="Uuencode">uuencode</a> and later versions of <a href="../../../b/i/n/Binhex.html" title="Binhex">binhex</a> use a different set of 64 characters to represent 6 binary digits, but these are never called by the name Base64.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Base_64_Encoding_Schemes"><span class="tocnumber">1</span> <span class="toctext">Base 64 Encoding Schemes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Privacy-Enhanced_Mail_.28PEM.29"><span class="tocnumber">1.1</span> <span class="toctext">Privacy-Enhanced Mail (PEM)</span></a></li>
+<li class="toclevel-2"><a href="#MIME"><span class="tocnumber">1.2</span> <span class="toctext">MIME</span></a></li>
+<li class="toclevel-2"><a href="#UTF-7"><span class="tocnumber">1.3</span> <span class="toctext">UTF-7</span></a></li>
+<li class="toclevel-2"><a href="#OpenPGP"><span class="tocnumber">1.4</span> <span class="toctext">OpenPGP</span></a></li>
+<li class="toclevel-2"><a href="#IRCu"><span class="tocnumber">1.5</span> <span class="toctext">IRCu</span></a></li>
+<li class="toclevel-2"><a href="#RFC_3548"><span class="tocnumber">1.6</span> <span class="toctext">RFC 3548</span></a></li>
+<li class="toclevel-2"><a href="#RFC_4648"><span class="tocnumber">1.7</span> <span class="toctext">RFC 4648</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">2</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#URL_Applications"><span class="tocnumber">3</span> <span class="toctext">URL Applications</span></a></li>
+<li class="toclevel-1"><a href="#Other_applications"><span class="tocnumber">4</span> <span class="toctext">Other applications</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Base_64_Encoding_Schemes" id="Base_64_Encoding_Schemes"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: Base 64 Encoding Schemes">edit</a>]</span> <span class="mw-headline">Base 64 Encoding Schemes</span></h2>
+<p><a name="Privacy-Enhanced_Mail_.28PEM.29" id="Privacy-Enhanced_Mail_.28PEM.29"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: Privacy-Enhanced Mail (PEM)">edit</a>]</span> <span class="mw-headline">Privacy-Enhanced Mail (PEM)</span></h3>
+<p>The first known use of Base 64 encoding for electronic data transfer was the <a href="../../../p/r/i/Privacy-enhanced_Electronic_Mail_becb.html" title="Privacy-enhanced Electronic Mail">Privacy-enhanced Electronic Mail</a> (PEM) protocol, proposed by <a href="http://tools.ietf.org/html/rfc989" class="external" title="http://tools.ietf.org/html/rfc989">RFC 989</a> in <a href="../../../1/9/8/1987.html" title="1987">1987</a>. PEM defines a "printable encoding" scheme that uses Base 64 encoding to transform an arbitrary sequence of <a href="../../../o/c/t/Octet.html" title="Octet">octets</a> to a format that can be expressed in short lines of 7-bit characters, as required by transfer protocols such as <a href="../../../s/m/t/SMTP_c223.html" title="SMTP">SMTP</a>.</p>
+<p>The current version of PEM (specified in <a href="http://tools.ietf.org/html/rfc1421" class="external" title="http://tools.ietf.org/html/rfc1421">RFC 1421</a>) uses a 64-character alphabet consisting of upper- and lower-case <a href="../../../r/o/m/Roman_alphabet.html" title="Roman alphabet">Roman alphabet</a> characters (A–Z, a–z), the numerals (0–9), and the "+" and "/" symbols. The "=" symbol is also used as a special suffix code. The original specification, <a href="http://tools.ietf.org/html/rfc989" class="external" title="http://tools.ietf.org/html/rfc989">RFC 989</a>, additionally used the "*" symbol to delimit encoded but unencrypted data within the output stream.</p>
+<p>To convert data to PEM printable encoding, the first byte is placed in the <a href="../../../m/o/s/Most_significant_bit.html" title="Most significant bit">most significant</a> eight bits of a 24-bit buffer, the next in the middle eight, and the third in the <a href="../../../l/e/a/Least_significant_bit.html" title="Least significant bit">least significant</a> eight bits. If there are fewer than three bytes left to encode (or in total), the remaining buffer bits will be zero. The buffer is then used, six bits at a time, most significant first, as indices into the string: <code>"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/"</code>, and the indicated character is output.</p>
+<p>The process is repeated on the remaining data until less than four octets remain. If three octets remain, they are processed normally. If fewer than three octets (24 bits) are remaining to encode, the input data is right-padded with zero bits to form an integral multiple of six bits.</p>
+<p>After encoding padded data, if two octets were remaining to encode, one "=" character is appended to the output; if one octet was remaining, two "=" characters are appended. This signals the decoder that the zero bits added due to padding should not be emitted in the reconstructed data. This also guarantees that the encoded output length is a multiple of 4 bytes.</p>
+<p>PEM requires that all encoded lines consist of exactly 64 printable characters, with the exception of the last line, which may contain fewer printable characters. Lines are delimited by whitespace characters according to local (platform-specific) conventions.</p>
+<p><a name="MIME" id="MIME"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: MIME">edit</a>]</span> <span class="mw-headline">MIME</span></h3>
+<p>The <a href="../../../m/i/m/MIME_1903.html" title="MIME">MIME</a> (Multipurpose Internet Mail Extensions) specification, defined in <a href="http://tools.ietf.org/html/rfc2045" class="external" title="http://tools.ietf.org/html/rfc2045">RFC 2045</a>, lists "base64" as one of several <a href="../../../b/i/n/Binary_to_text_encoding.html" title="Binary to text encoding">binary to text encoding</a> schemes. MIME's base64 encoding is based on that of the <a href="http://tools.ietf.org/html/rfc1421" class="external" title="http://tools.ietf.org/html/rfc1421">RFC 1421</a> version of PEM: it uses the same 64-character alphabet and encoding mechanism as PEM, and uses the "=" symbol for output padding in the same way.</p>
+<p>MIME does not specify a fixed length for base64-encoded lines, but it does specify a maximum length of 76 characters. Additionally it specifies that any extra-alphabetic characters must be ignored by a compliant decoder, although most implementations use a <code>CR/LF</code> <a href="../../../n/e/w/Newline.html" title="Newline">newline</a> pair to delimit encoded lines.</p>
+<p>Thus, the actual length of MIME-compliant base64-encoded binary data is usually about 137% of the original data length, though for very short messages the overhead can be a lot higher.</p>
+<p><a name="UTF-7" id="UTF-7"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: UTF-7">edit</a>]</span> <span class="mw-headline">UTF-7</span></h3>
+<p><a href="../../../u/t/f/UTF-7_7524.html" title="UTF-7">UTF-7</a>, described in <a href="http://tools.ietf.org/html/rfc2152" class="external" title="http://tools.ietf.org/html/rfc2152">RFC 2152</a>, introduced a system called <b>Modified Base64</b>. This data encoding scheme is used to encode <a href="../../../u/t/f/UTF-16_8043.html" title="UTF-16">UTF-16</a> as <a href="../../../a/s/c/ASCII_d2cd.html" title="ASCII">ASCII</a> characters for use in 7-bit transports such as <a href="../../../s/m/t/SMTP_c223.html" title="SMTP">SMTP</a>. It is a variant of the base64 encoding used in MIME.</p>
+<p>The "Modified Base64" alphabet consists of the MIME base64 alphabet, but does not use the "=" padding character. UTF-7 is intended for use in mail headers (defined in <a href="http://tools.ietf.org/html/rfc2047" class="external" title="http://tools.ietf.org/html/rfc2047">RFC 2047</a>), and the "=" character is reserved in that context as the escape character for "quoted-printable" encoding. Modified base64 simply omits the padding and ends immediately after the last BASE64 digit containing useful bits (leaving 0-4 unused bits in the last base64 digit)</p>
+<p><a name="OpenPGP" id="OpenPGP"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: OpenPGP">edit</a>]</span> <span class="mw-headline">OpenPGP</span></h3>
+<p>OpenPGP, described in <a href="http://tools.ietf.org/html/rfc2440" class="external" title="http://tools.ietf.org/html/rfc2440">RFC 2440</a>, describes <a href="../../../r/a/d/Radix-64.html" title="Radix-64">Radix-64</a> encoding, also known as "ASCII Armor". Radix-64 is identical to the "base64" encoding described from MIME, with the addition of a 24-bit <a href="../../../c/y/c/Cyclic_redundancy_check.html" title="Cyclic redundancy check">CRC</a> checksum. The checksum is calculated on the input data before encoding; the checksum is then encoded with the same base64 algorithm and concatenated to the output data.</p>
+<p><a name="IRCu" id="IRCu"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: IRCu">edit</a>]</span> <span class="mw-headline">IRCu</span></h3>
+<p>In the P10 server-server protocol used by the IRCu IRC daemon and compatible software, a version of Base 64 encoding is used to encode client/server numerics and binary IP addresses. Client and server numerics have fixed sizes which match up with an exact number of base64 digits so no padding is needed. Binary IP addresses have leading zero bits added to make them fit. The symbol set is slightly different from the MIME alphabet, using [] instead of +/ to avoid clashes with other parts of the protocol that uses + internally as a marker to begin user modes.</p>
+<p><a name="RFC_3548" id="RFC_3548"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: RFC 3548">edit</a>]</span> <span class="mw-headline"><a href="http://tools.ietf.org/html/rfc3548" class="external" title="http://tools.ietf.org/html/rfc3548">RFC 3548</a></span></h3>
+<p><a href="http://tools.ietf.org/html/rfc3548" class="external" title="http://tools.ietf.org/html/rfc3548">RFC 3548</a> (The Base16, Base32, and Base64 Data Encodings) is an informational (non-normative) memo that attempts to unify the <a href="http://tools.ietf.org/html/rfc1421" class="external" title="http://tools.ietf.org/html/rfc1421">RFC 1421</a> and <a href="http://tools.ietf.org/html/rfc2045" class="external" title="http://tools.ietf.org/html/rfc2045">RFC 2045</a> specifications of base64 encodings, alternative-alphabet encodings, and the seldom-used Base 32 and Base 16 encodings.</p>
+<p><a href="http://tools.ietf.org/html/rfc3548" class="external" title="http://tools.ietf.org/html/rfc3548">RFC 3548</a> forbids implementations from adding non-alphabetic characters unless they are written to a specification that refers to <a href="http://tools.ietf.org/html/rfc3548" class="external" title="http://tools.ietf.org/html/rfc3548">RFC 3548</a> and specifically requires otherwise; it also declares that decoder implementations must reject data that contains non-alphabetic characters unless they are written to a specification that refers to <a href="http://tools.ietf.org/html/rfc3548" class="external" title="http://tools.ietf.org/html/rfc3548">RFC 3548</a> and specifically requires otherwise.</p>
+<p><a name="RFC_4648" id="RFC_4648"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: RFC 4648">edit</a>]</span> <span class="mw-headline"><a href="http://tools.ietf.org/html/rfc4648" class="external" title="http://tools.ietf.org/html/rfc4648">RFC 4648</a></span></h3>
+<p>This RFC obsoletes <a href="http://tools.ietf.org/html/rfc3548" class="external" title="http://tools.ietf.org/html/rfc3548">RFC 3548</a> and focuses on base 64/32/16:</p>
+<dl>
+<dd><i>This document describes the commonly used base 64, base 32, and base 16 encoding schemes. It also discusses the use of line-feeds in encoded data, use of padding in encoded data, use of non-alphabet characters in encoded data, use of different encoding alphabets, and canonical encodings.</i></dd>
+</dl>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>A quote from <a href="../../../t/h/o/Thomas_Hobbes_576b.html" title="Thomas Hobbes">Thomas Hobbes's</a> <a href="../../../l/e/v/Leviathan_%28book%29.html" title="Leviathan (book)">Leviathan</a>:</p>
+<dl>
+<dd><i>Man is distinguished, not only by his reason, but by this singular passion from other animals, which is a lust of the mind, that by a perseverance of delight in the continued and indefatigable generation of knowledge, exceeds the short vehemence of any carnal pleasure.</i></dd>
+</dl>
+<p>is encoded in MIME's base64 scheme as follows:</p>
+<pre>
+TWFuIGlzIGRpc3Rpbmd1aXNoZWQsIG5vdCBvbmx5IGJ5IGhpcyByZWFzb24sIGJ1dCBieSB0aGlz
+IHNpbmd1bGFyIHBhc3Npb24gZnJvbSBvdGhlciBhbmltYWxzLCB3aGljaCBpcyBhIGx1c3Qgb2Yg
+dGhlIG1pbmQsIHRoYXQgYnkgYSBwZXJzZXZlcmFuY2Ugb2YgZGVsaWdodCBpbiB0aGUgY29udGlu
+dWVkIGFuZCBpbmRlZmF0aWdhYmxlIGdlbmVyYXRpb24gb2Yga25vd2xlZGdlLCBleGNlZWRzIHRo
+ZSBzaG9ydCB2ZWhlbWVuY2Ugb2YgYW55IGNhcm5hbCBwbGVhc3VyZS4=
+</pre>
+<p>In the above quote the encoded value of <i>Man</i> is <i>TWFu</i>. Encoded in <a href="../../../a/s/c/ASCII_d2cd.html" title="ASCII">ASCII</a>, <i>M</i>, <i>a</i>, <i>n</i> are stored as the bytes <code>77</code>, <code>97</code>, <code>110</code>, which are <code>01001101</code>, <code>01100001</code>, <code>01101110</code> in base 2. These three bytes are joined together in a 24 bit buffer producing <code>010011010110000101101110</code>. Packs of 6 bits (6 bits has a maximum of 64 different binary values) are converted into 4 numbers (24 = 6x4) which are then converted to their corresponding values in Base 64.</p>
+<table class="wikitable">
+<tr>
+<td>Text content</td>
+<td colspan="8" align="center"><b>M</b></td>
+<td colspan="8" align="center"><b>a</b></td>
+<td colspan="8" align="center"><b>n</b></td>
+</tr>
+<tr>
+<td>ASCII</td>
+<td colspan="8" align="center">77</td>
+<td colspan="8" align="center">97</td>
+<td colspan="8" align="center">110</td>
+</tr>
+<tr>
+<td>Bit pattern</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Index</td>
+<td colspan="6" align="center">19</td>
+<td colspan="6" align="center">22</td>
+<td colspan="6" align="center">5</td>
+<td colspan="6" align="center">46</td>
+</tr>
+<tr>
+<td>Base64-Encoded</td>
+<td colspan="6" align="center"><b>T</b></td>
+<td colspan="6" align="center"><b>W</b></td>
+<td colspan="6" align="center"><b>F</b></td>
+<td colspan="6" align="center"><b>u</b></td>
+</tr>
+</table>
+<p>As this example illustrates, Base 64 encoding converts 3 uncoded bytes (in this case, ASCII characters) into 4 encoded ASCII characters.</p>
+<p>The example below illustrates how shortening the input changes the output padding:</p>
+<pre>
+Input ends with <i>carnal pleasure.</i>  Output ends with: c3VyZS4=
+Input ends with <i>carnal pleasure</i>   Output ends with: c3VyZQ==
+Input ends with <i>carnal pleasur</i>    Output ends with: c3Vy
+Input ends with <i>carnal pleasu</i>     Output ends with: c3U=
+</pre>
+<p><a name="URL_Applications" id="URL_Applications"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: URL Applications">edit</a>]</span> <span class="mw-headline">URL Applications</span></h2>
+<p>Base64 encoding can be helpful when fairly lengthy identifying information is used in an HTTP environment. <a href="../../../h/i/b/Hibernate_%28Java%29_a0d8.html" title="Hibernate (Java)">Hibernate</a>, a database persistence framework for <a href="../../../j/a/v/Java_%28programming_language%29.html" title="Java (programming language)">Java</a> objects, uses Base64 encoding to encode a relatively large unique id (generally 128-bit <a href="../../../u/u/i/UUID_5a54.html" title="UUID">UUIDs</a>) into a string for use as an HTTP parameter in HTTP forms or HTTP GET <a href="../../../u/r/l/URL_e6b3.html" title="URL">URLs</a>. Also, many applications need to encode binary data in a way that is convenient for inclusion in URLs, including in hidden web form fields, and Base64 is a convenient encoding to render them in not only a compact way, but in a relatively unreadable one when trying to obscure the nature of data from a casual human observer.</p>
+<p>Using a URL-encoder on standard Base64, however, is inconvenient as it will translate the '+' and '/' characters into special '%XX' hexadecimal sequences ('+' = '%2B' and '/' = '%2F'). When this is later used with database storage or across heterogeneous systems, they will themselves choke on the '%' character generated by URL-encoders (because the '%' character is also used in ANSI SQL as a wildcard).</p>
+<p>For this reason, a <b>modified Base64 for URL</b> variant exists, where <i>no</i> padding '=' will be used, and the '+' and '/' characters of standard Base64 are respectively replaced by '*' and '-', so that using URL encoders/decoders is no longer necessary and has no impact on the length of the encoded value, leaving the same encoded form intact for use in relational databases, web forms, and object identifiers in general.</p>
+<p>Another variant called <b>modified Base64 for regexps</b> uses '!-' instead of '*-' to replace the standard Base64 '+/', because both '+' and '*' may be reserved for <a href="../../../r/e/g/Regexp.html" title="Regexp">regular expressions</a> (note that '[]' used in the IRCu variant above would not work in that context).</p>
+<p>There are other variants that use '_-' or '._' when the Base64 variant string must be used within valid identifiers for programs, or '.-' for use in <a href="../../../x/m/l/XML_3501.html" title="XML">XML</a> name tokens (<i>Nmtoken</i>), or even '_:' for use in more restricted XML identifiers (<i>Name</i>).</p>
+<p><a name="Other_applications" id="Other_applications"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: Other applications">edit</a>]</span> <span class="mw-headline">Other applications</span></h2>
+<p>Base64 can be used in a variety of contexts:</p>
+<ul>
+<li><a href="../../../m/o/z/Mozilla_Thunderbird_a0c6.html" title="Mozilla Thunderbird">Thunderbird</a> and <a href="../../../n/o/v/Novell_Evolution_4628.html" title="Novell Evolution">Evolution</a> both use Base64 to obscure e-mail <a href="../../../p/a/s/Passwords.html" title="Passwords">passwords</a></li>
+<li>Base64 is often used as a quick but insecure shortcut to obscure secrets without incurring the overhead of cryptographic <a href="../../../k/e/y/Key_management.html" title="Key management">key management</a></li>
+<li>Spammers use Base64 to evade basic anti-<a href="../../../s/p/a/Spamming.html" title="Spamming">spam</a> tools, which often do not decode Base64 and therefore cannot detect keywords in encoded messages.</li>
+<li>Base64 is used to encode character strings in <a href="../../../l/d/i/LDIF_b1c0.html" title="LDIF">LDIF</a> files</li>
+<li>Base64 is sometimes used to embed binary data in an <a href="../../../x/m/l/XML_3501.html" title="XML">XML</a> file, using a syntax similar to &lt;data encoding="base64"&gt;......&lt;/data&gt; <a href="../../../e/2E/g/E.g..html" title="E.g.">e.g.:</a> <a href="../../../f/i/r/Firefox.html" title="Firefox">Firefox</a>'s <tt>bookmarks.html</tt>.</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../r/a/d/Radix-64.html" title="Radix-64">Radix-64</a></li>
+<li><a href="../../../a/s/c/ASCII85_5de1.html" title="ASCII85">ASCII85</a></li>
+<li><a href="../../../q/u/o/Quoted-printable.html" title="Quoted-printable">Quoted-printable</a></li>
+<li><a href="../../../u/u/e/Uuencode.html" title="Uuencode">uuencode</a></li>
+<li><a href="../../../y/e/n/YEnc_1727.html" title="YEnc">yEnc</a></li>
+<li><a href="../../../8/b/i/8BITMIME_41ac.html" title="8BITMIME">8BITMIME</a></li>
+<li><a href="../../../u/r/l/URL_e6b3.html" title="URL">URL</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Base64.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://tools.ietf.org/html/rfc989" class="external" title="http://tools.ietf.org/html/rfc989">RFC 989</a> (Privacy Enhancement for Electronic Internet Mail) <i>(obsolete)</i></li>
+<li><a href="http://tools.ietf.org/html/rfc1421" class="external" title="http://tools.ietf.org/html/rfc1421">RFC 1421</a> (Privacy Enhancement for Electronic Internet Mail)</li>
+<li><a href="http://tools.ietf.org/html/rfc2045" class="external" title="http://tools.ietf.org/html/rfc2045">RFC 2045</a> (Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies)</li>
+<li><a href="http://tools.ietf.org/html/rfc3548" class="external" title="http://tools.ietf.org/html/rfc3548">RFC 3548</a> (The Base16, Base32, and Base64 Data Encodings)</li>
+<li><a href="http://tools.ietf.org/html/rfc4648" class="external" title="http://tools.ietf.org/html/rfc4648">RFC 4648</a> (The Base16, Base32, and Base64 Data Encodings)</li>
+<li><a href="http://www.infowares.com/base64.php" class="external text" title="http://www.infowares.com/base64.php" rel="nofollow">Base64 encoder/decoder</a> web-based platform-independent encoder/decoder (<a href="../../../g/p/l/GPL_a75a.html" title="GPL">GPL</a>, with source code)</li>
+<li><a href="http://4mhz.de/" class="external text" title="http://4mhz.de/" rel="nofollow">Base64 Decoder</a> with graphical user interface (Windows)</li>
+<li><a href="http://josefsson.org/base-encoding/" class="external text" title="http://josefsson.org/base-encoding/" rel="nofollow">Home of the Base64 specification, with an online decoder and C99 implementation</a></li>
+<li><a href="http://synesis.com.au/software/b64.html" class="external text" title="http://synesis.com.au/software/b64.html" rel="nofollow">b64: Base-64 Encoding Library (C library with C++ mapping; Platform-independent)</a></li>
+<li><a href="http://base64.sourceforge.net/" class="external text" title="http://base64.sourceforge.net/" rel="nofollow">Base64 source code in C</a></li>
+<li><a href="http://modp.com/release/base64/" class="external text" title="http://modp.com/release/base64/" rel="nofollow">Base64 in C/C++ with 2-3x faster encode/decode</a></li>
+<li><a href="http://www.and.org/and-httpd/src/base64.c" class="external text" title="http://www.and.org/and-httpd/src/base64.c" rel="nofollow">Base64 in C, using Vstr, colorized using simple 24bit conversion</a></li>
+<li><a href="http://iharder.sourceforge.net/base64/" class="external text" title="http://iharder.sourceforge.net/base64/" rel="nofollow">Base64 source code in Java (Public Domain)</a> / <a href="http://java.freehep.org/jcvslet/JCVSlet/list/freehep/freehep/org/freehep/util/io" class="external text" title="http://java.freehep.org/jcvslet/JCVSlet/list/freehep/freehep/org/freehep/util/io" rel="nofollow">Another Java source code</a></li>
+<li><a href="http://farhadi.ir/base64.html" class="external text" title="http://farhadi.ir/base64.html" rel="nofollow">Base64 implementation in JavaScript</a></li>
+<li><a href="http://search.cpan.org/~gaas/MIME-Base64/" class="external text" title="http://search.cpan.org/~gaas/MIME-Base64/" rel="nofollow">MIME::Base64 Perl module</a></li>
+<li><a href="http://leetkey.mozdev.org/" class="external text" title="http://leetkey.mozdev.org/" rel="nofollow">Firefox extension that supports ASCII/Base64 conversions</a></li>
+<li><a href="http://www.gnus.org/manual/emacs-mime_25.html" class="external text" title="http://www.gnus.org/manual/emacs-mime_25.html" rel="nofollow">emacs functions for Base64 conversions</a></li>
+<li><a href="http://www.formatschool.com/index.php?article=base64" class="external text" title="http://www.formatschool.com/index.php?article=base64" rel="nofollow">Base64 article at FormatSchool.com</a></li>
+<li><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dv_foxhelp9/html/e2b743ac-dec7-43ae-82db-ba6fa1e2cbd9.asp?frame=true" class="external text" title="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dv_foxhelp9/html/e2b743ac-dec7-43ae-82db-ba6fa1e2cbd9.asp?frame=true" rel="nofollow">Visual FoxPro functions for Base64 conversions</a></li>
+<li><a href="http://www.motobit.com/util/base64-decoder-encoder.asp" class="external text" title="http://www.motobit.com/util/base64-decoder-encoder.asp" rel="nofollow">Base64 decoder and encoder online</a></li>
+<li><a href="http://www.themorningoutline.com/sample/AJAXtream.html" class="external text" title="http://www.themorningoutline.com/sample/AJAXtream.html" rel="nofollow">Video playback using Base64-encode Data URIs in XML format</a></li>
+<li><a href="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=67831" class="external text" title="http://www.sqlteam.com/forums/topic.asp?TOPIC_ID=67831" rel="nofollow">T-SQL implementation</a></li>
+<li><a href="http://firestuff.org/wordpress/wp-content/uploads/2006/03/base64.sql" class="external text" title="http://firestuff.org/wordpress/wp-content/uploads/2006/03/base64.sql" rel="nofollow">MySQL 5 implementation</a></li>
+<li><a href="http://jakarta.apache.org/commons/codec/apidocs/org/apache/commons/codec/binary/Base64.html" class="external text" title="http://jakarta.apache.org/commons/codec/apidocs/org/apache/commons/codec/binary/Base64.html" rel="nofollow">Base64 implementation in Java</a></li>
+<li><a href="http://gtools.org/base64-encode-decode.php" class="external text" title="http://gtools.org/base64-encode-decode.php" rel="nofollow">Web based Base64 encoding / decoding tool</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 6489 bytes
+Post-expand include size: 4218 bytes
+Template argument size: 326 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/s/Base64.html">http://en.wikipedia.org../../../b/a/s/Base64.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_to_be_merged_since_January_2007_cf3c.html" title="Category:Articles to be merged since January 2007">Articles to be merged since January 2007</a></span> | <span dir='ltr'><a href="../../../u/s/e/Category%7EUsenet_e825.html" title="Category:Usenet">Usenet</a></span> | <span dir='ltr'><a href="../../../e/-/m/Category%7EE-mail_11b0.html" title="Category:E-mail">E-mail</a></span> | <span dir='ltr'><a href="../../../i/n/t/Category%7EInternet_standards_4388.html" title="Category:Internet standards">Internet standards</a></span> | <span dir='ltr'><a href="../../../b/i/n/Category%7EBinary_to_text_encoding_formats_f3ce.html" title="Category:Binary to text encoding formats">Binary to text encoding formats</a></span> | <span dir='ltr'><a href="../../../d/a/t/Category%7EData_serialization_formats_77ee.html" title="Category:Data serialization formats">Data serialization formats</a></span> | <span dir='ltr'><a href="../../../p/o/s/Category%7EPositional_numeral_systems_c3fc.html" title="Category:Positional numeral systems">Positional numeral systems</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/s/Base64.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/a/s/Talk%7EBase64_1d57.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Base64">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../da/b/a/s/Base64.html">Dansk</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/b/a/s/Base64.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/b/a/s/Base64.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/b/a/s/Base64.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EB%B2%A0/%EC%9D%B4/%EC%8A%A4/%EB%B2%A0%EC%9D%B4%EC%8A%A464.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/b/a/s/Base64.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/b/a/s/Base64.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/b/a/s/Base64.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/b/a/s/Base64.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/b/a/s/Base64.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/b/a/s/Base64.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sk/b/a/s/Base64.html">Slovenčina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sr/b/a/s/Base64.html">Српски / Srpski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../tr/b/a/s/Base64.html">Türkçe</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/b/a/s/Base64.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 01:46, 25 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../g/t/g/User%7EGtg204y_981e.html" title="User:Gtg204y">Gtg204y</a>, Coolhead33, Morello456, <a href="../../../q/_/c/User%7EQ_Chris_be14.html" title="User:Q Chris">Q Chris</a>, <a href="../../../f/m/c/User%7EFmccown_6298.html" title="User:Fmccown">Fmccown</a>, Gorndog, <a href="../../../t/i/m/User%7ETim1988_0c53.html" title="User:Tim1988">Tim1988</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, <a href="../../../c/h/r/User%7EChris_Q_1529.html" title="User:Chris Q">Chris Q</a>, <a href="../../../k/j/e/User%7EKjetilho_66d8.html" title="User:Kjetilho">Kjetilho</a>, Ukslim, <a href="../../../k/h/u/User%7EKhukri_e3b4.html" title="User:Khukri">Khukri</a>, <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, Left Writer, <a href="../../../j/m/o/User%7EJmorgan_e975.html" title="User:Jmorgan">Jmorgan</a>, <a href="../../../l/u/n/User%7ELunkwill_3c1f.html" title="User:Lunkwill">Lunkwill</a>, <a href="../../../h/o/r/User%7EHorsten_cf99.html" title="User:Horsten">Horsten</a>, <a href="../../../s/h/a/User%7EShadowbot_64a7.html" title="User:Shadowbot">Shadowbot</a>, OKeh, <a href="../../../i/l/m/User%7EIlmari_Karonen_d189.html" title="User:Ilmari Karonen">Ilmari Karonen</a>, <a href="../../../h/a/i/User%7EHairy_Dude_fc1c.html" title="User:Hairy Dude">Hairy Dude</a>, Michael.jaeger, <a href="../../../n/o/e/User%7ENoe_b8ad.html" title="User:Noe">Noe</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../u/a/x/User%7EUaxuctum_57d1.html" title="User:Uaxuctum">Uaxuctum</a>, <a href="../../../r/o/o/User%7ERootless_7fdd.html" title="User:Rootless">Rootless</a>, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, Nevyn, <a href="../../../a/l/e/User%7EAlexf_86e3.html" title="User:Alexf">Alexf</a>, Isomer, <a href="../../../g/a/u/User%7EGaurav1146_38c0.html" title="User:Gaurav1146">Gaurav1146</a>, Tlesher, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../m/e/m/User%7EMemty_Bot_8fd9.html" title="User:Memty Bot">Memty Bot</a>, Ultimater, <a href="../../../e/n/c/User%7EEncMstr_d026.html" title="User:EncMstr">EncMstr</a>, <a href="../../../c/y/d/User%7ECydebot_38a6.html" title="User:Cydebot">Cydebot</a>, <a href="../../../m/y/s/User%7EMysid_64a6.html" title="User:Mysid">Mysid</a>, <a href="../../../d/r/e/User%7EDreftymac_20ab.html" title="User:Dreftymac">Dreftymac</a>, <a href="../../../g/r/e/User%7EGreyCat_699e.html" title="User:GreyCat">GreyCat</a>, <a href="../../../d/a/n/User%7EDanielKO_2531.html" title="User:DanielKO">DanielKO</a>, <a href="../../../o/m/n/User%7EOmniplex_327d.html" title="User:Omniplex">Omniplex</a>, Farhadi, Rakkar2, <a href="../../../m/a/r/User%7EMarudubshinki_b9b7.html" title="User:Marudubshinki">Marudubshinki</a>, <a href="../../../z/e/r/User%7EZer0faults_ee8f.html" title="User:Zer0faults">Zer0faults</a>, <a href="../../../v/i/n/User%7EVina-iwbot_07b6.html" title="User:Vina-iwbot">Vina-iwbot</a>, <a href="../../../p/o/r/User%7EPorge_ce73.html" title="User:Porge">Porge</a>, <a href="../../../h/a/a/User%7EHaakon_f760.html" title="User:Haakon">Haakon</a>, SeanVikoren, <a href="../../../b/r/i/User%7EBrighterorange_f618.html" title="User:Brighterorange">Brighterorange</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../w/i/k/User%7EWikiborg_3c13.html" title="User:Wikiborg">Wikiborg</a>, <a href="../../../j/o/h/User%7EJohnteslade_69f5.html" title="User:Johnteslade">Johnteslade</a>, <a href="../../../g/e/o/User%7EGeorgia_guy_82ac.html" title="User:Georgia guy">Georgia guy</a>, <a href="../../../z/e/r/User%7EZero_sharp_997b.html" title="User:Zero sharp">Zero sharp</a>, <a href="../../../b/a/r/User%7EBarefootguru_514d.html" title="User:Barefootguru">Barefootguru</a>, <a href="../../../e/a/g/User%7EEagleOne_ac47.html" title="User:EagleOne">EagleOne</a>, <a href="../../../y/o/o/User%7EYooden_5685.html" title="User:Yooden">Yooden</a>, <a href="../../../a/l/e/User%7EAlexBadea_049f.html" title="User:AlexBadea">AlexBadea</a>, <a href="../../../j/o/h/User%7EJohnyDog_85c7.html" title="User:JohnyDog">JohnyDog</a>, Esoth, <a href="../../../g/r/a/User%7EGraue_e85a.html" title="User:Graue">Graue</a>, <a href="../../../h/e/n/User%7EHenrique_Moreira_902e.html" title="User:Henrique Moreira">Henrique Moreira</a>, <a href="../../../s/a/s/User%7ESasa_Stefanovic_d4b6.html" title="User:Sasa Stefanovic">Sasa Stefanovic</a>, Eclectica, <a href="../../../j/l/a/User%7EJLaTondre_be65.html" title="User:JLaTondre">JLaTondre</a>, <a href="../../../t/i/z/User%7ETizio_edab.html" title="User:Tizio">Tizio</a>, PacoBell, <a href="../../../v/a/r/User%7EVarizer_3804.html" title="User:Varizer">Varizer</a>, <a href="../../../t/u/r/User%7ETurnstep_b3bf.html" title="User:Turnstep">Turnstep</a>, <a href="../../../g/u/s/User%7EGustavb_235f.html" title="User:Gustavb">Gustavb</a>, <a href="../../../j/o/h/User%7EJohntex_d2fe.html" title="User:Johntex">Johntex</a>, Gratyn, <a href="../../../p/e/a/User%7EPeak_ed3e.html" title="User:Peak">Peak</a>, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, Lumingz, <a href="../../../r/i/c/User%7ERick_Block_f5f2.html" title="User:Rick Block">Rick Block</a>, <a href="../../../e/s/s/User%7EEssjay_c5fd.html" title="User:Essjay">Essjay</a>, <a href="../../../s/c/h/User%7ESchapel_28ce.html" title="User:Schapel">Schapel</a>, <a href="../../../f/l/e/User%7EFleminra_45b2.html" title="User:Fleminra">Fleminra</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../r/e/x/User%7ERexNL_e4e0.html" title="User:RexNL">RexNL</a>, <a href="../../../g/l/e/User%7EGlenn_a98b.html" title="User:Glenn">Glenn</a>, Jghaines, <a href="../../../h/a/s/User%7EHasharBot_fdaa.html" title="User:HasharBot">HasharBot</a>, <a href="../../../b/a/b/User%7EBabomb_2cd2.html" title="User:Babomb">Babomb</a>, <a href="../../../a/h/o/User%7EAhoerstemeier_88c8.html" title="User:Ahoerstemeier">Ahoerstemeier</a>, <a href="../../../t/a/k/User%7ETakuyaMurata_085a.html" title="User:TakuyaMurata">TakuyaMurata</a>, <a href="../../../a/l/i/User%7EAlistairMcMillan_232b.html" title="User:AlistairMcMillan">AlistairMcMillan</a>, <a href="../../../t/o/m/User%7ETom_harrison_ffb8.html" title="User:Tom harrison">Tom harrison</a>, <a href="../../../d/a/n/User%7EDanakil_c52d.html" title="User:Danakil">Danakil</a>, <a href="../../../r/e/d/User%7ERedWolf_0f32.html" title="User:RedWolf">RedWolf</a>, <a href="../../../b/u/s/User%7EBuster2058_6170.html" title="User:Buster2058">Buster2058</a>, <a href="../../../a/n/g/User%7EAngela_56ea.html" title="User:Angela">Angela</a>, <a href="../../../a/l/i/User%7EAlissonSellaro_576b.html" title="User:AlissonSellaro">AlissonSellaro</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, Nherring, <a href="../../../n/a/d/User%7ENaddy_8480.html" title="User:Naddy">Naddy</a>, <a href="../../../j/-/w/User%7EJ-Wiki_7c83.html" title="User:J-Wiki">J-Wiki</a> and <a href="../../../g/e/o/User%7EGeoffrey_54da.html" title="User:Geoffrey">Geoffrey</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

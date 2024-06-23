@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Abstraction inversion,Ada programming language,Anti-pattern,Applesoft BASIC,Bit blit,Bitwise operation,C++,Computer programming,Floating point,Integer,Java (programming language)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Abstraction inversion - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Abstraction inversion</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_programming.html" title="Computer programming">computer programming</a>, <b>abstraction inversion</b> is an <a href="../../../a/n/t/Anti-pattern.html" title="Anti-pattern">anti-pattern</a> arising when the interface to a construct does not expose the functions needed by its users, although they are used within the construct. The result is that the users re-implement the required functions in terms of the interface, which in its turn uses the internal implementation of the same functions.</p>
+<p>The term "abstraction inversion" is sometimes misunderstood as referring to complex (or concrete) constructs with simple (or abstract) interfaces, which are normal and desirable. It is also sometimes misused as an insult against a certain architecture or design.</p>
+<p>Possible ill-effects are:</p>
+<ul>
+<li>The user of such a re-implemented function may seriously underestimate its running-costs.</li>
+<li>The user of the construct is forced to obscure his implementation with complex mechanical details.</li>
+<li>Many users attempt to solve the same problem, increasing the risk of error.</li>
+</ul>
+<p><a name="Abstraction_inversion_in_practice" id="Abstraction_inversion_in_practice"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstraction_inversion.html" title="Edit section: Abstraction inversion in practice">edit</a>]</span> <span class="mw-headline">Abstraction inversion in practice</span></h2>
+<p>Ways to avoid this anti-pattern include:</p>
+<dl>
+<dd>For designers of lower-level software:
+<ul>
+<li>If your system offers formally equivalent functions, choose carefully which to implement in terms of the other.</li>
+<li>Do not force unnecessarily weak constructs on your users.</li>
+</ul>
+</dd>
+<dd>For implementers of higher-level software:
+<ul>
+<li>Choose your infrastructure carefully.</li>
+</ul>
+</dd>
+</dl>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstraction_inversion.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>Alleged examples from professional programming circles include:</p>
+<ul>
+<li>In <a href="../../../a/d/a/Ada_programming_language.html" title="Ada programming language">Ada</a>, choice of the <i>rendezvous</i> construct as a synchronisation primitive forced programmers to implement simpler constructs such as <a href="../../../s/e/m/Semaphore_%28programming%29.html" title="Semaphore (programming)">semaphores</a> on the more complex basis.</li>
+<li>In <a href="../../../a/p/p/Applesoft_BASIC_7576.html" title="Applesoft BASIC">Applesoft BASIC</a>, <a href="../../../i/n/t/Integer.html" title="Integer">integer</a> arithmetic was implemented on top of <a href="../../../f/l/o/Floating_point.html" title="Floating point">floating-point arithmetic</a>, and there were no <a href="../../../b/i/t/Bitwise_operation.html" title="Bitwise operation">bitwise operators</a> and no support for <a href="../../../b/i/t/Bit_blit.html" title="Bit blit">blitting</a> of <a href="../../../r/a/s/Raster_graphics.html" title="Raster graphics">raster graphics</a> (even though the language supported vector graphics on the Apple II's raster hardware). This caused games and other programs written in BASIC to run more slowly.</li>
+<li>A body of opinion holds the <a href="../../../m/i/c/Microkernel.html" title="Microkernel">microkernel</a> design to be an abstraction inversion (see the links). It is interesting that microkernels are also alleged to commit the design error of oversimplifying the components so as to overcomplicate their relationships.</li>
+<li>Creating an object to represent a function is cumbersome in <a href="../../../o/b/j/Object-oriented.html" title="Object-oriented">object-oriented</a> languages such as <a href="../../../j/a/v/Java_%28programming_language%29.html" title="Java (programming language)">Java</a> and <a href="../../../c/%2B/%2B/C%2B%2B.html" title="C++">C++</a>, in which functions are not first-class objects. In Java, a function has to be implemented by a <a href="../../../m/e/t/Method_%28computer_science%29.html" title="Method (computer science)">method</a> of an interface, sometimes in a class with no other justification for its existence. An example from Java is the method <em><code><a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Runnable.html#run()" class="external text" title="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Runnable.html#run()" rel="nofollow">Runnable.run()</a></code></em>, required by the method <code><a href="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Thread.html#run()" class="external text" title="http://java.sun.com/j2se/1.5.0/docs/api/java/lang/Thread.html#run()" rel="nofollow">Thread.run()</a></code> . In C++ it is possible to make an object 'callable' by overloading the <code>()</code> operator, but it is still often necessary to implement a new class, such as the <em><a href="http://www.sgi.com/tech/stl/functors.html" class="external text" title="http://www.sgi.com/tech/stl/functors.html" rel="nofollow">Functors in the STL</a></em>.</li>
+</ul>
+<p>Examples that are common outside professional programming circles include:</p>
+<ul>
+<li>Using spreadsheet lookup functions to replicate the functionality of a database</li>
+<li>Using variant data types as loop counters in Microsoft Visual Basic where an integer type is also available.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstraction_inversion.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://c2.com/cgi/wiki?AbstractionInversion" class="external text" title="http://c2.com/cgi/wiki?AbstractionInversion" rel="nofollow">Article in Ward's Wiki</a>- (includes a lot of discussion)</li>
+<li><a href="http://www.pipeline.com/~hbaker1/CritLisp.html#fn2" class="external text" title="http://www.pipeline.com/~hbaker1/CritLisp.html#fn2" rel="nofollow">Critique of DIN Kernel Lisp Definition Version 1.2, footnote 2</a> - says (without references) that the term derives from critiques of the Ada <i>rendezvous</i>, appears to be one of the earliest uses.</li>
+<li><a href="http://plan9.escet.urjc.es/usr/nemo/export/hotos-didos/node2.html" class="external text" title="http://plan9.escet.urjc.es/usr/nemo/export/hotos-didos/node2.html" rel="nofollow">Distribute those centralized microkernels</a> in <a href="http://plan9.escet.urjc.es/usr/nemo/export/hotos-didos/hotos-didos.html" class="external text" title="http://plan9.escet.urjc.es/usr/nemo/export/hotos-didos/hotos-didos.html" rel="nofollow">The Network Hardware Is the Operating System</a> (Francisco J. Ballesteros and Luis L. Fernandez, 1997) suggests that <i>ill-designed</i> microkernels offer simple abstractions with heavyweight implementations, and that this may be called an "abstraction inversion".</li>
+<li>The article '<a href="http://tunes.org/wiki/Microkernel" class="external text" title="http://tunes.org/wiki/Microkernel" rel="nofollow">Microkernel</a>' at tunes.org gives many of the arguments against microkernels and suggests that it is an abstraction inversion to implement a modular high-level design using a low-level module manager.</li>
+<li><a href="http://sourcefrog.net/weblog/software/vc/subversion/lord-on-svn.html" class="external autonumber" title="http://sourcefrog.net/weblog/software/vc/subversion/lord-on-svn.html" rel="nofollow">[1]</a> suggests that the <a href="../../../s/u/b/Subversion_%28software%29.html" title="Subversion (software)">Subversion</a> version control system pays for the abstraction inversion of implementing a write-only database on a read/write database with poor performance.</li>
+<li><a href="http://lists.tunes.org/archives/tunes/1999-August.txt" class="external autonumber" title="http://lists.tunes.org/archives/tunes/1999-August.txt" rel="nofollow">[2]</a> argues that the <a href="../../../s/c/h/Scheme_%28programming_language%29.html" title="Scheme (programming language)">Scheme programming language</a> exhibits abstraction inversion.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/b/s/Abstraction_inversion.html">http://en.wikipedia.org../../../a/b/s/Abstraction_inversion.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../a/n/t/Category%7EAnti-patterns_4541.html" title="Category:Anti-patterns">Anti-patterns</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/b/s/Abstraction_inversion.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/b/s/Talk%7EAbstraction_inversion_e5dd.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Abstraction_inversion">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../es/i/n/v/Inversi%C3%B3n_de_abstracci%C3%B3n.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/i/n/v/Inversione_di_astrazione.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B8/%D0%BD/%D0%B2/%D0%98%D0%BD%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D1%8F_%D0%B0%D0%B1%D1%81%D1%82%D1%80%D0%B0%D0%BA%D1%86%D0%B8%D0%B8.html">Русский</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 04:54, 10 December 2006 by Wikipedia user <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>. Based on work by Wikipedia user(s) <a href="../../../d/a/m/User%7EDamian_Yerrick_2a18.html" title="User:Damian Yerrick">Damian Yerrick</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../p/j/t/User%7EPJTraill_4845.html" title="User:PJTraill">PJTraill</a>, <a href="../../../j/l/e/User%7EJleedev_48f1.html" title="User:Jleedev">Jleedev</a>, <a href="../../../m/a/r/User%7EMarudubshinki_b9b7.html" title="User:Marudubshinki">Marudubshinki</a>, <a href="../../../s/c/h/User%7ESchneelocke_ee99.html" title="User:Schneelocke">Schneelocke</a>, <a href="../../../m/a/r/User%7EMartpol_6226.html" title="User:Martpol">Martpol</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, Invisi1407, <a href="../../../w/l/i/User%7EWlievens_2d8b.html" title="User:Wlievens">Wlievens</a>, <a href="../../../h/a/p/User%7EHappyDog_f746.html" title="User:HappyDog">HappyDog</a>, <a href="../../../p/t/_/User%7EPt_7ac7.html" title="User:Pt">Pt</a>, <a href="../../../g/r/a/User%7EGracefool_5e64.html" title="User:Gracefool">Gracefool</a>, <a href="../../../a/s/c/User%7EAsc%C3%A1nder_7612.html" title="User:Ascánder">Ascánder</a>, <a href="../../../t/j/d/User%7ETjdw_2700.html" title="User:Tjdw">Tjdw</a>, <a href="../../../f/u/r/User%7EFurrykef_4620.html" title="User:Furrykef">Furrykef</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a> and <a href="../../../e/d/a/User%7EEdaelon_efcc.html" title="User:Edaelon">Edaelon</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

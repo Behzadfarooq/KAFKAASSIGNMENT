@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Blum-Goldwasser cryptosystem,1984,Adaptive chosen ciphertext attack,Asymmetric key encryption algorithm,Blum Blum Shub,Blum integer,Ciphertext expansion,Goldwasser-Micali cryptosystem,Integer factorization,Keystream,Manuel Blum" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Blum-Goldwasser cryptosystem - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Blum-Goldwasser cryptosystem</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>The <b>Blum-Goldwasser</b> (BG) cryptosystem is an <a href="../../../a/s/y/Asymmetric_key_encryption_algorithm.html" title="Asymmetric key encryption algorithm">asymmetric key encryption algorithm</a> proposed by <a href="../../../m/a/n/Manuel_Blum_e13f.html" title="Manuel Blum">Manuel Blum</a> and <a href="../../../s/h/a/Shafi_Goldwasser_d094.html" title="Shafi Goldwasser">Shafi Goldwasser</a> in <a href="../../../1/9/8/1984.html" title="1984">1984</a>. Blum-Goldwasser is a <a href="../../../p/r/o/Probabilistic_encryption.html" title="Probabilistic encryption">probabilistic</a>, <a href="../../../s/e/m/Semantic_security.html" title="Semantic security">semantically secure</a> cryptosystem with a constant-size <a href="../../../c/i/p/Ciphertext_expansion.html" title="Ciphertext expansion">ciphertext expansion</a>. The encryption algorithm implements an XOR-based <a href="../../../s/t/r/Stream_cipher.html" title="Stream cipher">stream cipher</a> using the <a href="../../../b/l/u/Blum_Blum_Shub_715b.html" title="Blum Blum Shub">Blum Blum Shub</a> (BBS) pseudo-random number generator to generate the <a href="../../../k/e/y/Keystream.html" title="Keystream">keystream</a>. Decryption is accomplished by manipulating the final state of the BBS generator using the secret key, in order to find the initial seed and reconstruct the keystream.</p>
+<p>The BG cryptosystem is <a href="../../../s/e/m/Semantic_security.html" title="Semantic security">semantically secure</a> based on the assumed intractability of <a href="../../../i/n/t/Integer_factorization.html" title="Integer factorization">integer factorization</a>; specifically, factoring a composite value <span class="texhtml"><i>N</i> = <i>p</i><i>q</i></span> where <span class="texhtml"><i>p</i>,<i>q</i></span> are large <a href="../../../p/r/i/Prime_number.html" title="Prime number">primes</a>. BG has multiple advantages over earlier probabilistic encryption schemes such as the <a href="../../../g/o/l/Goldwasser-Micali_cryptosystem_41dd.html" title="Goldwasser-Micali cryptosystem">Goldwasser-Micali cryptosystem</a>. First, its semantic security reduces solely to integer factorization, without requiring any additional assumptions (e.g., hardness of the <a href="../../../q/u/a/Quadratic_residuosity_problem.html" title="Quadratic residuosity problem">quadratic residuosity problem</a> or the <a href="../../../r/s/a/RSA_problem_642c.html" title="RSA problem">RSA problem</a>). Secondly, BG is efficient in terms of storage, inducing a constant-size <a href="../../../c/i/p/Ciphertext_expansion.html" title="Ciphertext expansion">ciphertext expansion</a> regardless of message length. BG is also relatively efficient in terms of computation, and fairs well even in comparison with cryptosystems such as RSA (depending on message length and exponent choices). However, BG is highly vulnerable to adaptive chosen ciphertext attacks (see below).</p>
+<p>Because encryption is performed using a probabilistic algorithm, a given plaintext may produce very different ciphertexts each time it is encrypted. This has significant advantages, as it prevents an adversary from recognizing intercepted messages by comparing them to a dictionary of known ciphertexts.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Scheme_definition"><span class="tocnumber">1</span> <span class="toctext">Scheme definition</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Key_generation"><span class="tocnumber">1.1</span> <span class="toctext">Key generation</span></a></li>
+<li class="toclevel-2"><a href="#Message_encryption"><span class="tocnumber">1.2</span> <span class="toctext">Message encryption</span></a></li>
+<li class="toclevel-2"><a href="#Message_decryption"><span class="tocnumber">1.3</span> <span class="toctext">Message decryption</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Security_and_efficiency"><span class="tocnumber">2</span> <span class="toctext">Security and efficiency</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Scheme_definition" id="Scheme_definition"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html" title="Edit section: Scheme definition">edit</a>]</span> <span class="mw-headline">Scheme definition</span></h2>
+<p><b>Note that the following description is a draft, and may contain errors!</b></p>
+<p>Blum-Goldwasser consists of three algorithms: a probabilistic key generation algorithm which produces a public and a private key, a probabilistic encryption algorithm, and a deterministic decryption algorithm.</p>
+<p><a name="Key_generation" id="Key_generation"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html" title="Edit section: Key generation">edit</a>]</span> <span class="mw-headline">Key generation</span></h3>
+<p>To allow for decryption, the modulus used in Blum-Goldwasser encryption should be a <a href="../../../b/l/u/Blum_integer.html" title="Blum integer">Blum integer</a>. This value is generated in the same manner as an <a href="../../../r/s/a/RSA_445d.html" title="RSA">RSA</a> modulus, except that the prime factors <span class="texhtml">(<i>p</i>,<i>q</i>)</span> must be congruent to 3 mod 4. (See <a href="../../../r/s/a/RSA_445d.html" title="RSA">RSA</a>, key generation for details.)</p>
+<ol>
+<li>Alice generates two large <a href="../../../p/r/i/Prime_number.html" title="Prime number">prime numbers</a> <img class='tex' src="../../../math/5/a/3/5a34bb082daf037b3c4b14c13af6855b.png" alt="p \," /> and <img class='tex' src="../../../math/d/3/5/d35e628d4924b45b5200ab2b56b1efb8.png" alt="q \," /> such that <img class='tex' src="../../../math/b/e/7/be79a7c743e196ac62850c0800363371.png" alt="p \ne q" />, randomly and independently of each other, where <img class='tex' src="../../../math/f/d/1/fd100fc92abfa446f21980ff07f3687e.png" alt="(p, q) \equiv 3" /> mod <span class="texhtml">4</span>.</li>
+<li>Alice computes <span class="texhtml"><i>N</i> = <i>p</i><i>q</i></span>.</li>
+</ol>
+<p>The <i>public key</i> is <span class="texhtml"><i>N</i></span>. The secret key is the factorization <span class="texhtml">(<i>p</i>,<i>q</i>)</span>.</p>
+<p><a name="Message_encryption" id="Message_encryption"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html" title="Edit section: Message encryption">edit</a>]</span> <span class="mw-headline">Message encryption</span></h3>
+<p>Suppose Bob wishes to send a message <i>m</i> to Alice:</p>
+<ol>
+<li>Bob first encodes <span class="texhtml"><i>m</i></span> as a string of <span class="texhtml"><i>L</i></span> bits <img class='tex' src="../../../math/0/9/3/093659c4d84866bd27e800162c262b65.png" alt="(m_0, \dots, m_{L-1})" />.</li>
+<li>Bob selects a random element <span class="texhtml"><i>r</i></span>, where <span class="texhtml">1 &lt; <i>r</i> &lt; <i>N</i></span>, and computes <img class='tex' src="../../../math/d/8/4/d84945bc1e4ed733961c178960ec7e56.png" alt="x_0 = r^2~mod~N" />.</li>
+<li>Bob uses the BBS pseudo-random number generator to generate <span class="texhtml"><i>L</i></span> random bits <img class='tex' src="../../../math/7/2/3/7236850ec1a21d6c744e0fb75fd8100b.png" alt="(b_0, \dots, b_{L-1})" /> (the keystream), as follows:
+<ol>
+<li>For <span class="texhtml"><i>i</i> = 0</span> to <span class="texhtml"><i>L</i> − 1</span>:</li>
+<li>Set <span class="texhtml"><i>b</i><sub><i>i</i></sub></span> equal to the least-significant bit of <span class="texhtml"><i>x</i><sub><i>i</i></sub></span>.</li>
+<li>Increment <span class="texhtml"><i>i</i></span>.</li>
+<li>Compute <img class='tex' src="../../../math/7/3/3/733874cd3ee4130a1c4ff930b96db63c.png" alt="x_i = (x_{i-1})^2~mod~N" />.</li>
+</ol>
+</li>
+<li>Compute the ciphertext by XORing the plaintext bits with the keystream: <img class='tex' src="../../../math/7/3/c/73cc8db5520229a383cde398efc16cbf.png" alt="{\vec c} = {\vec m} \oplus {\vec b}, y=x_{0}^{2^{L}}~mod~N" />.</li>
+</ol>
+<p>Bob sends the ciphertext <img class='tex' src="../../../math/1/2/e/12e11ea4af1d51c626dce47f81bd2d8b.png" alt="(c_0, \dots, c_{L-1}), y" />.</p>
+<p>To improve performance, the BBS generator can securely output up to <span class="texhtml"><i>O</i>(<i>l</i><i>o</i><i>g</i><i>l</i><i>o</i><i>g</i><i>N</i>)</span> of the least-significant bits of <span class="texhtml"><i>x</i><sub><i>i</i></sub></span> during each round. See <a href="../../../b/l/u/Blum_Blum_Shub_715b.html" title="Blum Blum Shub">Blum Blum Shub</a> for details.</p>
+<p><a name="Message_decryption" id="Message_decryption"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html" title="Edit section: Message decryption">edit</a>]</span> <span class="mw-headline">Message decryption</span></h3>
+<p>Alice receives <img class='tex' src="../../../math/1/2/e/12e11ea4af1d51c626dce47f81bd2d8b.png" alt="(c_0, \dots, c_{L-1}), y" />. She can recover <span class="texhtml"><i>m</i></span> using the following procedure:</p>
+<ol>
+<li>Using the prime factorization <span class="texhtml">(<i>p</i>,<i>q</i>)</span>, Alice computes <img class='tex' src="../../../math/a/c/6/ac603d6cac1361aa1cbc701123c50375.png" alt="r_p = y^{((p+1)/4)^{L}}~mod~(p-1)" /> and <img class='tex' src="../../../math/9/2/0/920c4cec594185ba3715385fe3c6ee11.png" alt="r_q = y^{((q+1)/4)^{L}}~mod~(q-1)" />.</li>
+<li>Compute the initial seed <img class='tex' src="../../../math/0/3/a/03a5cfbc1ff906b8a3d85188571228aa.png" alt="x_0=q(q^{-1}~{mod}~p)r_p + p(p^{-1}~{mod}~q)r_q~{mod}~N" /></li>
+<li>From <span class="texhtml"><i>x</i><sub>0</sub></span>, recompute the bit-vector <img class='tex' src="../../../math/b/d/e/bded67b9926fe142ca31cd4e8a931fd8.png" alt="{\vec b}" /> using the BBS generator, as in the encryption algorithm.</li>
+<li>Compute the plaintext by XORing the keystream with the ciphertext: <img class='tex' src="../../../math/c/a/8/ca8657d8ec6b29993e858f873784dd08.png" alt="{\vec m} = {\vec c} \oplus {\vec b}" />.</li>
+</ol>
+<p>Alice recovers the plaintext <img class='tex' src="../../../math/4/6/3/4631232bd06880978ed335d765b7b5fd.png" alt="m=(m_0, \dots, m_{L-1})" />.</p>
+<p><a name="Security_and_efficiency" id="Security_and_efficiency"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html" title="Edit section: Security and efficiency">edit</a>]</span> <span class="mw-headline">Security and efficiency</span></h2>
+<p>The Blum-Goldwasser scheme is <a href="../../../s/e/m/Semantically-secure.html" title="Semantically-secure">semantically-secure</a> based on the hardness of predicting the keystream bits given only the final BBS state <span class="texhtml"><i>y</i></span> and the public key <span class="texhtml"><i>N</i></span>. However, ciphertexts of the form <img class='tex' src="../../../math/4/d/8/4d8d7e9c2ba010b697851c2eda74e15c.png" alt="{\vec c}, y" /> are vulnerable to an <a href="../../../a/d/a/Adaptive_chosen_ciphertext_attack.html" title="Adaptive chosen ciphertext attack">adaptive chosen ciphertext attack</a> in which the adversary requests the decryption <img class='tex' src="../../../math/b/9/b/b9b24af6bde4f63b1a7276c18e638cc8.png" alt="m^{\prime}" /> of a chosen ciphertext <img class='tex' src="../../../math/4/c/0/4c0513ebb625867012a63caaa02a4198.png" alt="{\vec a}, y" />. The decryption <span class="texhtml"><i>m</i></span> of the original ciphertext can be computed as <img class='tex' src="../../../math/7/f/6/7f6518d2d2aafc352b8ae15a50e3ae3e.png" alt="{\vec a} \oplus m^{\prime} \oplus {\vec c}" />.</p>
+<p>Depending on plaintext size, BG may be more or less computationally expensive than RSA. Because most RSA deployments use a fixed encryption exponent optimized to minimize encryption time, RSA encryption will typically outperform BG for all but the shortest messages. However, as the RSA decryption exponent is randomly distributed, modular exponentiation may require a comparable number of squarings/multiplications to BG decryption for a ciphertext of the same length. BG has the advantage of scaling more efficiently to longer ciphertexts, where RSA requires multiple separate encryptions. In these cases, BG may be significantly more efficient.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol>
+<li>M. Blum, S. Goldwasser, "An Efficient Probabilistic Public Key Encryption Scheme which Hides All Partial Information", Proceedings of <i>Advances in Cryptology - CRYPTO '84</i>, pp. 289-299, Springer Verlag, 1985.</li>
+<li>Menezes, Alfred; van Oorschot, Paul C.; and Vanstone, Scott A. <i>Handbook of Applied Cryptography</i>. CRC Press, October 1996. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-8493-8523-7</a></li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.cacr.math.uwaterloo.ca/hac/" class="external text" title="http://www.cacr.math.uwaterloo.ca/hac/" rel="nofollow">Menezes, Oorschot, Vanstone, Scott: <i>Handbook of Applied Cryptography</i> (free PDF downloads), see Chapter 8</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html">http://en.wikipedia.org../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/s/y/Category%7EAsymmetric-key_cryptosystems_07db.html" title="Category:Asymmetric-key cryptosystems">Asymmetric-key cryptosystems</a></span> | <span dir='ltr'><a href="../../../e/l/e/Category%7EElectronic_commerce_c0ae.html" title="Category:Electronic commerce">Electronic commerce</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/l/u/Blum-Goldwasser_cryptosystem_1bc6.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/l/u/Talk%7EBlum-Goldwasser_cryptosystem_85a9.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Blum-Goldwasser_cryptosystem">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../it/a/l/g/Algoritmo_Blum-Goldwasser_465c.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/c/r/y/Cryptosyst%C3%A8me_de_Blum-Goldwasser_8f09.html">Français</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 02:04, 29 November 2006 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../c/s/p/User%7ECspan64_00b7.html" title="User:Cspan64">Cspan64</a>, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../l/o/w/User%7ELowellian_970e.html" title="User:Lowellian">Lowellian</a> and <a href="../../../d/a/c/User%7EDachshund_0575.html" title="User:Dachshund">Dachshund</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

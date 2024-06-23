@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Advanced Configuration and Power Interface,2006,AMD Opteron,ASUS,Advanced Micro Devices,Advanced Power Management,BIOS,Booting,CPU,Cache,Caching" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Advanced Configuration and Power Interface - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Advanced Configuration and Power Interface</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>The <b>Advanced Configuration and Power Interface</b> (<b>ACPI</b>) specification is an <a href="../../../o/p/e/Open_standard.html" title="Open standard">open industry standard</a> first released in December 1996 developed by <a href="../../../h/e/w/Hewlett-Packard_9234.html" title="Hewlett-Packard">HP</a>, <a href="../../../i/n/t/Intel.html" title="Intel">Intel</a>, <a href="../../../m/i/c/Microsoft.html" title="Microsoft">Microsoft</a>, <a href="../../../p/h/o/Phoenix_Technologies_eb4a.html" title="Phoenix Technologies">Phoenix</a> and <a href="../../../t/o/s/Toshiba.html" title="Toshiba">Toshiba</a> that defines common interfaces for hardware recognition, motherboard and device configuration and <a href="../../../p/o/w/Power_management.html" title="Power management">power management</a>. According to its specification<a href="http://www.acpi.info/spec.htm" class="external autonumber" title="http://www.acpi.info/spec.htm" rel="nofollow">[1]</a>, "ACPI is the key element in Operating System-directed configuration and Power Management (OSPM)".</p>
+<p>The latest revision of the ACPI specification is 3.0b which was released on <a href="../../../o/c/t/October_10.html" title="October 10">October 10</a>, <a href="../../../2/0/0/2006.html" title="2006">2006</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1"><a href="#States"><span class="tocnumber">2</span> <span class="toctext">States</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Global_states"><span class="tocnumber">2.1</span> <span class="toctext">Global states</span></a></li>
+<li class="toclevel-2"><a href="#Device_states"><span class="tocnumber">2.2</span> <span class="toctext">Device states</span></a></li>
+<li class="toclevel-2"><a href="#Processor_states"><span class="tocnumber">2.3</span> <span class="toctext">Processor states</span></a></li>
+<li class="toclevel-2"><a href="#Performance_states"><span class="tocnumber">2.4</span> <span class="toctext">Performance states</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#ACPI_Tables"><span class="tocnumber">3</span> <span class="toctext">ACPI Tables</span></a>
+<ul>
+<li class="toclevel-2"><a href="#RSDP_.28Root_System_Description_Pointer.29"><span class="tocnumber">3.1</span> <span class="toctext">RSDP (Root System Description Pointer)</span></a></li>
+<li class="toclevel-2"><a href="#RSDT_.28Root_System_Description_Table.29"><span class="tocnumber">3.2</span> <span class="toctext">RSDT (Root System Description Table)</span></a></li>
+<li class="toclevel-2"><a href="#DSDT_.28Differentiated_System_Description_Table.29"><span class="tocnumber">3.3</span> <span class="toctext">DSDT (Differentiated System Description Table)</span></a></li>
+<li class="toclevel-2"><a href="#XSDT_.28Extended_System_Description_Table.29"><span class="tocnumber">3.4</span> <span class="toctext">XSDT (Extended System Description Table)</span></a></li>
+<li class="toclevel-2"><a href="#FADT_.28Fixed_ACPI_Description_Table.29"><span class="tocnumber">3.5</span> <span class="toctext">FADT (Fixed ACPI Description Table)</span></a></li>
+<li class="toclevel-2"><a href="#FACS_.28Firmware_ACPI_Control_Structure.29"><span class="tocnumber">3.6</span> <span class="toctext">FACS (Firmware ACPI Control Structure)</span></a></li>
+<li class="toclevel-2"><a href="#SBST_.28Smart_Battery_Table.29"><span class="tocnumber">3.7</span> <span class="toctext">SBST (Smart Battery Table)</span></a></li>
+<li class="toclevel-2"><a href="#ECDT_.28Embedded_Controller_Boot_Resources_Table.29"><span class="tocnumber">3.8</span> <span class="toctext">ECDT (Embedded Controller Boot Resources Table)</span></a></li>
+<li class="toclevel-2"><a href="#MADT_.28Multiple_APIC_Description_Table.29"><span class="tocnumber">3.9</span> <span class="toctext">MADT (Multiple APIC Description Table)</span></a></li>
+<li class="toclevel-2"><a href="#SRAT_.28System_Resource_Affinity_Table.29"><span class="tocnumber">3.10</span> <span class="toctext">SRAT (System Resource Affinity Table)</span></a></li>
+<li class="toclevel-2"><a href="#SLIT_.28System_Locality_Distance_Information_Table.29"><span class="tocnumber">3.11</span> <span class="toctext">SLIT (System Locality Distance Information Table)</span></a></li>
+<li class="toclevel-2"><a href="#SLIC_.28Software_Licensing_Description_Table.29"><span class="tocnumber">3.12</span> <span class="toctext">SLIC (Software Licensing Description Table)</span></a></li>
+<li class="toclevel-2"><a href="#SSDT_.28Secondary_System_Descriptor_Table.29"><span class="tocnumber">3.13</span> <span class="toctext">SSDT (Secondary System Descriptor Table)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Criticism"><span class="tocnumber">4</span> <span class="toctext">Criticism</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Overview" id="Overview"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: Overview">edit</a>]</span> <span class="mw-headline">Overview</span></h2>
+<p>The most widely recognized element of the standard is power management, of which there have been two major improvements. First, it puts the <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a> (OS) in control of power management. Conversely, the previously existing <a href="../../../a/d/v/Advanced_Power_Management_678e.html" title="Advanced Power Management">APM</a> model assigns power management control to the <a href="../../../b/i/o/BIOS_8cd7.html" title="BIOS">BIOS</a>, with limited intervention from the OS. In ACPI, the BIOS provides the OS with methods for directly controlling the low-level details of the hardware so it has nearly complete control over the power savings.</p>
+<p>The other important feature of ACPI is in bringing power management features previously only available in <a href="../../../p/o/r/Portable_computer.html" title="Portable computer">portable computers</a> to <a href="../../../d/e/s/Desktop_computer.html" title="Desktop computer">desktop computers</a> and <a href="../../../s/e/r/Server_%28computing%29.html" title="Server (computing)">servers</a>. Systems may be put into extremely low consumption states, i.e. in which only memory, or not even memory is powered, but from which ordinary interrupts (real time clock, keyboard, modem, etc.) can quickly wake the system. These modes were previously only available in portable computers.</p>
+<p>The standard supports keys on a normal keyboard for suspending or powering off the computer. Some vendors (e.g. <a href="../../../a/s/u/ASUS_5ed0.html" title="ASUS">ASUS</a> and <a href="../../../c/o/m/Compaq.html" title="Compaq">Compaq</a>) have extended this feature and use it for other keys, especially so-called <a href="../../../p/o/w/Power_management_keys.html" title="Power management keys">Power management keys</a>.</p>
+<p>ACPI cannot be applied to older hardware; for it to work, the <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a>, the <a href="../../../m/o/t/Motherboard.html" title="Motherboard">motherboard</a> chipset, and for some functions even the <a href="../../../c/e/n/Central_processing_unit.html" title="Central processing unit">CPU</a> need to be designed for it.</p>
+<p>ACPI uses its own ACPI Machine Language (or <i>AML</i>) for implementing power event handlers, rather than the native assembly language of the host system.</p>
+<p>The first version of <a href="../../../m/i/c/Microsoft_Windows_48e2.html" title="Microsoft Windows">Microsoft Windows</a> to support ACPI was <a href="../../../w/i/n/Windows_98.html" title="Windows 98">Windows 98</a>. The first version of <a href="../../../f/r/e/FreeBSD_a3dc.html" title="FreeBSD">FreeBSD</a> to support ACPI was 5.0. <a href="../../../l/i/n/Linux.html" title="Linux">Linux</a>, <a href="../../../n/e/t/NetBSD_8ae0.html" title="NetBSD">NetBSD</a> and <a href="../../../o/p/e/OpenBSD_760b.html" title="OpenBSD">OpenBSD</a> all have at least some support for ACPI.</p>
+<p><a name="States" id="States"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: States">edit</a>]</span> <span class="mw-headline">States</span></h2>
+<p><a name="Global_states" id="Global_states"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: Global states">edit</a>]</span> <span class="mw-headline">Global states</span></h3>
+<p>The ACPI specification defines the following seven states (so-called global states) an ACPI-compliant computer system can be in:</p>
+<ul>
+<li><b>G0</b> <i>Working</i> is the normal working state of the computer, meaning that the operating system and whatever applications, run. The <a href="../../../c/p/u/CPU_2b55.html" title="CPU">CPU</a>(s) execute instructions. Within this state (i.e., without entering G1 <i>Sleeping</i>), it is possible for <a href="../../../c/p/u/CPU_2b55.html" title="CPU">CPU</a>(s) and devices like <a href="../../../h/a/r/Hard_drive.html" title="Hard drive">hard drives</a>, <a href="../../../d/v/d/DVD_drive_6e4d.html" title="DVD drive">DVD drives</a>, etc. to be repeatedly put into and come back from low-energy states, called <a href="#Processor_states" title=""><i>C0</i>–<i>C</i>n</a> and <a href="#Device_states" title=""><i>D0</i>–<i>D3</i></a>. (<a href="../../../l/a/p/Laptop.html" title="Laptop">Laptops</a>, for example, routinely power down all currently unused devices when running on battery; some computers do this to reduce noise.)</li>
+<li><b>G1</b> <i>Sleeping</i> subdivides into the four states S1 through S4. The time needed to bring the system from here back into G0 <i>Working</i> (<i>wake-latency</i> time) is shortest for S1, short for S2 and S3, and not so short for S4.
+<ul>
+<li><b>S1</b> is the most power-hungry of sleep modes. All processor caches are flushed, and the CPU(s) stop executing instructions. Power to the CPU(s) and RAM is maintained; devices that do not indicate they must remain on may be powered down. Some newer machines do not support S1; older machines are more likely to support S1 than S3.</li>
+<li><b>S2</b> is a deeper sleep state than S1, where the CPU is powered off; however, it is not commonly implemented.</li>
+<li><b>S3</b> is called <i>Standby</i> in <a href="../../../m/i/c/Microsoft_Windows_48e2.html" title="Microsoft Windows">Windows</a>, <i>Sleep</i> in <a href="../../../m/a/c/Mac_OS_X_b8d4.html" title="Mac OS X">Mac OS X</a>, and sometimes also <i>Suspend to RAM</i> (STR), although the ACPI specification mentions only the terms <i>S3</i> and <i>Sleep</i>. In this state, main memory (<a href="../../../r/a/m/RAM_e536.html" title="RAM">RAM</a>) is still powered, although it is almost the only component that is. Since the state of the <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a> and all applications, open documents, etc. lies all in main memory, the user can resume work exactly where he/she left off—the main memory content when the computer comes back from S3 is the same as when it was put into S3. (The specification mentions that S3 is rather similar to S2, only that some more components are powered down in S3.) S3 has two advantages over S4; the computer resumes in about the time it takes the monitor to come on, secondly if any running applications (open documents, etc) have private information in them, this will not be written to the disk. <a href="../../../d/e/s/Desktop_computer.html" title="Desktop computer">Desktop</a> users using this state may want to disable disk <a href="../../../c/a/c/Caching.html" title="Caching">caching</a> (also called <i><a href="../../../c/a/c/Caching.html#Disk_buffer" title="Caching">disk buffer</a></i>) so that, in the event of a power failure, the system disk is less likely to become corrupted due to data in the cache not being written to the disk.</li>
+<li><b>S4</b> -- <i>Main article: <a href="../../../h/i/b/Hibernate_%28OS_feature%29_d010.html" title="Hibernate (OS feature)">Hibernate (OS feature)</a></i>. <i>S4</i> is called <i>Hibernation</i> in <a href="../../../m/i/c/Microsoft_Windows_48e2.html" title="Microsoft Windows">Windows</a>, <i>Safe Sleep</i> in <a href="../../../m/a/c/Mac_OS_X_b8d4.html" title="Mac OS X">Mac OS X</a>, and sometimes also <i>Suspend to disk</i>, although the ACPI specification mentions only the term <i>S4</i>. In this state, all content of <a href="../../../r/a/m/RAM_e536.html" title="RAM">main memory</a> is saved to a <a href="../../../h/a/r/Hard_drive.html" title="Hard drive">hard drive</a>, preserving the state of the <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a>, all applications, open documents etc. That means that after coming back from S4, the user can resume work where it was left off in much the same way as with S3. The difference between S4 and S3, apart from the added time of moving the main memory content to disk and back, is that a power loss of a computer in S3 makes it lose all data in main memory, including all unsaved documents, while a computer in S4 is unaffected. S4 is quite different from the other <i>S</i> states and actually resembles G2 <i>Soft Off</i> and G3 <i>Mechanical Off</i> more than it resembles S1–S3.</li>
+</ul>
+</li>
+<li><b>G2</b> (<b>S5</b>) <i>Soft Off</i>-- <i>G2</i>, <i>S5</i>, and <i>Soft Off</i> are <a href="../../../s/y/n/Synonyms.html" title="Synonyms">synonyms</a>. G2 is almost the same as G3 <i>Mechanical Off</i>, but some components remain powered so the computer can "wake" from input from the keyboard, <a href="../../../l/a/n/LAN_1d59.html" title="LAN">LAN</a>, or <a href="../../../u/s/b/USB_7aca.html" title="USB">USB</a> device <a href="http://www.kananov.com/notes/s3" class="external autonumber" title="http://www.kananov.com/notes/s3" rel="nofollow">[2]</a>. This state is the same as G3 <i>Mechanical Off</i>, in that the <a href="../../../b/o/o/Booting.html" title="Booting">boot procedure</a> must be run to bring the system from G2 to G0 <i>Working</i>. G3 <i>Mechanical Off</i> is entered only when a power loss occurs, whereas G2 is initiated by the <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a> (typically because the user issued a shutdown command in some way). The computer is not safe for disassembly in the G2 state due to the components that remain powered, however it is safe to unplug the computer and, after approximately 20 seconds, the computer will be in the G3 state. It is always advisable to unplug a <a href="../../../d/e/s/Desktop_computer.html" title="Desktop computer">desktop computer</a> (and wait 20 seconds) prior to "disassembly", because, although internal drives are usually not powered, the (<a href="../../../p/s/2F/PS_2_connector_4347.html" title="PS/2 connector">PS2</a>) keyboard, <a href="../../../u/s/b/USB_7aca.html" title="USB">USB</a> ports, <a href="../../../m/a/i/Mainboard.html" title="Mainboard">mainboard</a>, <a href="../../../e/x/p/Expansion_cards.html" title="Expansion cards">expansion cards</a>, and <a href="../../../p/o/w/Power_supply.html" title="Power supply">power supply</a> may remain powered, even if the computer is not used to wake from input to these devices.</li>
+<li><b>G3</b> <i>Mechanical Off</i>: The computer's power consumption is very close to zero, to the point that the power cord can be removed and the system is safe for disassembly (typically, only the real-time clock is running off its own small battery). The computer falls into this state when a power loss occurs, e.g. in case of a power outage. Once power is restored, a full <a href="../../../b/o/o/Booting.html" title="Booting">boot procedure</a> is necessary to bring the system from G3 to G0 <i>Working</i>.</li>
+</ul>
+<p>Furthermore, a state <i>Legacy</i> is defined as the state when an <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a> runs which does not support ACPI. In this state, the hardware and power are not managed via ACPI, effectively disabling ACPI.</p>
+<p>(Reference: ACPI specification 3.0b is linked to under <a href="#External_links" title="">External links</a>, section 7.3.4)</p>
+<p><a name="Device_states" id="Device_states"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: Device states">edit</a>]</span> <span class="mw-headline">Device states</span></h3>
+<p>The device states <i>D0</i>-<i>D3</i> are device-dependent:</p>
+<ul>
+<li>D0 <i>Fully-On</i> is the operating state.</li>
+<li>D1 and D2 are intermediate power states whose definition varies by device.</li>
+<li>D3 <i>Off</i> has the device powered off and unresponsive to its bus.</li>
+</ul>
+<p><a name="Processor_states" id="Processor_states"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: Processor states">edit</a>]</span> <span class="mw-headline">Processor states</span></h3>
+<p>The CPU power states <i>C0</i>-<i>C3</i> are defined as follows:</p>
+<ul>
+<li>C0 is the operating state.</li>
+<li>C1 (often known as <i>Halt</i>) is a state where the processor is not executing instructions, but can return to an executing state essentially instantaneously. Some processors, such as the Pentium 4, also support an Enhanced C1 state (C1E) for lower power consumption.</li>
+<li>C2 (often known as <i>Stop-Clock</i>) is a state where the processor maintains all software-visible state, but may take longer to wake up.</li>
+<li>C3 (often known as <i>Sleep</i>) is a state where the processor does not need to keep its <a href="../../../c/a/c/Cache.html" title="Cache">cache</a> coherent, but maintains other state. Some processors have variations on the C3 state (Deep Sleep, Deeper Sleep, etc.) that differ in how long it takes to wake the processor.</li>
+</ul>
+<p><a name="Performance_states" id="Performance_states"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: Performance states">edit</a>]</span> <span class="mw-headline">Performance states</span></h3>
+<p>While a device or processor is operating (D0 and C0, respectively), it can be in one of several power-performance states. These states are implementation-dependent, but P0 is always the highest-performance state, with P1 to P<i>n</i> being successively lower-performance states, up to an implementation-specific limit of <i>n</i> no greater than 16.</p>
+<p>P-states are called <a href="../../../s/p/e/SpeedStep_2ab2.html" title="SpeedStep">SpeedStep</a> in <a href="../../../i/n/t/Intel.html" title="Intel">Intel</a> processors, <a href="../../../p/o/w/PowerNow%21_f5c8.html" title="PowerNow!">PowerNow!</a> or <a href="../../../c/o/o/Cool%27n%27Quiet_9f85.html" title="Cool'n'Quiet">Cool'n'Quiet</a> in <a href="../../../a/d/v/Advanced_Micro_Devices_95d7.html" title="Advanced Micro Devices">AMD</a> processors and PowerSaver in <a href="../../../v/i/a/VIA_87a3.html" title="VIA">VIA</a> processors.</p>
+<p><a name="ACPI_Tables" id="ACPI_Tables"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: ACPI Tables">edit</a>]</span> <span class="mw-headline">ACPI Tables</span></h2>
+<p>These tables are used by Operating systems to get hardware information.</p>
+<p><a name="RSDP_.28Root_System_Description_Pointer.29" id="RSDP_.28Root_System_Description_Pointer.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: RSDP (Root System Description Pointer)">edit</a>]</span> <span class="mw-headline">RSDP (Root System Description Pointer)</span></h3>
+<p><a name="RSDT_.28Root_System_Description_Table.29" id="RSDT_.28Root_System_Description_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: RSDT (Root System Description Table)">edit</a>]</span> <span class="mw-headline">RSDT (Root System Description Table)</span></h3>
+<p><a name="DSDT_.28Differentiated_System_Description_Table.29" id="DSDT_.28Differentiated_System_Description_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: DSDT (Differentiated System Description Table)">edit</a>]</span> <span class="mw-headline">DSDT (Differentiated System Description Table)</span></h3>
+<p><b>DSDT</b> stands for <i>Differentiated System Description Table</i>. It is a part of the ACPI specification and it supplies configuration information about a base system.</p>
+<p>The DSDT is comprised of a system description table header, followed by a definition block. The definition block is encoded using ACPI Machine Language (AML), and unlike other definition blocks on the system, the DSDT definition block can not be unloaded since it provides the basic ACPI namespace scope that all other dynamic definition blocks can later add onto.</p>
+<p><a name="XSDT_.28Extended_System_Description_Table.29" id="XSDT_.28Extended_System_Description_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: XSDT (Extended System Description Table)">edit</a>]</span> <span class="mw-headline">XSDT (Extended System Description Table)</span></h3>
+<p><a name="FADT_.28Fixed_ACPI_Description_Table.29" id="FADT_.28Fixed_ACPI_Description_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: FADT (Fixed ACPI Description Table)">edit</a>]</span> <span class="mw-headline">FADT (Fixed ACPI Description Table)</span></h3>
+<p><a name="FACS_.28Firmware_ACPI_Control_Structure.29" id="FACS_.28Firmware_ACPI_Control_Structure.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: FACS (Firmware ACPI Control Structure)">edit</a>]</span> <span class="mw-headline">FACS (Firmware ACPI Control Structure)</span></h3>
+<p><a name="SBST_.28Smart_Battery_Table.29" id="SBST_.28Smart_Battery_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: SBST (Smart Battery Table)">edit</a>]</span> <span class="mw-headline">SBST (Smart Battery Table)</span></h3>
+<p><a name="ECDT_.28Embedded_Controller_Boot_Resources_Table.29" id="ECDT_.28Embedded_Controller_Boot_Resources_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: ECDT (Embedded Controller Boot Resources Table)">edit</a>]</span> <span class="mw-headline">ECDT (Embedded Controller Boot Resources Table)</span></h3>
+<p><a name="MADT_.28Multiple_APIC_Description_Table.29" id="MADT_.28Multiple_APIC_Description_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: MADT (Multiple APIC Description Table)">edit</a>]</span> <span class="mw-headline">MADT (Multiple APIC Description Table)</span></h3>
+<p><a name="SRAT_.28System_Resource_Affinity_Table.29" id="SRAT_.28System_Resource_Affinity_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: SRAT (System Resource Affinity Table)">edit</a>]</span> <span class="mw-headline">SRAT (System Resource Affinity Table)</span></h3>
+<p>This table is used by NUMA (<a href="../../../n/o/n/Non-Uniform_Memory_Access_8e3f.html" title="Non-Uniform Memory Access">Non-Uniform Memory Access</a>) aware OSes to be able to allocate local memory to local <a href="../../../t/h/r/Thread_%28computer_science%29.html" title="Thread (computer science)">threads</a> on NUMA systems, e.g. on multi processor <a href="../../../a/m/d/AMD_Opteron_9996.html" title="AMD Opteron">AMD Opteron</a> systems. For a real <a href="../../../n/o/n/Non-Uniform_Memory_Access_8e3f.html" title="Non-Uniform Memory Access">NUMA</a> system, "Node Interleave" in Opteron BIOSes has to be disabled, accordingly "SRAT" has to be enabled. Furthermore the OS itself has to support NUMA as well. So far all x64 Windows Systems and Linux systems with a NUMA aware <a href="../../../k/e/r/Kernel_%28computer_science%29.html" title="Kernel (computer science)">kernel</a> are NUMA capable.</p>
+<p><a name="SLIT_.28System_Locality_Distance_Information_Table.29" id="SLIT_.28System_Locality_Distance_Information_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: SLIT (System Locality Distance Information Table)">edit</a>]</span> <span class="mw-headline">SLIT (System Locality Distance Information Table)</span></h3>
+<p><a name="SLIC_.28Software_Licensing_Description_Table.29" id="SLIC_.28Software_Licensing_Description_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: SLIC (Software Licensing Description Table)">edit</a>]</span> <span class="mw-headline">SLIC (Software Licensing Description Table)</span></h3>
+<p>This newly-released table is used by <a href="../../../o/r/i/Original_Equipment_Manufacturer_3fcb.html" title="Original Equipment Manufacturer">OEM</a> versions of <a href="../../../w/i/n/Windows_Vista_dc35.html" title="Windows Vista">Windows Vista</a> for activation by Royalty OEMs in order for the end-user to not have problems with activating, called SLP 2.0, or System-Locked Preinstallation 2.0. For activation to work, clients obtained through the OEM channels that have an ACPI_SLIC table in the system BIOS are required to have a valid Windows marker in the same ACPI_SLIC table. The appearance of the Windows marker is important for volume license customers who are planning to use Windows Vista volume-licensed media to re-image or upgrade OEM through the re-imaging rights provided in their volume license agreement. Not having the appropriate BIOS marker results in the following error or errors on these systems and prevents them from activating.</p>
+<p><a name="SSDT_.28Secondary_System_Descriptor_Table.29" id="SSDT_.28Secondary_System_Descriptor_Table.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: SSDT (Secondary System Descriptor Table)">edit</a>]</span> <span class="mw-headline">SSDT (Secondary System Descriptor Table)</span></h3>
+<p><a name="Criticism" id="Criticism"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: Criticism">edit</a>]</span> <span class="mw-headline">Criticism</span></h2>
+<ul>
+<li>ACPI is a complex specification (over 600 pages long) that contains multiple components, including declarative tables, an imperative byte-code, and specific hardware components. Concerns have been repeatedly raised <a href="http://lwn.net/2001/0704/kernel.php3" class="external autonumber" title="http://lwn.net/2001/0704/kernel.php3" rel="nofollow">[3]</a> that an implementation of ACPI has to run complex, untrusted and potentially buggy bytecode with full privileges, thus potentially making any system that implements ACPI unstable and/or insecure.</li>
+</ul>
+<ul>
+<li>Where hardware is non-conforming to ACPI, but claims to be, the software interoperating with that hardware is faced with a dilemma: Either it can be written to be ACPI-compliant, thus risking problems with the not-entirely-compliant hardware, or it can deviate from the ACPI standard to accommodate the hardware quirks. That, however, is generally seen as undesirable from a software-engineering point of view, since the software would potentially have to be adapted for and tested with arbitrarily large numbers of hardware devices, which is precisely what standards such as ACPI are intended to avoid. This is a constant debate between "standards purists" and advocates of software that "simply works" with as much hardware as possible.</li>
+</ul>
+<p>...</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../g/r/e/Green_computing.html#Alternatives_to_low-power_states" title="Green computing">Alternatives to low-power states</a></li>
+<li><a href="../../../g/r/e/Green_computing.html" title="Green computing">Green computing</a></li>
+<li><a href="../../../p/o/w/Power_management_keys.html" title="Power management keys">Power management keys</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.acpi.info/" class="external text" title="http://www.acpi.info/" rel="nofollow">ACPI home page</a>
+<ul>
+<li><a href="http://www.acpi.info/spec.htm" class="external text" title="http://www.acpi.info/spec.htm" rel="nofollow">The official ACPI specification</a> (Revision 3.0b, October 10, 2006)</li>
+</ul>
+</li>
+<li><a href="http://developer.intel.com/technology/iapc/acpi/downloads.htm" class="external text" title="http://developer.intel.com/technology/iapc/acpi/downloads.htm" rel="nofollow">Intel's ACPI Component Architecture</a></li>
+<li><a href="http://acpi.sourceforge.net/" class="external text" title="http://acpi.sourceforge.net/" rel="nofollow">ACPI for Linux</a></li>
+<li><a href="http://www.freebsd.org/cgi/man.cgi?query=acpi&amp;format=html" class="external text" title="http://www.freebsd.org/cgi/man.cgi?query=acpi&amp;format=html" rel="nofollow">ACPI for FreeBSD</a></li>
+<li><a href="http://support.novell.com/techcenter/sdb/en/2002/10/81_acpi.html" class="external text" title="http://support.novell.com/techcenter/sdb/en/2002/10/81_acpi.html" rel="nofollow">Information about ACPI and APIC for Linux from Novell</a></li>
+<li><a href="http://www.advogato.org/article/913.html" class="external text" title="http://www.advogato.org/article/913.html" rel="nofollow">How Linux Suspend and Resume works in the ACPI age</a></li>
+<li>description of ACPI functionality and internals - <a href="http://www.heise.de/ct/english/98/20/166/" class="external text" title="http://www.heise.de/ct/english/98/20/166/" rel="nofollow">Georg Schnurer, Everything under control</a></li>
+</ul>
+<p><span class="boilerplate" id="foldoc"><i>This article was originally based on material from the <a href="../../../f/r/e/Free_On-line_Dictionary_of_Computing_81c7.html" title="Free On-line Dictionary of Computing">Free On-line Dictionary of Computing</a>, which is <a href="../../../f/o/l/Wikipedia%7EFoldoc_license_9ee2.html" title="Wikipedia:Foldoc license">licensed</a> under the <a href="../../../g/n/u/GNU_Free_Documentation_License_9d01.html" title="GNU Free Documentation License">GFDL</a>.</i></span></p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html">http://en.wikipedia.org../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../f/o/l/Category%7EFOLDOC_sourced_articles_b3fe.html" title="Category:FOLDOC sourced articles">FOLDOC sourced articles</a></span> | <span dir='ltr'><a href="../../../b/i/o/Category%7EBIOS_1302.html" title="Category:BIOS">BIOS</a></span> | <span dir='ltr'><a href="../../../a/p/p/Category%7EApplication_programming_interfaces_5a9b.html" title="Category:Application programming interfaces">Application programming interfaces</a></span> | <span dir='ltr'><a href="../../../o/p/e/Category%7EOpen_standards_c286.html" title="Category:Open standards">Open standards</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/d/v/Talk%7EAdvanced_Configuration_and_Power_Interface_054b.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Advanced_Configuration_and_Power_Interface">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../id/a/c/p/ACPI_970d.html">Bahasa Indonesia</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../no/a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html">‪Norsk (bokmål)‬</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/c/p/ACPI_970d.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/a/c/p/ACPI_970d.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/a/c/p/ACPI_970d.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/a/c/p/ACPI_970d.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/a/d/v/Advanced_Configuration_and_Power_Interface_0efa.html">Svenska</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 15:33, 4 April 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../b/o/r/User%7EBorgx_25f8.html" title="User:Borgx">Borgx</a>, Superbignerd, <a href="../../../f/r/a/User%7EFrap_bccb.html" title="User:Frap">Frap</a>, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, Jobbon, <a href="../../../s/c/h/User%7ESchmuckyTheCat_0da1.html" title="User:SchmuckyTheCat">SchmuckyTheCat</a>, <a href="../../../s/h/e/User%7EShellreef_4592.html" title="User:Shellreef">Shellreef</a>, Lcrosetto, <a href="../../../b/o/t/User%7EBOT-Superzerocool_f6ae.html" title="User:BOT-Superzerocool">BOT-Superzerocool</a>, Dr unix, <a href="../../../s/n/a/User%7ESnarius_e50a.html" title="User:Snarius">Snarius</a>, <a href="../../../d/o/g/User%7EDogcow_c08a.html" title="User:Dogcow">Dogcow</a>, <a href="../../../g/e/i/User%7EGeimas5_513a.html" title="User:Geimas5">Geimas5</a>, <a href="../../../w/i/l/User%7EWilliam_Graham_a3b5.html" title="User:William Graham">William Graham</a>, <a href="../../../j/t/a/User%7EJtatum_db56.html" title="User:Jtatum">Jtatum</a>, Jboyles, <a href="../../../k/o/s/User%7EKostmo_ba5c.html" title="User:Kostmo">Kostmo</a>, <a href="../../../j/s/m/User%7EJsmethers_855e.html" title="User:Jsmethers">Jsmethers</a>, <a href="../../../2E/a/n/User%7E.anacondabot.html" title="User:.anacondabot">.anacondabot</a>, <a href="../../../f/r/e/User%7EFreelanceWizard_69ce.html" title="User:FreelanceWizard">FreelanceWizard</a>, <a href="../../../b/g/g/User%7EBggoldie_f821.html" title="User:Bggoldie">Bggoldie</a>, <a href="../../../j/o/r/User%7EJoriki_8fdd.html" title="User:Joriki">Joriki</a>, <a href="../../../m/b/o/User%7EMboverload_cce2.html" title="User:Mboverload">Mboverload</a>, Geheimdienst, <a href="../../../t/o/b/User%7ETobias_Bergemann_bfa6.html" title="User:Tobias Bergemann">Tobias Bergemann</a>, <a href="../../../c/h/e/User%7EChealer_e61a.html" title="User:Chealer">Chealer</a>, <a href="../../../j/m/5/User%7EJm51_0ae0.html" title="User:Jm51">Jm51</a>, Riluve, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../a/b/d/User%7EAbdull_b6f2.html" title="User:Abdull">Abdull</a>, <a href="../../../l/e/t/User%7ELetdorf_3e50.html" title="User:Letdorf">Letdorf</a>, <a href="../../../s/a/m/User%7ESam8_ea59.html" title="User:Sam8">Sam8</a>, <a href="../../../j/e/c/User%7EJec_521b.html" title="User:Jec">Jec</a>, <a href="../../../p/l/a/User%7EPlasma_8397.html" title="User:Plasma">Plasma</a>, <a href="../../../m/1/s/User%7EM1ss1ontomars2k4_d48d.html" title="User:M1ss1ontomars2k4">M1ss1ontomars2k4</a>, <a href="../../../g/a/r/User%7EGardar_Rurak_890e.html" title="User:Gardar Rurak">Gardar Rurak</a>, <a href="../../../b/d/2/User%7EBD2412_a828.html" title="User:BD2412">BD2412</a>, <a href="../../../e/p/t/User%7EEptin_57f8.html" title="User:Eptin">Eptin</a>, <a href="../../../c/e/s/User%7ECesarB_5f7f.html" title="User:CesarB">CesarB</a>, <a href="../../../d/a/n/User%7EDaniel.Cardenas_fb51.html" title="User:Daniel.Cardenas">Daniel.Cardenas</a>, <a href="../../../w/a/r/User%7EWarrens_af91.html" title="User:Warrens">Warrens</a>, <a href="../../../a/n/d/User%7EAndrew_pmk_ab75.html" title="User:Andrew pmk">Andrew pmk</a>, <a href="../../../m/i/r/User%7EMirror_Vax_6652.html" title="User:Mirror Vax">Mirror Vax</a>, <a href="../../../t/a/_/User%7ETa_bu_shi_da_yu_9191.html" title="User:Ta bu shi da yu">Ta bu shi da yu</a>, <a href="../../../m/o/n/User%7EMonedula_2d17.html" title="User:Monedula">Monedula</a>, Lincoln.max, <a href="../../../l/e/o/User%7ELeonardoRob0t_c34e.html" title="User:LeonardoRob0t">LeonardoRob0t</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, Edyu, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../y/u/h/User%7EYuhong_e646.html" title="User:Yuhong">Yuhong</a>, <a href="../../../n/u/n/User%7ENuno_Tavares_6b5f.html" title="User:Nuno Tavares">Nuno Tavares</a>, <a href="../../../m/a/r/User%7EMargosbot_a231.html" title="User:Margosbot">Margosbot</a>, <a href="../../../k/b/o/User%7EKbolino_eb99.html" title="User:Kbolino">Kbolino</a>, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, <a href="../../../s/j/_/User%7ESj_7824.html" title="User:Sj">Sj</a>, <a href="../../../w/e/r/User%7EWernher_a499.html" title="User:Wernher">Wernher</a>, <a href="../../../n/i/k/User%7ENikerabbit_7bbc.html" title="User:Nikerabbit">Nikerabbit</a>, Frau Holle, <a href="../../../g/u/a/User%7EGuanabot_b902.html" title="User:Guanabot">Guanabot</a>, <a href="../../../a/n/g/User%7EAngela_56ea.html" title="User:Angela">Angela</a>, <a href="../../../c/a/r/User%7ECarbuncle_ca40.html" title="User:Carbuncle">Carbuncle</a>, <a href="../../../n/i/x/User%7ENixdorf_8d7c.html" title="User:Nixdorf">Nixdorf</a>, <a href="../../../j/u/d/User%7EJudzillah_6f34.html" title="User:Judzillah">Judzillah</a>, <a href="../../../m/i/c/User%7EMichael2_4458.html" title="User:Michael2">Michael2</a>, <a href="../../../a/l/d/User%7EAldie_5969.html" title="User:Aldie">Aldie</a>, <a href="../../../p/i/t/User%7EPit_aba8.html" title="User:Pit">Pit</a>, <a href="../../../g/e/n/User%7EGeneral_Wesc_0ef7.html" title="User:General Wesc">General Wesc</a>, <a href="../../../w/o/j/User%7EWojPob_610b.html" title="User:WojPob">WojPob</a> and <a href="../../../t/u/x/User%7ETuxisuau_b2a0.html" title="User:Tuxisuau">Tuxisuau</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

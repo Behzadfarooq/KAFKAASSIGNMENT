@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Advantage (cryptography),Algorithm,Big O notation,Block cipher,Chosen-ciphertext attack,Chosen-plaintext attack,Computational complexity theory,Concrete security,Cryptography,Data Encryption Standard,Factorial" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Advantage (cryptography) - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Advantage (cryptography)</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/r/y/Cryptography.html" title="Cryptography">cryptography</a>, an adversary's <b>advantage</b> is a measure of how successfully it can attack a cryptographic <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a>, by distinguishing it from an idealized version of that type of algorithm. Note that in this context, the "adversary" is itself an algorithm and not a <a href="../../../p/e/r/Person.html" title="Person">person</a>. A cryptographic algorithm is considered secure if no adversary has a non-negligible advantage, subject to specified bounds on the adversary's computational resources (see <a href="../../../c/o/n/Concrete_security.html" title="Concrete security">concrete security</a>). "Negligible" usually means "within <a href="../../../b/i/g/Big_O_notation_de3e.html" title="Big O notation">O</a>(2<sup>-p</sup>)" where p is a <a href="../../../s/e/c/Security_parameter.html" title="Security parameter">security parameter</a> associated with the algorithm. For example, p might be the number of bits in a block cipher's <a href="../../../k/e/y/Key_%28cryptography%29.html" title="Key (cryptography)">key</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Description_of_concept"><span class="tocnumber">1</span> <span class="toctext">Description of concept</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Example_1:_guess_at_random"><span class="tocnumber">2.1</span> <span class="toctext">Example 1: guess at random</span></a></li>
+<li class="toclevel-2"><a href="#Example_2:_Brute_force_search"><span class="tocnumber">2.2</span> <span class="toctext">Example 2: Brute force search</span></a></li>
+<li class="toclevel-2"><a href="#Example_3:_RC4_Stream_Cipher_.28Fluhrer-McGrew_attack.29"><span class="tocnumber">2.3</span> <span class="toctext">Example 3: RC4 Stream Cipher (Fluhrer-McGrew attack)</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Description_of_concept" id="Description_of_concept"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advantage_%28cryptography%29.html" title="Edit section: Description of concept">edit</a>]</span> <span class="mw-headline">Description of concept</span></h2>
+<p>(to be expanded)</p>
+<p>Let F be an <a href="../../../o/r/a/Oracle_machine.html" title="Oracle machine">oracle</a> for the function being studied, and let G be an oracle for an idealized function of that type. The adversary A is a probabilistic algorithm given F or G as input and which outputs 1 or 0. A's job is to distinguish F from G based on making queries to the oracle that it's given. We say: <img class='tex' src="../../../math/b/c/8/bc8a421e79af4ebd853f7ab1a6e8499b.png" alt="Adv(A) = |\Pr[A(F)=1] - \Pr[A(G)=1]|" /></p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advantage_%28cryptography%29.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>Let F be a random instance of the <a href="../../../d/a/t/Data_Encryption_Standard_9913.html" title="Data Encryption Standard">DES</a> <a href="../../../b/l/o/Block_cipher.html" title="Block cipher">block cipher</a>. This cipher has 64-bit blocks and a 56-bit key. The key therefore selects one of a family of 2<sup>56</sup> <a href="../../../p/e/r/Permutation.html" title="Permutation">permutations</a> on the 2<sup>64</sup> possible 64-bit blocks. A "random DES instance" means our oracle F computes DES using some key K (which is unknown to the adversary) where K is selected from the 2<sup>56</sup> possible keys with equal probability.</p>
+<p>We want to compare the DES instance with an <a href="../../../p/l/a/Platonic_ideal.html" title="Platonic ideal">idealized</a> 64-bit block cipher, meaning a permutation selected at random from the (2<sup>64</sup>)<a href="../../../f/a/c/Factorial.html" title="Factorial">!</a> possible permutations on 64-bit blocks. Call this randomly selected permutation G. Note from <a href="../../../s/t/i/Stirling%27s_approximation.html" title="Stirling's approximation">Stirling's approximation</a> that (2<sup>64</sup>)! is around <img class='tex' src="../../../math/d/7/e/d7e84f89652a0117a919131d765f0d15.png" alt="10^{3.47\times 10^{20}}" />, so even specifying which permutation is selected requires writing down a number too large to represent exactly in any real computer. Viewed another way, G is an instance of a "cipher" whose "key length" is about 10<sup>21</sup> bits, which again is too large to fit in a computer. (We can, however, implement G with storage space proportional to the number of queries, using a <a href="../../../r/a/n/Random_oracle.html" title="Random oracle">random oracle</a>).</p>
+<p>Note that because the oracles we're given encrypt plaintext of our choosing, we're modelling a <a href="../../../c/h/o/Chosen-plaintext_attack.html" title="Chosen-plaintext attack">chosen-plaintext attack</a> or <b>CPA</b>, and the advantage we're calculating can be called the CPA-advantage of a given adversary. If we also had decryption oracles available, we'd be doing a <a href="../../../c/h/o/Chosen-ciphertext_attack.html" title="Chosen-ciphertext attack">chosen-ciphertext attack</a> or <b>CCA</b> and finding the CCA-advantage of the adversary.</p>
+<p>We'll look at several different adversaries and see how they perform.</p>
+<p><a name="Example_1:_guess_at_random" id="Example_1:_guess_at_random"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advantage_%28cryptography%29.html" title="Edit section: Example 1: guess at random">edit</a>]</span> <span class="mw-headline">Example 1: guess at random</span></h3>
+<p>We'll call this adversary A<sub>0</sub>. It simply flips a coin and returns 1 or 0 with equal probability and without making any oracle calls. Thus, Pr[A<sub>0</sub>(F)=1] and Pr[A<sub>0</sub>(G)=1] are both 0.5. The difference between these probabilities is zero, so Adv(A<sub>0</sub>) is zero. The same thing applies if we always return 0, or always return 1: the probability is the same for both F and G, so the advantage is zero. This adversary can't tell F and G apart. If we're cipher designers, our desire (maybe not achievable) is to make it so that it's <a href="../../../c/o/m/Computational_complexity_theory.html#Intractability" title="Computational complexity theory">computationally infeasible</a> for <i>any</i> adversary to do significantly better than this. We will have succeeded if we can make a cipher for which there's no distinguisher faster than brute force search.</p>
+<p><a name="Example_2:_Brute_force_search" id="Example_2:_Brute_force_search"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advantage_%28cryptography%29.html" title="Edit section: Example 2: Brute force search">edit</a>]</span> <span class="mw-headline">Example 2: Brute force search</span></h3>
+<p>This adversary (call it A<sub>1</sub>) will attempt to cryptanalyze its input by brute force. It has its own DES implementation. It gives a single query to its oracle, asking for the 64-bit string of all zeroes to be encrypted. Call the resulting ciphertext E<sub>0</sub>. It then runs an exhaustive key search. The algorithm looks like this:</p>
+<pre>
+ E<sub>0</sub> = oracle_query(0)
+ for k in 0,1,...,2<sup>56</sup>-1:
+   if DES<sub>k</sub>(0) == E<sub>0</sub>: 
+      return 1
+ return 0
+</pre>
+<p>This searches the entire 56-bit DES keyspace and returns "1" if it finds a matching key. If no key is found, it returns 0.</p>
+<p>If the input oracle is DES, this exhaustive search is certain to find the key, so Pr[A<sub>1</sub>(F)=1] = 1. If the input oracle is a random permutation, there are 2<sup>64</sup> possible values of E<sub>0</sub>, and at most 2<sup>56</sup> of them will get examined in the DES keysearch. So the probability of A<sub>1</sub> returning 1 is at most 2<sup>-8</sup>. That is:</p>
+<p>Pr[A<sub>1</sub>(G)=1] &lt;= 2<sup>-8</sup>, so</p>
+<p>Adv(A<sub>1</sub>) = |Pr[A<sub>1</sub>(F)=1] - Pr[A<sub>1</sub>(G)=1]| &gt;= 1 - 2<sup>-8</sup></p>
+<p>so the advantage is at least about 0.996. This is a near-certain distinguisher, but it's not a security failure because it's no faster than brute force search--because it <i>is</i> brute force search.</p>
+<p><a name="Example_3:_RC4_Stream_Cipher_.28Fluhrer-McGrew_attack.29" id="Example_3:_RC4_Stream_Cipher_.28Fluhrer-McGrew_attack.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advantage_%28cryptography%29.html" title="Edit section: Example 3: RC4 Stream Cipher (Fluhrer-McGrew attack)">edit</a>]</span> <span class="mw-headline">Example 3: RC4 Stream Cipher (Fluhrer-McGrew attack)</span></h3>
+<p>TBD</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advantage_%28cryptography%29.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<p><a href="../../../p/h/i/Phillip_Rogaway_69de.html" title="Phillip Rogaway">Phillip Rogaway</a> and <a href="../../../m/i/h/Mihir_Bellare_b865.html" title="Mihir Bellare">Mihir Bellare</a>, <a href="http://www-cse.ucsd.edu/~mihir/cse207/classnotes.html" class="external text" title="http://www-cse.ucsd.edu/~mihir/cse207/classnotes.html" rel="nofollow">Introduction to Modern Cryptography</a></p>
+<p>Oded Goldreich, <a href="http://theory.lcs.mit.edu/~oded/frag.html" class="external text" title="http://theory.lcs.mit.edu/~oded/frag.html" rel="nofollow">Foundations of Cryptography (Fragments of a Book)</a></p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/v/Advantage_%28cryptography%29.html">http://en.wikipedia.org../../../a/d/v/Advantage_%28cryptography%29.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../t/h/e/Category%7ETheory_of_cryptography_170f.html" title="Category:Theory of cryptography">Theory of cryptography</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/v/Advantage_%28cryptography%29.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/d/v/Talk%7EAdvantage_%28cryptography%29_73fd.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Advantage_%28cryptography%29">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 03:51, 20 February 2007 by Wikipedia user <a href="../../../n/t/s/User%7ENtsimp_d605.html" title="User:Ntsimp">Ntsimp</a>. Based on work by Wikipedia user(s) <a href="../../../c/m/u/User%7ECMummert_c108.html" title="User:CMummert">CMummert</a> and <a href="../../../p/h/r/User%7EPhr_0563.html" title="User:Phr">Phr</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

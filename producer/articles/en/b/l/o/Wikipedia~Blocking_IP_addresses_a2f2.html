@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Wikipedia:Blocking IP addresses,IP address,Internet service providers,Last resort,Open proxy,Proxy,Proxy server,Public relations,Reverse DNS lookup,WHOIS,WP:ANI" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Wikipedia:Blocking IP addresses - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-4">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Wikipedia:Blocking IP addresses</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <table class="messagebox" style="padding: 0px; width:100%; margin-bottom:5px; background:#DFD; text-align:center;">
+<tr>
+<td style="width:20%; text-align:left; font-size:0.9em;">←<a href="../../../i/2F/i/WP%7EI_I_0082.html" title="WP:I/I">Information pages</a></td>
+<td style="width:60%;"><b>Blocking IP addresses</b></td>
+<td style="width:20%; text-align:right;font-size:0.9em;"></td>
+</tr>
+</table>
+<table style="width:100%; border-bottom:1px solid #A99; background:#FAFAFF;">
+<tr>
+<td>
+<table style="border: 1px solid #999; background: #fff; margin: .3em .3em .3em 1em; padding: 3px; float: right" class="noprint">
+<tr>
+<th id="shortcut" class="noprint" align="center" valign="top"><small><a href="../../../s/h/o/Wikipedia%7EShortcut_2a54.html" title="Wikipedia:Shortcut">Shortcut</a>:<br />
+<a href="../../../i/p/_/WP%7EIP_6f4f.html" title="WP:IP">WP:IP</a></small></th>
+</tr>
+</table>
+This page outlines issues and problems related to blocking <a href="../../../i/p/_/IP_address_6ed9.html" title="IP address">IP addresses</a>.</td>
+</tr>
+</table>
+<p><br clear="all" /></p>
+<p>IP addresses can be <a href="../../../b/p/_/WP%7EBP_c8aa.html" title="WP:BP">blocked</a> by <a href="http://meta.wikimedia.org/wiki/Sysops" class="extiw" title="m:Sysops">administrators</a> in the same way as registered users are. IP blocks can be more powerful and effective, but also have additional ramifications.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#General_guidelines"><span class="tocnumber">1</span> <span class="toctext">General guidelines</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Block_lengths"><span class="tocnumber">1.1</span> <span class="toctext">Block lengths</span></a></li>
+<li class="toclevel-2"><a href="#Shared_IPs"><span class="tocnumber">1.2</span> <span class="toctext">Shared IPs</span></a></li>
+<li class="toclevel-2"><a href="#Range_blocks"><span class="tocnumber">1.3</span> <span class="toctext">Range blocks</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Problems_and_solutions"><span class="tocnumber">2</span> <span class="toctext">Problems and solutions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Autoblocks"><span class="tocnumber">2.1</span> <span class="toctext">Autoblocks</span></a></li>
+<li class="toclevel-2"><a href="#Shared_and_dynamic_IP_addresses"><span class="tocnumber">2.2</span> <span class="toctext">Shared and dynamic IP addresses</span></a></li>
+<li class="toclevel-2"><a href="#Open_proxies"><span class="tocnumber">2.3</span> <span class="toctext">Open proxies</span></a></li>
+<li class="toclevel-2"><a href="#Particular_cases"><span class="tocnumber">2.4</span> <span class="toctext">Particular cases</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Public_relations_implications"><span class="tocnumber">2.4.1</span> <span class="toctext">Public relations implications</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="General_guidelines" id="General_guidelines"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: General guidelines">edit</a>]</span> <span class="mw-headline">General guidelines</span></h2>
+<p><a name="Block_lengths" id="Block_lengths"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: Block lengths">edit</a>]</span> <span class="mw-headline">Block lengths</span></h3>
+<p>Blocks should be based on the protection of Wikipedia rather than the punishment of offenders. Most IP addresses should not be blocked more than a few hours, since the malicious user will probably move on by the time the block expires. If there is persistent disruption or vandalism from an IP addresses, the block should be extended (with the 'anon-only' option selected) as long as is necessary to prevent further disruption.</p>
+<p>However, <b>IP addresses should almost never be indefinitely blocked.</b> Many IPs are dynamically assigned and change frequently from one person to the next, and even static IP addresses are periodically re-assigned or have different users. In extreme cases, consider long-term blocks over a period of months or years instead. Long-term blocks should <i>never</i> be used for isolated incidents. Open proxies should generally be reported to the <a href="../../../o/p/_/WP%7EOP_2cfb.html" title="WP:OP">WikiProject on open proxies</a> and blocked for two years.</p>
+<p>If you <i>do</i> indefinitely block an IP address, please place {{<a href="../../../i/n/d/Template%7EIndefblockedip_765d.html" title="Template:Indefblockedip">indefblockedip</a>}} or {{<a href="../../../o/p/e/Template%7EOpen_proxy_a720.html" title="Template:Open proxy">open proxy</a>}} (do not substitute) on its user or user talk page for tracking purposes.</p>
+<p><a name="Shared_IPs" id="Shared_IPs"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: Shared IPs">edit</a>]</span> <span class="mw-headline">Shared IPs</span></h3>
+<p>Before implementing a long-term block on an IP address with a long history of vandalism, please check if it is shared by performing a <a href="../../../w/h/o/WHOIS_a719.html" title="WHOIS">WHOIS</a> and <a href="../../../r/e/v/Reverse_DNS_lookup_05b6.html" title="Reverse DNS lookup">Reverse DNS lookup</a> query on the IP to determine if it belongs to a school or a <a href="../../../p/r/o/Proxy_server.html" title="Proxy server">proxy server</a>. If a Shared IP's talk page is not already identified or tagged as such, use either the {{<a href="../../../s/h/a/Template%7ESharedIP_e2f7.html" title="Template:SharedIP">SharedIP</a>}}, {{<a href="../../../s/h/a/Template%7ESharedIPEDU_84af.html" title="Template:SharedIPEDU">SharedIPEDU</a>}}, or any one of the templates at <a href="../../../s/h/a/Category%7EShared_IP_header_templates_29bc.html" title="Category:Shared IP header templates">Category:Shared IP header templates</a> to do so. For anonymous-only blocks of Shared IPs, please consider using {{<a href="../../../a/n/o/Template%7EAnonblock_0b20.html" title="Template:Anonblock">anonblock</a>}} or {{<a href="../../../s/c/h/Template%7ESchoolblock_e4bb.html" title="Template:Schoolblock">schoolblock</a>}} as your blocking reason.</p>
+<p><a name="Range_blocks" id="Range_blocks"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: Range blocks">edit</a>]</span> <span class="mw-headline">Range blocks</span></h3>
+<p>Administrators can block ranges of IP addresses (commonly called <i><a href="http://meta.wikimedia.org/wiki/Range_blocks" class="extiw" title="m:Range_blocks">rangeblocking</a></i>). Use careful judgement and make them as brief as possible; this can affect over sixty-five thousand IP addresses, potentially affecting millions of users. These should be reserved as an absolute <a href="../../../l/a/s/Last_resort.html" title="Last resort">last resort</a>.</p>
+<p>For more information, see <a href="http://meta.wikimedia.org/wiki/Range_blocks" class="extiw" title="m:Range_blocks">m:Range blocks</a>. You need some knowledge of how networks and IP numbering work, and of binary arithmetic. If you don't, many other administrators do— ask on the <a href="../../../a/n/i/WP%7EANI_afbb.html" title="WP:ANI">Administrators' incidents noticeboard</a> or on <a href="irc://irc.freenode.net/wikipedia" class="external text" title="irc://irc.freenode.net/wikipedia" rel="nofollow">IRC</a>. See <a href="http://meta.wikimedia.org/wiki/Range_blocks" class="extiw" title="m:Range_blocks">Range blocks</a>.</p>
+<p><a name="Problems_and_solutions" id="Problems_and_solutions"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: Problems and solutions">edit</a>]</span> <span class="mw-headline">Problems and solutions</span></h2>
+<p><a name="Autoblocks" id="Autoblocks"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: Autoblocks">edit</a>]</span> <span class="mw-headline">Autoblocks</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../a/u/t/Image%7EAutoblock.png_2ab8.html" class="internal" title="An example of an autoblock causing collateral damage."><img src="../../../upload/shared/thumb/1/14/Autoblock.png/180px-Autoblock.png" alt="An example of an autoblock causing collateral damage." width="180" height="115" longdesc="../../../a/u/t/Image%7EAutoblock.png_2ab8.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../a/u/t/Image%7EAutoblock.png_2ab8.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An example of an autoblock causing collateral damage.</div>
+</div>
+</div>
+<p>An <b><a href="../../../a/u/t/Wikipedia%7EAutoblock_1669.html" title="Wikipedia:Autoblock">autoblock</a></b> occurs when the software blocks usernames operating from a given IP address. This can occur indirectly when a registered user is blocked, autoblocking the IP. A single block can lead to hundreds of autoblocked legitimate users, so administrators should always be careful to watch for autoblocks in their name. For more information, see <a href="../../../a/u/t/Wikipedia%7EAutoblock_1669.html" title="Wikipedia:Autoblock">Wikipedia:Autoblock</a>.</p>
+<p>The simplest way to prevent autoblock problems is to check "<i>Block anonymous users only</i>" for IP addresses, or uncheck "<i>Automatically block IP addresses used by this user</i>" for registered users. Administrators should watch for autoblocks using the <a href="../../../l/o/g/Special%7ELog_Block_0c1a.html" title="Special:Log/Block">block log</a> or <a href="../../../p/g/k/User%7EPgk_d0c7.html" title="User:Pgk">pgk</a>'s <a href="http://tools.wikimedia.de/~pgk/autoblock.php" class="external text" title="http://tools.wikimedia.de/~pgk/autoblock.php" rel="nofollow">autoblock toolserver script</a>.<br clear="all" /></p>
+<p><a name="Shared_and_dynamic_IP_addresses" id="Shared_and_dynamic_IP_addresses"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: Shared and dynamic IP addresses">edit</a>]</span> <span class="mw-headline">Shared and dynamic IP addresses</span></h3>
+<p>Many users operate from <b>shared IP addresses</b>, often those belonging to <a href="../../../p/r/o/Proxy.html" title="Proxy">proxies</a> used by large networks or <a href="../../../i/n/t/Internet_service_providers.html" title="Internet service providers">Internet service providers</a>. Since it is impossible to distinguish between individual users operating from shared IP addresses, blocking one may affect a very large number of legitimate users (ranging up to millions). Users operating from <b>dynamic IP addresses</b> change IP addresses periodically. This can compound the <a href="../../../a/u/t/Wikipedia%7EAutoblock_1669.html" title="Wikipedia:Autoblock">autoblock problem</a>, particularly when they are also shared, because a block targetted at a malicious user may shift to a legitimate user while the target shifts to an unblocked IP address.</p>
+<p><a name="Open_proxies" id="Open_proxies"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: Open proxies">edit</a>]</span> <span class="mw-headline">Open proxies</span></h3>
+<p><a href="../../../o/p/e/Open_proxy.html" title="Open proxy">Open proxies</a> are indefinitely blocked on sight according to the <a href="http://meta.wikimedia.org/wiki/WM:NOP" class="extiw" title="m:WM:NOP">Foundation policy against open proxies</a>. This may affect millions of users in rare cases; however, the IP should not be unblocked until it has been closed.</p>
+<p><a name="Particular_cases" id="Particular_cases"></a></p>
+<h3><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: Particular cases">edit</a>]</span> <span class="mw-headline">Particular cases</span></h3>
+<p><a name="Public_relations_implications" id="Public_relations_implications"></a></p>
+<h4><span class="editsection">[<a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html" title="Edit section: Public relations implications">edit</a>]</span> <span class="mw-headline">Public relations implications</span></h4>
+<p>Blocking certain IP addresses can have important <a href="../../../p/u/b/Public_relations.html" title="Public relations">public relations</a> and political <a href="http://en.wiktionary.org/wiki/ramifications" class="extiw" title="wikt:ramifications">ramifications</a> for the <a href="../../../w/i/k/Wikimedia_Foundation_83d9.html" title="Wikimedia Foundation">Wikimedia Foundation</a>. If you must block any of the IP addresses below, you must notify the <a href="http://meta.wikimedia.org/wiki/Communications_committee" class="extiw" title="m:Communications_committee">Wikimedia Foundation Communications Committee</a> immediately so that they may be managed by the Foundation's press relations team. Avoid long blocks of these addresses and be especially careful in formulating your block messages because your block message will be seen and commented on by the press.</p>
+<table class="prettytable" style="font-size:0.9em;">
+<tr>
+<th colspan="3">Government IPs (political/<a href="../../../p/u/b/Public_relations.html" title="Public relations">public relations</a> issues)</th>
+</tr>
+<tr>
+<th>CIDR range</th>
+<th>Range</th>
+<th>Owner</th>
+</tr>
+<tr>
+<td>—</td>
+<td>143.231.249.141</td>
+<td>United States House of Representatives</td>
+</tr>
+<tr>
+<td>156.33.0.0/16</td>
+<td>156.33.*.*</td>
+<td>United States Senate</td>
+</tr>
+<tr>
+<td>194.60.0.0/20</td>
+<td>194.60.0.0 - 194.60.63.255</td>
+<td>UK Parliament</td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 2251 bytes
+Post-expand include size: 1588 bytes
+Template argument size: 358 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html">http://en.wikipedia.org../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../w/i/k/Category%7EWikipedia_administration_d8a9.html" title="Category:Wikipedia administration">Wikipedia administration</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-project"
+	       class="selected"	       ><a href="../../../b/l/o/Wikipedia%7EBlocking_IP_addresses_a2f2.html">Project page</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/l/o/Wikipedia_talk%7EBlocking_IP_addresses_1495.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Wikipedia:Blocking_IP_addresses">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:05, 28 March 2007 by Wikipedia user <a href="../../../a/v/r/User%7EAvraham_9604.html" title="User:Avraham">Avraham</a>. Based on work by Wikipedia user(s) <a href="../../../f/i/r/User%7EFirefoxman_0fe6.html" title="User:Firefoxman">Firefoxman</a>, <a href="../../../p/a/t/User%7EPathoschild_c32f.html" title="User:Pathoschild">Pathoschild</a> and <a href="../../../c/e/s/User%7ECesarB_5f7f.html" title="User:CesarB">CesarB</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

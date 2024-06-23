@@ -1,0 +1,369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Bogosort,Bash,Best, worst and average case,Bozo sort,Las Vegas algorithm,Lord of the Rings,Many worlds,Python programming language,Apoc2400,Booyabazooka,Exe" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Bogosort - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Bogosort</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>What is the purpose of this page? Bogosort is a stupid idea and should remain in the jargon file. This article reduces the credibility of the other articles of Wikipedia. NTF Oct 6 2002.</p>
+<dl>
+<dd>This won't reduce the credibility of any other page on Wikipedia. It covers a very real concept that has some interesting properties. The information presented on this page is, as far as I can see, factual. Bogosort exists. It might be completely useless for any practical purpose, but the same could be said of <a href="../../../l/o/r/Lord_of_the_Rings_293e.html" title="Lord of the Rings">Lord of the Rings</a>. --<a href="../../../n/k/n/User%7ENknight_4d92.html" title="User:Nknight">nknight</a> 12:27 Feb 16, 2003 (UTC)</dd>
+</dl>
+<dl>
+<dd>Bogosort does exist. I first learnt about it in a computer science lecture at university! <a href="../../../m/y/r/User%7EMyRedDice_bcb5.html" title="User:MyRedDice">Martin</a></dd>
+</dl>
+<hr />
+<dl>
+<dd>The code is incorrect --NTF Oct 6 2002.</dd>
+</dl>
+<p>Incorrect C code moved here. Maybe someone can be bothered to fix it, but I can't. --<a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a> 12:46 Feb 16, 2003 (UTC)</p>
+<dl>
+<dd>Checking the edit history, two days after NTF noted there was a bug, one was corrected. I can't personally verify the code, either, but presumably his statement made Wesley go through and do so. -- <a href="../../../n/k/n/User%7ENknight_4d92.html" title="User:Nknight">nknight</a> 12:50 Feb 16, 2003 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>It's not correct. Whoever wrote it doesn't even know the difference between C and C++. --<a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a> 12:54 Feb 16, 2003 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>OK, fine, I'll take a look at it in detail when I'm actually awake. -- <a href="../../../n/k/n/User%7ENknight_4d92.html" title="User:Nknight">nknight</a> 12:56 Feb 16, 2003 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>How about this? I've verified its operation with up to ten items. A bit more verbose than the C++ implementation. -- <a href="../../../n/k/n/User%7ENknight_4d92.html" title="User:Nknight">nknight</a> 03:06 Feb 17, 2003 (UTC)</p>
+<pre>
+void bogosort(int *data, int length) {
+    int i, j, tmp;
+    int *visited = malloc(length*sizeof(int));
+    srand(time(0));
+    while (!sorted(data, length)) {
+        memset(visited, 0, length);
+        for (i = 0; i &lt; length; ++i) {
+            j = rand() % length;
+            if (!visited[j]) {
+                tmp = data[i];
+                data[i] = data[j];
+                data[j] = tmp;
+                visited[j]++;
+            }
+        }
+    }
+}
+
+int sorted(int *data, int length) {
+    int i;
+    for (i = 0; i &lt; length-1; ++i)
+        if (data[i] &gt; data[i+1])
+            return 0;
+    return 1;
+}
+</pre>
+<dl>
+<dd>The <code>memset</code> is wrong (there are <code>length*sizeof(int)</code> bytes), but you don't need the <code>visited</code> array anyway - just exchange <code>data[i]</code> with <code>data[i+rand()%(length-i)]</code> in the loop. (Of course, <code>rand()%(length-i)</code> won't be quite uniform if <code>length-i</code> doesn't divide <code>RAND_MAX+1</code>, so this isn't really correct either.) I prefer the C++ implementation I gave, as it doesn't have to deal with the irrelevant details of how to implement a random shuffle properly. --<a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a> 10:42 Feb 17, 2003 (UTC)</dd>
+</dl>
+<hr />
+<p>In C++ bogosort can be formulated really concisely:</p>
+<pre>
+#include &lt;algorithm&gt;
+
+template&lt;class T&gt;
+void bogosort(T begin, T end) {
+  while (!is_sorted(begin, end)) { random_shuffle(begin, end); }
+}
+</pre>
+<p>For someone who knows the language this is really easy to understand. On the other hand, somebody without C++-knowledge might be puzzled by the use of iterators. Any comments? <a href="../../../m/h/_/User%7EMH_2a9b.html" title="User:MH">MH</a> 00:02, 9 Nov 2003 (UTC)</p>
+<dl>
+<dd>I think it's so short and simple, you might as well put it in. <a href="../../../m/y/r/User%7EMyRedDice_bcb5.html" title="User:MyRedDice">Martin</a> 00:26, 9 Nov 2003 (UTC)</dd>
+</dl>
+<p>Be-yooo-ti-ful! I'd make it non templated and have it operate on ints though. The templating just obscures the point, and will <i>really</i> obscure it for non C++ coders (and for C coders who will puzzle over the use of operator&lt; to compare any type, including strings -- "where's the callback function pointer???"). <a href="../../../o/r/t/User%7EOrthogonal_2fa0.html" title="User:Orthogonal">orthogonal</a> 18:14, 16 Nov 2003 (UTC)</p>
+<dl>
+<dd>If all we want to do is give the algorithm we can as well put it in pseudocode:</dd>
+</dl>
+<pre>
+while not is_sorted(array)
+   array := random_permutation(array)
+</pre>
+<dl>
+<dd>This emphasises the simplicity of the algorithm and avoids digging into language details. If readers want to learn about templates or about C++ they'll look at other places anyway. <a href="../../../m/h/_/User%7EMH_2a9b.html" title="User:MH">MH</a> 12:53, 24 Nov 2003 (UTC)</dd>
+</dl>
+<hr />
+<p>Just to say: I am a C++ programmer and this page has a very real use. It is well documented in the programming press. It should be remembered that computer-types often have a wry sense of humour that may not be understood by all. Nevertheless, worst-case algorithms are very useful to know about. --<a href="../../../m/a/t/User%7EMat-C_07e7.html" title="User:Mat-C">/Mat</a> 15:12, 24 Mar 2004 (UTC)</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#bogosort_is_bogo-sort"><span class="tocnumber">1</span> <span class="toctext">bogosort is bogo-sort</span></a></li>
+<li class="toclevel-1"><a href="#Bogosort.2C_half_bogus.2C_half_not."><span class="tocnumber">2</span> <span class="toctext">Bogosort, half bogus, half not.</span></a></li>
+<li class="toclevel-1"><a href="#python_and_bash"><span class="tocnumber">3</span> <span class="toctext">python and bash</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Python"><span class="tocnumber">3.1</span> <span class="toctext">Python</span></a></li>
+<li class="toclevel-2"><a href="#Bash_Script"><span class="tocnumber">3.2</span> <span class="toctext">Bash Script</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Bozo_sort_merged_here"><span class="tocnumber">4</span> <span class="toctext">Bozo sort merged here</span></a></li>
+<li class="toclevel-1"><a href="#Running_Time_Bozosort"><span class="tocnumber">5</span> <span class="toctext">Running Time Bozosort</span></a></li>
+<li class="toclevel-1"><a href="#Wikisource"><span class="tocnumber">6</span> <span class="toctext">Wikisource</span></a></li>
+<li class="toclevel-1"><a href="#No_discussion_of_the_O.28N.29_variant"><span class="tocnumber">7</span> <span class="toctext">No discussion of the O(N) variant</span></a></li>
+<li class="toclevel-1"><a href="#Puzzlement"><span class="tocnumber">8</span> <span class="toctext">Puzzlement</span></a></li>
+<li class="toclevel-1"><a href="#Quantum"><span class="tocnumber">9</span> <span class="toctext">Quantum</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="bogosort_is_bogo-sort" id="bogosort_is_bogo-sort"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: bogosort is bogo-sort">edit</a>]</span> <span class="mw-headline">bogosort is bogo-sort</span></h2>
+<p><a href="http://catb.org/~esr/jargon/html/B/bogo-sort.html" class="external free" title="http://catb.org/~esr/jargon/html/B/bogo-sort.html" rel="nofollow">http://catb.org/~esr/jargon/html/B/bogo-sort.html</a> it should be bogo-sort with a redirect. --12.214.77.95, 22:22 19 May 2005</p>
+<dl>
+<dd><a href="http://www.nist.gov/dads/" class="external text" title="http://www.nist.gov/dads/" rel="nofollow">NIST's Dictionary of Algorithms and Data Structures</a> says <i>bogosort</i>. --<a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a> 08:27, 20 May 2005 (UTC)</dd>
+</dl>
+<p><a name="Bogosort.2C_half_bogus.2C_half_not." id="Bogosort.2C_half_bogus.2C_half_not."></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: Bogosort, half bogus, half not.">edit</a>]</span> <span class="mw-headline">Bogosort, half bogus, half not.</span></h2>
+<p>The half that is bogus, is of course the Python code and bash code that use a sorting algorithm to perform... a sorting algorithm! It's not hard to check for sorted-ness, and it's most definately not the same as sorting the items!</p>
+<p>Please change them to use loops like these:</p>
+<pre>
+for( i=1; i &lt; size; i++) {
+  if( array[i-1] &gt; array[i] )
+    return false;
+}
+return true;
+</pre>
+<p>(above assumes zero-based arrays)</p>
+<p>I'm not good enough with python syntax to write it myself, and I rather despise bash syntax, so I'm not going to do that one either.&#160;:) (sorry!)</p>
+<p>The half that is not bogus is the algorithm itself. First, it is an extremely poor algorithm, even worse than bubble sort and it's ilk (all running at O(n^2)). This is actually useful, because you can compare it to other algorithms. For sorting routines we have bogosort at O(n*n!), and then a class of routines at O(n^2), and then another class at O(n*log n). (I've skipped shell sort cause it's O(n^i) where 'i' is determined by the shells you choose and I don't remember offhand what the smallest value is. I've also skipped ones that operate in O(n), but only in special cases).</p>
+<p>Additionally, bogus sort is a good example (if poor running) at a probablistic algorithm. There are several algorithms that rely on randomness to complete, and this is a legitimate (again, if slow) member. Just because we wouldn't use it in real code doesn't mean it's not of academic importance.</p>
+<p>And -because- it does use random numbers, and happens to have such a high complexity, it shows off an important lesson in random number generators: They break! If you have a random number generator that has a cycle length of at 2^32, then you can only be guaranteed that bogosort will complete with n less than 12! If you move up to a 2^64 cycle it manages to work for n up to 19!</p>
+<p>You may say that this is still impractical, but realize that permutations often grow to these high numbers too, and if you start using random number generators to simulate things, you can only get the same number of possibilities as you random number generator can make. I personally think that bogosort (while impratical in it of itself) drives home that point fairly well.</p>
+<p>Also, I don't agree that it's necessarily the worse case; because, afterall you could design an algorithm that pathologically chooses a worse way to sort the array. Though I suppose at some point you'd have to call foul, and say that you're just being silly... (Afterall, bogo sort doesn't even have a gauranteed worse case time, and it also doesn't gaurantee that each operation moves you "closer" to a sorted array -- though that it -does- work still, which makes it a little cool, no?)</p>
+<p>--<a href="../../../g/r/y/User%7EGryn_e3ed.html" title="User:Gryn">Gryn</a> 03:49, 26 August 2005 (UTC)</p>
+<p><a name="python_and_bash" id="python_and_bash"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: python and bash">edit</a>]</span> <span class="mw-headline">python and bash</span></h2>
+<p>I have moved them out of article, because they use external sorting routines. Someone needs to add some is_sorted function. <a href="../../../e/x/e/User%7EExe_3e21.html" title="User:Exe">Exe</a> 20:02, 22 November 2005 (UTC)</p>
+<p><a name="Python" id="Python"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: Python">edit</a>]</span> <span class="mw-headline"><a href="../../../p/y/t/Python_programming_language.html" title="Python programming language">Python</a></span></h3>
+<pre>
+from random import shuffle
+
+def bogosort(seq):
+    while seq != sorted(seq):
+        shuffle(seq)
+</pre>
+<p><a name="Bash_Script" id="Bash_Script"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: Bash Script">edit</a>]</span> <span class="mw-headline"><a href="../../../b/a/s/Bash.html" title="Bash">Bash Script</a></span></h3>
+<pre>
+#!/bin/bash
+
+# Prints all the lines in their current order.
+function echolines
+{
+  for ((i=0;i&lt;$NUMLINES;i++))
+  do
+    echo "${LINES[i]}"
+  done
+}
+
+IFS=$'\n'
+
+LINES=($(cat $1))
+NUMLINES=${#LINES[@]}
+
+while ! echolines | sort -c &gt;/dev/null 2&gt;/dev/null
+do
+  for ((i=0;i&lt;$NUMLINES;i++))
+  do
+    #Shuffle the lines
+    TEMP="${LINES[i]}"
+    RAND=$((RANDOM%NUMLINES))
+    LINES[i]="${LINES[RAND]}"
+    LINES[RAND]="$TEMP"
+  done
+done
+
+echolines
+</pre>
+<p><a name="Bozo_sort_merged_here" id="Bozo_sort_merged_here"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: Bozo sort merged here">edit</a>]</span> <span class="mw-headline"><a href="../../../b/o/z/Bozo_sort.html" title="Bozo sort">Bozo sort</a> merged here</span></h2>
+<p>See <a href="../../../a/r/t/Wikipedia%7EArticles_for_deletion_Bozo_sort_5743.html" title="Wikipedia:Articles for deletion/Bozo sort">Wikipedia:Articles for deletion/Bozo sort</a>. <a href="../../../j/o/h/User%7EJohnleemk_41e5.html" title="User:Johnleemk">Johnleemk</a> | <a href="../../../j/o/h/User_talk%7EJohnleemk_fb71.html" title="User talk:Johnleemk">Talk</a> 08:34, 28 January 2006 (UTC)</p>
+<p><a name="Running_Time_Bozosort" id="Running_Time_Bozosort"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: Running Time Bozosort">edit</a>]</span> <span class="mw-headline">Running Time Bozosort</span></h2>
+<p>Actually, I've thought about this, and came to the conclusion that bogosort and bozosort are completely equally efficient. If the worst-case running time is infinite, then it does not matter even the least how much progress the algorithm does on one iteration. In fact, taken completely literally, even a busy-loop whose payload did absolutely nothing whatsoever would be equally efficient, at least considering the worst-case running time. <a href="../../../j/i/p/User%7EJIP_0758.html" title="User:JIP"><font color="#CC0000">J</font><font color="#00CC00">I</font><font color="#0000CC">P</font></a> | <a href="../../../j/i/p/User_talk%7EJIP_c5bf.html" title="User talk:JIP">Talk</a> 21:04, 28 January 2006 (UTC)</p>
+<dl>
+<dd>Worst case running time is not the only suitable metric for measuring efficiency; see <a href="../../../b/e/s/Best%2C_worst_and_average_case.html" title="Best, worst and average case">Best, worst and average case</a>.--<a href="../../../m/a/l/User%7EMalcohol_18a5.html" title="User:Malcohol">Malcohol</a> 13:34, 31 January 2006 (UTC)
+<dl>
+<dd>Indeed; when you're discussing a random algorithm of this sort, the worst-case will always approach infinity. More interesting are the best and average cases. The best should be fairly trivial to calculate. For bogosort, it is 1 randomization and n-1 comparisons to discern that the list is ordered. Same for bozosort; 1 swap, and n-1 comparisons. The average time is trickier; I can't actually figure out which one would be better. I suppose, unless some master of probability wants to take a crack at calculations, we could try some experimentation? It would require pretty small data sets, so I'm not sure how useful that would be... ~&#160;<a href="../../../b/o/o/User%7EBooyabazooka_79a9.html" title="User:Booyabazooka">Booya <sup>Bazooka</sup></a> 19:20, 26 May 2006 (UTC)</dd>
+</dl>
+</dd>
+<dd>Note that Bogo Sort and Bozo Sort are instances of <a href="../../../l/a/s/Las_Vegas_algorithm_a253.html" title="Las Vegas algorithm">Las Vegas Algorithms</a>. Thus it makes no sense to speak about the worst or average case running time (both depend on the outcomes of random experiments); The thing being of interest is the <em>expected value</em> of the running time, in the best, worst, or average case. BTW I have analyzed the expected number of swaps and comparisons needed on the average by Bogo Sort and Bozo Sort. For the analysis, I've used the setup where all array elements are different. For Bogo Sort the expected number of comparisons/swaps in the worst case is also done. The worst case for Bozo Sort seems to be more difficult. I'll typeset the analysis and be back with a reference. For the moment, I note that the running time of Bozo Sort outperforms the one of Bogo Sort on the average by a linear factor. In the best case for both algorithms, the array is already sorted, the (expected) number of swaps is zero, and the (expected) number of comparisons equals n-1. <a href="../../../h/e/r/User%7EHermel_7ce0.html" title="User:Hermel">Hermann Gruber</a></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I'd suggest that the notion of average running time is quite clearly talkable. An average of the running times of N trials is sensible, provide that no run chances upon an infinite time. The expected time is the summation of all possible running times multiplied by their probability of occurrence, clearly the average if all probabilities are equal. The worst cases of infinite times (corresponding to always unfortunate random choices) can make the summation diverge, if the probability of such sequences does not fall faster than the time cost rises so that the contribution remains finite. Put another way, for a set of values of size N, a graph of probability vs. running time could be deduced, the question being whether the area under it is finite, especially considering the long tail towards high running times.</dd>
+</dl>
+</dd>
+</dl>
+<p>For instance, the famous QuickSort runs in order N.Log(N) time on average, but the worst case is order N**2. There are two levels of randomness: the first in preparing the input values, and in Bogo/Bozo, a second level of randomisation is used in the sorting algorithm. The analysis of QuickSort normally need consider only the first level, but a variant has the selection of pivot element be at random, specifically to dodge the preparation of carefully-chosen worst-case-provoking data sets. Though some other data set might provoke a worst-case performance for the specific random sequence of pivots that will be chosen which data set would have been sorted without trouble by a non-random (or different random) selection of pivots. Now I'm becoming confused! NickyMcLean 21:52, 24 September 2006 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>What you suggested looks quite similar to the expected value of the running time. By letting the number of trials N go to infinity, I think you'll get the expected running time (at least when disregarding infinite runs); infinite times (corresponding to always unfortunate random choices) as you suggest occur with probability 0, by the infinite monkey theorem. Nevertheless, it is possible that they occur, as is the case in general with Las Vegas Algorithms. You can still make a distinction between expected running time on a worst case input and expected time on an average input, which may be the source of your confusion: Randomized QuickSort has expected running time O(n log n) on *all* n! possible inputs, thus the expected running time on the average is (n! O(n log n)) /(n!) = O(n log n) -- the numerator is the sum of the expectations on all inputs of size n, the denominator is the number of inputs of size n. There we took the average kind of twice, once by computing the expectation, and once by taking the average. <a href="../../../h/e/r/User%7EHermel_7ce0.html" title="User:Hermel">Hermann Gruber</a></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Wikisource" id="Wikisource"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: Wikisource">edit</a>]</span> <span class="mw-headline">Wikisource</span></h2>
+<p>Just a short note that Wikisource is <i>not</i> a dumping ground for code. Can we please refrain from doing this? - <a href="../../../t/a/_/User%7ETa_bu_shi_da_yu_9191.html" title="User:Ta bu shi da yu">Ta bu shi da yu</a> 07:35, 29 January 2006 (UTC)</p>
+<p><a name="No_discussion_of_the_O.28N.29_variant" id="No_discussion_of_the_O.28N.29_variant"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: No discussion of the O(N) variant">edit</a>]</span> <span class="mw-headline">No discussion of the O(N) variant</span></h2>
+<p>In Python:</p>
+<pre>
+from random import shuffle
+import UniverseTools
+
+def is_sorted(seq):
+    for i in range(len(seq) - 1):
+        if seq[i] &gt; seq[i+1]: 
+            return False
+    return True
+
+def bogosort(seq):
+    shuffle(seq)
+        if not is_sorted(seq):
+            UniverseTools.destroy()
+</pre>
+<p>You will need to write UniverseTools is C or Pyrex (it's not possible in Python).</p>
+<p>Please do not try this unless you</p>
+<ol>
+<li>have a suitable random number generator, and</li>
+<li>are certain that the <a href="../../../m/a/n/Many_worlds.html" title="Many worlds">Many Worlds Interpretation</a> is true.</li>
+</ol>
+<p>69.107.82.95 18:58, 12 March 2006 (UTC)</p>
+<p><a name="Puzzlement" id="Puzzlement"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: Puzzlement">edit</a>]</span> <span class="mw-headline">Puzzlement</span></h2>
+<p>From the article:</p>
+<dl>
+<dd>while this algorithm is O(n) in time, permuting the list requres that we consume of O(n log n) bits of quantum randomness.</dd>
+</dl>
+<p>Could someone explain this and/or provide a citation? Thanks, 68.147.56.203 06:37, 3 September 2006 (UTC)</p>
+<p>Someone corrected a mistype. All very well, but I also still don't understand what it means. NickyMcLean 21:16, 24 September 2006 (UTC)</p>
+<p>I don't know a citation off-hand, but there aren't any particularly new ideas involved. There are O(2^(n log n)) permutations of an n item list, therefore specifying one particular permutation requires O(n log n) bits. This is why you can't build a (non-quantum) sorting algorithm that needs fewer than O(n log n) comparisons, because each comparison gives you only one bit. In the bogosort case, you need to ensure that every permutation may be generated by your random shuffle, which means you need O(n log n) bits of randomness, which means you need to, say, observe the spin of O(n log n) separate particles or whatever you're using to get quantum randomness. And when doing quantum stuff, randomness is a resource, just like power or memory or whatever -- once you've observed those particles they aren't random anymore, the next time you want some randomness you'll need to find some new particles. 66.159.194.130 11:28, 12 November 2006 (UTC)</p>
+<p><a name="Quantum" id="Quantum"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/g/Talk%7EBogosort_ae11.html" title="Edit section: Quantum">edit</a>]</span> <span class="mw-headline">Quantum</span></h2>
+<dl>
+<dd><i>For those inputs, observers would be surprised by mysterious failures of the computer or improbable accidents preventing its operation because all universes in which it did operate are destroyed.</i></dd>
+</dl>
+<p>This must be based on some misunderstanding of how quantum physics and quantum computers work. --<a href="../../../a/p/o/User%7EApoc2400_9496.html" title="User:Apoc2400">Apoc2400</a> 06:53, 13 March 2007 (UTC)</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/g/Talk%7EBogosort_ae11.html">http://en.wikipedia.org../../../b/o/g/Talk%7EBogosort_ae11.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/o/g/Bogosort.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/o/g/Talk%7EBogosort_ae11.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Bogosort">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 06:53, 13 March 2007 by Wikipedia user <a href="../../../a/p/o/User%7EApoc2400_9496.html" title="User:Apoc2400">Apoc2400</a>. Based on work by Wikipedia user(s) <a href="../../../h/e/r/User%7EHermel_7ce0.html" title="User:Hermel">Hermel</a>, NickyMcLean, <a href="../../../b/o/o/User%7EBooyabazooka_79a9.html" title="User:Booyabazooka">Booyabazooka</a>, <a href="../../../m/a/l/User%7EMalcohol_18a5.html" title="User:Malcohol">Malcohol</a>, <a href="../../../t/a/_/User%7ETa_bu_shi_da_yu_9191.html" title="User:Ta bu shi da yu">Ta bu shi da yu</a>, <a href="../../../j/i/p/User%7EJIP_0758.html" title="User:JIP">JIP</a>, <a href="../../../j/o/h/User%7EJohnleemk_41e5.html" title="User:Johnleemk">Johnleemk</a>, <a href="../../../e/x/e/User%7EExe_3e21.html" title="User:Exe">Exe</a>, <a href="../../../g/r/y/User%7EGryn_e3ed.html" title="User:Gryn">Gryn</a>, <a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a>, <a href="../../../m/a/t/User%7EMat-C_07e7.html" title="User:Mat-C">Mat-C</a>, <a href="../../../j/a/m/User%7EJamesday_85fa.html" title="User:Jamesday">Jamesday</a>, <a href="../../../m/h/_/User%7EMH_2a9b.html" title="User:MH">MH</a>, <a href="../../../o/r/t/User%7EOrthogonal_2fa0.html" title="User:Orthogonal">Orthogonal</a>, <a href="../../../m/y/r/User%7EMyRedDice_bcb5.html" title="User:MyRedDice">MyRedDice</a>, <a href="../../../n/k/n/User%7ENknight_4d92.html" title="User:Nknight">Nknight</a> and <a href="../../../n/t/f/User%7ENTF_1092.html" title="User:NTF">NTF</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

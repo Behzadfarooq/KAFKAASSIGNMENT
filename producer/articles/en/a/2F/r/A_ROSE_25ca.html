@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="A/ROSE,API,Apple Computer,Apple Macintosh,Context switch,Device driver,Embedded operating system,Expansion card,Extension (Mac OS),IBM token ring,Mac OS" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>A/ROSE - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">A/ROSE</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>A/ROSE</b> (the <i>Apple Real-time Operating System Environment</i>) was a small <a href="../../../e/m/b/Embedded_operating_system.html" title="Embedded operating system">embedded operating system</a> which ran on <a href="../../../a/p/p/Apple_Computer_f26c.html" title="Apple Computer">Apple Computer</a>'s <b>Macintosh Coprocessor Platform</b>, an <a href="../../../e/x/p/Expansion_card.html" title="Expansion card">expansion card</a> for the <a href="../../../a/p/p/Apple_Macintosh_48d6.html" title="Apple Macintosh">Apple Macintosh</a>. The idea was to offer a single "overdesigned" hardware platform on which 3rd party vendors could build practically any product, reducing the otherwise heavy workload of developing a <a href="../../../n/u/b/NuBus_d0cf.html" title="NuBus">NuBus</a>-based <a href="../../../e/x/p/Expansion_card.html" title="Expansion card">expansion card</a>. However, the MCP cards were fairly expensive, limiting the appeal of the concept. A/ROSE saw very little use, apparently limited solely to Apple's own networking cards for serial I/O, <a href="../../../i/b/m/IBM_token_ring_8542.html" title="IBM token ring">TokenRing</a> and <a href="../../../t/w/i/Twinax.html" title="Twinax">Twinax</a>.</p>
+<p>A/ROSE and the MCP originally came about in August 1987 during the gestation of the <a href="../../../m/a/c/Macintosh_II_e491.html" title="Macintosh II">Macintosh II</a> project. While working on various networking products for the new system, the developers realized that the existing <a href="../../../m/a/c/Mac_OS_6c4f.html" title="Mac OS">Mac OS</a> would make any "serious" card difficult to create, due to large latencies and the difficultly of writing complex <a href="../../../d/e/v/Device_driver.html" title="Device driver">device drivers</a>. Their solution was to make an "intelligent" NuBus card that was essentially an entire computer on a card, containing its own <a href="../../../m/o/t/Motorola_68000.html" title="Motorola 68000">Motorola 68000</a> processor, working space in RAM mirrored in the main system, and its own basic operating system. The first version of the system was ready for use in February 1988.</p>
+<p>A/ROSE itself was very small, the kernel using only 6k, and the operating system as a whole about 28k. A/ROSE supported pre-emptive multitasking with round-robin task scheduling with a 110 microsecond <a href="../../../c/o/n/Context_switch.html" title="Context switch">context switch</a> time and only 20 microseconds of latency (guaranteed interrupt response time). The system's task was primarily to move data around and start and stop tasks on the cards, and the entire <a href="../../../a/p/i/API_db97.html" title="API">API</a> contained only ten calls.</p>
+<p>A/ROSE was a <a href="../../../m/e/s/Message_passing.html" title="Message passing">message passing</a> system, and the main calls made by programs running under it were <code>Send()</code> and <code>Receive()</code>. Messages were short, including only 24 bytes of user data, and sent asynchronously. To find the appropriate endpoint, A/ROSE included a name server that allowed the applications to bind their names to their task ID's, allowing them to move in the system and be found dynamically. The OS also supported a number of routines for finding, starting and stopping tasks on other cards, one of those "cards" being the host computer.</p>
+<p>To coordinate communications and provide a mechanism for talking with the host's CPU, a cut-down copy of A/ROSE also ran inside the <a href="../../../m/a/c/Mac_OS_6c4f.html" title="Mac OS">Mac OS</a> in the form of a <a href="../../../e/x/t/Extension_%28Mac_OS%29_f72f.html" title="Extension (Mac OS)">system extension</a>, or "init", known as <b>Prep</b> (which can be confused with the later <a href="../../../p/o/w/PowerPC_Reference_Platform_acbb.html" title="PowerPC Reference Platform">PReP</a> hardware standard). Device drivers for A/ROSE cards were also written as inits and started up automatically. After starting they would find the Prep stub and use the normal A/ROSE communications channel it provided to communicate with the cards.</p>
+<p>For instance, the Apple TokenTalk NB card installed its driver as an init, and optionally installed the Prep stub, assuming it had not been installed before. On startup the driver would find the Prep stub and ask it to enumerate the TokenTalk cards installed in the machine, and optionally upload code or settings to them. From that point on, Prep handled the communications with the card, handing off the results to the TokenTalk driver.</p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2F/r/A_ROSE_25ca.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.mactech.com/articles/develop/issue_04/coprocessor.html" class="external text" title="http://www.mactech.com/articles/develop/issue_04/coprocessor.html" rel="nofollow">Inside The Macintosh Coprocessor Platform And A/ROSE</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/2F/r/A_ROSE_25ca.html">http://en.wikipedia.org../../../a/2F/r/A_ROSE_25ca.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../e/m/b/Category%7EEmbedded_operating_systems_1edd.html" title="Category:Embedded operating systems">Embedded operating systems</a></span> | <span dir='ltr'><a href="../../../a/p/p/Category%7EApple_Inc._software_0f45.html" title="Category:Apple Inc. software">Apple Inc. software</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/2F/r/A_ROSE_25ca.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/2F/r/Talk%7EA_ROSE_d8af.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/A/ROSE">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 03:38, 4 February 2007 by Wikipedia user <a href="../../../d/r/i/User%7EDrinibot_e464.html" title="User:Drinibot">Drinibot</a>. Based on work by Wikipedia user(s) <a href="../../../j/a/s/User%7EJason_C.K._d6e1.html" title="User:Jason C.K.">Jason C.K.</a>, <a href="../../../c/a/s/User%7ECasey_Abell_07e4.html" title="User:Casey Abell">Casey Abell</a>, <a href="../../../r/o/b/User%7ERobotG_33b0.html" title="User:RobotG">RobotG</a>, <a href="../../../u/n/f/User%7EUnforgettableid_1fd8.html" title="User:Unforgettableid">Unforgettableid</a>, <a href="../../../m/a/u/User%7EMaury_Markowitz_e29a.html" title="User:Maury Markowitz">Maury Markowitz</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../s/t/a/User%7EStanBrinkerhoff_2e27.html" title="User:StanBrinkerhoff">StanBrinkerhoff</a> and <a href="../../../m/f/n/User%7EMFNickster_1b31.html" title="User:MFNickster">MFNickster</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

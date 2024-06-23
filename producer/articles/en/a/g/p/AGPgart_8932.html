@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="AGPgart,2D computer graphics,3D computer graphics,Accelerated Graphics Port,Brian Paul,Buffer (computer science),Computer graphics,Computing,Desktop computer,Display resolution,Graphics Address Remapping Table" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>AGPgart - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">AGPgart</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computing.html" title="Computing">computing</a>, <b>AGPgart</b>, a <a href="../../../k/e/r/Kernel_%28computer_science%29.html" title="Kernel (computer science)">kernel</a> module for <a href="../../../l/i/n/Linux.html" title="Linux">Linux</a> and <a href="../../../s/o/l/Solaris_Operating_Environment_945c.html" title="Solaris Operating Environment">Solaris</a>, supports the extra data transfer features of <a href="../../../a/c/c/Accelerated_Graphics_Port_c1dd.html" title="Accelerated Graphics Port">Accelerated Graphics Port</a> (AGP) <a href="../../../v/i/d/Video_card.html" title="Video card">video cards</a> via the <a href="../../../g/r/a/Graphics_Address_Remapping_Table_4baa.html" title="Graphics Address Remapping Table">Graphics Address Remapping Table</a> (GART).</p>
+<p>The AGPgart driver module uses system <a href="../../../m/e/m/Memory_%28computers%29.html" title="Memory (computers)">memory</a> to enhance the display of <a href="../../../c/o/m/Computer_graphics.html" title="Computer graphics">graphics</a> — a useful feature for memoryless graphics devices such as Intel integrated graphics and AGP graphics, which need to use system memory as video <a href="../../../b/u/f/Buffer_%28computer_science%29.html" title="Buffer (computer science)">buffers</a>.</p>
+<p><a href="../../../d/e/s/Desktop_computer.html" title="Desktop computer">Desktop computers</a> using <a href="../../../i/n/t/Intel.html" title="Intel">Intel</a> 810/830/855-series graphics devices can achieve higher <a href="../../../d/i/s/Display_resolution.html" title="Display resolution">resolution</a> of screen images under <a href="../../../x/2E/o/X.Org_Server_98b5.html" title="X.Org Server">Xorg xserver</a> with only 1 megabyte of BIOS-allocated video <a href="../../../r/a/n/Random_access_memory.html" title="Random access memory">RAM</a>. Developers of video drivers can utilize the AGPgart driver to allocate system memory for <a href="../../../2/d/_/2D_computer_graphics_3c75.html" title="2D computer graphics">2D</a> display or <a href="../../../3/d/_/3D_computer_graphics_c308.html" title="3D computer graphics">3D</a> display and to manage AGP devices.</p>
+<p>For more information, see the agpgart_io(7i) <a href="../../../m/a/n/Manpage.html" title="Manpage">man page</a> in Solaris Release sol-nv-b17 or later.</p>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../a/g/p/AGPgart_8932.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>Jeff Hartmann served as the primary maintainer of agpgart, which began as part of <a href="../../../b/r/i/Brian_Paul_5ba7.html" title="Brian Paul">Brian Paul</a>'s utah-glx accelerated <a href="../../../m/e/s/Mesa_%28OpenGL%29_b500.html" title="Mesa (OpenGL)">MesaGL</a> driver project. The developers primarily targeted Linux 2.4x kernels, but made patches available against older 2.2x kernels. Dave Jones heavily reworked agpgart for the Linux 2.6x kernels, along with more contributions from Jeff Hartmann.<span class="reference plainlinksneverexpand" id="ref_davejones"><sup><a href="http://en.wikipedia.org../../../a/g/p/AGPgart_8932.html#endnote_davejones" class="external autonumber" title="http://en.wikipedia.org../../../a/g/p/AGPgart_8932.html#endnote_davejones" rel="nofollow">[1]</a></sup></span></p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/g/p/AGPgart_8932.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol>
+<li><cite id="endnote_davejones" style="font-style: normal;"><a href="#ref_davejones" title=""><b>↑</b></a></cite>&#160; <a href="http://archive.linuxsymposium.org/ols2003/Proceedings/All-Reprints/Reprint-Jones-OLS2003.pdf" class="external text" title="http://archive.linuxsymposium.org/ols2003/Proceedings/All-Reprints/Reprint-Jones-OLS2003.pdf" rel="nofollow">Ugly Ducklings: Resurrecting unmaintained code</a> - agpgart adapted for Linux 2.6 kernel</li>
+<li><cite id="endnote_dri" style="font-style: normal;"><a href="#ref_dri" title=""><b>↑</b></a></cite>&#160; <a href="http://dri.freedesktop.org/wiki/DriHistory" class="external text" title="http://dri.freedesktop.org/wiki/DriHistory" rel="nofollow">DriHistory</a> - group provides advanced 3D support for Linux</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/g/p/AGPgart_8932.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://utah-glx.sourceforge.net/gart/README" class="external free" title="http://utah-glx.sourceforge.net/gart/README" rel="nofollow">http://utah-glx.sourceforge.net/gart/README</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2390 bytes
+Post-expand include size: 479 bytes
+Template argument size: 58 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/g/p/AGPgart_8932.html">http://en.wikipedia.org../../../a/g/p/AGPgart_8932.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../l/i/n/Category%7ELinux_kernel_modules_03d7.html" title="Category:Linux kernel modules">Linux kernel modules</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/g/p/AGPgart_8932.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/g/p/Talk%7EAGPgart_3ad6.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/AGPgart">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../it/a/g/p/Agpgart.html">Italiano</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 05:50, 19 March 2007 by Wikipedia user <a href="../../../s/o/u/User%7ESoumyasch_cb30.html" title="User:Soumyasch">Soumyasch</a>. Based on work by Wikipedia user(s) <a href="../../../a/l/a/User%7EAlaibot_de3d.html" title="User:Alaibot">Alaibot</a>, <a href="../../../s/n/o/User%7ESnowolf_0f76.html" title="User:Snowolf">Snowolf</a>, <a href="../../../b/e/t/User%7EBetacommand_e660.html" title="User:Betacommand">Betacommand</a>, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, <a href="../../../i/n/t/User%7EIntgr_3172.html" title="User:Intgr">Intgr</a>, <a href="../../../j/e/f/User%7EJeff3000_72a5.html" title="User:Jeff3000">Jeff3000</a>, <a href="../../../d/a/v/User%7EDaveJones_9b64.html" title="User:DaveJones">DaveJones</a>, <a href="../../../m/b/o/User%7EMboverload_cce2.html" title="User:Mboverload">Mboverload</a>, <a href="../../../p/e/d/User%7EPedant17_032b.html" title="User:Pedant17">Pedant17</a>, <a href="../../../f/t/1/User%7EFt1_f6c0.html" title="User:Ft1">Ft1</a>, <a href="../../../m/a/x/User%7EMaxEnt_fa87.html" title="User:MaxEnt">MaxEnt</a>, <a href="../../../s/a/t/User%7ESatchmo_5c6d.html" title="User:Satchmo">Satchmo</a>, <a href="../../../q/u/a/User%7EQuale_0e6d.html" title="User:Quale">Quale</a>, <a href="../../../j/o/y/User%7EJoy_7c18.html" title="User:Joy">Joy</a>, <a href="../../../s/t/e/User%7ESteinsky_9c79.html" title="User:Steinsky">Steinsky</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../e/r/i/User%7EEric_B._and_Rakim_cec7.html" title="User:Eric B. and Rakim">Eric B. and Rakim</a>, <a href="../../../s/t/o/User%7EStormie_b829.html" title="User:Stormie">Stormie</a> and <a href="../../../b/l/_/User%7EBL_57f1.html" title="User:BL">BL</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

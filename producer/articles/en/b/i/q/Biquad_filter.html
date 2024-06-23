@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Biquad filter,Active filter,Band-pass filter,Digital biquad filter,Feedback,Integrator,Inverter,Low-pass filter,Natural frequency,Operational amplifier,Quality factor" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Biquad filter - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Biquad filter</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><i>For the digital implementation of a biquad filter, check <a href="../../../d/i/g/Digital_biquad_filter.html" title="Digital biquad filter">digital biquad filter.</a></i></p>
+<p>A <b>biquad filter</b> is a type of <a href="../../../a/c/t/Active_filter.html" title="Active filter">active filter</a> consisting of a two-<a href="../../../i/n/t/Integrator.html" title="Integrator">integrator</a> <a href="../../../f/e/e/Feedback.html" title="Feedback">feedback</a> loop with an <a href="../../../i/n/v/Inverter.html" title="Inverter">inverter</a>. In its basic configuration, it can be used as either a <a href="../../../l/o/w/Low-pass_filter.html" title="Low-pass filter">low-pass</a> or <a href="../../../b/a/n/Band-pass_filter.html" title="Band-pass filter">band-pass</a> filter, depending on where the output signal is taken from.</p>
+<p>For a second-order filter, the low-pass <a href="../../../t/r/a/Transfer_function.html" title="Transfer function">transfer function</a> is given by</p>
+<center><img class='tex' src="../../../math/b/8/3/b83fa3ba64ed77f66e689f47dfa2dc9f.png" alt="H(s)=\frac{G_{lpf}\omega^{2}_{0}}{s^{2}+\frac{\omega_{0}}{Q}s+\omega^{2}_{0}}" /></center>
+<p>and the band-pass transfer function, by</p>
+<center><img class='tex' src="../../../math/f/7/b/f7bf618bcba06e73c8db23ae1c6b7da5.png" alt="H(s)=\frac{G_{bpf}\frac{\omega_{0}}{Q}s}{s^{2}+\frac{\omega_{0}}{Q}s+\omega^{2}_{0}}" />.</center>
+<div class="center">
+<div class="thumb tnone">
+<div class="thumbinner" style="width:402px;"><a href="../../../b/i/q/Image%7EBiquadFilter1.PNG_ada0.html" class="internal" title="Figure 1:  A common biquad filter topology."><img src="../../../upload/shared/thumb/2/21/BiquadFilter1.PNG/400px-BiquadFilter1.PNG" alt="Figure 1:  A common biquad filter topology." width="400" height="128" longdesc="../../../b/i/q/Image%7EBiquadFilter1.PNG_ada0.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/i/q/Image%7EBiquadFilter1.PNG_ada0.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Figure 1: A common biquad filter topology.</div>
+</div>
+</div>
+</div>
+<p>For the topology shown in Figure 1, the filter properties are given by:</p>
+<ul>
+<li>Low-pass gain: <span class="texhtml"><i>G</i><sub><i>l</i><i>p</i><i>f</i></sub> = − <i>R</i><sub>2</sub> / <i>R</i><sub>1</sub></span>,</li>
+<li>Band-pass gain: <span class="texhtml"><i>G</i><sub><i>b</i><i>p</i><i>f</i></sub> = − <i>R</i><sub>3</sub> / <i>R</i><sub>1</sub></span>,</li>
+<li><a href="../../../n/a/t/Natural_frequency.html" title="Natural frequency">Natural frequency</a>: <img class='tex' src="../../../math/3/5/c/35cea7b34bf2b2b0f050be86a319ae07.png" alt="\omega_{0}=1/\sqrt{R_{2}R_{4}C_{1}C_{2}}" />, and</li>
+<li><a href="../../../q/u/a/Quality_factor.html" title="Quality factor">Quality factor</a>: <img class='tex' src="../../../math/d/b/c/dbc6b378dc977b24674384d5c3073faa.png" alt="Q=\sqrt{\frac{R_{3}^{2}C_{1}}{R_{2}R_{4}C_{2}}}" />.</li>
+</ul>
+<p>The bandwidth is approximated by <span class="texhtml"><i>B</i> = ω<sub>0</sub> / <i>Q</i></span>, and Q is sometimes expressed as a damping constant <span class="texhtml">ζ = 2 / <i>Q</i></span>.</p>
+<p>If a noninverting low-pass filter is required, the output can be taken at the output of the second <a href="../../../o/p/e/Operational_amplifier.html" title="Operational amplifier">operational amplifier</a>. If a noninverting band-pass filter is required, the order of the second integrator and the inverter can be switched, and the output taken at the output of the inverter's operational amplifier.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/q/Biquad_filter.html">http://en.wikipedia.org../../../b/i/q/Biquad_filter.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../f/i/l/Category%7EFilters_5422.html" title="Category:Filters">Filters</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/q/Biquad_filter.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/i/q/Talk%7EBiquad_filter_7a52.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Biquad_filter">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:27, 26 March 2007 by Wikipedia user <a href="../../../s/c/o/User%7EScoofy_b068.html" title="User:Scoofy">Scoofy</a>. Based on work by Wikipedia user(s) <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../e/l/o/User%7EElonka_d4b2.html" title="User:Elonka">Elonka</a> and Ironphoenix.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

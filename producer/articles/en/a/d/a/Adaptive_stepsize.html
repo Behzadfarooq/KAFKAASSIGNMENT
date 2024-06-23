@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Adaptive stepsize,Cash-Karp,Dormand-Price,Euler method,Fehlberg,Numerical analysis,Ordinary differential equation,Richardson extrapolation,Romberg's method,Runge-Kutta,Taylor's theorem" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Adaptive stepsize - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Adaptive stepsize</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>Adaptive stepsize</b> is a technique in <a href="../../../n/u/m/Numerical_analysis.html" title="Numerical analysis">numerical analysis</a> used for many problems, but mainly for integration; This can be 'normal' integration, or the process of solving an <a href="../../../o/r/d/Ordinary_differential_equation.html" title="Ordinary differential equation">ordinary differential equation</a>. This article focusses on the latter. For an explanation of adaptive stepsize in normal integration, see for example <a href="../../../r/o/m/Romberg%27s_method.html" title="Romberg's method">Romberg's method</a>.</p>
+<p>As usual, an initial value problem is stated:</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/d/d/ddd05535b14359a2990ff081b60362a4.png" alt="\vec{y}\,'(t) = \vec{f}(t,\vec{y}(t)), \qquad \vec{y}(a)=\vec{y_a}" /></dd>
+</dl>
+<p>Here, it is made clear that <i>y</i> and <i>f</i> can be vectors, as they will be when dealing with a system of coupled differential equations. In the rest of the article, this fact will be implicit.</p>
+<p>Suppose we are interested in obtaining a solution at point <span class="texhtml"><i>t</i> = <i>b</i></span>, given a function <span class="texhtml"><i>f</i>(<i>t</i>,<i>y</i>)</span>, an initial point <span class="texhtml"><i>t</i> = <i>a</i></span> and an initial solution <span class="texhtml"><i>y</i><sub><i>a</i></sub> = <i>y</i>(<i>a</i>)</span>. Of course a numerical solution will generally have an error, so we assume <span class="texhtml"><i>y</i><sub><i>b</i></sub> + ε = <i>y</i>(<i>b</i>)</span>. Where <span class="texhtml">ε</span> is the error.</p>
+<p>In order to focus on the adaptive stepsize concept, the simplest of integration methods is used: the <a href="../../../e/u/l/Euler_method.html" title="Euler method">Euler method</a>. I must emphasize that the Euler method is almost exclusively useful for educational purposes. In reality, higher order (<a href="../../../r/u/n/Runge-Kutta_056a.html" title="Runge-Kutta">Runge-Kutta</a>) methods are used.</p>
+<p>To refresh your memory, the Euler method is derived. Combining <a href="../../../t/a/y/Taylor%27s_theorem.html" title="Taylor's theorem">Taylor's theorem</a> with the intermediate value theorem and the fact that <span class="texhtml"><i>y</i>'(<i>t</i>) = <i>f</i>(<i>t</i>,<i>y</i>)</span>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/a/8/7a8b61b7e86a20b09afe7286de194040.png" alt="y(t+h)=y(t)+hf(t,y(t))+\frac{h^2}{2}f'(\eta,y(\eta)), \qquad t \le \eta \le t+h" /></dd>
+</dl>
+<p>Which leads to the Euler method:</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/5/5/255defe9977d93787694700d9d399eb5.png" alt="y_{n+1}^{(0)}=y_n+hf(t_n,y_n)" /></dd>
+</dl>
+<p>And its local truncation error</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/9/6/a96603d4c2d543372ad5b72880316354.png" alt="\tau_{n+1}^{(0)}=ch^2" /></dd>
+<dd><img class='tex' src="../../../math/7/d/4/7d4a9029b74e3f31a4cdad3432457b70.png" alt="y_{n+1}^{(0)} + \tau_{n+1}^{(0)}=y(t+h)" /></dd>
+</dl>
+<p>We mark this solution and its error with a <span class="texhtml">(0)</span>. Since <span class="texhtml"><i>c</i></span> is not known to us in the general case (it depends on the derivatives of <span class="texhtml"><i>f</i></span>), in order to say something useful about the error, a second solution should be created, using a stepsize that is smaller. For example half the original stepsize. Note that we have to apply Euler's method <b>twice</b> now, meaning we get <b>two times</b> the local error (in the worst case). Our new, and presumably more accurate solution is marked with a <span class="texhtml">(1)</span>.</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/6/3/063b5c4fce2ce20b5cb4c76015c920ab.png" alt="y_{n+\frac{1}{2}}=y_n+\frac{h}{2}f(t_n,y_n)" /></dd>
+<dd><img class='tex' src="../../../math/b/4/6/b4692f2d397fcc9a5d9b5fa25ef2a552.png" alt="y_{n+1}^{(1)}=y_{n+\frac{1}{2}}+\frac{h}{2}f(t_{n+\frac{1}{2}},y_{n+\frac{1}{2}})" /></dd>
+<dd><img class='tex' src="../../../math/a/4/9/a4946747550434e400bdcdf4aec15635.png" alt="\tau_{n+1}^{(1)}=c(\frac{h}{2})^2+c(\frac{h}{2})^2=2c(\frac{h}{2})^2=\frac{1}{2}ch^2=\frac{1}{2}\tau_{n+1}^{(0)}" /></dd>
+<dd><img class='tex' src="../../../math/6/2/9/629ff8c0e096033a3fda037983a527b6.png" alt="y_{n+1}^{(1)} + \tau_{n+1}^{(1)}=y(t+h)" /></dd>
+</dl>
+<p>Here, we assume error factor <span class="texhtml"><i>c</i></span> is constant over the interval <span class="texhtml">[<i>t</i>,<i>t</i> + <i>h</i>]</span>. In reality its rate of change is proportional to <span class="texhtml"><i>y</i><sup>(3)</sup>(<i>t</i>)</span>. Subtracting solutions gives the error estimate:</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/f/c/cfceb57200d0e55ffe237db992084006.png" alt="y_{n+1}^{(1)}-y_{n+1}^{(0)} = \tau_{n+1}^{(1)}" /></dd>
+</dl>
+<p>This local error estimate is third order accurate.</p>
+<p>The local error estimate can be used to decide how stepsize <span class="texhtml"><i>h</i></span> should be modified to achieve the desired accuracy. For example, if a local tolerance of <span class="texhtml"><i>t</i><i>o</i><i>l</i></span> is allowed, we could let h evolve like:</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/9/d/b9dfb6526ecc15236a7c3609181ddad6.png" alt="h \rightarrow 0.9 \times h \times \frac{tol}{|\tau_{n+1}^{(1)}|}" /></dd>
+</dl>
+<p>The <span class="texhtml">0.9</span> is a safety factor to ensure success on the next try. This should, in principle give an error of about <img class='tex' src="../../../math/2/7/1/271351ddb9aeb238b5a3f08d29e650b0.png" alt="0.9 \times tol" /> in the next try. If <img class='tex' src="../../../math/8/e/1/8e1a172fd02eedfaa0f9594de0007f34.png" alt="|\tau_{n+1}^{(1)}| &lt; tol" />, we consider the step successful, and the error estimate is used to improve the solution:</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/8/c/b8cb624b8836d5385e483126aae0b22f.png" alt="y_{n+1}^{(2)} = y_{n+1}^{(1)} + \tau_{n+1}^{(1)}" /></dd>
+</dl>
+<p>This solution is actually <b>third order</b> accurate in the local scope (second order in the global scope), but since there is no error estimate for <b>it</b>, this doesn't help in reducing the number of steps; it's just gravy on our potatoes. By the way, this technique is called <a href="../../../r/i/c/Richardson_extrapolation.html" title="Richardson extrapolation">Richardson extrapolation</a></p>
+<p>Beginning with an initial stepsize of <span class="texhtml"><i>h</i> = <i>b</i> − <i>a</i></span>, this theory facilitates our controllable integration of the ODE from point <span class="texhtml"><i>a</i></span> to <span class="texhtml"><i>b</i></span>, using an optimal number of steps given a local error tolerance.</p>
+<p>Similar methods can be developed for higher order methods, such as the Runge-Kutta 4th order method. Also, a global error tolerance can be achieved by scaling the local error to global scope. However, you might end up with a stepsize that is prohibitively small, especially using this Euler based method.</p>
+<p>If you are interested in adaptive stepsize methods that use a so called 'embedded' error estimate, see <a href="../../../f/e/h/Fehlberg.html" title="Fehlberg">Fehlberg</a>, <a href="../../../c/a/s/Cash-Karp_f5e4.html" title="Cash-Karp">Cash-Karp</a> and <a href="../../../d/o/r/Dormand-Price_00ab.html" title="Dormand-Price">Dormand-Price</a>. These methods are considered to be more computationally efficient, but have lower accuracy in their error estimates.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/a/Adaptive_stepsize.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>William H. Press, Saul A. Teukolsky, William T. Vetterling, Brian P. Flannery, <i>Numerical Recipes in C</i>, Second Edition, CAMBRIDGE UNIVERSITY PRESS, 1992. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-521-43108-5</a></li>
+<li>Kendall E. Atkinson, <i>Numerical Analysis</i>, Second Edition, John Wiley &amp; Sons, 1989. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-471-62489-6</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/a/Adaptive_stepsize.html">http://en.wikipedia.org../../../a/d/a/Adaptive_stepsize.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../n/u/m/Category%7ENumerical_differential_equations_6b1f.html" title="Category:Numerical differential equations">Numerical differential equations</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/a/Adaptive_stepsize.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/d/a/Talk%7EAdaptive_stepsize_48cd.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Adaptive_stepsize">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 14:54, 27 March 2007 by Wikipedia user <a href="../../../k/e/n/User%7EKensson_3119.html" title="User:Kensson">Kensson</a>. Based on work by Wikipedia user(s) <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, Vuurmeester and <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

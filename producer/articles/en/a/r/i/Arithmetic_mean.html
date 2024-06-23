@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Arithmetic mean,Arithmetic-geometric mean,Average,Bill Gates,Central tendency,Darrell Huff,Expected value,Frequency distribution,Generalised f-mean,Generalized mean,Geometric mean" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Arithmetic mean - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Arithmetic mean</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a> and <a href="../../../s/t/a/Statistics.html" title="Statistics">statistics</a>, the <b>arithmetic <a href="../../../m/e/a/Mean.html" title="Mean">mean</a></b> (or simply the <b>mean</b>) of a list of numbers is the sum of all the members of the list divided by the number of items in the list. If one particular number occurs more times than others in the list, it is called a <a href="../../../m/o/d/Mode_%28statistics%29.html" title="Mode (statistics)">mode</a>. The arithmetic mean is what students are taught very early to call the "<a href="../../../a/v/e/Average.html" title="Average">average</a>". If the list is a <a href="../../../s/t/a/Statistical_population.html" title="Statistical population">statistical population</a>, then the mean of that population is called a <b>population mean</b>. If the list is a <a href="../../../s/a/m/Sampling_%28statistics%29.html" title="Sampling (statistics)">statistical sample</a>, we call the resulting <a href="../../../s/t/a/Statistic.html" title="Statistic">statistic</a> a <b>sample mean</b>.</p>
+<p>When the mean is not an accurate estimate of the <a href="../../../m/e/d/Median.html" title="Median">median</a>, the list of numbers, or <a href="../../../f/r/e/Frequency_distribution.html" title="Frequency distribution">frequency distribution</a>, is said to be <a href="../../../s/k/e/Skewness.html" title="Skewness">skewed</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Examples"><span class="tocnumber">1.1</span> <span class="toctext">Examples</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Formulation_as_an_optimization_problem"><span class="tocnumber">2</span> <span class="toctext">Formulation as an optimization problem</span></a></li>
+<li class="toclevel-1"><a href="#Problems_with_some_uses_of_the_mean"><span class="tocnumber">3</span> <span class="toctext">Problems with some uses of the mean</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Further_reading"><span class="tocnumber">5</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Introduction" id="Introduction"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Arithmetic_mean.html" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline">Introduction</span></h2>
+<p>If we denote a set of data by <i>X</i> =(<i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, ..., <i>x</i><sub><i>n</i></sub>), then the sample mean is typically denoted with a horizontal bar over the variable (<img class='tex' src="../../../math/9/f/f/9ff6d27854b22a57364d11cfa97f75dd.png" alt="\bar{x} \," />, enunciated "<i>x</i> bar").</p>
+<p>The symbol μ (Greek: mu) is used to denote the arithmetic mean of an entire population. Or, for a <a href="../../../r/a/n/Random_number.html" title="Random number">random number</a> that has a defined mean, μ is the <i>probabilistic mean</i> or <a href="../../../e/x/p/Expected_value.html" title="Expected value">expected value</a> of the random number. If the set <i>X</i> is a collection of random numbers with probabilistic mean of μ, then for any individual sample, <i>x</i><sub><i>i</i></sub>, from that collection, μ = E{<i>x</i><sub><i>i</i></sub>} is the <a href="../../../e/x/p/Expected_value.html" title="Expected value">expected value</a> of that sample.</p>
+<p>In practice, the difference between μ and <img class='tex' src="../../../math/9/f/f/9ff6d27854b22a57364d11cfa97f75dd.png" alt="\bar{x} \," /> is that μ is typically unobservable because one observes only a sample rather than the whole population, and if the sample is drawn randomly, then one may treat <img class='tex' src="../../../math/9/f/f/9ff6d27854b22a57364d11cfa97f75dd.png" alt="\bar{x} \," />, but not μ, as a <a href="../../../r/a/n/Random_variable.html" title="Random variable">random variable</a>, attributing a <a href="../../../p/r/o/Probability_distribution.html" title="Probability distribution">probability distribution</a> to it (the <a href="../../../s/a/m/Sampling_distribution.html" title="Sampling distribution">sampling distribution</a> of the mean).</p>
+<p>Both are computed in the same way:</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/0/2/302e50dc28e5a7d4ceea567f14e8f34d.png" alt="\bar{x} = \frac{1}{n}\sum_{i=1}^n x_i  =  \frac{1}{n} (x_1+\cdots+x_n)." /></dd>
+</dl>
+<p>If <i>X</i> is a <a href="../../../r/a/n/Random_variable.html" title="Random variable">random variable</a>, then the <a href="../../../e/x/p/Expected_value.html" title="Expected value">expected value</a> of <i>X</i> can be seen as the long-term arithmetic mean that occurs on repeated measurements of <i>X</i>. This is the content of the <a href="../../../l/a/w/Law_of_large_numbers.html" title="Law of large numbers">law of large numbers</a>. As a result, the sample mean is used to estimate unknown expected values.</p>
+<p>Note that several other "means" have been defined, including the <a href="../../../g/e/n/Generalized_mean.html" title="Generalized mean">generalized mean</a>, the <a href="../../../g/e/n/Generalised_f-mean.html" title="Generalised f-mean">generalized f-mean</a>, the <a href="../../../h/a/r/Harmonic_mean.html" title="Harmonic mean">harmonic mean</a>, the <a href="../../../a/r/i/Arithmetic-geometric_mean.html" title="Arithmetic-geometric mean">arithmetic-geometric mean</a>, and various <a href="../../../w/e/i/Weighted_mean.html" title="Weighted mean">weighted means</a>.</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/i/Arithmetic_mean.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h3>
+<ul>
+<li>If you have 3 numbers then add them and divide them by 3: <img class='tex' src="../../../math/e/e/0/ee0f0fc93ddfdf2f59d518639084ad1d.png" alt="\frac{x_1 + x_2 + x_3}{3}" /></li>
+<li>If you have 4 numbers add them and divide by 4: <img class='tex' src="../../../math/7/e/3/7e3bd7bf44135c6f409a121841430d48.png" alt="\frac{x_1 + x_2 + x_3 + x_4}{4}" /></li>
+</ul>
+<p><a name="Formulation_as_an_optimization_problem" id="Formulation_as_an_optimization_problem"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Arithmetic_mean.html" title="Edit section: Formulation as an optimization problem">edit</a>]</span> <span class="mw-headline">Formulation as an optimization problem</span></h2>
+<p>The arithmetic mean is the value with minimal quadratical distance from the given values:</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/c/a/8ca87b44b630375298c56d40c2519b20.png" alt="\bar{x} = {\mathrm{argmin}}_{y\in\R} {\sum_{k=1}^n (y-x_k)^2}." /></dd>
+</dl>
+<p><a name="Problems_with_some_uses_of_the_mean" id="Problems_with_some_uses_of_the_mean"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Arithmetic_mean.html" title="Edit section: Problems with some uses of the mean">edit</a>]</span> <span class="mw-headline">Problems with some uses of the mean</span></h2>
+<p>While the mean is often used to report <a href="../../../c/e/n/Central_tendency.html" title="Central tendency">central tendency</a>, it may not be appropriate for describing <a href="../../../s/k/e/Skewed_distribution.html" title="Skewed distribution">skewed distributions</a>, because it is easily misinterpreted. The arithmetic mean is greatly influenced by <a href="../../../o/u/t/Outlier.html" title="Outlier">outliers</a>. These distortions can occur when the mean is different from the median. When this happens the <a href="../../../m/e/d/Median.html" title="Median">median</a> may be a better description of central tendency.</p>
+<p>A classic example is average income. The arithmetic mean may be misinterpreted to imply that most people's incomes are higher than is in fact the case. When presented with an "average" one may be led to believe that <i>most</i> people's incomes are near this number. This "average" (arithmetic mean) income <i>is</i> higher than most people's incomes, because high income outliers skew the result higher (in contrast, the median income "resists" such skew). However, this "average" says nothing about the number of people near the median income (nor does it say anything about the modal income that most people are near). Nevertheless, because one might carelessly relate "average" and "most people" one might incorrectly assume that most people's incomes would be higher (nearer this inflated "average") than they are. For instance, reporting the "average" <a href="../../../n/e/t/Net_worth.html" title="Net worth">net worth</a> in <a href="../../../m/e/d/Medina%2C_Washington_37ee.html" title="Medina, Washington">Medina, Washington</a> as the arithmetic mean of all annual net worths would yield a surprisingly high number because of <a href="../../../b/i/l/Bill_Gates_65fa.html" title="Bill Gates">Bill Gates</a>. Consider the scores (1, 2, 2, 2, 3, 9). The arithmetic mean is 3.17, but five out of six scores are below this!</p>
+<p>In certain situations, the arithmetic mean is the wrong measure of central tendency altogether. For example, if a stock fell 10 % in the first year, and rose 30 % in the second year, then it would be incorrect to report its "average" increase per year over this two year period as the arithmetic mean (−10 % + 30 %)/2 = 10 %; the correct average in this case is the <a href="../../../g/e/o/Geometric_mean.html" title="Geometric mean">geometric mean</a> which yields an average increase per year of only 8.2 %. The reason for this is that each of those percents have different starting points. If the stock starts at $30 and falls 10 %, it is now at $27. If the stock then rises 30 %, it is now $35.1. The arithmetic mean of those rises is 10 %, but since the stock rose by $5.1 in 2 years, an <a href="../../../a/v/e/Average.html" title="Average">average</a> of 8.2 % would result in the final $35.1 figure [$30(1-10 %)(1+30 %) = $30(1+8.2 %)(1+8.2 %) = $35.1]. If one used the arithmetic mean 10 % in the same way, you would not get the actual increase [$30(1+10 %)(1+10 %) = $36.3].</p>
+<p>Particular care must be taken when using cyclic data such as phases or angles. Taking the arithmetic mean of 1 degree and 359 degrees yields a result of 180 degrees, whereas 1 and 359 are both adjacent to 360 degrees which may be a more correct <i>average</i> value. In general application such an oversight will lead to the average value artificially moving towards the middle of the numerical range.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Arithmetic_mean.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../m/e/a/Mean.html" title="Mean">Mean</a></li>
+<li><a href="../../../s/u/m/Summary_statistics.html" title="Summary statistics">Summary statistics</a></li>
+<li><a href="../../../c/e/n/Central_tendency.html" title="Central tendency">Central tendency</a></li>
+<li><a href="../../../g/e/n/Generalized_mean.html" title="Generalized mean">Generalized mean</a></li>
+<li><a href="../../../v/a/r/Variance.html" title="Variance">Variance</a></li>
+<li><a href="../../../s/t/a/Standard_deviation.html" title="Standard deviation">Standard deviation</a></li>
+<li><a href="../../../i/n/e/Inequality_of_arithmetic_and_geometric_means.html" title="Inequality of arithmetic and geometric means">Inequality of arithmetic and geometric means</a></li>
+<li><a href="../../../m/u/i/Muirhead%27s_inequality.html" title="Muirhead's inequality">Muirhead's inequality</a></li>
+<li><a href="../../../s/a/m/Sample_size.html" title="Sample size">Sample size</a></li>
+<li><a href="../../../s/a/m/Sample_mean_and_covariance.html" title="Sample mean and covariance">Sample mean and covariance</a></li>
+</ul>
+<p><a name="Further_reading" id="Further_reading"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Arithmetic_mean.html" title="Edit section: Further reading">edit</a>]</span> <span class="mw-headline">Further reading</span></h2>
+<ul>
+<li><a href="../../../d/a/r/Darrell_Huff_8041.html" title="Darrell Huff">Darrell Huff</a>, <i>How to lie with statistics</i>, Victor Gollancz, 1954 (<a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-393-31072-8</a>).</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Arithmetic_mean.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.sengpielaudio.com/calculator-geommean.htm" class="external text" title="http://www.sengpielaudio.com/calculator-geommean.htm" rel="nofollow">Calculations and comparisons between arithmetic and geometric mean between two numbers</a></li>
+<li><a href="http://people.revoledu.com/kardi/tutorial/BasicMath/Average/index.html" class="external text" title="http://people.revoledu.com/kardi/tutorial/BasicMath/Average/index.html" rel="nofollow">Mean or Average</a></li>
+<li><a href="http://mipagina.cantv.net/arithmetic/rmdef.htm" class="external text" title="http://mipagina.cantv.net/arithmetic/rmdef.htm" rel="nofollow">Rational Mean</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/i/Arithmetic_mean.html">http://en.wikipedia.org../../../a/r/i/Arithmetic_mean.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../m/e/a/Category%7EMeans_eff1.html" title="Category:Means">Means</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/r/i/Arithmetic_mean.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/r/i/Talk%7EArithmetic_mean_330f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Arithmetic_mean">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ar/%D9%85/%D8%AA/%D9%88/%D9%85%D8%AA%D9%88%D8%B3%D8%B7_%D8%AD%D8%B3%D8%A7%D8%A8%D9%8A.html">العربية</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../cs/a/r/i/Aritmetick%C3%BD_pr%C5%AFm%C4%9Br.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/m/i/t/Mittelwert.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/m/e/d/Media_aritm%C3%A9tica.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/m/o/y/Moyenne_arithm%C3%A9tique.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../gl/m/e/d/Media_aritm%C3%A9tica.html">Galego</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EC%82%B0/%EC%88%A0/_/%EC%82%B0%EC%88%A0_%ED%8F%89%EA%B7%A0.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hr/a/r/i/Aritmeti%C4%8Dka_sredina.html">Hrvatski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../lt/a/r/i/Aritmetinis_vidurkis.html">Lietuvių</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hu/s/z/%C3%A1/Sz%C3%A1mtani_k%C3%B6z%C3%A9p.html">Magyar</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/r/e/k/Rekenkundig_gemiddelde.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E5%B9%B3/%E5%9D%87/_/%E5%B9%B3%E5%9D%87.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/%C5%9B/r/e/%C5%9Arednia_arytmetyczna.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/m/%C3%A9/d/M%C3%A9dia_aritm%C3%A9tica.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ro/m/e/d/Medie_aritmetic%C4%83.html">Română</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sl/a/r/i/Aritmeti%C4%8Dna_sredina.html">Slovenščina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/a/r/i/Aritmeettinen_keskiarvo.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../uk/%D0%B0/%D1%80/%D0%B8/%D0%90%D1%80%D0%B8%D1%84%D0%BC%D0%B5%D1%82%D0%B8%D1%87%D0%BD%D0%B5_%D1%81%D0%B5%D1%80%D0%B5%D0%B4%D0%BD%D1%94.html">Українська</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E7%AE%97/%E6%9C%AF/%E5%B9%B3/%E7%AE%97%E6%9C%AF%E5%B9%B3%E5%9D%87%E6%95%B0.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:39, 27 March 2007 by Wikipedia user <a href="../../../f/j/p/User%7EFJPB_e475.html" title="User:FJPB">FJPB</a>. Based on work by Wikipedia user(s) <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../j/m/a/User%7EJmath666_d2d8.html" title="User:Jmath666">Jmath666</a>, <a href="../../../d/e/r/User%7EDerek_Ross_f2d2.html" title="User:Derek Ross">Derek Ross</a>, <a href="../../../i/d/i/User%7EIdioma-bot_8461.html" title="User:Idioma-bot">Idioma-bot</a>, <a href="../../../a/4/b/User%7EA4bot_20ff.html" title="User:A4bot">A4bot</a>, <a href="../../../m/e/r/User%7EMER-C_4926.html" title="User:MER-C">MER-C</a>, <a href="../../../m/a/r/User%7EMarkhurd_585b.html" title="User:Markhurd">Markhurd</a>, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../r/o/c/User%7ERocket71048576_a1a9.html" title="User:Rocket71048576">Rocket71048576</a>, <a href="../../../a/n/t/User%7EAntiVandalBot_aa84.html" title="User:AntiVandalBot">AntiVandalBot</a>, <a href="../../../t/c/i/User%7ETcie_57ef.html" title="User:Tcie">Tcie</a>, <a href="../../../b/o/z/User%7EBozMo_ffc9.html" title="User:BozMo">BozMo</a>, <a href="../../../c/a/n/User%7ECan%27t_sleep%2C_clown_will_eat_me_7058.html" title="User:Can't sleep, clown will eat me">Can't sleep, clown will eat me</a>, <a href="../../../b/e/n/User%7EBennybp_f60d.html" title="User:Bennybp">Bennybp</a>, <a href="../../../a/n/c/User%7EAnclation_5bb1.html" title="User:Anclation">Anclation</a>, <a href="../../../k/a/b/User%7EKaboldy_ebe3.html" title="User:Kaboldy">Kaboldy</a>, HenningThielemann, <a href="../../../b/h/3/User%7EBh3u4m_9f2f.html" title="User:Bh3u4m">Bh3u4m</a>, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../r/a/o/User%7ERaoulharris_b0d8.html" title="User:Raoulharris">Raoulharris</a>, <a href="../../../i/n/t/User%7EIntrplnetSarah_f949.html" title="User:IntrplnetSarah">IntrplnetSarah</a>, <a href="../../../r/b/j/User%7ERbj_42ae.html" title="User:Rbj">Rbj</a>, <a href="../../../a/g/t/User%7EAGToth_b1b9.html" title="User:AGToth">AGToth</a>, <a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>, <a href="../../../f/r/e/User%7EFresheneesz_184e.html" title="User:Fresheneesz">Fresheneesz</a>, <a href="../../../p/o/o/User%7EPoor_Yorick_efc9.html" title="User:Poor Yorick">Poor Yorick</a>, <a href="../../../f/r/u/User%7EFrungi_bd0e.html" title="User:Frungi">Frungi</a>, <a href="../../../l/e/n/User%7ELendu_3574.html" title="User:Lendu">Lendu</a>, <a href="../../../t/r/i/User%7ETriskell_0070.html" title="User:Triskell">Triskell</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, Bwechner, <a href="../../../m/s/c/User%7EMschlindwein_a91f.html" title="User:Mschlindwein">Mschlindwein</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../d/h/a/User%7EDhanish007_e77f.html" title="User:Dhanish007">Dhanish007</a>, <a href="../../../s/p/e/User%7ESpeedyGonsales_1fb8.html" title="User:SpeedyGonsales">SpeedyGonsales</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../i/s/n/User%7EIsnow_53d9.html" title="User:Isnow">Isnow</a>, <a href="../../../a/l/a/User%7EAlai_39a8.html" title="User:Alai">Alai</a>, <a href="../../../g/p/h/User%7EGPHemsley_85f1.html" title="User:GPHemsley">GPHemsley</a>, <a href="../../../j/l/e/User%7EJleedev_48f1.html" title="User:Jleedev">Jleedev</a>, <a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a>, <a href="../../../s/p/o/User%7ESpoon%21_4cc3.html" title="User:Spoon!">Spoon!</a>, <a href="../../../t/p/k/User%7ETPK_a8ee.html" title="User:TPK">TPK</a>, <a href="../../../m/o/r/User%7EMormegil_fe36.html" title="User:Mormegil">Mormegil</a>, Lindberg G Williams Jr, <a href="../../../c/i/e/User%7ECiemo_07e0.html" title="User:Ciemo">Ciemo</a>, <a href="../../../c/r/y/User%7ECryptfiend64_fc42.html" title="User:Cryptfiend64">Cryptfiend64</a>, <a href="../../../z/i/g/User%7EZigger_b33b.html" title="User:Zigger">Zigger</a>, <a href="../../../d/m/n/User%7EDmn_b398.html" title="User:Dmn">Dmn</a>, <a href="../../../a/u/g/User%7EAugPi_061d.html" title="User:AugPi">AugPi</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../w/i/k/User%7EWikibot_9002.html" title="User:Wikibot">Wikibot</a>, <a href="../../../s/a/n/User%7ESannse_0094.html" title="User:Sannse">Sannse</a>, <a href="../../../y/o/u/User%7EYoussefsan_7b7e.html" title="User:Youssefsan">Youssefsan</a>, <a href="../../../r/o/b/User%7ERob_Hooft_311d.html" title="User:Rob Hooft">Rob Hooft</a>, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, <a href="../../../j/f/i/User%7EJfitzg_e6e1.html" title="User:Jfitzg">Jfitzg</a>, <a href="../../../y/o/u/User%7EYouandme_58a9.html" title="User:Youandme">Youandme</a>, <a href="../../../n/a/n/User%7ENanshu_9373.html" title="User:Nanshu">Nanshu</a>, <a href="../../../s/n/o/User%7ESnoyes_3ec6.html" title="User:Snoyes">Snoyes</a>, <a href="../../../t/o/m/User%7ETomi_592d.html" title="User:Tomi">Tomi</a>, <a href="../../../r/y/g/User%7ERyguasu_fbf3.html" title="User:Ryguasu">Ryguasu</a>, <a href="../../../l/c/_/User%7ELC_0e98.html" title="User:LC">LC</a> and <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

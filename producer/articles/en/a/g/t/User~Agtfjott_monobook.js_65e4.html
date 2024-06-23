@@ -1,0 +1,848 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Agtfjott/monobook.js,Blocking policy,Bypass your cache,Village pump (technical)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Agtfjott/monobook.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Agtfjott/monobook.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/g/t/User%7EAgtfjott_a8c2.html" title="User:Agtfjott">User:Agtfjott</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</p>
+<div style="color:darkred;background-color:#EEEEEE;border: darkred 2px solid;padding:5px;" id="jswarning"><div style="clear: both;color:darkred;"></div><b><div style="display:block;">If a message on your talk page led you here, please be wary of who left it.  The code below could contain malicious content capable of compromising your account; if your account appears to be compromised, it will be <a href="../../../b/l/o/Wikipedia%7EBlocking_policy_2eb0.html" title="Wikipedia:Blocking policy">blocked</a>.  If you are unsure whether the code is safe, you can ask at the appropriate <a href="../../../v/i/l/Wikipedia%7EVillage_pump_%28technical%29_e812.html" title="Wikipedia:Village pump (technical)">village pump</a>.</b></div></div></span>
+<pre>// jncsp-start The section below (up to jncsp-end) is maintained by [[Wikipedia:WikiProject_User_scripts/User-script_manager]]
+// jncsp-config addSinceTab
+
+if (location.href == &quot;http://en.wikipedia.org/wiki/Wikipedia:WikiProject_User_scripts/User-script_manager&quot;) 
+   document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;http://en.wikipedia.org/w' + 
+                  '/index.php?title=User:Jitse_Niesen/Client-side_preferences/Main.js&amp;action=raw&amp;ctype=text/javascript&quot;&gt;&lt;/script&gt;'); 
+
+// From [[Wikipedia:WikiProject User_scripts/Scripts/Add_LI_link]], revision 28011435
+
+
+function addlilink(tabs, url, name, id, title, key){
+    var na = document.createElement('a');
+    na.href = url;
+    na.appendChild(document.createTextNode(name));
+    var li = document.createElement('li');
+    if(id) li.id = id;
+    li.appendChild(na);
+    tabs.appendChild(li);
+    if(id)
+    {
+        if(key &amp;&amp; title)
+        {
+            ta[id] = [key, title];
+        }
+        else if(key)
+        {
+            ta[id] = [key, ''];
+        }
+        else if(title)
+        {
+            ta[id] = ['', title];
+        }
+    }
+    // re-render the title and accesskeys from existing code in wikibits.js
+    akeytt();
+    return li;
+}
+
+
+
+// From [[Wikipedia:WikiProject User_scripts/Scripts/Changes_since_I_last_edited]], revision 60911506
+
+
+//From http://en.wikipedia.org/w/index.php?title=User:JesseW/monobook.js&amp;oldid=20755510
+function addSinceTab() {
+    var tabs = document.getElementById('p-cactions').getElementsByTagName('ul')[0];
+    if (window.location.href.indexOf(&quot;&amp;action=history&amp;gotosince=true&quot;)!=-1) {
+       do_since_I_last_edited()
+    }
+    else if (!/wiki\/Special:|w\/index.php?title=Special:/.test(window.location.href)) {
+       var thetitle=document.title.slice(0, String(document.title).indexOf(&quot; - &quot;));
+       var l=addlilink(tabs, &quot;/w/index.php?title=&quot;+thetitle+&quot;&amp;action=history&amp;gotosince=true&quot;, 'Changes since I last edited', '');
+       l.lastChild.title=&quot;Changes since I last edited&quot;;
+    }
+}
+function do_since_I_last_edited() {
+        var csub=document.getElementById(&quot;contentSub&quot;);
+        var msg=document.createElement(&quot;p&quot;);
+        msg.appendChild(document.createTextNode
+                        (&quot;Parsing history... please wait...&quot;));
+        msg.className=&quot;error&quot;;
+        csub.insertBefore(msg, csub.firstChild)
+
+        var username=document.getElementById(&quot;pt-userpage&quot;).textContent;
+        var hists=document.getElementById(&quot;pagehistory&quot;).getElementsByTagName('li');
+        for (n=0;n&lt;hists.length;n++) {
+            if (hists[n].getElementsByTagName(&quot;span&quot;)[0].getElementsByTagName('a')[0].textContent==username) {
+                document.location=hists[n].childNodes[1].href; 
+                return;
+            }
+        }
+
+        msg.replaceChild(document.createTextNode
+                         (&quot;You have not edited this page! (recently)&quot;),
+                         msg.firstChild);
+}
+
+addOnloadHook(addSinceTab);
+
+
+
+// jncsp-end
+
+/* &lt;pre&gt;&lt;nowiki&gt; */
+
+/**
+ * Extra tabs for monobook skin
+ * Forked from [[User:ABCD/monobook.js]] around April 2005
+ * Dual licensed under the GFDL and GPL
+ * See also: [[User:JesseW/monobook.js]]
+ */
+
+/**** Initialise on window load ****/
+
+if (window.addEventListener) window.addEventListener(&quot;load&quot;,myLoadFuncs,false);
+else if (window.attachEvent) window.attachEvent(&quot;onload&quot;,myLoadFuncs);
+else
+{
+    window.previousLoadFunction = window.onload;
+    window.onload = function()
+    {
+        window.previousLoadFunction();
+        myLoadFuncs();
+    }
+}
+
+/**** Load custom functions ****/
+
+function myLoadFuncs()
+{
+    // &amp;action=purge
+    addPurge();
+    // &amp;section=0
+    addEditSection0();
+    // cause the personal menu looks bad
+    changeLinks();
+    // because edit summaries are good
+    addForceSummary();
+    // if this is VFD, add the show/hide thingies
+    if(document.title.indexOf(&quot;Wikipedia:Votes for deletion&quot;) != -1 &amp;&amp; document.title.indexOf(&quot;Editing &quot;) != 0) vfdlinks();
+    // now add a million extra tabs
+    morelinks();
+    // and some stuff for the sidebar
+    addToolBoxLinks();
+    // for admins only...
+    // if(document.title.indexOf(&quot;Confirm delete - Delete&quot;) == 0) addVfdLink();
+    // change the title of the edit link
+    ta['ca-edit'] = ['e', 'Edit page'];
+    // re-render the title and accesskeys for stuff
+    akeytt();
+}
+
+/**** Extra tab adding ****/
+
+function addEditSection0()
+{
+    ta['ca-edit-0'] = ['', 'Edit the zeroth section of this page'];
+    if(!document.getElementById) return;
+    var x = document.getElementById('ca-edit');
+    if(!x) return;
+    var y = document.createElement('LI');
+    y.id = 'ca-edit-0';
+    if(x.className == 'selected'){
+      if(/&amp;action=edit&amp;section=0$/.test(window.location.href)){
+        x.className = 'istalk';
+        y.className = 'selected';
+      } else {
+        x.className = 'selected istalk';
+      }
+    } else if(x.className == 'selected istalk'){
+      if(/&amp;action=edit&amp;section=0$/.test(window.location.href)){
+        x.className = 'istalk';
+        y.className = 'selected istalk';
+      } else {
+        y.className = 'istalk';
+      }
+    } else {
+      y.className = x.className;
+      x.className = 'istalk';
+    }
+    var z = document.createElement('A');
+    if(x.children){
+        z.href = x.children[0].href + '&amp;section=0';
+        z.appendChild(document.createTextNode('0'));
+        y.appendChild(z);
+        document.getElementById('p-cactions').children[1].insertBefore(y,x.nextSibling);
+    }else{
+        z.href = x.childNodes[0].href + '&amp;section=0';
+        z.appendChild(document.createTextNode('0'));
+        y.appendChild(z);
+        document.getElementById('p-cactions').childNodes[3].insertBefore(y,x.nextSibling);
+    }
+}
+
+function addlilink(tabs, url, name, id){
+    var na = document.createElement('a');
+    na.href = url;
+    na.appendChild(document.createTextNode(name));
+    var li = document.createElement('li');
+    li.id = id;
+    li.appendChild(na);
+    tabs.appendChild(li);
+    return li;
+}
+
+function addlimenu(tabs, name, id)
+{
+    var na = document.createElement('a');
+    na.href = '';
+    var mn = document.createElement('ul');
+    na.appendChild(document.createTextNode(name));
+    var li = document.createElement('li');
+    li.id = id;
+    li.className = 'tabmenu';
+    li.appendChild(na);
+    li.appendChild(mn);
+    tabs.appendChild(li);
+    return li;
+}
+
+function addPurge()
+{
+    ta['ca-purge'] = ['g', 'Purge the internal cache for this page'];
+    if(!document.getElementById) return;
+    var x = document.getElementById('ca-history');
+    var tabs = document.getElementById('p-cactions').getElementsByTagName('ul')[0];
+    if(!x) return;
+    if(x.children) x = x.children[0];
+    else x = x.childNodes[0];
+    addlilink(tabs, x.href.replace(/=history/, &quot;=purge&quot;), 'purge', 'ca-purge');
+}
+
+function closevfd(bold, notbold)
+{
+  var txt = document.editform.wpTextbox1;
+  txt.value = &quot;{{subst:vt}} '''&quot; + bold + &quot;'''&quot; + notbold + &quot;. &amp;ndash; ~~~~\n&quot; + txt.value + &quot;\n{{subst:vb}}\n&quot;;
+  txt = document.editform.wpSummary;
+  txt.value = &quot;close discussion: &quot; + bold + notbold;
+  document.editform.wpWatchthis.checked = false;
+}
+
+function editSummary()
+{
+    var txt = document.editform.wpTextbox1;
+    document.editform.wpSummary.value = 'Edit summary';
+    if(txt.value.length &gt; 0) txt.value += '\n';
+    txt.value += '{{subst:edit summary}} ~~~~';
+    txt.focus();
+}
+
+function startThread()
+{
+    var txt = document.editform.wpTextbox1;
+    var which = prompt(&quot;Thread number?&quot;);
+    var now = new Date();
+    if(which &lt; 10) which = '0' + which;
+    var timestamp = now.getUTCFullYear() + '';
+    now.getUTCMonth() &lt; 9 ? timestamp += '0' + (now.getUTCMonth() + 1) : timestamp += (now.getUTCMonth() + 1);
+    now.getUTCDate() &lt; 10 ? timestamp += '0' + now.getUTCDate() : timestamp += now.getUTCDate();
+    txt.value += '\n{{User talk:Alphax/' + timestamp + '-' + which + '}}';
+    document.editform.wpSummary.value = 'new thread';
+}
+
+function welcomeMessage()
+{
+    document.editform.wpSummary.value = 'Welcome to Wikipedia!';
+    var txt = document.editform.wpTextbox1;
+    if(txt.value.length &gt; 0) txt.value += '\n';
+    txt.value += '{{subst:User:Alphax/Welcome}} ~~~~';
+    txt.focus();
+}
+
+function anonWelcome()
+{
+    document.editform.wpSummary.value = 'Create an account!';
+    var txt = document.editform.wpTextbox1;
+    if(txt.value.length &gt; 0) txt.value += '\n';
+    txt.value += '{{subst:anon}} Thanks, ~~~~';
+    txt.focus();
+}
+
+function replace()
+{
+    var s = prompt(&quot;Search regexp?&quot;);
+    if(s){
+        var r = prompt(&quot;Replace regexp?&quot;);
+        var txt = document.editform.wpTextbox1;
+        txt.value = txt.value.replace(new RegExp(s, &quot;g&quot;), r);
+    }
+}
+
+function vfdresult()
+{
+    var res = prompt(&quot;Result?&quot;);
+    var vfddate = prompt(&quot;Nomination date?&quot;);
+    if(!res) return;
+    document.editform.wpSummary.value = 'VFD result - ' + res.replace(/'/g, '');
+    var txt = document.editform.wpTextbox1;
+    if(txt.value.length &gt; 0) txt.value += '\n';
+    txt.value += '==VFD==\nOn [[' + vfddate + ']] [[{{subst:CURRENTYEAR}}]], this article was nominated for deletion. The result was ' + res + '. See [[Wikipedia:Votes for deletion/{{subst:PAGENAME}}]] for a record of the discussion. &amp;ndash; ~~~~';
+    txt.focus();
+}
+
+function hidevfd()
+{
+    var divs = document.getElementsByTagName(&quot;div&quot;);
+    for(var x = 0; x &lt; divs.length; ++x)
+        if(divs[x].className.indexOf(&quot;vfd&quot;) != -1)
+            divs[x].style.display = &quot;none&quot;;
+    document.getElementById('footer').style.display = 'none';
+}
+
+function showvfd()
+{
+    var divs = document.getElementsByTagName(&quot;div&quot;);
+    for(var x = 0; x &lt; divs.length; ++x)
+        if(divs[x].className.indexOf(&quot;vfd&quot;) != -1)
+            divs[x].style.display = &quot;&quot;;
+    document.getElementById('footer').style.display = '';
+}
+
+function vfdlinks()
+{
+    if(!document.getElementById) return;
+    var tabs = document.getElementById('p-cactions').getElementsByTagName('ul')[0];
+    addlilink(tabs, 'javascript:hidevfd()', 'hide closed', 'ca-hide');
+    ta['ca-hide'] = ['', 'Hide closed VFDs'];
+    addlilink(tabs, 'javascript:showvfd()', 'show closed', 'ca-show');
+    ta['ca-show'] = ['', 'Show closed VFDs'];
+}
+
+function changeLinks()
+{
+    if(!document.getElementById) return;
+    // remove the &quot;my&quot; bits
+    document.getElementById('pt-mytalk').firstChild.innerHTML = 'talk';
+    document.getElementById('pt-watchlist').firstChild.innerHTML = 'watchlist';
+    document.getElementById('pt-mycontris').firstChild.innerHTML = 'contributions';
+    if(document.getElementById('ca-edit'))
+    document.getElementById('ca-edit').firstChild.innerHTML = 'Edit';
+    // add a clock
+    var toplinks = document.getElementById('p-personal').getElementsByTagName('ul')[0];
+    addlilink(toplinks, '', '', 'utcdate');
+    showtime();
+}
+
+function addForceSummary(){
+    if(!/&amp;action=edit/.test(window.location.href)) return;
+    if(/&amp;section=new/.test(window.location.href)) return;
+    if(!document.forms.editform) return;
+    document.forms.editform.wpSave.onclick = forceSummary;
+}
+
+function forceSummary(){
+    if(!document.forms.editform.wpSummary.value.replace(/^(?:\/\\*.*\\*\/)? *(.*) *$/,'$1')){
+      var r = prompt('Are you sure you want to submit without adding a summary?\nTo add a summary, type it in the box below:',document.forms.editform.wpSummary.value);
+      if(r == null) return false;
+      document.forms.editform.wpSummary.value = r;
+    }
+    return true;
+}
+
+function vfddelete(){
+    var form = document.forms.deleteconfirm;
+    form.wpReason.value = '[[Wikipedia:Votes for deletion/' + unescape(window.location.href.replace(/^.*\?title=([^&amp;]+)&amp;action=delete.*$/, '$1').replace(/_/g, ' ')) + ']]';
+    form.wpConfirm.checked = true;
+}
+
+function morelinks(){
+    var tabs = document.getElementById('p-cactions').getElementsByTagName('ul')[0];
+    if(document.title.indexOf(&quot;Editing Wikipedia:Votes for deletion&quot;) == 0)
+    {
+        addlimenu(tabs, 'vfd actions', 'vfda');
+        var vfda = document.getElementById('vfda').getElementsByTagName('ul')[0];
+        addlilink(vfda, 'javascript:closevfd(&quot;keep&quot;, &quot;&quot;)', 'keep', '');
+        addlilink(vfda, 'javascript:closevfd(&quot;merge and redirect&quot;, &quot; to [[&quot; + prompt(&quot;Merge and redirect to?&quot;) + &quot;]]&quot;)', 'merge', '');
+        addlilink(vfda, 'javascript:closevfd(&quot;redirect&quot;, &quot; to [[&quot; + prompt(&quot;Redirect to?&quot;) + &quot;]]&quot;)', 'redir', '');
+        addlilink(vfda, 'javascript:closevfd(&quot;transwiki&quot;, &quot; to &quot; + prompt(&quot;Transwiki to?&quot;))', 'trans', '');
+        addlilink(vfda, 'javascript:closevfd(&quot;transwiki&quot;, &quot; to Wiktionary&quot;)', 'wikt', '');
+        addlilink(vfda, 'javascript:closevfd(&quot;speedy delete&quot;, &quot;&quot;)', 'speedy', '');
+        addlilink(vfda, 'javascript:closevfd(&quot;delete&quot;, &quot;&quot;)', 'del', '');
+        addlilink(vfda, 'javascript:closevfd(prompt(&quot;Result?&quot;), &quot;&quot;)', 'other', '');
+        addlilink(tabs, 'javascript:replace()', 'replace', '');
+    }
+    else if(document.title.indexOf(&quot;Confirm delete - Delete&quot;) == 0)
+    {
+        addlilink(tabs, 'javascript:vfddelete()', 'vfd', '');
+    }
+    else if(document.title.indexOf(&quot;Editing User talk:&quot;) == 0)
+    {
+        addlilink(tabs, 'javascript:replace()', 'replace', '');
+        addlimenu(tabs, 'talk messages', 'talkm');
+        var talkm = document.getElementById('talkm').getElementsByTagName('ul')[0];
+        addlilink(talkm, 'javascript:welcomeMessage()', 'welcome', '');
+        addlilink(talkm, 'javascript:anonWelcome()', 'anon', '');
+        addlilink(talkm, 'javascript:startThread()', 'thread', '');
+        addlilink(talkm, 'javascript:editSummary()', 'summary', '');
+    }
+    else if(document.title.indexOf(&quot;Editing &quot;) == 0)
+    {
+        addlilink(tabs, 'javascript:replace()', 'replace', '');
+        addlilink(tabs, 'javascript:vfdresult()', 'vfd result', '');
+    }
+
+
+}
+
+function addToolBoxLinks()
+{
+    var tb = document.getElementById('p-tb').getElementsByTagName('ul')[0];
+    addlilink(tb, '/wiki/Special:Newpages', 'New pages', '');
+    addlilink(tb, '/wiki/Special:Shortpages', 'Short pages', '');
+    addlilink(tb, '/wiki/Special:Log', 'Logs', '');
+    addlilink(tb, '/wiki/Template:Deletiontools', 'Deletion tools', '');
+    addlilink(tb, '/wiki/Wikipedia:Disambiguation_pages_with_links', 'Dab list', '');
+    addlilink(tb, '/wiki/Wikipedia:Template_messages/User_talk_namespace', 'Talk messages', '');
+    addlilink(tb, '/wiki/User_talk:Alphax/special', 'Special characters', '');
+    addlilink(tb, '/wiki/WP:ICT', 'Image Copyright tags', '');
+}
+
+function showtime()
+{
+    var timerID;
+    var now = new Date();
+    var timeValue = now.toUTCString().replace(/GMT/, &quot;UTC&quot;);
+    document.getElementById('utcdate').firstChild.innerHTML = timeValue;
+    timerID = setTimeout('showtime()', 100);
+}
+
+
+// Returns &lt;li&gt;&lt;a href=&quot;url&quot;&gt;name&lt;/a&gt;&lt;/li&gt;
+function addlilink(url, name)
+{
+  var na = document.createElement('a');
+  na.setAttribute('href', url);
+
+  var txt = document.createTextNode(name);
+  na.appendChild(txt);
+
+  var li = document.createElement('li');
+  li.appendChild(na);
+  return li;
+}
+
+// Adds a &quot;blocklog&quot; tab and fills in the username field on Special:Blockip, if a &quot;&amp;faketarget=username&quot; is present.
+function do_blockip_stuff()
+{
+  // focus on Reason field
+  document.getElementsByName('wpBlockReason')[0].focus();
+
+  // Look for a &amp;faketarget= for the username/ip
+  var l = location.search.substring(1).split('&amp;');
+  var target = '';
+  for (var i = 0; i &lt; l.length; ++i)
+    {
+      var n = l[i].indexOf('=');
+      if (l[i].substring(0, n) == 'faketarget')
+	{
+	  target = l[i].substring(n + 1);
+	  break;
+	}
+    }
+
+  if (target == '')
+    return;
+
+  // put account name in &quot;IP Address/username&quot; field
+  var addr = document.getElementsByName('wpBlockAddress')[0];
+  addr.value = unescape(target);
+
+  // add &quot;blocklog&quot; tab
+  var c1 = document.getElementById('column-one');
+  var tabs = c1.getElementsByTagName('div')[0].getElementsByTagName('ul')[0];
+  tabs.appendChild(addlilink('/w/index.php?title=Special%3ALog&amp;type=block&amp;user=&amp;page=User%3A' + target, 'blocklog'));
+}
+
+// Opens the block log in the current window, and Special:Blockip in a popup.
+// Width, height, top, and left are chosen for a 1600x1200 display.
+//function blockpage_and_log(target)
+//{
+//  window.open('Special_Blockip.html?foo=blarg&amp;faketarget=' + target, 'Block', 'width=1600,height=600,top=600,left=0');
+//  document.location.href = 'http://en.wikipedia.org/w/index.php?title=Special%3ALog&amp;type=block&amp;user=&amp;page=User%3A' + target;
+//}
+
+// Adds &quot;block&quot; and &quot;blocklog&quot; tabs to User: and User talk: pages.
+function add_block_tab()
+{
+  var c1 = document.getElementById('column-one');
+  var tabs = c1.getElementsByTagName('div')[0].getElementsByTagName('ul')[0];
+
+  // use the &quot;edit this page&quot; tab to get already-tidied url
+  var editlk = document.getElementById('ca-edit').getElementsByTagName('a')[0].href;
+  // cut everything up to &quot;title=&quot; from the start and everything past &quot;&amp;action=edit&quot; from the end
+  editlk = editlk.substring(editlk.indexOf('title=') + 6, editlk.lastIndexOf('&amp;action=edit'));
+  editlk = editlk.substring(editlk.indexOf(':') + 1);
+  var slloc = editlk.indexOf('/');
+  if (slloc &gt; 0)
+    editlk = editlk.substring(0, slloc);
+
+  // add &quot;block&quot; tab
+  tabs.appendChild(addlilink('/w/index.php?title=Special%3ABlockip&amp;faketarget=' + editlk, 'block'));
+
+  // To open the block page and block log simultaneously, replace the above line with:
+  // tabs.appendChild(addlilink('javascript:blockpage_and_log(&quot;' + editlk + '&quot;)', 'Block'));
+  // and uncomment the blockpage_and_log() function above.
+
+  // add &quot;blocklog&quot; tab
+  tabs.appendChild(addlilink('/w/index.php?title=Special%3ALog&amp;type=block&amp;user=&amp;page=User%3A' + editlk, 'blocklog'));
+
+  //add &quot;contributions&quot; tab
+  tabs.appendChild(addlilink('/w/wiki.phtml?title=Special:Contributions&amp;target=User%3A' + editlk, 'contributions'));
+
+}
+
+function do_onload()
+{
+  if (document.title.indexOf('User:') == 0
+      || document.title.indexOf('User talk:') == 0)
+    add_block_tab();
+  else if (document.title.indexOf('Block user') == 0) // could stand to be more robust
+    do_blockip_stuff();
+}
+
+if (window.addEventListener) 
+  window.addEventListener(&quot;load&quot;, do_onload, false);
+else if (window.attachEvent) 
+  window.attachEvent(&quot;onload&quot;, do_onload);
+
+if ( document.createElement &amp;&amp; window.addEventListener )
+{
+	function SoFixItInit() // pre-load, (don't want to slow down loading of article's content, though)
+	{
+
+	}
+
+	function SoFixItLoad() // post-load
+	{
+		UserMenu = new PortletMenu( 'p-personal'   );
+		PageMenu = new PortletMenu( 'p-cactions'   );
+		 NavMenu = new PortletMenu( 'p-navigation' );
+		//ToolMenu = new PortletMenu( 'p-tb'         );
+
+			//	This is inefficient and not particularly robust.
+			//	This comes first, I want this link to come up as
+			//	fast as possible.
+			//
+		function GetByClass( sElem, sClass )
+		{	var i, a2 = [], a = document.getElementsByTagName( sElem );
+			for ( i = 0; i &lt; a.length; i++ )
+				if ( a[ i ].className == sClass )
+					a2.push( a[ i ] );
+			return a2;
+		}
+		var a, td = GetByClass( 'td', 'diff-otitle' );
+		if ( ( td = td[ 0 ] ) &amp;&amp; ( a = td.getElementsByTagName( 'a' )[ 0 ] ) )
+			a.href = a.href + '&amp;action=edit'; // need to change text, later
+
+		var userName = UserMenu.getText( 'pt-userpage' );
+
+			// personal (top-most) menu
+			//
+			//		Func  Talk  Prefs  Watch  List  Edits  Kate  Logs  #IRC  Out
+			//
+		UserMenu.setText( 'pt-mytalk'     , 'Talk'  );
+		UserMenu.setText( 'pt-preferences', 'Prefs' );
+		UserMenu.setText( 'pt-watchlist'  , 'Watch' );
+		UserMenu.setText( 'pt-mycontris'  , 'Edits' );
+		UserMenu.setText( 'pt-logout'     , 'Out'   );
+			//
+		UserMenu.setHref( 'pt-mycontris',
+			'http://en.wikipedia.org/w/index.php?title=Special:Contributions&amp;target=' +
+			userName + '&amp;offset=0&amp;limit=500' );
+			//
+			//
+			//	it seems there is a stylesheet that makes them lowercase
+			//
+			//		ok, the lowercased menu items are starting to really bug me:
+			//
+		document.getElementById( 'p-personal' ).getElementsByTagName( 'ul' )[0].style.textTransform = 'none';
+			//
+		UserMenu.insertBefore( 'pt-mycontris', 'pt-list', 'List', '/wiki/Special:Watchlist/edit' );
+		UserMenu.insertBefore( 'pt-logout'   , 'pt-logs', 'Logs',
+			'/w/index.php?title=Special%3ALog&amp;user=' + userName );
+		UserMenu.insertBefore( 'pt-logout'   , 'pt-irc' , '#IRC', 'irc://irc.freenode.net/wikipedia' );
+		UserMenu.insertBefore( 'pt-logs'     , 'pt-kate', 'Kate',
+			'javascript:void InlineKate( &quot;' + userName + '&quot; )' );
+
+			//	so I always know what time it is in UTC land:
+			//
+		UserMenu.append( 'pt-utc', UTCTime(), 'javascript:void UserMenu.setText(&quot;pt-utc&quot;,UTCTime())' );
+
+			//	article-actions menu, (the &quot;tabs&quot;)
+			//
+		if ( PageMenu[ 'ca-history' ] ) // theory: if it has a history tab, then it's purgable
+		{
+			PageMenu.insertBefore( 'ca-history', 'ca-lastdiff', 'Last Diff',
+				PageMenu.getHref( 'ca-history' ).replace( /action=history/, 'diff=0' ) );
+
+			PageMenu.append( 'ca-purge', 'Purge',
+				PageMenu.getHref( 'ca-history' ).replace( /action=history/, 'action=purge' ) );
+		}
+
+		var x = 1;
+		NavMenu.append( 'n-' + x++, 'monobook.js', '/wiki/User:' + userName + '/monobook.js' );
+		NavMenu.append( 'n-' + x++, 'Cat:Wikipedia', '/wiki/Category:Wikipedia' );
+		NavMenu.append( 'n-' + x++, 'Cat:Policies', '/wiki/Category:Wikipedia_policies_and_guidelines' );
+		NavMenu.append( 'n-' + x++, 'Cat:Official', '/wiki/Category:Wikipedia_official_policy' );
+		NavMenu.append( 'n-' + x++, 'WP:Templates', '/wiki/Wikipedia:Template' );
+		NavMenu.append( 'n-' + x++, 'WP:Temp Tags', '/wiki/Wikipedia:Template_messages/Cleanup' );
+
+
+	}
+
+	function PortletMenu( id ) // constructor
+	{
+		this.menu = document.getElementById( id );
+		this.list = this.menu.getElementsByTagName( 'ul' )[ 0 ]; // bypass &quot;&lt;h5&gt;Views&lt;/h5&gt;&quot;, etc.
+
+			//	sigh...as far as I can figure, there is empty whitespace being treated
+			//	as TextNodes....
+			//
+		var LIs = this.list.getElementsByTagName( 'li' );
+
+		for ( var i = 0; i &lt; LIs.length; i++ )
+		{
+			this[ LIs[ i ].id ] = LIs[ i ];
+		}
+
+		this.newItem = function( id, txt, url )
+		{	var li = document.createElement( 'li' ); li.id   = id;
+			var  a = document.createElement( 'a'  );  a.href = url;
+
+			 a.appendChild( document.createTextNode( txt ) );
+			li.appendChild( a );
+
+			this[ id ] = li; // watch this!!!
+
+			return li;
+		}
+
+		this.append = function( id, txt, url )
+		{	this.list.appendChild( this.newItem( id, txt, url ) );
+		}
+		
+		this.insertBefore = function( old, id, txt, url )
+		{	this.list.insertBefore( this.newItem( id, txt, url ), this[ old ] );
+		}
+
+			//	the ByTagName here is a bit annoying, but in Safari, I was picking
+			//	up TextNodes by using this[ id ].firstChild.firstChild
+			//
+		this.getText = function( id      ) { return this[ id ].getElementsByTagName( 'a' )[ 0 ].firstChild.data }
+		this.setText = function( id, txt ) {        this[ id ].getElementsByTagName( 'a' )[ 0 ].firstChild.data = txt }
+
+		this.getHref = function( id      ) { return this[ id ].getElementsByTagName( 'a' )[ 0 ].href       }
+		this.setHref = function( id, url ) {        this[ id ].getElementsByTagName( 'a' )[ 0 ].href = url }
+		
+		//	I add em as I need em....
+	}
+
+	function InlineKate( user )
+	{
+		var kate =
+			'http://kohl.wikimedia.org/~kate/cgi-bin/count_edits?dbname=enwiki&amp;user=' + user;
+
+		var div = document.createElement( 'div' );
+			div.id = 'inlineKateDiv';
+			div.style.position = 'absolute';
+			div.style.zIndex   = 1000;
+			div.style.left     =  '20px';
+			div.style.top      =  '20px';
+			div.style.backgroundColor = '#FFFFFF';
+			div.style.borderStyle     = 'solid';
+			div.style.borderWidth     = ' medium';
+			div.style.borderColor     = '#000000';
+
+			var top = document.createElement( 'div' );
+				top.id = 'inlineKateTop';
+				top.style.textAlign = 'right';
+				top.style.margin = '8px';
+				top.style.backgroundColor = '#DDDDDD';
+
+				var a = document.createElement( 'a' );
+					a.appendChild( document.createTextNode( &quot;Go to Kate's&quot; ) );
+					a.href    = kate;
+					a.target  = '_parent';
+					a.style.margin = '8px';
+
+				top.appendChild( a );
+
+					a = document.createElement( 'a' );
+					a.appendChild( document.createTextNode( 'Close' ) );
+					a.href    = &quot;javascript:void RemoveNode('inlineKateDiv')&quot;;
+					a.style.margin = '8px';
+
+				top.appendChild( a );
+
+			div.appendChild( top );
+
+			var iframe = document.createElement( 'iframe' );
+				iframe.id   = 'inlineKateBot';
+				iframe.style.width  = '300px';
+				iframe.style.height = '400px';
+				iframe.style.margin =   '8px';
+				iframe.style.borderStyle = 'solid';
+				iframe.style.borderWidth = 'thin';
+				iframe.style.borderColor = '#000000';
+				iframe.src = kate;
+
+			div.appendChild( iframe );
+
+		document.body.appendChild( div );
+	}
+
+	function RemoveNode( id )
+	{	var node = document.getElementById( id )
+		node.parentNode.removeChild( node );
+	}
+
+	function UTCTime()
+	{
+			//	Get a date stamp for the time in UTC-land.
+			//
+			//	for the future: a format arg
+			//
+		var s = '',
+			d = new Date(),
+			a = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ');
+		return	d.getUTCDate() + ' ' +
+				a[ d.getUTCMonth() ] + ' ' +
+				d.getUTCFullYear() + ' ' +
+				( '0' + d.getUTCHours()   ).substr( -2 ) + ':' +
+				( '0' + d.getUTCMinutes() ).substr( -2 ) + ' ' + 'UTC';
+	}
+
+	SoFixItInit();
+	window.addEventListener( 'load', SoFixItLoad, false );
+}
+/* &lt;/nowiki&gt;&lt;/pre&gt; */
+
+
+// -------------------------------------------------------------------------------------------------------------
+// [[User:Lupin/popups.js]] - please include this line 
+
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://en.wikipedia.org/w/index.php?title=User:Lupin/popups.js' 
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+
+popupDelay=1.8;
+popupAdminLinks=true;
+
+//----------------
+function removeAccessKeys(keylist) {
+  var t=document.getElementsByTagName('A'), u=document.getElementsByTagName('input');
+  for (var i=0; i&lt;t.length+u.length; ++i) {
+    var s=((i&lt;t.length) ? t[i] : u[i-t.length]);
+    for (var j=0; j&lt;keylist.length; ++j) if (s.accessKey==keylist[j]) s.accessKey='';
+  }
+};
+
+function removeDeleteKey() {removeAccessKeys(['d']);};
+
+if (window.addEventListener) window.addEventListener(&quot;load&quot;,removeDeleteKey,false);
+else if (window.attachEvent) window.attachEvent(&quot;onload&quot;,removeDeleteKey);
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/g/t/User%7EAgtfjott_monobook.js_65e4.html">http://en.wikipedia.org../../../a/g/t/User%7EAgtfjott_monobook.js_65e4.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/g/t/User%7EAgtfjott_monobook.js_65e4.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/g/t/User_talk%7EAgtfjott_monobook.js_abcd.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Agtfjott/monobook.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 07:03, 29 August 2006 by Wikipedia user <a href="../../../a/g/t/User%7EAgtfjott_a8c2.html" title="User:Agtfjott">Agtfjott</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

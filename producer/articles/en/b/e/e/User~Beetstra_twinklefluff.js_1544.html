@@ -1,0 +1,721 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Beetstra/twinklefluff.js,Bypass your cache" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Beetstra/twinklefluff.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Beetstra/twinklefluff.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../b/e/e/User%7EBeetstra_df14.html" title="User:Beetstra">User:Beetstra</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</span>
+</p><pre>// Have debug on now.
+//Status.debugLevel = 1;
+
+/**
+Twinklefluff revert and antivandalism utillity
+*/
+var VERSION = '1.0';
+var MAXREV = 50; // maximum number of revision to lookup
+
+// If TwinkleConfig aint exist.
+if( typeof( TwinkleConfig ) == 'undefined' ) {
+	TwinkleConfig = function() {};
+}
+/**
+TwinkleConfig.userTalkPageMode may take arguments:
+'window': open a new window, remmenber the opened window
+'tab': opens in a new tab, if possible.
+'blank': force open in a new window, even if a such window exist
+*/
+if( typeof( TwinkleConfig.userTalkPageMode ) == 'undefined' ) {
+	TwinkleConfig.userTalkPageMode = 'window';
+}
+
+/**
+TwinkleConfig.openTalkPage (array)
+What types of actions that should result in opening of talk page
+*/
+if( typeof( TwinkleConfig.openTalkPage ) == 'undefined' ) {
+	TwinkleConfig.openTalkPage = [ 'agf', 'norm', 'vand' ];
+}
+
+/**
+TwinkleConfig.openAOLAnonTalkPage may take arguments:
+true: to open Anon AOL talk pages on revert
+false: to not open them
+*/
+if( typeof( TwinkleConfig.openAOLAnonTalkPage ) == 'undefined' ) {
+	TwinkleConfig.openAOLAnonTalkPage = false;
+}
+
+/**
+TwinkleConfig.addAdToSummary
+If [[WP:TWINKLE|TWINKLE]] should be added or not to summary
+*/
+if( typeof( TwinkleConfig.addAdToSummary ) == 'undefined' ) {
+	TwinkleConfig.addAdToSummary = true;
+}
+
+/**
+TwinkleConfig.watchSpeedyPages (array)
+What types of actions that should result in forced addition to watchlist
+*/
+if( typeof( TwinkleConfig.watchRevertedPages ) == 'undefined' ) {
+	TwinkleConfig.watchRevertedPages = [ 'agf', 'norm', 'vand' ];
+}
+
+// a list of usernames, usually only bots, that vandalism revert is jumped over, that is
+// if vandalism revert is choosen on such username, then it's target in on the revision before.
+// This is for handeling quick bots that makes edits seconds after the original edit is made.
+// This only affect vandalism rollback, for good faith rollback, it will stop, indicating a bot 
+// has no faith, and for normal rollback, it will rollback that edit.
+var WHITELIST = [
+	'HagermanBot',
+	'HBC AIV helperbot',
+	'HBC AIV helperbot2',
+	'HBC AIV helperbot3',
+]
+
+var revertXML;
+var contentXML;
+var contentDoc;
+var editXML;
+var vandal;
+var type;
+var goodRev;
+var nbrOfRevisions;
+var curStatus;
+var curVersion = true;
+
+function addRevertButtons() {
+
+	var spanTag = function( color, content ) {
+		var span = document.createElement( 'span' );
+		span.style.color = color;
+		span.appendChild( document.createTextNode( content ) );
+		return span;
+	}
+
+	if( wgNamespaceNumber == -1 &amp;&amp; wgCanonicalSpecialPageName == &quot;Contributions&quot; ) {
+		var list = document.getElementById('bodyContent').getElementsByTagName( 'ul' )[0].getElementsByTagName( 'li' );
+		var vandal = document.getElementById('contentSub').getElementsByTagName( 'a' )[0].getAttribute( 'title' ).replace(/^User( talk)?:/ , '').replace(&quot;'&quot;, &quot;\\'&quot;);
+
+		var revNode = document.createElement('strong');
+		var revLink = document.createElement('a');
+		revLink.appendChild( spanTag( 'Black', ' [' ) );
+		revLink.appendChild( spanTag( 'SteelBlue', 'rollback' ) );
+		revLink.appendChild( spanTag( 'Black', ']' ) );
+		revNode.appendChild(revLink);
+
+		var revVandNode = document.createElement('strong');
+		var revVandLink = document.createElement('a');
+		revVandLink.appendChild( spanTag( 'Black', ' [' ) );
+		revVandLink.appendChild( spanTag( 'Red', 'vandalism' ) );
+		revVandLink.appendChild( spanTag( 'Black', ']' ) );
+		revVandNode.appendChild(revVandLink);
+
+		for(var i in list ) {
+			if( !list[i].lastChild || list[i].lastChild.nodeName != 'STRONG' ) {
+				continue
+			}
+
+			var oldid = list[i].getElementsByTagName( 'a' )[1].getAttribute( 'href' ).split( 'oldid=' )[1];
+			var page = list[i].getElementsByTagName( 'a' )[2].getAttribute( 'title' ).replace(&quot;'&quot;, &quot;\\'&quot;);
+			var tmpNode = revNode.cloneNode( true );
+			tmpNode.firstChild.setAttribute( 'href', &quot;javascript:revertPage('norm' , '&quot; + vandal + &quot;', &quot; + oldid + &quot;, '&quot; + page + &quot;')&quot; );
+			list[i].appendChild( tmpNode );
+			var tmpNode = revVandNode.cloneNode( true );
+			tmpNode.firstChild.setAttribute( 'href', &quot;javascript:revertPage('vand' , '&quot; + vandal + &quot;', &quot; + oldid + &quot;, '&quot; + page + &quot;')&quot; );
+			list[i].appendChild( tmpNode );
+		}
+
+
+	} else {
+
+		var otitle = getElementsByClassName( document.getElementById('bodyContent'), 'td' , 'diff-otitle' )[0];
+		var ntitle = getElementsByClassName( document.getElementById('bodyContent'), 'td' , 'diff-ntitle' )[0];
+
+		if( !ntitle ) {
+			// Nothing to see here, move along...
+			return;
+		}
+
+		if( !otitle.getElementsByTagName('a')[0] ) {
+			// no previous revision available
+			return;
+		}
+
+		// Lets first add a [edit this revision] link
+
+		var oldrev = QueryString.get( 'oldid', decodeURI( otitle.getElementsByTagName( 'a' )[0].getAttribute( 'href' ).split( '&amp;', 2 )[1] ) );
+
+		var oldEditNode = document.createElement('strong');
+
+		var oldEditLink = document.createElement('a');
+		oldEditLink.href = &quot;javascript:revertToRevision('&quot; + oldrev + &quot;')&quot;;
+		oldEditLink.appendChild( spanTag( 'Black', '[' ) );
+		oldEditLink.appendChild( spanTag( 'SaddleBrown', 'restore this version' ) );
+		oldEditLink.appendChild( spanTag( 'Black', ']' ) );
+		oldEditNode.appendChild(oldEditLink);
+
+		var cur = otitle.insertBefore(oldEditNode, otitle.firstChild);
+		otitle.insertBefore(document.createElement('br'), cur.nextSibling);
+
+		if( ntitle.getElementsByTagName('a')[0].firstChild.nodeValue != 'Current revision' ) {
+			// not latest revision
+			curVersion = false;
+			return;
+		}
+
+		vandal = ntitle.getElementsByTagName('a')[3].firstChild.nodeValue.replace(&quot;'&quot;, &quot;\\'&quot;);
+
+		var agfNode = document.createElement('strong');
+		var vandNode = document.createElement('strong');
+		var normNode = document.createElement('strong');
+
+		var agfLink = document.createElement('a');
+		var vandLink = document.createElement('a');
+		var normLink = document.createElement('a');
+
+		agfLink.href = &quot;javascript:revertPage('agf' , '&quot; + vandal + &quot;')&quot;; 
+		vandLink.href = &quot;javascript:revertPage('vand' , '&quot; + vandal + &quot;')&quot;; 
+		normLink.href = &quot;javascript:revertPage('norm' , '&quot; + vandal + &quot;')&quot;; 
+
+		agfLink.appendChild( spanTag( 'Black', '[' ) );
+		agfLink.appendChild( spanTag( 'DarkOliveGreen', 'rollback (AGF)' ) );
+		agfLink.appendChild( spanTag( 'Black', ']' ) );
+
+		vandLink.appendChild( spanTag( 'Black', '[' ) );
+		vandLink.appendChild( spanTag( 'Red', 'rollback (VANDAL)' ) );
+		vandLink.appendChild( spanTag( 'Black', ']' ) );
+
+		normLink.appendChild( spanTag( 'Black', '[' ) );
+		normLink.appendChild( spanTag( 'SteelBlue', 'rollback' ) );
+		normLink.appendChild( spanTag( 'Black', ']' ) );
+
+		agfNode.appendChild(agfLink);
+		vandNode.appendChild(vandLink);
+		normNode.appendChild(normLink);
+
+		var cur = ntitle.insertBefore(agfNode, ntitle.firstChild);
+		cur = ntitle.insertBefore(document.createTextNode(' || '), cur.nextSibling);
+		cur = ntitle.insertBefore(normNode, cur.nextSibling);
+		cur = ntitle.insertBefore(document.createTextNode(' || '), cur.nextSibling);
+		cur = ntitle.insertBefore(vandNode, cur.nextSibling);
+		cur = ntitle.insertBefore(document.createElement('br'), cur.nextSibling);
+	}
+
+}
+addOnloadHook(addRevertButtons);
+
+function revertPage( pType, pVandal, rev, page ) {
+
+	wgPageName = page || wgPageName;
+	wgCurRevisionId = rev || wgCurRevisionId;
+
+
+	try {
+		vandal = pVandal;
+		type = pType;
+		Status.init( document.getElementById('bodyContent') );
+
+		revertXML = sajax_init_object();
+		Status.debug( 'revertXML' + revertXML );
+		revertXML.overrideMimeType('text/xml');
+
+		var query = {
+			'action': 'query',
+			'prop': 'revisions',
+			'titles': wgPageName,
+			'rvlimit': MAXREV,
+			'rvprop': [ 'timestamp', 'user', 'comment' ],
+			'format': 'xml'
+		}
+
+		Status.status( 'Querying revisions' );
+		revertXML.onreadystatechange = revertPageCallback;
+		revertXML.open( 'GET' , wgServer + wgScriptPath + '/api.php?' + QueryString.create( query ), true );
+		revertXML.send( null );
+	} catch(e) {
+		if( e instanceof Exception ) {
+			Status.error( 'Error: ' + e.what() );
+		} else {
+			Status.error( 'Error: ' + e );
+		}
+	}
+
+}
+function revertPageCallback() {
+
+	if ( revertXML.readyState != 4 ){
+		Status.progress('.');
+		return;
+	} 
+
+	if( revertXML.status != 200 ){
+		Status.error('Bad status , bailing out');
+		return;
+	}
+
+	var doc = revertXML.responseXML.documentElement;
+
+	if( !doc ) {
+		Status.error( 'Possible failure in recieving document, will abort.' );
+		return;
+	}
+	var revisions = doc.getElementsByTagName('rev');
+	var top = revisions[0];
+	Status.debug( 'revisions[0]: ' + top );
+
+	if( top.getAttribute( 'revid' ) &lt; wgCurRevisionId ) {
+		Status.error( [ 'The recieved top revision id ', htmlNode( 'strong', top.getAttribute('revid') ), ' is less than our current revision id, this could indicate that the current revision has been deleted, the server is lagging, or that bad data has been recieved. Will stop proceeding at this point.' ] );
+		return;
+	}
+	if( !top ) {
+		Status.error( 'No top revision found,  this could indicate that the page has been deleted, or that a problem in the transmittion has occoured, will abort reversion ');
+		return;
+	}
+
+
+	Status.status( [ 'Evaluating revisions to see if ', htmlNode( 'strong', vandal), ' is the last contributor...' ] );
+	Status.debug( 'wgCurRevisionId: ' + wgCurRevisionId + ', top.getAttribute(revid): ' + top.getAttribute('revid') );
+
+	if( wgCurRevisionId != top.getAttribute('revid') ) {
+		Status.warn( [ 'Latest revision ', htmlNode( 'strong', top.getAttribute('revid') ), ' doesn\'t equals our revision ', htmlNode( 'strong', wgCurRevisionId) ] );
+		Status.debug( 'top.getAttribute(user): ' + top.getAttribute( 'user' ) );
+
+		if( top.getAttribute( 'user' ) == vandal ) {
+			switch( type ) {
+				case 'vand':
+				Status.info( [ 'Latest revision is made by ', htmlNode( 'strong', vandal ) , ', as we assume vandalism, we continue to revert' ]);
+				break;
+				case 'afg':
+				Status.warn( [ 'Latest revision is made by ', htmlNode( 'strong', vandal ) , ', as we assume good faith, we stop reverting, as the problem might have been fixed.' ]);
+				return;
+				default:
+				Status.warn( [ 'Latest revision is made by ', htmlNode( 'strong', vandal ) , ', but we will stop reverting anyway.' ] );
+				return;
+			}
+		} else if( 
+			type == 'vand' &amp;&amp; 
+			WHITELIST.indexOf( top.getAttribute( 'user' ) ) != -1 &amp;&amp; 
+			top.nextSibling.getAttribute( 'pageId' ) == wgCurRevisionId 
+		) {
+			Status.info( [ 'Latest revision is made by ', htmlNode( 'strong', top.getAttribute( 'user' ) ), ', a trusted bot, and the revision before was made by our vandal, so we proceed with the revert.' ] );
+			top = top.nextSibling;
+		} else {
+			Status.error( [ 'Latest revision is made by ', htmlNode( 'strong', top.getAttribute( 'user' ) ), ', so it might already been reverted, stopping  reverting.'] );
+			return;
+		}
+	} 
+
+	if( type == 'vand' &amp;&amp; WHITELIST.indexOf( vandal ) != -1 ) {
+		Status.info( [ 'Vandalism revert is choosen on ', htmlNode( 'strong', vandal ), ', as this is a whitelisted bot, we assume you wanted to revert vandalism made by the previous user instead.' ] );
+		top = top.nextSibling;
+		vandal = top.getAttribute( 'user' );
+	} else if( type == 'agf'  &amp;&amp; WHITELIST.indexOf( vandal ) != -1 ) {
+		Status.warn( [ 'Good faith revert is choosen on ', htmlNode( 'strong', vandal ), ', as this is a whitelisted bot, it makes no sense at all to revert it as a good faith edit, will stop reverting.' ] );
+		return;
+	}
+
+	Status.status( 'Finding last good revision...' );
+
+	goodRev = top;
+	nbrOfRevisions = 0;
+
+	while( goodRev.getAttribute('user') == vandal ) {
+
+		goodRev = goodRev.nextSibling;
+
+		nbrOfRevisions++;
+
+		if( goodRev == null ) {
+			Status.error( [ 'No previous revision found, perhaps ', htmlNode( 'strong', vandal ), ' is the only contributor, or that the user has made more than ' + MAXREV + ' edits in a row.' ] );
+			return;
+		}
+	}
+
+	if( nbrOfRevisions == 0 ) {
+		Status.error( &quot;We where to revert zero revisions. As that makes no sense, we'll stop reverting this time. It could be that the edit already have been reverted, but the revision id was still the same.&quot; );
+		return;
+	}
+
+	if( 
+		type != 'vand' &amp;&amp; 
+		nbrOfRevisions &gt; 1  &amp;&amp; 
+		!confirm( vandal + ' has done ' + nbrOfRevisions + ' edits in a row. Are you sure you want to revert them all?' ) 
+	) {
+		Status.info( 'Stopping reverting per user input' );
+		return;
+	}
+
+	Status.progress( [ ' revision ', htmlNode( 'strong', goodRev.getAttribute( 'revid' ) ), ' that was made ', htmlNode( 'strong', nbrOfRevisions ), ' revisions ago by ', htmlNode( 'strong', goodRev.getAttribute( 'user' ) ) ] );
+
+	Status.status( [ 'Getting content for revision ', htmlNode( 'strong', goodRev.getAttribute( 'revid' ) ) ] );
+	var query = {
+		'action': 'query',
+		'prop': 'revisions',
+		'titles': wgPageName,
+		'rvlimit': 1,
+		'rvprop': 'content',
+		'rvstartid': goodRev.getAttribute( 'revid' ),
+		'format': 'xml'
+	}
+
+	Status.debug( 'query:' + query.toSource() );
+
+	// getting the content for the last good revision
+	revertXML = sajax_init_object();
+	revertXML.overrideMimeType('text/xml');
+	revertXML.onreadystatechange = revertCallback2;
+	revertXML.open( 'GET' , wgServer + wgScriptPath + '/api.php?' + QueryString.create( query ), true );
+	revertXML.send( null );
+
+}
+
+function revertCallback2() {
+	if ( revertXML.readyState != 4 ){
+		Status.progress( '.' );
+		return;
+	} 
+
+	if( revertXML.status != 200 ){
+		Status.error( 'Bad status , bailing out' );
+		return;
+	}
+
+	contentDoc = revertXML.responseXML.documentElement;
+	if( !contentDoc ) {
+		Status.error( 'Failed to recieve revision to revert to, will abort.');
+		return;
+	}
+
+	Status.status( 'Grabbing edit form' );
+
+	revertXML = sajax_init_object();
+	revertXML.overrideMimeType('text/xml');
+	revertXML.onreadystatechange = revertCallback3;
+
+	var query = {
+		'title': wgPageName,
+		'action': 'submit'
+	};
+
+	Status.debug( 'query:' + query.toSource() );
+
+	revertXML.open( 'GET' , wgServer + wgScriptPath + '/index.php?' + QueryString.create( query ), true );
+	revertXML.send( null );
+}
+
+function revertCallback3() {
+	if ( revertXML.readyState != 4 ){
+		Status.progress( '.' );
+		return;
+	} 
+
+	if( revertXML.status != 200 ){
+		Status.error( 'Bad status , bailing out' );
+		return;
+	}
+
+	Status.status( 'Updating the textbox...' );
+
+	var doc = revertXML.responseXML;
+
+	var form = doc.getElementById( 'editform' );
+	Status.debug( 'editform: ' + form );
+	if( !form ) {
+		Status.error( 'couldn\'t grab element &quot;editform&quot;, aborting, this could indicate failed respons from the server' );
+		return;
+	}
+	form.style.display = 'none';
+
+
+	var content = contentDoc.getElementsByTagName('rev')[0];
+	if( !content ) {
+		Status.error( 'we recieved no revision, something is wrong, bailing out!' );
+		return;
+	}
+
+	var textbox = doc.getElementById( 'wpTextbox1' );
+
+	textbox.value = &quot;&quot;;
+
+	var cn =  content.childNodes;
+
+	for( var i in cn ) {
+		textbox.value += cn[i].nodeValue ? cn[i].nodeValue : '';
+	}
+
+	Status.status( 'Updating the summary...' );
+	var summary;
+
+
+
+	switch( type ) {
+		case 'agf':
+		summary = &quot;Reverted [[WP:AGF|good faith]] edits by [[Special:Contributions/&quot; + vandal + &quot;|&quot; + vandal + &quot;]] per policy concerns. Please read up on [[WP:POL#Key_policies|policies and guidelines]]. Thanks!&quot; + ( TwinkleConfig.addAdToSummary ? ' [[WP:TWINKLE|TWINKLE]]' : '');
+		break;
+		case 'vand':
+		summary = &quot;Reverted &quot; + nbrOfRevisions + &quot; edit&quot; + ( nbrOfRevisions &gt; 1 ? &quot;s&quot; : '' ) + &quot; by [[Special:Contributions/&quot; + vandal + &quot;|&quot; + vandal + &quot;]] identified as [[WP:VAND|vandalism]] to last revision by [[User:&quot; + goodRev.getAttribute( 'user' ) + &quot;|&quot; + goodRev.getAttribute( 'user' ) + &quot;]].&quot; + ( TwinkleConfig.addAdToSummary ? ' [[WP:TWINKLE|TWINKLE]]' : '');
+		break;
+		case 'norm':
+		summary = &quot;Reverted &quot; + nbrOfRevisions + &quot; edit&quot; + ( nbrOfRevisions &gt; 1 ? &quot;s&quot; : '' ) + &quot; by [[Special:Contributions/&quot; + vandal + &quot;|&quot; + vandal + &quot;]]  to last revision by  [[User:&quot; + goodRev.getAttribute( 'user' ) + &quot;|&quot; + goodRev.getAttribute( 'user' ) + &quot;]].&quot; + ( TwinkleConfig.addAdToSummary ? ' [[WP:TWINKLE|TWINKLE]]' : '');
+	}
+	doc.getElementById( 'wpSummary' ).value = summary;
+	doc.getElementById( 'wpMinoredit' ).checked = true;
+	doc.getElementById( 'wpWatchthis' ).checked = ( TwinkleConfig.watchRevertedPages.indexOf( type ) != -1 );
+
+	Status.status( [ 'Open user talk page edit form for user ', htmlNode( 'strong', vandal ) ]);
+
+	var opentalk = true;
+
+	if( TwinkleConfig.openTalkPage.indexOf( type ) != -1 ) {
+
+		if( isIPAddress( vandal ) ) {
+			Status.info( [ htmlNode( 'strong', vandal ), ' is an ip-address, checking if it\'s inside the AOL range' ] );
+
+			if( AOLNetworks.some( function( net ) { return isInNetwork( vandal, net ) } )) {
+				if( TwinkleConfig.openAOLAnonTalkPage ) {
+					Status.info( [ htmlNode( 'strong', vandal ), ' is an AOL address. Per configuration, we will open talk page anyway' ] );
+				} else {
+					Status.warn( [ htmlNode( 'strong', vandal ), ' is an AOL address. will not open a edit form for the user talk page because AOL addresses are randomly assigned' ] );
+					opentalk = false;
+				}
+			} else {
+				Status.info( [ htmlNode( 'strong', vandal ), ' is an normal ip-address, opening user talk page' ] );
+			}
+
+		}
+
+		if( opentalk ) {
+			var query = {
+				'title': 'User talk:' + vandal,
+				'action': 'edit',
+				'vanarticle': wgPageName.replace(/_/g, ' '),
+				'vanarticlerevid': wgCurRevisionId,
+				'vanarticlegoodrevid': goodRev.getAttribute( 'revid' ),
+				'type': type,
+				'count': nbrOfRevisions
+			}
+
+			Status.debug( 'query:' + query.toSource() );
+
+			switch( TwinkleConfig.userTalkPageMode ) {
+				case 'tab':
+				window.open( wgServer + wgScriptPath + '/index.php?' + QueryString.create( query ), '_tab' );
+				break;
+				case 'blank':
+				window.open( wgServer + wgScriptPath + '/index.php?' + QueryString.create( query ), '_blank', 'location=no,toolbar=no,status=no,directories=no,scrollbars=yes,width=1200,height=800' );
+				break;
+				case 'window':
+				default :
+				window.open( wgServer + wgScriptPath + '/index.php?' + QueryString.create( query ), 'twinklewarnwindow', 'location=no,toolbar=no,status=no,directories=no,scrollbars=yes,width=1200,height=800' );
+				break;
+			}
+		}
+	}
+
+	document.getElementById('globalWrapper').appendChild( form );
+
+	Status.status( 'Submitting the form...' );
+	form.submit();
+}
+
+function revertToRevision( oldrev ) {
+
+	try {
+		Status.init( document.getElementById('bodyContent') );
+
+		revertXML = sajax_init_object();
+		revertXML.overrideMimeType('text/xml');
+
+		var query = {
+			'action': 'query',
+			'prop': 'revisions',
+			'titles': wgPageName,
+			'rvlimit': 1,
+			'rvstartid': oldrev,
+			'rvprop': [ 'timestamp', 'user', 'comment', 'content' ],
+			'format': 'xml'
+		}
+
+		Status.status( 'Querying revision' );
+		revertXML.onreadystatechange = revertToRevisionCallback;
+		revertXML.open( 'GET' , wgServer + wgScriptPath + '/api.php?' + QueryString.create( query ), true );
+		revertXML.send( null );
+	} catch(e) {
+		if( e instanceof Exception ) {
+			Status.error( 'Error: ' + e.what() );
+		} else {
+			Status.error( 'Error: ' + e );
+		}
+	}
+
+}
+
+function revertToRevisionCallback() {
+	if ( revertXML.readyState != 4 ){
+		Status.progress( '.' );
+		return;
+	} 
+
+	if( revertXML.status != 200 ){
+		Status.error( 'Bad status , bailing out' );
+		return;
+	}
+
+	contentDoc = revertXML.responseXML.documentElement;
+
+	Status.status( 'Grabbing edit form' );
+
+	revertXML = sajax_init_object();
+	revertXML.overrideMimeType('text/xml');
+	revertXML.onreadystatechange = revertToRevisionCallback2;
+	revertXML.open( 'GET' , wgServer + wgScriptPath + '/index.php?' + QueryString.create( { 'title': wgPageName, 'action': 'submit' } ), true );
+	revertXML.send( null );
+}
+
+function revertToRevisionCallback2() {
+	if ( revertXML.readyState != 4 ){
+		Status.progress( '.' );
+		return;
+	} 
+
+	if( revertXML.status != 200 ){
+		Status.error( 'Bad status , bailing out' );
+		return;
+	}
+
+	Status.status( 'Updating the textbox...' );
+
+alert(revertXML.responseText);
+
+	var doc = revertXML.responseXML;
+
+	var form = doc.getElementById( 'editform' );
+	Status.debug( 'editform: ' + form );
+	if( !form ) {
+		Status.error( 'couldn\'t grab element &quot;editform&quot;, aborting, this could indicate failed respons from the server' );
+		return;
+	}
+	form.style.display = 'none';
+
+
+	var content = contentDoc.getElementsByTagName('rev')[0];
+
+	var textbox = doc.getElementById( 'wpTextbox1' );
+
+	textbox.value = &quot;&quot;;
+
+	var cn =  content.childNodes;
+
+	for( var i in cn ) {
+		textbox.value += cn[i].nodeValue ? cn[i].nodeValue : '';
+	}
+
+	Status.status( 'Updating the summary...' );
+	var summary = 'Reverted to revision ' + content.getAttribute( 'revid' ) + ' by [[User:' + content.getAttribute( 'user' ) + '|' + content.getAttribute( 'user' ) + ']].' + ( TwinkleConfig.addAdToSummary ? ' [[WP:TWINKLE|TWINKLE]]' : '');
+
+	doc.getElementById( 'wpSummary' ).value = summary;
+	doc.getElementById( 'wpMinoredit' ).checked = true;
+
+
+	document.getElementById('globalWrapper').appendChild( form );
+
+	Status.status( 'Submitting the form...' );
+	form.submit();
+}
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/e/User%7EBeetstra_twinklefluff.js_1544.html">http://en.wikipedia.org../../../b/e/e/User%7EBeetstra_twinklefluff.js_1544.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../b/e/e/User%7EBeetstra_twinklefluff.js_1544.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/e/e/User_talk%7EBeetstra_twinklefluff.js_1d6c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Beetstra/twinklefluff.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:59, 10 February 2007 by Wikipedia user <a href="../../../b/e/e/User%7EBeetstra_df14.html" title="User:Beetstra">Beetstra</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

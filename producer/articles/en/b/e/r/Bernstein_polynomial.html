@@ -1,0 +1,270 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bernstein polynomial,Basis (linear algebra),Bernoulli trial,Bernstein-Sato polynomial,Binomial coefficient,Binomial distribution,Bézier curve,Continuous function,De Casteljau's algorithm,Eigenvalue,Expected value" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bernstein polynomial - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bernstein polynomial</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <dl>
+<dd><i>For the Bernstein polynomial in D-module theory, see <a href="../../../b/e/r/Bernstein-Sato_polynomial_c9ec.html" title="Bernstein-Sato polynomial">Bernstein-Sato polynomial</a>.</i></dd>
+</dl>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../b/e/r/Image%7EBernstein_Approximation.gif_46c3.html" class="internal" title="Bernstein polynomials approximating a curve"><img src="../../../upload/thumb/a/a6/Bernstein_Approximation.gif/180px-Bernstein_Approximation.gif" alt="Bernstein polynomials approximating a curve" width="180" height="180" longdesc="../../../b/e/r/Image%7EBernstein_Approximation.gif_46c3.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/e/r/Image%7EBernstein_Approximation.gif_46c3.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Bernstein polynomials approximating a curve</div>
+</div>
+</div>
+<p>In the <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematical</a> subfield of <a href="../../../n/u/m/Numerical_analysis.html" title="Numerical analysis">numerical analysis</a>, a <b>Bernstein polynomial</b>, named after <a href="../../../s/e/r/Sergei_Natanovich_Bernstein_1bfb.html" title="Sergei Natanovich Bernstein">Sergei Natanovich Bernstein</a>, is a <a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomial</a> in the <b>Bernstein form</b>, that is a <a href="../../../l/i/n/Linear_combination.html" title="Linear combination">linear combination</a> of <b>Bernstein basis polynomials</b>.</p>
+<p>A <a href="../../../n/u/m/Numerical_stability.html" title="Numerical stability">numerically stable</a> way to evaluate polynomials in Bernstein form is <a href="../../../d/e/_/De_Casteljau%27s_algorithm_3e67.html" title="De Casteljau's algorithm">de Casteljau's algorithm</a>.</p>
+<p>Polynomials in Bernstein form were first used by Bernstein in a constructive proof for the <a href="../../../s/t/o/Stone-Weierstrass_theorem_7155.html" title="Stone-Weierstrass theorem">Stone-Weierstrass approximation theorem</a>. With the advent of computer graphics, Bernstein polynomials, restricted to the interval <i>x</i>&#160;∈&#160;[0,&#160;1], became important in the form of <a href="../../../b/%C3%A9/z/B%C3%A9zier_curve.html" title="Bézier curve">Bézier curves</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Definition"><span class="tocnumber">1</span> <span class="toctext">Definition</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">2</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Approximating_continuous_functions"><span class="tocnumber">4</span> <span class="toctext">Approximating continuous functions</span></a></li>
+<li class="toclevel-1"><a href="#Proof"><span class="tocnumber">5</span> <span class="toctext">Proof</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Definition" id="Definition"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernstein_polynomial.html" title="Edit section: Definition">edit</a>]</span> <span class="mw-headline">Definition</span></h2>
+<p>The <i>n</i> + 1 <b>Bernstein basis polynomials</b> of degree <i>n</i> are defined as</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/8/2/782c236ad179dfd74280dc46b7910797.png" alt="b_{\nu,n}(x) = {n \choose \nu} x^{\nu} (1-x)^{n-\nu}, \qquad \nu=0,\ldots,n." /></dd>
+</dl>
+<p>where</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/8/c/78c3d57f489d1daa64a465997a1bd4d1.png" alt="{n \choose \nu}" /></dd>
+</dl>
+<p>is a <a href="../../../b/i/n/Binomial_coefficient.html" title="Binomial coefficient">binomial coefficient</a>.</p>
+<p>The Bernstein basis polynomials of degree <i>n</i> form a <a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Basis (linear algebra)">basis</a> for the <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector space</a> <span class="texhtml">Π<sub><i>n</i></sub></span> of polynomials of degree <i>n</i>.</p>
+<p>A linear combination of Bernstein basis polynomials</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/4/a/e4a5aa66a7bebf4144ec22a58c3e39f7.png" alt="B(x) = \sum_{\nu=0}^{n} \beta_{\nu} b_{\nu,n}(x)" /></dd>
+</dl>
+<p>is called a <b>Bernstein polynomial</b> or <b>polynomial in Bernstein form</b> of degree <i>n</i>. The coefficients β<sub>ν</sub> are called <b>Bernstein coefficients</b> or <b>Bézier coefficients</b>.</p>
+<p><a name="Notes" id="Notes"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernstein_polynomial.html" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline">Notes</span></h2>
+<p>The Bernstein basis polynomials have the following properties:</p>
+<ul>
+<li><span class="texhtml"><i>b</i><sub>ν,<i>n</i></sub>(<i>x</i>) = 0</span>, if ν &lt; 0 or ν &gt; <i>n</i></li>
+<li><span class="texhtml"><i>b</i><sub>ν,<i>n</i></sub>(0) = δ<sub>ν,0</sub></span> and <span class="texhtml"><i>b</i><sub>ν,<i>n</i></sub>(1) = δ<sub>ν,<i>n</i></sub></span> where <span class="texhtml">δ</span> is the <a href="../../../k/r/o/Kronecker_delta.html" title="Kronecker delta">Kronecker delta</a> function.</li>
+<li><span class="texhtml"><i>b</i><sub>ν,<i>n</i></sub>(<i>x</i>)</span> has a root with multiplicity ν at point <i>x</i> = 0 (note if ν is 0 there is no root at 0)</li>
+<li><span class="texhtml"><i>b</i><sub>ν,<i>n</i></sub>(<i>x</i>)</span> has a root with multiplicity <i>n</i> − ν at point <i>x</i> = 1 (note if ν = <i>n</i> there is no root at 1)</li>
+<li><span class="texhtml"><i>b</i><sub>ν,<i>n</i></sub>(<i>x</i>)</span> ≥ 0 for <i>x</i> in [0,1]</li>
+<li><span class="texhtml"><i>b</i><sub>ν,<i>n</i></sub>(1 − <i>x</i>) = <i>b</i><sub><i>n</i> − ν,<i>n</i></sub>(<i>x</i>)</span></li>
+<li>If ν ≠ 0, then <span class="texhtml"><i>b</i><sub>ν,<i>n</i></sub>(<i>x</i>)</span> has a unique local maximum on the interval [0,1] at <i>x</i> = ν/<i>n</i>. This maximum takes the value</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/5/b/e/5be26f027fc2f996e571b03746a9ce19.png" alt="\nu^{\nu}n^{-n}(n-\nu)^{n-\nu}{n\choose \nu}." /></dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>The Bernstein basis polynomials of degree <i>n</i> form a <a href="../../../p/a/r/Partition_of_unity.html" title="Partition of unity">partition of unity</a>:</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/b/0/9/b09c7f1268ba9baf6c5b86eb0e7a27bc.png" alt="\sum_{\nu=0}^n b_{\nu,n}(x) = \sum_{\nu=0}^n {n \choose \nu} x^{\nu}(1-x)^{n-\nu} = (x+(1-x))^n = 1." /></dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernstein_polynomial.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>The first few Bernstein basis polynomials are</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/e/7/fe726243ae1ae08d81c78464e1bb89ca.png" alt="b_{0,0}(x) = 1\," /></dd>
+<dd><img class='tex' src="../../../math/6/7/2/672a4603eea1b414064860865808415d.png" alt="b_{0,1}(x) = 1-x \mbox{ , } b_{1,1}(x) = x\," /></dd>
+<dd><img class='tex' src="../../../math/5/e/7/5e7ff1ad52509bad912811b486f0850d.png" alt="b_{0,2}(x) = (1-x)^2 \mbox{ , } b_{1,2}(x) = 2x(1-x) \mbox{ , } b_{2,2}(x) = x^2.\," /></dd>
+</dl>
+<p><a name="Approximating_continuous_functions" id="Approximating_continuous_functions"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernstein_polynomial.html" title="Edit section: Approximating continuous functions">edit</a>]</span> <span class="mw-headline">Approximating continuous functions</span></h2>
+<p>Let <i>f</i>(<i>x</i>) be a <a href="../../../c/o/n/Continuous_function.html" title="Continuous function">continuous function</a> on the interval [0, 1]. Consider the Bernstein polynomial</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/f/e/7fe55f6bea119fb20099881d163a9a9e.png" alt="B_n(f)(x) = \sum_{\nu=0}^{n} f\left(\frac{\nu}{n}\right) b_{\nu,n}(x)." /></dd>
+</dl>
+<p>It can be shown that</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/6/b/c6b3b11f2469f7c0c30e951b59d3810f.png" alt="\lim_{n\rightarrow\infty} B_n(f)(x)=f(x)" /></dd>
+</dl>
+<p><b><a href="../../../u/n/i/Uniform_convergence.html" title="Uniform convergence">uniformly</a> on the interval [0, 1]</b>. This is a stronger statement than the proposition that the limit holds for each value of <i>x</i> separately; that would be <a href="../../../p/o/i/Pointwise_convergence.html" title="Pointwise convergence">pointwise convergence</a> rather than <a href="../../../u/n/i/Uniform_convergence.html" title="Uniform convergence">uniform convergence</a>. Specifically, the word <i>uniformly</i> signifies that</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/2/f/92f4d581eb54d3ee86e2b671d1443650.png" alt="\lim_{n\rightarrow\infty} \sup\{\,\left|f(x)-B_n(f)(x)\right|:0\leq x\leq 1\,\}=0." /></dd>
+</dl>
+<p>Bernstein polynomials thus afford one way to prove the <a href="../../../s/t/o/Stone-Weierstrass_theorem_7155.html" title="Stone-Weierstrass theorem">Stone-Weierstrass approximation theorem</a> that every real-valued continuous function on a real interval [<i>a</i>,<i>b</i>] can be uniformly approximated by polynomial functions over <b>R</b>.</p>
+<p>A more general statement for a function with continuous k-th derivative is</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/d/4/0d4faaca3792bb01b0e6ea1d4e807a1f.png" alt="\| B_n(f)^{(k)} \|_\infty \le {(n)_k \over n^k} \| f^{(k)} \|_\infty" /> and <img class='tex' src="../../../math/0/2/f/02f08f6794f8d30f0a9c4645bdf14c6f.png" alt="\|f^{(k)}- B_n(f)^{(k)} \|_\infty \rightarrow 0," /></dd>
+</dl>
+<p>where additionally <img class='tex' src="../../../math/6/a/4/6a41845408eb30a0b13ca6d50b15e23b.png" alt="{(n)_k \over n^k}= \left(1-{0 \over n}\right)\left(1-{1 \over n}\right) \cdots \left(1-{k-1 \over n}\right)" /> is an <a href="../../../e/i/g/Eigenvalue.html" title="Eigenvalue">eigenvalue</a> of <span class="texhtml"><i>B</i><sub><i>n</i></sub></span>; the corresponding eigenfunction is a polynomial of degree k.</p>
+<p><a name="Proof" id="Proof"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernstein_polynomial.html" title="Edit section: Proof">edit</a>]</span> <span class="mw-headline">Proof</span></h2>
+<p>Suppose <i>K</i> is a <a href="../../../r/a/n/Random_variable.html" title="Random variable">random variable</a> distributed as the number of successes in <i>n</i> independent <a href="../../../b/e/r/Bernoulli_trial.html" title="Bernoulli trial">Bernoulli trials</a> with probability <i>x</i> of success on each trial; in other words, <i>K</i> has a <a href="../../../b/i/n/Binomial_distribution.html" title="Binomial distribution">binomial distribution</a> with parameters <i>n</i> and <i>x</i>. Then we have the <a href="../../../e/x/p/Expected_value.html" title="Expected value">expected value</a> E(<i>K/n</i>) = <i>x</i>.</p>
+<p>Then the <a href="../../../l/a/w/Law_of_large_numbers.html" title="Law of large numbers">weak law of large numbers</a> of <a href="../../../p/r/o/Probability_theory.html" title="Probability theory">probability theory</a> tells us that</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/8/6/d861a9cad0a6b9408a79e70b2b677f88.png" alt="\lim_{n\to\infty}P\left(\left|\frac{K}{n}-x\right|&gt;\delta\right)=0" /></dd>
+</dl>
+<p>for every <span class="texhtml">δ &gt; 0</span>.</p>
+<p>Because <i>f</i>, being continuous on a closed bounded interval, must be <a href="../../../u/n/i/Uniform_continuity.html" title="Uniform continuity">uniformly continuous</a> on that interval, we can infer a statement of the form</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/b/3/fb33b457d684ca8ecdf74a74b72ee041.png" alt="\lim_{n\rightarrow\infty} P\left(\left|f(K/n)-f(x)\right|&gt;\varepsilon\right)=0." /></dd>
+</dl>
+<p>Consequently</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/6/2/362f285bd125e0d250e8189dce936cdb.png" alt="\lim_{n\rightarrow\infty} P\left(\left|f(K/n)-E(f(K/n))\right|+\left|E(f(K/n))-f(x)\right|&gt;\varepsilon\right)=0." /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/7/0/5/70550aff8d63622a669419d6e65d76d2.png" alt="\lim_{n\rightarrow\infty} P\left(\left|f\left(\frac{K}{n}\right)-E\left(f\left(\frac{K}{n}\right)\right)\right|&gt;\varepsilon/2\right)+P\left( \left|E\left(f\left(\frac{K}{n}\right)\right)-f(x)\right|&gt;\varepsilon/2\right)=0." /></dd>
+</dl>
+<p>And so the second probability above approaches 0 as <i>n</i> grows. But the second probability is either 0 or 1, since the only thing that is random is <i>K</i>, and that appears <i>within the scope of the expectation operator E</i>. Finally, observe that E(<i>f</i>(<i>K/n</i>)) is just the Bernstein polynomial <i>B</i><sub><i>n</i></sub>(<i>f</i>,<i>x</i>).</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernstein_polynomial.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/%C3%A9/z/B%C3%A9zier_curve.html" title="Bézier curve">Bézier curve</a></li>
+<li><a href="../../../p/o/l/Polynomial_interpolation.html" title="Polynomial interpolation">Polynomial interpolation</a></li>
+<li><a href="../../../n/e/w/Newton_polynomial.html" title="Newton polynomial">Newton form</a></li>
+<li><a href="../../../l/a/g/Lagrange_polynomial.html" title="Lagrange polynomial">Lagrange form</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernstein_polynomial.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Eric W. Weisstein, <i><a href="http://mathworld.wolfram.com/BernsteinPolynomial.html" class="external text" title="http://mathworld.wolfram.com/BernsteinPolynomial.html" rel="nofollow">Bernstein Polynomial</a></i> at <a href="../../../m/a/t/MathWorld_3918.html" title="MathWorld">MathWorld</a>.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/r/Bernstein_polynomial.html">http://en.wikipedia.org../../../b/e/r/Bernstein_polynomial.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../n/u/m/Category%7ENumerical_analysis_3516.html" title="Category:Numerical analysis">Numerical analysis</a></span> | <span dir='ltr'><a href="../../../p/o/l/Category%7EPolynomials_9fc7.html" title="Category:Polynomials">Polynomials</a></span> | <span dir='ltr'><a href="../../../p/r/o/Category%7EProofs_4245.html" title="Category:Proofs">Proofs</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/e/r/Bernstein_polynomial.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/e/r/Talk%7EBernstein_polynomial_f22e.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bernstein_polynomial">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/e/r/Bernsteinpolynom.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/p/o/l/Polyn%C3%B4me_de_Bernstein_f600.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/p/o/l/Polinomio_di_Bernstein_9cf4.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/w/i/e/Wielomiany_Bernsteina_c20b.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/p/o/l/Polin%C3%B3mios_de_Bernstein_8891.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/b/e/r/Bernsteinpolynom.html">Svenska</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 10:36, 16 March 2007 by Wikipedia user Salgueiro. Based on work by Wikipedia user(s) <a href="../../../g/i/f/User%7EGiftlite_9506.html" title="User:Giftlite">Giftlite</a>, <a href="../../../s/l/a/User%7ESlaniel_fcb7.html" title="User:Slaniel">Slaniel</a>, <a href="../../../j/a/m/User%7EJames_pic_00ec.html" title="User:James pic">James pic</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../l/o/g/User%7ELogicnazi_b53c.html" title="User:Logicnazi">Logicnazi</a>, CyrilleDunant, <a href="../../../g/a/l/User%7EGala.martin_b836.html" title="User:Gala.martin">Gala.martin</a>, <a href="../../../a/2E/_/User%7EA._Pichler_f9c8.html" title="User:A. Pichler">A. Pichler</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../p/m/d/User%7EPmdboi_0836.html" title="User:Pmdboi">Pmdboi</a>, Japaget, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../o/r/d/User%7EOrderud_9d90.html" title="User:Orderud">Orderud</a>, <a href="../../../r/2E/e/User%7ER.e.b._6838.html" title="User:R.e.b.">R.e.b.</a>, <a href="../../../p/e/a/User%7EPeak_ed3e.html" title="User:Peak">Peak</a>, <a href="../../../n/c/i/User%7ENcik_02bf.html" title="User:Ncik">Ncik</a>, <a href="../../../p/h/i/User%7EPhil_Boswell_c574.html" title="User:Phil Boswell">Phil Boswell</a>, <a href="../../../m/a/t/User%7EMathMartin_aca3.html" title="User:MathMartin">MathMartin</a>, <a href="../../../m/e/d/User%7EMed_ac06.html" title="User:Med">Med</a>, <a href="../../../a/n/d/User%7EAndris_6e9c.html" title="User:Andris">Andris</a>, <a href="../../../j/a/r/User%7EJaredwf_4536.html" title="User:Jaredwf">Jaredwf</a>, <a href="../../../n/i/x/User%7ENixdorf_8d7c.html" title="User:Nixdorf">Nixdorf</a> and <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

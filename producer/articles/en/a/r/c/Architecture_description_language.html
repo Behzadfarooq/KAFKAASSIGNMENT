@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Architecture description language,Acme (ADL),Architecture Analysis &amp; Design Language,Architecture Analysis and Design Language,Carnegie Mellon University,Computer language,Darwin (ADL),Imperial College London,Society of Automotive Engineers,Software architecture,System architecture" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Architecture description language - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Architecture description language</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>An <b>Architecture Description Language</b> (<b>ADL</b>) is a <a href="../../../c/o/m/Computer_language.html" title="Computer language">computer language</a> used to describe <a href="../../../s/o/f/Software_architecture.html" title="Software architecture">software</a> and/or <a href="../../../s/y/s/System_architecture.html" title="System architecture">system architectures</a>. This means in case of <a href="../../../t/e/c/Technical_architecture.html" title="Technical architecture">technical architecture</a>, the architecture must be communicated to software developers. With functional architecture, the architecture is communicated to stakeholders and enterprise engineers.</p>
+<p>There are several ADLs, such as <a href="../../../a/c/m/Acme_%28ADL%29_0da7.html" title="Acme (ADL)">Acme</a> (developed by <a href="../../../c/a/r/Carnegie_Mellon_University_d56e.html" title="Carnegie Mellon University">CMU</a>), <a href="../../../a/r/c/Architecture_Analysis_and_Design_Language_ebfe.html" title="Architecture Analysis and Design Language">AADL</a> (standardized by <a href="../../../s/o/c/Society_of_Automotive_Engineers_3a18.html" title="Society of Automotive Engineers">SAE</a>), C2 (developed by <a href="../../../u/n/i/University_of_California%2C_Irvine_b2f0.html" title="University of California, Irvine">UCI</a>), <a href="../../../d/a/r/Darwin_%28ADL%29_0b3b.html" title="Darwin (ADL)">Darwin</a> (developed by <a href="../../../i/m/p/Imperial_College_London_588b.html" title="Imperial College London">Imperial College London</a>), and <a href="../../../w/r/i/Wright_%28ADL%29_6e3d.html" title="Wright (ADL)">Wright</a> (developed by CMU).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Characteristics"><span class="tocnumber">2</span> <span class="toctext">Characteristics</span></a></li>
+<li class="toclevel-1"><a href="#Architecture_vs._design"><span class="tocnumber">3</span> <span class="toctext">Architecture vs. design</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">4</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Approaches_to_architecture"><span class="tocnumber">5</span> <span class="toctext">Approaches to architecture</span></a></li>
+<li class="toclevel-1"><a href="#Conclusion"><span class="tocnumber">6</span> <span class="toctext">Conclusion</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Introduction" id="Introduction"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_description_language.html" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline">Introduction</span></h2>
+<p>The following reasons would be better served if there were a standard notation (ADL) for representing architectures:</p>
+<ul>
+<li>Mutual communication</li>
+<li>Embodiment of early design decisions</li>
+<li>Transferable abstraction of a system</li>
+</ul>
+<p>Architectures in the past were largely represented by box-and-line drawing. The following things are usually defined in such a drawing:</p>
+<ul>
+<li>Nature of the component</li>
+<li>Component properties</li>
+<li>Semantics of connections</li>
+<li>Behavior of a system as a whole</li>
+</ul>
+<p>ADLs result from a linguistic approach to the formal representation of architectures, and as such they address its shortcomings. Also important, sophisticated ADLs allow for early analysis and feasibility testing of architectural design decisions.</p>
+<p><a name="Characteristics" id="Characteristics"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_description_language.html" title="Edit section: Characteristics">edit</a>]</span> <span class="mw-headline">Characteristics</span></h2>
+<p>There is a large variety in ADLs developed by either academic or industrial groups. Many languages were not intended to be an ADL, but they turn out to be suitable for representing and analyzing an architecture. In principle ADLs differ from:</p>
+<ul>
+<li>Requirements languages, because ADLs are rooted in the solution space, whereas requirements describe problem spaces.</li>
+<li>Programming languages, because ADLs do not bind architectural abstractions to specific point solutions</li>
+<li>Modeling languages, because ADLs tend to focus on representation of components rather than the behavior of the whole.</li>
+</ul>
+<p>The following list is a minimal set of requirements for a language to be an ADL. The languages must&#160;:</p>
+<ul>
+<li>Be suitable for communicating an architecture to all interested parties</li>
+<li>Support the tasks of architecture creation, refinement and validation</li>
+<li>Provide a basis for further implementation, so it must be able to add information to the ADL specification to enable the final system specification to be derived from the ADL</li>
+<li>Provide the ability to represent most of the common architectural styles</li>
+<li>Support analytical capabilities or provide quick generating prototype implementations</li>
+</ul>
+<p>ADLs have in common:</p>
+<ul>
+<li>Graphical syntax with often a textual form and a formally defined syntax and semantics</li>
+<li>Features for modeling distributed systems</li>
+<li>Little support for capturing design information, except through general purpose annotation mechanisms</li>
+<li>Ability to represent hierarchical levels of detail including the creation of substructures by instantiating templates</li>
+</ul>
+<p>ADLs differ in their ability to:</p>
+<ul>
+<li>Handle real-time constructs, such as deadlines and task priorities, at the architectural level</li>
+<li>Support the specification of different architectural styles. Few handle object oriented class inheritance or dynamic architectures</li>
+<li>Support analysis</li>
+<li>Handle different instantiations of the same architecture, in relation to product line architectures</li>
+</ul>
+<p>Positive elements of ADL</p>
+<ul>
+<li>ADLs represent a formal way of representing architecture</li>
+<li>ADLs are intended to be both human and machine readable</li>
+<li>ADLs support describing a system at a higher level than previously possible</li>
+<li>ADLs permit analysis of architectures – completeness, consistency, ambiguity, and performance</li>
+<li>ADLs can support automatic generation of software systems</li>
+</ul>
+<p>Negative elements of ADL</p>
+<ul>
+<li>There is not universal agreement on what ADLs should represent, particularly as regards the behavior of the architecture</li>
+<li>Representations currently in use are relatively difficult to parse and are not supported by commercial tools</li>
+<li>Most ADL work today has been undertaken with academic rather than commercial goals in mind</li>
+<li>Most ADLs tend to be very vertically optimized toward a particular kind of analysis</li>
+</ul>
+<p>Common concepts of architecture</p>
+<p>The ADL community generally agrees that Software Architecture is a set of components and the connections among them. But there are different kind of architectures like&#160;:</p>
+<p>Object Connection Architecture</p>
+<ul>
+<li>Configuration consists of the interfaces and connections of an object-oriented system</li>
+<li>Interfaces specify the features that must be provided by modules conforming to an interface</li>
+<li>Connections represented by interfaces together with call graph</li>
+<li>Conformance usually enforced by the programming language
+<ul>
+<li>Decomposition - associating interfaces with unique modules</li>
+<li>Interface conformance - static checking of syntactic rules</li>
+<li>Communication integrity - visibility between modules</li>
+</ul>
+</li>
+</ul>
+<p>Interface Connection Architecture</p>
+<ul>
+<li>Expands the role of interfaces and connections
+<ul>
+<li>Interfaces specify both “required” and “provided” features</li>
+<li>Connections are defined between “required” features and “provided” features</li>
+</ul>
+</li>
+<li>Consists of interfaces, connections and constraints
+<ul>
+<li>Constraints restrict behavior of interfaces and connections in an architecture</li>
+<li>Constraints in an architecture map to requirements for a system</li>
+</ul>
+</li>
+</ul>
+<p>Most ADLs implement an interface connection architecture.</p>
+<p><a name="Architecture_vs._design" id="Architecture_vs._design"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_description_language.html" title="Edit section: Architecture vs. design">edit</a>]</span> <span class="mw-headline">Architecture vs. design</span></h2>
+<p>So what is the difference between architecture and design? Architecture casts non-functional decisions and partition functional requirements, whereas design is a principle through which functional requirements are accomplished. Architectural heuristic means that it is necessary to go one level deeper to validate choices, so the architect has to do a high-level design to validate the partitioning.</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_description_language.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>Below the list gives the candidates for being the best ADL until now</p>
+<ul>
+<li>Primary candidates
+<ul>
+<li><a href="http://www-2.cs.cmu.edu/~acme/" class="external text" title="http://www-2.cs.cmu.edu/~acme/" rel="nofollow">ACME / ADML (CMU/USC)</a></li>
+<li><a href="http://pavg.stanford.edu/rapide/" class="external text" title="http://pavg.stanford.edu/rapide/" rel="nofollow">Rapide (Stanford)</a></li>
+<li><a href="http://www-2.cs.cmu.edu/afs/cs/project/able/www/wright/index.html" class="external text" title="http://www-2.cs.cmu.edu/afs/cs/project/able/www/wright/index.html" rel="nofollow">Wright (CMU)</a></li>
+<li>Unicon (CMU)</li>
+</ul>
+</li>
+<li>Secondary candidates
+<ul>
+<li><a href="http://www.cs.cmu.edu/afs/cs/project/able/www/aesop/aesop_home.html" class="external text" title="http://www.cs.cmu.edu/afs/cs/project/able/www/aesop/aesop_home.html" rel="nofollow">Aesop (CMU)</a></li>
+<li>MetaH (Honeywell)</li>
+<li><a href="../../../a/r/c/Architecture_Analysis_%26_Design_Language_e445.html" title="Architecture Analysis &amp; Design Language">AADL</a> (SAE)</li>
+<li>C2 SADL (UCI)</li>
+<li>SADL (SRI)</li>
+</ul>
+</li>
+<li>Others
+<ul>
+<li>Lileanna</li>
+<li>UML</li>
+<li>Modechart</li>
+</ul>
+</li>
+</ul>
+<p><a name="Approaches_to_architecture" id="Approaches_to_architecture"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_description_language.html" title="Edit section: Approaches to architecture">edit</a>]</span> <span class="mw-headline">Approaches to architecture</span></h2>
+<p>Approaches to Architecture</p>
+<ul>
+<li>Academic Approach
+<ul>
+<li>focus on analytic evaluation of architectural models</li>
+<li>individual models</li>
+<li>rigorous modeling notations</li>
+<li>powerful analysis techniques</li>
+<li>depth over breadth</li>
+<li>special-purpose solutions</li>
+</ul>
+</li>
+<li>Industrial Approach
+<ul>
+<li>focus on wide range of development issues</li>
+<li>families of models</li>
+<li>practicality over rigor</li>
+<li>architecture as the big picture in development</li>
+<li>breadth over depth</li>
+<li>general-purpose solutions</li>
+</ul>
+</li>
+</ul>
+<p><a name="Conclusion" id="Conclusion"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_description_language.html" title="Edit section: Conclusion">edit</a>]</span> <span class="mw-headline">Conclusion</span></h2>
+<ul>
+<li>There is a rich body of research to draw upon</li>
+<li>Much has been learned about representing and analyzing architectures</li>
+<li>Effort is needed now to bring together the common knowledge and put it into practice</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_description_language.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/r/c/Architecture_Analysis_and_Design_Language_ebfe.html" title="Architecture Analysis and Design Language">AADL</a></li>
+<li><a href="../../../d/a/r/Darwin_%28ADL%29_0b3b.html" title="Darwin (ADL)">Darwin</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_description_language.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li>ACME: <a href="http://www.cs.cmu.edu/~acme" class="external free" title="http://www.cs.cmu.edu/~acme" rel="nofollow">http://www.cs.cmu.edu/~acme</a></li>
+<li>Rapide: <a href="http://pavg.stanford.edu/rapide/" class="external free" title="http://pavg.stanford.edu/rapide/" rel="nofollow">http://pavg.stanford.edu/rapide/</a></li>
+<li>Wright: <a href="http://www.cs.cmu.edu/afs/cs/project/able/www/wright/index.html" class="external free" title="http://www.cs.cmu.edu/afs/cs/project/able/www/wright/index.html" rel="nofollow">http://www.cs.cmu.edu/afs/cs/project/able/www/wright/index.html</a></li>
+<li>Aesop: <a href="http://www.cs.cmu.edu/afs/cs/project/able/www/aesop/aesop_home.html" class="external free" title="http://www.cs.cmu.edu/afs/cs/project/able/www/aesop/aesop_home.html" rel="nofollow">http://www.cs.cmu.edu/afs/cs/project/able/www/aesop/aesop_home.html</a></li>
+<li>Unicon: <a href="http://www.cs.cmu.edu/afs/cs/project/vit/www/unicon/index.html" class="external free" title="http://www.cs.cmu.edu/afs/cs/project/vit/www/unicon/index.html" rel="nofollow">http://www.cs.cmu.edu/afs/cs/project/vit/www/unicon/index.html</a></li>
+<li>C2 SADL: <a href="http://www.ics.uci.edu/pub/arch/" class="external free" title="http://www.ics.uci.edu/pub/arch/" rel="nofollow">http://www.ics.uci.edu/pub/arch/</a></li>
+<li>SSEP: <a href="http://www.mcc.com/projects/ssepp" class="external free" title="http://www.mcc.com/projects/ssepp" rel="nofollow">http://www.mcc.com/projects/ssepp</a></li>
+<li>ADML: <a href="http://www.mcc.com/projects/ssepp/adml" class="external free" title="http://www.mcc.com/projects/ssepp/adml" rel="nofollow">http://www.mcc.com/projects/ssepp/adml</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/c/Architecture_description_language.html">http://en.wikipedia.org../../../a/r/c/Architecture_description_language.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../s/o/f/Category%7ESoftware_architecture_10fc.html" title="Category:Software architecture">Software architecture</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/r/c/Architecture_description_language.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/r/c/Talk%7EArchitecture_description_language_c4f2.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Architecture_description_language">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/r/c/Architecture_Description_Language_24f0.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%82%A2/%E3%83%BC/%E3%82%AD/%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E8%A8%98%E8%BF%B0%E8%A8%80%E8%AA%9E.html">日本語</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:19, 14 January 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) Signal1st, <a href="../../../e/r/e/User%7EErebus555_1839.html" title="User:Erebus555">Erebus555</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../s/u/r/User%7ESuruena_5a7c.html" title="User:Suruena">Suruena</a>, <a href="../../../s/a/n/User%7ESango123_0773.html" title="User:Sango123">Sango123</a>, <a href="../../../r/o/d/User%7ERodii_0ecc.html" title="User:Rodii">Rodii</a>, <a href="../../../v/c/l/User%7EVclaw_af47.html" title="User:Vclaw">Vclaw</a>, <a href="../../../r/i/c/User%7ERichard_Allen_a94e.html" title="User:Richard Allen">Richard Allen</a>, Irfanhamid, Interested, <a href="../../../c/m/d/User%7ECmdrjameson_3c06.html" title="User:Cmdrjameson">Cmdrjameson</a>, <a href="../../../b/r/y/User%7EBryan_Derksen_3ce8.html" title="User:Bryan Derksen">Bryan Derksen</a>, EduardoCruz, S.K., <a href="../../../k/h/a/User%7EKhalid_hassani_3476.html" title="User:Khalid hassani">Khalid hassani</a> and Aasch.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

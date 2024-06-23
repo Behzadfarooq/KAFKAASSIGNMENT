@@ -1,0 +1,667 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Boyer–Moore string search algorithm,Algorithm,Amortization,Anpanman,Bob Boyer,Boyer-Moore-Horspool algorithm,C (programming language),J Strother Moore,Jump table,Knuth–Morris–Pratt algorithm,Preprocessor" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Boyer–Moore string search algorithm - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Boyer–Moore string search algorithm</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>The <b>Boyer–Moore string search algorithm</b> is a particularly efficient <a href="../../../s/t/r/String_searching_algorithm.html" title="String searching algorithm">string searching algorithm</a>. It was developed by <a href="../../../b/o/b/Bob_Boyer_f7ef.html" title="Bob Boyer">Bob Boyer</a> and <a href="../../../j/_/s/J_Strother_Moore_1921.html" title="J Strother Moore">J Strother Moore</a> in 1977. The <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a> <a href="../../../p/r/e/Preprocessor.html" title="Preprocessor">preprocesses</a> the target <a href="../../../s/t/r/String_%28computer_science%29.html" title="String (computer science)">string</a> (key) that is being searched for, but not the string being searched (unlike some algorithms which preprocess the string to be searched, and can then <a href="../../../a/m/o/Amortization.html" title="Amortization">amortize</a> the expense of the preprocessing by searching repeatedly). The execution time of the Boyer-Moore algorithm can actually be sub-linear: it doesn't need to actually check every character of the string to be searched but rather skips over some of them. Generally the algorithm gets faster as the key being searched for becomes longer. Its efficiency derives from the fact that, with each unsuccessful attempt to find a match between the search string and the text it's searching in, it uses the information gained from that attempt to rule out as many positions of the text as possible where the string could <i>not</i> match.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#How_the_algorithm_works"><span class="tocnumber">1</span> <span class="toctext">How the algorithm works</span></a>
+<ul>
+<li class="toclevel-2"><a href="#the_first_table"><span class="tocnumber">1.1</span> <span class="toctext">the first table</span></a></li>
+<li class="toclevel-2"><a href="#the_second_table"><span class="tocnumber">1.2</span> <span class="toctext">the second table</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Performance_of_the_Boyer-Moore_string_search_algorithm"><span class="tocnumber">2</span> <span class="toctext">Performance of the Boyer-Moore string search algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Example_implementation"><span class="tocnumber">3</span> <span class="toctext">Example implementation</span></a></li>
+<li class="toclevel-1"><a href="#Variants"><span class="tocnumber">4</span> <span class="toctext">Variants</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="How_the_algorithm_works" id="How_the_algorithm_works"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html" title="Edit section: How the algorithm works">edit</a>]</span> <span class="mw-headline">How the algorithm works</span></h2>
+<div class="thumb tright" style="width:300px;">
+<div>
+<table>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>X</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+</tr>
+</table>
+<div class="thumbcaption" style="width:300px;">The X in position 8 excludes all 8 of the possible starting positions shown.</div>
+</div>
+</div>
+<p>What people frequently find surprising about the Boyer-Moore algorithm when they first encounter it is that its verifications – its attempts to check whether a match exists at a particular position – work backwards. If it starts a search at the beginning of a text for the word "ANPANMAN", for instance, it checks the eighth position of the text to see if it contains an "N". If it finds the "N", it moves to the seventh position to see if that contains the last "A" of the word, and so on until it checks the first position of the text for a "A".</p>
+<p>Why Boyer-Moore takes this backward approach is clearer when we consider what happens if the verification fails – for instance, if instead of an "N" in the eighth position, we find an "X". The "X" doesn't appear anywhere in "ANPANMAN", and this means there is no match for the search string at the very start of the text – or at the next seven positions following it, since those would all fall across the "X" as well. After checking just one character, we're able to skip ahead and start looking for a match starting at the ninth position of the text, just after the "X".</p>
+<p>This explains why the best-case performance of the algorithm, for a text of length N and a fixed pattern of length M, is N/M: in the best case, only one in M characters needs to be checked. This also explains the somewhat counter-intuitive result that the longer the pattern we are looking for, the faster the algorithm will be usually able to find it.</p>
+<p>The algorithm precomputes two tables to process the information it obtains in each failed verification: one table calculates how many positions ahead to start the next search based on the identity of the character that caused the match attempt to fail; the other makes a similar calculation based on how many characters were matched successfully before the match attempt failed. (Because these two tables return results indicating how far ahead in the text to "jump", they are sometimes called "jump tables", which should not be confused with the more common meaning of <a href="../../../j/u/m/Jump_table.html" title="Jump table">jump tables</a> in computer science.)</p>
+<p><a name="the_first_table" id="the_first_table"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html" title="Edit section: the first table">edit</a>]</span> <span class="mw-headline">the first table</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../b/o/y/Boyer-Moore-Horspool_algorithm_9cf5.html" title="Boyer-Moore-Horspool algorithm">Boyer-Moore-Horspool algorithm</a></i></div>
+</dd>
+</dl>
+<p>The first table is easy to calculate: Start at the last character of the sought string and move towards the first character. Each time you move left, if the character you are on is not in the table already, add it; its Shift value is its distance from the rightmost character. All other characters receive a count equal to the length of the search string.</p>
+<p><i><b>Example</b>: For the string ANPANMAN, the first table would be as shown (for clarity, entries are shown in the order they would be added to the table):</i></p>
+<table class="wikitable">
+<tr>
+<th>Character</th>
+<th>Shift</th>
+</tr>
+<tr align="right">
+<td>N</td>
+<td>0</td>
+</tr>
+<tr align="right">
+<td>A</td>
+<td>1</td>
+</tr>
+<tr align="right">
+<td>M</td>
+<td>2</td>
+</tr>
+<tr align="right">
+<td>P</td>
+<td>5</td>
+</tr>
+<tr align="right">
+<td>all other characters</td>
+<td>8</td>
+</tr>
+</table>
+<p>The amount of shift calculated by the first table is sometimes called the "bad character shift"<a href="http://www.movsd.com/bm.htm" class="external autonumber" title="http://www.movsd.com/bm.htm" rel="nofollow">[1]</a>.</p>
+<p><a name="the_second_table" id="the_second_table"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html" title="Edit section: the second table">edit</a>]</span> <span class="mw-headline">the second table</span></h3>
+<div class="thumb tright" style="width:300px;">
+<div>
+<table>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>A</td>
+<td>N</td>
+<td>P</td>
+<td>A</td>
+<td>N</td>
+<td>M</td>
+<td>A</td>
+<td>N</td>
+<td>-</td>
+</tr>
+</table>
+<div class="thumbcaption" style="width:300px;">The mismatch "A" in position 5 (3 back from the last letter of the needle) excludes the first 6 of the possible starting positions shown.</div>
+</div>
+</div>
+<p>The second table is slightly more difficult to calculate: for each value of <i>N</i> less than the length of the search string, we must first calculate the pattern consisting of the last <i>N</i> characters of the search string, preceded by a <i>mis</i>-match for the character before it; then we initially line it up with the search pattern and determine the least number of characters the partial pattern must be shifted left before the two patterns match. For instance, for the search string <a href="../../../a/n/p/Anpanman.html" title="Anpanman">ANPANMAN</a>, the table would be as follows:</p>
+<table class="wikitable">
+<tr>
+<th>N</th>
+<th>Pattern</th>
+<th>Shift</th>
+</tr>
+<tr align="right">
+<td>0</td>
+<td><s>N</s></td>
+<td>1</td>
+</tr>
+<tr align="right">
+<td>1</td>
+<td><s>A</s>N</td>
+<td>8</td>
+</tr>
+<tr align="right">
+<td>2</td>
+<td><s>M</s>AN</td>
+<td>3</td>
+</tr>
+<tr align="right">
+<td>3</td>
+<td><s>N</s>MAN</td>
+<td>6</td>
+</tr>
+<tr align="right">
+<td>4</td>
+<td><s>A</s>NMAN</td>
+<td>6</td>
+</tr>
+<tr align="right">
+<td>5</td>
+<td><s>P</s>ANMAN</td>
+<td>6</td>
+</tr>
+<tr align="right">
+<td>6</td>
+<td><s>N</s>PANMAN</td>
+<td>6</td>
+</tr>
+<tr align="right">
+<td>7</td>
+<td><s>A</s>NPANMAN</td>
+<td>6</td>
+</tr>
+</table>
+<p>It may be easier to see how we derived the figures in the "shift" column if we look at the following table, which actually shows each partial pattern shifted as many places to the left as needed to match against the search string. (The character which must <i>not</i> match is shown here as the lower-case version of that character; thus the pattern "mAN", for instance, can be read as "The string 'AN', preceded by any character except an 'M'".)</p>
+<pre>
+      ANPANMAN
+      --------
+       n       1
+      aN       8
+     mAN       3
+    nMAN       6
+   aNMAN       6
+  pANMAN       6
+ nPANMAN       6
+aNPANMAN       6
+</pre>
+<p>The amount of shift calculated by the second table is sometimes called the "good suffix shift"<a href="http://www.movsd.com/bm.htm" class="external autonumber" title="http://www.movsd.com/bm.htm" rel="nofollow">[2]</a>.</p>
+<p><a name="Performance_of_the_Boyer-Moore_string_search_algorithm" id="Performance_of_the_Boyer-Moore_string_search_algorithm"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html" title="Edit section: Performance of the Boyer-Moore string search algorithm">edit</a>]</span> <span class="mw-headline">Performance of the Boyer-Moore string search algorithm</span></h2>
+<p>The worst-case performance of the algorithm to find all matches is approximately N*M. This worst case is hit when the string to be searched consists of repetitions of a single character, and the target string consists of M-1 repetitions of that character preceded by a single instance of a different character. In this scenario, the algorithm must check N-M+1 different offsets in the text for a match, and each such check takes M comparisons.<sup class="noprint"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since March 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup></p>
+<p>The worst-case to find all occurrences in a text needs approximately 3*N comparisons, hence the complexity is O(n), regardless whether the text contains a match or not. The proof is due to Richard Cole, see R. COLE, <i>Tight bounds on the complexity of the Boyer-Moore algorithm,</i> Proceedings of the 2nd Annual ACM-SIAM Symposium on Discrete Algorithms, (1991) for details. This proof took some years to determine. In the year the algorithm was devised, 1977, the maximum number of comparisons was shown to be no more than 6*N; in 1980 it was shown to be no more than 4*N, until Cole's result in 1991.</p>
+<p><a name="Example_implementation" id="Example_implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html" title="Edit section: Example implementation">edit</a>]</span> <span class="mw-headline">Example implementation</span></h2>
+<p>Here is an example implementation of the Boyer-Moore algorithm, written in <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a>.</p>
+<p>Note: The method of constructing the good-match table (skip[]) in this example is slower than it needs to be (for simplicity of implementation). It does not make a fair comparison to other algorithms, should you try to compare their speed. A faster method should be used instead.</p>
+<pre>
+#include &lt;string.h&gt;
+#include &lt;limits.h&gt;
+
+/* This helper function checks, whether the last "portion" bytes
+ * of "needle" (which is "nlen" bytes long) exist within the "needle"
+ * at offset "offset" (counted from the end of the string),
+ * and whether the character preceding "offset" is not a match.
+ * Notice that the range being checked may reach beyond the
+ * beginning of the string. Such range is ignored.
+ */
+static int boyermoore_needlematch
+    (const unsigned char* needle, size_t nlen, size_t portion, size_t offset)
+{
+    ssize_t virtual_begin = nlen-offset-portion;
+    ssize_t ignore = 0;
+    if(virtual_begin &lt; 0) { ignore = -virtual_begin; virtual_begin = 0; }
+    
+    if(virtual_begin &gt; 0 &amp;&amp; needle[virtual_begin-1] == needle[nlen-portion-1])
+        return 0;
+
+    return
+        memcmp(needle + nlen - portion + ignore,
+               needle + virtual_begin,
+               portion - ignore) == 0;
+}   
+
+static size_t max(ssize_t a, ssize_t b) { return a&gt;b ? a : b; }
+
+/* Returns a pointer to the first occurrence of "needle"
+ * within "haystack", or NULL if not found.
+ */
+const unsigned char* memmem_boyermoore
+    (const unsigned char* haystack, size_t hlen,
+     const unsigned char* needle,   size_t nlen)
+{
+    size_t skip[nlen]; /* Array of shifts with self-substring match check */
+    ssize_t occ[UCHAR_MAX+1]; /* Array of last occurrence of each character */
+    size_t a, hpos;
+    
+    if(nlen &gt; hlen || nlen &lt;= 0 || !haystack || !needle) return NULL;
+
+    /* Preprocess #1: init occ[]*/
+    
+    /* Initialize the table to default value */
+    for(a=0; a&lt;UCHAR_MAX+1; ++a) occ[a] = -1;
+    
+    /* Then populate it with the analysis of the needle */
+    /* But ignoring the last letter */
+    for(a=0; a&lt;nlen-1; ++a) occ[needle[a]] = a;
+    
+    /* Preprocess #2: init skip[] */  
+    /* Note: This step could be made a lot faster.
+     * A simple implementation is shown here. */
+    for(a=0; a&lt;nlen; ++a)
+    {
+        size_t value = 0;
+        while(value &lt; nlen &amp;&amp; !boyermoore_needlematch(needle, nlen, a, value))
+            ++value;
+        skip[nlen-a-1] = value;
+    }
+    
+    /* Search: */
+    for(hpos=0; hpos &lt;= hlen-nlen; )
+    {
+        size_t npos=nlen-1;
+        while(needle[npos] == haystack[npos+hpos])
+        {
+            if(npos == 0) return haystack + hpos;
+            --npos;
+        }
+        hpos += max(skip[npos], npos - occ[haystack[npos+hpos]]);
+    }
+    return NULL;
+}
+</pre>
+<p><a name="Variants" id="Variants"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html" title="Edit section: Variants">edit</a>]</span> <span class="mw-headline">Variants</span></h2>
+<p>The <b>Turbo Boyer-Moore algorithm</b> takes an additional constant amount of space to complete a search within <i>2n</i> comparisons (as opposed to <i>3n</i> for Boyer-Moore). (<i>n</i> is the number of characters in the text to be searched). <a href="http://www-igm.univ-mlv.fr/~lecroq/string/node15.html" class="external autonumber" title="http://www-igm.univ-mlv.fr/~lecroq/string/node15.html" rel="nofollow">[3]</a></p>
+<p>The <a href="../../../b/o/y/Boyer-Moore-Horspool_algorithm_9cf5.html" title="Boyer-Moore-Horspool algorithm">Boyer-Moore-Horspool algorithm</a> is a simplification of the Boyer-Moore algorithm that leaves out the "second table". The Boyer-Moore-Horspool algorithm requires (in the worst case) M*N comparisons, while the Boyer-Moore algorithm requires (in the worst case) only 3*N comparisons<sup class="noprint"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since March 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../k/n/u/Knuth%E2%80%93Morris%E2%80%93Pratt_algorithm_7a14.html" title="Knuth–Morris–Pratt algorithm">Knuth–Morris–Pratt algorithm</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www-sr.informatik.uni-tuebingen.de/~buehler/BM/BM1.html" class="external text" title="http://www-sr.informatik.uni-tuebingen.de/~buehler/BM/BM1.html" rel="nofollow">Animation</a> of the Boyer-Moore algorithm</li>
+<li><a href="http://www.cs.utexas.edu/users/moore/best-ideas/string-searching/fstrpos-example.html" class="external text" title="http://www.cs.utexas.edu/users/moore/best-ideas/string-searching/fstrpos-example.html" rel="nofollow">An example of the Boyer-Moore algorithm</a> from the homepage of <a href="../../../j/_/s/J_Strother_Moore_1921.html" title="J Strother Moore">J Strother Moore</a>, co-inventor of the algorithm</li>
+<li><a href="http://www-igm.univ-mlv.fr/%7Elecroq/string/node14.html" class="external text" title="http://www-igm.univ-mlv.fr/%7Elecroq/string/node14.html" rel="nofollow">An explanation of the algorithm (with sample C code)</a></li>
+<li><a href="http://www.cs.nyu.edu/cs/faculty/cole/papers/CHPZ95.ps" class="external text" title="http://www.cs.nyu.edu/cs/faculty/cole/papers/CHPZ95.ps" rel="nofollow">Cole et al, Tighter lower bounds on the exact complexity of string matching</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2480 bytes
+Post-expand include size: 1246 bytes
+Template argument size: 364 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html">http://en.wikipedia.org../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_unsourced_statements_since_March_2007_2536.html" title="Category:Articles with unsourced statements since March 2007">Articles with unsourced statements since March 2007</a></span> | <span dir='ltr'><a href="../../../a/l/l/Category%7EAll_articles_with_unsourced_statements_2f67.html" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="../../../a/l/g/Category%7EAlgorithms_on_strings_0457.html" title="Category:Algorithms on strings">Algorithms on strings</a></span> | <span dir='ltr'><a href="../../../s/e/a/Category%7ESearch_algorithms_e191.html" title="Category:Search algorithms">Search algorithms</a></span> | <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_example_C_code_0fd2.html" title="Category:Articles with example C code">Articles with example C code</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/y/Boyer%E2%80%93Moore_string_search_algorithm_f485.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/o/y/Talk%7EBoyer%E2%80%93Moore_string_search_algorithm_0450.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_string_search_algorithm">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/o/y/Boyer-Moore-Algorithmus_f4f3.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/l/g/Algorithme_de_Boyer-Moore_ac33.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../lt/b/l/o/Blogo_simbolio_taisykl%C4%97.html">Lietuvių</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%83%9C/%E3%82%A4/%E3%83%A4/%E3%83%9C%E3%82%A4%E3%83%A4%E3%83%BC-%E3%83%A0%E3%83%BC%E3%82%A2%E6%96%87%E5%AD%97%E5%88%97%E6%A4%9C%E7%B4%A2%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/l/g/Algorytm_Boyera_i_Moore%27a_3fd3.html">Polski</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:43, 30 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, Eyal0, <a href="../../../s/t/b/User%7ESTBotD_8c4f.html" title="User:STBotD">STBotD</a>, Blueyoshi321, <a href="../../../b/o/o/User%7EBooyabazooka_79a9.html" title="User:Booyabazooka">Booyabazooka</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, Abednigo, <a href="../../../p/n/e/User%7EPne_05d6.html" title="User:Pne">Pne</a>, <a href="../../../r/a/d/User%7ERadagast83_195a.html" title="User:Radagast83">Radagast83</a>, <a href="../../../a/l/p/User%7EAlphachimpbot_48b3.html" title="User:Alphachimpbot">Alphachimpbot</a>, Lisamh, <a href="../../../m/b/o/User%7EMboverload_cce2.html" title="User:Mboverload">Mboverload</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, Xillion, <a href="../../../b/i/s/User%7EBisqwit_6c3d.html" title="User:Bisqwit">Bisqwit</a>, Tim.head, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../b/e/l/User%7EBeland_b814.html" title="User:Beland">Beland</a>, <a href="../../../m/i/k/User%7EMikeblas_16be.html" title="User:Mikeblas">Mikeblas</a>, TripleF, <a href="../../../w/i/k/User%7EWikibob_130d.html" title="User:Wikibob">Wikibob</a>, <a href="../../../p/h/e/User%7EPhe_0829.html" title="User:Phe">Phe</a>, <a href="../../../l/t/-/User%7ELt-wiki-bot_96d3.html" title="User:Lt-wiki-bot">Lt-wiki-bot</a>, <a href="../../../q/u/u/User%7EQuuxplusone_9b50.html" title="User:Quuxplusone">Quuxplusone</a>, <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a>, <a href="../../../t/r/i/User%7ETriddle_3664.html" title="User:Triddle">Triddle</a>, <a href="../../../f/b/r/User%7EFbriere_e2c7.html" title="User:Fbriere">Fbriere</a>, <a href="../../../m/o/i/User%7EMoink_dc9f.html" title="User:Moink">Moink</a>, <a href="../../../r/y/a/User%7ERyan_Reich_feb7.html" title="User:Ryan Reich">Ryan Reich</a>, <a href="../../../a/n/c/User%7EAncheta_Wis_6134.html" title="User:Ancheta Wis">Ancheta Wis</a>, <a href="../../../r/j/f/User%7ERJFJR_0643.html" title="User:RJFJR">RJFJR</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../y/u/l/User%7EYUL89YYZ_a738.html" title="User:YUL89YYZ">YUL89YYZ</a>, <a href="../../../m/a/t/User%7EMathiasl26_e268.html" title="User:Mathiasl26">Mathiasl26</a>, <a href="../../../m/a/x/User%7EMaximus_Rex_f7db.html" title="User:Maximus Rex">Maximus Rex</a>, Fib and <a href="../../../w/a/t/User%7EWatcher_5a47.html" title="User:Watcher">Watcher</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

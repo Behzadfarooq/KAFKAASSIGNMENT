@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Alexander polynomial,3-sphere,Incidence matrix,J. W. Alexander,Joan Birman,John Horton Conway,Jones polynomial,Knot complement,Knot invariant,Knot polynomial,Mathematics" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Alexander polynomial - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Alexander polynomial</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, the <b>Alexander polynomial</b> is a <a href="../../../k/n/o/Knot_invariant.html" title="Knot invariant">knot invariant</a> which assigns a polynomial with integer coefficients to each knot type. <a href="../../../j/2E/_/J._W._Alexander_6d12.html" title="J. W. Alexander">J. W. Alexander</a> discovered this, the first <a href="../../../k/n/o/Knot_polynomial.html" title="Knot polynomial">knot polynomial</a>, in 1923. In 1969, <a href="../../../j/o/h/John_Horton_Conway_42ec.html" title="John Horton Conway">John Conway</a> showed a version of this polynomial, now called the <b>Alexander-Conway polynomial</b>, could be computed using a <a href="../../../s/k/e/Skein_relation.html" title="Skein relation">skein relation</a>, although its significance was not realized until the discovery of the <a href="../../../j/o/n/Jones_polynomial.html" title="Jones polynomial">Jones polynomial</a> in 1984. Soon after Conway's reworking of the Alexander polynomial, it was realized that a similar skein relation was exhibited in Alexander's paper on his polynomial.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Definition"><span class="tocnumber">1</span> <span class="toctext">Definition</span></a></li>
+<li class="toclevel-1"><a href="#Computing_the_polynomial"><span class="tocnumber">2</span> <span class="toctext">Computing the polynomial</span></a></li>
+<li class="toclevel-1"><a href="#Basic_properties_of_the_polynomial"><span class="tocnumber">3</span> <span class="toctext">Basic properties of the polynomial</span></a></li>
+<li class="toclevel-1"><a href="#Geometric_significance_of_the_polynomial"><span class="tocnumber">4</span> <span class="toctext">Geometric significance of the polynomial</span></a></li>
+<li class="toclevel-1"><a href="#Relations_to_satellite_operations"><span class="tocnumber">5</span> <span class="toctext">Relations to satellite operations</span></a></li>
+<li class="toclevel-1"><a href="#Alexander-Conway_polynomial"><span class="tocnumber">6</span> <span class="toctext">Alexander-Conway polynomial</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#Endnotes"><span class="tocnumber">9</span> <span class="toctext">Endnotes</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Definition" id="Definition"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexander_polynomial.html" title="Edit section: Definition">edit</a>]</span> <span class="mw-headline">Definition</span></h2>
+<p>Let <i>K</i> be a knot in the <a href="../../../3/-/s/3-sphere.html" title="3-sphere">3-sphere</a>. Let <i>X</i> be the infinite cyclic cover of the <a href="../../../k/n/o/Knot_complement.html" title="Knot complement">knot complement</a> of <i>K</i>. There is a covering transformation <i>t</i> acting on <i>X</i>. Consider the first homology (with integer coefficients) of <i>X</i>, denoted <span class="texhtml"><i>H</i><sub>1</sub>(<i>X</i>)</span>. The transformation <i>t</i> acts on the homology and so we can consider <span class="texhtml"><i>H</i><sub>1</sub>(<i>X</i>)</span> a <a href="../../../m/o/d/Module_%28mathematics%29.html" title="Module (mathematics)">module</a> over <img class='tex' src="../../../math/e/a/f/eaf23549827bb1cb5739c19ff8b5dd30.png" alt="\mathbb{Z}[t, t^{-1}]" />. This is called the <b>Alexander invariant</b>.</p>
+<p>The module if finitely presentable; a presentation matrix for this module is called the <b>Alexander matrix</b>. If the number of generators, <i>r</i>, is less than or equal to the number of relations, <i>s</i>, then we consider the ideal generated by all <i>r</i> by <i>r</i> minors of the matrix; this is the <b>Alexander ideal</b> and does not depend on choice of presentation matrix. If <i>r &gt; s</i>, set the ideal equal to 0. If the Alexander ideal is <a href="../../../p/r/i/Principal_ideal.html" title="Principal ideal">principal</a>, take a generator; this is called a Alexander polynomial of the knot. Since this is only unique up to multiplication by the Laurent monomial <img class='tex' src="../../../math/a/c/b/acb3a1cbc1046660297e37e201e1ce73.png" alt="\pm t^n" />, one often fixes a particular unique form. Alexander's choice of normalization is to make the polynomial have a positive constant term.</p>
+<p>Alexander proved that the Alexander ideal is nonzero and always principal. Thus an Alexander polynomial always exists, and is clearly a knot invariant. Typically it is denoted <span class="texhtml">Δ<sub><i>K</i></sub>(<i>t</i>)</span>.</p>
+<p><a name="Computing_the_polynomial" id="Computing_the_polynomial"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexander_polynomial.html" title="Edit section: Computing the polynomial">edit</a>]</span> <span class="mw-headline">Computing the polynomial</span></h2>
+<p>The following procedure for computing the Alexander polynomial was given by J. W. Alexander in his paper.</p>
+<p>Take an <a href="../../../o/r/i/Oriented.html" title="Oriented">oriented</a> diagram of the knot with <i>n</i> crossings; there are <i>n</i>&#160;+&#160;2 regions of the knot diagram. To work out the Alexander polynomial, firstly one must create an <a href="../../../i/n/c/Incidence_matrix.html" title="Incidence matrix">incidence matrix</a> of size (<i>n</i>, <i>n</i>&#160;+&#160;2). The <i>n</i> rows correspond to the <i>n</i> crossings, and the <i>n</i>&#160;+&#160;2 columns to the regions. The values for the matrix entries are either 0, 1, −1, <i>t</i>, −<i>t</i>.</p>
+<p>Consider the entry corresponding to a particular region and crossing. If the region is not adjacent to the crossing, the entry is 0. If the region is adjacent to the crossing, the entry depends on its location. The following table gives the entry, determined by the location of the region at the crossing from the perspective of the incoming undercrossing line.</p>
+<dl>
+<dd>on the left before undercrossing: −<i>t</i></dd>
+<dd>on the right before undercrossing: 1</dd>
+<dd>on the left after undercrossing: <i>t</i></dd>
+<dd>on the right after undercrossing: −1</dd>
+</dl>
+<p>Remove two columns corresponding to adjacent regions from the matrix, and work out the determinant of the new <i>n</i> by <i>n</i> matrix. Depending on the columns removed, the answer will differ by multiplication by <img class='tex' src="../../../math/a/c/b/acb3a1cbc1046660297e37e201e1ce73.png" alt="\pm t^n" />. To resolve this ambiguity, divide out the largest possible power of <i>t</i> and multiply by -1 if necessary, so that the constant term is positive. This gives the Alexander polynomial.</p>
+<p>The Alexander polynomial can also be computed from the <a href="../../../s/e/i/Seifert_matrix.html" title="Seifert matrix">Seifert matrix</a>.</p>
+<p><a name="Basic_properties_of_the_polynomial" id="Basic_properties_of_the_polynomial"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexander_polynomial.html" title="Edit section: Basic properties of the polynomial">edit</a>]</span> <span class="mw-headline">Basic properties of the polynomial</span></h2>
+<p>The Alexander polynomial is symmetric: <span class="texhtml">Δ<sub><i>K</i></sub>(<i>t</i> <sup>− 1</sup>) = Δ<sub><i>K</i></sub>(<i>t</i>)</span></p>
+<p>and it evaluates to a unit on 1: <img class='tex' src="../../../math/a/c/0/ac0daa1f14696897ea4c39e9c32d79bf.png" alt="\Delta_K(1)=\pm 1" />.</p>
+<p>It is known that every integral Laurent polynomial which is both symmetric and evaluates to a unit at 1 is the Alexander polynomial of a knot (see the Kawauchi survey).</p>
+<p><a name="Geometric_significance_of_the_polynomial" id="Geometric_significance_of_the_polynomial"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexander_polynomial.html" title="Edit section: Geometric significance of the polynomial">edit</a>]</span> <span class="mw-headline">Geometric significance of the polynomial</span></h2>
+<p>Since the Alexander ideal is principal, <span class="texhtml">Δ<sub><i>K</i></sub>(<i>t</i>) = 1</span> if and only if the commutator subgroup of the knot group is <a href="../../../p/e/r/Perfect_group.html" title="Perfect group">perfect</a>.</p>
+<p>Consider the 3-sphere to be the boundary of the 4-ball. Michael Freedman proved that a knot in the 3-sphere bounds a tame topological disc in the 4-ball if and only if the Alexander polynomial of the knot is trivial <sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup></p>
+<p>Knots with symmetries are known to have restricted Alexander polynomials. See the symmetry section in Kawauchi's survey <sup id="_ref-2" class="reference"><a href="#_note-2" title="">[3]</a></sup>. Although, the Alexander polynomial can fail to detect some symmetries, such as strong invertibility.</p>
+<p><a name="Relations_to_satellite_operations" id="Relations_to_satellite_operations"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexander_polynomial.html" title="Edit section: Relations to satellite operations">edit</a>]</span> <span class="mw-headline">Relations to <a href="../../../s/a/t/Satellite_knot.html" title="Satellite knot">satellite operations</a></span></h2>
+<p>If a knot <span class="texhtml"><i>K</i></span> is a <a href="../../../s/a/t/Satellite_knot.html" title="Satellite knot">satellite knot</a> with companion <span class="texhtml"><i>K</i>'</span> ie: there exists an embedding <img class='tex' src="../../../math/f/d/9/fd9c9a65e57bd2f0f2ed1f7c8c98a64e.png" alt="f&#160;: S^1 \times D^2 \to S^3" /> such that <span class="texhtml"><i>K</i> = <i>f</i>(<i>K</i>')</span> where <img class='tex' src="../../../math/6/f/0/6f04dbf75adecb2e9220bbb9a2f3f2e5.png" alt="S^1 \times D^2 \subset S^3" /> is an unknotted solid torus, then <img class='tex' src="../../../math/d/1/f/d1f8bba1baf43bf8f9aec9dc4b6f999d.png" alt="\Delta_K(t) = \Delta_{f(S^1 \times \{0\}}(t) \Delta_{K'}(t^a)" />. Where <img class='tex' src="../../../math/c/2/9/c29d2f58560041cdc322b58e4966a0ca.png" alt="a \in \mathbb Z" /> is the integer that represents <img class='tex' src="../../../math/b/e/a/beae9aca6076f39f0b408a4865f43814.png" alt="K' \subset S^1 \times D^2" /> in <img class='tex' src="../../../math/0/f/1/0f1d40ae971a568227b50c81fe271f05.png" alt="H_1(S^1\times D^2) = \mathbb Z" />.</p>
+<p>Examples: For a connect-sum <img class='tex' src="../../../math/8/0/a/80a4c80946e59e772202df178ce77cc5.png" alt="\Delta_{K_1 \# K_2}(t) = \Delta_{K_1}(t) \Delta_{K_2}(t)" />. If <span class="texhtml"><i>K</i></span> is an untwisted Whitehead double, then <img class='tex' src="../../../math/1/1/9/1190b604c9c5450c4ddf2d1872aa7b6b.png" alt="\Delta_K(t)=\pm 1" />.</p>
+<p><br /></p>
+<p><a name="Alexander-Conway_polynomial" id="Alexander-Conway_polynomial"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexander_polynomial.html" title="Edit section: Alexander-Conway polynomial">edit</a>]</span> <span class="mw-headline">Alexander-Conway polynomial</span></h2>
+<p>Alexander proved the Alexander polynomial satisfies a skein relation. <a href="../../../j/o/h/John_Horton_Conway_42ec.html" title="John Horton Conway">John Conway</a> later rediscovered this in a different form and showed that the skein relation together with a choice of value on the unknot was enough to determine the polynomial. Conway's version is a polynomial in <i>z</i> with integer coefficients and called the <b>Alexander-Conway polynomial</b> (also known as <b>Conway polynomial</b> or <b>Conway-Alexander polynomial</b>).</p>
+<p>Suppose we are given an oriented link diagram, where <span class="texhtml"><i>L</i> <sub>+</sub> ,<i>L</i> <sub>−</sub> ,<i>L</i><sub>0</sub></span> are link diagrams resulting crossing and smoothing changes on a local region of a specified crossing of the diagram, as indicated in the figure.</p>
+<div class="center">
+<div class="floatnone"><span><a href="../../../s/k/e/Image%7ESkein_%28HOMFLY%29.png_a419.html" class="image" title=""><img src="../../../upload/thumb/6/63/Skein_%28HOMFLY%29.png/200px-Skein_%28HOMFLY%29.png" alt="" width="200" height="107" longdesc="../../../s/k/e/Image%7ESkein_%28HOMFLY%29.png_a419.html" /></a></span></div>
+</div>
+<p>Here are Conway's skein relations:</p>
+<ul>
+<li><i>C(O) = 1</i> (where O is any diagram of the unknot)</li>
+<li><span class="texhtml"><i>C</i>(<i>L</i> <sub>+</sub> ) − <i>C</i>(<i>L</i> <sub>−</sub> ) = <i>z</i><i>C</i>(<i>L</i><sub>0</sub>)</span></li>
+</ul>
+<p>The relationship to the standard Alexander polynomial is given by <span class="texhtml"><i>A</i><sub><i>L</i></sub>(<i>t</i><sup>2</sup>) = <i>C</i><sub><i>L</i></sub>(<i>t</i> − <i>t</i> <sup>− 1</sup>)</span>. Here <span class="texhtml"><i>A</i><sub><i>L</i></sub></span> must be properly normalized (by multiplication of <img class='tex' src="../../../math/1/b/7/1b7660337a63e82327e90a08f10915c0.png" alt="\pm t^{n/2}" />) to satisfy the skein relation <span class="texhtml"><i>A</i>(<i>L</i> <sub>+</sub> ) − <i>A</i>(<i>L</i> <sub>−</sub> ) = (<i>t</i><sup>1 / 2</sup> − <i>t</i> <sup>− 1 / 2</sup>)<i>A</i><sub><i>L</i></sub>(<i>L</i><sub>0</sub>)</span>. Note that this relation gives a Laurent polynomial in <i>t<sup>1/2</sup></i>.</p>
+<p>See the page on <a href="../../../s/k/e/Skein_relation.html" title="Skein relation">skein relation</a> for an example of a computation using these relations.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexander_polynomial.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="http://links.jstor.org/sici?sici=0002-9947%28192804%2930%3A2%3C275%3ATIOKAL%3E2.0.CO%3B2-U" class="external autonumber" title="http://links.jstor.org/sici?sici=0002-9947%28192804%2930%3A2%3C275%3ATIOKAL%3E2.0.CO%3B2-U" rel="nofollow">[1]</a> J.W. Alexander, <i>Topological invariants of knots and links</i>. <a href="../../../t/r/a/Transactions_of_the_American_Mathematical_Society_e455.html" title="Transactions of the American Mathematical Society">Trans. Amer. Math. Soc.</a> 30 (1928), no. 2, 275--306.</li>
+<li>Colin C. Adams, <i>The Knot Book: An elementary introduction to the mathematical theory of knots.</i> Revised reprint of the 1994 original. American Mathematical Society, Providence, RI, 2004. xiv+307 pp. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-8218-3678-1</a> (accessible introduction utilizing a skein relation approach)</li>
+<li>Dale Rolfsen, <i>Knots and Links</i>, 2nd edition, Publish or Perish, 1990 <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-914098-16-0</a> (explains classical approach using the Alexander invariant; knot and link table with Alexander polynomials)</li>
+</ul>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Alexander describes his skein relation toward the end of his paper under the heading "miscellaneous theorems", which is possibly why it got lost. <a href="../../../j/o/a/Joan_Birman_7678.html" title="Joan Birman">Joan Birman</a> mentions in her paper <i>New points of view in knot theory</i> (Bull. Amer. Math. Soc. (N.S.) 28 (1993), no. 2, 253--287) that Mark Kidwell brought her attention to Alexander's relation in 1970.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> M. Freedman, F. Quinn. Topology of 4-Manifolds. Princeton U. Press.</li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> Akio Kawauchi, <i>A Survey of Knot Theory</i>, Birkhauser (covers several different approaches, explains relations between different versions of the Alexander polynomial)</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexander_polynomial.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://katlas.math.toronto.edu/" class="external text" title="http://katlas.math.toronto.edu/" rel="nofollow">Knot Atlas</a> - knot and link tables with computed Alexander and Conway polynomials</li>
+</ul>
+<p><a name="Endnotes" id="Endnotes"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexander_polynomial.html" title="Edit section: Endnotes">edit</a>]</span> <span class="mw-headline">Endnotes</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Alexander describes his skein relation toward the end of his paper under the heading "miscellaneous theorems", which is possibly why it got lost. <a href="../../../j/o/a/Joan_Birman_7678.html" title="Joan Birman">Joan Birman</a> mentions in her paper <i>New points of view in knot theory</i> (Bull. Amer. Math. Soc. (N.S.) 28 (1993), no. 2, 253--287) that Mark Kidwell brought her attention to Alexander's relation in 1970.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> M. Freedman, F. Quinn. Topology of 4-Manifolds. Princeton U. Press.</li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> Akio Kawauchi, <i>A Survey of Knot Theory</i>, Birkhauser (covers several different approaches, explains relations between different versions of the Alexander polynomial)</li>
+</ol>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/e/Alexander_polynomial.html">http://en.wikipedia.org../../../a/l/e/Alexander_polynomial.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../k/n/o/Category%7EKnot_theory_e503.html" title="Category:Knot theory">Knot theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/l/e/Alexander_polynomial.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/l/e/Talk%7EAlexander_polynomial_1005.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Alexander_polynomial">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ja/%E3%82%A2/%E3%83%AC/%E3%82%AF/%E3%82%A2%E3%83%AC%E3%82%AF%E3%82%B5%E3%83%B3%E3%83%80%E3%83%BC%E5%A4%9A%E9%A0%85%E5%BC%8F.html">日本語</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 08:31, 8 April 2007 by Wikipedia user <a href="../../../r/y/b/User%7ERybu_d42b.html" title="User:Rybu">Rybu</a>. Based on work by Wikipedia user(s) <a href="../../../r/a/n/User%7ERanicki_3f9f.html" title="User:Ranicki">Ranicki</a>, <a href="../../../t/u/r/User%7ETurgidson_916c.html" title="User:Turgidson">Turgidson</a>, <a href="../../../z/o/i/User%7EZoicon5_c684.html" title="User:Zoicon5">Zoicon5</a>, <a href="../../../o/s/k/User%7EOskar_Sigvardsson_905b.html" title="User:Oskar Sigvardsson">Oskar Sigvardsson</a>, <a href="../../../t/e/k/User%7ETeke_11ee.html" title="User:Teke">Teke</a>, <a href="../../../c/h/a/User%7EChan-Ho_Suh_fb4b.html" title="User:Chan-Ho Suh">Chan-Ho Suh</a>, <a href="../../../s/m/a/User%7ESmackbot_6aec.html" title="User:Smackbot">Smackbot</a>, Tesseran, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and <a href="../../../k/n/o/User%7EKnotted_e366.html" title="User:Knotted">Knotted</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

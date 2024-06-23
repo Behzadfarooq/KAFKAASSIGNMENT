@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Autoregressive moving average model,Time series,Heptor,Mwilde,Rgclegg,Wile E. Heresiarch,PLP Haire" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Autoregressive moving average model - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Autoregressive moving average model</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>These are not the usual defintions of AR, MA and ARMA models that I come across in time-series analysis texts (e.g Harvey, A. (1981): Time Series Models.)</p>
+<p>I am used to seeing them specified as follows:</p>
+<p>AR(p) model:</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/5/e/55e382f1abca5b705a090c8278394e82.png" alt="X_t = \phi_1 X_{t-1} + \phi_2 X_{t-2} + \dots + \phi_p X_{t-p} + \epsilon_t" /></dd>
+</dl>
+<p>where ε<sub>t</sub> is sampled from a normal distribution mean 0 and variance σ<sup>2</sup>.</p>
+<p>MA(q) model:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/6/a/a6ad2d5976f413cad2cbb258382614b5.png" alt="X_t = \theta_1 \epsilon_{t-1} + \theta_2 \epsilon_{t-2} + \dots + \theta_q \epsilon_{t-q} + \epsilon_t" /></dd>
+</dl>
+<p>where the ε<sub>t</sub> are normal and independent (that is GWN) and an ARMA(p,q) model specified as:</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/7/2/f72b660873f690075c1ca165fb1df3bd.png" alt="X_t = \sum_{i=1}^p \phi_i X_{t-i} + \sum_{j=1}^q \theta_j \epsilon_{t-j} + \epsilon_t" /></dd>
+</dl>
+<p><a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a></p>
+<dl>
+<dd>Well, these defns are identical to what's in the article at present, with epsilon and X instead of X and Y, right? The article doesn't say anything about assumptions about the distribution of the noise term (X or epsilon); I guess it should. I'm sure Gaussian noise is by far the most common assumption although I'd be surprised if other noise models haven't been investigated. I guess I think we should steer away from identifying AR or MA models with a particular noise distribution. For what it's worth, <a href="../../../w/i/l/User%7EWile_E._Heresiarch_9879.html" title="User:Wile E. Heresiarch">Wile E. Heresiarch</a> 03:48, 3 Feb 2005 (UTC)</dd>
+</dl>
+<p>Certainly I agree that what is given in the article is more general than what I wrote (with the brief fix -- thanks for that). But is it not sensible to stick to convention rather than give the most general model possible? When I hear talk of an AR model, I assume that the error sequence will be i.i.d. Gaussian zero mean. Any departure from that would be unusual would it not? I am very new to wikipedia so I don't know what is the common practice here. Do you agree that the notation above is more common (to use the epsilon rather than x) and to assume normally distributed i.i.d. errors? If so would you object to me rewriting the page slightly to use that notation and suggest that variants on the models could use different distributions for the innovations? To me, the ARIMA models imply normally distributed errors unless otherwise stated and certainly it would be very unusual not to have i.i.d. innovations (if the errors are not independent for example, the PACF for an AR will not be finite as discussed below.)</p>
+<p>Another reason we might want to edit this is that the page for <a href="../../../t/i/m/Time_series.html" title="Time series">time series</a> has a definition of an MA model on it specifying WN~(0,σ<sup>2</sup>) for the innovations so, currently the two pages are in conflict. However, as a newcomer, I don't want to press the point.</p>
+<p><a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a></p>
+<dl>
+<dd>Richard, thanks for your comments, and thanks for taking the time to check in and test the waters -- always a useful habit I would say. I think you should go ahead and revise the article as you see fit to better address what is conventionally assumed about such models. I guess my only $0.02 would be to identify the conventional assumptions as such. Have at it! Regards &amp; happy editing, <a href="../../../w/i/l/User%7EWile_E._Heresiarch_9879.html" title="User:Wile E. Heresiarch">Wile E. Heresiarch</a> 05:22, 5 Feb 2005 (UTC)</dd>
+</dl>
+<p>Updated as discussed. Thanks for the advice. I hope it meets your approval.</p>
+<p>--<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 14:16, 6 Feb 2005 (UTC)</p>
+<p>Could someone please add a discussion on the following topics?</p>
+<ul>
+<li>how an MA model has a finite autocorrelation sequence but an infinite partial autocorrelation sequence.</li>
+<li>how an AR model has an infinite autocorrelation sequence but a finite partial autocorrelation sequence.</li>
+<li>how ARMA has both infinite</li>
+</ul>
+<p>I'm not sure how these things work and would like to see the math behind it.</p>
+<p>thanks,</p>
+<p><a href="../../../m/w/i/User%7EMwilde_1c17.html" title="User:Mwilde">Mark Wilde</a></p>
+<p>I notice that recent edits to this page are including the possibility of a non-zero mean. This is, of course, not a major issue but I think that we should really leave this out because it just complicates the notation without adding much. At the very least, if we are going to include the possibility of a non-zero mean we should including it consistently on AR, MA and ARMA models. I certainly favour leaving it out or leaving in a section to discuss it as it does not add anything much of value in my opinion. --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 17:01, 14 Mar 2005 (UTC)</p>
+<p>I agree. The proof for the Yule-Walker equations I just added would become unnecessary complicated (OK, I admit I don't know how to prove Yule-Walker with the c). Otherwise, feel free to elaborate my proof. --<a href="../../../h/e/p/User%7EHeptor_46d0.html" title="User:Heptor">Heptor</a> 00:35, 12 December 2005 (UTC)</p>
+<p><a name="Xt_or_Xn" id="Xt_or_Xn"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutoregressive_moving_average_model_dd61.html" title="Edit section: Xt or Xn">edit</a>]</span> <span class="mw-headline">X<sub>t</sub> or X<sub>n</sub></span></h2>
+<p>I am used to that t is used when function is continuous, while n is used when function is discrete. Any reason for keeping t in the discrete function? -- <a href="../../../h/e/p/User%7EHeptor_46d0.html" title="User:Heptor"><font color="#000040"><b>H</b></font><font color="#400000">eptor</font></a> 01:54, 14 December 2005 (UTC)</p>
+<p><br />
+Re: "Some constraints are necessary on the values of the parameters of this model in order that the model remains stationary. For example, processes in the AR(1) model with |φ1| &gt; 1 are not stationary." Doesn't this describe stability rather than stationarity? A process is stationary so long as its parameters do not change with time. If φ1 is constant, then the process is stationary; however, |φ1| &gt; 1 is not stable--i.e., the process will "blow up". --PLP Haire 20:49, 26 July 2006 (UTC)</p>
+<dl>
+<dd>I'm not sure how you are defining stationary here. With |φ1| &gt; 1 the variance of the process will increase with time and therefore the process is not stationary (either strictly stationary or weakly stationary). See [Stationary Process]. --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 23:33, 26 July 2006 (UTC)</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/t/Talk%7EAutoregressive_moving_average_model_dd61.html">http://en.wikipedia.org../../../a/u/t/Talk%7EAutoregressive_moving_average_model_dd61.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/u/t/Autoregressive_moving_average_model.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/u/t/Talk%7EAutoregressive_moving_average_model_dd61.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Autoregressive_moving_average_model">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 23:33, 26 July 2006 by Wikipedia user <a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Rgclegg</a>. Based on work by Wikipedia user(s) PLP Haire, <a href="../../../h/e/p/User%7EHeptor_46d0.html" title="User:Heptor">Heptor</a>, <a href="../../../w/i/l/User%7EWile_E._Heresiarch_9879.html" title="User:Wile E. Heresiarch">Wile E. Heresiarch</a> and <a href="../../../m/w/i/User%7EMwilde_1c17.html" title="User:Mwilde">Mwilde</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

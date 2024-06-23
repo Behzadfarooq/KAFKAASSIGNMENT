@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Arzelà-Ascoli theorem,Cauchy's convergence test,Cesare Arzelà,Compact,Compact space,Continuous function,Converges uniformly,Countable,Dense,Derivative,Diagonalisation" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Arzelà-Ascoli theorem - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Arzelà-Ascoli theorem</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, the <b>Arzelà-Ascoli theorem</b> of <a href="../../../f/u/n/Functional_analysis.html" title="Functional analysis">functional analysis</a> is a criterion to decide whether a set of <a href="../../../c/o/n/Continuous_function.html" title="Continuous function">continuous functions</a> from a <a href="../../../c/o/m/Compact_space.html" title="Compact space">compact</a> <a href="../../../m/e/t/Metric_space.html" title="Metric space">metric space</a> into a metric space is compact in the <a href="../../../t/o/p/Topological_space.html" title="Topological space">topology</a> of <a href="../../../u/n/i/Uniform_convergence.html" title="Uniform convergence">uniform convergence</a>.</p>
+<p>The name comes about as this is a generalization going back to <a href="../../../c/e/s/Cesare_Arzel%C3%A0_2e76.html" title="Cesare Arzelà">Cesare Arzelà</a> of Ascoli's theorem.</p>
+<p>The theorem is the basis for the proof of the <a href="../../../p/e/a/Peano_existence_theorem.html" title="Peano existence theorem">Peano existence theorem</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Arzel.C3.A0-Ascoli_theorem"><span class="tocnumber">1</span> <span class="toctext">Arzelà-Ascoli theorem</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Real_line"><span class="tocnumber">1.1</span> <span class="toctext">Real line</span></a></li>
+<li class="toclevel-2"><a href="#Metric_space"><span class="tocnumber">1.2</span> <span class="toctext">Metric space</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Proof_of_a_version_of_Arzel.C3.A0-Ascoli_theorem"><span class="tocnumber">2</span> <span class="toctext">Proof of a version of Arzelà-Ascoli theorem</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Arzel.C3.A0-Ascoli_theorem" id="Arzel.C3.A0-Ascoli_theorem"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/z/Arzel%C3%A0-Ascoli_theorem_e5a8.html" title="Edit section: Arzelà-Ascoli theorem">edit</a>]</span> <span class="mw-headline">Arzelà-Ascoli theorem</span></h2>
+<p><a name="Real_line" id="Real_line"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/z/Arzel%C3%A0-Ascoli_theorem_e5a8.html" title="Edit section: Real line">edit</a>]</span> <span class="mw-headline">Real line</span></h3>
+<p>In the simplest terms this theorem can be stated as follows&#160;:</p>
+<dl>
+<dd>Consider a <a href="../../../s/e/q/Sequence.html" title="Sequence">sequence</a> of continuous functions <span class="texhtml">(<i>f</i><sub><i>n</i></sub>)</span> defined on a closed <a href="../../../i/n/t/Interval_%28mathematics%29.html" title="Interval (mathematics)">interval</a> <span class="texhtml">[<i>a</i>,<i>b</i>]</span> of the <a href="../../../r/e/a/Real_line.html" title="Real line">real line</a> with real values. If this sequence is <a href="../../../u/n/i/Uniformly_bounded.html" title="Uniformly bounded">uniformly bounded</a> and <a href="../../../e/q/u/Equicontinuous.html" title="Equicontinuous">equicontinuous</a>, then there exists a <a href="../../../s/u/b/Subsequence.html" title="Subsequence">subsequence</a> <img class='tex' src="../../../math/7/b/7/7b7968f9f3a900bc94eb030df058e756.png" alt="(f_{n_k})" /> which <a href="../../../u/n/i/Uniform_convergence.html" title="Uniform convergence">converges uniformly</a>.</dd>
+</dl>
+<p>The assumptions of the theorem are for example satisfied for a sequence of <a href="../../../d/e/r/Derivative.html" title="Derivative">differentiable</a> functions which is uniformly bounded and the sequence of derivatives is also uniformly bounded.</p>
+<p><a name="Metric_space" id="Metric_space"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/z/Arzel%C3%A0-Ascoli_theorem_e5a8.html" title="Edit section: Metric space">edit</a>]</span> <span class="mw-headline">Metric space</span></h3>
+<p>The general version of this theorem is as follows&#160;:</p>
+<dl>
+<dd>Let <span class="texhtml"><i>X</i></span> be a compact metric space, <span class="texhtml"><i>Y</i></span> a metric space. Then a subset <span class="texhtml"><i>F</i></span> of <span class="texhtml"><i>C</i>(<i>X</i>,<i>Y</i>)</span> is compact if and only if it is <a href="../../../e/q/u/Equicontinuous.html" title="Equicontinuous">equicontinuous</a>, pointwise <a href="../../../r/e/l/Relatively_compact.html" title="Relatively compact">relatively compact</a> and closed.</dd>
+</dl>
+<p>Here, <span class="texhtml"><i>C</i>(<i>X</i>,<i>Y</i>)</span> denotes the set of all continuous functions from <span class="texhtml"><i>X</i></span> to <span class="texhtml"><i>Y</i></span>, and a subset <span class="texhtml"><i>F</i></span> is <i>pointwise relatively compact</i> if and only if <img class='tex' src="../../../math/3/3/e/33eb84cdbdcb0ce631d7b78772f02843.png" alt="\forall x \in X" />, the set <span class="texhtml">{<i>f</i>(<i>x</i>):<i>f</i></span> is in <span class="texhtml"><i>F</i>}</span> is <a href="../../../r/e/l/Relatively_compact.html" title="Relatively compact">relatively compact</a> in <span class="texhtml"><i>Y</i></span>.</p>
+<p><a name="Proof_of_a_version_of_Arzel.C3.A0-Ascoli_theorem" id="Proof_of_a_version_of_Arzel.C3.A0-Ascoli_theorem"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/z/Arzel%C3%A0-Ascoli_theorem_e5a8.html" title="Edit section: Proof of a version of Arzelà-Ascoli theorem">edit</a>]</span> <span class="mw-headline">Proof of a version of Arzelà-Ascoli theorem</span></h2>
+<p>We will prove the following version of the theorem, which states that:</p>
+<dl>
+<dd>Let <span class="texhtml">(<i>K</i>,<i>d</i>)</span> be a compact metric space, and let <img class='tex' src="../../../math/e/5/f/e5f879c957e08c0323feafc1fc27570c.png" alt="\{f_n\}_{n \in \mathbb N}" /> be a sequence in <span class="texhtml"><i>C</i>(<i>K</i>)</span>. If <img class='tex' src="../../../math/9/a/2/9a2bff87ce506806621eb274f58fbcd5.png" alt="\{f_n\}_{n \in \mathbb{N}}" /> is pointwise bounded and <a href="../../../e/q/u/Equicontinuous.html" title="Equicontinuous">equicontinuous</a> on <span class="texhtml"><i>K</i></span>, then <img class='tex' src="../../../math/9/a/2/9a2bff87ce506806621eb274f58fbcd5.png" alt="\{f_n\}_{n \in \mathbb{N}}" /> is <a href="../../../u/n/i/Uniformly_bounded.html" title="Uniformly bounded">uniformly bounded</a> on <span class="texhtml"><i>K</i></span> and has a subsequence <img class='tex' src="../../../math/3/4/9/349d9866c7ac4ff06df15d0c0171ca03.png" alt="\{f_{n_k}\}_{k \in \mathbb{N}}" /> converging uniformly on <span class="texhtml"><i>K</i></span>.<img class='tex' src="../../../math/4/a/8/4a8a801dd1cf0d61a48ca24750abeaeb.png" alt="\qquad(*)" />.</dd>
+</dl>
+<p>To prove this theorem, we need the following lemma:</p>
+<dl>
+<dd>Let <span class="texhtml"><i>E</i></span> be a <a href="../../../c/o/u/Countable.html" title="Countable">countable</a> set, <img class='tex' src="../../../math/9/a/2/9a2bff87ce506806621eb274f58fbcd5.png" alt="\{f_n\}_{n \in \mathbb{N}}" /> a sequence of functions on <span class="texhtml"><i>E</i></span>, <img class='tex' src="../../../math/2/c/d/2cd7ff9137014d12175f3a3b4f8f4f62.png" alt="f \colon E \rightarrow \mathbb{R}" />. If <img class='tex' src="../../../math/9/a/2/9a2bff87ce506806621eb274f58fbcd5.png" alt="\{f_n\}_{n \in \mathbb{N}}" /> is pointwise bounded on <span class="texhtml"><i>E</i></span>, then <img class='tex' src="../../../math/9/a/2/9a2bff87ce506806621eb274f58fbcd5.png" alt="\{f_n\}_{n \in \mathbb{N}}" /> has a subsequece <img class='tex' src="../../../math/d/1/5/d15e419f2c72eee84e1012cfde584870.png" alt="\{f_{n_k}\}_{n \in \mathbb{N}}" /> converging pointwise on <span class="texhtml"><i>E</i></span>. <img class='tex' src="../../../math/d/a/3/da31cd7e71246637a8d59eecc53e6cad.png" alt="\qquad(**)" />.</dd>
+</dl>
+<p>The proof of <img class='tex' src="../../../math/d/a/3/da31cd7e71246637a8d59eecc53e6cad.png" alt="\qquad (**)" /> relies on <a href="../../../d/i/a/Diagonalisation.html" title="Diagonalisation">diagonalisation</a>:</p>
+<p>Since <span class="texhtml"><i>E</i></span> is countable, let <img class='tex' src="../../../math/f/d/5/fd52ef12493fd05f7ada811d48169983.png" alt="E=\{x_i:i \in \mathbb{N}\}" />, where all <span class="texhtml"><i>x</i><sub><i>i</i></sub></span>'s are distinct. Since <img class='tex' src="../../../math/7/5/b/75bd471ec87811d4163087ddef494967.png" alt="\{f_n(x_1)\}_{n \in \mathbb{N}}" /> is bounded on <img class='tex' src="../../../math/6/9/a/69a45f1e602cd2b2c2e67e41811fd226.png" alt="\mathbb{R}" />, there exists a subsequence of <img class='tex' src="../../../math/6/f/2/6f2d704570d33c23657ebd9aa469b1c6.png" alt="S_0=\{f_n\}_{n \in \mathbb{N}}" />, denoted by <img class='tex' src="../../../math/3/8/3/383a7d655c9e8f39eb91bae7552f4c61.png" alt="S_1=\{f_{1k}(x_1)\}_{n \in \mathbb{N}}" /> such that <img class='tex' src="../../../math/5/3/7/5376b10626f9c6986086c2c2eb2ef3c6.png" alt="\{f_{1k}(x_1)\}_{n \in \mathbb{N}}" /> converges. For the sequence <span class="texhtml"><i>S</i><sub>1</sub></span>, since <img class='tex' src="../../../math/1/b/d/1bd5af7e46cee263761341f720c27f72.png" alt="\{f_{1k}(x_2)\}_{k \in \mathbb{N}}" /> is bounded, there exists a sunsequence of <span class="texhtml"><i>S</i><sub>1</sub></span>, denoted by <img class='tex' src="../../../math/9/6/b/96b7268306d4ef3b4e5a66ed583f7f42.png" alt="S_2=\{f_{2k}\}_{k \in \mathbb{N}}" />, such that <img class='tex' src="../../../math/b/9/a/b9aaf02ee43bd8abee1300dfc8cc89fb.png" alt="\{f_{2k}\}_{k \in \mathbb{N}}" /> converges. Hence <img class='tex' src="../../../math/b/9/a/b9aaf02ee43bd8abee1300dfc8cc89fb.png" alt="\{f_{2k}\}_{k \in \mathbb{N}}" />, being a subsequence of <img class='tex' src="../../../math/0/6/e/06e071c96a51572c1143545b8403b772.png" alt="\{f_{1k}\}_{k \in \mathbb{N}}" />, also converges.</p>
+<p>Inductively we construct sequences <span class="texhtml"><i>S</i><sub>1</sub></span>, <span class="texhtml"><i>S</i><sub>2</sub></span>, <span class="texhtml"><i>S</i><sub>3</sub></span>, ..., having the following properties</p>
+<dl>
+<dd>(i) <span class="texhtml"><i>S</i><sub><i>i</i></sub></span> is a subsequence of <span class="texhtml"><i>S</i><sub><i>i</i> − 1</sub></span>, for <img class='tex' src="../../../math/c/0/f/c0ff83fd6dd2338b894328a6ccda8d9b.png" alt="i \in \mathbb{N}" /></dd>
+<dd>(ii) <img class='tex' src="../../../math/a/f/4/af485d8fc18e5a302264f08bbf31eab1.png" alt="\{f_{jk}(x_i)\}_{k \in \mathbb{N}}" /> converges, <img class='tex' src="../../../math/8/e/5/8e5b8e9d00950e2d3e7247750fefed76.png" alt="\forall i,j \in \mathbb{N}, j \ge i" />.</dd>
+</dl>
+<p>Obviously, <img class='tex' src="../../../math/1/9/2/1925b9168b2c5be4d80e57978bd64218.png" alt="\{f_{kk}\}_{k \in \mathbb{N}}" /> is a subsequence of <img class='tex' src="../../../math/9/a/2/9a2bff87ce506806621eb274f58fbcd5.png" alt="\{f_n\}_{n \in \mathbb{N}}" />. We claim that <img class='tex' src="../../../math/6/f/2/6f2c8b6aae948ec62fd56ed23e321f4f.png" alt="\{f_{kk}(x_i)\}_{k \in \mathbb{N}}" /> converges for all <img class='tex' src="../../../math/c/0/f/c0ff83fd6dd2338b894328a6ccda8d9b.png" alt="i \in \mathbb{N}" />. Fix <img class='tex' src="../../../math/c/0/f/c0ff83fd6dd2338b894328a6ccda8d9b.png" alt="i \in \mathbb{N}" />. Then <img class='tex' src="../../../math/d/c/1/dc1278979d6ced90a1aac083d8612392.png" alt="\{f_{kk}\}_{k \ge i}" /> is a subsequence of <span class="texhtml"><i>S</i><sub><i>i</i></sub></span>. Since <img class='tex' src="../../../math/2/9/7/297e25f3f7bbea59a71baac7cfeaf038.png" alt="\{f_{ik}(x_i)\}_{k\in\mathbb{N}}" /> converges, so does <img class='tex' src="../../../math/6/f/2/6f2c8b6aae948ec62fd56ed23e321f4f.png" alt="\{f_{kk}(x_i)\}_{k\in\mathbb{N}}" />. Hence <img class='tex' src="../../../math/1/9/2/1925b9168b2c5be4d80e57978bd64218.png" alt="\{f_{kk}\}_{k\in\mathbb{N}}" /> converges pointwise on E. <img class='tex' src="../../../math/d/a/3/da31cd7e71246637a8d59eecc53e6cad.png" alt="\qquad (**)" /> is proved.</p>
+<p>With <img class='tex' src="../../../math/d/a/3/da31cd7e71246637a8d59eecc53e6cad.png" alt="\qquad (**)" />, we are now ready to prove <img class='tex' src="../../../math/4/a/8/4a8a801dd1cf0d61a48ca24750abeaeb.png" alt="\qquad(*)" />.</p>
+<p>Let <span class="texhtml">ε &gt; 0</span>. Choose <span class="texhtml">δ &gt; 0</span> such that if <img class='tex' src="../../../math/6/f/e/6fe3d26079071e8f6ec20d5308b1febd.png" alt="x,y \in K" /> and <span class="texhtml"><i>d</i>(<i>x</i>,<i>y</i>) &lt; δ</span>, then</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/a/5/4a5cf24eb01a08c04519aa93791e94ca.png" alt="|f_n(x)-f_n(y)|&lt; \frac {\epsilon}{3} \qquad(1)" />.</dd>
+</dl>
+<p>Since <span class="texhtml"><i>K</i></span> is <a href="../../../c/o/m/Compact.html" title="Compact">compact</a> and <img class='tex' src="../../../math/4/3/4/434f839ff3e6bfbceca77ab4d5302dc1.png" alt="K \subseteq \bigcup_{x \in K} B(x,\delta)" />, there exist <span class="texhtml"><i>p</i><sub>1</sub>,...,<i>p</i><sub><i>r</i></sub></span> in <span class="texhtml"><i>k</i></span> such that</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/0/d/10d33fe62fc3fdbd9211ca219242a620.png" alt="K \subseteq \bigcup_{i=1}^r B(p_i,\delta)" />.</dd>
+</dl>
+<p>As <span class="texhtml">{<i>f</i><sub><i>n</i></sub>}</span> is pointwise bounded, for each <img class='tex' src="../../../math/9/0/3/903743302ebc7805817ff883756f5597.png" alt="1 \le i \le r" />, there exists some <img class='tex' src="../../../math/0/e/2/0e2f598de0904d02f2a41d3253b6ed0e.png" alt="M_i \ge 0" /> such that <img class='tex' src="../../../math/9/7/5/9752d8b1760a9d4e01a27cd6e11d810a.png" alt="|f_n(p_i)| \le M_i" />, <img class='tex' src="../../../math/1/1/c/11c58282056487a20001f63f5036c896.png" alt="\forall n \in \mathbb{N}" />.</p>
+<p>Let <span class="texhtml"><i>M</i> = max{<i>M</i><sub>1</sub>,...,<i>M</i><sub><i>r</i></sub>}</span>. Then <img class='tex' src="../../../math/1/1/c/11c58282056487a20001f63f5036c896.png" alt="\forall n \in \mathbb{N}" /> and for <img class='tex' src="../../../math/0/5/5/055011102cd4a7625e250b7efd8990eb.png" alt="x \in K" />, <img class='tex' src="../../../math/2/8/c/28cca9516ceec1f1d10e293525cb8ca1.png" alt="x \in B(p_i,\delta)" /> for some <span class="texhtml"><i>i</i></span>. Therefore <span class="texhtml"><i>d</i>(<i>x</i>,<i>p</i><sub><i>i</i></sub>) &lt; δ</span> and by <img class='tex' src="../../../math/c/f/0/cf0c08b98cbb2bc2a41a05b6226b3726.png" alt="\qquad (1)" />,</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/f/2/bf25d45d3735bf28543435f240ba85b3.png" alt="|f_n(x)| \le |f_n(x)-f_n(p_i)|+|f_n(p_i)| &lt; \frac {\epsilon}{3}+M" />.</dd>
+</dl>
+<p>Hence <span class="texhtml">{<i>f</i><sub><i>n</i></sub>}</span> is <a href="../../../u/n/i/Uniformly_bounded.html" title="Uniformly bounded">uniformly bounded</a> on <span class="texhtml"><i>K</i></span>.</p>
+<p>Since <span class="texhtml"><i>B</i></span> is <a href="../../../c/o/m/Compact.html" title="Compact">compact</a>, <span class="texhtml"><i>K</i></span> is <a href="../../../s/e/p/Separable.html" title="Separable">separable</a>. Let <span class="texhtml"><i>E</i></span> be a <a href="../../../c/o/u/Countable.html" title="Countable">countable</a> <a href="../../../d/e/n/Dense.html" title="Dense">dense</a> subset of <span class="texhtml"><i>K</i></span>. By <img class='tex' src="../../../math/d/a/3/da31cd7e71246637a8d59eecc53e6cad.png" alt="\qquad(**)" />, as a sequence of functions on <span class="texhtml"><i>E</i></span>, <span class="texhtml">{<i>f</i><sub><i>n</i></sub>}</span> has a <a href="../../../s/u/b/Subsequence.html" title="Subsequence">subsequence</a> <img class='tex' src="../../../math/3/4/9/349d9866c7ac4ff06df15d0c0171ca03.png" alt="\{f_{n_k}\}_{k \in \mathbb{N}}" /> such that <img class='tex' src="../../../math/0/c/2/0c234e0296be8a5cffae96f11a47d1b4.png" alt="\{f_{n_k}(x)\}_{k \in \mathbb{N}}" /> converges for every <img class='tex' src="../../../math/9/4/e/94e63c07be024d4ce1c0e101cfa3538e.png" alt="x \in E" />.</p>
+<p>Write <img class='tex' src="../../../math/d/b/b/dbbfc46acea5a12beb99dadfe16d3846.png" alt="g_k=f_{n_k}" />, <img class='tex' src="../../../math/0/3/f/03fb00bac111ffad9dcbe228e73f28db.png" alt="k \in \mathbb{N}" />. We claim that <img class='tex' src="../../../math/4/1/b/41b16f5ffda566b3f1aa3f2ee1b587c4.png" alt="\{g_k\}_{k \in \mathbb{N}}" /> <a href="../../../c/o/n/Converges_uniformly.html" title="Converges uniformly">converges uniformly</a> on <span class="texhtml"><i>K</i></span>.</p>
+<p>Let <span class="texhtml">ε &gt; 0</span> and pick <span class="texhtml">δ</span> as in <img class='tex' src="../../../math/c/f/0/cf0c08b98cbb2bc2a41a05b6226b3726.png" alt="\qquad (1)" />. Since <span class="texhtml"><i>E</i></span> is <a href="../../../d/e/n/Dense.html" title="Dense">dense</a> in <span class="texhtml"><i>K</i></span>,</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/d/f/7df5d6815acb902b86f2c85526cad318.png" alt="\forall x \in K, \exists y \in E" /> such that <span class="texhtml"><i>d</i>(<i>x</i>,<i>y</i>) &lt; δ</span>.</dd>
+</dl>
+<p>and therefore</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/3/c/43cbb3267d761dab0e973e303cc5b708.png" alt="K \subseteq \bigcup_{y \in E} B(y, \delta)" />.</dd>
+</dl>
+<p>Since <span class="texhtml"><i>K</i></span> is <a href="../../../c/o/m/Compact.html" title="Compact">compact</a>, there exist <span class="texhtml"><i>x</i><sub>1</sub>,...<i>x</i><sub><i>n</i></sub></span> in <span class="texhtml"><i>E</i></span> such that</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/7/0/670a3184043e1b8c7d3984763153e4bc.png" alt="K \subseteq \bigcup_{l=1}^m B(y_l, \delta)" />.</dd>
+</dl>
+<p>For each <img class='tex' src="../../../math/1/4/2/1427e1a5c00252bda342c3dc441cd291.png" alt="1 \le l \le m" />, <img class='tex' src="../../../math/e/5/c/e5c67598b0328478182f6400ca3d61dc.png" alt="\{g_k(x_l)\}_{k \in \mathbb{N}}" /> converges. By <a href="../../../c/a/u/Cauchy%27s_convergence_test.html" title="Cauchy's convergence test">Cauchy's criterion</a>, there exists some <img class='tex' src="../../../math/b/d/7/bd7d49888ba504fcecb4faf5de35954e.png" alt="N \in \mathbb{N}" /> such that <img class='tex' src="../../../math/7/1/a/71ab02a2568ace4b5419360e98c4aae5.png" alt="\forall i,j \ge N" />, <img class='tex' src="../../../math/1/4/2/1427e1a5c00252bda342c3dc441cd291.png" alt="1 \le l \le m" /></p>
+<dl>
+<dd><img class='tex' src="../../../math/7/0/5/70559dc0fd8551ca305e2e3c2b8b6772.png" alt="|g_i(x_l)-g_j(x_l)|&lt; \frac {\epsilon}{3} \qquad (3)" /></dd>
+</dl>
+<p>If <img class='tex' src="../../../math/0/5/5/055011102cd4a7625e250b7efd8990eb.png" alt="x \in K" />, then by <img class='tex' src="../../../math/6/e/9/6e9b5e54ad4898b5e93fa73d0c830d4e.png" alt="\qquad (2)" />, there exist <img class='tex' src="../../../math/a/f/4/af42121349c04268ab6913684c48aa07.png" alt="l \in \{1,...,m\}" /> such that <span class="texhtml"><i>d</i>(<i>x</i>,<i>x</i><sub><i>l</i></sub>) &lt; δ</span> and so by <img class='tex' src="../../../math/c/f/0/cf0c08b98cbb2bc2a41a05b6226b3726.png" alt="\qquad (1)" />, for <img class='tex' src="../../../math/0/3/f/03fb00bac111ffad9dcbe228e73f28db.png" alt="k \in \mathbb{N}" />,</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/3/0/d30d54285989f96c59e8add30f42a2e6.png" alt="|g_k(x)-g_k(x_l)|&lt; \frac {\epsilon}{3} \qquad (4)" />.</dd>
+</dl>
+<p>Thus if <img class='tex' src="../../../math/6/8/e/68e2993455c820e30463cd82ce3f0e00.png" alt="i,j \ge N" />, then</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/c/a/bcabfe42373128e0d39b2a8eb785d595.png" alt="|g_i(x)-g_j(x)| \le |g_i(x)-g_i(x_l)|+|g_i(x_l)-g_j(x_l)|+|g_j(x_l)-g_j(x)|&lt; \epsilon" /></dd>
+</dl>
+<p>By <a href="../../../c/a/u/Cauchy%27s_convergence_test.html" title="Cauchy's convergence test">Cauchy's criterion</a>, <img class='tex' src="../../../math/4/1/b/41b16f5ffda566b3f1aa3f2ee1b587c4.png" alt="\{g_k\}_{k \in \mathbb{N}}" /> <a href="../../../c/o/n/Converges_uniformly.html" title="Converges uniformly">converges uniformly</a> on <span class="texhtml"><i>K</i></span> and hence <img class='tex' src="../../../math/9/a/2/9a2bff87ce506806621eb274f58fbcd5.png" alt="\{f_n\}_{n \in \mathbb{N}}" /> has a uniformly convergent subsequence. <img class='tex' src="../../../math/4/a/8/4a8a801dd1cf0d61a48ca24750abeaeb.png" alt="\qquad (*)" /> is established.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/z/Arzel%C3%A0-Ascoli_theorem_e5a8.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../m/o/n/Montel%27s_theorem.html" title="Montel's theorem">Montel's theorem</a></li>
+</ul>
+<hr />
+<p><i>This article incorporates material from <a href="http://planetmath.org/?op=getobj&amp;from=objects&amp;id=2961" class="extiw" title="planetmath:2961">Ascoli-Arzelà theorem</a> on <a href="../../../p/l/a/PlanetMath_a40d.html" title="PlanetMath">PlanetMath</a>, which is licensed under the <a href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GFDL</a>.</i></p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/z/Arzel%C3%A0-Ascoli_theorem_e5a8.html">http://en.wikipedia.org../../../a/r/z/Arzel%C3%A0-Ascoli_theorem_e5a8.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../p/l/a/Category%7EPlanetMath_sourced_articles_da41.html" title="Category:PlanetMath sourced articles">PlanetMath sourced articles</a></span> | <span dir='ltr'><a href="../../../c/o/n/Category%7EContinuous_mappings_eae2.html" title="Category:Continuous mappings">Continuous mappings</a></span> | <span dir='ltr'><a href="../../../t/o/p/Category%7ETopology_of_function_spaces_1208.html" title="Category:Topology of function spaces">Topology of function spaces</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/r/z/Arzel%C3%A0-Ascoli_theorem_e5a8.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/r/z/Talk%7EArzel%C3%A0-Ascoli_theorem_913a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Arzel%C3%A0-Ascoli_theorem">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/s/a/t/Satz_von_Arzel%C3%A0-Ascoli_0342.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/t/h/%C3%A9/Th%C3%A9or%C3%A8me_d%27Ascoli_a470.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/%C4%91/%E1%BB%8B/n/%C4%90%E1%BB%8Bnh_l%C3%BD_Arzela-Ascoli_b022.html">Tiếng Việt</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/t/e/o/Teorema_di_Ascoli-Arzel%C3%A0_b124.html">Italiano</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:53, 17 March 2007 by Wikipedia user <a href="../../../m/a/t/User%7EMathMartin_aca3.html" title="User:MathMartin">MathMartin</a>. Based on work by Wikipedia user(s) <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, Oysterofamerica, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">Mets501</a>, <a href="../../../x/m/4/User%7EXm47x_8d09.html" title="User:Xm47x">Xm47x</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../d/h/n/User%7EDHN_4cb4.html" title="User:DHN">DHN</a>, <a href="../../../l/u/p/User%7ELupin_68a5.html" title="User:Lupin">Lupin</a>, <a href="../../../r/e/v/User%7ERevolver_5a6c.html" title="User:Revolver">Revolver</a> and Aylex and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

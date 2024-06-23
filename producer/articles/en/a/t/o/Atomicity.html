@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Atomicity,ACID,Assembly language,Atom,Atomic operation,Atomicity (disambiguation),Database consistency,Database system,Deadlock,Durability (computer science),Isolation (computer science)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Atomicity - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Atomicity</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <div class="dablink"><i>For other uses, see <a href="../../../a/t/o/Atomicity_%28disambiguation%29.html" title="Atomicity (disambiguation)">Atomicity (disambiguation)</a>.</i></div>
+<p>In <a href="../../../d/a/t/Database_system.html" title="Database system">database systems</a>, <b>atomicity</b> is one of the <a href="../../../a/c/i/ACID_8321.html" title="ACID">ACID</a> transaction properties. An <b>atomic transaction</b> is a series of database operations which either <i>all</i> occur, or <i>all</i> do not occur ("fail", although failure is not considered catastrophic). A guarantee of atomicity prevents updates to the database occurring only partially, which can cause greater problems than rejecting the whole series outright.</p>
+<p>One example of atomicity is in ordering airline tickets. Tickets must either be paid for and reserved on a flight, or neither paid for nor reserved. It is not acceptable for customers to pay for tickets without securing their requested flight or to reserve tickets without payment succeeding. One atomic transaction might include the booking not only of flights, but of hotels and transport, in exchange for the right money at the exact current exchange rate.</p>
+<p><a name="Orthogonality" id="Orthogonality"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/o/Atomicity.html" title="Edit section: Orthogonality">edit</a>]</span> <span class="mw-headline">Orthogonality</span></h2>
+<p>Atomicity is not completely orthogonal to the other <a href="../../../a/c/i/ACID_8321.html" title="ACID">ACID</a> properties of transactions. For example, <a href="../../../i/s/o/Isolation_%28computer_science%29.html" title="Isolation (computer science)">isolation</a> relies on atomicity to roll back changes in the event of isolation failures such as <a href="../../../d/e/a/Deadlock.html" title="Deadlock">deadlock</a>; <a href="../../../d/a/t/Database_consistency.html" title="Database consistency">consistency</a> also relies on rollback in the event of a consistency violation by an illegal transaction. Finally, atomicity itself relies on <a href="../../../d/u/r/Durability_%28computer_science%29.html" title="Durability (computer science)">durability</a> to ensure transactions are atomic even in the face of external failures.</p>
+<p>As a result of this, failure to detect errors and manually roll back the enclosing transaction may cause isolation and consistency failures.</p>
+<p><a name="Implementation" id="Implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/o/Atomicity.html" title="Edit section: Implementation">edit</a>]</span> <span class="mw-headline">Implementation</span></h2>
+<p>Typically, atomicity is implemented by providing some mechanism to indicate which transactions have been started and finished, or by keeping a copy of the data before any changes were made. Several filesystems have developed methods for avoiding the need to keep multiple copies of data, using journaling (see <a href="../../../j/o/u/Journaling_file_system.html" title="Journaling file system">journaling file system</a>). Many databases also support a commit-rollback mechanism aiding in the implementation of atomic transactions. These are usually also implemented using some form of logging/journaling to be able to track changes. These logs (often the <a href="../../../m/e/t/Metadata.html" title="Metadata">metadata</a>) are synchronized as necessary once the actual changes were successfully made. Unrecorded entries are simply ignored afterwards on crash recovery. Although implementations vary depending on factors such as concurrency issues, the principle of atomicity - ie. complete success or complete failure - remain.</p>
+<p>Ultimately, any application-level implementation relies on <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a> functionality which in turn makes use of specialized hardware to guarantee that an operation is non-interruptible by either software attempting to re-divert system resources (see <a href="../../../p/r/e/Pre-emptive_multitasking.html" title="Pre-emptive multitasking">pre-emptive multitasking</a>) or resource unavailability (e.g. power outages). For example, <a href="../../../p/o/s/POSIX_0028.html" title="POSIX">POSIX</a>-compliant systems provide the open(2) <a href="../../../s/y/s/System_call.html" title="System call">system call</a> which allows applications to atomically open a file. Other popular system calls that may assist to achieve atomic operations from userspace consist of mkdir(2), flock(2), fcntl(2), rasctl(2) (NetBSD restartable sequences), semop(2), sem_wait(2), sem_post(2), fdatasync(2), fsync(2) and rename(2).</p>
+<p>At the hardware level, <a href="../../../l/i/n/Linearizability.html" title="Linearizability">atomic operations</a> such as <a href="../../../t/e/s/Test-and-set.html" title="Test-and-set">test-and-set</a> (TAS), and/or atomic increment/decrement operations are needed. When these are lacking, or when necessary, raising the interrupt level to disable all possible interrupts (of hardware and software origin) may be used to implement the atomic synchronization function primitives. These low-level operations are often implemented in <a href="../../../m/a/c/Machine_language.html" title="Machine language">machine language</a> or <a href="../../../a/s/s/Assembly_language.html" title="Assembly language">assembly language</a>.</p>
+<p>The etymology of the phrase originates in the Classical Greek concept of a fundamental and indivisible component; see <a href="../../../a/t/o/Atom.html" title="Atom">atom</a>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/t/o/Atomicity.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/t/o/Atomic_operation.html" title="Atomic operation">Atomic operation</a></li>
+<li><a href="../../../t/r/a/Transaction_processing.html" title="Transaction processing">Transaction processing</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/t/o/Atomicity.html">http://en.wikipedia.org../../../a/t/o/Atomicity.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../d/a/t/Category%7EData_management_a987.html" title="Category:Data management">Data management</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/t/o/Atomicity.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/t/o/Talk%7EAtomicity_100f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Atomicity">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../cs/a/t/o/Atomicita.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/t/o/Atomare_Operation_1b9c.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EC%9B%90/%EC%9E%90/%EC%84%B1/%EC%9B%90%EC%9E%90%EC%84%B1.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../lt/n/e/d/Nedaloma_operacija.html">Lietuvių</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E4%B8%8D/%E5%8F%AF/%E5%88%86/%E4%B8%8D%E5%8F%AF%E5%88%86%E6%93%8D%E4%BD%9C.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/t/r/a/Transa%C3%A7%C3%A3o_at%C3%B4mica.html">Português</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 09:26, 28 March 2007 by Wikipedia user <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>. Based on work by Wikipedia user(s) <a href="../../../v/i/c/User%7EVicarious_613d.html" title="User:Vicarious">Vicarious</a>, <a href="../../../b/i/g/User%7EBiggins_c875.html" title="User:Biggins">Biggins</a>, <a href="../../../b/e/t/User%7EBetacommand_e660.html" title="User:Betacommand">Betacommand</a>, <a href="../../../d/a/n/User%7EDanPope_a316.html" title="User:DanPope">DanPope</a>, <a href="../../../c/h/r/User%7EChris_Purcell_5048.html" title="User:Chris Purcell">Chris Purcell</a>, <a href="../../../d/r/e/User%7EDreftymac_20ab.html" title="User:Dreftymac">Dreftymac</a>, <a href="../../../b/o/t/User%7EBota47_16c2.html" title="User:Bota47">Bota47</a>, <a href="../../../e/w/l/User%7EEwlyahoocom_d1b9.html" title="User:Ewlyahoocom">Ewlyahoocom</a>, <a href="../../../h/k/m/User%7EHkmaly_3a13.html" title="User:Hkmaly">Hkmaly</a>, <a href="../../../t/i/m/User%7ETimBentley_fb12.html" title="User:TimBentley">TimBentley</a>, Hooperbloob, <a href="../../../r/j/f/User%7ERJFJR_0643.html" title="User:RJFJR">RJFJR</a>, <a href="../../../e/n/o/User%7EEnochlau_9436.html" title="User:Enochlau">Enochlau</a>, <a href="../../../m/a/r/User%7EMarudubshinki_b9b7.html" title="User:Marudubshinki">Marudubshinki</a>, <a href="../../../s/n/a/User%7ESnailwalker_857e.html" title="User:Snailwalker">Snailwalker</a>, <a href="../../../j/u/l/User%7EJulescubtree_c11d.html" title="User:Julescubtree">Julescubtree</a>, <a href="../../../j/l/e/User%7EJleedev_48f1.html" title="User:Jleedev">Jleedev</a>, <a href="../../../s/m/y/User%7ESmyth_5631.html" title="User:Smyth">Smyth</a>, <a href="../../../c/e/s/User%7ECesarB_5f7f.html" title="User:CesarB">CesarB</a>, <a href="../../../e/m/m/User%7EEmmetCaulfield_82af.html" title="User:EmmetCaulfield">EmmetCaulfield</a>, <a href="../../../a/n/c/User%7EAncheta_Wis_6134.html" title="User:Ancheta Wis">Ancheta Wis</a>, <a href="../../../r/f/l/User%7ERfl_2cf2.html" title="User:Rfl">Rfl</a>, <a href="../../../h/a/d/User%7EHadal_a4d0.html" title="User:Hadal">Hadal</a>, <a href="../../../d/o/p/User%7EDopefishJustin_bbf5.html" title="User:DopefishJustin">DopefishJustin</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and Gdimitr and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

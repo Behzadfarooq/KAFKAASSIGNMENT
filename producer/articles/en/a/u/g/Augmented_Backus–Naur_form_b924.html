@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Augmented Backus–Naur form,Backus-Naur form,Backus–Naur form,Communications protocol,IETF,Metalanguage" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Augmented Backus–Naur form - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Augmented Backus–Naur form</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>The augmented Backus–Naur form (ABNF)</b> extends the <a href="../../../b/a/c/Backus-Naur_form_cc8e.html" title="Backus-Naur form">Backus-Naur form</a>.</p>
+<p>The <i>augmented Backus–Naur form</i> (ABNF) is based on <a href="../../../b/a/c/Backus%E2%80%93Naur_form_ace4.html" title="Backus–Naur form">Backus–Naur form</a> (BNF), but consists of its own syntax and derivation rules. The motive principle for this <a href="../../../m/e/t/Metalanguage.html" title="Metalanguage">metalanguage</a> is to describe a formal system of a language which is a <a href="../../../c/o/m/Communications_protocol.html" title="Communications protocol">protocol</a> (bidirectional specification). It is documented in <a href="http://tools.ietf.org/html/rfc4234" class="external" title="http://tools.ietf.org/html/rfc4234">RFC 4234</a> and often serves as the definition language for <a href="../../../i/e/t/IETF_8156.html" title="IETF">IETF</a> communication <a href="../../../c/o/m/Communications_protocol.html" title="Communications protocol">protocol</a>.</p>
+<p><a href="http://tools.ietf.org/html/rfc4234" class="external" title="http://tools.ietf.org/html/rfc4234">RFC 4234</a> corrects problems in and obsoletes <a href="http://tools.ietf.org/html/rfc2234" class="external" title="http://tools.ietf.org/html/rfc2234">RFC 2234</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Terminal_values"><span class="tocnumber">2</span> <span class="toctext">Terminal values</span></a></li>
+<li class="toclevel-1"><a href="#Operators"><span class="tocnumber">3</span> <span class="toctext">Operators</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Whitespace"><span class="tocnumber">3.1</span> <span class="toctext">Whitespace</span></a></li>
+<li class="toclevel-2"><a href="#Concatenation:"><span class="tocnumber">3.2</span> <span class="toctext">Concatenation:</span></a></li>
+<li class="toclevel-2"><a href="#Alternation:"><span class="tocnumber">3.3</span> <span class="toctext">Alternation:</span></a></li>
+<li class="toclevel-2"><a href="#Incremental_alternatives:"><span class="tocnumber">3.4</span> <span class="toctext">Incremental alternatives:</span></a></li>
+<li class="toclevel-2"><a href="#Value_range:"><span class="tocnumber">3.5</span> <span class="toctext">Value range:</span></a></li>
+<li class="toclevel-2"><a href="#Sequence_group:"><span class="tocnumber">3.6</span> <span class="toctext">Sequence group:</span></a></li>
+<li class="toclevel-2"><a href="#Variable_repetition:"><span class="tocnumber">3.7</span> <span class="toctext">Variable repetition:</span></a></li>
+<li class="toclevel-2"><a href="#Specific_repetition:"><span class="tocnumber">3.8</span> <span class="toctext">Specific repetition:</span></a></li>
+<li class="toclevel-2"><a href="#Optional_sequence:"><span class="tocnumber">3.9</span> <span class="toctext">Optional sequence:</span></a></li>
+<li class="toclevel-2"><a href="#Comment:"><span class="tocnumber">3.10</span> <span class="toctext">Comment:</span></a></li>
+<li class="toclevel-2"><a href="#Operator_precedence"><span class="tocnumber">3.11</span> <span class="toctext">Operator precedence</span></a></li>
+<li class="toclevel-2"><a href="#Core_rules"><span class="tocnumber">3.12</span> <span class="toctext">Core rules</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Introduction" id="Introduction"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline">Introduction</span></h2>
+<p>An ABNF specification is a set of derivation rules, written as <code>rule = definition&#160;; comment CR LF</code>: where rule is a case-sensitive nonterminal, the definition consists of sequences of symbols that define the rule, a comment for documentation, and ending with a carriage return and line feed.</p>
+<p>Rule names are case insensitive: <code>&lt;rulename&gt;</code>, <code>&lt;Rulename&gt;</code>, <code>&lt;RULENAME&gt;</code>, and <code>&lt;rUlENamE&gt;</code> all refer to the same rule. Rule names consist of a letter followed by letters, numbers, and hyphens.</p>
+<p>Angle brackets (“<code>&lt;</code>”, “<code>&gt;</code>”) are not required around rule names (as they are in BNF). However they may be used to delimit a rule name when used in prose to discern a rule name.</p>
+<p>ABNF is encoded in 7-bit ASCII in an 8-bit field with the high bit set to zero.</p>
+<p><a name="Terminal_values" id="Terminal_values"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Terminal values">edit</a>]</span> <span class="mw-headline">Terminal values</span></h2>
+<p>Terminals are specified by one or more numeric characters.</p>
+<p>Numeric characters may be specified as the percent sign “<code>%</code>”, followed by the base (b = binary, d = decimal, and x = hexadecimal), followed by the value, or concatenation of values (indicated by “<code>.</code>”). For example a carriage return is specified by <code>%d13</code> in decimal or <code>%x0D</code> in hexadecimal. A carriage return followed by a line feed may be specified with concatenation as <code>%d13.10</code>.</p>
+<p>Literal text is specified through the use of a string enclosed in quotation-marks (<code>"</code>). These strings are case-insensitive and the character set used is US-ASCII. Therefore the string “abc” will match “abc”, “Abc”, “aBc”, “abC”, “ABc”, “AbC”, “aBC”, and “ABC”. For a case-sensitive match the explicit characters must be defined: to match “aBc” the definition will be <code>%d97 %d66 %d99</code>.</p>
+<p><a name="Operators" id="Operators"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Operators">edit</a>]</span> <span class="mw-headline">Operators</span></h2>
+<p><a name="Whitespace" id="Whitespace"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Whitespace">edit</a>]</span> <span class="mw-headline">Whitespace</span></h3>
+<p>Whitespace is used to separate elements of a definition: for space to be recognized as a delimiter it must be explicitly included.</p>
+<p><a name="Concatenation:" id="Concatenation:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Concatenation:">edit</a>]</span> <span class="mw-headline">Concatenation:</span></h3>
+<p><code>Rule1 Rule2</code></p>
+<p>A rule may be defined by listing a sequence of rule names.</p>
+<p>To match the string “aba” the following rules could be used:</p>
+<ol>
+<li><code>fu = %x61 ; a</code></li>
+<li><code>bar = %x62 ; b</code></li>
+<li><code>mumble = fu bar fu</code></li>
+</ol>
+<p><a name="Alternation:" id="Alternation:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Alternation:">edit</a>]</span> <span class="mw-headline">Alternation:</span></h3>
+<p><code>Rule1 / Rule2</code></p>
+<p>A rule may be defined by a list of alternative rules separated by a solidus (“<code>/</code>”).</p>
+<p>To accept the rule &lt;fu&gt; or the rule &lt;bar&gt; the following rule could be constructed:</p>
+<ol>
+<li><code>fubar = fu / bar</code></li>
+</ol>
+<p><a name="Incremental_alternatives:" id="Incremental_alternatives:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Incremental alternatives:">edit</a>]</span> <span class="mw-headline">Incremental alternatives:</span></h3>
+<p><code>Rule1 =/ Rule2</code></p>
+<p>Additional alternatives may be added to a rule through the use of “<code>=/</code>” between the rule name and the definition.</p>
+<p>The rule</p>
+<ol>
+<li><code>ruleset = alt1 / alt2 / alt3 / alt4 / alt5</code></li>
+</ol>
+<p>is equivalent to</p>
+<ol>
+<li><code>ruleset = alt1 / alt2</code></li>
+<li><code>ruleset =/ alt3</code></li>
+<li><code>ruleset =/ alt4 / alt5</code></li>
+</ol>
+<p><a name="Value_range:" id="Value_range:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Value range:">edit</a>]</span> <span class="mw-headline">Value range:</span></h3>
+<p><code>%c##-##</code></p>
+<p>A range of numeric values may be specified through the use of a hyphen (“<code>-</code>”).</p>
+<p>The rule</p>
+<ol>
+<li><code>OCTAL = "0" / "1" / "2" / "3" / "4" / "5" / "6" / "7"</code></li>
+</ol>
+<p>is equivalent to</p>
+<ol>
+<li><code>OCTAL = %x30-37</code></li>
+</ol>
+<p><a name="Sequence_group:" id="Sequence_group:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Sequence group:">edit</a>]</span> <span class="mw-headline">Sequence group:</span></h3>
+<p><code>(Rule1 Rule2)</code></p>
+<p>Elements may be placed in parentheses to group rules in a definition.</p>
+<p>To match “elem fubar snafu” or “elem tarfu snafu” the following rule could be constructed:</p>
+<ol>
+<li><code>group = elem (fubar / tarfu) snafu</code></li>
+</ol>
+<p>To match “elem fubar” or “tarfu snafu” the following rules could be constructed:</p>
+<ol>
+<li><code>group = elem fubar / tarfu snafu</code></li>
+<li><code>group = (elem fubar) / (tarfu snafu)</code></li>
+</ol>
+<p><a name="Variable_repetition:" id="Variable_repetition:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Variable repetition:">edit</a>]</span> <span class="mw-headline">Variable repetition:</span></h3>
+<p><code>n*nRule</code></p>
+<p>To indicate repetition of an element the form <code>&lt;a&gt;*&lt;b&gt;element</code> is used. The optional <code>&lt;a&gt;</code> gives the minimum number of elements to be included with the default of 0. The optional <code>&lt;b&gt;</code> gives the maximum number of elements to be included with the default of infinity.</p>
+<p>Use <code>*element</code> for zero or more elements, <code>1*element</code> for one or more elements, and <code>2*3element</code> for two or three elements.</p>
+<p><a name="Specific_repetition:" id="Specific_repetition:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Specific repetition:">edit</a>]</span> <span class="mw-headline">Specific repetition:</span></h3>
+<p><code>nRule</code></p>
+<p>To indicate an explicit number of elements the form <code>&lt;a&gt;element</code> is used and is equivalent to <code>&lt;a&gt;*&lt;a&gt;element</code>.</p>
+<p>Use <code>2DIGIT</code> to get two numeric digits and <code>3DIGIT</code> to get three numeric digits.</p>
+<p><a name="Optional_sequence:" id="Optional_sequence:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Optional sequence:">edit</a>]</span> <span class="mw-headline">Optional sequence:</span></h3>
+<p><code>[Rule]</code></p>
+<p>To indicate an optional element the following constructions are equivalent:</p>
+<ol>
+<li><code>[fubar snafu]</code></li>
+<li><code>*1(fubar snafu)</code></li>
+<li><code>0*1(fubar snafu)</code></li>
+</ol>
+<p><a name="Comment:" id="Comment:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Comment:">edit</a>]</span> <span class="mw-headline">Comment:</span></h3>
+<p><code>; comment</code></p>
+<p>A semi-colon (“<code>;</code>”) starts a comment that continues to the end of the line.</p>
+<p><a name="Operator_precedence" id="Operator_precedence"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Operator precedence">edit</a>]</span> <span class="mw-headline">Operator precedence</span></h3>
+<p>The above operators have the given precedence from tightest binding to loosest binding:</p>
+<ol>
+<li>Strings, Names formation</li>
+<li>Comment</li>
+<li>Value range</li>
+<li>Repetition</li>
+<li>Grouping, Optional</li>
+<li>Concatenation</li>
+<li>Alternative</li>
+</ol>
+<p>Use of the alternative operator with concatenation may be confusing and it is recommended that grouping be used to make explicit concatenation groups.</p>
+<p><a name="Core_rules" id="Core_rules"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Core rules">edit</a>]</span> <span class="mw-headline">Core rules</span></h3>
+<p>The core rules are defined in the ABNF standard.</p>
+<table class="wikitable">
+<tr style="background-color: #efefef;">
+<th>Rule</th>
+<th>Formal Definition</th>
+<th>Meaning</th>
+</tr>
+<tr>
+<td>ALPHA</td>
+<td>%x41-5A / %x61-7A</td>
+<td>Upper and lowercase ASCII letters (A-Z a-z)</td>
+</tr>
+<tr>
+<td>DIGIT</td>
+<td>%x30-39</td>
+<td>Decimal digits (0-9)</td>
+</tr>
+<tr>
+<td>HEXDIG</td>
+<td>DIGIT / "A" / "B" / "C" / "D" / "E" / "F"</td>
+<td>Hexadecimal digits (0-9 A-F)</td>
+</tr>
+<tr>
+<td>DQUOTE</td>
+<td>%x22</td>
+<td>Double Quote</td>
+</tr>
+<tr>
+<td>SP</td>
+<td>%x20</td>
+<td>space</td>
+</tr>
+<tr>
+<td>HTAB</td>
+<td>%x09</td>
+<td>horizontal tab</td>
+</tr>
+<tr>
+<td>WSP</td>
+<td>SP / HTAB</td>
+<td>space and horizontal tab</td>
+</tr>
+<tr>
+<td>LWSP</td>
+<td>*(WSP / CRLF WSP)</td>
+<td>linear white space (past newline)</td>
+</tr>
+<tr>
+<td>VCHAR</td>
+<td>%x21-7E</td>
+<td>visible (printing) characters</td>
+</tr>
+<tr>
+<td>CHAR</td>
+<td>%x01-7F</td>
+<td>any 7-bit US-ASCII character, excluding NUL</td>
+</tr>
+<tr>
+<td>OCTET</td>
+<td>%x00-FF</td>
+<td>8 bits of data</td>
+</tr>
+<tr>
+<td>CTL</td>
+<td>%x00-1F / %x7F</td>
+<td>controls</td>
+</tr>
+<tr>
+<td>CR</td>
+<td>%x0D</td>
+<td>carriage return</td>
+</tr>
+<tr>
+<td>LF</td>
+<td>%x0A</td>
+<td>linefeed</td>
+</tr>
+<tr>
+<td>CRLF</td>
+<td>CR LF</td>
+<td>Internet standard newline</td>
+</tr>
+<tr>
+<td>BIT</td>
+<td>"0" / "1"</td>
+<td></td>
+</tr>
+</table>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>The postal address example given in the Backus-Naur (BNF) page may be specified as:</p>
+<pre>
+postal-address   = name-part street zip-part
+
+name-part        = *(personal-part SP) last-name [SP jr-part] CRLF
+name-part        =/ personal-part CRLF
+
+personal-part    = first-name / (initial ".")
+first-name       = *ALPHA
+initial          = ALPHA
+last-name        = *ALPHA
+jr-part          = ("Jr." / "Sr." / 1*("I" / "V" / "X"))
+
+street           = [apt SP] house-num SP street-name CRLF
+apt              = 1*4DIGIT
+house-num        = 1*8(DIGIT / ALPHA)
+street-name      = 1*VCHAR
+
+zip-part         = town-name "," SP state 1*2SP zip-code CRLF
+town-name        = 1*(ALPHA / SP)
+state            = 2ALPHA
+zip-code         = 5DIGIT ["-" 4DIGIT]
+</pre>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="http://tools.ietf.org/html/rfc4234" class="external" title="http://tools.ietf.org/html/rfc4234">RFC 4234</a> Augmented BNF for Syntax Specifications: ABNF</li>
+<li><a href="http://tools.ietf.org/html/rfc2234" class="external" title="http://tools.ietf.org/html/rfc2234">RFC 2234</a> Augmented BNF for Syntax Specifications: ABNF (Obsolete)</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html">http://en.wikipedia.org../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../f/o/r/Category%7EFormal_languages_fd66.html" title="Category:Formal languages">Formal languages</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/u/g/Augmented_Backus%E2%80%93Naur_form_b924.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/u/g/Talk%7EAugmented_Backus%E2%80%93Naur_form_31e2.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Augmented_Backus%E2%80%93Naur_form">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../fr/a/b/n/ABNF_ee3f.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hr/p/o/v/Pove%C4%87ani_Backus-Naurov_oblik_3588.html">Hrvatski</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 09:33, 30 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../a/z/a/User%7EAzaToth_9bb9.html" title="User:AzaToth">AzaToth</a>, <a href="../../../e/s/c/User%7EEscarbot_9d83.html" title="User:Escarbot">Escarbot</a>, Tomas.rutegard, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, QuoVadis, LanceHelsten, <a href="../../../p/o/r/User%7EPorqin_0917.html" title="User:Porqin">Porqin</a>, <a href="../../../r/i/c/User%7ERich_Farmbrough_7642.html" title="User:Rich Farmbrough">Rich Farmbrough</a>, <a href="../../../j/o/n/User%7EJon_Awbrey_aa98.html" title="User:Jon Awbrey">Jon Awbrey</a>, <a href="../../../t/o/m/User%7ETom_harrison_ffb8.html" title="User:Tom harrison">Tom harrison</a>, Bzorro, <a href="../../../r/3/m/User%7ER3m0t_5466.html" title="User:R3m0t">R3m0t</a>, <a href="../../../i/a/m/User%7EIamfscked_0721.html" title="User:Iamfscked">Iamfscked</a>, <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Gerbrant</a>, <a href="../../../g/r/u/User%7EGrutness_4a2f.html" title="User:Grutness">Grutness</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../e/m/p/User%7EEmperorbma_7b7a.html" title="User:Emperorbma">Emperorbma</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../y/a/r/User%7EYaronf_7bcc.html" title="User:Yaronf">Yaronf</a>, <a href="../../../j/a/n/User%7EJan_Hidders_5932.html" title="User:Jan Hidders">Jan Hidders</a>, <a href="../../../l/a/2/User%7ELA2_a404.html" title="User:LA2">LA2</a> and <a href="../../../e/l/l/User%7EEllmist_6655.html" title="User:Ellmist">Ellmist</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Addressing mode,68010,80386,Absolute address,Assembly language,CISC,Central processing unit,Compiler,Computer programming,Computer science,Digital Equipment Corporation" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Addressing mode - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Addressing mode</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Addressing modes</b>, a concept from <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a>, are an aspect of the <a href="../../../i/n/s/Instruction_set_architecture.html" title="Instruction set architecture">instruction set architecture</a> in most <a href="../../../c/e/n/Central_processing_unit.html" title="Central processing unit">central processing unit</a> (CPU) designs. The various addressing modes that are defined in a given instruction set architecture define how <a href="../../../m/a/c/Machine_code.html" title="Machine code">machine language</a> <a href="../../../i/n/s/Instruction_%28computer_science%29.html" title="Instruction (computer science)">instructions</a> in that architecture identify the <a href="../../../o/p/e/Operand.html" title="Operand">operand</a> (or operands) of each instruction. An addressing mode specifies how to calculate the effective memory address of an operand by using information held in <a href="../../../p/r/o/Processor_register.html" title="Processor register">registers</a> and/or constants contained within a machine instruction or elsewhere.</p>
+<p>In <a href="../../../c/o/m/Computer_programming.html" title="Computer programming">computer programming</a>, <b>addressing mode</b>s are primarily of interest to <a href="../../../c/o/m/Compiler.html" title="Compiler">compiler</a> writers and to those who write code directly in <a href="../../../a/s/s/Assembly_language.html" title="Assembly language">assembly language</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Caveats"><span class="tocnumber">1</span> <span class="toctext">Caveats</span></a></li>
+<li class="toclevel-1"><a href="#Useful_side_effect"><span class="tocnumber">2</span> <span class="toctext">Useful side effect</span></a></li>
+<li class="toclevel-1"><a href="#How_many_address_modes.3F"><span class="tocnumber">3</span> <span class="toctext">How many address modes?</span></a></li>
+<li class="toclevel-1"><a href="#Simple_addressing_modes_for_code"><span class="tocnumber">4</span> <span class="toctext">Simple addressing modes for code</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Absolute"><span class="tocnumber">4.1</span> <span class="toctext">Absolute</span></a></li>
+<li class="toclevel-2"><a href="#Program_relative"><span class="tocnumber">4.2</span> <span class="toctext">Program relative</span></a></li>
+<li class="toclevel-2"><a href="#Register_indirect"><span class="tocnumber">4.3</span> <span class="toctext">Register indirect</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Simple_addressing_modes_for_data"><span class="tocnumber">5</span> <span class="toctext">Simple addressing modes for data</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Register"><span class="tocnumber">5.1</span> <span class="toctext">Register</span></a></li>
+<li class="toclevel-2"><a href="#Base_plus_offset.2C_and_variations"><span class="tocnumber">5.2</span> <span class="toctext">Base plus offset, and variations</span></a></li>
+<li class="toclevel-2"><a href="#Immediate.2Fliteral"><span class="tocnumber">5.3</span> <span class="toctext">Immediate/literal</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Other_addressing_modes_for_code_and.2For_data"><span class="tocnumber">6</span> <span class="toctext">Other addressing modes for code and/or data</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Absolute.2FDirect"><span class="tocnumber">6.1</span> <span class="toctext">Absolute/Direct</span></a></li>
+<li class="toclevel-2"><a href="#Indexed_absolute"><span class="tocnumber">6.2</span> <span class="toctext">Indexed absolute</span></a></li>
+<li class="toclevel-2"><a href="#Base_plus_index"><span class="tocnumber">6.3</span> <span class="toctext">Base plus index</span></a></li>
+<li class="toclevel-2"><a href="#Base_plus_index_plus_offset"><span class="tocnumber">6.4</span> <span class="toctext">Base plus index plus offset</span></a></li>
+<li class="toclevel-2"><a href="#Scaled"><span class="tocnumber">6.5</span> <span class="toctext">Scaled</span></a></li>
+<li class="toclevel-2"><a href="#Register_indirect_2"><span class="tocnumber">6.6</span> <span class="toctext">Register indirect</span></a></li>
+<li class="toclevel-2"><a href="#Register_autoincrement_indirect"><span class="tocnumber">6.7</span> <span class="toctext">Register autoincrement indirect</span></a></li>
+<li class="toclevel-2"><a href="#Autodecrement_register_indirect"><span class="tocnumber">6.8</span> <span class="toctext">Autodecrement register indirect</span></a></li>
+<li class="toclevel-2"><a href="#Memory_indirect"><span class="tocnumber">6.9</span> <span class="toctext">Memory indirect</span></a></li>
+<li class="toclevel-2"><a href="#PC-based_addressing"><span class="tocnumber">6.10</span> <span class="toctext">PC-based addressing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Obsolete_addressing_modes"><span class="tocnumber">7</span> <span class="toctext">Obsolete addressing modes</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Multi-level_memory_indirect"><span class="tocnumber">7.1</span> <span class="toctext">Multi-level memory indirect</span></a></li>
+<li class="toclevel-2"><a href="#Memory-mapped_registers"><span class="tocnumber">7.2</span> <span class="toctext">Memory-mapped registers</span></a></li>
+<li class="toclevel-2"><a href="#Memory_indirect.2C_auto_inc.2Fdec"><span class="tocnumber">7.3</span> <span class="toctext">Memory indirect, auto inc/dec</span></a></li>
+<li class="toclevel-2"><a href="#Zero_page"><span class="tocnumber">7.4</span> <span class="toctext">Zero page</span></a></li>
+<li class="toclevel-2"><a href="#Scaled_index_with_bounds_checking"><span class="tocnumber">7.5</span> <span class="toctext">Scaled index with bounds checking</span></a></li>
+<li class="toclevel-2"><a href="#Register_indirect_to_byte_within_word"><span class="tocnumber">7.6</span> <span class="toctext">Register indirect to byte within word</span></a></li>
+<li class="toclevel-2"><a href="#Index_next_instruction"><span class="tocnumber">7.7</span> <span class="toctext">Index next instruction</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Caveats" id="Caveats"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Caveats">edit</a>]</span> <span class="mw-headline">Caveats</span></h2>
+<p>Note that there is no generally accepted way of naming the various addressing modes. In particular, different authors and/or computer manufacturers may give different names to the same addressing mode, or the same names to different addressing modes. Furthermore, an addressing mode which, in one given architecture, is treated as a single addressing mode may represent functionality that, in another architecture, is covered by two or more addressing modes. For example, some <a href="../../../c/i/s/CISC_d907.html" title="CISC">complex instruction set computer</a> (CISC) computer architectures, such as the <a href="../../../d/i/g/Digital_Equipment_Corporation_0f47.html" title="Digital Equipment Corporation">Digital Equipment Corporation (DEC)</a> <a href="../../../v/a/x/VAX_a10c.html" title="VAX">VAX</a>, treat registers and literal/immediate constants as just another addressing mode. Others, such as the <a href="../../../i/b/m/IBM_cbf4.html" title="IBM">IBM</a> <a href="../../../s/y/s/System_390_e0ff.html" title="System/390">System/390</a> and most <a href="../../../r/i/s/RISC_0a73.html" title="RISC">reduced instruction set computer</a> (RISC) designs, encode this information within the instruction code. Thus, the latter machines have three distinct instruction codes for copying one register to another, copying a literal constant into a register, and copying the contents of a memory location into a register, while the VAX has only a single "MOV" instruction.</p>
+<p>The addressing modes listed below are divided into code addressing and data addressing. Most computer architectures maintain this distinction, but there are, or have been, some architectures which allow (almost) all addressing modes to be used in any context.</p>
+<p>The instructions shown below are purely representative in order to illustrate the addressing modes, and do not necessarily apply to any particular computer.</p>
+<p><a name="Useful_side_effect" id="Useful_side_effect"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Useful side effect">edit</a>]</span> <span class="mw-headline">Useful side effect</span></h2>
+<p>Some computers have a <b>Load effective address</b> instruction. This performs a calculation of the effective operand address, but instead of acting on that memory location, it loads the address that would have been accessed into a register. This can be useful when passing the address of an array element to a subroutine. It may also be a slightly sneaky way of doing more calculation than normal in one instruction; for example, use with the addressing mode 'base+index+offset' allows one to add two registers and a constant together in one instruction.</p>
+<p><a name="How_many_address_modes.3F" id="How_many_address_modes.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: How many address modes?">edit</a>]</span> <span class="mw-headline">How many address modes?</span></h2>
+<p>Different computer architectures vary greatly as to the number of addressing modes they provide. At the cost of a few extra instructions, and perhaps an extra register, it is normally possible to use the simpler addressing modes instead of the more complicated modes. It has proven much easier to design <a href="../../../i/n/s/Instruction_pipeline.html" title="Instruction pipeline">pipelined</a> CPUs if the only addressing modes available are simple ones.</p>
+<p>Most RISC machines have only about five simple addressing modes, while CISC machines such as the DEC VAX supermini have over a dozen addressing modes, some of which are quite complicated. The IBM <a href="../../../s/y/s/System_360_1199.html" title="System/360">System/360</a> mainframe had only three addressing modes; a few more have been added for the System/390.</p>
+<p>When there are only a few addressing modes, the particular addressing mode required is usually encoded within the instruction code (e.g. IBM System/390, most RISC). But when there are lots of addressing modes, a specific field is often set aside in the instruction to specify the addressing mode. The DEC VAX allowed multiple memory operands for almost all instructions and so reserved the first few bits of each operand specifier to indicate the addressing mode for that particular operand.</p>
+<p>Even on a computer with many addressing modes, measurements of actual programs indicate that the simple addressing modes listed below account for some 90% or more of all addressing modes used. Since most such measurements are based on code generated from high-level languages by compilers, this may reflect to some extent the limitations of the compilers being used.</p>
+<p><a name="Simple_addressing_modes_for_code" id="Simple_addressing_modes_for_code"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Simple addressing modes for code">edit</a>]</span> <span class="mw-headline">Simple addressing modes for code</span></h2>
+<p><a name="Absolute" id="Absolute"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Absolute">edit</a>]</span> <span class="mw-headline">Absolute</span></h3>
+<pre>
+   +----+------------------------------+
+   |jump|           address            | 
+   +----+------------------------------+
+</pre>
+<p>Effective address = address as given in instruction</p>
+<p><a name="Program_relative" id="Program_relative"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Program relative">edit</a>]</span> <span class="mw-headline">Program relative</span></h3>
+<pre>
+   +------+-----+-----+----------------+
+   |jumpEQ| reg1| reg2|         offset |    jump relative if reg1=reg2
+   +------+-----+-----+----------------+
+</pre>
+<p>Effective address = offset plus address of next instruction.</p>
+<p>The offset is usually signed, in the range -32768 to +32767.</p>
+<p>This is particularly useful in connection with conditional jumps, because you usually only want to jump to some nearby instruction (in a high-level language most <b>if</b> or <b>while</b> statements are reasonably short). Measurements of actual programs suggest that an 8 or 10 bit offset is large enough for some 90% of conditional jumps.</p>
+<p>Another advantage of program-relative addressing is that the code may be <a href="../../../p/o/s/Position_independent_code.html" title="Position independent code">position-independent</a>, i.e. it can be loaded anywhere in memory without the need to adjust any addresses.</p>
+<p><a name="Register_indirect" id="Register_indirect"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Register indirect">edit</a>]</span> <span class="mw-headline">Register indirect</span></h3>
+<pre>
+   +-------+-----+
+   |jumpVia| reg | 
+   +-------+-----+
+</pre>
+<p>Effective address = contents of specified register.</p>
+<p>The effect is to transfer control to the instruction whose address is in the specified register. Such an instruction is often used for returning from a subroutine call, since the actual call would usually have placed the <a href="../../../r/e/t/Return_address.html" title="Return address">return address</a> in a register.</p>
+<p><a name="Simple_addressing_modes_for_data" id="Simple_addressing_modes_for_data"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Simple addressing modes for data">edit</a>]</span> <span class="mw-headline">Simple addressing modes for data</span></h2>
+<p><a name="Register" id="Register"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Register">edit</a>]</span> <span class="mw-headline">Register</span></h3>
+<pre>
+   +------+-----+-----+-----+
+   | mul  | reg1| reg2| reg3|      reg1 := reg2 * reg3;
+   +------+-----+-----+-----+
+</pre>
+<p>This 'addressing mode' does not have an effective address and is not considered to be an addressing mode on some computers.</p>
+<p>In this example, all the operands are in registers, and the result is placed in a register.</p>
+<p><a name="Base_plus_offset.2C_and_variations" id="Base_plus_offset.2C_and_variations"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Base plus offset, and variations">edit</a>]</span> <span class="mw-headline">Base plus offset, and variations</span></h3>
+<pre>
+   +------+-----+-----+----------------+
+   | load | reg | base|     offset     | 
+   +------+-----+-----+----------------+
+</pre>
+<p>Effective address = offset plus contents of specified base register.</p>
+<p>The <a href="../../../o/f/f/Offset_%28computer%29.html" title="Offset (computer)">offset</a> is usually a signed 16-bit value (though the <a href="../../../8/0/3/80386.html" title="80386">80386</a> is famous for expanding it to 32-bit, though x64 didn't).</p>
+<p>If the offset is zero, this becomes an example of <i>register indirect</i> addressing; the effective address is just that in the base register.</p>
+<p>On many RISC machines, register 0 is fixed with value 0. If register 0 is used as the base register, this becomes an example of <i>absolute addressing</i>. However, only a small portion of memory can be accessed (the first 32 Kbytes and possibly the last 32 Kbytes)</p>
+<p>The 16-bit offset may seem very small in relation to the size of current computer memories (which is why the <a href="../../../8/0/3/80386.html" title="80386">80386</a> expanded it to 32-bit. <a href="../../../x/6/4/X64.html" title="X64">x64</a> didn't expand it, however.) (it could be worse: IBM System/360 mainframes only have a positive 12-bit offset 0 to 4095). However, the principle of <a href="../../../l/o/c/Locality_of_reference.html" title="Locality of reference">locality of reference</a> applies: over a short time span most of the data items you wish to access are fairly close to each other.</p>
+<p><i>Example 1</i>: Within a subroutine you will mainly be interested in the parameters and the local variables, which will rarely exceed 64 Kbytes, for which one base register suffices. If this routine is a class method in an object-oriented language, you will need a second base register pointing at the attributes for the current object (<b>this</b> or <b>self</b> in some high level languages).</p>
+<p><i>Example 2</i>: If the base register contains the address of a record or structure, the offset can be used to select a field from that record (most records/structures are less than 32 Kbytes in size).</p>
+<p><a name="Immediate.2Fliteral" id="Immediate.2Fliteral"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Immediate/literal">edit</a>]</span> <span class="mw-headline">Immediate/literal</span></h3>
+<pre>
+   +------+-----+-----+----------------+
+   | add  | reg1| reg2|    constant    |    reg1 := reg2 + constant;
+   +------+-----+-----+----------------+
+</pre>
+<p>This 'addressing mode' does not have an effective address, and is not considered to be an addressing mode on some computers.</p>
+<p>The constant might be signed or unsigned.</p>
+<p>Instead of using an operand from memory, the value of the operand is held within the instruction itself. On the DEC VAX machine, the literal operand sizes could be 6, 8, 16, or 32 bits long.</p>
+<p><a name="Other_addressing_modes_for_code_and.2For_data" id="Other_addressing_modes_for_code_and.2For_data"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Other addressing modes for code and/or data">edit</a>]</span> <span class="mw-headline">Other addressing modes for code and/or data</span></h2>
+<p><a name="Absolute.2FDirect" id="Absolute.2FDirect"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Absolute/Direct">edit</a>]</span> <span class="mw-headline"><a href="../../../a/b/s/Absolute_address.html" title="Absolute address">Absolute/Direct</a></span></h3>
+<pre>
+   +------+-----+--------------------------------------+
+   | load | reg |         address                      | 
+   +------+-----+--------------------------------------+
+</pre>
+<p>Effective address = address as given in instruction.</p>
+<p>This requires space in an instruction for quite a large address. It is often available on CISC machines which have variable length instructions.</p>
+<p>Some RISC machines have a special <i>Load Upper Literal</i> instruction which places a 16-bit constant in the top half of a register. An <i>OR literal</i> instruction can be used to insert a 16-bit constant in the lower half of that register, so that a full 32-bit address can then be used via the register-indirect addressing mode, which itself is provided as 'base-plus-offset' with an offset of 0.</p>
+<p><a name="Indexed_absolute" id="Indexed_absolute"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Indexed absolute">edit</a>]</span> <span class="mw-headline">Indexed absolute</span></h3>
+<pre>
+   +------+-----+-----+--------------------------------+
+   | load | reg |index|  32-bit address                | 
+   +------+-----+-----+--------------------------------+
+</pre>
+<p>Effective address = address plus contents of specified index register.</p>
+<p>This also requires space in an instruction for quite a large address. The address could be the start of an array or vector, and the index could select the particular array element required. The index register may need to have been scaled to allow for the size of each array element.</p>
+<p>Note that this is more or less the same as base-plus-offset addressing mode, except that the offset in this case is large enough to address any memory location.</p>
+<p><a name="Base_plus_index" id="Base_plus_index"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Base plus index">edit</a>]</span> <span class="mw-headline">Base plus index</span></h3>
+<pre>
+   +------+-----+-----+-----+
+   | load | reg | base|index| 
+   +------+-----+-----+-----+
+</pre>
+<p>Effective address = contents of specified base register plus contents of specified <a href="../../../i/n/d/Index_register.html" title="Index register">index register</a>.</p>
+<p>The base register could contain the start address of an array or vector, and the index could select the particular array element required. The index register may need to have been scaled to allow for the size of each array element. This could be used for accessing elements of an array passed as a parameter.</p>
+<p><a name="Base_plus_index_plus_offset" id="Base_plus_index_plus_offset"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Base plus index plus offset">edit</a>]</span> <span class="mw-headline">Base plus index plus offset</span></h3>
+<pre>
+   +------+-----+-----+-----+----------------+
+   | load | reg | base|index|  16-bit offset | 
+   +------+-----+-----+-----+----------------+
+</pre>
+<p>Effective address = offset plus contents of specified base register plus contents of specified index register.</p>
+<p>The base register could contain the start address of an array or vector of records, the index could select the particular record required, and the offset could select a field within that record. The index register may need to have been scaled to allow for the size of each record.</p>
+<p><a name="Scaled" id="Scaled"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Scaled">edit</a>]</span> <span class="mw-headline">Scaled</span></h3>
+<pre>
+   +------+-----+-----+-----+
+   | load | reg | base|index| 
+   +------+-----+-----+-----+
+</pre>
+<p>Effective address = contents of specified base register plus scaled contents of specified index register.</p>
+<p>The base register could contain the start address of an array or vector, and the index could contain the number of the particular array element required.</p>
+<p>This addressing mode dynamically scales the value in the index register to allow for the size of each array element, e.g. if the array elements are double precision floating-point numbers occupying 8 bytes each then the value in the index register is multiplied by 8 before being used in the effective address calculation. The scale factor is normally restricted to being a power of two so that shifting rather than multiplication can be used (shifting is usually faster than multiplication).</p>
+<p><a name="Register_indirect_2" id="Register_indirect_2"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Register indirect">edit</a>]</span> <span class="mw-headline">Register indirect</span></h3>
+<pre>
+   +------+-----+-----+
+   | load | reg | base| 
+   +------+-----+-----+
+</pre>
+<p>Effective address = contents of base register.</p>
+<p>A few computers have this as a distinct addressing mode. Many computers just use <i>base plus offset</i> with an offset value of 0.</p>
+<p><a name="Register_autoincrement_indirect" id="Register_autoincrement_indirect"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Register autoincrement indirect">edit</a>]</span> <span class="mw-headline">Register autoincrement indirect</span></h3>
+<pre>
+   +------+-----+-----+
+   | load | reg | base| 
+   +------+-----+-----+
+</pre>
+<p>Effective address = contents of base register.</p>
+<p>After determining the effective address, the value in the base register is incremented by the size of the data item that is to be accessed.</p>
+<p>Within a loop, this addressing mode can be used to step through all the elements of an array or vector. A stack can be implemented by using this in conjunction with the next addressing mode (autodecrement).</p>
+<p>In high-level languages it is often thought to be a good idea that functions which return a result should not have side effects (lack of side effects makes program understanding and validation much easier). This addressing mode has a side effect in that the base register is altered. If the subsequent memory access causes an error (e.g. page fault, bus error, address error) leading to an interrupt, then restarting the instruction becomes much more problematic since one or more registers may need to be set back to the state they were in before the instruction originally started.</p>
+<p>There have been at least two computer architectures which have had implementation problems with regard to recovery from interrupts when this addressing mode is used:</p>
+<ul>
+<li>Motorola 68000. Could have one or two autoincrement register operands. The <a href="../../../6/8/0/68010.html" title="68010">68010</a>+ resolved the problem by saving the processor's internal state on bus or address errors.</li>
+<li>DEC VAX. Could have up to 6 autoincrement register operands. Each operand access could cause 2 page faults (if operands happened to straddle a page boundary). Of course the instruction itself could be over 50 bytes long and might straddle a page boundary as well!</li>
+</ul>
+<p><a name="Autodecrement_register_indirect" id="Autodecrement_register_indirect"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Autodecrement register indirect">edit</a>]</span> <span class="mw-headline">Autodecrement register indirect</span></h3>
+<pre>
+   +------+-----+-----+
+   | load | reg | base| 
+   +------+-----+-----+
+</pre>
+<p>Before determining the effective address, the value in the base register is decremented by the size of the data item which is to be accessed.</p>
+<p>Effective address = new contents of base register.</p>
+<p>Within a loop, this addressing mode can be used to step backwards through all the elements of an array or vector. A stack can be implemented by using this in conjunction with the previous addressing mode (autoincrement).</p>
+<p>See also the discussion on side-effects under the autoincrement addressing mode.</p>
+<p><a name="Memory_indirect" id="Memory_indirect"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Memory indirect">edit</a>]</span> <span class="mw-headline">Memory indirect</span></h3>
+<p>Any of the addressing modes mentioned in this article could have an extra bit to indicate indirect addressing, i.e. the address calculated by using some addressing mode is the address of a location (often 32 bits or a complete word) which contains the actual effective address.</p>
+<p>Indirect addressing may be used for code and/or data. It can make implementation of <i>pointers</i> or <i>references</i> very much easier, and can also make it easier to call subroutines which are not otherwise addessable. There is a performance penalty due to the extra memory access involved.</p>
+<p>Some early minicomputers (e.g. DEC PDP8, Data General Nova) had only a few registers and only a limited addressing range (8 bits). Hence the use of memory indirect addressing was almost the only way of referring to any significant amount of memory.</p>
+<p><a name="PC-based_addressing" id="PC-based_addressing"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: PC-based addressing">edit</a>]</span> <span class="mw-headline">PC-based addressing</span></h3>
+<p>The <a href="../../../x/8/6/X86-64.html" title="X86-64">x86-64</a> architecture supports RIP-based addressing, which uses the 64-bit <a href="../../../p/r/o/Program_counter.html" title="Program counter">program counter</a> (instruction pointer) RIP as a base register. This allows for <a href="../../../p/o/s/Position-independent_code.html" title="Position-independent code">position-independent code</a>.</p>
+<p><a name="Obsolete_addressing_modes" id="Obsolete_addressing_modes"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Obsolete addressing modes">edit</a>]</span> <span class="mw-headline">Obsolete addressing modes</span></h2>
+<p>The addressing modes listed here were used in the 1950-1980 time frame, but most are no longer available on current computers. This list is by no means complete; there have been lots of other interesting/peculiar addressing modes used from time to time, e.g. absolute plus logical OR of 2 or 3 index registers.</p>
+<p><a name="Multi-level_memory_indirect" id="Multi-level_memory_indirect"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Multi-level memory indirect">edit</a>]</span> <span class="mw-headline">Multi-level memory indirect</span></h3>
+<p>If the word size is larger than the address size, then the word referenced for memory-indirect addressing could itself have an indirect flag set to indicate another memory indirect cycle. Care is needed to ensure that a chain of indirect addresses does not refer to itself; if it did, you could get an infinite loop while trying to resolve an address.</p>
+<p>The DEC <a href="../../../p/d/p/PDP-10_3525.html" title="PDP-10">PDP-10</a> computer with 18-bit addresses and 36-bit words allowed multi-level indirect addressing with the possibility of using an index register at each stage as well.</p>
+<p><a name="Memory-mapped_registers" id="Memory-mapped_registers"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Memory-mapped registers">edit</a>]</span> <span class="mw-headline">Memory-mapped registers</span></h3>
+<p>On some computers the registers were regarded as occupying the first 8 or 16 words of memory (e.g. <a href="../../../i/n/t/International_Computers_Ltd_3f3d.html" title="International Computers Ltd">ICL 1900</a>, DEC PDP-10). This meant that there was no need for a separate 'Add register to register' instruction - you could just use the 'Add memory to register' instruction.</p>
+<p>In the case of early models of the PDP-10, which did not have any cache memory, you could actually load a tight inner loop into the first few words of memory (the fast registers in fact), and have it run much faster than if it was in magnetic core memory.</p>
+<p>Later models of the DEC <a href="../../../p/d/p/PDP-11_c0f3.html" title="PDP-11">PDP-11</a> series mapped the registers onto addresses in the input/output area, but this was primarily intended to allow remote diagnostics. Confusingly, the 16-bit registers were mapped onto consecutive 8-bit byte addresses.</p>
+<p><a name="Memory_indirect.2C_auto_inc.2Fdec" id="Memory_indirect.2C_auto_inc.2Fdec"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Memory indirect, auto inc/dec">edit</a>]</span> <span class="mw-headline">Memory indirect, auto inc/dec</span></h3>
+<p>On some early minicomputers (e.g. DEC PDP8, Data General Nova), there were typically 16 special memory locations. When accessed via memory indirect addressing, 8 would automatically increment after use and 8 would automatically decrement after use. This made it very easy to step through memory in loops without using any registers.</p>
+<p><a name="Zero_page" id="Zero_page"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Zero page">edit</a>]</span> <span class="mw-headline"><a href="../../../z/e/r/Zero_page.html" title="Zero page">Zero page</a></span></h3>
+<p>In the <a href="../../../m/o/s/MOS_Technology_6502_b7e0.html" title="MOS Technology 6502">MOS Technology 6502</a> the first 256 bytes of memory could be accessed very rapidly. The reason was that the 6502 was lacking in registers which were not special function registers. To use zero page access an 8-bit address would be used, saving one clock cycle as compared with using a 16-bit address. An <a href="../../../o/p/e/Operating_System_e2a7.html" title="Operating System">Operating System</a> would use much of <a href="../../../z/e/r/Zero_page.html" title="Zero page">zero page</a>, so it was not as useful as it might have seemed.</p>
+<p><a name="Scaled_index_with_bounds_checking" id="Scaled_index_with_bounds_checking"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Scaled index with bounds checking">edit</a>]</span> <span class="mw-headline">Scaled index with bounds checking</span></h3>
+<p>This is similar to scaled index addressing, except that the instruction has two extra operands (typically constants), and the hardware would check that the index value was between these bounds.</p>
+<p>Another variation uses vector descriptors to hold the bounds; this makes it easy to implement dynamically allocated arrays and still have full bounds checking.</p>
+<p><a name="Register_indirect_to_byte_within_word" id="Register_indirect_to_byte_within_word"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Register indirect to byte within word">edit</a>]</span> <span class="mw-headline">Register indirect to byte within word</span></h3>
+<p>The DEC <a href="../../../p/d/p/PDP-10_3525.html" title="PDP-10">PDP-10</a> computer used 36-bit words. It had a special addressing mode which allowed memory to be treated as a sequence of bytes (bytes could be any size from 1 bit to 36 bits). A 1-word sequence descriptor held the current word address within the sequence, a bit position within a word, and the size of each byte.</p>
+<p>Instructions existed to load and store bytes via this descriptor, and to increment the descriptor to point at the next byte (bytes were not split across word boundaries). Much DEC software used five 7-bit bytes per word (plain ASCII characters), with 1 bit unused per word. Implementations of C had to use four 9-bit bytes per word, since C assumes that you can access every bit of memory by accessing consecutive bytes.</p>
+<p><a name="Index_next_instruction" id="Index_next_instruction"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Addressing_mode.html" title="Edit section: Index next instruction">edit</a>]</span> <span class="mw-headline">Index next instruction</span></h3>
+<p>The Elliott 503 computer had 39-bit words, only used absolute addressing, and did not have any index registers. To avoid the need for self-modifying programs, it had an instruction:</p>
+<pre>
+add the contents of this location to the address of the next instruction.
+</pre>
+<p>The effect of this was that any location could be used as an index, at the cost of reduced speed, of course.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/d/Addressing_mode.html">http://en.wikipedia.org../../../a/d/d/Addressing_mode.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_architecture_dac8.html" title="Category:Computer architecture">Computer architecture</a></span> | <span dir='ltr'><a href="../../../m/a/c/Category%7EMachine_code_8d55.html" title="Category:Machine code">Machine code</a></span> | <span dir='ltr'><a href="../../../a/s/s/Category%7EAssembly_languages_e55e.html" title="Category:Assembly languages">Assembly languages</a></span> | <span dir='ltr'><a href="../../../m/i/c/Category%7EMicroprocessors_5721.html" title="Category:Microprocessors">Microprocessors</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/d/Addressing_mode.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/d/d/Talk%7EAddressing_mode_09c2.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Addressing_mode">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/d/r/Adressierung_%28Datenverarbeitung%29_5d64.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%82%A2/%E3%83%89/%E3%83%AC/%E3%82%A2%E3%83%89%E3%83%AC%E3%83%83%E3%82%B7%E3%83%B3%E3%82%B0%E3%83%A2%E3%83%BC%E3%83%89.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%BC/%D0%B5/%D1%82/%D0%BC%D0%B5%D1%82%D0%BE%D0%B4%D1%8B_%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%B0%D1%86%D0%B8%D0%B8_3e25.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../uk/%D1%81/%D0%BF/%D0%BE/%D0%A1%D0%BF%D0%BE%D1%81%D0%BE%D0%B1%D0%B8_%D0%B0%D0%B4%D1%80%D0%B5%D1%81%D0%B0%D1%86%D1%96%D1%97_%D0%BF%D0%B0%D0%BC%27%D1%8F%D1%82%D1%96.html">Українська</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:49, 29 March 2007 by Wikipedia user <a href="../../../r/j/w/User%7ERjwilmsi_027f.html" title="User:Rjwilmsi">Rjwilmsi</a>. Based on work by Wikipedia user(s) <a href="../../../m/u/r/User%7EMurray_Langton_52f5.html" title="User:Murray Langton">Murray Langton</a>, <a href="../../../g/k/_/User%7EGK_tramrunner_992a.html" title="User:GK tramrunner">GK tramrunner</a>, <a href="../../../c/o/r/User%7ECorti_28b4.html" title="User:Corti">Corti</a>, Donreed, <a href="../../../b/i/g/User%7EBigdumbdinosaur_377a.html" title="User:Bigdumbdinosaur">Bigdumbdinosaur</a>, <a href="../../../c/a/n/User%7ECan%27t_sleep%2C_clown_will_eat_me_7058.html" title="User:Can't sleep, clown will eat me">Can't sleep, clown will eat me</a>, <a href="../../../a/n/t/User%7EAntiVandalBot_aa84.html" title="User:AntiVandalBot">AntiVandalBot</a>, <a href="../../../h/g/f/User%7EHgfernan_df96.html" title="User:Hgfernan">Hgfernan</a>, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, <a href="../../../d/y/l/User%7EDyl_bfb4.html" title="User:Dyl">Dyl</a>, <a href="../../../s/n/a/User%7ESnarius_e50a.html" title="User:Snarius">Snarius</a>, <a href="../../../m/a/r/User%7EMarkusHagenlocher_402b.html" title="User:MarkusHagenlocher">MarkusHagenlocher</a>, <a href="../../../k/e/l/User%7EKelly_Martin_056a.html" title="User:Kelly Martin">Kelly Martin</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../w/e/r/User%7EWernher_a499.html" title="User:Wernher">Wernher</a>, <a href="../../../w/e/e/User%7EWeebot_b227.html" title="User:Weebot">Weebot</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../s/u/r/User%7ESuruena_5a7c.html" title="User:Suruena">Suruena</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../m/a/t/User%7EMat-C_07e7.html" title="User:Mat-C">Mat-C</a>, <a href="../../../k/b/d/User%7EKbdank71_f952.html" title="User:Kbdank71">Kbdank71</a>, <a href="../../../i/n/t/User%7EInter_454c.html" title="User:Inter">Inter</a>, <a href="../../../c/h/i/User%7EChinju_e6fd.html" title="User:Chinju">Chinju</a>, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, <a href="../../../w/a/t/User%7EWatsonladd_1c1b.html" title="User:Watsonladd">Watsonladd</a> and <a href="../../../s/a/r/User%7ESarge_Baldy_6bdd.html" title="User:Sarge Baldy">Sarge Baldy</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

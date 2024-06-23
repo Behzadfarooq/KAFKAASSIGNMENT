@@ -1,0 +1,416 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Anti-aliasing,1974,1977,1978,Airy disc,Algorithm,Aliasing,Amplitude,Analog-to-digital converter,Anisotropic filtering,Anti-aliasing filter" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Anti-aliasing - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Anti-aliasing</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../d/i/g/Digital_signal_processing.html" title="Digital signal processing">digital signal processing</a>, <b>anti-aliasing</b> is the technique of minimizing the distortion artifacts known as <a href="../../../a/l/i/Aliasing.html" title="Aliasing">aliasing</a> when representing a high-resolution signal at a lower resolution. Anti-aliasing is used in <a href="../../../d/i/g/Digital_photography.html" title="Digital photography">digital photography</a>, <a href="../../../c/o/m/Computer_graphics.html" title="Computer graphics">computer graphics</a>, <a href="../../../d/i/g/Digital_audio.html" title="Digital audio">digital audio</a>, and many other domains. In the image domain, aliasing artifacts can appear as jagged, blocky or <a href="../../../m/o/i/Moir%C3%A9.html" title="Moiré">moiré</a> patterns, popping, <a href="../../../s/t/r/Strobing.html" title="Strobing">strobing</a>, or unwanted sparkling; in the sound domain, as rough, inharmonic, or spurious tones, or as noise.</p>
+<p>Anti-aliasing means removing signal components at too high a <a href="../../../f/r/e/Frequency.html" title="Frequency">frequency</a> to represent *before* (re-)sampling at a lower resolution. When sampling is performed without removing this part of the signal, it causes undesirable artifacts such as the black-and-white noise near the top of figure 1-a.</p>
+<p>In signal acquisition and audio, anti-aliasing is often done using an analog <a href="../../../a/n/t/Anti-aliasing_filter.html" title="Anti-aliasing filter">anti-aliasing filter</a> to remove the out-of-band component of the input signal prior to sampling with an <a href="../../../a/n/a/Analog-to-digital_converter.html" title="Analog-to-digital converter">analog-to-digital converter</a>. In <a href="../../../d/i/g/Digital_photography.html" title="Digital photography">digital photography</a>, optical <a href="../../../a/n/t/Anti-aliasing_filter.html" title="Anti-aliasing filter">anti-aliasing filters</a> are made of birefringement materials, and smooth the signal in the spatial optical domain.</p>
+<p>See the articles on signal processing and <a href="../../../a/l/i/Aliasing.html" title="Aliasing">aliasing</a> for more information about the theoretical justifications for anti-aliasing; <b>the remainder of this article is dedicated to anti-aliasing methods in <a href="../../../c/o/m/Computer_graphics.html" title="Computer graphics">computer graphics</a>.</b></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">1</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#First-principles_approach_to_anti-aliasing"><span class="tocnumber">2</span> <span class="toctext">First-principles approach to anti-aliasing</span></a></li>
+<li class="toclevel-1"><a href="#Signal_processing_approach_to_anti-aliasing"><span class="tocnumber">3</span> <span class="toctext">Signal processing approach to anti-aliasing</span></a></li>
+<li class="toclevel-1"><a href="#Two_dimensional_considerations"><span class="tocnumber">4</span> <span class="toctext">Two dimensional considerations</span></a></li>
+<li class="toclevel-1"><a href="#Practical_real-time_anti-aliasing_approximations"><span class="tocnumber">5</span> <span class="toctext">Practical real-time anti-aliasing approximations</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Mipmapping"><span class="tocnumber">5.1</span> <span class="toctext">Mipmapping</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#An_example_of_an_image_with_extreme_pseudo-random_aliasing"><span class="tocnumber">6</span> <span class="toctext">An example of an image with extreme pseudo-random aliasing</span></a></li>
+<li class="toclevel-1"><a href="#Full-scene_anti-aliasing"><span class="tocnumber">7</span> <span class="toctext">Full-scene anti-aliasing</span></a></li>
+<li class="toclevel-1"><a href="#Object-based_anti-aliasing"><span class="tocnumber">8</span> <span class="toctext">Object-based anti-aliasing</span></a></li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">9</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">10</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">11</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<table width="300" align="right" style="margin-left:5px;">
+<tr>
+<td><a href="../../../a/l/i/Image%7EAliased.png_fe50.html" class="image" title="An un-anti-aliased picture of a checkerboard from an angle looks random in the distance, and has unsmooth lines in the foreground."><img src="../../../upload/c/cd/Aliased.png" alt="An un-anti-aliased picture of a checkerboard from an angle looks random in the distance, and has unsmooth lines in the foreground." width="128" height="128" longdesc="../../../a/l/i/Image%7EAliased.png_fe50.html" /></a>
+<center>(a)</center>
+</td>
+<td><a href="../../../a/n/t/Image%7EAntialiased.png_8eb8.html" class="image" title="The same picture, anti-aliased, blurs into a gray in the distance, and has smoother lines in the foreground."><img src="../../../upload/a/a4/Antialiased.png" alt="The same picture, anti-aliased, blurs into a gray in the distance, and has smoother lines in the foreground." width="128" height="128" longdesc="../../../a/n/t/Image%7EAntialiased.png_8eb8.html" /></a>
+<center>(b)</center>
+</td>
+<td><a href="../../../a/n/t/Image%7EAntialiased-sinc.png_16f9.html" class="image" title="There are different algorithms for anti-aliasing, creating a slightly different appearance."><img src="../../../upload/7/7c/Antialiased-sinc.png" alt="There are different algorithms for anti-aliasing, creating a slightly different appearance." width="128" height="128" longdesc="../../../a/n/t/Image%7EAntialiased-sinc.png_16f9.html" /></a>
+<center>(c)</center>
+</td>
+</tr>
+<tr>
+<td></td>
+<td>
+<center>Figure 1</center>
+</td>
+</tr>
+</table>
+<div class="thumb tright">
+<div class="thumbinner" style="width:126px;"><a href="../../../a/n/t/Image%7EAntialiased-zoom.png_5a85.html" class="internal" title="Figure 2"><img src="../../../upload/5/5e/Antialiased-zoom.png" alt="Figure 2" width="124" height="127" longdesc="../../../a/n/t/Image%7EAntialiased-zoom.png_5a85.html" class="thumbimage" /></a>
+<div class="thumbcaption">Figure 2</div>
+</div>
+</div>
+<p>Figure 1-a illustrates the visual distortion that occurs when anti-aliasing is not used. Notice that near the top of the image, where the checkerboard is very distant, the image is impossible to recognize, and is displeasing to the eye. By contrast, figure 1-b is anti-aliased. The checkerboard near the top blends into gray, which is usually the desired effect when the <a href="../../../i/m/a/Image_resolution.html" title="Image resolution">resolution</a> is insufficient to show the detail. Even near the bottom of the image, the edges appear much smoother in the anti-aliased image. Figure 1-c shows another anti-aliasing <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a>, based on the <a href="../../../s/i/n/Sinc_filter.html" title="Sinc filter">sinc filter</a>, which is considered better than the algorithm used in 1-b. Figure 2 shows magnified portions of Figure 1 for comparison. The left half of the image is taken from Figure 1-a, and the right half of the image is taken from Figure 1-c. Observe that the gray <a href="../../../p/i/x/Pixel.html" title="Pixel">pixels</a> help make 1-c much smoother than 1-a, though they are not very attractive at the scale used in Figure 2.</p>
+<div class="floatleft" style="border: 1px solid #ccc;">
+<table>
+<tr>
+<td valign="top">
+<div class="thumb">
+<div style="width: 100px;"><a href="../../../a/n/t/Image%7EAnti-aliased-diamonds.png_8610.html" class="image" title="Image:Anti-aliased-diamonds.png"><img src="../../../upload/shared/f/fd/Anti-aliased-diamonds.png" alt="Image:Anti-aliased-diamonds.png" width="97" height="63" longdesc="../../../a/n/t/Image%7EAnti-aliased-diamonds.png_8610.html" /></a>
+<div class="thumbcaption">Compare the diamond on the left with the anti-aliased one on the right</div>
+</div>
+</div>
+</td>
+<td rowspan="2">
+<div class="thumb" style="margin-bottom: 0;">
+<div style="width:109px;"><a href="../../../a/n/t/Image%7EAnti-aliased_diamond_enlarged.png_9d32.html" class="image" title="Image:Anti-aliased diamond enlarged.png"><img src="../../../upload/shared/7/7d/Anti-aliased_diamond_enlarged.png" alt="Image:Anti-aliased diamond enlarged.png" width="107" height="194" longdesc="../../../a/n/t/Image%7EAnti-aliased_diamond_enlarged.png_9d32.html" /></a>
+<div class="thumbcaption">Enlarged view</div>
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td valign="bottom">
+<div style="font-size: 94%; padding: .3em 0 .1em 0;">Figure 3</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../a/n/t/Image%7EAnti-aliasing_example.png_692c.html" class="internal" title="An example of how anti-aliasing can smooth the edges of a line"><img src="../../../upload/thumb/6/64/Anti-aliasing_example.png/180px-Anti-aliasing_example.png" alt="An example of how anti-aliasing can smooth the edges of a line" width="180" height="63" longdesc="../../../a/n/t/Image%7EAnti-aliasing_example.png_692c.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../a/n/t/Image%7EAnti-aliasing_example.png_692c.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An example of how anti-aliasing can smooth the edges of a line</div>
+</div>
+</div>
+<p>Fig 3 shows how anti-aliasing smooths the outline. Text is affected in just the same way.<br clear="all" /></p>
+<p><a name="First-principles_approach_to_anti-aliasing" id="First-principles_approach_to_anti-aliasing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: First-principles approach to anti-aliasing">edit</a>]</span> <span class="mw-headline">First-principles approach to anti-aliasing</span></h2>
+<p>The idealized image has <a href="../../../i/n/f/Infinite.html" title="Infinite">infinite</a> detail, and is represented by a <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">function</a> <i>f(x,y)</i> where x and y are <a href="../../../r/e/a/Real_number.html" title="Real number">real numbers</a> defining <a href="../../../c/o/o/Coordinate.html" title="Coordinate">coordinates</a>.</p>
+<p>There are infinitely many such functions. However, the computer screen is capable of displaying only finitely many different images. Indeed, an ordinary computer screen has no more than a few million pixels, and each pixel only has a finite number of colors it can display.</p>
+<p>Hence, an image <i>f(x,y)</i> must be simplified in order to be converted into a displayable form. By the <a href="../../../p/i/g/Pigeonhole_principle.html" title="Pigeonhole principle">pigeonhole principle</a>, sometimes two different ideal images <i>f(x,y)</i> and <i>g(x,y)</i> will unavoidably be converted to the same picture on the screen. The question is how to select the best possible reduced image.</p>
+<p>An example of a poor choice is illustrated in Figure 1-a. The most direct way to simplify an image for display is to use a sample of the image at <i>f</i>(<i>i</i>,<i>j</i>) for each pixel (<i>i</i>,<i>j</i>), as illustrated. At the top of the checkerboard, multiple black and white tiles may be represented by a single pixel. But since only black and white points occur in the ideal image, an area containing both colors in similar proportion will be represented with a strange pattern of black and white. This type of aliasing is called a <a href="../../../m/o/i/Moir%C3%A9_effect.html" title="Moiré effect">Moiré effect</a>.</p>
+<p>A better approach is, for each pixel, to use the average intensity of a rectangular area in the scene corresponding to the surface area of the pixel. This gives a better, but not yet ideal, "anti-aliased" appearance; figure 1-b was generated this way. To see why this works better, it helps to look at the problem from a signal-processing perspective.</p>
+<p><a name="Signal_processing_approach_to_anti-aliasing" id="Signal_processing_approach_to_anti-aliasing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: Signal processing approach to anti-aliasing">edit</a>]</span> <span class="mw-headline">Signal processing approach to anti-aliasing</span></h2>
+<p>In this approach, the ideal image is regarded as a <i>signal</i>, the image displayed on the screen is taken as samples, at each (<i>x,y</i>) pixel position, of a filtered version of the signal. Ideally, we would understand how the human brain would process the original signal, and provide the image on the screen that most resembles the original signal according to the human brain.</p>
+<p>The most widely accepted analytic tool for such problems is the <a href="../../../f/o/u/Fourier_transform.html" title="Fourier transform">Fourier transform</a>. The Fourier transform decomposes our signal into basic <a href="../../../w/a/v/Waves.html" title="Waves">waves</a> of different frequencies, and gives us the <a href="../../../a/m/p/Amplitude.html" title="Amplitude">amplitude</a> of each wave in our signal. The waves are of the form:</p>
+<dl>
+<dd>
+<dl>
+<dd><span class="texhtml">cos(2<i>j</i>π<i>x</i>)cos(2<i>k</i>π<i>y</i>)</span></dd>
+</dl>
+</dd>
+</dl>
+<p>where <i>j</i> and <i>k</i> are arbitrary non-negative integers. (In fact, there are also waves involving the <a href="../../../s/i/n/Sine.html" title="Sine">sine</a>, but for the purpose of this discussion, the <a href="../../../c/o/s/Cosine.html" title="Cosine">cosine</a> will suffice; see <a href="../../../f/o/u/Fourier_transform.html" title="Fourier transform">Fourier transform</a> for technical details.)</p>
+<p>The numbers <i>j</i> and <i>k</i> together are the <i>frequency</i> of the wave: <i>j</i> is the frequency in the <i>x</i> direction, and <i>k</i> is the frequency in the <i>y</i> direction.</p>
+<p>As has been proved in the <a href="../../../n/y/q/Nyquist%E2%80%93Shannon_sampling_theorem_fd0a.html" title="Nyquist–Shannon sampling theorem">Nyquist–Shannon sampling theorem</a>, to uniquely specify a signal of not more than <i>n</i> frequencies, you need at least <i>2n</i> <a href="../../../s/a/m/Sample_%28signal%29.html" title="Sample (signal)">sample</a> points (assuming the inclusion of the sines that we omitted above).</p>
+<p>The eye is predominantly sensitive to lower frequencies. And so, in <a href="../../../s/i/g/Signal_processing.html" title="Signal processing">signal processing</a>, we choose to eliminate all high frequencies from the signal, keeping only the frequencies that are low enough to be sampled correctly by our sample rate.</p>
+<p>The goal of sharply cutting off frequencies above a certain limit, known as the <a href="../../../n/y/q/Nyquist_frequency.html" title="Nyquist frequency">Nyquist frequency</a>, can not be realized exactly, even with Fourier techniques, so it is always approximated, with many different choices of detailed algorithm. Our knowledge of human visual perception is not sufficient, in general, to say what approach will look best, but in general better approximations to the Fourier ideal tend to look better.</p>
+<p>Figure 1-c was generated with the frequency-cutoff approach. It was not possible to do an exact Fourier series truncation; however, an approximation was used which we hope comes close to the correct image. To highlight the differences between 1-b and 1-c, observe that 1-c manages to be a bit clearer further up on the image than 1-b does. We are able to distinguish some texture other than uniform gray higher up on the image in 1-c than in 1-b.</p>
+<p>The basic waves need not be cosine waves. See, for instance, <a href="../../../w/a/v/Wavelet.html" title="Wavelet">wavelets</a>. If one uses basic waves which are not cosine waves, one obtains a slightly different image. Some basic waves yield anti-aliasing algorithms which are not so good (for instance, the Haar wavelet gives the uniform averaging algorithm). However, some wavelets are good, and it is possible that some wavelets are better at approximating the functioning of the human brain than the cosine basis.</p>
+<p><a name="Two_dimensional_considerations" id="Two_dimensional_considerations"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: Two dimensional considerations">edit</a>]</span> <span class="mw-headline">Two dimensional considerations</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../s/i/n/Image%7ESinc%28x%29_x_sinc%28y%29_plot.jpg_2c56.html" class="internal" title="Sinc function, with separate X and Y"><img src="../../../upload/thumb/c/c1/Sinc%28x%29_x_sinc%28y%29_plot.jpg/180px-Sinc%28x%29_x_sinc%28y%29_plot.jpg" alt="Sinc function, with separate X and Y" width="180" height="133" longdesc="../../../s/i/n/Image%7ESinc%28x%29_x_sinc%28y%29_plot.jpg_2c56.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../s/i/n/Image%7ESinc%28x%29_x_sinc%28y%29_plot.jpg_2c56.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Sinc function, with separate X and Y</div>
+</div>
+</div>
+<p>The above assumes that the rectangular mesh sampling is the dominant part of the problem. It should seem odd that the filter usually considered optimal is not rotationally symmetrical, as shown in this first figure. Since eyes can rotate in their sockets, this must have to do with the fact that we are dealing with data sampled on a <a href="../../../s/q/u/Square_lattice.html" title="Square lattice">square lattice</a> and not with a continuous image. This must be the justification for doing signal processing, along each axis, as it is traditionally done on one dimensional data. <a href="../../../l/a/n/Lanczos_resampling.html" title="Lanczos resampling">Lanczos resampling</a> is based on convolution of the data with a discrete respresentation of the sinc function.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../s/i/n/Image%7ESinc%28r%29.jpg_0d80.html" class="internal" title="Radial Sinc function"><img src="../../../upload/thumb/0/08/Sinc%28r%29.jpg/180px-Sinc%28r%29.jpg" alt="Radial Sinc function" width="180" height="152" longdesc="../../../s/i/n/Image%7ESinc%28r%29.jpg_0d80.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../s/i/n/Image%7ESinc%28r%29.jpg_0d80.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Radial Sinc function</div>
+</div>
+</div>
+<p>If the resolution is not limited by the rectangular sampling rate of either the source or the target image, then one should ideally use rotationally symmetrical filter or interpolation functions, as though the data were a two dimensional function of continuous x and y. The sinc function of the radius, in the second figure, has too long a tail to make a good filter (not square integrable). A more appropriate analog to the one-dimensional sinc might be the two-dimensional <a href="../../../a/i/r/Airy_disc.html" title="Airy disc">Airy disc</a> amplitude, the 2D Fourier transform of a circular region in 2D frequency space, as opposed to a square region.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../g/a/u/Image%7EGaussian_plus_its_own_curvature.jpg_2724.html" class="internal" title="Gaussian plus derivative function"><img src="../../../upload/thumb/d/d6/Gaussian_plus_its_own_curvature.jpg/180px-Gaussian_plus_its_own_curvature.jpg" alt="Gaussian plus derivative function" width="180" height="160" longdesc="../../../g/a/u/Image%7EGaussian_plus_its_own_curvature.jpg_2724.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../g/a/u/Image%7EGaussian_plus_its_own_curvature.jpg_2724.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Gaussian plus derivative function</div>
+</div>
+</div>
+<p>One might consider a Gaussian plus enough of its second derivative to flatten the top (in the frequency domain) or sharpen it up (in the spatial domain). This function is shown also. Functions based on the Gaussian function are natural choices, because convolution with a Gaussian gives the same result, whether applied to x and y or to the radius. Another of its properties is that it (similarly to wavelets) is half way between being localized in the configuration (x and y) and in the spectral (j and k) representation. As an interpolation function, a Gaussian alone seems too spread out to preserve the maximum possible detail, which is why the second derivative is added.</p>
+<p>As an example, when printing a photographic negative, with plentiful processing capability, on a printer with a hexagonal pattern, there is no reason to use sinc function interpolation. This would treat diagonal lines differently from horizontal and vertical lines, which is like a weak form of aliasing.</p>
+<p><a name="Practical_real-time_anti-aliasing_approximations" id="Practical_real-time_anti-aliasing_approximations"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: Practical real-time anti-aliasing approximations">edit</a>]</span> <span class="mw-headline">Practical real-time anti-aliasing approximations</span></h2>
+<p>There are only a handful of <a href="../../../p/r/i/Primitive_type.html" title="Primitive type">primitives</a> used at the lowest level in a <a href="../../../r/e/a/Real-time.html" title="Real-time">real-time</a> <a href="../../../r/e/n/Rendering.html" title="Rendering">rendering</a> engine (either software or hardware accelerated.) These include "points", "lines" and "triangles". If one is to draw such a primitive in white against a black background, it is possible to design such a primitive to have fuzzy edges, achieving some sort of anti-aliasing. However, this approach has difficulty dealing with adjacent primitives (such as triangles that share an edge.)</p>
+<p>To approximate the uniform averaging algorithm, one may use an extra buffer for sub-pixel data. The initial, and least memory-hungry approach, used 16 extra bits per pixel, in a 4×4 grid. If one renders the primitives in a careful order, for instance front-to-back, it is possible to create a reasonable image.</p>
+<p>Since this requires that the primitives be in some order, and hence interacts poorly with an application programming interface such as <a href="../../../o/p/e/OpenGL_7607.html" title="OpenGL">OpenGL</a>, the latest attempts simply have two or more full sub-pixels per pixel, including full color information for each sub-pixel. Some information may be shared between the sub-pixels (such as the <a href="../../../z/-/b/Z-buffer.html" title="Z-buffer">Z-buffer</a>.)</p>
+<p><a name="Mipmapping" id="Mipmapping"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: Mipmapping">edit</a>]</span> <span class="mw-headline">Mipmapping</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../m/i/p/Mipmap.html" title="Mipmap">Mipmap</a></i></div>
+</dd>
+</dl>
+<p>There is also an approach specialized for <a href="../../../t/e/x/Texture_mapping.html" title="Texture mapping">texture mapping</a> called <a href="../../../m/i/p/Mipmap.html" title="Mipmap">mipmapping</a>, which works by creating lower resolution, prefiltered versions of the texture map. When rendering the image, the appropriate resolution mip-map is chosen and hence the texture pixels (texels) are already filtered when they arrive on the screen. Mipmapping is generally combined with various forms of <a href="../../../t/e/x/Texture_filtering.html" title="Texture filtering">texture filtering</a> in order to improve the final result.</p>
+<p><a name="An_example_of_an_image_with_extreme_pseudo-random_aliasing" id="An_example_of_an_image_with_extreme_pseudo-random_aliasing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: An example of an image with extreme pseudo-random aliasing">edit</a>]</span> <span class="mw-headline">An example of an image with extreme pseudo-random aliasing</span></h2>
+<p>Because <a href="../../../f/r/a/Fractals.html" title="Fractals">fractals</a> have unlimited detail and no noise other than arithmetic roundoff error, they illustrate aliasing more clearly than do photographs or other measured data. The dwells, which are converted to colors at the exact centers of the pixels, go to infinity at the border of the set, so colors from centers near borders are unpredictable, due to aliasing. This example has edge in about half of its pixels, so it shows much aliasing. The first image is uploaded at its original sampling rate. Since most modern software anti-aliases, one may have to download the full size version to see all of the aliasing. The second image is calculated at five times the sampling rate and <a href="../../../d/o/w/Downsampling.html" title="Downsampling">down-sampled</a> with anti-aliasing. Assuming that we would really like something like the average color over each pixel, this one is getting closer. It is clearly more orderly than the first.</p>
+<p>Click each image to see it big enough to get the point.</p>
+<table class="gallery" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+<div class="gallerybox" style="width: 150px;">
+<div class="thumb" style="padding: 28px 0; width: 150px;"><a href="../../../m/a/n/Image%7EMandelbrot__Turbine__desk_shape.jpg_7b32.html" title="Image:Mandelbrot &quot;Turbine&quot; desk shape.jpg"><img src="../../../upload/thumb/2/27/Mandelbrot_%22Turbine%22_desk_shape.jpg/120px-Mandelbrot_%22Turbine%22_desk_shape.jpg" width="120" height="90" alt="" /></a></div>
+<div class="gallerytext">
+<p>1. As calculated with the program "MandelZot"</p>
+<p><br /></p>
+</div>
+</div>
+</td>
+<td>
+<div class="gallerybox" style="width: 150px;">
+<div class="thumb" style="padding: 28px 0; width: 150px;"><a href="../../../m/a/n/Image%7EMandelbrot_Turbine_big_all_samples.jpg_41b2.html" title="Image:Mandelbrot Turbine big all samples.jpg"><img src="../../../upload/thumb/d/d8/Mandelbrot_Turbine_big_all_samples.jpg/120px-Mandelbrot_Turbine_big_all_samples.jpg" width="120" height="90" alt="" /></a></div>
+<div class="gallerytext">
+<p>2. Anti-aliased by blurring and down-sampling by a factor of five</p>
+<p><br /></p>
+</div>
+</div>
+</td>
+<td>
+<div class="gallerybox" style="width: 150px;">
+<div class="thumb" style="padding: 28px 0; width: 150px;"><a href="../../../m/a/n/Image%7EMandelbrot_Budding_turbines.jpg_c771.html" title="Image:Mandelbrot Budding turbines.jpg"><img src="../../../upload/shared/thumb/6/61/Mandelbrot_Budding_turbines.jpg/120px-Mandelbrot_Budding_turbines.jpg" width="120" height="90" alt="" /></a></div>
+<div class="gallerytext">
+<p>3. Edge points interpolated, then anti-aliased and down-sampled</p>
+<p><br /></p>
+</div>
+</div>
+</td>
+<td>
+<div class="gallerybox" style="width: 150px;">
+<div class="thumb" style="padding: 28px 0; width: 150px;"><a href="../../../m/a/n/Image%7EMandelbrot_Turbine_Chaff.jpg_d9b6.html" title="Image:Mandelbrot Turbine Chaff.jpg"><img src="../../../upload/thumb/6/68/Mandelbrot_Turbine_Chaff.jpg/120px-Mandelbrot_Turbine_Chaff.jpg" width="120" height="90" alt="" /></a></div>
+<div class="gallerytext">
+<p>4. An enhancement of the points removed from the previous image</p>
+<p><br /></p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p>It happens that, in this case, there is additional information that can be used. By re-calculating with the distance estimator, points were identified that are very close to the edge of the set, so that unusually fine detail is aliased in from the rapidly changing dwell values near the edge of the set. The colors derived from these calculated points have been identified as unusually unrepresentative of their pixels. Those points were replaced, in the third image, by interpolating the points around them. This reduces the noisiness of the image but has the side effect of brightening the colors. So this image is not exactly the same that would be obtained with an even larger set of calculated points.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:142px;"><a href="../../../m/a/n/Image%7EMandelbrot_Budding_Turbines_downsampled.jpg_901e.html" class="internal" title="5. Down-sampled, again, without anti-aliasing"><img src="../../../upload/thumb/2/2b/Mandelbrot_Budding_Turbines_downsampled.jpg/140px-Mandelbrot_Budding_Turbines_downsampled.jpg" alt="5. Down-sampled, again, without anti-aliasing" width="140" height="105" longdesc="../../../m/a/n/Image%7EMandelbrot_Budding_Turbines_downsampled.jpg_901e.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../m/a/n/Image%7EMandelbrot_Budding_Turbines_downsampled.jpg_901e.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+5. Down-sampled, again, without anti-aliasing</div>
+</div>
+</div>
+<p>To show what was discarded, the rejected points, bled into a grey background, are shown in the fourth image.</p>
+<p>Finally, "Budding Turbines" is so regular that systematic (Moiré) aliasing can clearly be seen near the main "turbine axis" when it is downsized by taking the nearest pixel. The aliasing in the first image appears random because it comes from all levels of detail, below the pixel size. When the lower level aliasing is suppressed, to make the third image and then that is down-sampled once more, without anti-aliasing, to make the fifth image, the order on the scale of the third image appears as systematic aliasing in the fifth image.</p>
+<p>The best anti-aliasing and down-sampling method here depends on one's point of view. When fitting the most data into a limited array of pixels, as in the fifth image, sinc function anti-aliasing would seem appropriate. In obtaining the second and third images, the main objective is to filter out aliasing "noise", so a rotationally symmetrical function may be more appropriate.</p>
+<p><a name="Full-scene_anti-aliasing" id="Full-scene_anti-aliasing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: Full-scene anti-aliasing">edit</a>]</span> <span class="mw-headline">Full-scene anti-aliasing</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:307px;"><a href="../../../f/s/a/Image%7EFSAA.jpg_39f4.html" class="internal" title="Comparing graphic with no FSAA and with 8x FSAA"><img src="../../../upload/4/4b/FSAA.jpg" alt="Comparing graphic with no FSAA and with 8x FSAA" width="305" height="140" longdesc="../../../f/s/a/Image%7EFSAA.jpg_39f4.html" class="thumbimage" /></a>
+<div class="thumbcaption">Comparing graphic with no FSAA and with 8x FSAA</div>
+</div>
+</div>
+<p>Modern <a href="../../../g/r/a/Graphics_card.html" title="Graphics card">graphics cards</a> usually support some method of full-scene anti-aliasing (FSAA) to help avoid <a href="../../../a/l/i/Aliasing.html" title="Aliasing">aliasing</a> and <a href="../../../j/a/g/Jaggies.html" title="Jaggies">jaggies</a> on full-screen images. The resulting image may seem softer, and should also appear more realistic. One tried and true method of avoiding or removing <a href="../../../a/l/i/Aliasing.html" title="Aliasing">aliasing</a> <a href="../../../a/r/t/Artifact_%28observational%29.html" title="Artifact (observational)">artifacts</a> on full-screen <a href="../../../d/i/g/Digital_image.html" title="Digital image">images</a> is <a href="../../../s/u/p/Supersampling.html" title="Supersampling">supersampling</a>.</p>
+<p>However, while useful for photo-like images, a simple anti-aliasing approach (such as supersampling and then averaging) may actually worsen the appearance of some types of line art or diagrams (making the image appear fuzzy), especially where most lines are horizontal or vertical. In these cases, a prior grid-fitting step may be useful (see <a href="../../../h/i/n/Hinting.html" title="Hinting">hinting</a>).</p>
+<p>In general, supersampling is a technique of collecting data points at a greater <a href="../../../i/m/a/Image_resolution.html" title="Image resolution">resolution</a> (usually by a power of two) than the final data resolution. These data points are then combined (down-sampled) to the desired resolution, often just by a simple <a href="../../../a/v/e/Average.html" title="Average">average</a>. The combined data points have less visible aliasing artifacts (or <a href="../../../m/o/i/Moir%C3%A9_pattern.html" title="Moiré pattern">moiré patterns</a>).</p>
+<p>Full-scene anti-aliasing by supersampling usually means that each full frame is <a href="../../../r/e/n/Rendering_%28computer_graphics%29.html" title="Rendering (computer graphics)">rendered</a> at double (2x) or quadruple (4x) the <a href="../../../c/o/m/Computer_display.html" title="Computer display">display</a> resolution, and then down-sampled to match the display resolution. So a 2x FSAA would render four supersampled <a href="../../../p/i/x/Pixels.html" title="Pixels">pixels</a> for each single pixel of each frame.</p>
+<p>More often than not, FSAA is implemented in hardware in such a way that a graphical application is unaware the images are being supersampled and then down-sampled before being displayed.</p>
+<p><a name="Object-based_anti-aliasing" id="Object-based_anti-aliasing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: Object-based anti-aliasing">edit</a>]</span> <span class="mw-headline">Object-based anti-aliasing</span></h2>
+<p>A graphics rendering system creates an image based on objects constructed of polygonal primitives whereby the aliasing effects in the image are reduced by applying an anti-aliasing scheme only to the areas of the image representing silhouette edges of the objects. The silhouette edges are anti-aliased by creating anti-aliasing primitives which vary in opacity. These anti-aliasing primitives are joined to the silhouetted edges, and create a region in the image where the objects appear to blend into the background. The method has some important advantages over the classical methods based on accumulation buffer since it generates full-scene anti-aliasing in two passes only and since it does not require the use of the additional memory represented by the accumulation buffer. Object-based anti-aliasing was first developed for the <a href="../../../s/g/i/SGI_Indy_05c8.html" title="SGI Indy">SGI Indy</a> workstation at <a href="../../../s/g/i/SGI_b5a5.html" title="SGI">SGI</a> and is the staple of the current Microsoft <a href="../../../x/b/o/XBOX_fe5f.html" title="XBOX">XBOX</a> game machines.</p>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>Important early works in the history of anti-aliasing include:</p>
+<ul>
+<li><a href="../../../h/e/r/Herbert_Freeman_0e0a.html" title="Herbert Freeman">Freeman, H.</a>. "Computer processing of line drawing images", <i>ACM Computing Surveys</i> vol. 6(1), March <a href="../../../1/9/7/1974.html" title="1974">1974</a>, pp. 57–97.</li>
+<li><a href="../../../f/r/a/Franklin_C._Crow_41b9.html" title="Franklin C. Crow">Crow, Franklin C.</a>. "The aliasing problem in computer-generated shaded images", <i><a href="../../../c/o/m/Communications_of_the_ACM_7add.html" title="Communications of the ACM">Communications of the ACM</a></i>, vol. 20(11), November <a href="../../../1/9/7/1977.html" title="1977">1977</a>, pp. 799–805.</li>
+<li><a href="../../../e/d/w/Edwin_Catmull_5db8.html" title="Edwin Catmull">Catmull, Edwin</a>. "A hidden-surface algorithm with anti-aliasing", <i>Proceedings of the 5th annual conference on Computer graphics and interactive techniques</i>, p.6–11, <a href="../../../a/u/g/August_23.html" title="August 23">August 23</a>–25, <a href="../../../1/9/7/1978.html" title="1978">1978</a>.</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../s/u/p/Supersampling.html" title="Supersampling">Supersampling</a>, a method of antialiasing</li>
+<li><a href="../../../d/i/t/Dithering.html" title="Dithering">Dithered</a> <a href="../../../r/a/y/Ray_tracing.html" title="Ray tracing">ray tracing</a> and anti-aliasing</li>
+<li>Statistical <a href="../../../s/a/m/Sampling_%28statistics%29.html" title="Sampling (statistics)">sampling</a> and anti-aliasing</li>
+<li>Temporal anti-aliasing or <a href="../../../m/o/t/Motion_blur.html" title="Motion blur">motion blur</a></li>
+<li><a href="../../../a/n/i/Anisotropic_filtering.html" title="Anisotropic filtering">Anisotropic filtering</a>, another method for improving image quality by enhancing textures</li>
+<li><a href="../../../m/e/a/Measure_theory.html" title="Measure theory">Measure theory</a> and anti-aliasing</li>
+<li><a href="../../../f/o/n/Font_rasterization.html" title="Font rasterization">Font rasterization</a> and anti-aliasing</li>
+<li><a href="../../../c/o/l/Color_theory.html" title="Color theory">Color theory</a> for certain physical details pertinent to color images.</li>
+<li><a href="../../../r/e/c/Reconstruction_filter.html" title="Reconstruction filter">Reconstruction filter</a></li>
+<li><a href="../../../q/u/i/Quincunx.html" title="Quincunx">Quincunx</a> (pattern used for anti-aliasing)</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-aliasing.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.cambridgeincolour.com/tutorials/image-interpolation.htm#anti-aliasing" class="external text" title="http://www.cambridgeincolour.com/tutorials/image-interpolation.htm#anti-aliasing" rel="nofollow">Anti-Aliasing</a>: Interactive diagram and visual explanation</li>
+<li><a href="http://lunaloca.com/tutorials/antialiasing/" class="external text" title="http://lunaloca.com/tutorials/antialiasing/" rel="nofollow">Antialiasing and Transparency Tutorial</a>: Explains interaction between antialiasing and transparency, especially when dealing with web graphics</li>
+<li><a href="http://home.no.net/dmaurer/~dersch/gamma/gamma.html" class="external text" title="http://home.no.net/dmaurer/~dersch/gamma/gamma.html" rel="nofollow">Interpolation and Gamma Correction</a> In most real-world systems, <a href="../../../g/a/m/Gamma_correction.html" title="Gamma correction">gamma correction</a> is required to linearise the response curve of the sensor and display systems. If this is not taken into account, the resultant non-linear distortion will defeat the purpose of anti-aliasing calculations based on the assumption of a linear system response.</li>
+<li><span style="font-size: 0.95em; font-weight: bold; color:#555; position: relative;">(French)</span> <a href="http://www.astrosurf.com/luxorion/apn-anti-aliasing.htm" class="external text" title="http://www.astrosurf.com/luxorion/apn-anti-aliasing.htm" rel="nofollow">Le rôle du filtre anti-aliasing dans les APN (the function of anti-aliasing filter in dSLR)</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1930 bytes
+Post-expand include size: 393 bytes
+Template argument size: 220 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/t/Anti-aliasing.html">http://en.wikipedia.org../../../a/n/t/Anti-aliasing.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../i/m/a/Category%7EImage_processing_5037.html" title="Category:Image processing">Image processing</a></span> | <span dir='ltr'><a href="../../../d/i/g/Category%7EDigital_typography_891f.html" title="Category:Digital typography">Digital typography</a></span> | <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_graphic_artifacts_f4b6.html" title="Category:Computer graphic artifacts">Computer graphic artifacts</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/n/t/Anti-aliasing.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/n/t/Talk%7EAnti-aliasing_8346.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Anti-aliasing">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../da/a/n/t/Antialiasing.html">Dansk</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/n/t/Antialiasing.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/a/n/t/Antialiasing.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/n/t/Anticr%C3%A8nelage.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EC%95%A4/%ED%8B%B0/%EC%97%90/%EC%95%A4%ED%8B%B0%EC%97%90%EC%9D%BC%EB%A6%AC%EC%96%B4%EC%8B%B1.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/a/n/t/Antialiasing.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../lt/g/l/o/Glodinimas.html">Lietuvių</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/a/n/t/Anti-aliasing.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%82%A2/%E3%83%B3/%E3%83%81/%E3%82%A2%E3%83%B3%E3%83%81%E3%82%A8%E3%82%A4%E3%83%AA%E3%82%A2%E3%82%B9.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../no/a/n/t/Anti-aliasing.html">‪Norsk (bokmål)‬</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/n/t/Antyaliasing.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/a/n/t/Anti-aliasing.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D1%81/%D0%B3/%D0%BB/%D0%A1%D0%B3%D0%BB%D0%B0%D0%B6%D0%B8%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/k/a/n/Kantutj%C3%A4mning.html">Svenska</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 02:42, 27 March 2007 by Wikipedia user <a href="../../../d/a/v/User%7EDavid_Eppstein_0880.html" title="User:David Eppstein">David Eppstein</a>. Based on work by Wikipedia user(s) Lugiadoom, C Ronald, <a href="../../../b/r/o/User%7EBrOnXbOmBr21_3146.html" title="User:BrOnXbOmBr21">BrOnXbOmBr21</a>, <a href="../../../e/u/g/User%7EEugene2x_b741.html" title="User:Eugene2x">Eugene2x</a>, Icenine378, <a href="../../../m/o/r/User%7EMoroder_4166.html" title="User:Moroder">Moroder</a>, <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a>, <a href="../../../g/r/e/User%7EGreglocock_2608.html" title="User:Greglocock">Greglocock</a>, <a href="../../../s/e/r/User%7ESerpent212_51a0.html" title="User:Serpent212">Serpent212</a>, <a href="../../../r/a/d/User%7ERadagast83_195a.html" title="User:Radagast83">Radagast83</a>, <a href="../../../d/a/n/User%7EDanwills_e18e.html" title="User:Danwills">Danwills</a>, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../r/a/i/User%7ERainwarrior_5180.html" title="User:Rainwarrior">Rainwarrior</a>, <a href="../../../r/i/a/User%7ERiana_7579.html" title="User:Riana">Riana</a>, <a href="../../../c/h/a/User%7ECharlotteWebb_d424.html" title="User:CharlotteWebb">CharlotteWebb</a>, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, Jbaio, <a href="../../../m/a/r/User%7EMarasmusine_675c.html" title="User:Marasmusine">Marasmusine</a>, <a href="../../../v/a/l/User%7EValarauka_53df.html" title="User:Valarauka">Valarauka</a>, <a href="../../../s/a/l/User%7ESalty%21_d19e.html" title="User:Salty!">Salty!</a>, <a href="../../../m/a/t/User%7EMathias-S_a5b4.html" title="User:Mathias-S">Mathias-S</a>, Bswest, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, Wsmarz, <a href="../../../a/r/m/User%7EArmedblowfish_0e51.html" title="User:Armedblowfish">Armedblowfish</a>, <a href="../../../d/a/v/User%7EDavidHOzAu_f632.html" title="User:DavidHOzAu">DavidHOzAu</a>, <a href="../../../w/e/g/User%7EWeggeBot_7120.html" title="User:WeggeBot">WeggeBot</a>, <a href="../../../b/o/o/User%7EBooyabazooka_79a9.html" title="User:Booyabazooka">Booyabazooka</a>, <a href="../../../g/r/e/User%7EGregorB_c220.html" title="User:GregorB">GregorB</a>, <a href="../../../t/i/m/User%7ETimothykinney_3103.html" title="User:Timothykinney">Timothykinney</a>, <a href="../../../w/i/c/User%7EWiccan_Quagga_8261.html" title="User:Wiccan Quagga">Wiccan Quagga</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../x/o/m/User%7EXompanthy_d73d.html" title="User:Xompanthy">Xompanthy</a>, <a href="../../../b/r/s/User%7EBrsanthu_b436.html" title="User:Brsanthu">Brsanthu</a>, <a href="../../../r/e/x/User%7ERexNL_e4e0.html" title="User:RexNL">RexNL</a>, <a href="../../../m/t/s/User%7EMTSbot_3c20.html" title="User:MTSbot">MTSbot</a>, <a href="../../../j/o/e/User%7EJoe_Sewell_7238.html" title="User:Joe Sewell">Joe Sewell</a>, <a href="../../../r/o/m/User%7ERomansanders_02fa.html" title="User:Romansanders">Romansanders</a>, <a href="../../../o/r/d/User%7EOrderud_9d90.html" title="User:Orderud">Orderud</a>, <a href="../../../a/l/o/User%7EALoopingIcon_7eee.html" title="User:ALoopingIcon">ALoopingIcon</a>, <a href="../../../h/i/g/User%7EHighInBC_48ba.html" title="User:HighInBC">HighInBC</a>, <a href="../../../d/a/v/User%7EDavid_R._Ingham_2670.html" title="User:David R. Ingham">David R. Ingham</a>, Cvanhasselt, <a href="../../../j/a/c/User%7EJacobolus_a4a3.html" title="User:Jacobolus">Jacobolus</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../r/o/b/User%7ERobotE_6394.html" title="User:RobotE">RobotE</a>, <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../b/l/u/User%7EBlueshade_2128.html" title="User:Blueshade">Blueshade</a>, <a href="../../../k/e/l/User%7EKelly_Martin_056a.html" title="User:Kelly Martin">Kelly Martin</a>, <a href="../../../4/c/_/User%7E4C_1251.html" title="User:4C">4C</a>, <a href="../../../p/r/o/User%7EProfoss_90e9.html" title="User:Profoss">Profoss</a>, <a href="../../../b/o/o/User%7EBookandcoffee_bb60.html" title="User:Bookandcoffee">Bookandcoffee</a>, <a href="../../../j/s/h/User%7EJshadias_332d.html" title="User:Jshadias">Jshadias</a>, <a href="../../../p/a/v/User%7EPavel_Vozenilek_41f7.html" title="User:Pavel Vozenilek">Pavel Vozenilek</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../n/o/v/User%7ENova77_f477.html" title="User:Nova77">Nova77</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../c/h/r/User%7EChristian_3dad.html" title="User:Christian">Christian</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../m/i/t/User%7EMIT_Trekkie_1e9d.html" title="User:MIT Trekkie">MIT Trekkie</a>, <a href="../../../b/e/r/User%7EBernardH_e470.html" title="User:BernardH">BernardH</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../m/r/m/User%7EMrMambo_1027.html" title="User:MrMambo">MrMambo</a>, <a href="../../../n/i/c/User%7ENickj_5f86.html" title="User:Nickj">Nickj</a>, <a href="../../../c/h/m/User%7EChmod007_2959.html" title="User:Chmod007">Chmod007</a>, <a href="../../../i/s/i/User%7EIsidore_619b.html" title="User:Isidore">Isidore</a>, <a href="../../../g/u/a/User%7EGuanabot_b902.html" title="User:Guanabot">Guanabot</a>, <a href="../../../z/i/g/User%7EZigger_b33b.html" title="User:Zigger">Zigger</a>, <a href="../../../f/l/e/User%7EFleminra_45b2.html" title="User:Fleminra">Fleminra</a>, <a href="../../../f/a/b/User%7EFabiform_a7bf.html" title="User:Fabiform">Fabiform</a>, Vruba, Just Another Dan, <a href="../../../r/i/c/User%7ERichard_cocks_e8d7.html" title="User:Richard cocks">Richard cocks</a>, <a href="../../../s/t/w/User%7EStw_8a8b.html" title="User:Stw">Stw</a>, <a href="../../../s/c/o/User%7EScott_McNay_5b57.html" title="User:Scott McNay">Scott McNay</a>, <a href="../../../m/u/l/User%7EMulad_41c3.html" title="User:Mulad">Mulad</a>, <a href="../../../w/i/k/User%7EWikibot_9002.html" title="User:Wikibot">Wikibot</a>, <a href="../../../r/o/g/User%7ERogper_a2c5.html" title="User:Rogper">Rogper</a>, <a href="../../../r/y/a/User%7ERyan_Cable_b643.html" title="User:Ryan Cable">Ryan Cable</a>, <a href="../../../s/t/e/User%7EStevertigo_b55d.html" title="User:Stevertigo">Stevertigo</a>, <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a>, <a href="../../../w/j/i/User%7EWji_489b.html" title="User:Wji">Wji</a>, <a href="../../../t/h/e/User%7ETheresa_knott_8b13.html" title="User:Theresa knott">Theresa knott</a>, <a href="../../../s/n/o/User%7ESnoyes_3ec6.html" title="User:Snoyes">Snoyes</a>, <a href="../../../h/f/a/User%7EHfastedge_1521.html" title="User:Hfastedge">Hfastedge</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../c/h/a/User%7EChas_zzz_brown_d8e1.html" title="User:Chas zzz brown">Chas zzz brown</a>, <a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a>, <a href="../../../c/h/a/User%7EChadloder_f409.html" title="User:Chadloder">Chadloder</a>, <a href="../../../f/v/d/User%7EFvdP_984c.html" title="User:FvdP">FvdP</a>, <a href="../../../a/p/_/User%7EAp_24b6.html" title="User:Ap">Ap</a>, <a href="../../../f/r/e/User%7EFrecklefoot_571c.html" title="User:Frecklefoot">Frecklefoot</a>, <a href="../../../a/r/v/User%7EArvindn_6a6a.html" title="User:Arvindn">Arvindn</a>, <a href="../../../p/a/t/User%7EPatrick_7b47.html" title="User:Patrick">Patrick</a> and <a href="../../../b/r/i/User%7EBrion_VIBBER_bae4.html" title="User:Brion VIBBER">Brion VIBBER</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

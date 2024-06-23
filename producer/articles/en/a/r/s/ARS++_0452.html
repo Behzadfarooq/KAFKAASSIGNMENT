@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="ARS++,2002,A++,ARS,A plusplus,Acronym,Ars based programming,Berkeley DB,C (programming language),Computer networking,Database" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>ARS++ - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">ARS++</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>ARS++</b> has been developed in <a href="../../../2/0/0/2002.html" title="2002">2002</a> for the book <i>Undiluted Programming</i><sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> to demonstrate <b>ARS based programming</b> in a real world context. ARS++ is used in the book to implement an <a href="../../../a/%2B/%2B/A%2B%2B.html" title="A++">A++</a> <a href="../../../i/n/t/Interpreter_%28computing%29.html" title="Interpreter (computing)">interpreter</a> and an <a href="../../../x/m/l/XML_3501.html" title="XML">XML</a> <a href="../../../d/a/t/Database.html" title="Database">Database</a> System. Even the implementation of ARS++ in <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> was used to demonstrate <a href="../../../a/r/s/ARS_a3c2.html" title="ARS">ARS</a> based programming.</p>
+<p>Principally the <a href="../../../p/r/o/Programming_language.html" title="Programming language">programming language</a> <a href="../../../s/c/h/Scheme_%28programming_language%29.html" title="Scheme (programming language)">Scheme</a> would have been perfectly alright to be used for these demonstration programs if Scheme would include primitives supporting <a href="../../../c/o/m/Computer_networking.html" title="Computer networking">network</a> programming, database programming plus a few others required in this context.</p>
+<p>The definition of the programming language Scheme does not include those primitives however, leaving this issue up to the implementors of the language. The consequence is that there exist many Scheme implementations, almost none of them covering all areas essential for real application programs. This is the historical background that gave birth to the development of ARS++.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup></p>
+<p><br /></p>
+<p><a name="ARS.2B.2B_explained_by_its_name" id="ARS.2B.2B_explained_by_its_name"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/s/ARS%2B%2B_0452.html" title="Edit section: ARS++ explained by its name">edit</a>]</span> <span class="mw-headline">ARS++ explained by its name</span></h2>
+<p>The name <b>ARS++</b>, being an <a href="../../../a/c/r/Acronym.html" title="Acronym">acronym</a> for <b>ARS + Scheme + Extensions</b>, indicates that ARS++ has a lot to do with <a href="../../../s/c/h/Scheme_%28programming_language%29.html" title="Scheme (programming language)">Scheme</a> but that it is not equivalent to Scheme.</p>
+<ul>
+<li>The <b>first part</b> of the name refers to the core of the language, which is nothing else but <a href="../../../a/_/p/A_plusplus.html" title="A plusplus">A++</a>, i.e. <i>Abstraction + Reference + Synthesis</i>.<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[3]</a></sup></li>
+</ul>
+<ul>
+<li>The <b>second part</b> in the name of ARS++ stands for the primitive functions that are imported from Scheme, giving ARS++ almost the same functionality as Scheme. Primitive functions are those, that are not and cannot be defined as lambda abstractions because they are representing a functionality that can only be provided by the underlying <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a> or the <a href="../../../h/a/r/Hardware.html" title="Hardware">hardware</a>.</li>
+</ul>
+<ul>
+<li>The <b>third part</b> of the name refers to primitive functions that are not defined in <a href="../../../r/5/r/R5RS_55a3.html" title="R5RS">R5RS</a> (the official definition of the programming language Scheme) but are nevertheless important for real world programming like functions allowing to work with <a href="../../../r/e/g/Regular_expressions.html" title="Regular expressions">regular expressions</a>, with <a href="../../../t/c/p/TCP_IP_09cc.html" title="TCP/IP">TCP/IP</a> networks, with embedded databases (e.g. <a href="../../../b/e/r/Berkeley_DB_7a25.html" title="Berkeley DB">Berkeley DB</a>, GNU database manager) and a few that provide an interface with the operating system.</li>
+</ul>
+<p>From a practical point of view a Scheme implementation that includes support for regular expressions, databases, sockets and also provides an interface to the operating system can be called an ARS++ language.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/s/ARS%2B%2B_0452.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/r/s/Ars_based_programming.html" title="Ars based programming">ARS based programming</a></li>
+<li><a href="../../../a/_/p/A_plusplus.html" title="A plusplus">A++</a></li>
+<li><a href="../../../e/d/u/Educational_programming_language.html" title="Educational programming language">Educational programming language</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/s/ARS%2B%2B_0452.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="http://www.lambda-bound.de/book/engl/index.html" class="external text" title="http://www.lambda-bound.de/book/engl/index.html" rel="nofollow">Description of Undiluted Programming</a></li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> A few weeks ago the author of the referenced book discovered a Scheme implementation that would have been very well suited to serve as a language for developing the case studies for 'Undiluted Programming'. This <i>Scheme implementation</i> is called <b>Gauche</b> and is <a href="http://www.shiro.dreamhost.com/scheme/gauche/" class="external text" title="http://www.shiro.dreamhost.com/scheme/gauche/" rel="nofollow">available for download in the internet</a>.</li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> The structure of A++ however is different from the structure of Scheme, which can be verified by comparing the definition of Scheme in R5RS with the definition of A++ <a href="http://www.lambda-bound.de/book/lambdacalc/node41.html" class="external text" title="http://www.lambda-bound.de/book/lambdacalc/node41.html" rel="nofollow">here</a>.</li>
+</ol>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/s/ARS%2B%2B_0452.html">http://en.wikipedia.org../../../a/r/s/ARS%2B%2B_0452.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../p/r/o/Category%7EProgramming_languages_ac39.html" title="Category:Programming languages">Programming languages</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/r/s/ARS%2B%2B_0452.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/r/s/Talk%7EARS%2B%2B_5274.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/ARS%2B%2B">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 21:45, 4 January 2007 by Wikipedia user <a href="../../../l/e/s/User%7ELessHeard_vanU_f2c1.html" title="User:LessHeard vanU">LessHeard vanU</a>. Based on work by Wikipedia user(s) <a href="../../../s/t/b/User%7ESTBotD_8c4f.html" title="User:STBotD">STBotD</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../f/l/y/User%7EFlyHigh_680e.html" title="User:FlyHigh">FlyHigh</a>, <a href="../../../t/h/e/User%7EThe_Thadman_c314.html" title="User:The Thadman">The Thadman</a>, <a href="../../../l/i/f/User%7ELiface_de15.html" title="User:Liface">Liface</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../t/i/m/User%7ETim_Starling_d5f6.html" title="User:Tim Starling">Tim Starling</a>, <a href="../../../n/i/n/User%7ENintendude_b487.html" title="User:Nintendude">Nintendude</a>, <a href="../../../t/r/e/User%7ETreyHarris_636a.html" title="User:TreyHarris">TreyHarris</a> and <a href="../../../g/p/l/User%7EGploc_97c9.html" title="User:Gploc">Gploc</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

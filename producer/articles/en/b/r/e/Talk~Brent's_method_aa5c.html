@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Brent's method,GMP,WP:NOT,JRSpriggs,Jitse Niesen,Linas,Erwan.lemonnier,Jitse Niesen" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Brent's method - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Brent's method</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Unclear"><span class="tocnumber">1</span> <span class="toctext">Unclear</span></a></li>
+<li class="toclevel-1"><a href="#Questions_about_Brent.27s_method"><span class="tocnumber">2</span> <span class="toctext">Questions about Brent's method</span></a></li>
+<li class="toclevel-1"><a href="#How_slow_can_Brent.27s_method_be.3F"><span class="tocnumber">3</span> <span class="toctext">How slow can Brent's method be?</span></a></li>
+<li class="toclevel-1"><a href="#Swap_all_ak_with_bk_or_just_the_last.3F"><span class="tocnumber">4</span> <span class="toctext">Swap all ak with bk or just the last?</span></a></li>
+<li class="toclevel-1"><a href="#.22f.28a.29.2Af.28s.29_.3C.3D_0.22"><span class="tocnumber">5</span> <span class="toctext">"f(a)*f(s) &lt;= 0"</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Unclear" id="Unclear"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Talk%7EBrent%27s_method_aa5c.html" title="Edit section: Unclear">edit</a>]</span> <span class="mw-headline">Unclear</span></h2>
+<p>The article states:</p>
+<dl>
+<dd><i>then we set e = d, otherwise we set e = m. In the latter case, we do a step according to the bisection method.</i></dd>
+</dl>
+<p>Maybe I'm dense, but this is unclear to me. Bisect, using which points? In general, the whole if e then .. part of the article seems opaque, and I can't quite make sense of the intention of the code here. Can someone clarify? <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">linas</a> 23:22, 17 April 2006 (UTC)</p>
+<p>BTW, I looked at Mathworld's entry for this. It seems to be a direct rip-off of what's in "Numerical Recipes in C". One minor advantage is that it seems to minimize the number of divisions required (useful in the case of divisions taking a long time, e.g. high-precision work). <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">linas</a> 12:54, 18 April 2006 (UTC)</p>
+<dl>
+<dd>I added an algorithm, which should at least be unambiguous. I'll return and see if I can rewrite the text to make it clearer.</dd>
+<dd>I assume the "Numerical Recipes" book has a good reason for their formulation of inverse quadratic interpolation (perhaps it's minimizing the number of divisions, as you suggest), but I don't know it, which is why I stick to the more obvious formulation. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 08:11, 19 April 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Thank you! FWIW, I've now implemented a one-off version in <a href="../../../g/m/p/GMP_5cad.html" title="GMP">GMP</a>. For my data, the thing very nearly doubles the number of sig figs each iteration, which is a vast improvement over linear interpolation or binary search. For your amusement (my amusement?), heres actual output, showing width of the bracket bracketing the zero, per iteration:</dd>
+</dl>
+</dd>
+</dl>
+<pre>
+# count=0  delt 0.9958715e-1
+# count=1  delt 0.1000055e0
+# count=2  delt 0.4072413e-3
+# count=3  delt 0.1123433e-7
+# count=4  delt 0.1257072e-14
+# count=5  delt 0.1586553e-28
+# count=6  delt 0.6180884e-54
+# count=7  delt 0.3400586e-100
+</pre>
+<p><a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">linas</a> 13:55, 21 April 2006 (UTC)</p>
+<p><a name="Questions_about_Brent.27s_method" id="Questions_about_Brent.27s_method"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Talk%7EBrent%27s_method_aa5c.html" title="Edit section: Questions about Brent's method">edit</a>]</span> <span class="mw-headline">Questions about Brent's method</span></h2>
+<p>To Jitse Niesen:<br />
+1. How do you know that the method will "fall back to the more robust bisection method if necessary"?<br />
+2. What is the justification for assuming that the root is closer to <i>b</i> than to <i>a</i> when you choose between <i>d</i> and <i>m</i>?<br />
+3. Would it not be better to make the new <i>c</i> equal to whichever of the old <i>a</i> or old <i>b</i> does not become the new <i>a</i>, so that <i>c</i> will always (after the first iteration) be the most recently generated value outside the interval [a,b] or [b,a]? Thus the last part of the code would become:</p>
+<ul>
+<li><b>if</b> <i>f</i>(<i>b</i>) <i>f</i>(<i>d</i>) &lt; 0 <b>then</b>
+<ul>
+<li><i>c</i> := <i>a</i></li>
+<li><i>a</i> := <i>b</i></li>
+</ul>
+</li>
+<li><b>else</b>
+<ul>
+<li><i>c</i> := <i>b</i></li>
+<li>(<i>a</i> remains <i>a</i>)</li>
+</ul>
+</li>
+<li><b>end if</b></li>
+<li><i>b</i> := <i>d</i></li>
+</ul>
+<p>Thanks for your assistance. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 07:02, 25 April 2006 (UTC)</p>
+<dl>
+<dd>Explaining my third question. <i>c</i> is only used to perform inverse quadratic interpolation. But that interpolation will not be done if <i>c</i> is the same as either <i>a</i> or <i>b</i>. So we should try to avoid choosing a value for <i>c</i> which will be equal to <i>a</i> when in the "then" case. That is why I am suggesting that it should be the old <i>a</i> rather than the old <i>b</i> which is the new <i>a</i>. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 06:38, 26 April 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Ad 1. I suppose that you realize that the statement <i>d</i> := <i>m</i> is the bisection method. As for how I know that the method falls back to the bisection method: I know it because I read it in Atkinson (as referenced in the article). I've looked a bit into it now, and this is discussed in Sections 4.2 and 4.3 in Brent. However, Atkinson's description of Brent's method is not complete, hence the algorithm given in the article is not quite the same as Brent's method, and therefore, the algorithm in the article might not always fall back to the bisection method. I'll look into it when I have some time.</dd>
+<dd>Ad 2. <i>b</i> is the latest guess for the root, and since the guesses converge to the root, <i>b</i> is usually a much better approximation than <i>a</i>. Perhaps the work <i>assume</i> should not have been used. It is not certain that <i>b</i> is closer to the root, but typically that is the case, and it makes sense to use this.</dd>
+<dd>Ad 3. I see your point. Let me think a bit about this and consult the original code. Brent does not say anything about it, as far as I can see. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 13:19, 26 April 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>Counter-example: If I understand the current version of Brent's method, it will NOT fall back on bisection in the following situation. Let f(x)=x^3+x^2-5x+3=(x+3)(x-1)^2. Let the initial values for <i>a</i>=-4 and <i>b</i>=+4/3. So that initially, f(<i>a</i>)=-25 and f(<i>b</i>)=13/27. For this problem, the bisection method will converge slowly to -3. Newton's method (beginning at <i>b</i>) will converge slowly to +1. The secant method will converge slowly to +1. The inverse quadratic method will converge slowly to +1. And Brent's method will NOT converge, because <i>a</i> will remain -4 while <i>b</i> slowly converges to +1. So the length of the interval from <i>a</i> to <i>b</i> will never drop below 5. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 04:40, 27 April 2006 (UTC)</p>
+<dl>
+<dd>Hmm, yes, I guess I have no choice but to add the complete algorithm as given by Brent. Not sure what's the best way to present it though. Perhaps I should start with Dekker's algorithm and then say what Brent added to make sure that it falls back to the bisection method. Let me see whether I can track down the reference to Dekker's algorithm. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 11:39, 27 April 2006 (UTC)
+<dl>
+<dd>I do not know what Brent would have done. But if it was up to me to write a program with what I know now, I would force a bisection step after any step which did not reduce the length of the interval to half or less of its previous length. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 06:28, 18 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>I have taken the liberty of modifying the algorithm to: (1) agree with the verbal text as far as I can make sense of it; (2) avoid the problems which I mentioned above in this section of talk; and (3) add more detail to the input and output parts. If I have gotten any of it wrong (contrary to Brent, that is), feel free to fix it. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 04:08, 14 June 2006 (UTC)</p>
+<dl>
+<dd>Regarding the third point, is that really necessary? I'd say that things like checking of inputs, explicitly mentioning that f(a) should be calculated, and outputting the result go to much into detail. After all, this is an encyclopaedia and not a source code repository (see <a href="../../../n/o/t/WP%7ENOT_5cb5.html" title="WP:NOT">WP:NOT</a>). I added the algorithm to supplement the text, which is hard to follow, but I don't think it should be turned into a computer program. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 05:34, 14 June 2006 (UTC)
+<dl>
+<dd>I used to be a computer programmer, so I have a strong habit of adding more and more detail until I have a workable program. I could change it back, if you think that that would make it more readable. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 05:44, 14 June 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>As far as mentioning when f should be calculated, I was trying to make clear that it only needs to be calculated once per iteration (and twice during initialization) because f might be arbitrarily difficult to calculate and it might be the limiting cost of performing the algorithm. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 07:52, 15 June 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>That's a good point. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 11:37, 16 June 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="How_slow_can_Brent.27s_method_be.3F" id="How_slow_can_Brent.27s_method_be.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Talk%7EBrent%27s_method_aa5c.html" title="Edit section: How slow can Brent's method be?">edit</a>]</span> <span class="mw-headline">How slow can Brent's method be?</span></h2>
+<p>Since Jitse added "Brent ... inserted an additional test which must be satisfied before the result of the secant method is accepted as the next iterate. ... otherwise the midpoint m is used for the next iterate. This modification ensures that a bisection step is done if the secant method does not progress fast enough. Brent proved that his method requires at most N<sup>2</sup> iterations, where N denotes the number of iterations for the bisection method." to explain part of how Brent modified Dekker's method. Each iteration reduces the length of the interval within which the root can lie. If an iteration using either the inverse quadratic interpolation or secant method reduces the length to half or less of its previous length, then it is better than a bisection step. Otherwise, a bisection step is used as the next iteration. So the length is halved or better in either one or two iterations. Thus no more than two times as many iterations are necessary to reduce the length by the same amount as the bisection method does to reach convergence. So I do not see how you can say it is N-squared rather than two times N. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 04:24, 14 June 2006 (UTC)</p>
+<dl>
+<dd>The extra test that Brent introduced does not look at the length of the interval [a_k, b_k], but at the difference b_{k-1} − b_k. So there is no guarantee that the length of the interval [a_k, b_k] is halved every second iteration. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 05:09, 14 June 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>PS: What do you think about adding an example; would that help to explain the method? -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 05:11, 14 June 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Then I should take out the "if |b-a| &gt; L/2 then (force bisection step)" if-statement, but that would make the method fail again because of the counter-example I gave in the previous section of talk.</dd>
+<dd>Regarding an example, we could add "debug" print statements to the algorithm and then gave a listing of the printout they would generate. I do not have a compiler presently, so I cannot write it now. I tried doing it by hand, and it quickly becomes very tedious (after about 3 iterations). <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 05:58, 14 June 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>How clever of you to use my "counter-example" as your example. Now I see that I misunderstood the condition for using <i>m</i> instead of <i>s</i>. I thought that it was as given in the version of the algorithm that was there when I first looked at this and which was used by Dekker. So, I will try to change the algorithm to use Brent's actual test. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 07:57, 15 June 2006 (UTC)</p>
+<dl>
+<dd>Well, your "counter-example" illustrates a lot of cases, which is the main reason why I decided to use it. And that reminds me, the condition is actually slightly different in Brent's algorithm.</dd>
+<dd>However, I think it still may happen that the b_n converge to a root, but the a_n stay at the same location. But that does not mean that the algorithm has failed: if the b_n converge, we have a root and we're happy. :) -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 11:37, 16 June 2006 (UTC)
+<dl>
+<dd>What then is the test for convergence? We cannot just compare the length of [a,b] to ε then. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 08:35, 17 June 2006 (UTC)
+<dl>
+<dd>Actually, on checking Brent's book I discovered that I was wrong. The length of [a,b] always converges to zero, and the convergence test is whether the length of [a,b] is small enough. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 11:19, 17 June 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Swap_all_ak_with_bk_or_just_the_last.3F" id="Swap_all_ak_with_bk_or_just_the_last.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Talk%7EBrent%27s_method_aa5c.html" title="Edit section: Swap all ak with bk or just the last?">edit</a>]</span> <span class="mw-headline">Swap all a<sub>k</sub> with b<sub>k</sub> or just the last?</span></h2>
+<p>I am wondering whether, when we swap the most recent <i>a</i> with <i>b</i>, we should also swap the earlier values? So that instead of "if |f(a)| &lt; |f(b)| then swap (a,b) end if" we would have "if |f(a)| &lt; |f(b)| then swap (a,b) and swap (p,c) and swap (q,d) end if" where <i>p</i> would be the old <i>a</i> and <i>q</i> would be the old <i>p</i>. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 11:37, 18 June 2006 (UTC)</p>
+<dl>
+<dd>No, just the last. So "if |f(a)| &lt; |f(b)| then swap (a,b) end if" is correct. -- <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> (<a href="../../../j/i/t/User_talk%7EJitse_Niesen_3715.html" title="User talk:Jitse Niesen">talk</a>) 12:56, 18 June 2006 (UTC)</dd>
+</dl>
+<p><a name=".22f.28a.29.2Af.28s.29_.3C.3D_0.22"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Talk%7EBrent%27s_method_aa5c.html" title="Edit section: &quot;f(a)*f(s) &amp;lt;= 0&quot;">edit</a>]</span> <span class="mw-headline">"f(a)*f(s) &lt;= 0"</span></h2>
+<p>The condition <i>"f(a)*f(s) &lt;= 0"</i> in the if-else at the end of the pseudocode was originally <i>"f(a)*f(s) &lt; 0"</i> which I believe did not work for the following reason: if <i>f(s)=0</i>, then <i>f(a)*f(s)=0</i> and we would land in the 'else' side, hence setting <i>a := s</i>. Upon the next <i>repeat until</i> we would then miss that <i>s</i> was actually a root.</p>
+<p>On the other hand, if the test is <i>f(a)*f(s) &lt;= 0</i>, we have the following possibilities:</p>
+<dl>
+<dd>1. if <i>f(s)=0</i> then <i>b := s</i>, the next <i>repeat until</i> is the last since <i>f(b)=0</i>, and <i>b</i> is returned</dd>
+<dd>2. if <i>f(a)=0</i> then
+<dl>
+<dd>2.a if <i>f(b)!=0</i> then we swap <i>a</i> and <i>b</i> just after in <i>"if |f(a)| &lt;= |f(b)| then swap (a,b) end if"</i> and <i>a</i> will therefore be identified as the root in the next <i>repeat until</i> test.</dd>
+<dd>2.b or <i>f(b)=0</i> and <i>b</i> is a root as well.</dd>
+</dl>
+</dd>
+</dl>
+<p>Erwan.lemonnier 14:07, 15 December 2006 (UTC)</p>
+<dl>
+<dd>If <i>f</i>(<i>s</i>)=0, then <i>a</i> would become <i>s</i> and the argument which you gave for case 2 would work for case 1 as well. I am reverting both additions of equal signs. <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a> 06:14, 16 December 2006 (UTC)</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/e/Talk%7EBrent%27s_method_aa5c.html">http://en.wikipedia.org../../../b/r/e/Talk%7EBrent%27s_method_aa5c.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/r/e/Brent%27s_method.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/r/e/Talk%7EBrent%27s_method_aa5c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Brent%27s_method">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 06:14, 16 December 2006 by Wikipedia user <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a>. Based on work by Wikipedia user(s) Erwan.lemonnier, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a> and <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

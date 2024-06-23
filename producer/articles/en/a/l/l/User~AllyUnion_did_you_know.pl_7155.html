@@ -1,0 +1,728 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:AllyUnion/did you know.pl,AllyUnion,AllyUnion,Recent additions,Did you know" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:AllyUnion/did you know.pl - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:AllyUnion/did you know.pl</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/l/l/User%7EAllyUnion_7163.html" title="User:AllyUnion">User:AllyUnion</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>The following code is licensed under the GPL and the Creative Commons Attribution License. -- <a href="../../../a/l/l/User%7EAllyUnion_7163.html" title="User:AllyUnion">AllyUnion</a> <a href="../../../a/l/l/User_talk%7EAllyUnion_d722.html" title="User talk:AllyUnion">(talk)</a> 03:21, 9 Apr 2005 (UTC)</p>
+<ul>
+<li><s>This code is <b>not working</b> -- <a href="../../../a/l/l/User%7EAllyUnion_7163.html" title="User:AllyUnion">AllyUnion</a> <a href="../../../a/l/l/User_talk%7EAllyUnion_d722.html" title="User talk:AllyUnion">(talk)</a> 03:21, 9 Apr 2005 (UTC)</s></li>
+<li>FYI: The system calls to python2.3 are calls to the pywikipediabot framework... as perl takes like so many packages just to download files and I don't have access to an English module version that allows me to post to the English wikipedia. -- <a href="../../../a/l/l/User%7EAllyUnion_7163.html" title="User:AllyUnion">AllyUnion</a> <a href="../../../a/l/l/User_talk%7EAllyUnion_d722.html" title="User talk:AllyUnion">(talk)</a> 03:27, 9 Apr 2005 (UTC)</li>
+</ul>
+<hr />
+<p>Basic idea:</p>
+<ol>
+<li>Leave three blocks of "...that" on <a href="../../../d/i/d/Template_talk%7EDid_you_know_8ba7.html" title="Template talk:Did you know">Template talk:Did you know</a></li>
+<li>Move all other blocks of "...that" to <a href="../../../r/e/c/Wikipedia%7ERecent_additions_2250.html" title="Wikipedia:Recent additions">Wikipedia:Recent additions</a></li>
+<li>Move oldest blocks on <a href="../../../r/e/c/Wikipedia%7ERecent_additions_2250.html" title="Wikipedia:Recent additions">Wikipedia:Recent additions</a> to an archive page if <a href="../../../r/e/c/Wikipedia%7ERecent_additions_2250.html" title="Wikipedia:Recent additions">Wikipedia:Recent additions</a> exceeds 50 "...that" lines.</li>
+</ol>
+<p><a name="didyouknow.pl" id="didyouknow.pl"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/l/User%7EAllyUnion_did_you_know.pl_7155.html" title="Edit section: didyouknow.pl">edit</a>]</span> <span class="mw-headline">didyouknow.pl</span></h2>
+<pre>
+#!/usr/bin/perl -w
+
+# Author: Jason Y. Lee
+# Purpose: Wikipedia's Did you know archival process
+
+# Special thanks to dysprosia, and the person who helped me in #wikipedia
+
+# Assumptions:
+
+# On Template talk:Did you know:
+# A did you know line is in the following format:
+# *...that &lt;TEXT&gt;&lt;br&gt;
+# Where &lt;TEXT&gt; is any text of any length, no matter if there is a newline or not.
+
+# On Wikipedia:Recent additions and any archive pages after Wikipedia:Recent additions 25:
+# A did you know line starts either with:
+# [[Image: OR ...that
+# A did you know line ends with either:
+# A question mark or a HTML line break (&lt;br&gt;)
+
+use Tie::File;
+
+my $HOME = '&lt;insert home directory&gt;';
+my $BOTDIR = 'wikipedia/bots/kurando-san/';
+my $LOGDIR = 'dyklogs/';
+
+my $configfile = $HOME . $BOTDIR . 'didyouknow.cfg';
+
+my $logfile1 = $HOME . $BOTDIR . $LOGDIR . 'dyk1.log';
+my $logfile2 = $HOME . $BOTDIR . $LOGDIR . 'dyk2.log';
+my $logfile3 = $HOME . $BOTDIR . $LOGDIR . 'dyk3.log';
+my $logfile4 = $HOME . $BOTDIR . $LOGDIR . 'newra.log';
+my $logfile5 = $HOME . $BOTDIR . $LOGDIR . 'newra-';
+
+my $talkpage = "Template talk:Did you know";
+my $pagename = "Wikipedia:Recent additions";
+my $archive = "Wikipedia:Recent additions";
+my $archivenum = "";
+my $archiveheader = "{{DYK archive header}}\n{{DYK archive nav}}\n\n==Did you know...==\n";
+
+# Python Page Existance program
+#$pageexist1 = "\"import config, wikipedia\nimport sys\nmysite = wikipedia.getSite()\nif (wikipedia.PageLink(mysite, \'";
+#$pageexist2 = "\').exists()):\n\tsys.exit(0)\nelse:\n\tsys.exit(1)\n\"";
+
+# Posting a page
+$postprog1 = "\"import config, wikipedia\nmysite = wikipedia.getSite()\n";
+$postprog2 = "logfile = \'";
+$postprog3 = "\'\npagename = \'";
+$postprog4 = "\'\ncomment = \'";
+$postprog5 = "\'\nlog = file(logfile, 'r')\npage = log.read()\nlog.close()\nwikipedia.PageLink(mysite, pagename).put(page, comment)\n";
+
+tie @config, 'Tie::File', $configfile or die;
+$lastarchive = "";
+foreach $line (@config)
+{
+        if ($line =~ /lastarchive =/)
+        {
+                $archive = $line;
+                $archivenum = $line;
+                $archivenum =~ s/lastarchive\s*=\s*//g;
+                $archive = "Wikipedia:Recent additions " . $archivenum;
+                $lastarchive = \$line;
+        }
+}
+
+# Get the pages
+$pythonprog1 = "\"import config, wikipedia\nmysite = wikipedia.getSite()\n";
+$pythonprog2 = "logfile = ";
+$pythonprog3 = "\npagename = ";
+$pythonprog4 = "\nlog = file(logfile, 'w')\nlog.write(wikipedia.getPage(mysite, pagename, True, True, False).encode('iso-8859-1'))\nlog.close()\n\"";
+
+system("python2.3 -c " . $pythonprog1 . $pythonprog2 . '\'' . $logfile1 . '\'' . $pythonprog3 . '\'' . $talkpage . '\'' . $pythonprog4);
+system("python2.3 -c " . $pythonprog1 . $pythonprog2 . '\'' . $logfile2 . '\'' . $pythonprog3 . '\'' . $pagename . '\'' . $pythonprog4);
+system("python2.3 -c " . $pythonprog1 . $pythonprog2 . '\'' . $logfile3 . '\'' . $pythonprog3 . '\'' . $archive . '\'' . $pythonprog4);
+
+# Analysis of 'Template talk:Did you know'
+tie @dyklog, 'Tie::File', $logfile1 or die;
+
+$dykmat = [];
+$dykblockcount = 0;
+$y = 0;
+$line = "";
+$x = 0;
+
+while (not ($dyklog[$x] =~ m/=+ARCHIVE USED SUGGESTIONS HERE=+/ig))
+{
+#       print $x, ". ", $dyklog[$x], "\n";
+        $x++;
+}
+
+while (not ($dyklog[$x] =~ m/\'\'include a link to the used picture behind the fact in which it has been \'\'\'used\'\'\' on the front page\.\'\'&lt;br&gt;/ig))
+{
+#       print $x, ". ", $dyklog[$x], "\n";
+        $x++;
+}
+
+#print $x, ". ", $dyklog[$x], "\n";
+$x++;
+#print $x, ". ", $dyklog[$x], "\n";
+
+while ((not ($dyklog[$x] =~ m/All older items have been archived at \[\[Wikipedia:Recent additions\]\]/ig)) &amp;&amp; ($x &lt; scalar(@dyklog)))
+{
+        $dyklog[$x] =~ s/^\*\s*\.\.\.\s*that/\*\.\.\.that/ig;
+        $dyklog[$x] =~ s/(?:--|&amp;[mn]dash;|&amp;#15[10];|)\s*\[\[User(.*?):(.*?)\(UTC\)//ig;
+        $dyklog[$x] =~ s/\(\)//g;
+        $dyklog[$x] =~ s/\?\s&lt;br/\?&lt;br/ig;
+        $dyklog[$x] =~ s/\[\[Image/\[\[:Image/ig;
+        $loopflag = 1;
+        $line = "";
+
+#       print "$x. 1\n";
+
+        if ($dyklog[$x] =~ m/^\*\.\.\.that/ig)
+        {
+#               print "$x. 2\n";
+                $line = $dyklog[$x];
+
+                if ($dykblockcount &gt;= 3)
+                {
+                        splice(@dyklog, $x, 1);
+                }
+                else
+                {
+                        $x++;
+                }
+
+                while (($loopflag == 1) &amp;&amp; ($x &lt; scalar(@dyklog)))
+                {
+#                       print "$x. 3\n";
+                        $dyklog[$x] =~ s/^\*\s*\.\.\.\s*that/\*\.\.\.that/ig;
+                        $dyklog[$x] =~ s/(?:--|&amp;[mn]dash;|&amp;#15[10];|)\s*\[\[User(.*?):(.*?)\(UTC\)//ig;
+                        $dyklog[$x] =~ s/\(\)//g;
+                        $dyklog[$x] =~ s/\?\s&lt;br/\?&lt;br/ig;
+                        $dyklog[$x] =~ s/\[\[Image/\[\[:Image/ig;
+                        if ($dyklog[$x] =~ m/^\*\.\.\.that/ig)
+                        {
+#                               print "$x. 4\n";
+                                $loopflag = 0;
+                        }
+                        elsif ($dyklog[$x] eq "")
+                        {
+#                               print $x, ". Block detected\n";
+#                               print "$x. 5\n";
+                                $loopflag = 0;
+                        }
+                        else
+                        {
+#                               print "$x. 6\n";
+                                $test = $dyklog[$x];
+                                $test =~ s/\s+//g;
+                                if ($test eq "")
+                                {
+#                                       print "$x. 7\n";
+#                                       print $x, ". Block detected\n";
+                                        $loopflag = 0;
+                                }
+                                else
+                                {
+#                                       print "$x. 8\n";
+                                        $line .= " " . $dyklog[$x];
+                                        if ($dykblockcount &gt;= 3)
+                                        {
+                                                splice(@dyklog, $x, 1);
+                                        }
+                                        else
+                                        {
+                                                $x++;
+                                        }
+                                }
+                        }
+                }
+#               print "$x. 9\n";
+#               print $x, ". -&gt; (", $dykblockcount, ", ", $y, "): ", $line, "\n\n";
+                $y++;
+                $dykmat[$dykblockcount][$y] = $line;
+        }
+        elsif ($dyklog[$x] eq "")
+        {
+#               print "$x. 10\n";
+                if ($y == 0)
+                {
+                        $dykblockcount--;
+                }
+                else
+                {
+                        $dykmat[$dykblockcount][0] = $y + 1;
+                }
+                $y = 0;
+                $dykblockcount++;
+                if ($dykblockcount &gt;= 3)
+                {
+                        splice(@dyklog, $x, 1);
+                }
+                else
+                {
+                        $x++;
+                }
+        }
+        else
+        {
+#               print "$x. 11\n";
+                $test = $dyklog[$x];
+                $test =~ s/\s+//g;
+                if ($test eq "")
+                {
+#                       print "$x. 12\n";
+                        if ($y == 0)
+                        {
+                                $dykblockcount--;
+                        }
+                        else
+                        {
+                                $dykmat[$dykblockcount][0] = $y + 1;
+                        }
+                        $y = 0;
+                        $dykblockcount++;
+                }
+                if ($dykblockcount &gt;= 3)
+                {
+                        splice(@dyklog, $x, 1);
+                }
+                else
+                {
+                        $x++;
+                }
+        }
+
+#       print "Exit";
+}
+
+#print $dykblockcount, "\n";
+
+#die;
+
+#for ($x = 0; $x &lt; $dykblockcount; $x++)
+#{
+#       for ($y = 1; $y &lt; $dykmat[$x][0]; $y++)
+#       {
+#               print $y, ". ", $dykmat[$x][$y], "\n";
+#       }
+#       print "\n";
+#}
+
+if ($dykblockcount &lt;= 3)
+{
+        die;
+}
+
+# Find the image left and right.
+
+tie @wralog, 'Tie::File', $logfile2 or die;
+
+$side = "left";
+
+$x = 0;
+while (not ($wralog[$x] =~ m/\[\[Image:/i))
+{
+        $x++;
+}
+if ($wralog[$x] =~ m/left/i)
+{
+        $side = "left";
+}
+else
+{
+        $side = "right";
+}
+
+# Process the talk page.
+for ($x = 0; $x &lt; $dykblockcount; $x++)
+{
+        for ($y = 1; $y &lt; $dykmat[$x][0]; $y++)
+        {
+                $line = $dykmat[$x][$y];
+
+                $line =~ s/^\*\.\.\.that/\.\.\.that/ig;
+                @parts = split /\(?\[\[:?Image:/i, $line;
+
+                if (scalar(@parts) == 2)
+                {
+                        $image = $parts[1];
+                        $image =~ s/\]\]\)?&lt;br\s*\/?&gt;//ig;
+                        $image =~ s/\]\]\)?//g;
+                        $image =~ s/\n//g;
+                        $imagelink = "[[Image:" . $image . "|100px|" . $side . "]]";
+
+                        if ($side eq "left")
+                        {
+                                $side = "right";
+                        }
+                        else
+                        {
+                                $side = "left";
+                        }
+                        $line =~ s/\(*?\s*?\[\[:*?Image:.*?\]\]\s*?\)*?//ig;
+                        $line =~ s/\?\s*?\)*?&lt;br/\?&lt;br/ig;
+                        $dykmat[$x][$y] = "$imagelink\n$line";
+                }
+                else
+                {
+                        $line =~ s/\?\s*?\)*?&lt;br/\?&lt;br/ig;
+                        $dykmat[$x][$y] = "$line";
+                }               
+        }
+}
+
+# Analysis of 'Wikipedia:Recent additions'
+
+$wramat = [];
+$wrablockcount = -1;
+$y = 1;
+$line = "";
+$wracount = 0;
+#$limitflag = False;
+$x = 0;
+#$wralast = 0;
+
+while ((not ($wralog[$x] =~ m/&lt;!-- newly archived items should go in at the top --&gt;/g)) &amp;&amp; ($x &lt; scalar(@wralog)))
+{
+        $x++;
+}
+$x++;
+
+while ((not ($wralog[$x] =~ m/&lt;!-- newly archived items should go in at the top --&gt;/g)) &amp;&amp; ($x &lt; scalar(@wralog)))
+{
+        $wralog[$x] =~ s/^\s*?\.\.\.\s*?that/\.\.\.that/ig;
+#       print "Processing: ", $wralog[$x], "\n";
+        if ($wralog[$x] =~ m/\[\[Image:/ig)
+        {
+                if ($wrablockcount == -1)
+                {
+                        $wrablockcount++;
+                }
+#               print $x, ". (nimage). ", $wralog[$x], "\n";
+                $line = $wralog[$x] . "\n";
+                while (not (($wralog[$x] =~ m/\?/i) || ($wralog[$x] =~ m/&lt;br\s*\/{0,1}&gt;/i)))
+                {
+#                       if ($limitflag)
+#                       {
+#                               splice(@wralog, $x, 1);
+#                       }
+#                       else
+#                       {
+                        $x++;
+#                       }
+#                       print $x, ". (image). ", $wralog[$x], "\n";
+                        $line .= $wralog[$x] . "\n";
+                }
+                $wramat[$wrablockcount][$y] = $line;
+                $y++;
+                $wracount++;
+        }
+        elsif ($wralog[$x] =~ m/^\.\.\.that/ig)
+        {
+                if ($wrablockcount == -1)
+                {
+                        $wrablockcount++;
+                }
+                $line = "";
+                while (not (($wralog[$x] =~ m/\?/i) || ($wralog[$x] =~ m/&lt;br\s*\/{0,1}&gt;/i)))
+                {
+#                       print $x, ". (that). ", $wralog[$x], "\n";
+                        $line .= $wralog[$x] . "\n";
+#                       if ($limitflag)
+#                       {
+#                               splice(@wralog, $x, 1);
+#                       }
+#                       else
+#                       {
+                        $x++;
+#                       }
+                }
+#               print $x, ". (that). ", $wralog[$x], "\n";
+                $line .= $wralog[$x] . "\n";
+                $wramat[$wrablockcount][$y] = $line;
+                $y++;
+                $wracount++;
+        }
+        elsif ($wralog[$x] eq "")
+        {
+#               print $x, ". Block detected!\n";
+#               if ($wracount &gt; 50)
+#               {
+#                       $limitflag = True;
+#               }
+                if ($wrablockcount != -1)
+                {
+                        $wramat[$wrablockcount][0] = $y;        # Save the size
+                }
+                $y = 1;                         # Reset the line count for the block
+                $wrablockcount++;
+        }
+        else
+        {
+                $test = $wralog[$x];
+                $test =~ s/\s+//g;
+                if ($test eq "")
+                {
+#                       print $x, ". Block detected!\n";
+#                       if ($wracount &gt; 50)
+#                       {
+#                               $limitflag = True;
+#                       }                                       
+                        if ($wrablockcount != -1)
+                        {
+                                $wramat[$wrablockcount][0] = $y;
+                        }
+                
+                        $y = 1;
+                        $wrablockcount++;
+                }
+        }
+#       if ($limitflag)
+#       {
+#               splice(@wralog, $x, 1);
+#       }
+#       else
+#       {
+        $x++;
+#       }
+}
+
+splice(@wralog, $x, 1, "\n&lt;!-- newly archived items should go in at the top --&gt;");
+
+# Copy everything from "Wikipedia:Recent archives" matrix into the "Did you know" matrix
+for ($x = 0; $x &lt; $wrablockcount; $x++)
+{
+        for ($y = 0; $y &lt; $wramat[$x][0]; $y++)
+        {
+                $dykmat[$dykblockcount][$y] = $wramat[$x][$y];
+        }
+        $dykblockcount++;
+}
+
+$x = 0;
+open(RALOG, "&gt;", $logfile4) or die;
+while ((not ($wralog[$x] =~ m/&lt;!-- newly archived items should go in at the top --&gt;/g)) &amp;&amp; ($x &lt; scalar(@wralog)))
+{
+        print RALOG $wralog[$x], "\n";
+        $x++;
+}
+print RALOG $wralog[$x], "\n";
+$x++;
+
+$total = 0;
+for ($i = 3; (($i &lt; $dykblockcount) &amp;&amp; ($total &lt; 60)); $i++)
+{
+        for ($j = 1; $j &lt; $dykmat[$i][0]; $j++)
+        {
+                print RALOG $dykmat[$i][$j], "\n";
+#               print "(", $i, ", ", $j, "). ", $dykmat[$i][$j], "\n";
+        }
+        print RALOG "\n";
+        $total += $dykmat[$i][0];
+}
+
+while ((not ($wralog[$x] =~ m/&lt;!-- newly archived items should go in at the top --&gt;/g)) &amp;&amp; ($x &lt; scalar(@wralog)))
+{
+        $x++;
+}
+while ($x &lt; scalar(@wralog))
+{
+        print RALOG $wralog[$x], "\n";
+        $x++;
+}
+close(RALOG);
+
+#print "----\n";
+
+#print $wracount, "\n";
+
+# Post the new pages
+system("python2.3 -c " . $postprog1 . $postprog2 . $logfile1 . $postprog3 . $talkpage . $postprog4 . "Testing archival bot" . $postprog5 . $postprog2 . $logfile4 . $postprog3 . $pagename . $postprog4 . "Testing archival bot" . $postprog5 . "\"");
+
+# Analysis of the archive pages
+
+$arccount = 0;
+
+if ($i &lt; $dykblockcount)
+{
+        tie @arclog, 'Tie::File', $logfile3 or die;
+        $x = 0;
+        while ((not ($arclog[$x] =~ m/==Did you know\.\.\.==/ig)) &amp;&amp; ($x &lt; scalar(@arclog)))
+        {
+                $x++;
+        }
+        
+        for ($arccount = 0; $x &lt; scalar(@arclog); $x++)
+        {
+                if ($arclog[$x] =~ m/\[\[Image:/ig)
+                {
+#                       print $x, ". (nimage). ", $arclog[$x], "\n";
+                        while (not (($arclog[$x] =~ m/\?/i) || ($arclog[$x] =~ m/&lt;br\s*\/{0,1}&gt;/i)))
+                        {
+                                $x++;
+#                               print $x, ". (image). ", $arclog[$x], "\n";
+                        }
+                        $arccount++;
+                }
+                elsif ($arclog[$x] =~ m/^\.\.\.that/ig)
+                {
+                        while (not (($arclog[$x] =~ m/\?/i) || ($arclog[$x] =~ m/&lt;br\s*\/{0,1}&gt;/i)))
+                        {
+#                               print $x, ". (that). ", $arclog[$x], "\n";
+                                $x++;
+                        }
+#                       print $x, ". (that). ", $arclog[$x], "\n";
+                        $arccount++;
+                }
+                $x++;
+        }
+}
+
+$startingarchive = $archivenum;
+$testcount = $arccount;
+if ($arccount &lt; 50)
+{
+        $currentlogfile = $logfile5 . $archivenum . ".log";
+        $x = 0;
+        open(ARCLOG, "&gt;", $currentlogfile) or die;
+        print ARCLOG $archiveheader;
+        close(ARCLOG);
+
+        tie @newlog, 'Tie::File', $currentlogfile or die;
+        
+        $a = $dykblockcount - 1;
+        while ($a &gt;= $i)
+        {
+                $start = 4;
+                for ($b = 1; $b &lt; $dykmat[$a][0]; $b++)
+                {
+                        splice(@newlog, $start, 0, $dykmat[$a][$b]);
+                        $start++;
+                }
+                splice(@newlog, $start, 0, "");
+                $testcount += $dykmat[$a][0];
+
+                if ($testcount &gt;= 50)
+                {
+                        $testcount = 0;
+                        $archivenum++;
+                        $currentlog = $logfile5 . $archivenum . ".log";
+                        open(ARCLOG, "&gt;", $currentlog) or die;
+                        print ARCLOG $archiveheader;
+                        close(ARCLOG);
+                        untie @newlog or die;
+                        tie @newlog, 'Tie::File', $currentlog or die;
+                }
+                $a--;
+        }
+
+        open(ARCLOG, "&gt;&gt;", $currentlogfile) or die;
+#       print ARCLOG "\n";
+        for ($x = 4; $x &lt; scalar(@arclog); $x++)
+        {
+                print ARCLOG $arclog[$x], "\n";
+        }
+        close(ARCLOG);
+}
+else
+{
+        $a = $dykblockcount - 1;
+        $archivenum++;
+        $currentlog = $logfile5 . $archivenum . ".log";
+        $testcount = 0;
+        open(ARCLOG, "&gt;", $currentlog) or die;
+        print ARCLOG $archiveheader;
+        close(ARCLOG);
+        tie @newlog, 'Tie::File', $currentlog or die;
+        while ($a &gt;= $i)
+        {
+                $start = 4;
+                for ($b = 1; $b &lt; $dykmat[$a][0]; $b++)
+                {
+                        splice(@newlog, $start, 0, $dykmat[$a][$b]);
+                        $start++;
+                }
+                splice(@newlog, $start, 0, "");
+                $testcount += $dykmat[$a][0];
+                if ($testcount &gt;= 50)
+                {
+                        $testcount = 0;
+                        $archivenum++;
+                        $currentlog = $logfile5 . $archivenum . ".log";
+                        open(ARCLOG, "&gt;", $currentlog) or die;
+                        print ARCLOG $archiveheader;
+                        close(ARCLOG);
+                        untie @newlog or die;
+                        tie @newlog, 'Tie::File', $currentlog or die;
+                }
+                $a--;
+        }
+}
+#print "\n$testcount\n";
+#print $archivenum, "\n";
+
+for ($x = $startingarchive; $x &lt;= $archivenum; $x++)
+{
+        $currentlog = $logfile5 . $x . ".log";
+        system("python2.3 -c " . $postprog1 . $postprog2 . $currentlog . $postprog3 . "Wikipedia:Recent additions " . $x . $postprog4 . "Testing archival bot" . $postprog5 . "\"");
+}
+
+$$lastarchive = "lastarchive = " . $archivenum;
+
+system("rm", "-f", $HOME . $BOTDIR . $LOGDIR . "*.log");
+</pre>
+<p><a name="didyouknow.cfg" id="didyouknow.cfg"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/l/User%7EAllyUnion_did_you_know.pl_7155.html" title="Edit section: didyouknow.cfg">edit</a>]</span> <span class="mw-headline">didyouknow.cfg</span></h2>
+<pre>
+# Last archive that the program is on, do not attempt to update manually.
+lastarchive = 25
+</pre>
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/l/User%7EAllyUnion_did_you_know.pl_7155.html">http://en.wikipedia.org../../../a/l/l/User%7EAllyUnion_did_you_know.pl_7155.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/l/l/User%7EAllyUnion_did_you_know.pl_7155.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/l/l/User_talk%7EAllyUnion_did_you_know.pl_c91e.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:AllyUnion/did_you_know.pl">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:04, 14 April 2005 by Wikipedia user <a href="../../../a/l/l/User%7EAllyUnion_7163.html" title="User:AllyUnion">AllyUnion</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

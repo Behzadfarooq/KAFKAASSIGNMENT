@@ -1,0 +1,372 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Astronouth7303/My monobook script" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Astronouth7303/My monobook script - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Astronouth7303/My monobook script</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/s/t/User%7EAstronouth7303_7f3b.html" title="User:Astronouth7303">User:Astronouth7303</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>If it weren't for special formatting:</p>
+<pre>
+&lt;pre&gt;
+&lt;nowiki&gt;
+/*
+&lt;/nowiki&gt;
+&lt;/pre&gt;
+== Default MW stuff ==
+&lt;pre&gt;
+&lt;nowiki&gt;
+*/
+</pre>
+<pre>
+/* tooltips and access keys */
+ta = new Object();
+</pre>
+<p><br />
+this page would look awful:</p>
+<blockquote>
+<p>/* tooltips and access keys */ ta = new Object(); ta['pt-userpage'] = new Array('.','My user page'); ta['pt-anonuserpage'] = new Array('.','The user page for the ip you\'re editing as'); ta['pt-mytalk'] = new Array('n','My talk page'); ta['pt-anontalk'] = new Array('n','Discussion about edits from this ip address'); ta['pt-preferences'] = new Array(<i>,'My preferences');</i> ta['pt-watchlist'] = new Array('l','The list of pages you\'re monitoring for changes.'); ta['pt-mycontris'] = new Array('y','List of my contributions'); ta['pt-login'] = new Array('o','You are encouraged to log in, it is not mandatory however.'); ta['pt-anonlogin'] = new Array('o','You are encouraged to log in, it is not mandatory however.');</p>
+</blockquote>
+<hr />
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Default_MW_stuff"><span class="tocnumber">1</span> <span class="toctext">Default MW stuff</span></a></li>
+<li class="toclevel-1"><a href="#Login_enhancements"><span class="tocnumber">2</span> <span class="toctext">Login enhancements</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Hook_assistant"><span class="tocnumber">2.1</span> <span class="toctext">Hook assistant</span></a></li>
+<li class="toclevel-2"><a href="#hooker"><span class="tocnumber">2.2</span> <span class="toctext">hooker</span></a></li>
+<li class="toclevel-2"><a href="#Submit_callback"><span class="tocnumber">2.3</span> <span class="toctext">Submit callback</span></a></li>
+<li class="toclevel-2"><a href="#Real_work"><span class="tocnumber">2.4</span> <span class="toctext">Real work</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Init"><span class="tocnumber">2.4.1</span> <span class="toctext">Init</span></a></li>
+<li class="toclevel-3"><a href="#update"><span class="tocnumber">2.4.2</span> <span class="toctext">update</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script></p>
+<p><br /></p>
+<pre>
+
+/*
+
+</pre>
+<p><a name="Default_MW_stuff" id="Default_MW_stuff"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html" title="Edit section: Default MW stuff">edit</a>]</span> <span class="mw-headline">Default MW stuff</span></h2>
+<pre>
+
+*/
+
+/* tooltips and access keys */
+ta = new Object();
+ta['pt-userpage'] = new Array('.','My user page');
+ta['pt-anonuserpage'] = new Array('.','The user page for the ip you\'re editing as');
+ta['pt-mytalk'] = new Array('n','My talk page');
+ta['pt-anontalk'] = new Array('n','Discussion about edits from this ip address');
+ta['pt-preferences'] = new Array('','My preferences');
+ta['pt-watchlist'] = new Array('l','The list of pages you\'re monitoring for changes.');
+ta['pt-mycontris'] = new Array('y','List of my contributions');
+ta['pt-login'] = new Array('o','You are encouraged to log in, it is not mandatory however.');
+ta['pt-anonlogin'] = new Array('o','You are encouraged to log in, it is not mandatory however.');
+ta['pt-logout'] = new Array('o','Log out');
+ta['ca-talk'] = new Array('t','Discussion about the content page');
+ta['ca-edit'] = new Array('e','You can edit this page. Please use the preview button before saving.');
+ta['ca-addsection'] = new Array('+','Add a comment to this discussion.');
+ta['ca-viewsource'] = new Array('e','This page is protected. You can view its source.');
+ta['ca-history'] = new Array('h','Past versions of this page.');
+ta['ca-protect'] = new Array('=','Protect this page');
+ta['ca-delete'] = new Array('d','Delete this page');
+ta['ca-undelete'] = new Array('d','Restore the edits done to this page before it was deleted');
+ta['ca-move'] = new Array('m','Move this page');
+ta['ca-nomove'] = new Array('','You don\'t have the permissions to move this page');
+ta['ca-watch'] = new Array('w','Add this page to your watchlist');
+ta['ca-unwatch'] = new Array('w','Remove this page from your watchlist');
+ta['search'] = new Array('f','Search this wiki');
+ta['p-logo'] = new Array('','Main Page');
+ta['n-mainpage'] = new Array('z','Visit the Main Page');
+ta['n-portal'] = new Array('','About the project, what you can do, where to find things');
+ta['n-currentevents'] = new Array('','Find background information on current events');
+ta['n-recentchanges'] = new Array('r','The list of recent changes in the wiki.');
+ta['n-randompage'] = new Array('x','Load a random page');
+ta['n-help'] = new Array('','The place to find out.');
+ta['n-sitesupport'] = new Array('','Support us');
+ta['t-whatlinkshere'] = new Array('j','List of all wiki pages that link here');
+ta['t-recentchangeslinked'] = new Array('k','Recent changes in pages linked from this page');
+ta['feed-rss'] = new Array('','RSS feed for this page');
+ta['feed-atom'] = new Array('','Atom feed for this page');
+ta['t-contributions'] = new Array('','View the list of contributions of this user');
+ta['t-emailuser'] = new Array('','Send a mail to this user');
+ta['t-upload'] = new Array('u','Upload images or media files');
+ta['t-specialpages'] = new Array('q','List of all special pages');
+ta['ca-nstab-main'] = new Array('c','View the content page');
+ta['ca-nstab-user'] = new Array('c','View the user page');
+ta['ca-nstab-media'] = new Array('c','View the media page');
+ta['ca-nstab-special'] = new Array('','This is a special page, you can\'t edit the page itself.');
+ta['ca-nstab-wp'] = new Array('a','View the project page');
+ta['ca-nstab-image'] = new Array('c','View the image page');
+ta['ca-nstab-mediawiki'] = new Array('c','View the system message');
+ta['ca-nstab-template'] = new Array('c','View the template');
+ta['ca-nstab-help'] = new Array('c','View the help page');
+ta['ca-nstab-category'] = new Array('c','View the category page');
+
+/*
+
+</pre>
+<p><a name="Login_enhancements" id="Login_enhancements"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html" title="Edit section: Login enhancements">edit</a>]</span> <span class="mw-headline">Login enhancements</span></h2>
+<pre>
+
+*/
+
+/*
+
+</pre>
+<p><a name="Hook_assistant" id="Hook_assistant"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html" title="Edit section: Hook assistant">edit</a>]</span> <span class="mw-headline">Hook assistant</span></h3>
+<pre>
+
+*/
+function setHookByObj(element, event, hook) {
+alert("Hooking "+event);
+//    if (element) {
+      if (element.addEventListener) element.addEventListener("event",hook,false);
+      else if (element.attachEvent) element.attachEvent("on"+event,hook);
+//    }
+}
+
+/*
+
+</pre>
+<p><a name="hooker" id="hooker"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html" title="Edit section: hooker">edit</a>]</span> <span class="mw-headline">hooker</span></h3>
+<pre>
+
+*/
+function initLoginHooks() {
+alert("Hook!");
+if (o) {
+  setHookByObj(o, "submit", checkFormSubmit);
+  setHookByObj(o.wpName, "change", updateloginform);
+  setHookByObj(o.wpPassword, "change", updateloginform);
+  setHookByObj(o.wpRetype, "change", updateloginform);
+  setHookByObj(o.wpEmail, "change", updateloginform);
+  setHookByObj(o.wpRealName, "change", updateloginform);
+}
+}
+
+/*
+
+</pre>
+<p><a name="Submit_callback" id="Submit_callback"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html" title="Edit section: Submit callback">edit</a>]</span> <span class="mw-headline">Submit callback</span></h3>
+<pre>
+
+*/
+function checkFormSubmit() {
+  return checkpasswordmatch();
+}
+
+/*
+
+</pre>
+<p><a name="Real_work" id="Real_work"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html" title="Edit section: Real work">edit</a>]</span> <span class="mw-headline">Real work</span></h3>
+<pre>
+
+*/
+/*
+
+</pre>
+<p><a name="Init" id="Init"></a></p>
+<h4><span class="editsection">[<a href="../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html" title="Edit section: Init">edit</a>]</span> <span class="mw-headline">Init</span></h4>
+<pre>
+
+*/
+var o=document.getElementById("userlogin"); 
+var datacreate = true;
+var datauserealname = true;
+var datauseemail = true;
+
+function initLogin() {
+alert("Init");
+o=document.getElementById("userlogin"); 
+if (!o) {
+  o = document.userlogin;
+}
+if (!o) {
+  o = document.forms.item(0);
+}
+ datacreate = document.getElementById('wpRetype') ? true : false;
+ datauserealname = document.getElementById('wpRealName') ? true : false;
+ datauseemail = document.getElementById('wpEmail') ? true : false;
+initLoginHooks();
+updateloginform();
+
+if (!o) {
+  alert("(Init) Form not found!");
+}
+}
+
+setHookByObj(window, "load", initLogin);
+
+/*
+
+</pre>
+<p><a name="update" id="update"></a></p>
+<h4><span class="editsection">[<a href="../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html" title="Edit section: update">edit</a>]</span> <span class="mw-headline">update</span></h4>
+<pre>
+
+*/
+function updateloginform() {
+        window.status = "Updating..."
+        o=document.getElementById("userlogin");
+        if (!o) {
+                alert("(update) Form not found!");
+        } else {
+                if( datacreate ) {
+                        o.wpCreateaccount.disabled=(o.wpRetype.value=="");
+                }
+                o.wpLoginattempt.disabled = (
+                                      (
+                                            // New user entries
+                                        (
+                                          datacreate &amp;&amp; datauserealname &amp;&amp; (
+                                            o.wpRealName.value!=""
+                                          )
+                                        ) ||
+                                            (
+                                          datacreate &amp;&amp; datauseemail &amp;&amp; (
+                                            o.wpEmail.value !=""
+                                          )
+                                        ) ||
+                                        (
+                                          o.wpRetype.value!=""
+                                        )
+                                      ) ||
+                                      // Logins
+                                          (
+                                        o.wpPassword.value==""
+                                      ) ||
+                                          (
+                                        o.wpName.value==""
+                                      )
+                                    );
+        }
+        window.status = "Updating...Done"
+}
+function checkpasswordmatch() {
+        if(o.wpRetype.value!=""&amp;&amp;(o.wpPassword.value!=o.wpRetype.value)){
+        alert("{{INT:badretype}}");
+                o.wpPassword.value=o.wpRetype.value="";
+                o.wpPassword.focus();
+                return false;
+        }
+}
+
+</pre>
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html">http://en.wikipedia.org../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/s/t/User%7EAstronouth7303_My_monobook_script_2b66.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/s/t/User_talk%7EAstronouth7303_My_monobook_script_f335.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Astronouth7303/My_monobook_script">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 01:47, 25 November 2006 by Wikipedia user <a href="../../../a/s/t/User%7EAstronouth7303_7f3b.html" title="User:Astronouth7303">Astronouth7303</a>. Based on work by Wikipedia user(s) <a href="../../../d/c/r/User%7EDCrazy_776f.html" title="User:DCrazy">DCrazy</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

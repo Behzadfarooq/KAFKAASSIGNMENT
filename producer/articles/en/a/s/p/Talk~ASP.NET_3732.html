@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:ASP.NET,WikiProject .NET/template,Sign your posts on talk pages,Verifiability,WikiProject .NET,ASP.NET,ASP master pages,Microsoft .NET,Minimo,Mono (software),W3C" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:ASP.NET - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:ASP.NET</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <center>
+<table width="75%">
+<tr>
+<td style="float:middle;width:100%;border:2px solid #000;background-color:#fff">
+<p><b>This article is part of the <a href="../../../w/i/k/Wikipedia%7EWikiProject_.NET_51dc.html" title="Wikipedia:WikiProject .NET">WikiProject .NET</a></b><a href="../../../w/i/k/Wikipedia%7EWikiProject_.NET_template_cfdc.html" title="Wikipedia:WikiProject .NET/template">.</a><br />
+This project primarily focuses on the improvement of <a href="../../../m/i/c/Microsoft_.NET_1c77.html" title="Microsoft .NET">Microsoft .NET</a> related articles.</p>
+</td>
+</tr>
+</table>
+</center>
+<p><br /></p>
+<p>is ASP.net a compiled language?</p>
+<dl>
+<dd>Yes --<a href="../../../w/a/y/User%7EWayneMokane_c746.html" title="User:WayneMokane">WayneMokane</a> 07:47, 19 Dec 2004 (UTC)</dd>
+</dl>
+<dl>
+<dd>Yes and No. ASP.NET must be compiled by the server (aka IIS) to a .NET common language runtime, from which it will be interpreted by the server machine. But you don´t need to compile an ASP.NET file to run it on the server, the server does it for you. In this case, the answer is No. --<a href="../../../c/e/d/User%7ECedric.graebin_8323.html" title="User:Cedric.graebin">Cedric.graebin</a> 23:42, 12 July 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>To expand on that, the assembly that is created from your pages is indeed compiled to MSIL, however, the JIT then kicks in during runtime and the corresponding machine code is cached and used on the next invocation.</dd>
+</dl>
+<dl>
+<dd>NO -- The ASP.NET Portion is not compiled, but interpreted by the IIS web server. The parts that are compiled are written in a compilable language such as C# or VB.NET. These parts of the application are compiled on the server.</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I beg to differ. Check your %WINDIR%\Microsoft.NET\Framework\%DOT_NET_VERSION%\Temporary ASP.NET Files folder. You'll see the end-result of the "ASP.NET Portion" translated to code (C# in may case) as well as the DLL that was generated. The end result is a compiled page, even if you don't do code-behind. - <a href="../../../n/u/g/User%7ENuggetboy_c60a.html" title="User:Nuggetboy">Chris</a> 00:00, 16 March 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>First, ASP.NET is not a language. Second, YES, all parts that made up an ASP.NET application are compiled, including plain-text .aspx files (they are compiled as the first request come into a .NET assembly ("dll") which is stored somewhere in a temporary folder). <small>—The preceding <a href="../../../s/i/g/Wikipedia%7ESign_your_posts_on_talk_pages_ee53.html" title="Wikipedia:Sign your posts on talk pages">unsigned</a> comment was added by 62.168.95.194 (talk • <a href="../../../c/o/n/Special%7EContributions_62.168.95.194_1d17.html" title="Special:Contributions/62.168.95.194">contribs</a>) .</small></dd>
+</dl>
+<p>This "article" is absolutely pure Microsoft marketing hype. Where is the balance that an encyclopedia is supposed to bring to a subject? I suspect the person who wrote it makes their living promoting Microsoft products. Microsoft is well know for “planting” people and marketing articles like this on the web.</p>
+<p>Would asking for full disclosure about the author be asking too much? 70.162.248.198 02:40, 8 December 2006 (UTC) JustBoo</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Minimo.3F"><span class="tocnumber">1</span> <span class="toctext">Minimo?</span></a></li>
+<li class="toclevel-1"><a href="#.22Valid.22_XHTML.3F"><span class="tocnumber">2</span> <span class="toctext">"Valid" XHTML?</span></a></li>
+<li class="toclevel-1"><a href="#.22comprised.22_and_.22composed.22"><span class="tocnumber">3</span> <span class="toctext">"comprised" and "composed"</span></a></li>
+<li class="toclevel-1"><a href="#Microsoft_promotion.3F"><span class="tocnumber">4</span> <span class="toctext">Microsoft promotion?</span></a></li>
+<li class="toclevel-1"><a href="#ASP.NET_2.0_does_not_generate_valid_XHTML"><span class="tocnumber">5</span> <span class="toctext">ASP.NET 2.0 does not generate valid XHTML</span></a></li>
+<li class="toclevel-1"><a href="#Comparison_to_other_platforms"><span class="tocnumber">6</span> <span class="toctext">Comparison to other platforms</span></a></li>
+<li class="toclevel-1"><a href="#Wikipedia_Defines_What_Microsoft_Won.27t"><span class="tocnumber">7</span> <span class="toctext">Wikipedia Defines What Microsoft Won't</span></a></li>
+<li class="toclevel-1"><a href="#merge_ASP_master_pages_into_this_article"><span class="tocnumber">8</span> <span class="toctext">merge ASP master pages into this article</span></a></li>
+<li class="toclevel-1"><a href="#.22Unhandled_exceptions_force_the_ASP.NET_worker_processes_to_shut_down.22"><span class="tocnumber">9</span> <span class="toctext">"Unhandled exceptions force the ASP.NET worker processes to shut down"</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Minimo.3F" id="Minimo.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/Talk%7EASP.NET_3732.html" title="Edit section: Minimo?">edit</a>]</span> <span class="mw-headline">Minimo?</span></h2>
+<p>What does this mean?</p>
+<ul>
+<li><i>Usually locks to Microsoft as server vendor, as free/open-source alternative <a href="../../../m/i/n/Minimo.html" title="Minimo">Minimo</a> can't handle all functionality</i></li>
+</ul>
+<p>All I find for Minimo is a Mozilla-based browser, which isn't a <i>server</i>... —<a href="../../../j/l/e/User%7EJleedev_48f1.html" title="User:Jleedev">Josh Lee</a> 03:08, August 18, 2005 (UTC)</p>
+<p>I think that it must be referring to the <a href="../../../m/o/n/Mono_%28software%29.html" title="Mono (software)">Mono development platform</a>, an open-source .NET implementation interface that can run ASP.NET pages. <a href="../../../c/e/d/User%7ECedric.graebin_8323.html" title="User:Cedric.graebin">Cedric S. Graebin</a> 15:13, 5 July 2006 (UTC)</p>
+<p><a name=".22Valid.22_XHTML.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/Talk%7EASP.NET_3732.html" title="Edit section: &quot;Valid&quot; XHTML?">edit</a>]</span> <span class="mw-headline">"Valid" XHTML?</span></h2>
+<p>Are you kidding? If it sends standard XHTML per default, MSIE support is broken -- MSIE 6.0 and earlier don't support XHTML 1.0 because they don't understand the MIME type and parse it as XML/HTML tagsoup. I don't think Microsoft would be that stupid.</p>
+<p>If they send "valid" XHTML 1.0 (as in "source code validates", not as in "standards compliant") with a HTML MIME type, they are effectively violating the standard no less than if they continued to send proprietary HTML instead. -- 134.95.141.104 11:37, 19 January 2006 (UTC) (<a href="../../../a/s/h/User%7EAshmodai_1a4e.html" title="User:Ashmodai">Ashmodai</a>)</p>
+<dl>
+<dd>Please, tell me exactly WHERE in the XHTML standard is written down which MIME to use? <small>—The preceding <a href="../../../s/i/g/Wikipedia%7ESign_your_posts_on_talk_pages_ee53.html" title="Wikipedia:Sign your posts on talk pages">unsigned</a> comment was added by 62.168.95.194 (talk • <a href="../../../c/o/n/Special%7EContributions_62.168.95.194_1d17.html" title="Special:Contributions/62.168.95.194">contribs</a>) .</small></dd>
+<dd>Look in the abstract section of <a href="http://www.w3.org/TR/2002/NOTE-xhtml-media-types-20020801/" class="external free" title="http://www.w3.org/TR/2002/NOTE-xhtml-media-types-20020801/" rel="nofollow">http://www.w3.org/TR/2002/NOTE-xhtml-media-types-20020801/</a>. However, that says that it SHOULD use application/xhtml+xml not MUST. A more definite violation is that all JavaScript blocks that ASP.NET internally generates are improperly escaped and won't work under true XHTML clients. Developer38 22:34, 11 May 2006 (UTC)</dd>
+</dl>
+<p><a name=".22comprised.22_and_.22composed.22"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/Talk%7EASP.NET_3732.html" title="Edit section: &quot;comprised&quot; and &quot;composed&quot;">edit</a>]</span> <span class="mw-headline">"comprised" and "composed"</span></h2>
+<p>Warrens, you're correct in your definitions of comprise and compose and I'm not arguing using "comprise". However, the original text ("composed of") was correct. "comprised of" *is* incorrect. If you insist on using "comprise" (when the original is fine), use "comprises", not "comprised of". - <a href="../../../n/u/g/User%7ENuggetboy_c60a.html" title="User:Nuggetboy">Chris</a> 20:32, 16 March 2006 (UTC)</p>
+<p>Correct, but the language is changing. So many people say "comprised of" that it's becoming acceptable. Personally I find it grates, but that's a sign one is growing old!&#160;;-)</p>
+<p>84.9.71.116 07:49, 30 April 2006 (UTC)</p>
+<p><a name="Microsoft_promotion.3F" id="Microsoft_promotion.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/Talk%7EASP.NET_3732.html" title="Edit section: Microsoft promotion?">edit</a>]</span> <span class="mw-headline">Microsoft promotion?</span></h2>
+<p>"The numerous .NET controls, classes and tools can cut down on development time by providing a rich set of features for common programming tasks" -- sounds straight out of some Microsoft marketing blurb. A bit more neutrality please and more mentions of competing technologies. Not all readers are fans of the wondrous M$.</p>
+<p>84.9.71.116 07:49, 30 April 2006 (UTC)</p>
+<dl>
+<dd>The Wikipedia article on ASP.NET is not an appropriate place for a discussion about competing technologies, any more than the article on PHP or Ruby on Rails are. <a href="../../../w/a/r/User%7EWarrens_af91.html" title="User:Warrens">Warrens</a> 08:13, 30 April 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>I agree. It's not just that it's highly pro-MSFT, with all of the benefits listed ( and no context about how important they might be ) - it's also tiresome to read. I'm doing my part to improve the article, as a person who programs against ASP.NET every day. My goal is to bring a more neutral point of view, but also to make the content in this article more useful. As such, I'll be adding an article called <b>Criticisms</b> or <b>Gotchas</b> or something to that effect, of common mistakes or problems and how to deal with them. This could be seen as anti-MSFT ( which I'm not, since I choose to work with their technology ) but I'm doing it to make the page useful to ASP.NET users, not marketing people. <a href="../../../d/i/g/User%7EDigitalEnthusiast_4e7d.html" title="User:DigitalEnthusiast">DigitalEnthusiast</a> 20:34, 14 December 2006 (UTC)</dd>
+</dl>
+<p><a name="ASP.NET_2.0_does_not_generate_valid_XHTML" id="ASP.NET_2.0_does_not_generate_valid_XHTML"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/Talk%7EASP.NET_3732.html" title="Edit section: ASP.NET 2.0 does not generate valid XHTML">edit</a>]</span> <span class="mw-headline">ASP.NET 2.0 does not generate valid XHTML</span></h2>
+<p>This article is inaccurate in saying that "in version 2.0, all controls generate valid HTML 4.0, XHTML 1.0 (the default), or XHTML 1.1 output". The XHTML generated is not valid even in version 2.0. For example, all generated JavaScript is wrapped in HTML/XML comments (&lt;!-- --&gt;) rather than XHTML CDATA blocks. This will pass the W3C validation tools, but the JavaScript code just won't work.Developer38 22:39, 11 May 2006 (UTC)</p>
+<dl>
+<dd>If that's the case, there should be a good, citable source that supports that claim. Citing such sources helps prevent reversions of such claims. <a href="../../../r/o/d/User%7ERodasmith_14c0.html" title="User:Rodasmith">The Rod</a> <small>(<a href="../../../r/o/d/User_talk%7ERodasmith_9e4e.html" title="User talk:Rodasmith">☎ Smith</a>)</small> 00:16, 4 May 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>You can test this out for yourself. Create a simple ASP.NET page with one button and look at the generated source. You will see this error which Wikipedia lists as a common error on the <a href="../../../x/h/t/XHTML_2462.html" title="XHTML">XHTML</a> page. I've seen other blogs point this out and I can prove it with the software. What exactly constitutes a valid citable source?</dd>
+</dl>
+<p>Developer38 18:54, 10 May 2006 (UTC)</p>
+<dl>
+<dd>This guy says what I said. Is this a citable source? <a href="http://lachy.id.au/log/2005/05/script-comments" class="external free" title="http://lachy.id.au/log/2005/05/script-comments" rel="nofollow">http://lachy.id.au/log/2005/05/script-comments</a></dd>
+</dl>
+<p>Developer38 19:12, 10 May 2006 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>Wikipedia requires reliable, published sources to back up what's written in the articles. That you or I can fire up Visual Studio and recreate this situation (or are even so much as expected to in order to confirm anything written in an article) isn't good enough. This is a core tenet of <a href="../../../v/e/r/Wikipedia%7EVerifiability_f922.html" title="Wikipedia:Verifiability">Wikipedia:Verifiability</a>. <a href="../../../w/a/r/User%7EWarrens_af91.html" title="User:Warrens">Warrens</a> 02:06, 12 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Even if blogs were valid sources, the one cited above does not say that the output is invalid XHTML. It merely discusses how the style of the XHTML causes problems in the way various UA's treat scripts or expect scripts to be treated. Neither does the "<a href="../../../x/h/t/XHTML_2462.html" title="XHTML">XHTML</a>" article here say that the output of my ASP.NET page is not well-formed. <a href="../../../r/o/d/User%7ERodasmith_14c0.html" title="User:Rodasmith">The Rod</a> <small>(<a href="../../../r/o/d/User_talk%7ERodasmith_9e4e.html" title="User talk:Rodasmith">☎ Smith</a>)</small> 06:07, 12 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I'd assume that output from a ASP.net page built using MS delivered components with a DOCTYPE specifying XHTML that *fails* the <a href="../../../w/3/c/W3C_446a.html" title="W3C">W3C</a> validation processors would count as a verifiable source. So, if anyone can produce such a page... <a href="../../../a/n/i/User%7EAnimalFriend_8980.html" title="User:AnimalFriend">AnimalFriend</a> 20:23, 7 September 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Comparison_to_other_platforms" id="Comparison_to_other_platforms"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/Talk%7EASP.NET_3732.html" title="Edit section: Comparison to other platforms">edit</a>]</span> <span class="mw-headline">Comparison to other platforms</span></h2>
+<p>The comparisons section is either misnamed, or has wrong content in it. These are criticisms of asp.net, no other platforms are mentioned. Further, these are criticisms of some of the asp.net controls, not the asp.net platform itself. Gaijin42 01:24, 10 August 2006 (UTC)</p>
+<dl>
+<dd>How about we rename the section to "Criticism of stock control rendering"? Is there a better phrasing? <a href="../../../r/o/d/User%7ERodasmith_14c0.html" title="User:Rodasmith">Rod</a> <small>(<a href="../../../r/o/d/User_talk%7ERodasmith_9e4e.html" title="User talk:Rodasmith">A. Smith</a>)</small> 20:58, 10 August 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>Gaijin42 is right, the section should be merged with the preceeding "Advantages over ASP", since it only discusses how ASP.NET varies from ASP.old. <a href="../../../a/n/i/User%7EAnimalFriend_8980.html" title="User:AnimalFriend">AnimalFriend</a> 10:45, 2 September 2006 (UTC)</dd>
+</dl>
+<p><a name="Wikipedia_Defines_What_Microsoft_Won.27t" id="Wikipedia_Defines_What_Microsoft_Won.27t"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/Talk%7EASP.NET_3732.html" title="Edit section: Wikipedia Defines What Microsoft Won't">edit</a>]</span> <span class="mw-headline">Wikipedia Defines What Microsoft Won't</span></h2>
+<p>Once again I am astounded that I can find definitions and relationships of and between Microsoft technologies that are absent (or present who knows where mixed in with who knows what) from Microsoft's own downscale, deprecated, paper and ink documentation. Yay, Wikipedia.</p>
+<dl>
+<dd>Wikipedia is open to everybody to contribute. Please feel free to do so. -- <i><a href="../../../f/a/y/User%7EFayssalF_b498.html" title="User:FayssalF">Szvest</a> 18:46, 21 August 2006 (UTC)</i> <small><a href="../../../f/a/y/User_talk%7EFayssalF_f604.html" title="User talk:FayssalF"><font style="background: orange"><sup><i>Wiki me up ®</i></sup></font></a></small></dd>
+</dl>
+<p><a name="merge_ASP_master_pages_into_this_article" id="merge_ASP_master_pages_into_this_article"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/Talk%7EASP.NET_3732.html" title="Edit section: merge ASP master pages into this article">edit</a>]</span> <span class="mw-headline">merge <a href="../../../a/s/p/ASP_master_pages_bb57.html" title="ASP master pages">ASP master pages</a> into this article</span></h2>
+<p><a href="../../../a/s/p/ASP_master_pages_bb57.html" title="ASP master pages">ASP master pages</a> should be merged into this article -- <a href="../../../t/i/m/User%7ETimdew_a1a4.html" title="User:Timdew">timdew</a> (<a href="../../../t/i/m/User_talk%7ETimdew_8818.html" title="User talk:Timdew"><sup>Talk</sup></a>) 13:54, 9 December 2006 (UTC)</p>
+<dl>
+<dd><b>Strong Disagree</b> Are you crazy? Master pages are <i>a part</i> of ASP.NET, but hardly the same thing. In fact, many, probably most, ASP.NET developers never use master pages. ( That seems enough of a reason to keep the articles sperated! ) This suggestion is a lot like the idea of merging the articles on USA and Wyoming - B is a part of A, but A is <b>not</b> B. <small>—The preceding <a href="../../../s/i/g/Wikipedia%7ESign_your_posts_on_talk_pages_ee53.html" title="Wikipedia:Sign your posts on talk pages">unsigned</a> comment was added by <a href="../../../d/i/g/User%7EDigitalEnthusiast_4e7d.html" title="User:DigitalEnthusiast">DigitalEnthusiast</a> (<a href="../../../d/i/g/User_talk%7EDigitalEnthusiast_43af.html" title="User talk:DigitalEnthusiast">talk</a> • <a href="../../../c/o/n/Special%7EContributions_DigitalEnthusiast_4da1.html" title="Special:Contributions/DigitalEnthusiast">contribs</a>) 18:37, 14 December 2006 (UTC).</small>
+<dl>
+<dd>you made my point and never realised, that "... many, probably most, ASP.NET developers never use ASP master pages" and therefore ASP master pages doesn't warrant a page of it's own. please try not to be rude in your reply, i'm not crazy. -- <a href="../../../t/i/m/User%7ETimdew_a1a4.html" title="User:Timdew">timdew</a> (<a href="../../../t/i/m/User_talk%7ETimdew_8818.html" title="User talk:Timdew"><sup>Talk</sup></a>) 19:11, 14 December 2006 (UTC)
+<dl>
+<dd>Sorry if that sounded rude - wasn't my intent. I just don't think "strongly disagree" conveyed my feelings strongly enough. While I see your point that master pages could be notable enough to mention but not for their own article, there are any number of developers who <i>do</i> use them ( myself included ). To many it's as if "master pages" didn't exist, even aren't a part of ASP.NET, however, they <b>are</b> a subset, and only of version 2.0, so I really think it makes sense to keep the two articles seperate. Also, I'm rewriting much of the ASP.NET page, and while I'm removing some content ( that's either confusing, or simply untrue ) it will be longer when I'm finished. If necessary, I'll do the same for the Master Pages article, and point out a lot of the specific issues their use brings up. ( <i>PS - Obviously you're not crazy if you can understand this highly technical stuff.</i> ) <a href="../../../d/i/g/User%7EDigitalEnthusiast_4e7d.html" title="User:DigitalEnthusiast">DigitalEnthusiast</a> 20:25, 14 December 2006 (UTC)</dd>
+</dl>
+</dd>
+<dd>I also disagree with the merge suggestion <a href="../../../a/s/p/ASP_master_pages_bb57.html" title="ASP master pages">ASP master pages</a> are a large enough part of <a href="../../../a/s/p/ASP.NET_9e0d.html" title="ASP.NET">ASP.NET</a> that it does indeed warrant a separate article. That said, the current article needs to be significantly expanded. I will try to work on it, but no guarantees! (P.S. - Thank you, <a href="../../../d/i/g/User%7EDigitalEnthusiast_4e7d.html" title="User:DigitalEnthusiast">DigitalEnthusiast</a>, for your contributions; I am new to Wikipedia and appreciate your corrections to my recent updates) --<a href="../../../j/i/m/User%7EJimmytharpe_155a.html" title="User:Jimmytharpe">Jimmytharpe</a> 17:04, 19 January 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><b>Strong Disagree</b>. Master pages are a very important part of ASP.NET, there's a whole lot to be said about them (as you can see in this page), and they're a recent development, as opposed to a feature that always has been native to ASP.NET. <a href="../../../t/h/o/User%7EThomasmallen_15b8.html" title="User:Thomasmallen">Thomasmallen</a> 15:08, 31 January 2007 (UTC)</dd>
+</dl>
+<p><font color="color">red riya</font></p>
+<dl>
+<dd><b>Disagree</b> I agree that master pages are a part of ASP.NET, but they existed through 2 releases (1.0 and 1.1) without being implemented. Master pages are an important concept in and of themselves. The concept of template-based web-programming was changed from a simple server-side include model to an object oriented approach. //<a href="../../../b/a/n/User%7EBankingBum_8834.html" title="User:BankingBum">BankingBum</a> 06:24, 24 February 2007 (UTC) <a href="../../../b/a/n/User_talk%7EBankingBum_90b5.html" title="User talk:BankingBum"><font color="darkgreen"><sup>$$</sup></font></a></dd>
+<dd><b>Disagree</b> For reasons cited above, and because they're only part of ASP.NET 2.0, not all versions. <small>—The preceding <a href="../../../s/i/g/Wikipedia%7ESign_your_posts_on_talk_pages_ee53.html" title="Wikipedia:Sign your posts on talk pages">unsigned</a> comment was added by <a href="../../../c/o/n/Special%7EContributions_68.144.124.143_9c19.html" title="Special:Contributions/68.144.124.143">68.144.124.143</a> (talk) 16:34, 16 March 2007 (UTC).</small></dd>
+</dl>
+<p><a name=".22Unhandled_exceptions_force_the_ASP.NET_worker_processes_to_shut_down.22"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/Talk%7EASP.NET_3732.html" title="Edit section: &quot;Unhandled exceptions force the ASP.NET worker processes to shut down&quot;">edit</a>]</span> <span class="mw-headline">"Unhandled exceptions force the ASP.NET worker processes to shut down"</span></h2>
+<p>Maybe I'm missing something here, but I don't understand the relevance of this statement, or at least how it can be used as a criticism of ASP.NET. Say have this code in my Page_Load, which will cause a runtime division by zero exception:</p>
+<p>int a = 0; int b = 1/a;</p>
+<p>If I don't catch this exception myself then the ASP.NET runtime will catch it and show an error page. The application will not be restarted and sessions will not be lost. All exceptions are eventually caught by the runtime, meaning that there is really no such thing as an "uncaught exception" in ASP.NET (at least in theory).</p>
+<p>If somehow an exception was thrown that was not caught by the ASP.NET runtime, then by definition the process must be terminated, as there is no way to continue after this point. This is the same with any application on any platform, so I don't see how this can be a criticism of ASP.NET. If we assume that there could be an exception that isn't caught by the ASP.NET runtime, then surely the criticism should be "ASP.NET contains a bug that prevents it from catching all exceptions".</p>
+<p>Googling for information on this yields nothing. I'm sure my understanding of the way these things work is lacking, however, so maybe someone can enlighten me. Straussian 00:19, 6 February 2007 (UTC)</p>
+<dl>
+<dd>You are correct - that sentence is wrong. However, are you sure about session states? I haven't tested it, but I thought that session states get lost when unhandled exception occurs. <a href="../../../d/l/x/User%7EDLX_8f1a.html" title="User:DLX">DLX</a> 13:44, 7 February 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>DLX asks a good question. This really depends on the severity of the error and the configuration of the session state. If the ASP.NET application uses an out of processes session option (such as the ASP.NET session server or SQL Server session), it doesn't matter what the severity of the error is. The session state will stay alive. In the case of an in-proc session option (the current default in ASP.NET), a severe error will kill the worker process and therefor, the session state. Going to the root of the statement, most unhandled exceptions do NOT crash the worker process and are caught by the default ASP.NET generic exception handler (which produces the "yellow screen of death"). All of this said, its hardly a practical criticism to say that "Unhandled exceptions force the ASP.NET worker processes to shut down" since any application that doesn't handle exceptions cause a process exit. //<a href="../../../b/a/n/User%7EBankingBum_8834.html" title="User:BankingBum">BankingBum</a> 06:32, 24 February 2007 (UTC) <a href="../../../b/a/n/User_talk%7EBankingBum_90b5.html" title="User talk:BankingBum"><font color="darkgreen"><sup>$$</sup></font></a></dd>
+<dd><b>(updated)</b> I've modified the criticisms section and added a bit of accuracy and grammatical changes. The criticism was written a little more like a rant than an encyclopedic criticism. //<a href="../../../b/a/n/User%7EBankingBum_8834.html" title="User:BankingBum">BankingBum</a> 06:55, 24 February 2007 (UTC) <a href="../../../b/a/n/User_talk%7EBankingBum_90b5.html" title="User talk:BankingBum"><font color="darkgreen"><sup>$$</sup></font></a></dd>
+</dl>
+</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/s/p/Talk%7EASP.NET_3732.html">http://en.wikipedia.org../../../a/s/p/Talk%7EASP.NET_3732.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/s/p/ASP.NET_9e0d.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/s/p/Talk%7EASP.NET_3732.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:ASP.NET">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:34, 16 March 2007 by Wikipedia user <a href="../../../h/a/g/User%7EHagermanBot_d869.html" title="User:HagermanBot">HagermanBot</a>. Based on work by Wikipedia user(s) <a href="../../../d/l/x/User%7EDLX_8f1a.html" title="User:DLX">DLX</a>, <a href="../../../b/a/n/User%7EBankingBum_8834.html" title="User:BankingBum">BankingBum</a>, Straussian, <a href="../../../t/h/o/User%7EThomasmallen_15b8.html" title="User:Thomasmallen">Thomasmallen</a>, Blackdenimgumby, <a href="../../../j/i/m/User%7EJimmytharpe_155a.html" title="User:Jimmytharpe">Jimmytharpe</a>, <a href="../../../d/i/g/User%7EDigitalEnthusiast_4e7d.html" title="User:DigitalEnthusiast">DigitalEnthusiast</a>, <a href="../../../t/i/m/User%7ETimdew_a1a4.html" title="User:Timdew">Timdew</a>, <a href="../../../a/n/i/User%7EAnimalFriend_8980.html" title="User:AnimalFriend">AnimalFriend</a>, <a href="../../../f/a/y/User%7EFayssalF_b498.html" title="User:FayssalF">FayssalF</a>, <a href="../../../r/h/w/User%7ERhwawn_f1df.html" title="User:Rhwawn">Rhwawn</a>, <a href="../../../r/o/d/User%7ERodasmith_14c0.html" title="User:Rodasmith">Rodasmith</a>, Gaijin42, <a href="../../../c/e/d/User%7ECedric.graebin_8323.html" title="User:Cedric.graebin">Cedric.graebin</a>, <a href="../../../w/a/r/User%7EWarrens_af91.html" title="User:Warrens">Warrens</a>, Developer38, <a href="../../../n/u/g/User%7ENuggetboy_c60a.html" title="User:Nuggetboy">Nuggetboy</a>, <a href="../../../d/e/r/User%7EDeryck_Chan_2dc3.html" title="User:Deryck Chan">Deryck Chan</a>, <a href="../../../j/l/e/User%7EJleedev_48f1.html" title="User:Jleedev">Jleedev</a> and <a href="../../../w/a/y/User%7EWayneMokane_c746.html" title="User:WayneMokane">WayneMokane</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

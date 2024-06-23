@@ -1,0 +1,251 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Brent's method,Algol 60,Bisection method,Intermediate value theorem,Inverse quadratic interpolation,Linear interpolation,MATLAB,Netlib,Numerical Recipes,Numerical analysis,Rate of convergence" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Brent's method - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Brent's method</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../n/u/m/Numerical_analysis.html" title="Numerical analysis">numerical analysis</a>, <b>Brent's method</b> is a complicated but popular <a href="../../../r/o/o/Root-finding_algorithm.html" title="Root-finding algorithm">root-finding algorithm</a> combining the <a href="../../../b/i/s/Bisection_method.html" title="Bisection method">bisection method</a>, the <a href="../../../s/e/c/Secant_method.html" title="Secant method">secant method</a> and <a href="../../../i/n/v/Inverse_quadratic_interpolation.html" title="Inverse quadratic interpolation">inverse quadratic interpolation</a>. It has the reliability of bisection but it can be as quick as some of the less reliable methods. The idea is to use the secant method or inverse quadratic interpolation if possible, because they converge faster, but to fall back to the more robust bisection method if necessary. Brent's method is due to <a href="../../../r/i/c/Richard_Brent_%28scientist%29_b809.html" title="Richard Brent (scientist)">Richard Brent</a> (1973) and builds on an earlier algorithm of <a href="../../../t/h/e/Theodorus_Dekker_f462.html" title="Theodorus Dekker">Theodorus Dekker</a> (1969).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Dekker.27s_method"><span class="tocnumber">1</span> <span class="toctext">Dekker's method</span></a></li>
+<li class="toclevel-1"><a href="#Brent.27s_method"><span class="tocnumber">2</span> <span class="toctext">Brent's method</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Algorithm"><span class="tocnumber">4</span> <span class="toctext">Algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Implementations"><span class="tocnumber">5</span> <span class="toctext">Implementations</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_link"><span class="tocnumber">7</span> <span class="toctext">External link</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Dekker.27s_method" id="Dekker.27s_method"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Brent%27s_method.html" title="Edit section: Dekker's method">edit</a>]</span> <span class="mw-headline">Dekker's method</span></h2>
+<p>The idea to combine the bisection method with the secant method goes back to Dekker.</p>
+<p>Suppose that we want to solve the equation <i>f</i>(<i>x</i>) = 0. As with the bisection method, we need to initialize Dekker's method with two points, say <i>a</i><sub>0</sub> and <i>b</i><sub>0</sub>, such that <i>f</i>(<i>a</i><sub>0</sub>) and <i>f</i>(<i>b</i><sub>0</sub>) have opposite signs. If <i>f</i> is continuous on [<i>a</i><sub>0</sub>, <i>b</i><sub>0</sub>], the <a href="../../../i/n/t/Intermediate_value_theorem.html" title="Intermediate value theorem">intermediate value theorem</a> guarantees the existence of a solution between <i>a</i><sub>0</sub> and <i>b</i><sub>0</sub>.</p>
+<p>Three points are involved in every iteration:</p>
+<ul>
+<li><i>b</i><sub><i>k</i></sub> is the current iterate, i.e., the current guess for the root of <i>f</i>.</li>
+<li><i>a</i><sub><i>k</i></sub> is the "contrapoint," i.e., a point such that <i>f</i>(<i>a</i><sub><i>k</i></sub>) and <i>f</i>(<i>b</i><sub><i>k</i></sub>) have opposite signs, so the interval [<i>a</i><sub><i>k</i></sub>, <i>b</i><sub><i>k</i></sub>] contains the solution. Furthermore, |<i>f</i>(<i>b</i><sub><i>k</i></sub>)| should be less than or equal to |<i>f</i>(<i>a</i><sub><i>k</i></sub>)|, so that <i>b</i><sub><i>k</i></sub> is a better guess for the unknown solution than <i>a</i><sub><i>k</i></sub>.</li>
+<li><i>b</i><sub><i>k</i>−1</sub> is the previous iterate (for the first iteration, we set <i>b</i><sub>−1</sub> = <i>a</i><sub>0</sub>).</li>
+</ul>
+<p>Two provisional values for the next iterate are computed. The first one is given by the secant method:</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/1/7/2179b93258430a3806d8759bf8d7ce4e.png" alt="s = b_k - \frac{b_k-b_{k-1}}{f(b_k)-f(b_{k-1})} f(b_k)," /></dd>
+</dl>
+<p>and the second one is given by the bisection method</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/3/d/53d44a195321d93e22ddf68f650418ab.png" alt="m = \frac{a_k+b_k}{2}." /></dd>
+</dl>
+<p>If the result of the secant method, <i>s</i>, lies between <i>b</i><sub><i>k</i></sub> and <i>m</i>, then it becomes the next iterate (<i>b</i><sub><i>k</i>+1</sub> = <i>s</i>), otherwise the midpoint is used (<i>b</i><sub><i>k</i>+1</sub> = <i>m</i>).</p>
+<p>Then, the value of the new contrapoint is chosen such that <i>f</i>(<i>a</i><sub><i>k</i>+1</sub>) and <i>f</i>(<i>b</i><sub><i>k</i>+1</sub>) have opposite signs. If <i>f</i>(<i>a</i><sub><i>k</i></sub>) and <i>f</i>(<i>b</i><sub><i>k</i>+1</sub>) have opposite signs, then the contrapoint remains the same: <i>a</i><sub><i>k</i>+1</sub> = <i>a</i><sub><i>k</i></sub>. Otherwise, <i>f</i>(<i>b</i><sub><i>k</i>+1</sub>) and <i>f</i>(<i>b</i><sub><i>k</i></sub>) have opposite signs, so the new contrapoint becomes <i>a</i><sub><i>k</i>+1</sub> = <i>b</i><sub><i>k</i></sub>.</p>
+<p>Finally, if |<i>f</i>(<i>a</i><sub><i>k</i>+1</sub>)| &lt; |<i>f</i>(<i>b</i><sub><i>k</i>+1</sub>)|, then <i>a</i><sub><i>k</i>+1</sub> is probably a better guess for the solution than <i>b</i><sub><i>k</i>+1</sub>, and hence the values of <i>a</i><sub><i>k</i>+1</sub> and <i>b</i><sub><i>k</i>+1</sub> are exchanged.</p>
+<p>This ends the description of a single iteration of Dekker's method.</p>
+<p><a name="Brent.27s_method" id="Brent.27s_method"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Brent%27s_method.html" title="Edit section: Brent's method">edit</a>]</span> <span class="mw-headline">Brent's method</span></h2>
+<p>Dekker's method performs well if the function <i>f</i> is reasonably well-behaved. However, there are circumstances in which every iteration employs the secant method, but the iterates <i>b</i><sub><i>k</i></sub> converge very slowly (in particular, |<i>b</i><sub><i>k</i></sub> − <i>b</i><sub><i>k</i>−1</sub>| may be arbitrarily small). Dekker's method requires far more iterations than the bisection method in this case.</p>
+<p>Brent proposed a small modification to avoid this problem. He inserted an additional test which must be satisfied before the result of the secant method is accepted as the next iterate. Specifically, if the previous step used the bisection method, the inequality</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/6/0/d609e3f37b8d34a3f961a0942a7aea95.png" alt="|s-b_k| &lt; \begin{matrix} \frac12 \end{matrix} |b_k - b_{k-1}|" /></dd>
+</dl>
+<p>must hold, otherwise the midpoint <i>m</i> is used for the next iterate. If the previous step used interpolation, then the inequality</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/2/4/b24d22c58600a8a7e57a09f081ea8606.png" alt="|s-b_k| &lt; \begin{matrix} \frac12 \end{matrix} |b_{k-1} - b_{k-2}|" /></dd>
+</dl>
+<p>is used instead. This modification ensures that a bisection step is done if the secant method does not progress fast enough. Brent proved that his method requires at most <i>N</i><sup>2</sup> iterations, where <i>N</i> denotes the number of iterations for the bisection method. If the function <i>f</i> is well-behaved, then Brent's method will usually proceed by either inverse quadratic or linear interpolation, in which case it will converge <a href="../../../r/a/t/Rate_of_convergence.html" title="Rate of convergence">superlinearly</a>.</p>
+<p>Furthermore, Brent's method uses <a href="../../../i/n/v/Inverse_quadratic_interpolation.html" title="Inverse quadratic interpolation">inverse quadratic interpolation</a> instead of <a href="../../../l/i/n/Linear_interpolation.html" title="Linear interpolation">linear interpolation</a> (as used by the secant method) if <i>f</i>(<i>b</i><sub><i>k</i></sub>), <i>f</i>(<i>a</i><sub><i>k</i></sub>) and <i>f</i>(<i>b</i><sub><i>k</i>−1</sub>) have all different values. This slightly increases the efficiency. As a consequence, the condition for accepting <i>s</i> (the value proposed by either linear interpolation or inverse quadratic interpolation) has to be changed: <i>s</i> has to lie between (3<i>a</i><sub><i>k</i></sub> + <i>b</i><sub><i>k</i></sub>) / 4 and <i>b</i><sub><i>k</i></sub>.</p>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Brent%27s_method.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>Suppose that we are seeking a zero of the function defined by <i>f</i>(<i>x</i>) = (<i>x</i> + 3)(<i>x</i> − 1)<sup>2</sup>. We take [<i>a</i><sub>0</sub>, <i>b</i><sub>0</sub>] = [−4, 4/3] as our initial interval. We have <i>f</i>(<i>a</i><sub>0</sub>) = −25 and <i>f</i>(<i>b</i><sub>0</sub>) = 0.48148 (all numbers in this section are rounded), so the conditions <i>f</i>(<i>a</i><sub>0</sub>) <i>f</i>(<i>b</i><sub>0</sub>) &lt; 0 and |<i>f</i>(<i>b</i><sub>0</sub>)| ≤ |<i>f</i>(<i>a</i><sub>0</sub>)| are satisfied.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../b/r/e/Image%7EBrent_method_example.png_c3c8.html" class="internal" title="Graph of f(x) = (x + 3)(x − 1)2"><img src="../../../upload/shared/thumb/e/ec/Brent_method_example.png/180px-Brent_method_example.png" alt="Graph of f(x) = (x + 3)(x − 1)2" width="180" height="142" longdesc="../../../b/r/e/Image%7EBrent_method_example.png_c3c8.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/r/e/Image%7EBrent_method_example.png_c3c8.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Graph of <i>f</i>(<i>x</i>) = (<i>x</i> + 3)(<i>x</i> − 1)<sup>2</sup></div>
+</div>
+</div>
+<ol>
+<li>In the first iteration, we use linear interpolation between (<i>b</i><sub>−1</sub>, <i>f</i>(<i>b</i><sub>−1</sub>)) = (<i>a</i><sub>0</sub>, <i>f</i>(<i>a</i><sub>0</sub>)) = (−4, −25) and (<i>b</i><sub>0</sub>, <i>f</i>(<i>b</i><sub>0</sub>)) = (1.33333, 0.48148), which yields <i>s</i> = 1.23256. This lies between (3<i>a</i><sub>0</sub> + <i>b</i><sub>0</sub>) / 4 and <i>b</i><sub>0</sub>, so this value is accepted. Furthermore, <i>f</i>(1.23256) = 0.22891, so we set <i>a</i><sub>1</sub> = <i>a</i><sub>0</sub> and <i>b</i><sub>1</sub> = <i>s</i> = 1.23256.</li>
+<li>In the second iteration, we use inverse quadratic interpolation between (<i>a</i><sub>1</sub>, <i>f</i>(<i>a</i><sub>1</sub>)) = (−4, −25) and (<i>b</i><sub>0</sub>, <i>f</i>(<i>b</i><sub>0</sub>)) = (1.33333, 0.48148) and (<i>b</i><sub>1</sub>, <i>f</i>(<i>b</i><sub>1</sub>)) = (1.23256, 0.22891). This yields 1.14205, which lies between (3<i>a</i><sub>1</sub> + <i>b</i><sub>1</sub>) / 4 and <i>b</i><sub>1</sub>. Furthermore, the inequality |1.14205 − <i>b</i><sub>1</sub>| ≤ |<i>b</i><sub>0</sub> − <i>b</i><sub>−1</sub>| / 2 is satisfied, so this value is accepted. Furthermore, <i>f</i>(1.14205) = 0.083582, so we set <i>a</i><sub>2</sub> = <i>a</i><sub>1</sub> and <i>b</i><sub>2</sub> = 1.14205.</li>
+<li>In the third iteration, we use inverse quadratic interpolation between (<i>a</i><sub>2</sub>, <i>f</i>(<i>a</i><sub>2</sub>)) = (−4, −25) and (<i>b</i><sub>1</sub>, <i>f</i>(<i>b</i><sub>1</sub>)) = (1.23256, 0.22891) and (<i>b</i><sub>2</sub>, <i>f</i>(<i>b</i><sub>2</sub>)) = (1.14205, 0.083582). This yields 1.09032, which lies between (3<i>a</i><sub>2</sub> + <i>b</i><sub>2</sub>) / 4 and <i>b</i><sub>2</sub>. But here Brent's additional condition kicks in: the inequality |1.09032 − <i>b</i><sub>2</sub>| ≤ |<i>b</i><sub>1</sub> − <i>b</i><sub>0</sub>| / 2 is not satisfied, so this value is rejected. Instead, the midpoint <i>m</i> = −1.42897 of the interval [<i>a</i><sub>2</sub>, <i>b</i><sub>2</sub>] is computed. We have <i>f</i>(<i>m</i>) = 9.26891, so we set <i>a</i><sub>3</sub> = <i>a</i><sub>2</sub> and <i>b</i><sub>3</sub> = −1.42897.</li>
+<li>In the fourth iteration, we use inverse quadratic interpolation between (<i>a</i><sub>3</sub>, <i>f</i>(<i>a</i><sub>3</sub>)) = (−4, −25) and (<i>b</i><sub>2</sub>, <i>f</i>(<i>b</i><sub>2</sub>)) = (1.14205, 0.083582) and (<i>b</i><sub>3</sub>, <i>f</i>(<i>b</i><sub>3</sub>)) = (−1.42897, 9.26891). This yields −1.15448, which is not in the interval between (3<i>a</i><sub>3</sub> + <i>b</i><sub>3</sub>) / 4 and <i>b</i><sub>3</sub>). Hence, it is replaced by the midpoint <i>m</i> = −2.71449. We have <i>f</i>(<i>m</i>) = 3.93934, so we set <i>a</i><sub>4</sub> = <i>a</i><sub>3</sub> and <i>b</i><sub>4</sub> = −2.71449.</li>
+<li>In the fifth iteration, inverse quadratic interpolation yields −3.45500, which lies in the required interval. However, the previous iteration was a bisection step, so the inequality |−3.45500 − <i>b</i><sub>4</sub>| ≤ |<i>b</i><sub>4</sub> − <i>b</i><sub>3</sub>| / 2 need to be satisfied. This inequality is false, so we use the midpoint <i>m</i> = −3.35724. We have <i>f</i>(<i>m</i>) = −6.78239, so <i>m</i> becomes the new contrapoint (<i>a</i><sub>5</sub> = −3.35724) and the iterate remains the same (<i>b</i><sub>5</sub> = <i>b</i><sub>4</sub>).</li>
+<li>In the sixth iteration, we cannot use inverse quadratic interpolation because <i>b</i><sub>5</sub> = <i>b</i><sub>4</sub>. Hence, we use linear interpolation between (<i>a</i><sub>5</sub>, <i>f</i>(<i>a</i><sub>5</sub>)) = (−3.35724, −6.78239) and (<i>b</i><sub>5</sub>, <i>f</i>(<i>b</i><sub>5</sub>)) = (−2.71449, 3.93934). The result is <i>s</i> = −2.95064, which satisfies all the conditions. We calculate <i>f</i>(<i>s</i>) = 0.77032, so we set <i>a</i><sub>6</sub> = <i>a</i><sub>5</sub> and <i>b</i><sub>6</sub> = −2.95064.</li>
+<li>In the seventh iteration, we can again use inverse quadratic interpolation. The result is <i>s</i> = −3.00219, which satisfies all the conditions. Now, <i>f</i>(<i>s</i>) = −0.03515, so we set <i>a</i><sub>7</sub> = <i>b</i><sub>6</sub> and <i>b</i><sub>7</sub> = −3.00219 (<i>a</i><sub>7</sub> and <i>b</i><sub>7</sub> are exchanged so that the condition |<i>f</i>(<i>b</i><sub>7</sub>)| ≤ |<i>f</i>(<i>a</i><sub>7</sub>)| is satisfied).</li>
+<li>In the eighth iteration, we cannot use inverse quadratic interpolation because <i>a</i><sub>7</sub> = <i>b</i><sub>6</sub>. Linear interpolation yields <i>s</i> = −2.99994, which is accepted.</li>
+<li>In the following iterations, the root <i>x</i> = −3 is approached rapidly: <i>b</i><sub>9</sub> = −3 + 6·10<sup>−8</sup> and <i>b</i><sub>10</sub> = −3 − 3·10<sup>−15</sup>.</li>
+</ol>
+<p><a name="Algorithm" id="Algorithm"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Brent%27s_method.html" title="Edit section: Algorithm">edit</a>]</span> <span class="mw-headline">Algorithm</span></h2>
+<ul>
+<li><b>input</b> <i>a</i>, <i>b</i>, and a pointer to a subroutine for <i>f</i></li>
+<li>calculate <i>f</i>(<i>a</i>)</li>
+<li>calculate <i>f</i>(<i>b</i>)</li>
+<li><b>if</b> <i>f</i>(<i>a</i>) <i>f</i>(<i>b</i>) &gt;= 0 <b>then</b> error-exit <b>end if</b></li>
+<li><b>if</b> |<i>f</i>(<i>a</i>)| &lt; |<i>f</i>(<i>b</i>)| <b>then swap</b> (<i>a</i>,<i>b</i>) <b>end if</b></li>
+<li><i>c</i>&#160;:= <i>a</i></li>
+<li><b>set</b> mflag</li>
+<li><b>repeat until</b> <i>f</i>(<i>b</i>) = 0 <b>or</b> |<i>b</i> − <i>a</i>| is small enough <i>(convergence)</i>
+<ul>
+<li><b>if</b> <i>f</i>(<i>a</i>) ≠ <i>f</i>(<i>c</i>) <b>and</b> <i>f</i>(<i>b</i>) ≠ <i>f</i>(<i>c</i>) <b>then</b>
+<ul>
+<li><img class='tex' src="../../../math/b/9/5/b95bb86a47d4fe9230a1bf44d92d97f9.png" alt="s&#160;:= \frac{af(b)f(c)}{(f(a)-f(b))(f(a)-f(c))} + \frac{bf(a)f(c)}{(f(b)-f(a))(f(b)-f(c))} + \frac{cf(a)f(b)}{(f(c)-f(a))(f(c)-f(b))}" /> <i>(inverse quadratic interpolation)</i></li>
+</ul>
+</li>
+<li><b>else</b>
+<ul>
+<li><img class='tex' src="../../../math/1/8/9/1895196e1de1172ce81d353a938a967a.png" alt="s&#160;:= b - f(b) \frac{b-a}{f(b)-f(a)}" /> <i>(secant rule)</i></li>
+</ul>
+</li>
+<li><b>end if</b></li>
+<li><b>if</b> <i>s</i> is not between (3<i>a</i> + <i>b</i>)/4 and <i>b</i> <b>or</b> (mflag is set <b>and</b> |<i>s</i>−<i>b</i>| ≥ |<i>b</i>−<i>c</i>| / 2) <b>or</b> (mflag is cleared <b>and</b> |<i>s</i>−<i>b</i>| ≥ |<i>c</i>−<i>d</i>| / 2) <b>then</b>
+<ul>
+<li><img class='tex' src="../../../math/7/c/7/7c7ca652cceae07a1ddf54d986b0afcf.png" alt="s&#160;:= \frac{a+b}{2}" /></li>
+<li><b>set</b> mflag</li>
+</ul>
+</li>
+<li><b>else</b>
+<ul>
+<li><b>clear</b> mflag</li>
+</ul>
+</li>
+<li><b>end if</b></li>
+<li>calculate <i>f</i>(<i>s</i>)</li>
+<li><i>d</i>&#160;:= <i>c</i></li>
+<li><i>c</i>&#160;:= <i>b</i></li>
+<li><b>if</b> <i>f</i>(<i>a</i>) <i>f</i>(<i>s</i>) &lt; 0 <b>then</b> <i>b</i>&#160;:= <i>s</i> <b>else</b> <i>a</i>&#160;:= <i>s</i> <b>end if</b></li>
+<li><b>if</b> |<i>f</i>(<i>a</i>)| &lt; |<i>f</i>(<i>b</i>)| <b>then swap</b> (<i>a</i>,<i>b</i>) <b>end if</b></li>
+</ul>
+</li>
+<li><b>end repeat</b></li>
+<li><b>output</b> <i>b</i> <i>(return the root)</i></li>
+</ul>
+<p><a name="Implementations" id="Implementations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Brent%27s_method.html" title="Edit section: Implementations">edit</a>]</span> <span class="mw-headline">Implementations</span></h2>
+<p>Brent (1973) published an <a href="../../../a/l/g/Algol_60.html" title="Algol 60">Algol 60</a> implementation. <a href="../../../n/e/t/Netlib.html" title="Netlib">Netlib</a> contains a Fortran translation of this implementation with slight modifications. The <a href="../../../m/a/t/MATLAB_8f68.html" title="MATLAB">MATLAB</a> function <tt>fzero</tt> also implements Brent's method. Other implementations of the algorithm (in C++, C, and Fortran flavours) can be found in the <a href="../../../n/u/m/Numerical_Recipes_cf20.html" title="Numerical Recipes">Numerical Recipes</a> books.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Brent%27s_method.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Atkinson (1989). <i>An Introduction to Numerical Analysis</i> (2nd ed.), Section 2.8. John Wiley and Sons. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-471-50023-2</a>.</li>
+<li>R.P. Brent (1973). <i>Algorithms for Minimization without Derivatives,</i> Chapter 4. Prentice-Hall, Englewood Cliffs, NJ. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-13-022335-2</a>.</li>
+<li>T.J. Dekker (1969). "Finding a zero by means of successive linear interpolation." In B. Dejon and P. Henrici (eds), <i>Constructive Aspects of the Fundamental Theorem of Algebra</i>, Wiley-Interscience, London. SBN 471-28300-9.</li>
+</ul>
+<p><a name="External_link" id="External_link"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/e/Brent%27s_method.html" title="Edit section: External link">edit</a>]</span> <span class="mw-headline">External link</span></h2>
+<ul>
+<li><a href="http://www.netlib.org/go/zeroin.f" class="external text" title="http://www.netlib.org/go/zeroin.f" rel="nofollow">zeroin.f</a> at <a href="../../../n/e/t/Netlib.html" title="Netlib">Netlib</a>.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/e/Brent%27s_method.html">http://en.wikipedia.org../../../b/r/e/Brent%27s_method.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../r/o/o/Category%7ERoot-finding_algorithms_1262.html" title="Category:Root-finding algorithms">Root-finding algorithms</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/e/Brent%27s_method.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/r/e/Talk%7EBrent%27s_method_aa5c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Brent%27s_method">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../fr/m/%C3%A9/t/M%C3%A9thode_de_Brent_ee11.html">Français</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:29, 10 January 2007 by Wikipedia user Jrvz. Based on work by Wikipedia user(s) <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a>, Erwan.lemonnier, <a href="../../../d/m/o/User%7EDmoggles_f39b.html" title="User:Dmoggles">Dmoggles</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../d/a/k/User%7EDakpowers_9f41.html" title="User:Dakpowers">Dakpowers</a>, <a href="../../../n/r/b/User%7ENrbelex_e99b.html" title="User:Nrbelex">Nrbelex</a>, <a href="../../../p/c/h/User%7EPcheah_2ae5.html" title="User:Pcheah">Pcheah</a>, <a href="../../../l/u/i/User%7ELuis_Sanchez_6204.html" title="User:Luis Sanchez">Luis Sanchez</a>, <a href="../../../e/d/h/User%7EEdH_fee0.html" title="User:EdH">EdH</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../m/a/t/User%7EMatthewsim_118b.html" title="User:Matthewsim">Matthewsim</a> and <a href="../../../a/g/r/User%7EAgro_r_d7e2.html" title="User:Agro r">Agro r</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

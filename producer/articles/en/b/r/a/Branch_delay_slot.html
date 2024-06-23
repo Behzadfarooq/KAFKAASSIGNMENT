@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Branch delay slot,Branch prediction,Branch target buffer,Breakpoint,Classic RISC pipeline,Compile time,Computer architecture,Conditional branch,Debugging,Digital signal processor,Hazard (computer architecture)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Branch delay slot - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Branch delay slot</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_architecture.html" title="Computer architecture">computer architecture</a>, a <b>branch delay instruction</b> is an instruction immediately following a <a href="../../../c/o/n/Conditional_branch.html" title="Conditional branch">conditional branch</a> <a href="../../../i/n/s/Instruction_%28computer_science%29.html" title="Instruction (computer science)">instruction</a> which is executed whether or not the branch is taken. The location of such an instruction in the <a href="../../../i/n/s/Instruction_pipeline.html" title="Instruction pipeline">pipeline</a> is called a <b>branch delay slot</b>. Branch delay slots are found not only in several <a href="../../../r/i/s/RISC_0a73.html" title="RISC">RISC</a> architectures including <a href="../../../m/i/p/MIPS_architecture_ccf5.html" title="MIPS architecture">MIPS</a>, <a href="../../../p/a/-/PA-RISC_ae29.html" title="PA-RISC">PA-RISC</a> and <a href="../../../s/p/a/SPARC_a940.html" title="SPARC">SPARC</a> but also in <a href="../../../d/i/g/Digital_signal_processor.html" title="Digital signal processor">DSP</a> architectures including µPD77230 and <a href="../../../t/e/x/Texas_Instruments_TMS320_c43c.html" title="Texas Instruments TMS320">TMS320C3x</a>.</p>
+<p>The goal of a <a href="../../../c/l/a/Classic_RISC_pipeline_9a5b.html" title="Classic RISC pipeline">pipelined architecture</a> is to keep the pipeline full of instructions at all times. The branch delay slot is a side-effect of pipelined architectures due to the <a href="../../../h/a/z/Hazard_%28computer_architecture%29.html" title="Hazard (computer architecture)">branch hazard</a>, i.e. the fact that the branch would not be resolved until the instruction has worked its way through the pipeline. A simple design would insert stalls into the pipeline after a branch instruction until the new branch target address is computed and loaded into the <a href="../../../p/r/o/Program_counter.html" title="Program counter">program counter</a>. Each cycle where a stall is inserted is considered one branch delay slot. A more sophisticated design would execute program instructions which are not dependent on the result of the branch instruction. This optimization can be performed in <a href="../../../s/o/f/Software.html" title="Software">software</a> at <a href="../../../c/o/m/Compile_time.html" title="Compile time">compile time</a> by moving instructions into branch delay slots in the in-memory instruction stream, if the hardware supports this. Another side-effect is that special handling should be taken care of managing <a href="../../../b/r/e/Breakpoint.html" title="Breakpoint">breakpoint</a> on instructions as well as stepping while <a href="../../../d/e/b/Debugging.html" title="Debugging">debugging</a> within branch delay slot.</p>
+<p>The number of branch delay slots in a particular pipeline implementation is dictated by the number of pipeline stages, the presence of register forwarding, what stage of the pipeline the branch conditions are computed, whether or not a <a href="../../../b/r/a/Branch_target_buffer.html" title="Branch target buffer">branch target buffer</a> (BTB) is used and many other factors.</p>
+<p>By using <a href="../../../b/r/a/Branch_prediction.html" title="Branch prediction">branch prediction</a> techniques and <a href="../../../s/p/e/Speculative_execution.html" title="Speculative execution">speculative execution</a>, many of these branch delay slots are efficiently utilitized, reducing the performance penalty incurred by these branch instructions.</p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_delay_slot.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.cs.iastate.edu/~prabhu/Tutorial/PIPELINE/branchPred.html" class="external text" title="http://www.cs.iastate.edu/~prabhu/Tutorial/PIPELINE/branchPred.html" rel="nofollow">Branch Prediction Schemes</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/a/Branch_delay_slot.html">http://en.wikipedia.org../../../b/r/a/Branch_delay_slot.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../i/n/s/Category%7EInstruction_processing_c8aa.html" title="Category:Instruction processing">Instruction processing</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/a/Branch_delay_slot.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/r/a/Talk%7EBranch_delay_slot_8ab2.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Branch_delay_slot">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../it/b/r/a/Branch_delay_slot.html">Italiano</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 12:23, 10 December 2006 by Wikipedia user <a href="../../../w/h/i/User%7EWhitepaw_0fef.html" title="User:Whitepaw">Whitepaw</a>. Based on work by Wikipedia user(s) <a href="../../../j/o/n/User%7EJonHarder_ef53.html" title="User:JonHarder">JonHarder</a>, <a href="../../../t/o/m/User%7ETompsci_07b4.html" title="User:Tompsci">Tompsci</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../l/i/g/User%7ELigulem_20b6.html" title="User:Ligulem">Ligulem</a>, <a href="../../../c/u/r/User%7ECurpsbot-unicodify_bd8d.html" title="User:Curpsbot-unicodify">Curpsbot-unicodify</a>, <a href="../../../i/n/t/User%7EInTheCastle_5bac.html" title="User:InTheCastle">InTheCastle</a>, BenRG, <a href="../../../d/a/n/User%7EDanMS_20a7.html" title="User:DanMS">DanMS</a>, <a href="../../../a/n/r/User%7EAnrie_Nord_4815.html" title="User:Anrie Nord">Anrie Nord</a>, <a href="../../../m/a/t/User%7EMatthewWilcox_25fb.html" title="User:MatthewWilcox">MatthewWilcox</a>, <a href="../../../k/a/t/User%7EKate_3866.html" title="User:Kate">Kate</a>, <a href="../../../c/y/r/User%7ECyrius_3685.html" title="User:Cyrius">Cyrius</a> and <a href="../../../s/t/a/User%7EStan_Shebs_9ea8.html" title="User:Stan Shebs">Stan Shebs</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

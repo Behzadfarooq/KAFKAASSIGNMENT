@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bluestein's FFT algorithm,Antiperiodic function,Chirp,Complex number,Composite number,Convolution,Convolution theorem,Cooley-Tukey FFT algorithm,Discrete Fourier transform,Even and odd numbers,Fast Fourier transform" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bluestein's FFT algorithm - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bluestein's FFT algorithm</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Bluestein's FFT algorithm</b> (1968), commonly called the <b>chirp z-transform algorithm</b> (1969), is a <a href="../../../f/a/s/Fast_Fourier_transform_6cfd.html" title="Fast Fourier transform">fast Fourier transform</a> (FFT) algorithm that computes the <a href="../../../d/i/s/Discrete_Fourier_transform_3a68.html" title="Discrete Fourier transform">discrete Fourier transform</a> (DFT) of arbitrary sizes (including <a href="../../../p/r/i/Prime_number.html" title="Prime number">prime</a> sizes) by re-expressing the DFT as a <a href="../../../c/o/n/Convolution.html" title="Convolution">convolution</a>. (The other algorithm for FFTs of prime sizes, <a href="../../../r/a/d/Rader%27s_FFT_algorithm_da46.html" title="Rader's FFT algorithm">Rader's algorithm</a>, also works by rewriting the DFT as a convolution.)</p>
+<p>In fact, Bluestein's algorithm can be used to compute more general transforms than the DFT, based on the (unilateral) <a href="../../../z/-/t/Z-transform.html" title="Z-transform">z-transform</a> (Rabiner <i>et al.</i>, 1969).</p>
+<p><a name="Algorithm" id="Algorithm"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/u/Bluestein%27s_FFT_algorithm_c338.html" title="Edit section: Algorithm">edit</a>]</span> <span class="mw-headline">Algorithm</span></h2>
+<p>Recall that the DFT is defined by the formula</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/0/6/a06583644b49554822bdc7d3f008e778.png" alt="X_k = \sum_{n=0}^{N-1} x_n e^{-\frac{2\pi i}{N} nk } \qquad k = 0,\dots,N-1." /></dd>
+</dl>
+<p>If we replace the product <i>nk</i> in the exponent by the identity <i>nk</i> = –(<i>k</i>–<i>n</i>)<sup>2</sup>/2 + <i>n</i><sup>2</sup>/2 + <i>k</i><sup>2</sup>/2, we thus obtain:</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/3/b/d3b327b55eae6ae2d4de5619cb54188b.png" alt="X_k = e^{-\frac{\pi i}{N} k^2 } \sum_{n=0}^{N-1} \left( x_n e^{-\frac{\pi i}{N} n^2 } \right) e^{\frac{\pi i}{N} (k-n)^2 } \qquad k = 0,\dots,N-1." /></dd>
+</dl>
+<p>This summation is precisely a convolution of the two sequences <i>a</i><sub><i>n</i></sub> and <i>b</i><sub><i>n</i></sub> of length <i>N</i> (<i>n</i> = 0,...,<i>N</i>–1) defined by:</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/f/e/0fe384040d369e4f1fab393d3a109220.png" alt="a_n = x_n e^{-\frac{\pi i}{N} n^2 }" /></dd>
+<dd><img class='tex' src="../../../math/7/3/c/73cb81750414eaa95ffdbfa76be810ce.png" alt="b_n = e^{\frac{\pi i}{N} n^2 }," /></dd>
+</dl>
+<p>with the output of the convolution multiplied by <i>N</i> phase factors <i>b</i><sub><i>k</i></sub><sup>*</sup>. That is:</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/a/5/1a570d8a6c3db18e68fab2f5c65777d6.png" alt="X_k = b_k^* \sum_{n=0}^{N-1} a_n b_{k-n} \qquad k = 0,\dots,N-1." /></dd>
+</dl>
+<p>This convolution, in turn, can be performed with a pair of FFTs (plus the pre-computed FFT of <i>b</i><sub><i>n</i></sub>) via the <a href="../../../c/o/n/Convolution_theorem.html" title="Convolution theorem">convolution theorem</a>. The key point is that these FFTs are not of the same length <i>N</i>: such a convolution can be computed exactly from FFTs only by zero-padding it to a length greater than or equal to 2<i>N</i>–1. In particular, one can pad to a <a href="../../../p/o/w/Power_of_two.html" title="Power of two">power of two</a> or some other <a href="../../../s/m/o/Smooth_number.html" title="Smooth number">highly composite</a> size, for which the FFT can be efficiently performed by e.g. the <a href="../../../c/o/o/Cooley-Tukey_FFT_algorithm_9cd8.html" title="Cooley-Tukey FFT algorithm">Cooley-Tukey algorithm</a> in O(<i>N</i> log <i>N</i>) time. Thus, Bluestein's algorithm provides an O(<i>N</i> log <i>N</i>) way to compute prime-size DFTs, albeit several times slower than the Cooley-Tukey algorithm for composite sizes.</p>
+<p>The use of zero-padding for the convolution in Bluestein's algorithm deserves some additional comment. Suppose we zero-pad to a length <i>M</i> ≥ 2<i>N</i>–1. This means that <i>a</i><sub><i>n</i></sub> is extended to an array <i>A</i><sub><i>n</i></sub> of length <i>M</i>, where <i>A</i><sub><i>n</i></sub> = <i>a</i><sub><i>n</i></sub> for 0 ≤ <i>n</i> &lt; <i>N</i> and <i>A</i><sub><i>n</i></sub> = 0 otherwise—the usual meaning of "zero-padding". However, because of the <i>b</i><sub><i>k</i>–<i>n</i></sub> term in the convolution, both positive and <i>negative</i> values of <i>n</i> are required for <i>b</i><sub><i>n</i></sub> (noting that <i>b</i><sub>–<i>n</i></sub> = <i>b</i><sub><i>n</i></sub>). The periodic boundaries implied by the DFT of the zero-padded array mean that –<i>n</i> is equivalent to <i>M</i>–<i>n</i>. Thus, <i>b</i><sub><i>n</i></sub> is extended to an array <i>B</i><sub><i>n</i></sub> of length <i>M</i>, where <i>B</i><sub>0</sub> = <i>b</i><sub>0</sub>, <i>B</i><sub><i>n</i></sub> = <i>B</i><sub><i>M</i>–<i>n</i></sub> = <i>b</i><sub><i>n</i></sub> for 0 &lt; <i>n</i> &lt; <i>N</i>, and <i>B</i><sub><i>n</i></sub> = 0 otherwise. <i>A</i> and <i>B</i> are then FFTed, multiplied pointwise, and inverse FFTed to obtain the convolution of <i>a</i> and <i>b</i>, according to the usual convolution theorem.</p>
+<p>Let us also be more precise about what type of convolution is required in Bluestein's algorithm for the DFT. If the sequence <i>b</i><sub><i>n</i></sub> were periodic in <i>n</i> with period <i>N</i>, then it would be a cyclic convolution of length <i>N</i>, and the zero-padding would be for computational convenience only. However, this is not generally the case:</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/d/b/3dbbf997382b914394e7ae1da5b5e5a0.png" alt="b_{n+N} = e^{\frac{\pi i}{N} (n+N)^2 } = b_n e^{\frac{\pi i}{N} (2Nn+N^2) } = (-1)^N b_n ." /></dd>
+</dl>
+<p>Therefore, for <i>N</i> <a href="../../../e/v/e/Even_and_odd_numbers.html" title="Even and odd numbers">even</a> the convolution is cyclic, but in this case <i>N</i> is <a href="../../../c/o/m/Composite_number.html" title="Composite number">composite</a> and one would normally use a more efficient FFT algorithm such as Cooley-Tukey. For <i>N</i> odd, however, then <i>b</i><sub><i>n</i></sub> is <a href="../../../a/n/t/Antiperiodic_function.html" title="Antiperiodic function">antiperiodic</a> and we technically have a negacyclic convolution of length <i>N</i>. Such distinctions disappear when one zero-pads <i>a</i><sub><i>n</i></sub> to a length of at least 2<i>N</i>−1 as described above, however. It is perhaps easiest, therefore, to think of it as a subset of the outputs of a simple linear convolution (i.e. no conceptual "extensions" of the data, periodic or otherwise).</p>
+<p><a name="z-Transforms" id="z-Transforms"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/u/Bluestein%27s_FFT_algorithm_c338.html" title="Edit section: z-Transforms">edit</a>]</span> <span class="mw-headline">z-Transforms</span></h2>
+<p>Bluestein's algorithm can also be used to compute a more general transform based on the (unilateral) <a href="../../../z/-/t/Z-transform.html" title="Z-transform">z-transform</a> (Rabiner <i>et al.</i>, 1969). In particular, it can compute any transform of the form:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/d/a/ada67f850eda63c43f55aa95615cc960.png" alt="X_k = \sum_{n=0}^{N-1} x_n z^{nk} \qquad k = 0,\dots,M-1," /></dd>
+</dl>
+<p>for an <i>arbitrary</i> <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex number</a> <i>z</i> and for <i>differing</i> numbers <i>N</i> and <i>M</i> of inputs and outputs. Given Bluestein's algorithm, such a transform can be used, for example, to obtain a more finely spaced interpolation of some portion of the spectrum (although the frequency resolution is still limited by the total sampling time), enhance arbitrary poles in transfer-function analyses, etcetera.</p>
+<p>The algorithm was dubbed the <i>chirp</i> z-transform algorithm because, for the Fourier-transform case (|<i>z</i>| = 1), the sequence <i>b</i><sub><i>n</i></sub> from above is a complex sinusoid of linearly increasing frequency, which is called a (linear) <a href="../../../c/h/i/Chirp.html" title="Chirp">chirp</a> in <a href="../../../r/a/d/Radar.html" title="Radar">radar</a> systems.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/u/Bluestein%27s_FFT_algorithm_c338.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Leo I. Bluestein, "A linear filtering approach to the computation of the discrete Fourier transform," <i>Northeast Electronics Research and Engineering Meeting Record</i> <b>10</b>, 218-219 (1968).</li>
+<li>Lawrence R. Rabiner, Ronald W. Schafer, and Charles M. Rader, "The chirp z-transform algorithm and its application," <i>Bell Syst. Tech. J.</i> <b>48</b>, 1249-1292 (1969). Also published in: Rabiner, Shafer, and Rader, "The chirp z-transform algorithm," <i>IEEE Trans. Audio Electroacoustics</i> <b>17</b> (2), 86–92 (1969).</li>
+<li>D. H. Bailey and P. N. Swarztrauber, "The fractional Fourier transform and applications," <i>SIAM Review</i> <b>33</b>, 389-404 (1991). (Note that this terminology for the z-transform is nonstandard: a <a href="../../../f/r/a/Fractional_Fourier_transform_664d.html" title="Fractional Fourier transform">fractional Fourier transform</a> conventionally refers to an entirely different, continuous transform.)</li>
+<li>Lawrence Rabiner, "The chirp z-transform algorithm—a lesson in serendipity," <i>IEEE Signal Processing Magazine</i> <b>24</b>, 118-119 (March 2004). (Historical commentary.)</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/l/u/Bluestein%27s_FFT_algorithm_c338.html">http://en.wikipedia.org../../../b/l/u/Bluestein%27s_FFT_algorithm_c338.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../f/f/t/Category%7EFFT_algorithms_0faf.html" title="Category:FFT algorithms">FFT algorithms</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/l/u/Bluestein%27s_FFT_algorithm_c338.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/l/u/Talk%7EBluestein%27s_FFT_algorithm_e744.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bluestein%27s_FFT_algorithm">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:45, 25 November 2006 by Wikipedia user <a href="../../../s/t/e/User%7EStevenj_40e5.html" title="User:Stevenj">Stevenj</a>. Based on work by Wikipedia user(s) C m rader, <a href="../../../a/l/a/User%7EAlai_39a8.html" title="User:Alai">Alai</a>, <a href="../../../u/g/e/User%7EUgen64_718c.html" title="User:Ugen64">Ugen64</a>, <a href="../../../m/a/t/User%7EMathMartin_aca3.html" title="User:MathMartin">MathMartin</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../h/a/d/User%7EHadal_a4d0.html" title="User:Hadal">Hadal</a> and <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

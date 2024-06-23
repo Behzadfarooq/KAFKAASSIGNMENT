@@ -1,0 +1,272 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Boolean satisfiability problem,0-1 integer programming,2-satisfiability,2SAT,APX,Algorithmics,Algorithms,Approximation algorithm,Artificial intelligence,BPP,Binary decision diagram" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Boolean satisfiability problem - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Boolean satisfiability problem</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>Satisfiability is the problem of determining if the variables of a given <a href="../../../b/o/o/Boolean.html" title="Boolean">Boolean</a> formula can be assigned in such a way as to make the formula evaluate to TRUE. Equally important is to determine that no such assignments exist, implying that the function expressed by the formula is identically FALSE for all possible variable assignments. In this latter case, we would say that the function is unsatisfiable; otherwise it is satisfiable. To emphasize the binary nature of this problem, it is frequently referred to as Boolean or propositional satisfiability. The shorthand "SAT" is also commonly used to denote it, with the implicit understanding that the function and its variables are all binary-valued.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Basic_definitions.2C_terminology_and_applications"><span class="tocnumber">1</span> <span class="toctext">Basic definitions, terminology and applications</span></a></li>
+<li class="toclevel-1"><a href="#Complexity_and_restricted_versions"><span class="tocnumber">2</span> <span class="toctext">Complexity and restricted versions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#NP-completeness"><span class="tocnumber">2.1</span> <span class="toctext">NP-completeness</span></a></li>
+<li class="toclevel-2"><a href="#2-satisfiability"><span class="tocnumber">2.2</span> <span class="toctext">2-satisfiability</span></a></li>
+<li class="toclevel-2"><a href="#3-satisfiability"><span class="tocnumber">2.3</span> <span class="toctext">3-satisfiability</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Extensions_of_SAT"><span class="tocnumber">3</span> <span class="toctext">Extensions of SAT</span></a></li>
+<li class="toclevel-1"><a href="#Algorithms_for_solving_SAT"><span class="tocnumber">4</span> <span class="toctext">Algorithms for solving SAT</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Basic_definitions.2C_terminology_and_applications" id="Basic_definitions.2C_terminology_and_applications"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Edit section: Basic definitions, terminology and applications">edit</a>]</span> <span class="mw-headline">Basic definitions, terminology and applications</span></h2>
+<p>The formal definition of <b>SAT</b> requires the function to be expressed in the so-called <a href="../../../c/o/n/Conjunctive_normal_form.html" title="Conjunctive normal form">conjunctive normal form</a> (CNF), i.e., as an AND of ORs of (possibly negated) input values. In this form, each OR term is called a clause and acts as a constraint on the possible values of its variables. For example the clause (A OR ~B OR C) is satisfied by all FALSE-TRUE value assignments to A, B, and C except A = C = FALSE and B=TRUE. A formula in CNF can, therefore, be viewed as a system of simultaneous constraints in the space of binary assignments to its variables. To put this in a broader context, it is useful to note the existence of other types of "systems of simultaneous constraints," such as systems of linear inequalities over real or integer variables which are used to model the set of feasible assignments (a.k.a. the feasible region) in linear and integer linear programs. The feasible region of a CNF formula contains precisely those variable assignments that make the formula evaluate to TRUE.</p>
+<p>In <a href="../../../c/o/m/Computational_complexity_theory.html" title="Computational complexity theory">complexity theory</a>, the <b>Boolean satisfiability problem (SAT)</b> is a <a href="../../../d/e/c/Decision_problem.html" title="Decision problem">decision problem</a>, whose instance is a Boolean expression written using only AND, OR, NOT, variables, and parentheses. The question is: given the expression, is there some assignment of <i>TRUE</i> and <i>FALSE</i> values to the variables that will make the entire expression true? A formula of <a href="../../../p/r/o/Propositional_logic.html" title="Propositional logic">propositional logic</a> is said to be <b>satisfiable</b> if <a href="../../../l/o/g/Logical_value.html" title="Logical value">logical values</a> can be assigned to its <a href="../../../v/a/r/Variable.html" title="Variable">variables</a> in a way that makes the formula true. The class of satisfiable propositional formulas is <a href="../../../n/p/-/NP-complete_3f4f.html" title="NP-complete">NP-complete</a>. The propositional satisfiability problem (SAT), which decides whether a given propositional formula is satisfiable, is of central importance in various areas of <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a>, including <a href="../../../t/h/e/Theoretical_computer_science.html" title="Theoretical computer science">theoretical computer science</a>, <a href="../../../a/l/g/Algorithmics.html" title="Algorithmics">algorithmics</a>, <a href="../../../a/r/t/Artificial_intelligence.html" title="Artificial intelligence">artificial intelligence</a>, <a href="../../../h/a/r/Hardware_design.html" title="Hardware design">hardware design</a> and <a href="../../../h/a/r/Hardware_verification.html" title="Hardware verification">verification</a>.</p>
+<p>The problem can be significantly restricted while still remaining <a href="../../../n/p/-/NP-complete_3f4f.html" title="NP-complete">NP-complete</a>. By applying <a href="../../../d/e/_/De_Morgan%27s_laws_174e.html" title="De Morgan's laws">De Morgan's laws</a>, we can assume that NOT operators are only applied directly to variables, not expressions; we refer to either a variable or its negation as a <i>literal</i>. For example, both <i>x</i><sub>1</sub> and not(<i>x</i><sub>2</sub>) are literals, the first a <i>positive</i> literal and the second a <i>negative</i> literal. If we OR together a group of literals, we get a <i>clause</i>, such as (<i>x</i><sub>1</sub> <i>or</i> not(<i>x</i><sub>2</sub>)). Finally, let us consider formulas that are a conjunction (AND) of clauses - this is the <a href="../../../c/o/n/Conjunctive_normal_form.html" title="Conjunctive normal form">conjunctive normal form</a> (CNF). Determining whether a formula in this form is satisfiable is still NP-complete, even if each clause is limited to at most three literals. This last problem is called 3SAT, 3CNFSAT, or 3-satisfiability.</p>
+<p>On the other hand, if we restrict each clause to at most two literals, the resulting problem, <a href="../../../2/s/a/2SAT_e186.html" title="2SAT">2SAT</a>, is <a href="../../../n/l/-/NL-complete_0624.html" title="NL-complete"><b>NL</b>-complete</a>. Alternately, if every clause must be a <a href="../../../h/o/r/Horn_clause.html" title="Horn clause">Horn clause</a>, containing at most one positive literal, the resulting problem, <a href="../../../h/o/r/Horn-satisfiability.html" title="Horn-satisfiability">Horn-satisfiability</a>, is <a href="../../../p/-/c/P-complete.html" title="P-complete"><b>P</b>-complete</a>.</p>
+<p><a href="../../../c/o/o/Cook%27s_theorem.html" title="Cook's theorem">Cook's theorem</a> proves that the Boolean satisfiability problem is <a href="../../../n/p/-/NP-complete_3f4f.html" title="NP-complete">NP-complete</a>, and in fact, this was the first decision problem proved to be NP-complete. However, beyond this theoretical significance, efficient and scalable algorithms for SAT that were developed over the last decade have contributed to dramatic advances in our ability to automatically solve problem instances involving tens of thousands of variables and millions of constraints. Examples of such problems in <a href="../../../e/l/e/Electronic_Design_Automation_0d9b.html" title="Electronic Design Automation">Electronic Design Automation</a> EDA include <a href="../../../r/o/u/Routing.html" title="Routing">routing</a> of <a href="../../../f/p/g/FPGA_a1b5.html" title="FPGA">FPGAs</a>, <a href="../../../f/o/r/Formal_equivalence_checking.html" title="Formal equivalence checking">combinational equivalence checking</a>, <a href="../../../m/o/d/Model_checking.html" title="Model checking">model checking</a>, <a href="../../../f/o/r/Formal_verification.html" title="Formal verification">formal verification</a> of <a href="../../../m/i/c/Microprocessor.html" title="Microprocessor">pipelined microprocessors</a>, <a href="../../../l/o/g/Logic_synthesis.html" title="Logic synthesis">logic synthesis</a>, etc. In fact, a SAT-solving engine is now considered to be an essential component in the EDA toolbox and all EDA vendors provide such a capability (usually behind the scenes.)</p>
+<p><a name="Complexity_and_restricted_versions" id="Complexity_and_restricted_versions"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Edit section: Complexity and restricted versions">edit</a>]</span> <span class="mw-headline">Complexity and restricted versions</span></h2>
+<p><a name="NP-completeness" id="NP-completeness"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Edit section: NP-completeness">edit</a>]</span> <span class="mw-headline">NP-completeness</span></h3>
+<p>SAT was the first known <b>NP</b>-complete problem, as proved by <a href="../../../s/t/e/Stephen_Cook_068e.html" title="Stephen Cook">Stephen Cook</a> in 1971 (see <a href="../../../c/o/o/Cook%27s_theorem.html" title="Cook's theorem">Cook's theorem</a> for the proof). Until that time, the concept of an NP-complete problem did not even exist. The problem remains <b>NP</b>-complete even if all expressions are written in <i><a href="../../../c/o/n/Conjunctive_normal_form.html" title="Conjunctive normal form">conjunctive normal form</a></i> with 3 variables per clause (3-CNF), yielding the <b>3SAT</b> problem. This means the expression has the form:</p>
+<dl>
+<dd>(<i>x</i><sub>11</sub> OR <i>x</i><sub>12</sub> OR <i>x</i><sub>13</sub>) AND</dd>
+<dd>(<i>x</i><sub>21</sub> OR <i>x</i><sub>22</sub> OR <i>x</i><sub>23</sub>) AND</dd>
+<dd>(<i>x</i><sub>31</sub> OR <i>x</i><sub>32</sub> OR <i>x</i><sub>33</sub>) AND ...</dd>
+</dl>
+<p>where each <i>x</i> is a variable or a negation of a variable, and each variable can appear multiple times in the expression.</p>
+<p>A useful property of Cook's reduction is that it preserves the number of accepting answers. For example, if a graph has 17 valid 3-colorings, the SAT formula produced by the reduction will have 17 satisfying assignments.</p>
+<p><a name="2-satisfiability"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Edit section: 2-satisfiability">edit</a>]</span> <span class="mw-headline">2-satisfiability</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../2/-/s/2-satisfiability.html" title="2-satisfiability">2-satisfiability</a></i></div>
+</dd>
+</dl>
+<p>SAT is easier if the formulas are restricted to those in <a href="../../../d/i/s/Disjunctive_normal_form.html" title="Disjunctive normal form">disjunctive normal form</a>, that is, they are disjunction (OR) of terms, where each term is a conjunction (AND) of literals (possibly negated variables). Such a formula is indeed satisfiable if and only if at least one of its terms is satisfiable, and a term is satisfiable if and only if it does not contain both <i>x</i> and NOT <i>x</i> for some variable <i>x</i>. This can be checked in polynomial time.</p>
+<p>SAT is also easier if the number of literals in a clause is limited to 2, in which case the problem is called 2SAT. This problem can also be solved in polynomial time, and in fact is complete for the class <a href="../../../n/l/_/NL_%28complexity%29_cf44.html" title="NL (complexity)">NL</a>. Similarly, if we limit the number of literals per clause to 2 and change the AND operations to <a href="../../../x/o/r/XOR_9767.html" title="XOR">XOR</a> operations, the result is <i>exclusive-or 2-satisfiability</i>, a problem complete for <a href="../../../s/l/_/SL_%28complexity%29_6e7c.html" title="SL (complexity)">SL</a> = <a href="../../../l/_/%28/L_%28complexity%29.html" title="L (complexity)">L</a>.</p>
+<p>One of the most important restrictions of SAT is HORNSAT, where the formula is a conjunction of <a href="../../../h/o/r/Horn_clause.html" title="Horn clause">Horn clauses</a>. This problem is solved by the polynomial-time <a href="../../../h/o/r/Horn-satisfiability.html" title="Horn-satisfiability">Horn-satisfiability</a> algorithm, and is in fact <a href="../../../p/-/c/P-complete.html" title="P-complete">P-complete</a>. It can be seen as <a href="../../../p/_/%28/P_%28complexity%29.html" title="P (complexity)">P's</a> version of the boolean satisfiability problem.</p>
+<p>Provided that the <a href="../../../c/o/m/Complexity_classes_P_and_NP_8d78.html" title="Complexity classes P and NP">complexity classes P and NP</a> are not equal, none of these restrictions are NP-complete, unlike SAT. The assumption that P and NP are not equal is not currently proved.</p>
+<p><a name="3-satisfiability"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Edit section: 3-satisfiability">edit</a>]</span> <span class="mw-headline">3-satisfiability</span></h3>
+<p>3-satisfiability is a special case of <i>k</i>-satisfiability (<i>k</i>-SAT) or simply satisfiability (SAT), when each clause contains exactly <i>k</i> = 3 literals. It was one of <a href="../../../k/a/r/Karp%27s_21_NP-complete_problems_4f56.html" title="Karp's 21 NP-complete problems">Karp's 21 NP-complete problems</a>.</p>
+<p>Here is an example, where ~ indicates NOT:</p>
+<dl>
+<dd>E = (<i>x</i><sub>1</sub> or ~<i>x</i><sub>2</sub> or ~<i>x</i><sub>3</sub>) and (<i>x</i><sub>1</sub> or <i>x</i><sub>2</sub> or <i>x</i><sub>4</sub>)</dd>
+</dl>
+<p>E has two clauses (denoted by parentheses), four literals (<i>x</i><sub>1</sub>, <i>x</i><sub>2</sub>, <i>x</i><sub>3</sub>, <i>x</i><sub>4</sub>), and <i>k</i>=3 (three literals per clause).</p>
+<p>To solve this instance of the decision problem we must determine whether there is a truth value (TRUE or FALSE) we can assign to each of the literals (<i>x</i><sub>1</sub> through <i>x</i><sub>4</sub>) such that the entire expression is TRUE. In this instance, there is such an assignment (<i>x</i><sub>1</sub> = TRUE, <i>x</i><sub>2</sub> = TRUE, <i>x</i><sub>3</sub>=TRUE, <i>x</i><sub>4</sub>=TRUE), so the answer to this instance is YES. This is one of many possible assignments, with for instance, any set of assignments including <i>x</i><sub>1</sub> = TRUE being sufficient. If there were no such assignment(s), the answer would be NO.</p>
+<p>Since k-SAT (the general case) reduces to 3-SAT, and 3-SAT <a href="http://cs482.elliottback.com/archives/2005/03/16/lecture-23-3-sat/" class="external text" title="http://cs482.elliottback.com/archives/2005/03/16/lecture-23-3-sat/" rel="nofollow">can be proven</a> to be <a href="../../../n/p/-/NP-complete_3f4f.html" title="NP-complete">NP-complete</a>, it can be used to prove that other problems are also NP-complete. This is done by showing how a solution to another problem could be used to solve 3-SAT. An example of a problem where this method has been used is "<a href="../../../c/l/i/Clique_problem.html" title="Clique problem">Clique</a>". It's often easier to use reductions from 3-SAT than SAT to problems which researchers are attempting to prove NP-complete.</p>
+<p>3-SAT can be further restricted to <a href="../../../o/n/e/One-in-three_3SAT_a255.html" title="One-in-three 3SAT">One-in-three 3SAT</a>, where we ask if <i>exactly</i> one of the variables in each clause is true, rather than <i>at least</i> one. One-in-three 3SAT remains NP-complete.</p>
+<p><a name="Extensions_of_SAT" id="Extensions_of_SAT"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Edit section: Extensions of SAT">edit</a>]</span> <span class="mw-headline">Extensions of SAT</span></h2>
+<p>An extension that has gained significant popularity since 2003 is <a href="../../../s/a/t/Satisfiability_modulo_theories.html" title="Satisfiability modulo theories">Satisfiability modulo theories</a> that can enrich CNF formulas with linear constraints, arrays, all-different constraints, uninterpreted functions, etc. Such extensions typically remain NP-complete, but very efficient solvers are now available that can handle many such kinds of constraints.</p>
+<p>The satisfiability problem seems to become more difficult (PSPACE-complete) if we allow <i><a href="../../../q/u/a/Quantifier.html" title="Quantifier">quantifiers</a></i> such as "for all" and "there exists" that bind the boolean variables. An example of such an expression would be:</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/4/d/94d1682eda86a094f137030912527fa3.png" alt="\forall x, \exists y,\exists z; (x \lor y \lor z) \land (\lnot x \lor \lnot y \lor \lnot z)" /></dd>
+</dl>
+<p>If we use only <img class='tex' src="../../../math/9/3/e/93ebe8636e1f8d60004fe33d1321674e.png" alt="\exists" /> quantifiers, this is still the SAT problem. If we allow only <img class='tex' src="../../../math/d/4/d/d4d49bead125261b226eaa867bd016ce.png" alt="\forall" /> quantifiers, it becomes the <a href="../../../c/o/-/Co-NP-complete_51a7.html" title="Co-NP-complete">Co-NP-complete</a> TAUTOLOGY problem. If we allow both, the problem is called the <a href="../../../q/u/a/Quantified_boolean_formula_problem.html" title="Quantified boolean formula problem">quantified boolean formula problem</a> (QBF), which can be shown to be <a href="../../../p/s/p/PSPACE-complete_d70e.html" title="PSPACE-complete">PSPACE-complete</a>. It is widely believed that PSPACE-complete problems are strictly harder than any problem in NP, although this has not yet been proved.</p>
+<p>A number of variants deal with the number of variable assignments making the formula true. Ordinary SAT asks if there is at least one such assignment. MAJSAT, which asks if the majority of all assignments make the formula true, is complete for <a href="../../../p/p/_/PP_%28complexity%29_e0e3.html" title="PP (complexity)">PP</a>, a probabilistic class. The problem of how many variable assignments satisfy a formula, not a decision problem, is in <a href="../../../s/h/a/Sharp-P_a74c.html" title="Sharp-P">#P</a>. UNIQUE-SAT or USAT is the problem of determining whether a formula known to have either zero or one satisfying assignments has zero or has one. Although this problem seems easier, <a href="../../../v/a/l/Valiant-Vazirani_theorem_843e.html" title="Valiant-Vazirani theorem">it has been shown</a> that if there is a practical (<a href="../../../b/p/p/BPP_f159.html" title="BPP">randomized polynomial-time</a>) algorithm to solve this problem, then all problems in <a href="../../../n/p/_/NP_%28complexity_class%29_8595.html" title="NP (complexity class)">NP</a> can be solved just as easily.</p>
+<p>The <a href="../../../m/a/x/Maximum_satisfiability_problem.html" title="Maximum satisfiability problem">maximum satisfiability problem</a>, an <a href="../../../f/n/p/FNP_%28complexity%29_13c6.html" title="FNP (complexity)">FNP</a> generalization of SAT, asks for the maximum number of clauses which can be satisfied by any assignment. It has efficient <a href="../../../a/p/p/Approximation_algorithm.html" title="Approximation algorithm">approximation algorithms</a>, but is NP-hard to solve exactly. Worse still, it is <a href="../../../a/p/x/APX_c1ce.html" title="APX">APX</a>-complete, meaning there is no <a href="../../../p/o/l/Polynomial-time_approximation_scheme.html" title="Polynomial-time approximation scheme">polynomial-time approximation scheme</a> (PTAS) for this problem unless P=NP.</p>
+<p><a name="Algorithms_for_solving_SAT" id="Algorithms_for_solving_SAT"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Edit section: Algorithms for solving SAT">edit</a>]</span> <span class="mw-headline">Algorithms for solving SAT</span></h2>
+<p>There are two classes of high-performance <a href="../../../a/l/g/Algorithms.html" title="Algorithms">algorithms</a> for solving instances of SAT in practice: modern variants of the <a href="../../../d/p/l/DPLL_algorithm_ceac.html" title="DPLL algorithm">DPLL algorithm</a>, such as <a href="../../../c/h/a/Chaff_algorithm.html" title="Chaff algorithm">Chaff</a> or <a href="../../../g/r/a/GRASP_%28SAT_solver%29_f56e.html" title="GRASP (SAT solver)">GRASP</a>, and stochastic local search algorithms, such as <a href="../../../w/a/l/WalkSAT_85ed.html" title="WalkSAT">WalkSAT</a>.</p>
+<p>A DPLL SAT solver employs a systematic backtracking search procedure to explore the (exponentially-sized) space of variable assignments looking for satisfying assignments. The basic search procedure was proposed in two seminal papers in the early 60s (see references below) and is now commonly referred to as the Davis-Putnam-Logemann-Loveland (DPLL) algorithm. Modern SAT solvers (developed in the last ten years) augment the basic DPLL search algorithm with efficient conflict analysis, clause learning, non-chronological backtracking (aka backjumping), as well as "two-watched-literals" unit propagation, adaptive branching, and random restarts. These "extras" to the basic systematic search have been empirically shown to be essential for handling the large SAT instances that arise in EDA. Modern SAT solvers are also having significant impact on the fields of software verification, constraint solving in artificial intelligence, and operations research, among others. Powerful solvers are readily available in the public domain, and are remarkably easy to use. In particular, <a href="http://www.cs.chalmers.se/Cs/Research/FormalMethods/MiniSat/" class="external text" title="http://www.cs.chalmers.se/Cs/Research/FormalMethods/MiniSat/" rel="nofollow">MiniSAT</a>, which won the 2005 SAT competition, only has about 600 lines of code.</p>
+<p><a href="../../../g/e/n/Genetic_algorithm.html" title="Genetic algorithm">Genetic algorithms</a> and other general-purpose stochastic local search methods are also being used to solve SAT problems, especially when there is no or limited knowledge of the specific structure of the problem instances to be solved. Certain types of large random satisfiable instances of SAT can be solved by Survey Propagation (SP). Particularly in <a href="../../../h/a/r/Hardware_design.html" title="Hardware design">hardware design</a> and <a href="../../../h/a/r/Hardware_verification.html" title="Hardware verification">verification</a> applications, satisfiability and other logical properties of a given propositional formula are sometimes decided based on a representation of the formula as a <a href="../../../b/i/n/Binary_decision_diagram.html" title="Binary decision diagram">binary decision diagram</a> (BDD).</p>
+<p>Propositional satisfiability has various generalisations, including satisfiability for <a href="../../../q/u/a/Quantified_boolean_formula_problem.html" title="Quantified boolean formula problem">quantified boolean formula problem</a>, for <a href="../../../f/i/r/First-order_predicate_calculus.html" title="First-order predicate calculus">first</a>- and <a href="../../../s/e/c/Second-order_logic.html" title="Second-order logic">second-order logic</a>, <a href="../../../c/o/n/Constraint_satisfaction_problem.html" title="Constraint satisfaction problem">constraint satisfaction problems</a>, <a href="../../../0/-/1/0-1_integer_programming.html" title="0-1 integer programming">0-1 integer programming</a>, and <a href="../../../m/a/x/Maximum_satisfiability_problem.html" title="Maximum satisfiability problem">maximum satisfiability problem</a>.</p>
+<p>Many other decision problems, such as <a href="../../../g/r/a/Graph_colouring_problem.html" title="Graph colouring problem">graph colouring problems</a>, planning problems, and scheduling problems can be easily encoded into SAT.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol>
+<li>D. Babić, J. Bingham, and A. J. Hu, "B-Cubing: New Possibilities for Efficient SAT-Solving", IEEE Transactions on Computers 55(11):1315–1324, 2006.</li>
+<li>R. E. Bryant, S. M. German, and M. N. Velev, "Microprocessor Verification Using Efficient Decision Procedures for a Logic of Equality with Uninterpreted Functions," in Analytic Tableaux and Related Methods, pp. 1-13, 1999.</li>
+<li>E. Clarke, A. Biere, R. Raimi, and Y. Zhu, "Bounded Model Checking Using Satisfiability Solving," Formal Methods in System Design, vol. 19, no. 1, 2001.</li>
+<li>S. A. Cook, "The Complexity of Theorem Proving Procedures," in Proc. 3rd Ann. ACM Symp. on Theory of Computing, pp. 151-158, Association for Computing Machinery, 1971.</li>
+<li>M. Davis and H. Putnam, "A Computing Procedure for Quantification Theory," Journal of the Association for Computing Machinery, vol. 7, no., pp. 201-215, 1960.</li>
+<li>M. Davis, G. Logemann, and D. Loveland, "A Machine Program for Theorem-Proving," Communications of the ACM, vol. 5, no. 7, pp. 394-397, 1962.</li>
+<li>N. Een and N. Sorensson, "An Extensible SAT-solver," in Satisfiability Workshop, 2003.</li>
+<li><cite class="book" style="font-style:normal"><a href="../../../m/i/c/Michael_R._Garey_c2db.html" title="Michael R. Garey">Michael R. Garey</a> and <a href="../../../d/a/v/David_S._Johnson_85aa.html" title="David S. Johnson">David S. Johnson</a> (1979). <i>Computers and Intractability: A Guide to the Theory of NP-Completeness</i>. W.H. Freeman. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-7167-1045-5</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=%5B%5BComputers+and+Intractability%3A+A+Guide+to+the+Theory+of+NP-Completeness%5D%5D&amp;rft.title=%5B%5BComputers+and+Intractability%3A+A+Guide+to+the+Theory+of+NP-Completeness%5D%5D&amp;rft.au=%5B%5BMichael+R.+Garey%5D%5D+and+%5B%5BDavid+S.+Johnson%5D%5D&amp;rft.date=1979&amp;rft.pub=W.H.+Freeman">&#160;</span> A9.1: LO1 – LO7, pp.259 – 260.</li>
+<li>G.-J. Nam, K. A. Sakallah, and R. Rutenbar, "A New FPGA Detailed Routing Approach via Search-Based Boolean Satisfiability," IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems, vol. 21, no. 6, pp. 674-684, 2002.</li>
+<li>J. P. Marques-Silva and K. A. Sakallah, "GRASP: A Search Algorithm for Propositional Satisfiability," IEEE Transactions on Computers, vol. 48, no. 5, pp. 506-521, 1999.</li>
+<li>J.-P. Marques-Silva and T. Glass, "Combinational Equivalence Checking Using Satisfiability and Recursive Learning," in Proc. Design, Automation and Test in Europe Conference, pp. 145-149, 1999.</li>
+<li>M. W. Moskewicz, C. F. Madigan, Y. Zhao, L. Zhang, and S. Malik, "Chaff: engineering an efficient SAT solver," in Proc. 38th ACM/IEEE Design Automation Conference, pp. 530-535, Las Vegas, Nevada, 2001.</li>
+<li>M. Perkowski and A. Mishchenko, "Logic Synthesis for Regular Layout using Satisfiability," in Proc. Intl Workshop on Boolean Problems, 2002.</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<p>SAT Solvers:</p>
+<ul>
+<li><a href="http://www.cs.ubc.ca/~babic/index_hypersat.htm" class="external text" title="http://www.cs.ubc.ca/~babic/index_hypersat.htm" rel="nofollow">HyperSAT</a></li>
+<li><a href="http://www.cs.ubc.ca/~babic/index_spear.htm" class="external text" title="http://www.cs.ubc.ca/~babic/index_spear.htm" rel="nofollow">Spear</a></li>
+<li><a href="http://www.cs.chalmers.se/Cs/Research/FormalMethods/MiniSat/MiniSat.html" class="external text" title="http://www.cs.chalmers.se/Cs/Research/FormalMethods/MiniSat/MiniSat.html" rel="nofollow">The MiniSAT Solver</a></li>
+<li><a href="http://www.satlib.org/ubcsat/" class="external text" title="http://www.satlib.org/ubcsat/" rel="nofollow">UBCSAT</a></li>
+</ul>
+<p>Conferences/Publications:</p>
+<ul>
+<li><a href="http://sat07.ecs.soton.ac.uk/" class="external text" title="http://sat07.ecs.soton.ac.uk/" rel="nofollow">SAT 2007: Tenth International Conference on Theory and Applications of Satisfiability Testing</a></li>
+<li><a href="http://jsat.ewi.tudelft.nl" class="external text" title="http://jsat.ewi.tudelft.nl" rel="nofollow">Journal on Satisfiability, Boolean Modeling and Computation</a></li>
+<li><a href="http://www.ictp.trieste.it/~zecchina/SP/" class="external text" title="http://www.ictp.trieste.it/~zecchina/SP/" rel="nofollow">Survey Propagation</a></li>
+</ul>
+<p>Benchmarks:</p>
+<ul>
+<li><a href="http://www.nlsde.buaa.edu.cn/~kexu/benchmarks/benchmarks.htm" class="external text" title="http://www.nlsde.buaa.edu.cn/~kexu/benchmarks/benchmarks.htm" rel="nofollow">Forced Satisfiable SAT Benchmarks</a></li>
+<li><a href="http://www.haifa.il.ibm.com/projects/verification/RB_Homepage/bmcbenchmarks.html" class="external text" title="http://www.haifa.il.ibm.com/projects/verification/RB_Homepage/bmcbenchmarks.html" rel="nofollow">IBM Formal Verification SAT Benchmarks</a></li>
+<li><a href="http://www.satlib.org" class="external text" title="http://www.satlib.org" rel="nofollow">SATLIB</a></li>
+<li><a href="http://www.cs.ubc.ca/~babic/index_benchmarks.htm" class="external text" title="http://www.cs.ubc.ca/~babic/index_benchmarks.htm" rel="nofollow">Software Verification Benchmarks</a></li>
+</ul>
+<p>SAT solving in general:</p>
+<ul>
+<li><a href="http://www.satlive.org" class="external free" title="http://www.satlive.org" rel="nofollow">http://www.satlive.org</a></li>
+<li><a href="http://www.satisfiability.org" class="external free" title="http://www.satisfiability.org" rel="nofollow">http://www.satisfiability.org</a></li>
+<li><a href="http://www.sat4j.org/" class="external text" title="http://www.sat4j.org/" rel="nofollow">Sat4j</a></li>
+</ul>
+<hr />
+<p><i>This article includes material from a column in the ACM <a href="http://www.sigda.org" class="external text" title="http://www.sigda.org" rel="nofollow">SIGDA</a> <a href="http://www.sigda.org/newsletter/index.html" class="external text" title="http://www.sigda.org/newsletter/index.html" rel="nofollow">e-newsletter</a> by <a href="http://www.eecs.umich.edu/~karem" class="external text" title="http://www.eecs.umich.edu/~karem" rel="nofollow">Prof. Karem Sakallah</a><br /></i> Original text is available <a href="http://www.sigda.org/newsletter/2006/eNews_061201.html" class="external text" title="http://www.sigda.org/newsletter/2006/eNews_061201.html" rel="nofollow">here</a>.</p>
+
+<!-- 
+Pre-expand include size: 6305 bytes
+Post-expand include size: 1989 bytes
+Template argument size: 1604 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/o/Boolean_satisfiability_problem.html">http://en.wikipedia.org../../../b/o/o/Boolean_satisfiability_problem.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../n/p/-/Category%7ENP-complete_problems_d7a2.html" title="Category:NP-complete problems">NP-complete problems</a></span> | <span dir='ltr'><a href="../../../m/a/t/Category%7EMathematical_logic_8052.html" title="Category:Mathematical logic">Mathematical logic</a></span> | <span dir='ltr'><a href="../../../s/a/t/Category%7ESatisfiability_problems_4a71.html" title="Category:Satisfiability problems">Satisfiability problems</a></span> | <span dir='ltr'><a href="../../../l/o/g/Category%7ELogic_in_computer_science_55c5.html" title="Category:Logic in computer science">Logic in computer science</a></span> | <span dir='ltr'><a href="../../../f/o/r/Category%7EFormal_methods_c623.html" title="Category:Formal methods">Formal methods</a></span> | <span dir='ltr'><a href="../../../e/l/e/Category%7EElectronic_design_automation_d50b.html" title="Category:Electronic design automation">Electronic design automation</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/o/Boolean_satisfiability_problem.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/o/o/Talk%7EBoolean_satisfiability_problem_53de.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Boolean_satisfiability_problem">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/e/r/f/Erf%C3%BCllbarkeitsproblem_der_Aussagenlogik_48ed.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/p/r/o/Problema_de_satisfacibilidad_booleana.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/p/r/o/Probl%C3%A8me_SAT_5539.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%91/%D7%A2/%D7%99/%D7%91%D7%A2%D7%99%D7%99%D7%AA_SAT_97ce.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E5%85%85/%E8%B6%B3/%E5%8F%AF/%E5%85%85%E8%B6%B3%E5%8F%AF%E8%83%BD%E6%80%A7%E5%95%8F%E9%A1%8C.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/p/r/o/Problem_spe%C5%82nialno%C5%9Bci.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B7/%D0%B0/%D0%B4/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%B2%D1%8B%D0%BF%D0%BE%D0%BB%D0%BD%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8_%D0%B1%D1%83%D0%BB%D0%B5%D0%B2%D1%8B%D1%85_%D1%84%D0%BE%D1%80%D0%BC%D1%83%D0%BB.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../th/%E0%B8%9B/%E0%B8%B1/%E0%B8%8D/%E0%B8%9B%E0%B8%B1%E0%B8%8D%E0%B8%AB%E0%B8%B2%E0%B8%84%E0%B8%A7%E0%B8%B2%E0%B8%A1%E0%B8%AA%E0%B8%AD%E0%B8%94%E0%B8%84%E0%B8%A5%E0%B9%89%E0%B8%AD%E0%B8%87%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%9A%E0%B8%B9%E0%B8%A5.html">ไทย</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 00:47, 19 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../o/e/r/User%7EOerjan_fabc.html" title="User:Oerjan">Oerjan</a>, <a href="../../../j/p/b/User%7EJpbowen_d87e.html" title="User:Jpbowen">Jpbowen</a>, <a href="../../../i/g/o/User%7EIgor_Markov_42b5.html" title="User:Igor Markov">Igor Markov</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../c/r/e/User%7ECreidieki_9302.html" title="User:Creidieki">Creidieki</a>, <a href="../../../h/h/_/User%7EHh_2b58.html" title="User:Hh">Hh</a>, <a href="../../../m/h/y/User%7EMhym_f8c3.html" title="User:Mhym">Mhym</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, Enmiles, <a href="../../../c/r/g/User%7ECRGreathouse_d93e.html" title="User:CRGreathouse">CRGreathouse</a>, <a href="../../../e/v/e/User%7EEveryking_5c9e.html" title="User:Everyking">Everyking</a>, <a href="../../../m/i/c/User%7EMichael_Shields_5969.html" title="User:Michael Shields">Michael Shields</a>, <a href="../../../a/l/p/User%7EAlphachimpbot_48b3.html" title="User:Alphachimpbot">Alphachimpbot</a>, <a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">Mets501</a>, <a href="../../../j/u/l/User%7EJulian_Mendez_e1cf.html" title="User:Julian Mendez">Julian Mendez</a>, <a href="../../../j/o/n/User%7EJon_Awbrey_aa98.html" title="User:Jon Awbrey">Jon Awbrey</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../t/a/w/User%7ETawkerbot2_313a.html" title="User:Tawkerbot2">Tawkerbot2</a>, <a href="../../../n/i/g/User%7ENight_Gyr_e65d.html" title="User:Night Gyr">Night Gyr</a>, <a href="../../../l/o/c/User%7ELocalzuk_3f68.html" title="User:Localzuk">Localzuk</a>, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../z/e/n/User%7EZenogantner_31a3.html" title="User:Zenogantner">Zenogantner</a>, <a href="../../../z/a/r/User%7EZarrapastro_0ce9.html" title="User:Zarrapastro">Zarrapastro</a>, <a href="../../../j/o/k/User%7EJok2000_bdd4.html" title="User:Jok2000">Jok2000</a>, <a href="../../../r/e/b/User%7ERebelguys2_63db.html" title="User:Rebelguys2">Rebelguys2</a>, <a href="../../../s/a/f/User%7ESaforrest_5781.html" title="User:Saforrest">Saforrest</a>, Mamling, <a href="../../../z/a/n/User%7EZander_cd75.html" title="User:Zander">Zander</a>, <a href="../../../t/i/z/User%7ETizio_edab.html" title="User:Tizio">Tizio</a>, <a href="../../../m/c/c/User%7EMcCart42_fb5b.html" title="User:McCart42">McCart42</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../m/e/l/User%7EMellum_a257.html" title="User:Mellum">Mellum</a>, <a href="../../../m/a/t/User%7EMathMartin_aca3.html" title="User:MathMartin">MathMartin</a>, <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a>, Twiki-walsh, <a href="../../../d/a/v/User%7EDavid.Monniaux_7db1.html" title="User:David.Monniaux">David.Monniaux</a>, <a href="../../../k/a/r/User%7EKarl-Henner_67f3.html" title="User:Karl-Henner">Karl-Henner</a>, <a href="../../../l/e/i/User%7ELeibniz_106a.html" title="User:Leibniz">Leibniz</a>, <a href="../../../g/d/r/User%7EGdr_e4cb.html" title="User:Gdr">Gdr</a>, <a href="../../../j/a/n/User%7EJan_Hidders_5932.html" title="User:Jan Hidders">Jan Hidders</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../s/c/h/User%7ESchneelocke_ee99.html" title="User:Schneelocke">Schneelocke</a>, Alex R S, <a href="../../../n/i/l/User%7ENilmerg_156e.html" title="User:Nilmerg">Nilmerg</a>, <a href="../../../s/n/o/User%7ESnobot_2eb5.html" title="User:Snobot">Snobot</a>, <a href="../../../n/a/d/User%7ENaddy_8480.html" title="User:Naddy">Naddy</a>, <a href="../../../a/p/_/User%7EAp_24b6.html" title="User:Ap">Ap</a>, <a href="../../../j/i/m/User%7EJimbreed_18d4.html" title="User:Jimbreed">Jimbreed</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../j/e/c/User%7EJecar_a3c4.html" title="User:Jecar">Jecar</a>, <a href="../../../w/i/k/User%7EWik_19d3.html" title="User:Wik">Wik</a>, <a href="../../../t/i/m/User%7ETim_Starling_d5f6.html" title="User:Tim Starling">Tim Starling</a>, <a href="../../../b/r/i/User%7EBrion_VIBBER_bae4.html" title="User:Brion VIBBER">Brion VIBBER</a>, <a href="../../../l/c/_/User%7ELC_0e98.html" title="User:LC">LC</a> and <a href="../../../b/4/h/User%7EB4hand_8888.html" title="User:B4hand">B4hand</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

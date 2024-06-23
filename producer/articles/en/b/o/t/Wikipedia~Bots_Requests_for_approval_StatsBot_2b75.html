@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Wikipedia:Bots/Requests for approval/StatsBot,Mark Teixeira,Betacommand,PoliticalJunkie,Ram-Man,StatsBot,Xaosflux,Ram-Man,Voice of All,Xaosflux,Template namespace" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Wikipedia:Bots/Requests for approval/StatsBot - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-4">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Wikipedia:Bots/Requests for approval/StatsBot</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../b/o/t/Wikipedia%7EBots_fd71.html" title="Wikipedia:Bots">Wikipedia:Bots</a> | <a href="../../../b/o/t/Wikipedia%7EBots_Requests_for_approval_de2f.html" title="Wikipedia:Bots/Requests for approval">Requests for approval</a></span></div>
+	    	    	    <!-- start content -->
+	    <div class="boilerplate metadata" style="background-color: #dedaca; margin: 2em 0 0 0; padding: 0 10px 0 10px; border: 1px solid #AAAAAA;">
+<dl>
+<dd><i>The following discussion is an archived debate. <span style="color:red"><b>Please do not modify it.</b></span> Subsequent comments should be made in a new section.</i></dd>
+</dl>
+<a name="User:StatsBot" id="User:StatsBot"></a>
+<h2><span class="editsection">[<a href="../../../b/o/t/Wikipedia%7EBots_Requests_for_approval_StatsBot_2b75.html" title="Edit section: User:StatsBot">edit</a>]</span> <span class="mw-headline"><a href="../../../s/t/a/User%7EStatsBot_a8f5.html" title="User:StatsBot">User:StatsBot</a></span></h2>
+<table>
+<tr>
+<th width="100px">Owner</th>
+<td><a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">User:PoliticalJunkie</a></td>
+</tr>
+<tr>
+<th>Function</th>
+<td>Updating baseball players' stats.</td>
+</tr>
+<tr>
+<th>Language</th>
+<td>English</td>
+</tr>
+<tr>
+<th>Program</th>
+<td>Pywikipedia framework</td>
+</tr>
+<tr>
+<th>Mode</th>
+<td>Starts manually, edits automatically, checked frequently</td>
+</tr>
+<tr>
+<th>Frequency</th>
+<td>Every three days</td>
+</tr>
+</table>
+<p>Thanks. - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 23:57, 29 August 2006 (UTC)</p>
+<dl>
+<dd>where is it getting information from? <a href="../../../b/e/t/User%7EBetacommand_e660.html" title="User:Betacommand">Betacommand</a> 00:12, 30 August 2006 (UTC)</dd>
+</dl>
+<p>ESPN.com - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 14:30, 30 August 2006 (UTC)</p>
+<dl>
+<dd>How is it getting this informaton and how is it updating? <a href="../../../b/e/t/User%7EBetacommand_e660.html" title="User:Betacommand">Betacommand</a> 15:36, 31 August 2006 (UTC)</dd>
+</dl>
+<p>It's getting the information by extracting it from ESPN using regex and a preloaded set of player URLs. For example, it takes the player URL as input, goes to that page, and then uses regex to get the necessary statistics. For updating, it's using a search and replace like function. It obtains the table on the page, (which is placed within two tags, see <a href="http://en.wikipedia.org/w/index.php?title=Mark_Teixeira&amp;diff=72733649&amp;oldid=72733530" class="external text" title="http://en.wikipedia.org/w/index.php?title=Mark_Teixeira&amp;diff=72733649&amp;oldid=72733530" rel="nofollow">here</a> for a sample edit), and then replaces it with the new, updated statistics. - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 17:29, 31 August 2006 (UTC)</p>
+<dl>
+<dd>Thanks for explaining. Looks good, you might want to expand the colum names for the table R=Runs that way someone who doesnt know baseball slang could understand. <a href="../../../b/e/t/User%7EBetacommand_e660.html" title="User:Betacommand">Betacommand</a> 18:05, 31 August 2006 (UTC)</dd>
+</dl>
+<p>Okay. - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 14:57, 1 September 2006 (UTC)</p>
+<p>Just looking at <a href="../../../m/a/r/Mark_Teixeira_9979.html" title="Mark Teixeira">Mark Teixeira</a>, I have a couple of questions. Can this information be cited? Have you considered putting the information in the form of a template with the data as parameters? It would make updating it much easier, and you wouldn't need the <i>&lt;!--Please leave this tag here.--&gt;</i> markers. That would also make the bot less likely to make mistakes, since I don't think that tag is generic enough and it's easy to vandalize. If it were a template, you could also add an optional field for a reference. It shouldn't be hard to do. BTW, I think this is a great idea. — <a href="../../../r/a/m/User%7ERam-Man_eba5.html" title="User:Ram-Man">Ram-Man</a> <sup>(<a href="http://en.wikipedia.org/w/wiki.phtml?title=User_talk:Ram-Man&amp;action=edit&amp;section=new" class="external text" title="http://en.wikipedia.org/w/wiki.phtml?title=User_talk:Ram-Man&amp;action=edit&amp;section=new" rel="nofollow">comment</a>) (<a href="../../../r/a/m/User_talk%7ERam-Man_6a13.html" title="User talk:Ram-Man">talk</a>)</sup> 23:12, 1 September 2006 (UTC)</p>
+<p>I did consider putting it into a template, but couldn't because I don't know anything about template syntax. I was looking at <a href="../../../t/e/m/Wikipedia%7ETemplate_namespace_8f91.html" title="Wikipedia:Template namespace">Wikipedia:Template namespace</a> to see how to accept parameters, but I don't know how to output them in table form. If you could design one using the fields on Mark Teixeira's page, that would be extremely helpful. As for citation, do you mean adding a link to the player's ESPN url in the table? Thanks for the advice. - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 01:31, 2 September 2006 (UTC)</p>
+<dl>
+<dd>I'd be happy to help. I'll work on it and post the results when I'm finished. — <a href="../../../r/a/m/User%7ERam-Man_eba5.html" title="User:Ram-Man">Ram-Man</a> <sup>(<a href="http://en.wikipedia.org/w/wiki.phtml?title=User_talk:Ram-Man&amp;action=edit&amp;section=new" class="external text" title="http://en.wikipedia.org/w/wiki.phtml?title=User_talk:Ram-Man&amp;action=edit&amp;section=new" rel="nofollow">comment</a>) (<a href="../../../r/a/m/User_talk%7ERam-Man_6a13.html" title="User talk:Ram-Man">talk</a>)</sup> 14:47, 2 September 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I've made you a template at <a href="../../../b/a/s/Template%7EBaseball_stats_3882.html" title="Template:Baseball stats">Template:Baseball stats</a>. Go there and view the examples. We could update the citations to make them more clear, but I'd need to know what format the URL is. I just assumed one of them, but you might be looking it up differently, so if you could post an example URL, that would help us streamline the process. — <a href="../../../r/a/m/User%7ERam-Man_eba5.html" title="User:Ram-Man">Ram-Man</a> <sup>(<a href="http://en.wikipedia.org/w/wiki.phtml?title=User_talk:Ram-Man&amp;action=edit&amp;section=new" class="external text" title="http://en.wikipedia.org/w/wiki.phtml?title=User_talk:Ram-Man&amp;action=edit&amp;section=new" rel="nofollow">comment</a>) (<a href="../../../r/a/m/User_talk%7ERam-Man_6a13.html" title="User talk:Ram-Man">talk</a>)</sup> 15:25, 2 September 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>Just a note. Be careful when harvesting the data from ESPN. If you do it too rapidly to too many entries, they may flag you as a bot and block you. — <a href="../../../r/a/m/User%7ERam-Man_eba5.html" title="User:Ram-Man">Ram-Man</a> <sup>(<a href="http://en.wikipedia.org/w/wiki.phtml?title=User_talk:Ram-Man&amp;action=edit&amp;section=new" class="external text" title="http://en.wikipedia.org/w/wiki.phtml?title=User_talk:Ram-Man&amp;action=edit&amp;section=new" rel="nofollow">comment</a>) (<a href="../../../r/a/m/User_talk%7ERam-Man_6a13.html" title="User talk:Ram-Man">talk</a>)</sup> 15:30, 2 September 2006 (UTC)</p>
+<dl>
+<dd>Indeed. Additionally, you may, if possible, want to compile a dump of the pages now if you haven't already. Otherwise, the site may change format enought to break your parsers either before, or worst, while your bot starts its heavy runs.<b><a href="../../../v/o/i/User_talk%7EVoice_of_All_cf88.html" title="User talk:Voice of All"><font color="blue">Voice</font><font color="darkblue">-of-</font><font color="black">All</font></a></b> 02:19, 3 September 2006 (UTC)</dd>
+</dl>
+<p>Here is an example url: <a href="http://sports.espn.go.com/mlb/players/profile?playerId=3392" class="external free" title="http://sports.espn.go.com/mlb/players/profile?playerId=3392" rel="nofollow">http://sports.espn.go.com/mlb/players/profile?playerId=3392</a>. Thanks for designing the template. If I compiled a dump, would I have to recompile it every day to update the statistics? And, how do I compile a dump? Thanks. - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 19:13, 4 September 2006 (UTC)</p>
+<dl>
+<dd>I'll make some tweaks to the template to make it easier. In the meantime, I think he meant by "compile" that you should make a local copy of the web pages before you start the bot. That way you are protected if ESPN would change their web page format causing your bot to incorrectly parse the HTML. -- <a href="../../../r/a/m/User%7ERam-Man_eba5.html" title="User:Ram-Man">RM</a> 23:43, 4 September 2006 (UTC)</dd>
+</dl>
+<p>Oh, thanks for the clarification. - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 17:53, 5 September 2006 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>I was having some technical troubles, so if you can use the template as is, that'll be great. I have no further objections. Hopefully someone can approve your bot then. -- <a href="../../../r/a/m/User%7ERam-Man_eba5.html" title="User:Ram-Man">RM</a> 23:59, 5 September 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>Small trial approved, if at all possible include citations (possibly using &lt;ref&gt; tags). Keep the trial to 50 pages, up to 10 days. — <a href="../../../x/a/o/User%7EXaosflux_5b5b.html" title="User:Xaosflux"><b><font color="#FF9933" face="monotype"><big>xaosflux</big></font></b></a> <sup><a href="../../../x/a/o/User_talk%7EXaosflux_b62d.html" title="User talk:Xaosflux"><font color="#00FF00">Talk</font></a></sup> 03:31, 7 September 2006 (UTC)</li>
+</ul>
+<p>The trial, consisting of 19 pages, was successful. See the edits <a href="../../../c/o/n/Special%7EContributions_StatsBot_14df.html" title="Special:Contributions/StatsBot">here</a>. - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 15:37, 17 September 2006 (UTC)</p>
+<ul>
+<li>
+<ul>
+<li>How long do you expect to run this? Will it do a one time update to the pages or will it regulary update them?<b><a href="../../../v/o/i/User_talk%7EVoice_of_All_cf88.html" title="User talk:Voice of All"><font color="blue">Voice</font><font color="darkblue">-of-</font><font color="black">All</font></a></b> 23:22, 22 September 2006 (UTC)</li>
+</ul>
+</li>
+</ul>
+<p>I expect to update baseball players' stats every three days during the season. The baseball season is almost over, so the bot won't operate until next April, when the next baseball season starts.- <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 17:51, 23 September 2006 (UTC)</p>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li>Constant updating greatly increases the chanses of parser errors due to site changes there. Perhaps you could make the bot code very specific in checking the page XML and avoid running automatically if it detected changes.<b><a href="../../../v/o/i/User_talk%7EVoice_of_All_cf88.html" title="User talk:Voice of All"><font color="blue">Voice</font><font color="darkblue">-of-</font><font color="black">All</font></a></b> 23:56, 23 September 2006 (UTC)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>I just finished programming that into the bot. - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 20:11, 29 September 2006 (UTC)</p>
+<dl>
+<dd>Has the bot been approved? - <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a> 20:15, 10 October 2006 (UTC)
+<dl>
+<dd>Could you please cite your references, as described above? With changes made on such a massive scale, how is anyone to verify that your statistics are correct? In any case, not citing your references is not enough reason to block. So:</dd>
+<dd><a href="../../../s/y/m/Image%7ESymbol_keep_vote.svg_19de.html" class="image" title=""><img src="../../../upload/shared/thumb/d/d0/Symbol_keep_vote.svg/20px-Symbol_keep_vote.svg.png" alt="" width="20" height="21" longdesc="../../../s/y/m/Image%7ESymbol_keep_vote.svg_19de.html" /></a> <b>Approved</b>. The changes that you've made look great. Run this once or twice a week and <b>never</b> on the high activity days (such as Monday). Please cite your sources using the template, if possible. -- <a href="../../../r/a/m/User%7ERam-Man_eba5.html" title="User:Ram-Man">RM</a> 17:53, 12 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><i>The above discussion is preserved as an archive of the debate. <span style="color:red"><b>Please do not modify it.</b></span> Subsequent comments should be made in a new section.</i></dd>
+</dl>
+</div>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/t/Wikipedia%7EBots_Requests_for_approval_StatsBot_2b75.html">http://en.wikipedia.org../../../b/o/t/Wikipedia%7EBots_Requests_for_approval_StatsBot_2b75.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../w/i/k/Category%7EWikipedia_approved_bot_requests_9d71.html" title="Category:Wikipedia approved bot requests">Wikipedia approved bot requests</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-project"
+	       class="selected"	       ><a href="../../../b/o/t/Wikipedia%7EBots_Requests_for_approval_StatsBot_2b75.html">Project page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/o/t/Wikipedia_talk%7EBots_Requests_for_approval_StatsBot_2b68.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Wikipedia:Bots/Requests_for_approval/StatsBot">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:01, 16 October 2006 by Wikipedia user <a href="../../../r/m/_/User%7ERM_194e.html" title="User:RM">RM</a>. Based on work by Wikipedia user(s) <a href="../../../p/o/l/User%7EPoliticalJunkie_1864.html" title="User:PoliticalJunkie">PoliticalJunkie</a>, <a href="../../../v/o/i/User%7EVoice_of_All_a6ef.html" title="User:Voice of All">Voice of All</a>, <a href="../../../x/a/o/User%7EXaosflux_5b5b.html" title="User:Xaosflux">Xaosflux</a>, <a href="../../../r/a/m/User%7ERam-Man_eba5.html" title="User:Ram-Man">Ram-Man</a>, <a href="../../../v/a/r/User%7EVargenau_d83a.html" title="User:Vargenau">Vargenau</a> and <a href="../../../b/e/t/User%7EBetacommand_e660.html" title="User:Betacommand">Betacommand</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

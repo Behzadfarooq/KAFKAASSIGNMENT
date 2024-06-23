@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Budlight test/monobook.js,Blocking policy,Bypass your cache,Village pump (technical)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Budlight test/monobook.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Budlight test/monobook.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../b/u/d/User%7EBudlight_test_0cf0.html" title="User:Budlight test">User:Budlight test</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</p>
+<div style="color:darkred;background-color:#EEEEEE;border: darkred 2px solid;padding:5px;" id="jswarning"><div style="clear: both;color:darkred;"></div><b><div style="display:block;">If a message on your talk page led you here, please be wary of who left it.  The code below could contain malicious content capable of compromising your account; if your account appears to be compromised, it will be <a href="../../../b/l/o/Wikipedia%7EBlocking_policy_2eb0.html" title="Wikipedia:Blocking policy">blocked</a>.  If you are unsure whether the code is safe, you can ask at the appropriate <a href="../../../v/i/l/Wikipedia%7EVillage_pump_%28technical%29_e812.html" title="Wikipedia:Village pump (technical)">village pump</a>.</b></div></div></span>
+<pre>/* &lt;pre&gt; */
+
+/* 
+I am experimenting with including everything using the winc() function, to keep this page clean and allow other people to include the functions they want into their own monobook.js the same way.  Then theirs will be in sync with mine when I update it, etc.  I've done the same with other users' scripts.
+
+Since moving them into other pages, though, it seems to be slower loading/refreshing a page?  I think it's because it's loading scripts from multiple pages.
+
+I am putting my scripts in a subpage of monobook.js instead of a subpage of User:Omegatron, since it gives a link back to the main monobook.js.  Convenient and logical (even if the address looks a little funny).
+
+If you know of a better way to do one of these functions or improve on one that I've written, please let me know.
+
+There's a script here that makes all the [[wikilinks]] in this page (and everywhere else) clickable, even in plain text mode.
+*/  
+
+
+/* This function is used to include scripts from other Wikipedia pages in mine.  I got it from [[User:Quarl/monobook.js]]. */
+
+function winc(s) {
+    s = s.replace(/^\[\[/, '').replace(/\]\]$/, '');
+    document.write('&lt;scr' + 'ipt type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://en.wikipedia.org/w/index.php?title=' + s
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/scr' 
+             + 'ipt&gt;');
+}
+
+
+/* Included functions */
+
+winc('[[User:Omegatron/monobook.js/addlink.js]]');         /* Adds links to lists on the page, such as the personal tools section */
+winc('[[User:Omegatron/monobook.js/fixdiffwidth.js]]');    /* Cleans up the diff so that long lines don't explode the width of the page. */
+winc('[[User:Omegatron/monobook.js/edittop.js]]');         /* Adds a link to edit the top (intro) section of an article */
+winc('[[User:Omegatron/monobook.js/namedredirect.js]]');   /* Learning XMLHttpRequest while workarounding [[Bugzilla: 218]] */
+/*winc('[[User:Omegatron/monobook.js/autolinker.js]]');      Make [[links]] and {{templates}} clickable */
+
+
+/* Add some extra tabs with different functionalities. */
+
+winc('[[User:Omegatron/monobook.js/replacetab.js]]');               // Regex replacements in the text (from [[User:Trilobite/Tools]])
+winc('[[User:Omegatron/monobook.js/unverified.js]]');               // Tag unverified images (from [[User:Trilobite/Tools]])
+// winc('[[User:Omegatron/monobook.js/addsincetab.js]]');           // Shows difference between my last edit and current version ([[Wikipedia:WikiProject User scripts/Scripts/Changes since I last edited]])
+winc('[[User:Omegatron/monobook.js/dashfixer.js]]');                // Converts -- into — and so on (User:Omegatron)
+winc('[[User:Omegatron/monobook.js/unitformatter.js]]');            // Formats units according to SI (User:Omegatron)
+winc('[[User:Omegatron/monobook.js/mathcharacterfixer.js]]');       // Fixes up some math characters (not TeX) (User:Omegatron)
+winc('[[User:Omegatron/monobook.js/headingformattingfixer.js]]');   // Adds and removes whitespace to make formatting consistent and readable (User:Omegatron)
+
+
+/* This function is used to include individual scripts from Quarl's pages in mine. */
+
+function qinc(s) {
+    document.write('&lt;scr' + 'ipt type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://www.cubewano.org/wpt/scripts/' + s
+             + '.js&quot;&gt;&lt;/scr' 
+             + 'ipt&gt;');
+}
+
+
+
+/* All kinds of scripts from [[User:Quarl]] */
+
+qinc('module');
+qinc('datetime');
+qinc('msg');
+qinc('util');
+qinc('wikiwidget');
+qinc('wikins');
+qinc('wikipage');
+qinc('wikiedit');
+qinc('diff');
+qinc('shortcuts');
+qinc('diffsince');
+qinc('wikiwatch');
+qinc('watchlist');
+qinc('watchbutton');
+qinc('autofocus');
+qinc('autosummary');
+qinc('smartsubmit');
+qinc('newmessages');
+qinc('tabsince');
+
+addOnloadHook(function () {
+
+$watchbutton.widgetLoad(); 
+$tabsince.widgetLoad();
+$watchlist.widgetLoad();
+
+/* [[User:Omegatron/monobook.js/quarl.js]] */
+
+/* uncomment this to hide alert() errors */
+$msg.alert_disabled=true;
+
+});
+
+/* Live Preview */
+
+wpUserName   = 'Budlight_test';   // User name to display in signatures
+wpShowImages = true;      // Enable downloading and displaying of images
+
+winc('[[User:Pilaf/livepreview.js]]');
+
+// Now set everything up
+/* Convert to addonloadhook?  Can't because function doesn't exist yet. */
+window.onload = Main;
+function Main()
+{
+ LivePreviewInstall();
+ // You may include here other &quot;extensions&quot;
+}
+
+
+/* [[User:Lupin]]'s crazy [[Wikipedia:Tools/Navigation_popups|navigation popups]] */
+/* I haven't used this lately, but maybe I'll turn it back on later. */
+
+/*
+winc('[[User:Lupin/popups.js]]');
+popupDelay=1;
+popupAdminLinks=true;
+imagePopupsForImages=false; 
+*/
+
+/* Move things around so that sidebar can be fixed in position and content can scroll independently */
+/* See [[meta:Help:User style/floating quickbar]] */
+
+addOnloadHook(function () {
+    var content = document.getElementById(&quot;column-content&quot;);    // Find the main content column
+
+    var footer = document.getElementById(&quot;footer&quot;);  // Find the footer
+    footer.parentNode.removeChild(footer);    // Remove the footer from the global wrapper
+    content.appendChild(footer);    // Place footer at the end of the content column;
+
+    var tabs = document.getElementById(&quot;p-cactions&quot;);   // Find the top tab list
+    tabs.parentNode.removeChild(tabs);    // Remove the tab list from the side column
+    content.insertBefore(tabs,content.firstChild);    // Place tab list at the beginning of the content column
+});
+
+/* Do some things when the page loads */
+
+addOnloadHook(function () {
+
+    /* Adds some links to my ''personal tools'' section (&quot;My monobook.js&quot;, &quot;My monobook.css&quot;, &quot;My sandbox&quot;) */
+
+    addLink('p-personal', '/wiki/User:Budlight_test/monobook.js', 'My monobook.js', 'pt-monobookjs', 'monobook.js is used for storing user javascripts', '', 'pt-logout');
+    addLink('p-personal', '/wiki/User:Budlight_test/monobook.css', 'My monobook.css', 'pt-monobookcss', 'monobook.css is used for storing user CSS styles', '', 'pt-logout');
+    addLink('p-personal', '/wiki/User:Budlight_test/Sandbox', 'My sandbox', 'pt-sandbox', 'My sandbox is used for testing things', '', 'pt-logout');
+    addLink('p-personal', '/w/index.php?title=Special%3AAllpages&amp;from=Omegatron&amp;namespace=2', 'My subpages', 'pt-subpages', 'Subpages of my userspace', '', 'pt-logout');
+
+    /* Shorten &quot;edit this page&quot; to just &quot;edit&quot; */
+    if(document.getElementById('ca-edit')) {
+        document.getElementById('ca-edit').firstChild.innerHTML = 'edit';
+    }
+
+});
+
+
+/* Duplicate all the tabs from the top on the bottom of the content box, too.  */
+/* From [[Wikipedia:WikiProject User scripts/Scripts/Duplicate tabs at bottom]]. */
+
+addOnloadHook(function () {
+    var tabs = document.getElementById('p-cactions').cloneNode(true);
+    tabs.id = 'mytabs';
+    var listitems = tabs.getElementsByTagName('LI');
+    for (i=0;i&lt;listitems.length;i++) {
+        if(listitems[i].id) listitems[i].id = 'mytabs-' + listitems[i].id;
+    }
+
+    var content = document.getElementById(&quot;content&quot;);    // Find the content div
+    content.parentNode.insertBefore(tabs, content.nextSibling);    // Place tab list right after content div
+});
+
+
+/* Syntax highlighting on pre areas */
+/* See [[Wikipedia:WikiProject User scripts/Scripts/Syntax highlighter]] */
+
+addOnloadHook(function () {
+    /* CSS syntax highlighting */
+    if(document.title.indexOf(&quot;.js&quot;) == -1) {         //   Ignore pages that end in .js 
+        var multicommentRE = new RegExp('(/\\*[\\s\\S]*?\\*/)', 'g');
+        var ruleRE = new RegExp('([^\\{]+)\\{([^\\}]+)\\}', 'g');
+        var idselectorRE = new RegExp('(#[a-zA-Z0-9\-\_]+)\\b', 'g');
+        var classselectorRE = new RegExp('(\\.[a-zA-Z0-9\-\_]+)\\b', 'g');
+        var pairRE = new RegExp('([a-zA-Z-]+):([^;]+);', 'g');
+        var css = document.getElementsByTagName('pre');
+        for (i = 0; i &lt; css.length; i++) {
+            var c = css[i];
+            var content = c.innerHTML;
+            content = content.replace(multicommentRE, '&lt;span class=&quot;comment&quot;&gt;$1&lt;/span&gt;');
+            content = content.replace(ruleRE, function(text, selector, body) {
+                selector = selector.replace(idselectorRE, '&lt;span class=&quot;idselector&quot;&gt;$1&lt;/span&gt;');
+                selector = selector.replace(classselectorRE, '&lt;span class=&quot;classselector&quot;&gt;$1&lt;/span&gt;');
+                body = body.replace(pairRE, '&lt;span class=&quot;property&quot;&gt;$1&lt;/span&gt;:&lt;span class=&quot;value&quot;&gt;$2&lt;/span&gt;;');
+                return selector + '{' + body + '}';
+            });
+            c.innerHTML = content;
+        }
+    } 
+});
+
+/* Popup audio help links */
+
+document.write('&lt;scr' + 'ipt type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://en.wikipedia.org/w/index.php?title=User:Omegatron/monobook.js/audiopops.js'
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/scr' 
+             + 'ipt&gt;');
+
+
+
+/* &lt;/pre&gt; */
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/u/d/User%7EBudlight_test_monobook.js_a0b0.html">http://en.wikipedia.org../../../b/u/d/User%7EBudlight_test_monobook.js_a0b0.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../b/u/d/User%7EBudlight_test_monobook.js_a0b0.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/u/d/User_talk%7EBudlight_test_monobook.js_e305.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Budlight_test/monobook.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:10, 12 October 2006 by Wikipedia user <a href="../../../b/u/d/User%7EBudlight_test_0cf0.html" title="User:Budlight test">Budlight test</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

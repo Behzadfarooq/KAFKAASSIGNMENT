@@ -1,0 +1,635 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Active noise control,Destructive interference,Fourier transform,Interference,Sine wave,WP:BB,Atlant,Bihal,Christopher Thomas,Greglocock,Omegatron" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Active noise control - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Active noise control</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Phase_vs._polarity"><span class="tocnumber">1</span> <span class="toctext">Phase vs. polarity</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Comments_to_phase_vs._polarity"><span class="tocnumber">1.1</span> <span class="toctext">Comments to phase vs. polarity</span></a></li>
+<li class="toclevel-2"><a href="#More_on_phase_versus_polarity"><span class="tocnumber">1.2</span> <span class="toctext">More on phase versus polarity</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Active_Noise_Controller"><span class="tocnumber">2</span> <span class="toctext">Active Noise Controller</span></a></li>
+<li class="toclevel-1"><a href="#A_removed_description"><span class="tocnumber">3</span> <span class="toctext">A removed description</span></a></li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">4</span> <span class="toctext">Applications</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Phase_vs._polarity" id="Phase_vs._polarity"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Talk%7EActive_noise_control_5276.html" title="Edit section: Phase vs. polarity">edit</a>]</span> <span class="mw-headline">Phase vs. polarity</span></h2>
+<p>Inverting polarity and shifting phase by 180° are not the same thing. Shifting the phase takes one cycle's worth of time. Inverting polarity is instantaneous.</p>
+<p>Ideally, the noise cancellation device flips the polarity of the wave to cancel the noise. This would be the case in noise-cancelling headphones, for instance, where the electric wave can easily start from the microphone, be flipped, and travel to the speaker just in time for the acoustic wavefront to get there.</p>
+<p>I left the phase comment in place because I imagine there are other systems where you might actually want a phase shift, if there is some kind of unavoidable delay in the system or something? But maybe it should be changed to polarity, too. - <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 16:41, Apr 15, 2005 (UTC)</p>
+<dl>
+<dd>That depends on how you implement the phase shifting. If you're doing things digitally, you're breaking down signals into time-independent channels when you do the Fourier transform, so phase and polarity changes are identical. A more accurate description would be to simply say that the system computes a sound to generate that causes destructive interference (cancellation) at the desired location. To call this "reversing polarity" or imposing a "180 degree phase shift" is to grossly oversimplify, as you have to take into account the positions of your cancelling speakers, microphones, and desired silence zones (sound propagation causes a different phase shift in each spectral component, due to finite speed of sound). --<a href="../../../c/h/r/User%7EChristopher_Thomas_925e.html" title="User:Christopher Thomas">Christopher Thomas</a> 23:22, 28 August 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>You wouldn't do a Fourier transform if you were just going to flip the polarity. &#160;:-) I agree that it should just state what is going on in general at first, as I'm sure different systems have different implementations. Some just flip the polarity, some incorporate a time delay, some incorporate filtering, variable phase shift across the frequency bands, etc. — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 23:39, 28 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>I have trouble seeing how any system that didn't work in the frequency domain would work in practice. Something that simply generated a signal with negative amplitude would have have the microphone and the speaker in the same place, which would also have to be right on top of either the noise source or the person who you wanted to insulate from the noise. Even if you're willing to do this, something like a noise-cancelling headphone set would have to use a band-pass filter to allow desired sounds to pass, and for both at-source and at-listener versions you'd have to perform strange tricks to avoid feedback problems (trying to cancel the cancellation signal).</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Lastly, a stronger argument occurs to me (which has apparently been stated by others in subsequent threads): Flipping the polarity of the waveform does, in fact, produce a 180 degree phase shift (at least if you're using a sampling window small enough that sound isn't changing much over the window). You've apparently argued below that the mechanism is different, but that assumes a very narrow definition of phase shift (i.e., the operation performed by a causal phase-shifting filter, rather than the phase shift itself). In both engineering and mathematics, the term typically refers to the result only, without requiring the operation to be causal (which is what gives you a delay when implementing a phase-shift filter). --<a href="../../../c/h/r/User%7EChristopher_Thomas_925e.html" title="User:Christopher Thomas">Christopher Thomas</a> 00:36, 29 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><i>I have trouble seeing how any system that didn't work in the frequency domain would work in practice.</i>
+<dl>
+<dd>Not as well. &#160;:-) But it would still work. As long as the noise level is lower with the device on than off, it's working. Obviously some implementations work better than others.</dd>
+</dl>
+</dd>
+<dd><i>In both engineering and mathematics, the term typically refers to the result only, without requiring the operation to be causal (which is what gives you a delay when implementing a phase-shift filter).</i>
+<dl>
+<dd>Exactly. An active noise control is inherently causal. — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 02:29, 29 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>If you are agreeing with my last paragraph, then why are you arguing that "phase shift of 180 degrees" is not correct? If you are disagreeing, please state what parts you disagree with. As-is, your statement appears both confusing and incorrect to engineers and mathematicians for the reasons stated above.--<a href="../../../c/h/r/User%7EChristopher_Thomas_925e.html" title="User:Christopher Thomas">Christopher Thomas</a> 02:54, 29 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>I don't understand what you're asking. — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 03:07, 29 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Capsule summary of this thread as I've been interpreting it:</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><b>O:</b> Inverting polarity and shifting phase by 180° are not the same thing.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><b>C:</b> Yes they are, for reasons X, Y, and Z, and saying they're not confuses scientists and engineers.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><b>O:</b> I agree with your statements, but you're still wrong.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><b>C:</b> Come again?</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>My apologies if I'm missing something you've said, or haven't expressed my own statements clearly enough, but that's pretty much how I'm presently parsing this conversation. --<a href="../../../c/h/r/User%7EChristopher_Thomas_925e.html" title="User:Christopher Thomas">Christopher Thomas</a> 03:22, 29 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Let me try and summarize/summarise:</p>
+<ul>
+<li>At the exact point in space where noise cancellation is actually taking place, the antinoise waveform is <b>polarity flipped</b> from the noise waveform, thus causing <a href="../../../i/n/t/Interference.html" title="Interference">destructive interference</a>.</li>
+</ul>
+<ul>
+<li>At that same point in space, the antinoise waveform (taken as a whole) is <b>not</b> phase-shifted 180 degrees from the noise waveform; this would not cause destructive interference.</li>
+</ul>
+<ul>
+<li>But if you could take the <a href="../../../f/o/u/Fourier_transform.html" title="Fourier transform">Fourier transforms</a> of both the noise and antinoise waveforms, you'd find that <b>each individual <a href="../../../s/i/n/Sine_wave.html" title="Sine wave">sine wave</a> component within the antinoise waveform</b> is both polarity-flipped and 180 degrees opposite in phase from its corresponding sine wave component in the noise waveform. This is because, for the specific case of a sine wave, there's no distinguishment between being "polarity flipped" and 180 degrees phase shifted.</li>
+</ul>
+<p>Everyone: have I sumari[zs]ed this correctly?</p>
+<p><a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a> 13:04, 29 August 2006 (UTC)</p>
+<dl>
+<dd>Pretty much. To rephrase my complaints:
+<ol>
+<li>The term "phase shifting a signal" is ambiguous, as it could mean "delaying a repeating (or short-time stationary) signal by a fraction of its fundamental frequency" or "delaying each frequency component individually by an equal fraction of a cycle", which have completely different effects:
+<ul>
+<li>Delaying an entire wave by a fraction of its cycle can be used for noise cancellation (as described in the first section of the first patent of such a system)</li>
+<li>Phase shifting each frequency component by any value other than 180° would not be as useful (unless the medium is dispersive?)</li>
+</ul>
+</li>
+<li>I think that using the term "phase shifting" is highly <i>misleading</i>, when the actual electronics merely flip the wave. I'm aware that the output waveforms are mathematically equivalent in a non-causal theoretical treatment, but the actual device is just flipping the signal over, and it's misleading to <i>imply</i> otherwise. It's not doing an analog-to-digital conversion, applying an FFT, shifting the phase of each component, inverse transforming, and doing a digital-to-analog conversion. It's not applying an all-pass filter with a constant phase shift for each frequency, set to 180°. (Both of which would require a time delay.) It's just flipping the black and the red wires. — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 13:55, 29 August 2006 (UTC)</li>
+</ol>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>This appears to summarize things, but I feel strongly that saying that "inverting polarity and shifting phase by 180° are not the same thing" is at least as misleading, because for us signal-processing types, phase shifting is usually interpreted as referring to each of the component frequencies.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Would a phrasing along the lines of, "...implemented by inverting the polarity of the waveform, which has the effect of altering the phase of each frequency component by 180 degrees, causing destructive interference" be acceptable to you? It would certainly go a long way towards eliminating my concerns (and apparently the concerns of other responders), while hopefully avoiding the ambiguity which you're objecting to. --<a href="../../../c/h/r/User%7EChristopher_Thomas_925e.html" title="User:Christopher Thomas">Christopher Thomas</a> 02:18, 31 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><i>because for us signal-processing types, phase shifting is usually interpreted as referring to each of the component frequencies.</i></p>
+<dl>
+<dd>That's simply not true. Terms like "phase shift" are ambiguous when talking about anything except sinusoids. Most of the time, they are actually interpreted to refer to the cycles of a repeating waveform as a whole; not the individual frequency components, though both meanings are valid:</dd>
+<dt>Phase shift&#160;</dt>
+<dd>A change in phase of a periodic signal with respect to another periodic signal or reference signal.<a href="http://www.intel.com/technology/silicon/sp/glossary.htm" class="external autonumber" title="http://www.intel.com/technology/silicon/sp/glossary.htm" rel="nofollow">[1]</a></dd>
+<dt>Phase&#160;</dt>
+<dd>A time based relationship between a periodic function and a reference. In electricity, it is expressed in angular degrees to describe the voltage or current relationship of two alternating waveforms.</dd>
+<dt>Phase Difference&#160;</dt>
+<dd>The time expressed in degrees between the same reference point on two periodic waveforms.<a href="http://www.flw.com/define_p.htm" class="external autonumber" title="http://www.flw.com/define_p.htm" rel="nofollow">[2]</a></dd>
+<dt>Phase&#160;</dt>
+<dd>A particular angular stage or point of advancement in a cycle; the fractional part of the angular period through which the wave has advanced, measured from the phase reference.</dd>
+<dt>Phase Shift&#160;</dt>
+<dd>The angular difference of two periodic functions.<a href="http://www.srh.weather.gov/srh/jetstream/append/glossary_p.htm" class="external autonumber" title="http://www.srh.weather.gov/srh/jetstream/append/glossary_p.htm" rel="nofollow">[3]</a></dd>
+<dt>Phase&#160;</dt>
+<dd>The timing of a sound wave that is measured in degrees from 0-360.</dd>
+<dt>Phase Shift&#160;</dt>
+<dd>Frequency interaction ... which can cause some frequencies to be delayed with respect to other frequencies.<a href="http://www.sfxaudio.com/AudioSchool/glossary.asp" class="external autonumber" title="http://www.sfxaudio.com/AudioSchool/glossary.asp" rel="nofollow">[4]</a></dd>
+<dt>phase shift&#160;</dt>
+<dd>The change in phase of a periodic signal with respect to a reference.<a href="http://www.atis.org/tg2k/_phase_shift.html" class="external autonumber" title="http://www.atis.org/tg2k/_phase_shift.html" rel="nofollow">[5]</a></dd>
+<dt>phase difference&#160;</dt>
+<dd>The time interval or phase angle by which one wave leads or lags another.<a href="http://www.its.bldrdoc.gov/fs-1037/dir-027/_3958.htm" class="external autonumber" title="http://www.its.bldrdoc.gov/fs-1037/dir-027/_3958.htm" rel="nofollow">[6]</a></dd>
+<dd>Besides, even if it does have a well-defined meaning in a certain field, Wikipedia is not field-specific, so we can't just say it has one particular meaning when it has a variety of meanings in general usage.</dd>
+</dl>
+<p><i>Would a phrasing along the lines of, "...implemented by inverting the polarity of the waveform, which has the effect of altering the phase of each frequency component by 180 degrees, causing destructive interference" be acceptable to you?</i></p>
+<dl>
+<dd>Not really. To reiterate:
+<ul>
+<li>I'm very well aware that <span class="texhtml">sin(ω<i>t</i>) + ( − sin(ω<i>t</i>)) = sin(ω<i>t</i>) + sin(ω<i>t</i> + π) = 0</span>. Really. They are mathematically equal. I know this.</li>
+<li>For a non-sinusoidal signal, a polarity flip is mathematically equivalent to shifting each individual frequency component by 180 degrees. Yes, I know.</li>
+</ul>
+</dd>
+<dd>But you could also say <span class="texhtml">sin(ω<i>t</i>) + sin( − ω<i>t</i>) = 0</span>. No one is calling it "time-reversal cancellation". You could say <img class='tex' src="../../../math/4/a/f/4af464d5f63d067a72648c94f773ddcf.png" alt="\sin(t) + \int { \int { \sin(t)\,dt }\,dt } = 0" />, but no one is implementing a circuit with double integrators to achieve the same result as an inverter. It is misleading to say you are phase canceling when you are really polarity canceling. Yes, the outputs are indistinguishable, but the method is not.</dd>
+</dl>
+<dl>
+<dd>Also, in real, practical systems, the method used will never achieve ideal mathematical results, anyway, so you will only have partial cancellation, and the methods used <i>will</i> be distinguishable. <img class='tex' src="../../../math/5/e/5/5e513e899558617554c281933e697c9f.png" alt="\sin(\omega t) + (-0.99 \sin(\omega t)) \neq \sin(\omega t) + \sin(\omega t + 0.99 \pi)" /></dd>
+</dl>
+<dl>
+<dd>Also, different physical devices use different methods with varying degrees of cancellation. <a href="http://www.headwize.com/projects/noise_prj.htm" class="external text" title="http://www.headwize.com/projects/noise_prj.htm" rel="nofollow">The simplest</a>, and most well-known, is to just invert the polarity (which certainly does not require performing a Fourier transform, as you seemed to imply above), but there are more advanced methods with better results. We need to document this in detail. So in the intro, we just say "...implemented by generating a wave that causes <a href="../../../d/e/s/Destructive_interference.html" title="Destructive interference">destructive interference</a>". Later, we say "The simplest and most well-known method is to invert the polarity, which cancels out waves adequately in certain conditions, such as plane waves in ducts or localized low frequency..." "A more complex method uses adaptive filters to... " and detail each type.</dd>
+</dl>
+<dl>
+<dd><a href="http://www.newton.dep.anl.gov/askasci/eng99/eng99353.htm" class="external text" title="http://www.newton.dep.anl.gov/askasci/eng99/eng99353.htm" rel="nofollow">"How can I create a simple sound cancellation device?"</a> and the <a href="http://www.faqs.org/faqs/active-noise-control-faq/" class="external text" title="http://www.faqs.org/faqs/active-noise-control-faq/" rel="nofollow">Active Noise Control FAQ</a> contain information that we should cover here. — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 16:55, 5 September 2006 (UTC)</dd>
+</dl>
+<p><a name="Comments_to_phase_vs._polarity" id="Comments_to_phase_vs._polarity"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/t/Talk%7EActive_noise_control_5276.html" title="Edit section: Comments to phase vs. polarity">edit</a>]</span> <span class="mw-headline">Comments to phase vs. polarity</span></h3>
+<p>ANC systems actually use both polarity inversions and phase shifting, depending on the controller strategy. There are two types of control strategies: feedback and feedforward.</p>
+<p>- In a feedback control system, the signal you want to cancel (error signal) is fed to the controller. Commonly, a polarity inversion and some filtering are used, which may cause phase shifting. This type of strategy is the simplest one, but can only be used when the delays between the speaker and the error microphone are small; otherwise the system becomes unstable. Also, when using feedback controllers, it's not possible to cancel in the whole frecuency range, in fact there are always amplifications in some frequency bands. It can be done using analog devices.</p>
+<p>- In a feedforward control system, a reference signal and the error signal are fed to the controller. The reference signal is correlated with the sound you want to cancel; in other words, it gives the controller information about the signal it has to cancel. The controller then uses a minimization algorithm to compute the appropriate filter so that the filtered reference signal emitted trough the speaker minimizes the error signal. In this case filters are used, which shift the phase of the reference signal. It is possible to obtain cancellation in a frequency range without causing amplifications in other bands. This strategy needs complex calculations, so a DSP or other computer system are required.</p>
+<p>In any case, when defining the concept of destructive interference, the signals have <b>opposite phase</b> in a mathematical sense, regardless of how you obtain that difference of phase in practise, by inverting polarity or shifting the phase. --Alejandroff 11:50, 19 October 2005 (UTC)</p>
+<dl>
+<dd><a href="http://www.cher.ubc.ca/PDFs/ANCHeadsetsFinalRevised.pdf#search=%22feed-forward%22" class="external text" title="http://www.cher.ubc.ca/PDFs/ANCHeadsetsFinalRevised.pdf#search=%22feed-forward%22" rel="nofollow">This paper</a> defines them differently. It says feed-forward is for canceling a repeating signal that is already well-known, and feed-back is for canceling unpredictable noise from the environment. — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 14:04, 5 September 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>If you are talking about the small description in (Rafaely and Jones 2002), that is just talking about what they did in the experiment, which was about headsets. Talking in general, it is clear that with a feedback controler you can only obtain sound reduction in a certain frequency range. The width of this range will depend mainly on the delay between the error microphone adn the secondary speaker. In a headset, this delay is obiously small, but in almost all other application of ANC, this is not the case.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Feedforward controllers only need a reference signal, in other words, you need a signal correlated to the noise you want to cancel. All you need is that reference signal, you don't need it to be periodic, it can be white noise, for example. The band you can control is basically the band of the reference signal; that is, if the reference signal has power in one frequency band, in principle you can obtain canelation. <a href="http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=JASMAN000114000006003211000001&amp;idtype=cvips&amp;gifs=yes" class="external autonumber" title="http://scitation.aip.org/getabs/servlet/GetabsServlet?prog=normal&amp;id=JASMAN000114000006003211000001&amp;idtype=cvips&amp;gifs=yes" rel="nofollow">[7]</a> this article refered here, in which i particiapted, discribes an example of broadband noise cancelation of a white noise signal using a feedforward controller.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Nelson, P. A. and Elliott, S. J., 1992. Active Control of Sound. Academic, London.</dd>
+<dd>Elliott, S. J., 2001. Signal Processing for Active Control. Academic Press.</dd>
+<dd>Kuo, S. M., and Morgan, D. R., 1996. Active noise control systems. John Wiley &amp; Sons, Inc.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Those references are good books that explain all this methods deeply. — Alejandroff 02:22, 5 November 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="More_on_phase_versus_polarity" id="More_on_phase_versus_polarity"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/t/Talk%7EActive_noise_control_5276.html" title="Edit section: More on phase versus polarity">edit</a>]</span> <span class="mw-headline">More on phase versus polarity</span></h3>
+<p>I've just removed the several comments in the article that incorrectly stated that the antinoise signal was <b>not</b> a phase-reversed version of the noise. I suspect the problem was that these statements were phrased too simply to be meaningful, but it's easily shown using the <a href="../../../f/o/u/Fourier_transform.html" title="Fourier transform">Fourier transform</a> that, for those frequency bands where noise cancellation <b>is</b> taking place, the various frequency components of (that is, the multiple sine waves that constitute) the antinoise signal <b>are most definitely</b> phase-reversed from their analagous components in the noise signal; that's why destructive interference takes place. In the time domain, the antinoise is polarity reversed. In the frequency domain, it's phase-reversed (which, for a sine wave, also happens to be polarity-reversed, frequency-by-frequency).</p>
+<p>I think this is probably too difficult to explain in the article, but if someone wants to take a crack at <a href="../../../b/b/_/WP%7EBB_678a.html" title="WP:BB">being bold</a> and explaining it, please be my guest!</p>
+<p><a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a> 12:18, 10 August 2006 (UTC)</p>
+<dl>
+<dd>There's a lot of confusion about this: <a href="http://www.moultonlabs.com/more/about_comb_filtering_phase_shift_and_polarity_reversal/P1/" class="external autonumber" title="http://www.moultonlabs.com/more/about_comb_filtering_phase_shift_and_polarity_reversal/P1/" rel="nofollow">[8]</a> <a href="http://www.rane.com/par-p.html#polarity" class="external autonumber" title="http://www.rane.com/par-p.html#polarity" rel="nofollow">[9]</a> <a href="http://groups.google.com/group/rec.audio.tech/browse_frm/thread/4bb7b281fb1545eb?hl=en&amp;" class="external autonumber" title="http://groups.google.com/group/rec.audio.tech/browse_frm/thread/4bb7b281fb1545eb?hl=en&amp;" rel="nofollow">[10]</a> <a href="http://www.prosoundweb.com/studyhall/lastudyhall/polarity_and_phase.pdf" class="external autonumber" title="http://www.prosoundweb.com/studyhall/lastudyhall/polarity_and_phase.pdf" rel="nofollow">[11]</a> <a href="http://www.sweetwater.com/expert-center/glossary/t--OutofPhase" class="external autonumber" title="http://www.sweetwater.com/expert-center/glossary/t--OutofPhase" rel="nofollow">[12]</a> — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 14:54, 10 August 2006 (UTC)</dd>
+</dl>
+<p><i>(that is, the multiple sine waves that constitute) the antinoise signal are most definitely phase-reversed from their analagous components in the noise signal</i></p>
+<dl>
+<dd>But you didn't go in and phase-shift each individual frequency component; you flipped the whole signal over.</dd>
+</dl>
+<dl>
+<dd>Such a phase shift in a real-life system would require a delay. — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 19:31, 25 August 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>No, not for pure sine waves where a polarity reversal and a 180° phase shift are functionally identical: no delay required.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a> 18:11, 27 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><i>Functionally</i> identical, but not identical. In a real-life system, a phase shift requires a delay. A phase shift of 35° and a phase shift of 180° are more closely related than a polarity flip. — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 19:24, 27 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>I'm sorry, but you're wrong. For a sine wave, the results are indistinguishable.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a> 02:22, 28 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>That's what I just said. The results are indistinguishable, but the methods used are not. — <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 03:04, 28 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Active_Noise_Controller" id="Active_Noise_Controller"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Talk%7EActive_noise_control_5276.html" title="Edit section: Active Noise Controller">edit</a>]</span> <span class="mw-headline">Active Noise Controller</span></h2>
+<p>I would like to know about the companies who can supply active noise cancellation ear defenders and also DSP based active noise controller (with adaptive algorithm or LMS- &amp; FXLMS algorithm.</p>
+<p>Thanks for your valuable reply.</p>
+<dl>
+<dd>Google would be the obvious place to start.</dd>
+</dl>
+<dl>
+<dd>By the way, you can "sign" your talk postings by including four tildes (~~~~) after your post. When you press "Save page", these will be converted into your username or IP address in a handy, Wikilinked format. A timestamp for your post will also be included.</dd>
+</dl>
+<dl>
+<dd><a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a> 14:03, 17 February 2006 (UTC)</dd>
+</dl>
+<p><a name="A_removed_description" id="A_removed_description"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Talk%7EActive_noise_control_5276.html" title="Edit section: A removed description">edit</a>]</span> <span class="mw-headline">A removed description</span></h2>
+<p>I've removed this recently-added text from the article. To me, the description farther up in this talk page is more accurate. This newer description doesn't include the simple nearly-instantaneous, band-limited feedback mechanism that is commonly used in ANC headphones.</p>
+<dl>
+<dd><i>Several different types of noise cancellation are possible. First is feedback, where a periodic signal is processed to produce a periodic signal of the opposite phase at a certain location of space, usually near an error microphone. This requires the noise signal to be periodic. Secondly is the feedfoward system, in which noise is recorded along a path between the noise and cancellation actuator(s). In a causal system, noise is recorded close to the source such that sound of an opposite phase can intercept it along a path. This system does not require the signal to be periodic.</i></dd>
+</dl>
+<dl>
+<dd><a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a> 21:35, 20 March 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Unfortunately this description is much better than the one in the article. It has the virtue of being more complete. The article concentrates overmuch on FFT based, periodic, type cancellation. Real world cancellation of impact type noise has been demonstrated, and the sstem I used was based on time history filtering, not FFTs. <a href="../../../g/r/e/User%7EGreglocock_2608.html" title="User:Greglocock">Greglocock</a> 10:18, 22 February 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Talk%7EActive_noise_control_5276.html" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p>Shouldn't this page talk about, well, applications? Like military firing ranges, high-noise industrial areas? The first part actually seems to be talking about Types. <a href="../../../b/i/h/User%7EBihal_3aa9.html" title="User:Bihal">Bihal</a> 05:45, 28 April 2006 (UTC)</p>
+<dl>
+<dd>Yes. Please <a href="../../../b/e/_/Wikipedia%7EBe_bold_in_updating_pages_1d2f.html" title="Wikipedia:Be bold in updating pages">be bold</a> and add to the article!</dd>
+</dl>
+<dl>
+<dd><a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a> 13:13, 28 April 2006 (UTC)</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/c/t/Talk%7EActive_noise_control_5276.html">http://en.wikipedia.org../../../a/c/t/Talk%7EActive_noise_control_5276.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/c/t/Active_noise_control.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/c/t/Talk%7EActive_noise_control_5276.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Active_noise_control">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 10:18, 22 February 2007 by Wikipedia user <a href="../../../g/r/e/User%7EGreglocock_2608.html" title="User:Greglocock">Greglocock</a>. Based on work by Wikipedia user(s) Alejandroff, <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a>, <a href="../../../c/h/r/User%7EChristopher_Thomas_925e.html" title="User:Christopher Thomas">Christopher Thomas</a>, <a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a> and <a href="../../../b/i/h/User%7EBihal_3aa9.html" title="User:Bihal">Bihal</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

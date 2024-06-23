@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Boltzmann distribution,ProbDistributions,ProbDistributions,1859,Benford's law,Bernoulli distribution,Beta distribution,Beta prime distribution,Binomial distribution,Boltzmann constant,Boltzmann factor" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Boltzmann distribution - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Boltzmann distribution</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <table class="infobox bordered wikitable" style="width: 325px; font-size: 95%; margin-left: 1em; margin-bottom: 0.5em;">
+<caption>Boltzmann distribution</caption>
+<tr style="text-align: center;">
+<td colspan="2">Probability mass function<br /></td>
+</tr>
+<tr style="text-align: center;">
+<td colspan="2">Cumulative distribution function<br /></td>
+</tr>
+<tr valign="top">
+<th>Parameters</th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../s/u/p/Support_%28mathematics%29.html" title="Support (mathematics)">Support</a></th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../p/r/o/Probability_mass_function.html" title="Probability mass function">Probability mass function</a> (pmf)</th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../c/u/m/Cumulative_distribution_function.html" title="Cumulative distribution function">Cumulative distribution function</a> (cdf)</th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../e/x/p/Expected_value.html" title="Expected value">Mean</a></th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../m/e/d/Median.html" title="Median">Median</a></th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../m/o/d/Mode_%28statistics%29.html" title="Mode (statistics)">Mode</a></th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../v/a/r/Variance.html" title="Variance">Variance</a></th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../s/k/e/Skewness.html" title="Skewness">Skewness</a></th>
+<td></td>
+</tr>
+<tr>
+<th>Excess <a href="../../../k/u/r/Kurtosis.html" title="Kurtosis">kurtosis</a></th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../i/n/f/Information_entropy.html" title="Information entropy">Entropy</a></th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../m/o/m/Moment-generating_function.html" title="Moment-generating function">Moment-generating function</a> (mgf)</th>
+<td></td>
+</tr>
+<tr>
+<th><a href="../../../c/h/a/Characteristic_function_%28probability_theory%29.html" title="Characteristic function (probability theory)">Characteristic function</a></th>
+<td></td>
+</tr>
+</table>
+<p>In <a href="../../../p/h/y/Physics.html" title="Physics">physics</a>, the <b>Boltzmann distribution</b> predicts the <a href="../../../d/i/s/Distribution_function.html" title="Distribution function">distribution function</a> for the fractional number of particles <i>N</i><sub><i>i</i></sub>&#160;/&#160;<i>N</i> occupying a set of states <i>i</i> which each has energy <i>E<sub>i</sub></i>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/7/b/77b02b2fe8503cdd60f4c1cfe82ea60b.png" alt="{{N_i}\over{N}} = {{g_i e^{-E_i/k_BT}}\over{Z(T)}}" /></dd>
+</dl>
+<p>where <span class="texhtml"><i>k</i><sub><i>B</i></sub></span> is the <a href="../../../b/o/l/Boltzmann_constant.html" title="Boltzmann constant">Boltzmann constant</a>, <i>T</i> is temperature (assumed to be a sharply well-defined quantity), <span class="texhtml"><i>g</i><sub><i>i</i></sub></span> is the degeneracy, or number of states having energy <span class="texhtml"><i>E</i><sub><i>i</i></sub></span>, <i>N</i> is the total number of particles:</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/8/9/689e2b02bbb7de2a8afe3d80c2081614.png" alt="N=\sum_i N_i\," /></dd>
+</dl>
+<p>and <i>Z</i>(<i>T</i>) is called the <a href="../../../p/a/r/Partition_function.html" title="Partition function">partition function</a>, which can be seen to be equal to</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/a/4/1a403ee0f9f2e094b47d04b9ba9dbed4.png" alt="Z(T)=\sum_i g_i e^{-E_i/k_BT}." /></dd>
+</dl>
+<p>Alternatively, for a single system at a well-defined temperature, it gives the probability that the system is in the specified state. The Boltzmann distribution applies only to particles at a high enough temperature and low enough density that quantum effects can be ignored, and the particles are obeying <a href="../../../m/a/x/Maxwell%E2%80%93Boltzmann_statistics_8856.html" title="Maxwell–Boltzmann statistics">Maxwell–Boltzmann statistics</a>. (See that article for a derivation of the Boltzmann distribution.)</p>
+<p>The Boltzmann distribution is often expressed in terms of β = 1/<i>kT</i> where β is referred to as <a href="../../../t/h/e/Thermodynamic_beta.html" title="Thermodynamic beta">thermodynamic beta</a>. The term exp(−β<i>E</i><sub><i>i</i></sub>) or exp(−<i>E</i><sub><i>i</i></sub>/<i>kT</i>), which gives the (unnormalised) relative probability of a state, is called the <a href="../../../b/o/l/Boltzmann_factor.html" title="Boltzmann factor">Boltzmann factor</a> and appears often in the study of physics and chemistry.</p>
+<p>When the energy is simply the kinetic energy of the particle</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/f/1/0f17102a4d75f54ad2bedefd59a846fe.png" alt="E_i = {\begin{matrix} \frac{1}{2} \end{matrix}} mv^{2}," /></dd>
+</dl>
+<p>then the distribution correctly gives the <a href="../../../m/a/x/Maxwell%E2%80%93Boltzmann_distribution_8dc7.html" title="Maxwell–Boltzmann distribution">Maxwell–Boltzmann distribution</a> of gas molecule speeds, previously predicted by <a href="../../../j/a/m/James_Clerk_Maxwell_e091.html" title="James Clerk Maxwell">Maxwell</a> in <a href="../../../1/8/5/1859.html" title="1859">1859</a>. The Boltzmann distribution is, however, much more general. For example, it also predicts the variation of the particle density in a gravitational field with height, if <img class='tex' src="../../../math/f/6/b/f6b4e43e8a2c508168207b3d95000e96.png" alt="E_i = {\begin{matrix} \frac{1}{2} \end{matrix}} mv^{2} + mgh" />. In fact the distribution applies whenever quantum considerations can be ignored.</p>
+<p>In some cases, a continuum approximation can be used. If there are <i>g</i>(<i>E</i>)&#160;<i>dE</i> states with energy <i>E</i> to <i>E</i>&#160;+&#160;<i>dE</i>, then the Boltzmann distribution predicts a probability distribution for the energy:</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/c/9/dc9d991385c8fade29afc7094501d337.png" alt="p(E)\,dE = {g(E) \exp({-\beta E})\over {\int g(E') \exp {(-\beta E')}}\,dE'}\, dE." /></dd>
+</dl>
+<p>Then <i>g</i>(<i>E</i>) is called the <a href="../../../d/e/n/Density_of_states.html" title="Density of states">density of states</a> if the energy spectrum is continuous.</p>
+<p>Classical particles with this energy distribution are said to obey <a href="../../../m/a/x/Maxwell%E2%80%93Boltzmann_statistics_8856.html" title="Maxwell–Boltzmann statistics">Maxwell–Boltzmann statistics</a>.</p>
+<p>In the classical limit, i.e. at large values of <i>E</i>/<i>kT</i> or at small <a href="../../../d/e/n/Density_of_states.html" title="Density of states">density of states</a>—when wave functions of particles practically do not overlap, both the <a href="../../../b/o/s/Bose%E2%80%93Einstein_9b83.html" title="Bose–Einstein">Bose–Einstein</a> or <a href="../../../f/e/r/Fermi%E2%80%93Dirac_0b01.html" title="Fermi–Dirac">Fermi–Dirac</a> distribution become the Boltzmann distribution.</p>
+<p><a name="Derivation" id="Derivation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/l/Boltzmann_distribution.html" title="Edit section: Derivation">edit</a>]</span> <span class="mw-headline">Derivation</span></h2>
+<p>See <a href="../../../m/a/x/Maxwell%E2%80%93Boltzmann_statistics_8856.html" title="Maxwell–Boltzmann statistics">Maxwell–Boltzmann statistics</a>.</p>
+<table class="wikitable" style="clear: both;" width="100%" align="center">
+<tr>
+<th rowspan="2" style="background: #ccccff;"><a href="../../../b/v/n/Image%7EBvn-small.png_f054.html" class="image" title="Image:Bvn-small.png"><img src="../../../upload/shared/0/08/Bvn-small.png" alt="Image:Bvn-small.png" width="109" height="58" longdesc="../../../b/v/n/Image%7EBvn-small.png_f054.html" /></a></th>
+<th colspan="2" style="background: #ccccff; padding-right: 80px; font-size: 120%;"><a href="../../../p/r/o/Probability_distribution.html" title="Probability distribution">Probability distributions</a> [&#160;<span class="noprint plainlinksneverexpand" style="white-space:nowrap; font-weight:normal; font-size:xx-small;"><a href="../../../p/r/o/Template%7EProbDistributions_7213.html" title="Template:ProbDistributions"><span title="View this template">view</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="../../../p/r/o/Template_talk%7EProbDistributions_96c2.html" title="Template talk:ProbDistributions"><span title="Discussion about this template">talk</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org../../../p/r/o/Template%7EProbDistributions_7213.html" class="external text" title="http://en.wikipedia.org../../../p/r/o/Template%7EProbDistributions_7213.html" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">edit</span></a></span>&#160;]</th>
+</tr>
+<tr>
+<th style="background: #ccccff;">Univariate</th>
+<th style="background: #ccccff;"><a href="../../../m/u/l/Multivariate_random_variable.html" title="Multivariate random variable">Multivariate</a></th>
+</tr>
+<tr>
+<th style="background: #ccccff;"><b><a href="../../../s/t/a/Statistical_distribution.html#Discrete_distributions" title="Statistical distribution">Discrete</a>:</b></th>
+<td style="font-size: 90%;"><a href="../../../b/e/n/Benford%27s_law.html" title="Benford's law">Benford</a> • <a href="../../../b/e/r/Bernoulli_distribution.html" title="Bernoulli distribution">Bernoulli</a> • <a href="../../../b/i/n/Binomial_distribution.html" title="Binomial distribution">binomial</a> • <strong class="selflink">Boltzmann</strong> • <a href="../../../c/a/t/Categorical_distribution.html" title="Categorical distribution">categorical</a> • <a href="../../../c/o/m/Compound_Poisson_distribution_eed4.html" title="Compound Poisson distribution">compound Poisson</a> • <a href="../../../d/e/g/Degenerate_distribution.html" title="Degenerate distribution">degenerate</a> • <a href="../../../g/a/u/Gauss-Kuzmin_distribution_7735.html" title="Gauss-Kuzmin distribution">Gauss-Kuzmin</a> • <a href="../../../g/e/o/Geometric_distribution.html" title="Geometric distribution">geometric</a> • <a href="../../../h/y/p/Hypergeometric_distribution.html" title="Hypergeometric distribution">hypergeometric</a> • <a href="../../../l/o/g/Logarithmic_distribution.html" title="Logarithmic distribution">logarithmic</a> • <a href="../../../n/e/g/Negative_binomial_distribution.html" title="Negative binomial distribution">negative binomial</a> • <a href="../../../p/a/r/Parabolic_fractal_distribution.html" title="Parabolic fractal distribution">parabolic fractal</a> • <a href="../../../p/o/i/Poisson_distribution.html" title="Poisson distribution">Poisson</a> • <a href="../../../r/a/d/Rademacher_distribution.html" title="Rademacher distribution">Rademacher</a> • <a href="../../../s/k/e/Skellam_distribution.html" title="Skellam distribution">Skellam</a> • <a href="../../../u/n/i/Uniform_distribution_%28discrete%29.html" title="Uniform distribution (discrete)">uniform</a> • <a href="../../../y/u/l/Yule-Simon_distribution_f540.html" title="Yule-Simon distribution">Yule-Simon</a> • <a href="../../../z/e/t/Zeta_distribution.html" title="Zeta distribution">zeta</a> • <a href="../../../z/i/p/Zipf%27s_law.html" title="Zipf's law">Zipf</a> • <a href="../../../z/i/p/Zipf-Mandelbrot_law_d0fb.html" title="Zipf-Mandelbrot law">Zipf-Mandelbrot</a></td>
+<td style="font-size: 90%;"><a href="../../../e/w/e/Ewens%27s_sampling_formula.html" title="Ewens's sampling formula">Ewens</a> • <a href="../../../m/u/l/Multinomial_distribution.html" title="Multinomial distribution">multinomial</a> • <a href="../../../m/u/l/Multivariate_Polya_distribution_4c69.html" title="Multivariate Polya distribution">multivariate Polya</a></td>
+</tr>
+<tr>
+<th style="background: #ccccff;"><b><a href="../../../s/t/a/Statistical_distribution.html#Continuous_distributions" title="Statistical distribution">Continuous</a>:</b></th>
+<td style="font-size: 90%;"><a href="../../../b/e/t/Beta_distribution.html" title="Beta distribution">Beta</a> • <a href="../../../b/e/t/Beta_prime_distribution.html" title="Beta prime distribution">Beta prime</a> • <a href="../../../c/a/u/Cauchy_distribution.html" title="Cauchy distribution">Cauchy</a> • <a href="../../../c/h/i/Chi-square_distribution.html" title="Chi-square distribution">chi-square</a> • <a href="../../../d/i/r/Dirac_delta_function.html" title="Dirac delta function">Dirac delta function</a> • <a href="../../../e/r/l/Erlang_distribution.html" title="Erlang distribution">Erlang</a> • <a href="../../../e/x/p/Exponential_distribution.html" title="Exponential distribution">exponential</a> • <a href="../../../e/x/p/Exponential_power_distribution.html" title="Exponential power distribution">exponential power</a> • <a href="../../../f/-/d/F-distribution.html" title="F-distribution">F</a> • <a href="../../../f/a/d/Fading_distribution.html" title="Fading distribution">fading</a> • <a href="../../../f/i/s/Fisher%27s_z-distribution.html" title="Fisher's z-distribution">Fisher's z</a> • <a href="../../../f/i/s/Fisher-Tippett_distribution_ebeb.html" title="Fisher-Tippett distribution">Fisher-Tippett</a> • <a href="../../../g/a/m/Gamma_distribution.html" title="Gamma distribution">Gamma</a> • <a href="../../../g/e/n/Generalized_extreme_value_distribution.html" title="Generalized extreme value distribution">generalized extreme value</a> • <a href="../../../g/e/n/Generalised_hyperbolic_distribution.html" title="Generalised hyperbolic distribution">generalized hyperbolic</a> • <a href="../../../g/e/n/Generalized_inverse_Gaussian_distribution_43f7.html" title="Generalized inverse Gaussian distribution">generalized inverse Gaussian</a> • <a href="../../../h/a/l/Half-logistic_distribution.html" title="Half-logistic distribution">Half-Logistic</a> • <a href="../../../h/o/t/Hotelling%27s_T-square_distribution_36b9.html" title="Hotelling's T-square distribution">Hotelling's T-square</a> • <a href="../../../h/y/p/Hyperbolic_secant_distribution.html" title="Hyperbolic secant distribution">hyperbolic secant</a> • <a href="../../../h/y/p/Hyper-exponential_distribution.html" title="Hyper-exponential distribution">hyper-exponential</a> • <a href="../../../h/y/p/Hypoexponential_distribution.html" title="Hypoexponential distribution">hypoexponential</a> • <a href="../../../i/n/v/Inverse-chi-square_distribution.html" title="Inverse-chi-square distribution">inverse chi-square</a> • <a href="../../../i/n/v/Inverse_Gaussian_distribution_6d5f.html" title="Inverse Gaussian distribution">inverse Gaussian</a> • <a href="../../../i/n/v/Inverse-gamma_distribution.html" title="Inverse-gamma distribution">inverse gamma</a> • <a href="../../../k/u/m/Kumaraswamy_distribution.html" title="Kumaraswamy distribution">Kumaraswamy</a> • <a href="../../../l/a/n/Landau_distribution.html" title="Landau distribution">Landau</a> • <a href="../../../l/a/p/Laplace_distribution.html" title="Laplace distribution">Laplace</a> • <a href="../../../l/%C3%A9/v/L%C3%A9vy_distribution.html" title="Lévy distribution">Lévy</a> • <a href="../../../l/e/v/Levy_skew_alpha-stable_distribution.html" title="Levy skew alpha-stable distribution">Lévy skew alpha-stable</a> • <a href="../../../l/o/g/Logistic_distribution.html" title="Logistic distribution">logistic</a> • <a href="../../../l/o/g/Log-normal_distribution.html" title="Log-normal distribution">log-normal</a> • <a href="../../../m/a/x/Maxwell-Boltzmann_distribution_9acc.html" title="Maxwell-Boltzmann distribution">Maxwell-Boltzmann</a> • <a href="../../../m/a/x/Maxwell_Speed_Distribution_3bc5.html" title="Maxwell Speed Distribution">Maxwell speed</a> • <a href="../../../n/o/r/Normal_distribution.html" title="Normal distribution">normal (Gaussian)</a> • <a href="../../../n/o/r/Normal-inverse_Gaussian_distribution_f0cb.html" title="Normal-inverse Gaussian distribution">normal inverse Gaussian</a> • <a href="../../../p/a/r/Pareto_distribution.html" title="Pareto distribution">Pareto</a> • <a href="../../../p/e/a/Pearson_distribution.html" title="Pearson distribution">Pearson</a> • <a href="../../../p/o/l/Polar_distribution.html" title="Polar distribution">polar</a> • <a href="../../../r/a/i/Raised_cosine_distribution.html" title="Raised cosine distribution">raised cosine</a> • <a href="../../../r/a/y/Rayleigh_distribution.html" title="Rayleigh distribution">Rayleigh</a> • <a href="../../../r/e/l/Relativistic_Breit-Wigner_distribution_0cf4.html" title="Relativistic Breit-Wigner distribution">relativistic Breit-Wigner</a> • <a href="../../../r/i/c/Rice_distribution.html" title="Rice distribution">Rice</a> • <a href="../../../s/h/i/Shifted_Gompertz_Distribution_cc38.html" title="Shifted Gompertz Distribution">shifted Gompertz</a> • <a href="../../../s/t/u/Student%27s_t-distribution.html" title="Student's t-distribution">Student's t</a> • <a href="../../../t/r/i/Triangular_distribution.html" title="Triangular distribution">triangular</a> • <a href="../../../t/y/p/Type-1_Gumbel_distribution_e0d8.html" title="Type-1 Gumbel distribution">type-1 Gumbel</a> • <a href="../../../t/y/p/Type-2_Gumbel_distribution_c007.html" title="Type-2 Gumbel distribution">type-2 Gumbel</a> • <a href="../../../u/n/i/Uniform_distribution_%28continuous%29.html" title="Uniform distribution (continuous)">uniform</a> • <a href="../../../v/a/r/Variance-gamma_distribution.html" title="Variance-gamma distribution">Variance-Gamma</a> • <a href="../../../v/o/i/Voigt_profile.html" title="Voigt profile">Voigt</a> • <a href="../../../v/o/n/Von_Mises_distribution_6417.html" title="Von Mises distribution">von Mises</a> • <a href="../../../w/e/i/Weibull_distribution.html" title="Weibull distribution">Weibull</a> • <a href="../../../w/i/g/Wigner_semicircle_distribution.html" title="Wigner semicircle distribution">Wigner semicircle</a> • <a href="../../../w/i/l/Wilks%27_lambda_distribution.html" title="Wilks' lambda distribution">Wilks' lambda</a></td>
+<td style="font-size: 90%;"><a href="../../../d/i/r/Dirichlet_distribution.html" title="Dirichlet distribution">Dirichlet</a> • <a href="../../../k/e/n/Kent_distribution.html" title="Kent distribution">Kent</a> • <a href="../../../m/a/t/Matrix_normal_distribution.html" title="Matrix normal distribution">matrix normal</a> • <a href="../../../m/u/l/Multivariate_normal_distribution.html" title="Multivariate normal distribution">multivariate normal</a> • <a href="../../../m/u/l/Multivariate_Student_Distribution_3a46.html" title="Multivariate Student Distribution">multivariate Student</a> • <a href="../../../v/o/n/Von_Mises-Fisher_distribution_bb5f.html" title="Von Mises-Fisher distribution">von Mises-Fisher</a> • <a href="../../../w/i/g/Wigner_quasi-probability_distribution.html" title="Wigner quasi-probability distribution">Wigner quasi</a> • <a href="../../../w/i/s/Wishart_distribution.html" title="Wishart distribution">Wishart</a></td>
+</tr>
+<tr>
+<th style="background: #ccccff"><b><a href="../../../s/t/a/Statistical_distribution.html#Miscellaneous_distributions" title="Statistical distribution">Miscellaneous</a>:</b></th>
+<td style="font-size: 90%;" colspan="2"><a href="../../../c/a/n/Cantor_distribution.html" title="Cantor distribution">Cantor</a> • <a href="../../../c/o/n/Conditional_probability.html" title="Conditional probability">conditional</a> • <a href="../../../e/x/p/Exponential_family.html" title="Exponential family">exponential family</a> • <a href="../../../i/n/f/Infinite_divisibility.html#Infinite_divisibility_in_probability_distributions" title="Infinite divisibility">infinitely divisible</a> • <a href="../../../l/o/c/Location-scale_family.html" title="Location-scale family">location-scale family</a> • <a href="../../../m/a/r/Marginal_distribution.html" title="Marginal distribution">marginal</a> • <a href="../../../m/a/x/Maximum_entropy_probability_distribution.html" title="Maximum entropy probability distribution">maximum entropy</a> • <a href="../../../p/h/a/Phase-type_distribution.html" title="Phase-type distribution">phase-type</a> • <a href="../../../p/o/s/Posterior_probability.html" title="Posterior probability">posterior</a> • <a href="../../../p/r/i/Prior_probability.html" title="Prior probability">prior</a> • <a href="../../../q/u/a/Quasi-probability_distributions.html" title="Quasi-probability distributions">quasi</a> • <a href="../../../s/a/m/Sampling_distribution.html" title="Sampling distribution">sampling</a> • <a href="../../../s/i/n/Singular_distribution.html" title="Singular distribution">singular</a></td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 9988 bytes
+Post-expand include size: 8264 bytes
+Template argument size: 321 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/l/Boltzmann_distribution.html">http://en.wikipedia.org../../../b/o/l/Boltzmann_distribution.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../p/a/r/Category%7EParticle_statistics_ed27.html" title="Category:Particle statistics">Particle statistics</a></span> | <span dir='ltr'><a href="../../../s/t/a/Category%7EStatistical_mechanics_ff20.html" title="Category:Statistical mechanics">Statistical mechanics</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/l/Boltzmann_distribution.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/o/l/Talk%7EBoltzmann_distribution_e290.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Boltzmann_distribution">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/o/l/Boltzmann-Statistik_eea8.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/d/i/s/Distribuci%C3%B3n_de_Boltzmann_d6eb.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/d/i/s/Distribuzione_di_Boltzmann_f61d.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%94/%D7%AA/%D7%A4/%D7%94%D7%AA%D7%A4%D7%9C%D7%92%D7%95%D7%AA_%D7%91%D7%95%D7%9C%D7%A6%D7%9E%D7%9F.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/r/o/z/Rozk%C5%82ad_Boltzmanna_c409.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sk/b/o/l/Boltzmannova_rovnica.html">Slovenčina</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:32, 19 March 2007 by Wikipedia user Geepster. Based on work by Wikipedia user(s) <a href="../../../a/4/b/User%7EA4bot_20ff.html" title="User:A4bot">A4bot</a>, <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a>, <a href="../../../t/h/e/User%7EThedeejay_53dc.html" title="User:Thedeejay">Thedeejay</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../e/r/a/User%7EEranb_e68b.html" title="User:Eranb">Eranb</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../m/c/t/User%7EMct_mht_d584.html" title="User:Mct mht">Mct mht</a>, <a href="../../../o/d/_/User%7EOd_Mishehu_bdc0.html" title="User:Od Mishehu">Od Mishehu</a>, <a href="../../../b/t/y/User%7EBtyner_9437.html" title="User:Btyner">Btyner</a>, Lostart, <a href="../../../e/n/o/User%7EEnormousdude_2bbe.html" title="User:Enormousdude">Enormousdude</a>, <a href="../../../i/s/o/User%7EIsopropyl_2165.html" title="User:Isopropyl">Isopropyl</a>, <a href="../../../j/h/e/User%7EJheald_bb56.html" title="User:Jheald">Jheald</a>, <a href="../../../s/a/l/User%7ESalix_alba_9f89.html" title="User:Salix alba">Salix alba</a>, <a href="../../../s/t/e/User%7EStepa_5c07.html" title="User:Stepa">Stepa</a> and <a href="../../../p/a/r/User%7EPAR_bf60.html" title="User:PAR">PAR</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

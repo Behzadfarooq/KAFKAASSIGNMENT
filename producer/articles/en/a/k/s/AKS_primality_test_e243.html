@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="AKS primality test,2002,Algorithm,August 6,Big O notation,Binomial theorem,Carl Pomerance,Composite number,Euler's totient function,Fermat's little theorem,Finite field" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>AKS primality test - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">AKS primality test</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>The <b>AKS primality test</b> (also known as <b>Agrawal-Kayal-Saxena primality test</b> and <b>cyclotomic AKS test</b>) is a deterministic <a href="../../../p/r/i/Primality_test.html" title="Primality test">primality-proving</a> <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a> created and published by three <a href="../../../i/n/d/Indian_Institute_of_Technology_Kanpur_6d27.html" title="Indian Institute of Technology Kanpur">Indian Institute of Technology Kanpur</a> scientists, <a href="../../../m/a/n/Manindra_Agrawal_adac.html" title="Manindra Agrawal">Manindra Agrawal</a>, <a href="../../../n/e/e/Neeraj_Kayal_b313.html" title="Neeraj Kayal">Neeraj Kayal</a>, and <a href="../../../n/i/t/Nitin_Saxena_fcc0.html" title="Nitin Saxena">Nitin Saxena</a> on <a href="../../../a/u/g/August_6.html" title="August 6">August 6</a>, <a href="../../../2/0/0/2002.html" title="2002">2002</a> in a paper titled <i>PRIMES is in P</i>.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> The authors received the 2006 <a href="../../../g/%C3%B6/d/G%C3%B6del_Prize_9bf0.html" title="Gödel Prize">Gödel Prize</a> for this work.</p>
+<p>The algorithm, which was soon improved by others, determines whether a number is <a href="../../../p/r/i/Prime_number.html" title="Prime number">prime</a> or <a href="../../../c/o/m/Composite_number.html" title="Composite number">composite</a> and runs in <a href="../../../p/o/l/Polynomial_time.html" title="Polynomial time">polynomial time</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Importance"><span class="tocnumber">1</span> <span class="toctext">Importance</span></a></li>
+<li class="toclevel-1"><a href="#Basis_of_the_test"><span class="tocnumber">2</span> <span class="toctext">Basis of the test</span></a></li>
+<li class="toclevel-1"><a href="#AKS_Updated"><span class="tocnumber">3</span> <span class="toctext">AKS Updated</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Importance" id="Importance"></a></p>
+<h2><span class="editsection">[<a href="../../../a/k/s/AKS_primality_test_e243.html" title="Edit section: Importance">edit</a>]</span> <span class="mw-headline">Importance</span></h2>
+<p>The key significance of AKS is that it was the first published primality-proving algorithm to be simultaneously <i>polynomial</i>, <i>deterministic</i>, and <i>unconditional</i>. That is, the maximum running time of the algorithm can be expressed as a <a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomial</a> over the number of digits in the target number; it guarantees to distinguish whether the target number is prime or composite (rather than returning a probabilistic result); and its correctness is not conditional on the correctness of any subsidiary unproven <a href="../../../h/y/p/Hypothesis.html" title="Hypothesis">hypothesis</a> (such as the <a href="../../../r/i/e/Riemann_hypothesis.html" title="Riemann hypothesis">Riemann hypothesis</a>).</p>
+<p><a name="Basis_of_the_test" id="Basis_of_the_test"></a></p>
+<h2><span class="editsection">[<a href="../../../a/k/s/AKS_primality_test_e243.html" title="Edit section: Basis of the test">edit</a>]</span> <span class="mw-headline">Basis of the test</span></h2>
+<p>The AKS primality test is based upon the equivalence</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/3/7/637a8b6e6ca2d9591b4a1e95aa5bc386.png" alt="(x - a)^{n} \equiv (x^{n} - a) \pmod{n}" /></dd>
+</dl>
+<p>which is true if and only if <i>n</i> is prime. This is a generalization of <a href="../../../f/e/r/Fermat%27s_little_theorem.html" title="Fermat's little theorem">Fermat's little theorem</a> extended to polynomials and can be easily proven using the <a href="../../../b/i/n/Binomial_theorem.html" title="Binomial theorem">binomial theorem</a> together with the fact that&#160;:<img class='tex' src="../../../math/2/a/d/2add8c8d673f92fc6c148f36e1fb8a74.png" alt="{n \choose k} \equiv 0 \pmod{n}" /> for all 0 &lt; <i>k</i> &lt; <i>n</i> if <i>n</i> is prime. While this inequality constitutes a primality test in itself, verifying it takes exponential time. Therefore AKS makes use of a related equivalence</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/1/b/71b9d2870a957df64e60c8ff9db5cd89.png" alt="(x - a)^{n} \equiv (x^{n} - a) \pmod{n, x^{r} - 1}" /></dd>
+</dl>
+<p>which can be checked in polynomial time. However while all primes satisfy this equivalence some composites do as well. The proof of correctness for AKS consists of showing that there exists a suitably small <i>r</i> and suitably small set of integers <i>A</i> such that if the equivalence holds for all such <i>a</i> in <i>A</i> then <i>n</i> must be prime.</p>
+<p>The algorithm to test the primality of some integer <i>n</i> consists of two parts. The first step revolves around finding a suitable prime <span class="texhtml"><i>r</i> = <i>k</i><i>q</i> + 1</span>, such that:</p>
+<ul>
+<li><span class="texhtml"><i>P</i>(<i>r</i> − 1) = <i>q</i></span> where <span class="texhtml"><i>P</i>(<i>x</i>)</span> is the greatest prime factor of <span class="texhtml"><i>x</i></span>,</li>
+<li><img class='tex' src="../../../math/1/1/6/116fb6e908fbfdecedcf7ffcd4714150.png" alt="q \ge 4 \sqrt{r} \log_{2}(n)," /></li>
+<li><img class='tex' src="../../../math/e/6/a/e6a7b4fdc3e4baf64c352fd667ad1018.png" alt="n^k \not\equiv 1 \pmod{r}." /></li>
+</ul>
+<p>During this step, it is important to confirm that <i>n</i> is not divisible by any prime <img class='tex' src="../../../math/6/2/e/62ef598d80883343f8ea4e0a294e2645.png" alt="p \le r" />; if it is divisible, the algorithm can terminate immediately to report that <i>n</i> is composite.</p>
+<p>In the second step, a number of tests are done in the <a href="../../../f/i/n/Finite_field.html" title="Finite field">finite field</a> <span class="texhtml"><i>G</i><i>F</i>(<i>n</i><sup><i>r</i></sup>)</span>, in each case testing the equivalence of two <a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomials</a> within the field: if</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/1/b/71b9d2870a957df64e60c8ff9db5cd89.png" alt="(x - a)^{n} \equiv (x^{n} - a) \pmod{n, x^{r} - 1}" /></dd>
+</dl>
+<p>for all positive integers <i>a</i> with</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/e/1/1e18d5b46f6cc811374b6eb0afd6738f.png" alt="a \le 2 \sqrt{r} \log_{2}(n)," /></dd>
+</dl>
+<p>then <i>n</i> is guaranteed prime. In all other cases it is composite.</p>
+<p>As with any such algorithm, the paper concerned itself with establishing two facts: proving that the algorithm was correct, and establishing its asymptotic time complexity. This was achieved by proving two key facts, first by showing that an appropriate <i>r</i> can always be found and establishing an upper bound on its magnitude, and second by showing that the multiple equalities tested in the second part of the algorithm are sufficient to guarantee whether <i>n</i> is prime or composite.</p>
+<p>Since the running time of both parts of the algorithm is entirely dependent on the magnitude of <i>r</i>, proving an upper bound on <i>r</i> was sufficient to show that the asymptotic time complexity of the algorithm is <a href="../../../b/i/g/Big_O_notation_de3e.html" title="Big O notation">O</a><span class="texhtml">(log<sup>12 + ε</sup>(<i>n</i>))</span>, where ε is a small number. In other words, the algorithm takes less time than a constant times the twelfth (plus ε) power of the number of digits in <i>n</i>.</p>
+<p>However the upper bound proven in the paper is quite loose; indeed, a widely held conjecture about the distribution of the <a href="../../../s/o/p/Sophie_Germain_prime_f11c.html" title="Sophie Germain prime">Sophie Germain primes</a> would, if true, immediately cut the worst case down to O<span class="texhtml">(log<sup>6 + ε</sup>(<i>n</i>))</span>.</p>
+<p>In the following months after the discovery new variants appeared <i>(Lenstra 2002, Pomerance 2002, Berrizbeitia 2003, Cheng 2003, Bernstein 2003a/b, Lenstra and Pomerance 2003)</i> which improved AKS' speed by orders of magnitude. Due to the existence of the many variants, Crandall and Papadopoulos refer to the "AKS-class" of algorithms in their scientific paper "On the implementation of AKS-class primality tests" published in March 2003.</p>
+<p><a name="AKS_Updated" id="AKS_Updated"></a></p>
+<h2><span class="editsection">[<a href="../../../a/k/s/AKS_primality_test_e243.html" title="Edit section: AKS Updated">edit</a>]</span> <span class="mw-headline">AKS Updated</span></h2>
+<p>In response to some of these variants and other feedback the paper "PRIMES is in P" was republished with a new formulation of the AKS algorithm and its proof of correctness. While the basic idea remained the same, <i>r</i> was chosen in a new manner and the proof of correctness was more coherently organized. While the previous proof relied on many different methods the new version relied almost exclusively on the behavior of cyclotomic polynomials over <a href="../../../f/i/n/Finite_fields.html" title="Finite fields">finite fields</a>.</p>
+<p>Again the AKS algorithm consists of two parts, and the first step is to find a suitable <i>r</i>; however, in the new version <i>r</i> is the smallest number such that: <span class="texhtml"><i>o</i><sub><i>r</i></sub>(<i>n</i>) &gt; log<sup>2</sup><i>n</i>,</span></p>
+<p>In the second step the equivalence is again tested</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/1/b/71b9d2870a957df64e60c8ff9db5cd89.png" alt="(x - a)^{n} \equiv (x^{n} - a) \pmod{n, x^{r} - 1}" /></dd>
+</dl>
+<p>this time for all positive integers less than <img class='tex' src="../../../math/f/0/6/f062cb09d39391735aa10993027562cf.png" alt="\sqrt{\phi(r)} \log_{2}(n)" /> where <span class="texhtml">φ(<i>r</i>)</span> is <a href="../../../e/u/l/Euler%27s_totient_function.html" title="Euler's totient function">Euler's totient function</a> of <i>r</i></p>
+<p>These changes improved the flow of the proof of correctness. It also allowed for an improved bound on the time complexity which is now <a href="../../../b/i/g/Big_O_notation_de3e.html" title="Big O notation">O</a><span class="texhtml">(log<sup>10.5</sup><i>n</i>)</span>.</p>
+<p><a href="../../../h/e/n/Hendrik_Lenstra_e509.html" title="Hendrik Lenstra">Lenstra</a> and <a href="../../../c/a/r/Carl_Pomerance_1095.html" title="Carl Pomerance">Pomerance</a> show<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup> how to choose polynomials in the test such that a time bound of <a href="../../../b/i/g/Big_O_notation_de3e.html" title="Big O notation">Õ</a><span class="texhtml">(log<sup>6</sup><i>n</i>)</span> is achieved.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/k/s/AKS_primality_test_e243.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Manindra Agrawal, Neeraj Kayal, Nitin Saxena, "<a href="http://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf" class="external text" title="http://www.cse.iitk.ac.in/users/manindra/algebra/primality_v6.pdf" rel="nofollow">PRIMES is in P</a>", <i>Annals of Mathematics</i> 160 (2004), no. 2, pp. 781–793.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> H. W. Lenstra, Jr. and Carl Pomerance, "<a href="http://www.math.dartmouth.edu/~carlp/PDF/complexity12.pdf" class="external text" title="http://www.math.dartmouth.edu/~carlp/PDF/complexity12.pdf" rel="nofollow">Primality Testing with Gaussian Periods</a>", preliminary version July 20, 2005.</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/k/s/AKS_primality_test_e243.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li>Eric W. Weisstein, <i><a href="http://mathworld.wolfram.com/AKSPrimalityTest.html" class="external text" title="http://mathworld.wolfram.com/AKSPrimalityTest.html" rel="nofollow">AKS Primality Test</a></i> at <a href="../../../m/a/t/MathWorld_3918.html" title="MathWorld">MathWorld</a>.</li>
+<li><a href="http://developer.apple.com/hardware/ve/pdf/aks3.pdf" class="external text" title="http://developer.apple.com/hardware/ve/pdf/aks3.pdf" rel="nofollow">R. Crandall, Apple ACG, and J. Papadopoulos (March 18, 2003): On the implementation of AKS-class primality tests</a> (PDF)</li>
+<li><a href="http://www.ams.org/notices/200305/fea-bornemann.pdf" class="external text" title="http://www.ams.org/notices/200305/fea-bornemann.pdf" rel="nofollow">Article by Borneman, containing photos and information about the three Indian scientists</a> (PDF)</li>
+<li><a href="http://www.ams.org/bull/2005-42-01/S0273-0979-04-01037-7/home.html" class="external text" title="http://www.ams.org/bull/2005-42-01/S0273-0979-04-01037-7/home.html" rel="nofollow">Andrew Granville: It is easy to determine whether a given integer is prime</a></li>
+<li><a href="http://www.scottaaronson.com/writings/prime.pdf" class="external text" title="http://www.scottaaronson.com/writings/prime.pdf" rel="nofollow">The Prime Facts: From Euclid to AKS, by Scott Aaronson</a> (PDF)</li>
+<li><a href="http://web.archive.org/web/20060528185603/http://crypto.cs.mcgill.ca/~stiglic/PRIMES_P_FAQ.html" class="external text" title="http://web.archive.org/web/20060528185603/http://crypto.cs.mcgill.ca/~stiglic/PRIMES_P_FAQ.html" rel="nofollow">The "PRIMES is in P" FAQ</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/k/s/AKS_primality_test_e243.html">http://en.wikipedia.org../../../a/k/s/AKS_primality_test_e243.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../p/r/i/Category%7EPrimality_tests_d74c.html" title="Category:Primality tests">Primality tests</a></span> | <span dir='ltr'><a href="../../../f/i/n/Category%7EFinite_fields_f6ae.html" title="Category:Finite fields">Finite fields</a></span> | <span dir='ltr'><a href="../../../j/o/u/Category%7EJournal_articles_63e7.html" title="Category:Journal articles">Journal articles</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/k/s/AKS_primality_test_e243.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/k/s/Talk%7EAKS_primality_test_4b48.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/AKS_primality_test">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ar/%D8%AE/%D9%88/%D8%A7/%D8%AE%D9%88%D8%A7%D8%B1%D8%B2%D9%85%D9%8A%D8%A9_AKS_bfe6.html">العربية</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/k/s/AKS-Primzahltest_0c61.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/t/e/s/Test_de_primalit%C3%A9_AKS_067c.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/a/k/s/AKS%E7%B4%A0%E6%95%B0%E5%88%A4%E5%AE%9A%E6%B3%95_efe5.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/t/e/s/Test_pierwszo%C5%9Bci_AKS_917b.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/t/e/s/Teste_de_primalidade_AKS_5792.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../uk/a/k/s/AKS_%D1%82%D0%B5%D1%81%D1%82_%D0%BF%D1%80%D0%BE%D1%81%D1%82%D0%BE%D1%82%D0%B8_cbf3.html">Українська</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 15:37, 22 March 2007 by Wikipedia user <a href="../../../e/j/_/User%7EEJ_933d.html" title="User:EJ">EJ</a>. Based on work by Wikipedia user(s) <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../h/v/_/User%7EHv_b220.html" title="User:Hv">Hv</a>, <a href="../../../a/l/n/User%7EAlnoktaBOT_865c.html" title="User:AlnoktaBOT">AlnoktaBOT</a>, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, <a href="../../../m/e/l/User%7EMellery_d65a.html" title="User:Mellery">Mellery</a>, <a href="../../../g/r/e/User%7EGregorB_c220.html" title="User:GregorB">GregorB</a>, <a href="../../../g/o/o/User%7EGoogl_7be2.html" title="User:Googl">Googl</a>, <a href="../../../m/a/s/User%7EMasatran_353b.html" title="User:Masatran">Masatran</a>, <a href="../../../z/y/x/User%7EZyxoas_fea8.html" title="User:Zyxoas">Zyxoas</a>, Hex87, <a href="../../../i/l/y/User%7EIlya_K_2dcb.html" title="User:Ilya K">Ilya K</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, MagiMaster, <a href="../../../c/r/g/User%7ECRGreathouse_d93e.html" title="User:CRGreathouse">CRGreathouse</a>, <a href="../../../o/w/e/User%7EOwenX_7b06.html" title="User:OwenX">OwenX</a>, <a href="../../../m/a/r/User%7EMarudubshinki_b9b7.html" title="User:Marudubshinki">Marudubshinki</a>, <a href="../../../j/o/s/User%7EJoshuaZ_a034.html" title="User:JoshuaZ">JoshuaZ</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../x/i/a/User%7EXiaodai_c9f1.html" title="User:Xiaodai">Xiaodai</a>, <a href="../../../l/o/w/User%7ELowellian_970e.html" title="User:Lowellian">Lowellian</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../b/o/b/User%7EBobblewik_fbc0.html" title="User:Bobblewik">Bobblewik</a>, <a href="../../../s/a/i/User%7ESailorfromNH_c899.html" title="User:SailorfromNH">SailorfromNH</a>, <a href="../../../4/p/q/User%7E4pq1injbok.html" title="User:4pq1injbok">4pq1injbok</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, <a href="../../../p/a/d/User%7EPaddu_be1f.html" title="User:Paddu">Paddu</a>, <a href="../../../e/r/a/User%7EEramesan_871e.html" title="User:Eramesan">Eramesan</a>, <a href="../../../c/h/r/User%7EChrisG_fb9b.html" title="User:ChrisG">ChrisG</a>, Just Another Dan, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, <a href="../../../j/a/r/User%7EJaredwf_4536.html" title="User:Jaredwf">Jaredwf</a>, <a href="../../../d/e/c/User%7EDecrypt3_f1eb.html" title="User:Decrypt3">Decrypt3</a>, Sushi, <a href="../../../o/p/t/User%7EOptim_ff75.html" title="User:Optim">Optim</a>, <a href="../../../a/r/v/User%7EArvindn_6a6a.html" title="User:Arvindn">Arvindn</a> and <a href="../../../p/f/o/User%7EPfortuny_f17f.html" title="User:Pfortuny">Pfortuny</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

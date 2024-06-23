@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Actor model later history,1973,1997,Actor model,Actor model and process calculi,Actor model implementation,Actor model middle history,Arbiter (electronics),Caltech,Carl Hewitt,Computer science" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Actor model later history - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Actor model later history</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a>, the <a href="../../../a/c/t/Actor_model.html" title="Actor model">Actor model</a>, first published in <a href="../../../1/9/7/1973.html" title="1973">1973</a> <span class="reference" id="ref_Hewitt-"><a href="#endnote_Hewitt-" title="">(Hewitt et al. 1973)</a></span>, is a mathematical model of <a href="../../../c/o/n/Concurrent_computation.html" title="Concurrent computation">concurrent computation</a>. This article reports on the later history of the Actor model in which major themes were investigation of the basic power of the model, study of issues of compositionality, development of architectures, and application to Open systems. It is the follow on article to <a href="../../../a/c/t/Actor_model_middle_history.html" title="Actor model middle history">Actor model middle history</a> which reports on the initial implementations, initial applications, and development of the first proof theory and denotational model.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Power_of_the_Actor_Model"><span class="tocnumber">1</span> <span class="toctext">Power of the Actor Model</span></a></li>
+<li class="toclevel-1"><a href="#Compositionality"><span class="tocnumber">2</span> <span class="toctext">Compositionality</span></a></li>
+<li class="toclevel-1"><a href="#Open_Systems"><span class="tocnumber">3</span> <span class="toctext">Open Systems</span></a></li>
+<li class="toclevel-1"><a href="#Computer_Architectures"><span class="tocnumber">4</span> <span class="toctext">Computer Architectures</span></a></li>
+<li class="toclevel-1"><a href="#Attempts_to_relate_Actor_semantics_to_algebra_and_linear_logic"><span class="tocnumber">5</span> <span class="toctext">Attempts to relate Actor semantics to algebra and linear logic</span></a></li>
+<li class="toclevel-1"><a href="#Recent_developments"><span class="tocnumber">6</span> <span class="toctext">Recent developments</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Power_of_the_Actor_Model" id="Power_of_the_Actor_Model"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Actor_model_later_history.html" title="Edit section: Power of the Actor Model">edit</a>]</span> <span class="mw-headline">Power of the Actor Model</span></h2>
+<p>Investigations began into the basic power of the Actor model. <a href="../../../c/a/r/Carl_Hewitt_103a.html" title="Carl Hewitt">Carl Hewitt</a> [1985] argued that because of the use of <a href="../../../a/r/b/Arbiter_%28electronics%29.html" title="Arbiter (electronics)">Arbiters</a> that the Actor model was more powerful than <a href="../../../l/o/g/Logic_programming.html" title="Logic programming">logic programming</a> (see <a href="../../../i/n/d/Indeterminacy_in_concurrent_computation.html" title="Indeterminacy in concurrent computation">indeterminacy in concurrent computation</a>).</p>
+<p>A family of <a href="../../../p/r/o/Prolog.html" title="Prolog">Prolog</a>-like concurrent message passing systems using unification of shared variables and data structure streams for messages were developed by <a href="../../../k/e/i/Keith_Clark_d53a.html" title="Keith Clark">Keith Clark</a>, Hervé Gallaire, Steve Gregory, Vijay Saraswat, Udi Shapiro, Kazunori Ueda, <i>etc.</i> Some of these authors made claims that these systems were based on mathematical logic. However, like the Actor model, the Prolog-like concurrent systems were based on message passing and consequently were subject to indeterminacy in the ordering of messages in streams that was similar to the indeterminacy in arrival ordering of messages sent to Actors. Consequently Carl Hewitt and Gul Agha [1991] concluded that that the Prolog-like concurrent systems were neither deductive nor logical. They were not deductive because computational steps did not follow deductively from their predecessors and they were not logical because no system of mathematical logic was capable of deriving the facts of subsequent computational situations from their predecessors</p>
+<p><a name="Compositionality" id="Compositionality"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Actor_model_later_history.html" title="Edit section: Compositionality">edit</a>]</span> <span class="mw-headline">Compositionality</span></h2>
+<p>Compositionality concerns composing systems from subsystems. Issues of compositionality had proven to be serious limitations for previous theories of computation including the <a href="../../../l/a/m/Lambda_calculus.html" title="Lambda calculus">lambda calculus</a> and <a href="../../../p/e/t/Petri_net.html#Subsequent_models_of_concurrency" title="Petri net">Petri nets</a>. <i>E.g.,</i> two lambda expressions are not a lambda expression and two Petri nets are not a Petri net and cannot influence each other.</p>
+<p>In his doctoral dissertation Gul Agha addressed issues of compositionality in the Actor model. Actor <i>configurations</i> have <i>receptionists</i> that can receive messages from outside and may have the addresses of the receptionists of other Actor configurations. In this way two Actor configurations can be composed into another configuration whose subconfigurations can communicate with each other. Actor configurations have the advantage that they can have multiple Actors (<i>i.e.</i> the receptionists) which receive messages from outside without the disadvantage of having to poll to get messages from multiple sources (see <a href="../../../a/c/t/Actor_model_and_process_calculi.html#Issues_with_synchronous_channels" title="Actor model and process calculi">issues with getting messages from multiple channels</a>).</p>
+<p><a name="Open_Systems" id="Open_Systems"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Actor_model_later_history.html" title="Edit section: Open Systems">edit</a>]</span> <span class="mw-headline">Open Systems</span></h2>
+<p>Carl Hewitt [1985] pointed out that <a href="../../../d/i/s/Distributed_systems.html#Openness" title="Distributed systems">openness</a> was becoming a fundamental challenge in software system development. Open distributed systems are required to meet the following challenges:</p>
+<dl>
+<dt>Monotonicity</dt>
+<dd>Once something is published in an open distributed system, it cannot be taken back.</dd>
+<dt>Pluralism</dt>
+<dd>Different subsystems of an open distributed system include heterogeneous, overlapping and possibly conflicting information. There is no central arbiter of truth in open distributed systems.</dd>
+<dt>Unbounded nondeterminism</dt>
+<dd>Asynchronously, different subsystems can come up and go down and communication links can come in and go out between subsystems of an open distributed system. Therefore the time that it will take to complete an operation cannot be bounded in advance (see <a href="../../../u/n/b/Unbounded_nondeterminism.html" title="Unbounded nondeterminism">unbounded nondeterminism</a>).</dd>
+<dt>Inconsistency</dt>
+<dd>Large distributed systems are inevitably inconsistent concerning their information about the information system interactions of their human users</dd>
+</dl>
+<p>Carl Hewitt and Jeff Inman [1991] worked to develop semantics for Open Systems to address issues that had arisen in Distributed Artificial Intelligence. Carl Hewitt and Carl Manning [1994] reported on the development of Participatory Semantics for Open Systems.</p>
+<p><a name="Computer_Architectures" id="Computer_Architectures"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Actor_model_later_history.html" title="Edit section: Computer Architectures">edit</a>]</span> <span class="mw-headline">Computer Architectures</span></h2>
+<p>Researchers at <a href="../../../c/a/l/Caltech.html" title="Caltech">Caltech</a> under the leadership of Chuck Seitz developed the <a href="../../../a/c/t/Actor_model_implementation.html#Cosmic_Cube" title="Actor model implementation">Cosmic Cube</a> which was one of the first message-passing Actor architectures. Subsequently at <a href="../../../m/i/t/MIT_7abc.html" title="MIT">MIT</a> researchers under the leadership of Bill Dally developed the <a href="../../../a/c/t/Actor_model_implementation.html#J_Machine" title="Actor model implementation">J Machine</a>.</p>
+<p><a name="Attempts_to_relate_Actor_semantics_to_algebra_and_linear_logic" id="Attempts_to_relate_Actor_semantics_to_algebra_and_linear_logic"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Actor_model_later_history.html" title="Edit section: Attempts to relate Actor semantics to algebra and linear logic">edit</a>]</span> <span class="mw-headline">Attempts to relate Actor semantics to algebra and linear logic</span></h2>
+<p>[Kohei Honda and Mario Tokoro 1991], [José Meseguer 1992], [Ugo Montanari and Carolyn Talcott 1998], [M. Gaspari and G. Zavattaro 1999] have attempted to relate Actor semantics to algebra. Also [John Darlington and Y. K. Guo 1994] have attempted to relate linear logic to Actor semantics.</p>
+<p>However, none of the above formalisms addresses the crucial property of guarantee of service (see <a href="../../../u/n/b/Unbounded_nondeterminism.html" title="Unbounded nondeterminism">unbounded nondeterminism</a>).</p>
+<p><a name="Recent_developments" id="Recent_developments"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Actor_model_later_history.html" title="Edit section: Recent developments">edit</a>]</span> <span class="mw-headline">Recent developments</span></h2>
+<p>Recent developments in the Actor model have come from several sources.</p>
+<p>Hardware development is furthering both local and nonlocal massive concurrency. Local concurrency is being enabled by new hardware for 64-bit many-core microprocessors, multi-chip modules, and high performance interconnect. Nonlocal concurrency is being enabled by new hardware for wired and wireless broadband packet switched communications. Both local and nonlocal storage capacities are growing exponentially. These hardware developments pose enormous modelling challenges. Hewitt [Hewitt 2006a, 2006b] is attempting to use the Actor model to address these challenges.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/t/Actor_model_later_history.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Carl Hewitt. <b>The Challenge of Open Systems</b> Byte Magazine. April 1985. Reprinted in <i>The foundation of artificial intelligence---a sourcebook</i> Cambridge University Press. 1990.</li>
+<li><cite id="endnote_Agha-"><a href="#ref_Agha-" title=""><b><sup>-</sup></b></a></cite>&#160; Gul Agha: <b><a href="https://dspace.mit.edu/handle/1721.1/6952" class="external text" title="https://dspace.mit.edu/handle/1721.1/6952" rel="nofollow">Actors: A Model of Concurrent Computation in Distributed Systems</a></b> Doctoral Dissertation. MIT Press. 1986.</li>
+<li>Carl Manning. <b>Traveler: the actor observatory</b> ECOOP 1987. Also appears in <a href="../../../l/e/c/Lecture_Notes_in_Computer_Science_be09.html" title="Lecture Notes in Computer Science">Lecture Notes in Computer Science</a>, vol. 276.</li>
+<li>William Athas and Charles Seitz <b>Multicomputers: message-passing concurrent computers</b> IEEE Computer August 1988.</li>
+<li>William Dally and Wills, D. <b>Universal mechanisms for concurrency</b> PARLE 1989.</li>
+<li>W. Horwat, A. Chien, and W. Dally. <b>Experience with CST: Programming and Implementation</b> PLDI. 1989.</li>
+<li>Carl Hewitt. <b>Towards Open Information Systems Semantics</b> Proceedings of 10th International Workshop on Distributed Artificial Intelligence. October 23-27, 1990. Bandera, Texas.</li>
+<li>Akinori Yonezawa, Ed. <b>ABCL: An Object-Oriented Concurrent System</b> MIT Press. 1990.</li>
+<li>K. Kahn and Vijay A. Saraswat, "<a href="http://doi.acm.org/10.1145/97946.97955" class="external text" title="http://doi.acm.org/10.1145/97946.97955" rel="nofollow">Actors as a special case of concurrent constraint (logic) programming</a>", in SIGPLAN <i>Notices</i>, October 1990. Describes <a href="../../../j/a/n/Janus_computer_programming_language.html" title="Janus computer programming language">Janus</a>.</li>
+<li>Carl Hewitt. <b>Open Information Systems Semantics</b> Journal of Artificial Intelligence. January 1991.</li>
+<li>Carl Hewitt and Jeff Inman. <b>DAI Betwixt and Between: From "Intelligent Agents" to Open Systems Science</b> IEEE Transactions on Systems, Man, and Cybernetics. Nov./Dec. 1991.</li>
+<li>Carl Hewitt and Gul Agha. <b>Guarded Horn clause languages: are they deductive and Logical?</b> International Conference on Fifth Generation Computer Systems, Ohmsha 1988. Tokyo. Also in <i>Artificial Intelligence at MIT</i>, Vol. 2. MIT Press 1991.</li>
+<li>Kohei Honda and Mario Tokoro. <b>An Object Calculus for Asynchronous Communication</b> ECOOP 91.</li>
+<li>José Meseguer. <b>Conditional rewriting logic as a unified model of concurrency</b> in Selected papers of the Second Workshop on Concurrency and compositionality. 1992.</li>
+<li>William Dally, <i>et al.</i> <b>The Message-Driven Processor: A Multicomputer Processing Node with Efficient Mechanisms</b> IEEE Micro. April 1992.</li>
+<li>S. Miriyala, G. Agha, and Y.Sami. <b>Visulatizing actor programs using predicate transition nets</b> Journal of Visual Programming. 1992.</li>
+<li><cite id="endnote_AghaMasonSmithTalcott-"><a href="#ref_AghaMasonSmithTalcott-" title=""><b><sup>-</sup></b></a></cite>&#160; Gul Agha, Ian Mason, Scott Smith, and Carolyn Talcott: <b>A Foundation for Actor Computation</b>Journal of Functional Programming January 1993.</li>
+<li>Carl Hewitt and Carl Manning. <b>Negotiation Architecture for Large-Scale Crisis Management</b> AAAI-94 Workshop on Models of Conflict Management in Cooperative Problem Solving. Seattle, WA. Aug. 4, 1994.</li>
+<li><cite id="endnote_DarlingtonGuo-"><a href="#ref_DarlingtonGuo-" title=""><b><sup>-</sup></b></a></cite>&#160; John Darlington and Y. K. Guo: <b>Formalizing Actors in Linear Logic</b> International Conference on Object-Oriented Information Systems. Springer-Verlag. 1994.</li>
+<li>Carl Hewitt and Carl Manning. <b>Synthetic Infrastructures for Multi-Agency Systems</b> Proceedings of ICMAS '96. Kyoto, Japan. December 8–13, 1996.</li>
+<li>S. Frolund. <b>Coordinating Distributed Objects: An Actor-Based Approach for Synchronization</b> MIT Press. November 1996.</li>
+<li>W. Kim. <b>ThAL: An Actor System for Efficient and Scalable Concurrent Computing</b> PhD thesis. University of Illinois at Urbana Champaign. 1997.</li>
+<li><cite id="endnote_Gaspari1997-"><a href="#ref_Gaspari1997-" title=""><b><sup>-</sup></b></a></cite>&#160; Mauro Gaspari and Gianluigi Zavattaro: <b>An Algebra of Actors</b>, Technical Report UBLCS-97-4, University of Bologna, May <a href="../../../1/9/9/1997.html" title="1997">1997</a></li>
+<li>Ugo Montanari and Carolyn Talcott. <b>Can Actors and Pi-Agents Live Together?</b> Electronic Notes in Theoretical Computer Science. 1998.</li>
+<li><cite id="endnote_Gaspari1999-"><a href="#ref_Gaspari1999-" title=""><b><sup>-</sup></b></a></cite>&#160; M. Gaspari and G. Zavattaro: <b>An Algebra of Actors</b> Formal Methods for Open Object Based Systems, 1999.</li>
+<li>N. Jamali, P. Thati, and G. Agha. <b>An actor based architecture for customizing and controlling agent ensembles</b> IEEE Intelligent Systems. 14(2). 1999.</li>
+<li>P. Thati, R. Ziaei, and G. Agha. <b>A Theory of May Testing for Actors</b> Formal Methods for Open Object-based Distributed Systems. March 2002.</li>
+<li>P. Thati, R. Ziaei, and G. Agha. <b>A theory of may testing for asynchronous calculi with locality and no name matching</b> Algebraic Methodology and Software Technology. Springer Verlag. September 2002. LNCS 2422.</li>
+<li><cite id="endnote_AghaThati-"><a href="#ref_AghaThati-" title=""><b><sup>-</sup></b></a></cite>&#160; Gul Agha and Prasanna Thati. <a href="http://formal.cs.uiuc.edu/papers/ATactors_festschrift.pdf" class="external text" title="http://formal.cs.uiuc.edu/papers/ATactors_festschrift.pdf" rel="nofollow"><b>An Algebraic Theory of Actors and Its Application to a Simple Object-Based Language</b></a>, From OO to FM (Dahl Festschrift) LNCS 2635. Springer-Verlag. 2004.</li>
+<li>Carl Hewitt. <i>The repeated demise of logic programming and why it will be reincarnated</i> What Went Wrong and Why: Lessons from AI Research and Applications. Technical Report SS-06-08. AAAI Press. March 2006b.</li>
+<li>Carl Hewitt <a href="http://www.pcs.usp.br/~coin-aamas06/10_commitment-43_16pages.pdf" class="external text" title="http://www.pcs.usp.br/~coin-aamas06/10_commitment-43_16pages.pdf" rel="nofollow"><i>What is Commitment? Physical, Organizational, and Social</i></a> COIN@AAMAS. 2006a.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1614 bytes
+Post-expand include size: 699 bytes
+Template argument size: 206 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/c/t/Actor_model_later_history.html">http://en.wikipedia.org../../../a/c/t/Actor_model_later_history.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../a/c/t/Category%7EActor_model_53ff.html" title="Category:Actor model">Actor model</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/c/t/Actor_model_later_history.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/c/t/Talk%7EActor_model_later_history_46fd.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Actor_model_later_history">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 18:38, 28 March 2007 by Wikipedia user <a href="../../../2/n/d/User%7E2ndMouse_bedd.html" title="User:2ndMouse">2ndMouse</a>. Based on work by Wikipedia user(s) <a href="../../../b/e/n/User%7EBen_Standeven_9e0a.html" title="User:Ben Standeven">Ben Standeven</a>, <a href="../../../d/%C3%A9/r/User%7ED%C3%A9Rahier_b478.html" title="User:DéRahier">DéRahier</a>, <a href="../../../a/l/l/User%7EAllan_McInnes_23d1.html" title="User:Allan McInnes">Allan McInnes</a>, <a href="../../../k/o/f/User%7EKoffieyahoo_12ee.html" title="User:Koffieyahoo">Koffieyahoo</a>, <a href="../../../m/a/r/User%7EMarudubshinki_b9b7.html" title="User:Marudubshinki">Marudubshinki</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a> and CarlHewitt and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

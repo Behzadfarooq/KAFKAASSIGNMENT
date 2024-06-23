@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Binfmt misc,/etc/fstab,/proc,Bitwise AND,Emulator,Executable file format,File format,Java,Java virtual machine,Linux kernel,Majuscule" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Binfmt misc - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Binfmt misc</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div id="RealTitleBanner">
+<dl>
+<dd><span class="plainlinks selfreference"><i>The title of this article should be <b><span id="RealTitle">binfmt_misc</span></b>. The initial letter is <a href="../../../m/a/j/Majuscule.html" title="Majuscule">capitalized</a> and an <a href="../../../u/n/d/Underscore.html" title="Underscore">underscore</a> is substituted or omitted because of <a href="../../../n/a/m/Wikipedia%7ENaming_conventions_%28technical_restrictions%29_3627.html" title="Wikipedia:Naming conventions (technical restrictions)">technical restrictions</a>.</i></span></dd>
+</dl>
+</div>
+<p><b>binfmt_misc</b> is a <a href="../../../l/i/n/Linux_kernel.html" title="Linux kernel">Linux kernel</a> capability which allows arbitrary <a href="../../../e/x/e/Executable_file_format.html" title="Executable file format">executable file formats</a> to be recognized and passed to certain <a href="../../../u/s/e/User_space.html" title="User space">user space</a> applications, such as <a href="../../../e/m/u/Emulator.html" title="Emulator">emulators</a> and <a href="../../../v/i/r/Virtual_machine.html" title="Virtual machine">virtual machines</a>. The executable formats are registered through a <a href="../../../2F/p/r/_proc_8b97.html" title="/proc">/proc</a> file system interface.</p>
+<p>For example, binfmt_misc allows <a href="../../../j/a/v/Java.html" title="Java">Java</a> programs to be passed directly to the <a href="../../../j/a/v/Java_virtual_machine.html" title="Java virtual machine">Java virtual machine</a>, or execute Windows <a href="../../../p/e/_/PE_executable_4a5c.html" title="PE executable">PE executables</a> through <a href="../../../w/i/n/Wine_%28software%29.html" title="Wine (software)">Wine</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#How_it_works"><span class="tocnumber">1</span> <span class="toctext">How it works</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#HTML"><span class="tocnumber">2.1</span> <span class="toctext">HTML</span></a></li>
+<li class="toclevel-2"><a href="#Java"><span class="tocnumber">2.2</span> <span class="toctext">Java</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="How_it_works" id="How_it_works"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binfmt_misc.html" title="Edit section: How it works">edit</a>]</span> <span class="mw-headline">How it works</span></h2>
+<div class="messagebox cleanup metadata plainlinks">
+<table style="width:100%;background:none">
+<tr>
+<td width="60px"><a href="../../../i/n/f/Image%7EInformation_icon.svg_dac9.html" class="image" title=""><img src="../../../upload/thumb/3/35/Information_icon.svg/40px-Information_icon.svg.png" alt="" width="40" height="40" longdesc="../../../i/n/f/Image%7EInformation_icon.svg_dac9.html" /></a></td>
+<td><b>The <a href="../../../a/r/t/Category%7EArticles_containing_how-to_sections_c6ee.html" title="Category:Articles containing how-to sections">how-to sections</a> in this article may be unencyclopedic.</b><br />
+<small>Please help <a href="http://en.wikipedia.org../../../b/i/n/Binfmt_misc.html" class="external text" title="http://en.wikipedia.org../../../b/i/n/Binfmt_misc.html" rel="nofollow">improve this article</a> by removing or rewriting the how-to sections, which may qualify to be <b><a href="http://en.wikibooks.org/wiki/Special:Import" class="extiw" title="b:Special:Import">imported</a></b> to <a href="../../../w/i/k/Wikibooks.html" title="Wikibooks">Wikibooks</a>. (talk)</small></td>
+</tr>
+</table>
+</div>
+<p>If the binfmt_misc module is loaded, then the binfmt_misc filesystem can be <a href="../../../m/o/u/Mount_%28computing%29.html" title="Mount (computing)">mounted</a>, like so:</p>
+<pre>
+ mount -t binfmt_misc none /proc/sys/fs/binfmt_misc
+</pre>
+<p>Or with an entry in <a href="../../../2F/e/t/_etc_fstab_816a.html" title="/etc/fstab">/etc/fstab</a>:</p>
+<pre>
+ none    /proc/sys/fs/binfmt_misc    binfmt_misc    defaults  0 0
+</pre>
+<p>If the binfmt_misc filesystem is properly mounted, then the following files will exist in <tt>/proc/sys/fs/binfmt_misc</tt>:</p>
+<pre>
+ --w------- 1 root root 0 register
+ -rw-r--r-- 1 root root 0 status
+</pre>
+<p>When the <tt>status</tt> file is read, it indicates the status of the binfmt_misc module: either "enabled" or "disabled." It can also be written: '1' enables, '0' disables, and '-1' clears all of the registered executable formats.</p>
+<p>Writing a line to the <tt>register</tt> file will cause a new binary format to be registered. The line must be of the form:</p>
+<pre>
+ :name:type:offset:magic:mask:interpreter:
+</pre>
+<p><tt>name</tt> is the name of the new binary format. <tt>type</tt> is either <tt>E</tt> or <tt>M</tt>. If it is <tt>E</tt>, then the executable file format is identified by its file extension. If it is <tt>M</tt>, then the executable file format is identified by a <a href="../../../f/i/l/File_format.html#Magic_number" title="File format">magic number</a> near the beginning of the file. If the type is <tt>E</tt>, then <tt>magic</tt> is the file extension to be associated with the binary format, and <tt>offset</tt> and <tt>mask</tt> should be left empty. Otherwise, <tt>magic</tt> is the magic number identifying the binary format, <tt>offset</tt> is the offset at which the magic number should be found in the file, and <tt>mask</tt> is <a href="../../../b/i/t/Bitwise_AND_ca6c.html" title="Bitwise AND">bitwise ANDed</a> with the magic string from the file, the result being that bits which are unset in the mask are ignored in the comparison to the magic.</p>
+<p><tt>interpreter</tt> is a path to an executable. When a file using a binfmt_misc-registered executable format is executed, this program is run with the executable as an argument.</p>
+<p>When an executable file format is registered, a file with the name given to 'register' is created in the <tt>/proc/sys/fs/binfmt_misc</tt> directory. This file can be read to get information about the file format.</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binfmt_misc.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p><a name="HTML" id="HTML"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Binfmt_misc.html" title="Edit section: HTML">edit</a>]</span> <span class="mw-headline">HTML</span></h3>
+<pre>
+ # cd /proc/sys/fs/binfmt_misc
+ # echo ':HTML:E::html::/usr/bin/firefox:' &gt; register
+ # cat HTML
+ enabled
+ interpreter /usr/bin/firefox
+ flags: 
+ extension .html
+ # cd
+ # chmod +x foo.html
+ # ./foo.html
+ -- If all goes well, Firefox opens foo.html --
+</pre>
+<p><a name="Java" id="Java"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Binfmt_misc.html" title="Edit section: Java">edit</a>]</span> <span class="mw-headline">Java</span></h3>
+<pre>
+ # cd /proc/sys/fs/binfmt_misc
+ # echo ':Java:M::\xca\xfe\xba\xbe::/usr/local/java/bin/javawrapper:' &gt; register
+ (N.B.: Put something sensible in /usr/local/java/bin/javawrapper.)
+ # cat Java
+ enabled
+ interpreter /usr/local/java/bin/javawrapper
+ flags: 
+ offset 0
+ magic cafebabe
+ # cd
+ # chmod +x foo.jar
+ # ./foo.jar
+ -- If all goes well, foo.jar executes --
+</pre>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binfmt_misc.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../s/h/e/Shebang_%28Unix%29_bba3.html" title="Shebang (Unix)">Shebang (Unix)</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binfmt_misc.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.tat.physik.uni-tuebingen.de/~rguenth/linux/binfmt_misc.html" class="external text" title="http://www.tat.physik.uni-tuebingen.de/~rguenth/linux/binfmt_misc.html" rel="nofollow">The binfmt_misc Homepage</a></li>
+<li><a href="http://freshmeat.net/projects/binfmtc/" class="external text" title="http://freshmeat.net/projects/binfmtc/" rel="nofollow">Enable scripting written directly in C</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 3787 bytes
+Post-expand include size: 1384 bytes
+Template argument size: 344 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Binfmt_misc.html">http://en.wikipedia.org../../../b/i/n/Binfmt_misc.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_an_underscore_in_their_title_848c.html" title="Category:Articles with an underscore in their title">Articles with an underscore in their title</a></span> | <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_containing_how-to_sections_c6ee.html" title="Category:Articles containing how-to sections">Articles containing how-to sections</a></span> | <span dir='ltr'><a href="../../../l/i/n/Category%7ELinux_kernel_modules_03d7.html" title="Category:Linux kernel modules">Linux kernel modules</a></span> | <span dir='ltr'><a href="../../../s/p/e/Category%7ESpecial_purpose_file_systems_c5db.html" title="Category:Special purpose file systems">Special purpose file systems</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/n/Binfmt_misc.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/i/n/Talk%7EBinfmt_misc_77e9.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Binfmt_misc">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 09:24, 4 April 2007 by Wikipedia user <a href="../../../i/n/t/User%7EIntgr_3172.html" title="User:Intgr">Intgr</a>. Based on work by Wikipedia user(s) <a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a>, <a href="../../../f/r/a/User%7EFrap_bccb.html" title="User:Frap">Frap</a>, <a href="../../../s/n/o/User%7ESnowolf_0f76.html" title="User:Snowolf">Snowolf</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../r/o/b/User%7ERobotG_33b0.html" title="User:RobotG">RobotG</a>, <a href="../../../j/e/s/User%7EJesuswaffle_8382.html" title="User:Jesuswaffle">Jesuswaffle</a> and <a href="../../../l/o/n/User%7ELonghair_25a8.html" title="User:Longhair">Longhair</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

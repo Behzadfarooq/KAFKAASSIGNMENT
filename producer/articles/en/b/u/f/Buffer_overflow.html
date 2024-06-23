@@ -1,0 +1,512 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Buffer overflow,ASCII,Ada programming language,Address space layout randomization,Alphanumeric,Alphanumeric code,Anomaly in software,As of 2006,Better String Library,Bounds checking,Buffer (computer science)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Buffer overflow - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Buffer overflow</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_security.html" title="Computer security">computer security</a> and <a href="../../../c/o/m/Computer_programming.html" title="Computer programming">programming</a>, a <b>buffer overflow</b>, or <b>buffer overrun</b>, is a programming error which may result in a <a href="../../../c/o/m/Computer_memory.html" title="Computer memory">memory</a> access <a href="../../../e/x/c/Exception_handling.html" title="Exception handling">exception</a> and program termination, or in the event of the user being malicious, a breach of system security.</p>
+<p>A buffer <a href="../../../o/v/e/Overflow.html" title="Overflow">overflow</a> is an <a href="../../../a/n/o/Anomaly_in_software.html" title="Anomaly in software">anomalous</a> condition where a <a href="../../../p/r/o/Process_%28computing%29.html" title="Process (computing)">process</a> attempts to store <a href="../../../d/a/t/Data.html" title="Data">data</a> beyond the boundaries of a fixed-length <a href="../../../b/u/f/Buffer_%28computer_science%29.html" title="Buffer (computer science)">buffer</a>. The result is that the extra data overwrites adjacent <a href="../../../c/o/m/Computer_storage.html" title="Computer storage">memory</a> locations. The overwritten data may include other buffers, variables and program flow data.</p>
+<p>Buffer overflows may cause a process to <a href="../../../c/r/a/Crash_%28computing%29.html" title="Crash (computing)">crash</a> or produce incorrect results. They can be triggered by inputs specifically designed to execute malicious code or to make the program operate in an unintended way. As such, buffer overflows cause many <a href="../../../v/u/l/Vulnerability_%28computer_science%29.html" title="Vulnerability (computer science)">software vulnerabilities</a> and form the basis of many <a href="../../../e/x/p/Exploit_%28computer_security%29.html" title="Exploit (computer security)">exploits</a>. Sufficient <a href="../../../b/o/u/Bounds_checking.html" title="Bounds checking">bounds checking</a> by either the programmer or the <a href="../../../c/o/m/Compiler.html" title="Compiler">compiler</a> can prevent buffer overflows.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Technical_description"><span class="tocnumber">1</span> <span class="toctext">Technical description</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Basic_example"><span class="tocnumber">1.1</span> <span class="toctext">Basic example</span></a></li>
+<li class="toclevel-2"><a href="#Buffer_overflows_on_the_stack"><span class="tocnumber">1.2</span> <span class="toctext">Buffer overflows on the stack</span></a></li>
+<li class="toclevel-2"><a href="#Example_source_code"><span class="tocnumber">1.3</span> <span class="toctext">Example source code</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Exploitation"><span class="tocnumber">2</span> <span class="toctext">Exploitation</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Stack-based_exploitation"><span class="tocnumber">2.1</span> <span class="toctext">Stack-based exploitation</span></a></li>
+<li class="toclevel-2"><a href="#Heap-based_exploitation"><span class="tocnumber">2.2</span> <span class="toctext">Heap-based exploitation</span></a></li>
+<li class="toclevel-2"><a href="#Barriers_to_exploitation"><span class="tocnumber">2.3</span> <span class="toctext">Barriers to exploitation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Protection_against_buffer_overflows"><span class="tocnumber">3</span> <span class="toctext">Protection against buffer overflows</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Choice_of_programming_language"><span class="tocnumber">3.1</span> <span class="toctext">Choice of programming language</span></a></li>
+<li class="toclevel-2"><a href="#Use_of_safe_libraries"><span class="tocnumber">3.2</span> <span class="toctext">Use of safe libraries</span></a></li>
+<li class="toclevel-2"><a href="#Stack-smashing_protection"><span class="tocnumber">3.3</span> <span class="toctext">Stack-smashing protection</span></a></li>
+<li class="toclevel-2"><a href="#Executable_space_protection"><span class="tocnumber">3.4</span> <span class="toctext">Executable space protection</span></a></li>
+<li class="toclevel-2"><a href="#Address_space_layout_randomization"><span class="tocnumber">3.5</span> <span class="toctext">Address space layout randomization</span></a></li>
+<li class="toclevel-2"><a href="#Deep_packet_inspection"><span class="tocnumber">3.6</span> <span class="toctext">Deep packet inspection</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#History_of_exploitation"><span class="tocnumber">4</span> <span class="toctext">History of exploitation</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">6</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Technical_description" id="Technical_description"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Technical description">edit</a>]</span> <span class="mw-headline">Technical description</span></h2>
+<p>A buffer overflow occurs when <a href="../../../d/a/t/Data.html" title="Data">data</a> written to a buffer, due to insufficient <a href="../../../b/o/u/Bounds_checking.html" title="Bounds checking">bounds checking</a>, corrupts data values in <a href="../../../m/e/m/Memory_address.html" title="Memory address">memory addresses</a> adjacent to the allocated buffer. Most commonly this occurs when copying <a href="../../../s/t/r/String_%28computer_science%29.html" title="String (computer science)">strings</a> of <a href="../../../c/h/a/Character_%28computing%29.html" title="Character (computing)">characters</a> from one buffer to another.</p>
+<p><a name="Basic_example" id="Basic_example"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Basic example">edit</a>]</span> <span class="mw-headline">Basic example</span></h3>
+<p>In the following example, a program has defined two data items which are adjacent in memory: an 8-byte-long string buffer, A, and a two-byte integer, B. Initially, A contains nothing but zero bytes, and B contains the number 3. Characters are one byte wide.</p>
+<table border="1">
+<tr>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#FFDDDD">B</td>
+<td align="center" width="30" bgcolor="#FFDDDD">B</td>
+</tr>
+<tr>
+<td align="center" width="30" bgcolor="#DDDDFF">0</td>
+<td align="center" width="30" bgcolor="#DDDDFF">0</td>
+<td align="center" width="30" bgcolor="#DDDDFF">0</td>
+<td align="center" width="30" bgcolor="#DDDDFF">0</td>
+<td align="center" width="30" bgcolor="#DDDDFF">0</td>
+<td align="center" width="30" bgcolor="#DDDDFF">0</td>
+<td align="center" width="30" bgcolor="#DDDDFF">0</td>
+<td align="center" width="30" bgcolor="#DDDDFF">0</td>
+<td align="center" width="30" bgcolor="#FFDDDD">0</td>
+<td align="center" width="30" bgcolor="#FFDDDD">3</td>
+</tr>
+</table>
+<p>Now, the program attempts to store the character string "excessive" in the A buffer, followed by a zero byte to mark the end of the string. By not checking the length of the string, it overwrites the value of B:</p>
+<table border="1">
+<tr>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#DDDDFF">A</td>
+<td align="center" width="30" bgcolor="#FFDDDD">B</td>
+<td align="center" width="30" bgcolor="#FFDDDD">B</td>
+</tr>
+<tr>
+<td align="center" width="30" bgcolor="#DDDDFF">'e'</td>
+<td align="center" width="30" bgcolor="#DDDDFF">'x'</td>
+<td align="center" width="30" bgcolor="#DDDDFF">'c'</td>
+<td align="center" width="30" bgcolor="#DDDDFF">'e'</td>
+<td align="center" width="30" bgcolor="#DDDDFF">'s'</td>
+<td align="center" width="30" bgcolor="#DDDDFF">'s'</td>
+<td align="center" width="30" bgcolor="#DDDDFF">'i'</td>
+<td align="center" width="30" bgcolor="#DDDDFF">'v'</td>
+<td align="center" width="30" bgcolor="#DDDDFF">'e'</td>
+<td align="center" width="30" bgcolor="#DDDDFF">0</td>
+</tr>
+</table>
+<p>Although the programmer did not intend to change B at all, B's value has now been replaced by a number formed from part of the character string. In this example, on a <a href="../../../e/n/d/Endianness.html" title="Endianness">big-endian</a> system that uses <a href="../../../a/s/c/ASCII_d2cd.html" title="ASCII">ASCII</a>, "e" followed by a zero byte would become the number 25856.</p>
+<p>If B was the only other variable data item defined by the program, writing an even longer string that went past the end of B could cause an error such as a <a href="../../../s/e/g/Segmentation_fault.html" title="Segmentation fault">segmentation fault</a>, terminating the process.</p>
+<p><a name="Buffer_overflows_on_the_stack" id="Buffer_overflows_on_the_stack"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Buffer overflows on the stack">edit</a>]</span> <span class="mw-headline">Buffer overflows on the stack</span></h3>
+<p>Besides changing values of unrelated <a href="../../../v/a/r/Variable_%28computer_science%29.html" title="Variable (computer science)">variables</a>, buffer overflows can often be used (exploited) by attackers to cause a running program to execute arbitrary supplied code. The techniques available to an attacker to seek control over a <a href="../../../c/o/m/Computer_process.html" title="Computer process">process</a> depend on the memory region where the buffer resides. For example the <a href="../../../c/a/l/Call_stack.html" title="Call stack">stack</a> memory region, where data can be temporarily "pushed" onto the "top" of the stack, and later "popped" to read the value of the variable. Typically, when a <a href="../../../f/u/n/Function_%28computing%29.html" title="Function (computing)">function</a> begins executing, temporary data items (local variables) are pushed, which remain accessible only during the execution of that function.</p>
+<p>In the following example, "X" is data that was on the stack when the program began executing; the program then called a function "Y", which required a small amount of storage of its own; and "Y" then called "Z", which required a large buffer:</p>
+<table border="1">
+<tr>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#DDFFDD">Y</td>
+<td align="center" width="30" bgcolor="#DDDDFF">X</td>
+<td align="center" width="30" bgcolor="#DDDDFF">X</td>
+<td align="center" width="30" bgcolor="#DDDDFF">X</td>
+</tr>
+<tr>
+<td align="center" width="30" bgcolor="#FFDDDD">&#160;</td>
+<td align="center" width="30" bgcolor="#FFDDDD">&#160;</td>
+<td align="center" width="30" bgcolor="#FFDDDD">&#160;</td>
+<td align="center" width="30" bgcolor="#FFDDDD">&#160;</td>
+<td align="center" width="30" bgcolor="#FFDDDD">&#160;</td>
+<td align="center" width="30" bgcolor="#FFDDDD">&#160;</td>
+<td align="center" width="30" bgcolor="#DDFFDD">&#160;:</td>
+<td align="center" width="30" bgcolor="#DDDDFF">/</td>
+<td align="center" width="30" bgcolor="#DDDDFF">/</td>
+<td align="center" width="30" bgcolor="#DDDDFF">/</td>
+</tr>
+</table>
+<p>If the function Z caused a buffer overflow, it could overwrite data that belonged to function Y or to the main program:</p>
+<table border="1">
+<tr>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#FFDDDD">Z</td>
+<td align="center" width="30" bgcolor="#DDFFDD">Y</td>
+<td align="center" width="30" bgcolor="#DDDDFF">X</td>
+<td align="center" width="30" bgcolor="#DDDDFF">X</td>
+<td align="center" width="30" bgcolor="#DDDDFF">X</td>
+</tr>
+<tr>
+<td align="center" width="30" bgcolor="#FFDDDD">.</td>
+<td align="center" width="30" bgcolor="#FFDDDD">.</td>
+<td align="center" width="30" bgcolor="#FFDDDD">.</td>
+<td align="center" width="30" bgcolor="#FFDDDD">.</td>
+<td align="center" width="30" bgcolor="#FFDDDD">.</td>
+<td align="center" width="30" bgcolor="#FFDDDD">.</td>
+<td align="center" width="30" bgcolor="#FFDDDD">.</td>
+<td align="center" width="30" bgcolor="#FFDDDD">.</td>
+<td align="center" width="30" bgcolor="#DDDDFF">/</td>
+<td align="center" width="30" bgcolor="#DDDDFF">/</td>
+</tr>
+</table>
+<p>This is particularly serious because on most systems, the stack also holds the <a href="../../../r/e/t/Return_address.html" title="Return address">return address</a>, that is, the location of the part of the program that was executing before the current function was called. When the function ends, the temporary storage is removed from the stack, and execution is transferred back to the return address. If, however, the return address has been overwritten by a buffer overflow, it will now point to some other location. In the case of an accidental buffer overflow as in the first example, this will almost certainly be an invalid location, not containing any program instructions, and the process will crash. However, a malicious attacker could tailor the return address to point to an arbitrary location such that it could compromise system security.</p>
+<p><a name="Example_source_code" id="Example_source_code"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Example source code">edit</a>]</span> <span class="mw-headline">Example source code</span></h3>
+<p>The following is <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> <a href="../../../s/o/u/Source_code.html" title="Source code">source code</a> exhibiting a common programming mistake. Once compiled, the program will generate a buffer overflow error if run with a command-line argument <a href="../../../s/t/r/String_%28computer_science%29.html" title="String (computer science)">string</a> that is too long, because this argument is used to fill a buffer without checking its length. <sup id="_ref-saferC_0" class="reference"><a href="#_note-saferC" title="">[1]</a></sup></p>
+<pre>
+/* overflow.c - demonstrates a buffer overflow */
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(int argc, char *argv[])
+{
+  char buffer[10];
+  if (argc &lt; 2)
+  {
+    fprintf(stderr, "USAGE: %s string\n", argv[0]);
+    return 1;
+  }
+  strcpy(buffer, argv[1]);
+  return 0;
+}
+</pre>
+<p>Strings of 9 or fewer characters will not cause a buffer overflow. Strings of 10 or more characters will cause an overflow: this is always incorrect but may not always result in a program error or <a href="../../../s/e/g/Segmentation_fault.html" title="Segmentation fault">segmentation fault</a>. <a href="../../../s/t/r/Strncpy.html" title="Strncpy">strncpy</a> can be used to limit the number of characters copied to the buffer, but will fail to write a string terminator if the source string does not contain a string terminator within the specified number of bytes. In this case, an out-of-bounds access may occur when the buffer is later used. It is common to see calls to <a href="../../../s/t/r/Strncpy.html" title="Strncpy">strncpy</a> followed by an explicit assignment of a string terminator to prevent this.</p>
+<p>This program could be safely rewritten using <a href="../../../s/t/r/Strncpy.html" title="Strncpy">strncpy</a> as follows: <sup id="_ref-saferC_1" class="reference"><a href="#_note-saferC" title="">[1]</a></sup></p>
+<pre>
+/* better.c - demonstrates one method of fixing the problem */
+
+#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main(int argc, char *argv[])
+{
+  char buffer[10];
+  if (argc &lt; 2)
+  {
+    fprintf(stderr, "USAGE: %s string\n", argv[0]);
+    return 1;
+  }
+  strncpy(buffer, argv[1], sizeof(buffer));
+  buffer[sizeof(buffer) - 1] = '\0';  /* explicitly write a string terminator */
+  return 0;
+}
+</pre>
+<p><a name="Exploitation" id="Exploitation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Exploitation">edit</a>]</span> <span class="mw-headline">Exploitation</span></h2>
+<p>The techniques to <a href="../../../e/x/p/Exploit_%28computer_security%29.html" title="Exploit (computer security)">exploit</a> a buffer overflow vulnerability vary per <a href="../../../c/o/m/Computer_architecture.html" title="Computer architecture">architecture</a>, <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a> and memory region. For example, exploitation on the <a href="../../../d/y/n/Dynamic_memory_allocation.html#Heap-based_memory_allocation" title="Dynamic memory allocation">heap</a> (used for dynamically allocated variables) is very different from stack-based variables.</p>
+<p><a name="Stack-based_exploitation" id="Stack-based_exploitation"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Stack-based exploitation">edit</a>]</span> <span class="mw-headline">Stack-based exploitation</span></h3>
+<p>A technically inclined and malicious user may exploit stack-based buffer overflows to manipulate the program in one of several ways:</p>
+<ul>
+<li>By overwriting a local variable that is near the buffer in memory on the stack to change the behaviour of the program which may benefit the attacker.</li>
+<li>By overwriting the return address in a <a href="../../../s/t/a/Stack_frame.html" title="Stack frame">stack frame</a>. Once the function returns, execution will resume at the return address as specified by the attacker, usually a user input filled buffer.</li>
+</ul>
+<p>If the address of the user-supplied data is unknown, but the location is stored in a register, then the return address can be overwritten with the address of an <a href="../../../o/p/c/Opcode.html" title="Opcode">opcode</a> which will cause execution to jump to the user supplied data. If the location is stored in a register R, then a jump to the location containing the opcode for a jump R, call R or similar instruction, will cause execution of user supplied data. The locations of suitable opcodes, or bytes in memory, can be found in <a href="../../../d/y/n/Dynamic-link_library.html" title="Dynamic-link library">DLLs</a> or the executable itself. However the address of the opcode typically cannot contain any <a href="../../../n/u/l/Null_character.html" title="Null character">null characters</a> and the locations of these opcodes can vary in their location between applications and versions of the operating system. The <a href="../../../m/e/t/Metasploit_Project_2f93.html" title="Metasploit Project">Metasploit Project</a> is one such database of suitable opcodes, though only those found in the <a href="../../../m/i/c/Microsoft_Windows_48e2.html" title="Microsoft Windows">Windows</a> operating system are listed. <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[2]</a></sup></p>
+<p>Stack-based buffer overflows are not to be confused with <a href="../../../s/t/a/Stack_overflow.html" title="Stack overflow">stack overflows</a>.</p>
+<p><a name="Heap-based_exploitation" id="Heap-based_exploitation"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Heap-based exploitation">edit</a>]</span> <span class="mw-headline">Heap-based exploitation</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../h/e/a/Heap_overflow.html" title="Heap overflow">Heap overflow</a></i></div>
+</dd>
+</dl>
+<p>A buffer overflow occurring in the heap data area is referred to as a heap overflow and is exploitable in a different manner to that of stack-based overflows. Memory on the heap is dynamically allocated by the application at run-time and typically contains program data. Exploitation is performed by corrupting this data in specific ways to cause the application to overwrite internal structures such as linked list pointers. The canonical heap overflow technique overwrites dynamic memory allocation linkage (such as <a href="../../../m/a/l/Malloc.html" title="Malloc">malloc</a> meta data) and uses the resulting pointer exchange to overwrite a program function pointer.</p>
+<p>The <a href="../../../m/i/c/Microsoft.html" title="Microsoft">Microsoft</a> <a href="../../../j/p/e/JPEG_907e.html" title="JPEG">JPEG</a> <a href="../../../g/r/a/Graphics_Device_Interface_1c51.html" title="Graphics Device Interface">GDI+</a> vulnerability is a recent example of the danger a heap overflow can represent to a computer user. <sup id="_ref-1" class="reference"><a href="#_note-1" title="">[3]</a></sup></p>
+<p><a name="Barriers_to_exploitation" id="Barriers_to_exploitation"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Barriers to exploitation">edit</a>]</span> <span class="mw-headline">Barriers to exploitation</span></h3>
+<p>Manipulation of the buffer which occurs before it is read or executed may lead to the failure of an exploitation attempt. These manipulations can mitigate the threat of exploitation, but may not make it impossible. Manipulations could include conversion to upper or lower case, removal of <a href="../../../m/e/t/Metacharacters.html" title="Metacharacters">metacharacters</a> and filtering out of non-<a href="../../../a/l/p/Alphanumeric.html" title="Alphanumeric">alphanumeric</a> strings. However techniques exist to bypass these filters and manipulations; <a href="../../../a/l/p/Alphanumeric_code.html" title="Alphanumeric code">alphanumeric code</a>, <a href="../../../p/o/l/Polymorphic_code.html" title="Polymorphic code">polymorphic code</a>, <a href="../../../s/e/l/Self-modifying_code.html" title="Self-modifying code">Self-modifying code</a> and <a href="../../../r/e/t/Return-to-libc_attack.html" title="Return-to-libc attack">return to lib-C attacks</a>. The same methods can be used to avoid detection by <a href="../../../i/n/t/Intrusion_detection_system.html" title="Intrusion detection system">Intrusion detection systems</a>. In some cases, including where code is converted into unicode, the threat of the vulnerability have been misrepresented by the disclosers as only Denial of Service when in fact the remote execution of arbitrary code is possible.</p>
+<p><a name="Protection_against_buffer_overflows" id="Protection_against_buffer_overflows"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Protection against buffer overflows">edit</a>]</span> <span class="mw-headline">Protection against buffer overflows</span></h2>
+<p>Various techniques have been used to detect or prevent buffer overflows, with various tradeoffs. The most reliable way to avoid or prevent buffer overflows is to use automatic protection at the language level. This sort of protection, however, cannot be applied to <a href="../../../l/e/g/Legacy_code.html" title="Legacy code">legacy code</a>, and often technical, business, or cultural constraints call for a vulnerable language. The following sections describe the choices and implementations available.</p>
+<p><a name="Choice_of_programming_language" id="Choice_of_programming_language"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Choice of programming language">edit</a>]</span> <span class="mw-headline">Choice of programming language</span></h3>
+<p>The choice of programming language can have a profound effect on the occurrence of buffer overflows. <a href="../../../a/s/_/As_of_2006.html" title="As of 2006">As of 2006</a>, among the most popular languages are <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> and its derivative, <a href="../../../c/%2B/%2B/C%2B%2B.html" title="C++">C++</a>, with an enormous body of software having been written in these languages. C and C++ provide no built-in protection against accessing or overwriting data in any part of memory through invalid <a href="../../../p/o/i/Pointer_%28computing%29.html" title="Pointer (computing)">pointers</a>; more specifically, they do not check that data written to an array (the implementation of a buffer) is within the boundaries of that array. However, it is worth noting that the standard C++ libraries, the <a href="../../../s/t/a/Standard_Template_Library_f0d5.html" title="Standard Template Library">STL</a>, provide many ways of safely buffering data, and similar facilities can also be created and used by C programmers. As with any other C or C++ feature, individual programmers are given the choice as to whether or not they wish to accept possible performance penalties in order to reap the potential benefits.</p>
+<p>Variations on C such as <a href="../../../c/y/c/Cyclone_programming_language.html" title="Cyclone programming language">Cyclone</a> help to prevent more buffer overflows by, for example, attaching size information to arrays. The <a href="../../../d/_/p/D_programming_language.html" title="D programming language">D programming language</a> uses a variety of techniques to avoid most uses of pointers and user-specified bounds checking.</p>
+<p>Many other programming languages provide runtime checking which might send a warning or raise an <a href="../../../e/x/c/Exception_handling.html" title="Exception handling">exception</a> when C or C++ would overwrite data. Examples of such languages range broadly from <a href="../../../p/y/t/Python_%28programming_language%29.html" title="Python (programming language)">Python</a> to <a href="../../../a/d/a/Ada_programming_language.html" title="Ada programming language">Ada</a>, from <a href="../../../l/i/s/Lisp_programming_language.html" title="Lisp programming language">Lisp</a> to <a href="../../../m/o/d/Modula-2.html" title="Modula-2">Modula-2</a>, and from <a href="../../../s/m/a/Smalltalk.html" title="Smalltalk">Smalltalk</a> to <a href="../../../o/c/a/OCaml_1d16.html" title="OCaml">OCaml</a>. The <a href="../../../j/a/v/Java_%28sun%29.html" title="Java (sun)">Java</a> and <a href="../../../m/i/c/Microsoft_.NET_1c77.html" title="Microsoft .NET">.NET</a> bytecode environments also require bounds checking on all arrays. Nearly every <a href="../../../i/n/t/Interpreted_programming_language.html" title="Interpreted programming language">interpreted language</a> will protect against buffer overflows, signalling a well-defined error condition. Often where a language provides enough type information to do bounds checking an option is provided to enable or disable it. <a href="../../../s/t/a/Static_code_analysis.html" title="Static code analysis">Static code analysis</a> can remove many dynamic bound and type checks, but poor implementations and awkward cases can significantly decrease performance. Software engineers must carefully consider the tradeoffs of safety versus performance costs when deciding which language and compiler setting to use.</p>
+<p><a name="Use_of_safe_libraries" id="Use_of_safe_libraries"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Use of safe libraries">edit</a>]</span> <span class="mw-headline">Use of safe libraries</span></h3>
+<p>The problem of buffer overflows is common in the C and C++ languages because they expose low level representational details of buffers as containers for data types. Buffer overflows must thus be avoided by maintaining a high degree of correctness in code which performs buffer management. Well-written and tested abstract data type libraries which centralize and automatically perform buffer management, including bounds checking, can reduce the occurrence and impact of buffer overflows. The two main building-block data types in these languages in which buffer overflows commonly occur are strings and arrays; thus, libraries preventing buffer overflows in these data types can provide the vast majority of the necessary coverage. Still, failure to use these safe libraries correctly can result in buffer overflows and other vulnerabilities; and naturally, any bug in the library itself is a potential vulnerability. "Safe" library implementations include <a href="../../../b/e/t/Better_String_Library_1bc2.html" title="Better String Library">The Better String Library</a>, <a href="http://arri.berlios.de/" class="external text" title="http://arri.berlios.de/" rel="nofollow">Arri Buffer API</a>, <a href="http://www.and.org/vstr/" class="external text" title="http://www.and.org/vstr/" rel="nofollow">Vstr</a>, and <a href="http://www.theiling.de/projects/erwin.html" class="external text" title="http://www.theiling.de/projects/erwin.html" rel="nofollow">Erwin</a>. The <a href="../../../o/p/e/OpenBSD_760b.html" title="OpenBSD">OpenBSD</a> <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a>'s <a href="../../../c/_/l/C_library.html" title="C library">C library</a> provides the helpful <a href="../../../s/t/r/Strlcpy.html" title="Strlcpy">strlcpy</a> and <a href="../../../s/t/r/Strlcat.html" title="Strlcat">strlcat</a> functions, but these are much more limited than full safe library implementations.</p>
+<p>In September 2006, Technical Report 24731, prepared by the C standards committee, was published; it specifies a set of functions which are based on the standard C library's string and I/O functions, with additional buffer-size parameters. However, the efficacy of these functions for the purpose of reducing buffer overflows is disputable; it requires programmer intervention on a per function call basis that is equivalent to intervention that could make the analogous older standard library functions buffer overflow safe.</p>
+<p><a name="Stack-smashing_protection" id="Stack-smashing_protection"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Stack-smashing protection">edit</a>]</span> <span class="mw-headline">Stack-smashing protection</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../s/t/a/Stack-smashing_protection.html" title="Stack-smashing protection">Stack-smashing protection</a></i></div>
+</dd>
+</dl>
+<p>Stack-smashing protection is used to detect the most common buffer overflows by checking that the <a href="../../../c/a/l/Call_stack.html" title="Call stack">stack</a> has not been altered when a function returns. If it has been altered, the program exits with a <a href="../../../s/e/g/Segmentation_fault.html" title="Segmentation fault">segmentation fault</a>. Three such systems are Libsafe,<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[4]</a></sup> and the <i><a href="../../../s/t/a/StackGuard_45d4.html" title="StackGuard">StackGuard</a></i> <sup id="_ref-3" class="reference"><a href="#_note-3" title="">[5]</a></sup> and <i><a href="../../../p/r/o/ProPolice_7acd.html" title="ProPolice">ProPolice</a></i><sup id="_ref-4" class="reference"><a href="#_note-4" title="">[6]</a></sup> <a href="../../../g/n/u/GNU_Compiler_Collection_cfca.html" title="GNU Compiler Collection">gcc</a> patches.</p>
+<p>Microsoft's <a href="../../../d/a/t/Data_Execution_Prevention_0302.html" title="Data Execution Prevention">Data Execution Prevention</a> mode explicitly protects the pointer to the SEH Exception Handler from being overwritten. <sup id="_ref-5" class="reference"><a href="#_note-5" title="">[7]</a></sup></p>
+<p>Stronger stack protection is possible by splitting the stack in two: one for data and one for function returns. This split is present in the <a href="../../../f/o/r/Forth_%28programming_language%29.html" title="Forth (programming language)">Forth programming language</a>, though it was not a security-based design decision. Regardless, this is not a complete solution to buffer overflows, as sensitive data other than the return address may still be overwritten.</p>
+<p><a name="Executable_space_protection" id="Executable_space_protection"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Executable space protection">edit</a>]</span> <span class="mw-headline">Executable space protection</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../e/x/e/Executable_space_protection.html" title="Executable space protection">Executable space protection</a></i></div>
+</dd>
+</dl>
+<p>Executable space protection is an approach to buffer overflow protection which prevents execution of code on the stack or the heap. An attacker may use buffer overflows to insert arbitrary code into the memory of a program, but with executable space protection, any attempt to execute that code will cause an exception.</p>
+<p>Some CPUs support a feature called <a href="../../../n/x/_/NX_bit_0755.html" title="NX bit">NX</a> ("No eXecute") or <a href="../../../x/d/_/XD_bit_e396.html" title="XD bit">XD</a> ("eXecute Disabled") bit, which in conjunction with software, can be used to mark <a href="../../../p/a/g/Paging.html" title="Paging">pages of data</a> (such as those containing the stack and the heap) as readable but not executable.</p>
+<p>Some Unix operating systems (e.g. <a href="../../../o/p/e/OpenBSD_760b.html" title="OpenBSD">OpenBSD</a>, <a href="../../../m/a/c/Mac_OS_X_b8d4.html" title="Mac OS X">Mac OS X</a>) ship with executable space protection (e.g. <a href="../../../w/%5E/x/W%5EX_9e90.html" title="W^X">W^X</a>). Some optional packages include:</p>
+<ul>
+<li><a href="../../../p/a/x/PaX_23cc.html" title="PaX">PaX</a> <sup id="_ref-6" class="reference"><a href="#_note-6" title="">[8]</a></sup></li>
+<li><a href="../../../e/x/e/Exec_Shield_7187.html" title="Exec Shield">Exec Shield</a><sup id="_ref-7" class="reference"><a href="#_note-7" title="">[9]</a></sup></li>
+<li><a href="../../../o/p/e/Openwall.html" title="Openwall">Openwall</a></li>
+</ul>
+<p>Newer variants of Microsoft Windows also support executable space protection, called <a href="../../../d/a/t/Data_Execution_Prevention_0302.html" title="Data Execution Prevention">Data Execution Prevention</a><sup id="_ref-8" class="reference"><a href="#_note-8" title="">[10]</a></sup> . Add-ons include:</p>
+<ul>
+<li>SecureStack</li>
+<li>OverflowGuard</li>
+<li>BufferShield<sup id="_ref-9" class="reference"><a href="#_note-9" title="">[11]</a></sup></li>
+<li>StackDefender</li>
+</ul>
+<p>Executable space protection does not protect against <a href="../../../r/e/t/Return-to-libc_attack.html" title="Return-to-libc attack">return-to-libc attacks</a>.</p>
+<p><a name="Address_space_layout_randomization" id="Address_space_layout_randomization"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Address space layout randomization">edit</a>]</span> <span class="mw-headline">Address space layout randomization</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../a/d/d/Address_space_layout_randomization.html" title="Address space layout randomization">Address space layout randomization</a></i></div>
+</dd>
+</dl>
+<p>Address space layout randomization (ASLR) is a computer security feature which involves arranging the positions of key data areas, usually including the base of the executable and position of libraries, heap, and stack, randomly in a process' address space.</p>
+<p>Randomization of the <a href="../../../v/i/r/Virtual_memory.html" title="Virtual memory">virtual memory</a> addresses at which functions and variables can be found can make exploitation of a buffer overflow more difficult, but not impossible. It also forces the attacker to tailor the exploitation attempt to the individual system, which foils the attempts of <a href="../../../i/n/t/Internet_worm.html" title="Internet worm">internet worms</a>.<sup id="_ref-10" class="reference"><a href="#_note-10" title="">[12]</a></sup> A similar but less effective method is to <a href="../../../r/e/b/Rebasing.html" title="Rebasing">rebase</a> processes and libraries in the virtual address space.</p>
+<p><a name="Deep_packet_inspection" id="Deep_packet_inspection"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Deep packet inspection">edit</a>]</span> <span class="mw-headline">Deep packet inspection</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../d/e/e/Deep_packet_inspection.html" title="Deep packet inspection">Deep packet inspection</a></i></div>
+</dd>
+</dl>
+<p>The use of deep packet inspection (DPI) can detect, at the network perimeter, remote attempts to exploit buffer overflows by use of attack signatures and <a href="../../../h/e/u/Heuristic_%28computer_science%29.html" title="Heuristic (computer science)">heuristics</a>. These are able to block packets which have the signature of a known attack, or if a long series of No-Operation (NOP) instructions (known as a nop-sled) is detected, these are often used when the location of the exploit's <a href="../../../p/a/y/Payload.html" title="Payload">payload</a> is slightly variable.</p>
+<p>Packet scanning is not an effective method since it can only prevent known attacks and there are many ways that a 'nop-sled' can be encoded. Attackers have begun to use <a href="../../../a/l/p/Alphanumeric_code.html" title="Alphanumeric code">alphanumeric</a>, <a href="../../../m/e/t/Metamorphic_code.html" title="Metamorphic code">metamorphic</a>, and <a href="../../../s/e/l/Self-modifying_code.html" title="Self-modifying code">self-modifying</a> <a href="../../../s/h/e/Shellcode.html" title="Shellcode">shellcodes</a> to avoid detection by heuristic packet scans also.</p>
+<p><a name="History_of_exploitation" id="History_of_exploitation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: History of exploitation">edit</a>]</span> <span class="mw-headline">History of exploitation</span></h2>
+<p>The earliest known exploitation of a buffer overflow was in 1988. It was one of several exploits used by the <a href="../../../m/o/r/Morris_worm.html" title="Morris worm">Morris worm</a> to propagate itself over the Internet. The program exploited was a <a href="../../../u/n/i/Unix.html" title="Unix">Unix</a> <a href="../../../s/e/r/Service_%28computing%29.html" title="Service (computing)">service</a> called <a href="../../../f/i/n/Finger_protocol.html" title="Finger protocol">fingerd</a>.<sup id="_ref-11" class="reference"><a href="#_note-11" title="">[13]</a></sup></p>
+<p>Later, in 1995, Thomas Lopatic independently rediscovered the buffer overflow and published his findings on the <a href="../../../b/u/g/Bugtraq.html" title="Bugtraq">Bugtraq</a> security mailing list. <sup id="_ref-12" class="reference"><a href="#_note-12" title="">[14]</a></sup> A year later, in 1996, <a href="../../../e/l/i/Elias_Levy_af58.html" title="Elias Levy">Elias Levy</a> (aka Aleph One) published in <i><a href="../../../p/h/r/Phrack.html" title="Phrack">Phrack</a></i> magazine the paper "Smashing the Stack for Fun and Profit", <sup id="_ref-13" class="reference"><a href="#_note-13" title="">[15]</a></sup> a step-by-step introduction to exploiting stack-based buffer overflow vulnerabilities.</p>
+<p>Since then at least two major internet worms have exploited buffer overflows to compromise a large number of systems. In 2001, the <a href="../../../c/o/d/Code_Red_worm_72c0.html" title="Code Red worm">Code Red worm</a> exploited a buffer overflow in Microsoft's <a href="../../../i/n/t/Internet_Information_Services_fb37.html" title="Internet Information Services">Internet Information Services</a> (IIS) 5.0 <sup id="_ref-14" class="reference"><a href="#_note-14" title="">[16]</a></sup> and in 2003 the <a href="../../../s/q/l/SQLSlammer_ac31.html" title="SQLSlammer">SQLSlammer</a> worm compromised machines running <a href="../../../m/i/c/Microsoft_SQL_Server_2000_9166.html" title="Microsoft SQL Server 2000">Microsoft SQL Server 2000</a>. <sup id="_ref-15" class="reference"><a href="#_note-15" title="">[17]</a></sup></p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../c/o/m/Computer_security.html" title="Computer security">Computer security</a></li>
+<li><a href="../../../c/o/m/Computer_insecurity.html" title="Computer insecurity">Computer insecurity</a></li>
+<li><a href="../../../s/e/c/Security_focused_operating_systems.html" title="Security focused operating systems">Security focused operating systems</a></li>
+<li><a href="../../../s/t/a/Static_code_analysis.html" title="Static code analysis">Static code analysis</a></li>
+<li><a href="../../../h/e/a/Heap_overflow.html" title="Heap overflow">Heap overflow</a></li>
+<li><a href="../../../r/e/t/Return-to-libc_attack.html" title="Return-to-libc attack">Return-to-libc attack</a></li>
+<li><a href="../../../s/e/l/Self-modifying_code.html" title="Self-modifying code">Self-modifying code</a></li>
+<li><a href="../../../s/h/e/Shellcode.html" title="Shellcode">Shellcode</a></li>
+</ul>
+<p><a name="Notes" id="Notes"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline">Notes</span></h2>
+<ol class="references">
+<li id="_note-saferC">^ <a href="#_ref-saferC_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-saferC_1" title=""><sup><i><b>b</b></i></sup></a> Safer C: Developing Software for High-integrity and Safety-critical Systems (<a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-07-707640-0</a>)</li>
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> The Metasploit Opcode Database <a href="http://metasploit.com/users/opcode/msfopcode.cgi" class="external autonumber" title="http://metasploit.com/users/opcode/msfopcode.cgi" rel="nofollow">[1]</a></li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> Microsoft Technet Security Bulletin MS04-028 <a href="http://www.microsoft.com/technet/security/bulletin/MS04-028.mspx" class="external autonumber" title="http://www.microsoft.com/technet/security/bulletin/MS04-028.mspx" rel="nofollow">[2]</a></li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> Libsafe at FSF.org <a href="http://directory.fsf.org/libsafe.html" class="external autonumber" title="http://directory.fsf.org/libsafe.html" rel="nofollow">[3]</a></li>
+<li id="_note-3"><b><a href="#_ref-3" title="">^</a></b> (PDF) <a href="https://www.usenix.org/publications/library/proceedings/sec98/full_papers/cowan/cowan.pdf" class="external text" title="https://www.usenix.org/publications/library/proceedings/sec98/full_papers/cowan/cowan.pdf" rel="nofollow">StackGuard: Automatic Adaptive Detection and Prevention of Buffer-Overflow Attacks</a> by Cowan et al.</li>
+<li id="_note-4"><b><a href="#_ref-4" title="">^</a></b> ProPolice at X.ORG <a href="http://wiki.x.org/wiki/ProPolice" class="external autonumber" title="http://wiki.x.org/wiki/ProPolice" rel="nofollow">[4]</a></li>
+<li id="_note-5"><b><a href="#_ref-5" title="">^</a></b> Bypassing Windows Hardware-enforced Data Execution Prevention<a href="http://www.uninformed.org/?v=2&amp;a=4&amp;t=txt" class="external autonumber" title="http://www.uninformed.org/?v=2&amp;a=4&amp;t=txt" rel="nofollow">[5]</a></li>
+<li id="_note-6"><b><a href="#_ref-6" title="">^</a></b> PaX: Homepage of the PaX team<a href="http://pax.grsecurity.net" class="external autonumber" title="http://pax.grsecurity.net" rel="nofollow">[6]</a></li>
+<li id="_note-7"><b><a href="#_ref-7" title="">^</a></b> KernelTrap.Org <a href="http://kerneltrap.org/node/644" class="external autonumber" title="http://kerneltrap.org/node/644" rel="nofollow">[7]</a></li>
+<li id="_note-8"><b><a href="#_ref-8" title="">^</a></b> Microsft Technet: Data Execution Prevention <a href="http://technet2.microsoft.com/WindowsServer/en/Library/b0de1052-4101-44c3-a294-4da1bd1ef2271033.mspx?mfr=true" class="external autonumber" title="http://technet2.microsoft.com/WindowsServer/en/Library/b0de1052-4101-44c3-a294-4da1bd1ef2271033.mspx?mfr=true" rel="nofollow">[8]</a></li>
+<li id="_note-9"><b><a href="#_ref-9" title="">^</a></b> BufferShield: Prevention of Buffer Overflow Exploitation for Windows<a href="http://www.buffershield.com/english/products/products_BufferShield.html" class="external autonumber" title="http://www.buffershield.com/english/products/products_BufferShield.html" rel="nofollow">[9]</a></li>
+<li id="_note-10"><b><a href="#_ref-10" title="">^</a></b> PaX at GRSecurity.net <a href="http://pax.grsecurity.net/docs/aslr.txt" class="external autonumber" title="http://pax.grsecurity.net/docs/aslr.txt" rel="nofollow">[10]</a></li>
+<li id="_note-11"><b><a href="#_ref-11" title="">^</a></b> "A Tour of The Worm" by Donn Seeley, University of Utah <a href="http://world.std.com/~franl/worm.html" class="external autonumber" title="http://world.std.com/~franl/worm.html" rel="nofollow">[11]</a></li>
+<li id="_note-12"><b><a href="#_ref-12" title="">^</a></b> Bugtraq security mailing list <a href="http://www.security-express.com/archives/bugtraq/1995_1/0403.html" class="external autonumber" title="http://www.security-express.com/archives/bugtraq/1995_1/0403.html" rel="nofollow">[12]</a></li>
+<li id="_note-13"><b><a href="#_ref-13" title="">^</a></b> "Smashing the Stack for Fun and Profit" by Aleph One <a href="http://doc.bughunter.net/buffer-overflow/smash-stack.html" class="external autonumber" title="http://doc.bughunter.net/buffer-overflow/smash-stack.html" rel="nofollow">[13]</a></li>
+<li id="_note-14"><b><a href="#_ref-14" title="">^</a></b> eEye Digital Security <a href="http://www.eeye.com/html/Research/Advisories/AL20010717.html" class="external autonumber" title="http://www.eeye.com/html/Research/Advisories/AL20010717.html" rel="nofollow">[14]</a></li>
+<li id="_note-15"><b><a href="#_ref-15" title="">^</a></b> Microsft Technet Security Bulletin MS02-039 <a href="http://www.microsoft.com/technet/security/bulletin/ms02-039.mspx" class="external autonumber" title="http://www.microsoft.com/technet/security/bulletin/ms02-039.mspx" rel="nofollow">[15]</a></li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/f/Buffer_overflow.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://iac.dtic.mil/iatac/download/Vol7_No4.pdf" class="external text" title="http://iac.dtic.mil/iatac/download/Vol7_No4.pdf" rel="nofollow">An Overview and Example of the Buffer-Overflow Exploit. pps. 16-21.</a></li>
+<li><a href="https://www.securecoding.cert.org" class="external text" title="https://www.securecoding.cert.org" rel="nofollow">CERT Secure Coding Standards</a></li>
+<li><a href="http://www.cert.org/secure-coding" class="external text" title="http://www.cert.org/secure-coding" rel="nofollow">CERT Secure Coding Initiative</a></li>
+<li><a href="http://www.cert.org/books/secure-coding" class="external text" title="http://www.cert.org/books/secure-coding" rel="nofollow">Secure Coding in C and C++</a></li>
+<li><a href="http://www.sans.org/rr/paper.php?id=386" class="external text" title="http://www.sans.org/rr/paper.php?id=386" rel="nofollow">SANS: inside the buffer overflow attack</a></li>
+<li><a href="http://doc.bughunter.net/buffer-overflow/" class="external text" title="http://doc.bughunter.net/buffer-overflow/" rel="nofollow">More Security Whitepapers about Buffer Overflows</a></li>
+<li>(PDF) <a href="http://www.syngress.com/book_catalog/327_SSPC/sample.pdf" class="external text" title="http://www.syngress.com/book_catalog/327_SSPC/sample.pdf" rel="nofollow">Chapter 12: Writing Exploits III</a> from <i>Sockets, Shellcode, Porting &amp; Coding: Reverse Engineering Exploits and Tool Coding for Security Professionals</i> by James C. Foster (<a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 1-59749-005-9</a>). Detailed explanation of how to use Metasploit to develop a buffer overflow exploit from scratch.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 5570 bytes
+Post-expand include size: 1072 bytes
+Template argument size: 1333 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/u/f/Buffer_overflow.html">http://en.wikipedia.org../../../b/u/f/Buffer_overflow.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../p/r/o/Category%7EProgramming_bugs_a8ce.html" title="Category:Programming bugs">Programming bugs</a></span> | <span dir='ltr'><a href="../../../s/e/c/Category%7ESecurity_exploits_07c3.html" title="Category:Security exploits">Security exploits</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/u/f/Buffer_overflow.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/u/f/Talk%7EBuffer_overflow_7aca.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Buffer_overflow">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ar/%D8%AA/%D8%AC/%D8%A7/%D8%AA%D8%AC%D8%A7%D9%88%D8%B2_%D8%B3%D8%B9%D8%A9_%D8%A7%D9%84%D9%85%D8%AE%D8%B2%D9%86_%D8%A7%D9%84%D9%85%D8%A4%D9%82%D8%AA.html">العربية</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/p/u/f/Puffer%C3%BCberlauf.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/d/e/s/Desbordamiento_de_b%C3%BAfer.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../eu/b/u/f/Buffer_gainezkatze.html">Euskara</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/d/%C3%A9/p/D%C3%A9passement_de_tampon.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/b/u/f/Buffer_overflow.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%92/%D7%9C/%D7%99/%D7%92%D7%9C%D7%99%D7%A9%D7%AA_%D7%97%D7%95%D7%A6%D7%A5.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/b/u/f/Bufferoverloop.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%83%90/%E3%83%83/%E3%83%95/%E3%83%90%E3%83%83%E3%83%95%E3%82%A1%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%A9%E3%83%B3.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/p/r/z/Przepe%C5%82nienie_bufora.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/b/u/f/Buffer_overflow.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%BF/%D0%B5/%D1%80/%D0%9F%D0%B5%D1%80%D0%B5%D0%BF%D0%BE%D0%BB%D0%BD%D0%B5%D0%BD%D0%B8%D0%B5_%D0%B1%D1%83%D1%84%D0%B5%D1%80%D0%B0.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sk/p/r/e/Prete%C4%8Denie_vyrovn%C3%A1vacej_pam%C3%A4te.html">Slovenčina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/p/u/s/Puskurin_ylivuotovirhe.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/b/u/f/Buffert%C3%B6verskridning.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/l/%E1%BB%97/i/L%E1%BB%97i_tr%C3%A0n_b%E1%BB%99_nh%E1%BB%9B_%C4%91%E1%BB%87m.html">Tiếng Việt</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../tr/a/r/a/Arabellek_a%C5%9F%C4%B1m%C4%B1.html">Türkçe</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E7%BC%93/%E5%AD%98/%E6%BA%A2/%E7%BC%93%E5%AD%98%E6%BA%A2%E5%87%BA.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 01:21, 1 April 2007 by Wikipedia user <a href="../../../r/o/b/User%7ERoboto_de_Ajvol_7755.html" title="User:Roboto de Ajvol">Roboto de Ajvol</a>. Based on work by Wikipedia user(s) <a href="../../../t/o/m/User%7ETompsci_07b4.html" title="User:Tompsci">Tompsci</a>, Sassy410, Shirifan, <a href="../../../a/b/a/User%7EAbaddon314159_ea91.html" title="User:Abaddon314159">Abaddon314159</a>, <a href="../../../b/e/v/User%7EBevo_cf25.html" title="User:Bevo">Bevo</a>, CypherXero, <a href="../../../n/i/c/User%7ENicM_3e6b.html" title="User:NicM">NicM</a>, <a href="../../../t/x/i/User%7ETXiKiBoT_8a77.html" title="User:TXiKiBoT">TXiKiBoT</a>, SS451, <a href="../../../c/o/l/User%7ECollard_a39c.html" title="User:Collard">Collard</a>, Themania, <a href="../../../t/a/r/User%7ETardis_51e3.html" title="User:Tardis">Tardis</a>, <a href="../../../e/r/k/User%7EErkan_Yilmaz_8888.html" title="User:Erkan Yilmaz">Erkan Yilmaz</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, Pps, <a href="../../../r/e/e/User%7EReedy_Boy_3c7f.html" title="User:Reedy Boy">Reedy Boy</a>, <a href="../../../e/d/_/User%7EEd_Poor_ed4e.html" title="User:Ed Poor">Ed Poor</a>, <a href="../../../q/e/d/User%7EQed_d487.html" title="User:Qed">Qed</a>, <a href="../../../a/n/t/User%7EAntiVandalBot_aa84.html" title="User:AntiVandalBot">AntiVandalBot</a>, <a href="../../../d/h/n/User%7EDHN-bot_8c4a.html" title="User:DHN-bot">DHN-bot</a>, AaronMK, <a href="../../../h/g/f/User%7EHgfernan_df96.html" title="User:Hgfernan">Hgfernan</a>, <a href="../../../p/s/e/User%7EPseudoSudo_e48d.html" title="User:PseudoSudo">PseudoSudo</a>, <a href="../../../u/n/i/User%7EUnixguy_8059.html" title="User:Unixguy">Unixguy</a>, DAGwyn, <a href="../../../e/r/i/User%7EEric119_9f87.html" title="User:Eric119">Eric119</a>, Rcseacord, <a href="../../../k/d/a/User%7EKdakin_15f6.html" title="User:Kdakin">Kdakin</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../w/a/r/User%7EWarrens_af91.html" title="User:Warrens">Warrens</a>, <a href="../../../s/h/u/User%7EShunpiker_0ed5.html" title="User:Shunpiker">Shunpiker</a>, CountingPine, <a href="../../../t/o/b/User%7ETobias_Bergemann_bfa6.html" title="User:Tobias Bergemann">Tobias Bergemann</a>, <a href="../../../a/h/y/User%7EAhy1_aef6.html" title="User:Ahy1">Ahy1</a>, <a href="../../../a/_/b/User%7EA_bit_iffy_397a.html" title="User:A bit iffy">A bit iffy</a>, <a href="../../../a/j/o/User%7EAjo_Mama_83bb.html" title="User:Ajo Mama">Ajo Mama</a>, <a href="../../../x/a/n/User%7EXandi_0c34.html" title="User:Xandi">Xandi</a>, <a href="../../../m/e/r/User%7EMercuryboard_4f09.html" title="User:Mercuryboard">Mercuryboard</a>, <a href="../../../j/u/l/User%7EJulesH_8c63.html" title="User:JulesH">JulesH</a>, <a href="../../../r/e/b/User%7ERebecca_4f8f.html" title="User:Rebecca">Rebecca</a>, <a href="../../../b/o/b/User%7EBobblewik_fbc0.html" title="User:Bobblewik">Bobblewik</a>, <a href="../../../r/i/t/User%7ERITZ_97b6.html" title="User:RITZ">RITZ</a>, <a href="../../../s/t/e/User%7EStevertigo_b55d.html" title="User:Stevertigo">Stevertigo</a>, <a href="../../../t/o/m/User%7ETomnason1010_616f.html" title="User:Tomnason1010">Tomnason1010</a>, <a href="../../../g/l/o/User%7EGloomy_281c.html" title="User:Gloomy">Gloomy</a>, <a href="../../../t/i/m/User%7ETim1988_0c53.html" title="User:Tim1988">Tim1988</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../u/g/u/User%7EUgur_Basak_Bot_6132.html" title="User:Ugur Basak Bot">Ugur Basak Bot</a>, <a href="../../../j/o/e/User%7EJoeBot_e8e1.html" title="User:JoeBot">JoeBot</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a>, <a href="../../../v/o/i/User%7EVoice_of_All_a6ef.html" title="User:Voice of All">Voice of All</a>, <a href="../../../d/p/v/User%7EDpv_75fb.html" title="User:Dpv">Dpv</a>, <a href="../../../s/o/u/User%7ESoumyasch_cb30.html" title="User:Soumyasch">Soumyasch</a>, <a href="../../../k/u/k/User%7EKukini_322a.html" title="User:Kukini">Kukini</a>, Detach, Vargc0, <a href="../../../p/i/z/User%7EPizzaMargherita_c94c.html" title="User:PizzaMargherita">PizzaMargherita</a>, <a href="../../../c/h/l/User%7EChlewbot_ac63.html" title="User:Chlewbot">Chlewbot</a>, <a href="../../../m/g/r/User%7EMgreenbe_c499.html" title="User:Mgreenbe">Mgreenbe</a>, <a href="../../../m/e/t/User%7EMetromoxie_17e8.html" title="User:Metromoxie">Metromoxie</a>, <a href="../../../d/o/u/User%7EDoug_Bell_8398.html" title="User:Doug Bell">Doug Bell</a>, <a href="../../../d/z/h/User%7EDzhim_91dd.html" title="User:Dzhim">Dzhim</a>, <a href="../../../h/o/b/User%7EHob_a862.html" title="User:Hob">Hob</a>, <a href="../../../m/o/r/User%7EMordemur_b551.html" title="User:Mordemur">Mordemur</a>, <a href="../../../n/i/k/User%7ENikai_7c15.html" title="User:Nikai">Nikai</a>, <a href="../../../w/i/k/User%7EWikibob_130d.html" title="User:Wikibob">Wikibob</a>, <a href="../../../l/i/g/User%7ELigulem_20b6.html" title="User:Ligulem">Ligulem</a>, N-dy, <a href="../../../a/a/p/User%7EAapo_Laitinen_bd1c.html" title="User:Aapo Laitinen">Aapo Laitinen</a>, <a href="../../../y/u/l/User%7EYUL89YYZ_a738.html" title="User:YUL89YYZ">YUL89YYZ</a>, <a href="../../../j/o/a/User%7EJoanneB_e69b.html" title="User:JoanneB">JoanneB</a>, Baris simsek, <a href="../../../p/a/r/User%7EParasitical_981f.html" title="User:Parasitical">Parasitical</a>, <a href="../../../d/o/l/User%7EDolda2000_a592.html" title="User:Dolda2000">Dolda2000</a>, Mbessey, <a href="../../../m/a/h/User%7EMahanga_6077.html" title="User:Mahanga">Mahanga</a>, <a href="../../../m/i/p/User%7EMipadi_1585.html" title="User:Mipadi">Mipadi</a>, <a href="../../../c/h/e/User%7EChemturion_e589.html" title="User:Chemturion">Chemturion</a>, <a href="../../../m/y/s/User%7EMysid_64a6.html" title="User:Mysid">Mysid</a>, <a href="../../../d/p/a/User%7EDpakoha_906c.html" title="User:Dpakoha">Dpakoha</a>, <a href="../../../o/r/d/User%7EOrderud_9d90.html" title="User:Orderud">Orderud</a>, Argilo, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, Rodrigoq, Lofi-stereo, Barcelova, <a href="../../../p/e/n/User%7EPengo_70fc.html" title="User:Pengo">Pengo</a>, <a href="../../../d/l/e/User%7EDleonard_1e83.html" title="User:Dleonard">Dleonard</a>, Vento, <a href="../../../p/o/l/User%7EPoli_5b72.html" title="User:Poli">Poli</a>, <a href="../../../t/b/s/User%7ETbsmith_9e40.html" title="User:Tbsmith">Tbsmith</a>, Hooperbloob, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../c/o/m/User%7EComrade009_4f33.html" title="User:Comrade009">Comrade009</a>, <a href="../../../g/r/a/User%7EGraue_e85a.html" title="User:Graue">Graue</a>, <a href="../../../e/z/h/User%7EEzhiki_e732.html" title="User:Ezhiki">Ezhiki</a>, <a href="../../../p/a/t/User%7EPatriceNeff_6e30.html" title="User:PatriceNeff">PatriceNeff</a>, <a href="../../../k/n/e/User%7EKneeLess_7e94.html" title="User:KneeLess">KneeLess</a>, <a href="../../../k/b/o/User%7EKbolino_eb99.html" title="User:Kbolino">Kbolino</a>, <a href="../../../p/o/w/User%7EPoweroid_35e1.html" title="User:Poweroid">Poweroid</a>, <a href="../../../c/e/s/User%7ECesarB_5f7f.html" title="User:CesarB">CesarB</a>, <a href="../../../f/r/e/User%7EFrencheigh_9db2.html" title="User:Frencheigh">Frencheigh</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../s/i/e/User%7ESietse_Snel_e2d7.html" title="User:Sietse Snel">Sietse Snel</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../c/f/a/User%7ECfailde_cb95.html" title="User:Cfailde">Cfailde</a>, <a href="../../../d/w/h/User%7EDwheeler_7975.html" title="User:Dwheeler">Dwheeler</a>, <a href="../../../j/u/m/User%7EJumbuck_a815.html" title="User:Jumbuck">Jumbuck</a>, <a href="../../../d/a/v/User%7EDavidCary_1a42.html" title="User:DavidCary">DavidCary</a>, Andrewbadr, <a href="../../../j/r/i/User%7EJrincayc_4757.html" title="User:Jrincayc">Jrincayc</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../l/e/i/User%7ELeibniz_106a.html" title="User:Leibniz">Leibniz</a>, <a href="../../../l/d/o/User%7ELdo_6987.html" title="User:Ldo">Ldo</a>, <a href="../../../e/c/o/User%7EEconrad_d5a8.html" title="User:Econrad">Econrad</a>, <a href="../../../m/o/r/User%7EMordomo_77b6.html" title="User:Mordomo">Mordomo</a>, <a href="../../../d/i/b/User%7EDiberri_3d04.html" title="User:Diberri">Diberri</a>, <a href="../../../k/w/e/User%7EKwertii_f6e2.html" title="User:Kwertii">Kwertii</a>, Thierryc, <a href="../../../s/p/i/User%7ESpiff_4354.html" title="User:Spiff">Spiff</a>, <a href="../../../m/o/d/User%7EModster_b6f4.html" title="User:Modster">Modster</a>, <a href="../../../b/l/u/User%7EBluefoxicy_4fe7.html" title="User:Bluefoxicy">Bluefoxicy</a>, <a href="../../../c/h/i/User%7EChinju_e6fd.html" title="User:Chinju">Chinju</a>, <a href="../../../e/n/i/User%7EEnigmasoldier_8d9d.html" title="User:Enigmasoldier">Enigmasoldier</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../i/n/t/User%7EIntangir_86a8.html" title="User:Intangir">Intangir</a>, <a href="../../../r/o/a/User%7ERoadrunner_b57c.html" title="User:Roadrunner">Roadrunner</a>, <a href="../../../d/a/n/User%7EDanielCohen_b77d.html" title="User:DanielCohen">DanielCohen</a>, <a href="../../../r/b/r/User%7ERbrwr_a39c.html" title="User:Rbrwr">Rbrwr</a>, <a href="../../../n/i/t/User%7ENiteowlneils_bf4c.html" title="User:Niteowlneils">Niteowlneils</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../a/r/v/User%7EArvindn_6a6a.html" title="User:Arvindn">Arvindn</a>, <a href="../../../w/i/k/User%7EWikibot_9002.html" title="User:Wikibot">Wikibot</a>, <a href="../../../a/s/t/User%7EAstroNomer_6120.html" title="User:AstroNomer">AstroNomer</a>, <a href="../../../t/h/e/User%7ETheresa_knott_8b13.html" title="User:Theresa knott">Theresa knott</a>, <a href="../../../s/m/a/User%7ESmaffy_ff49.html" title="User:Smaffy">Smaffy</a>, <a href="../../../h/e/r/User%7EHeron_606a.html" title="User:Heron">Heron</a>, <a href="../../../h/f/a/User%7EHfastedge_1521.html" title="User:Hfastedge">Hfastedge</a>, <a href="../../../c/a/d/User%7ECadr_ad74.html" title="User:Cadr">Cadr</a>, <a href="../../../b/r/i/User%7EBrion_VIBBER_bae4.html" title="User:Brion VIBBER">Brion VIBBER</a>, <a href="../../../r/o/b/User%7ERobert_Merkel_dd17.html" title="User:Robert Merkel">Robert Merkel</a>, <a href="../../../r/y/g/User%7ERyguasu_fbf3.html" title="User:Ryguasu">Ryguasu</a>, <a href="../../../m/a/v/User%7EMaveric149_24ee.html" title="User:Maveric149">Maveric149</a>, <a href="../../../b/r/y/User%7EBryan_Derksen_3ce8.html" title="User:Bryan Derksen">Bryan Derksen</a>, <a href="../../../c/y/d/User%7ECYD_b425.html" title="User:CYD">CYD</a>, <a href="../../../t/u/x/User%7ETuxisuau_b2a0.html" title="User:Tuxisuau">Tuxisuau</a>, <a href="../../../m/a/t/User%7EMatthew_Woodcraft_0030.html" title="User:Matthew Woodcraft">Matthew Woodcraft</a>, <a href="../../../u/r/i/User%7EUriyan_1dfa.html" title="User:Uriyan">Uriyan</a>, <a href="../../../t/i/m/User%7ETim_Goodwin_2411.html" title="User:Tim Goodwin">Tim Goodwin</a> and <a href="../../../s/a/n/User%7ESandos_3528.html" title="User:Sandos">Sandos</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

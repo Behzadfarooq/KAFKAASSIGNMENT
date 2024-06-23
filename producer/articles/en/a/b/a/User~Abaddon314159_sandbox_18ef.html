@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Abaddon314159/sandbox,Black hat,Buffer overflow,Call stack,Computer language,Computer memory,Finger,I386,IA-32,Infinite recursion,Internet worm" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Abaddon314159/sandbox - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Abaddon314159/sandbox</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/b/a/User%7EAbaddon314159_ea91.html" title="User:Abaddon314159">User:Abaddon314159</a></span></div>
+	    	    	    <!-- start content -->
+	    <p>In software, a <b>stack overflow</b> occurs when a program reads from or writes to an invalid <a href="../../../c/o/m/Computer_memory.html" title="Computer memory">memory</a> address on the program's <a href="../../../c/a/l/Call_stack.html" title="Call stack">call stack</a>. This can be caused by a number of different programming mistakes.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Non-security_related_stack_overflows"><span class="tocnumber">1</span> <span class="toctext">Non-security related stack overflows</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Infinite_recursion"><span class="tocnumber">1.1</span> <span class="toctext">Infinite recursion</span></a></li>
+<li class="toclevel-2"><a href="#Very_large_stack_variables"><span class="tocnumber">1.2</span> <span class="toctext">Very large stack variables</span></a></li>
+<li class="toclevel-2"><a href="#C.2FC.2B.2B_examples"><span class="tocnumber">1.3</span> <span class="toctext">C/C++ examples</span></a></li>
+<li class="toclevel-2"><a href="#Other_languages_here"><span class="tocnumber">1.4</span> <span class="toctext">Other languages here</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Security_related_stack_overflows"><span class="tocnumber">2</span> <span class="toctext">Security related stack overflows</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Exploiting_stack_overflows"><span class="tocnumber">2.1</span> <span class="toctext">Exploiting stack overflows</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Practicle_considerations"><span class="tocnumber">2.1.1</span> <span class="toctext">Practicle considerations</span></a>
+<ul>
+<li class="toclevel-4"><a href="#The_NOP-sled_technique"><span class="tocnumber">2.1.1.1</span> <span class="toctext">The NOP-sled technique</span></a></li>
+<li class="toclevel-4"><a href="#The_jump_to_ESP_technique"><span class="tocnumber">2.1.1.2</span> <span class="toctext">The jump to ESP technique</span></a></li>
+</ul>
+</li>
+<li class="toclevel-3"><a href="#Platform_related_differences"><span class="tocnumber">2.1.2</span> <span class="toctext">Platform related differences</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Protection_schemes"><span class="tocnumber">2.2</span> <span class="toctext">Protection schemes</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Stack_canaries"><span class="tocnumber">2.2.1</span> <span class="toctext">Stack canaries</span></a></li>
+<li class="toclevel-3"><a href="#Nonexecutable_stack"><span class="tocnumber">2.2.2</span> <span class="toctext">Nonexecutable stack</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Notable_examples"><span class="tocnumber">2.3</span> <span class="toctext">Notable examples</span></a></li>
+<li class="toclevel-2"><a href="#Further_reading"><span class="tocnumber">2.4</span> <span class="toctext">Further reading</span></a></li>
+<li class="toclevel-2"><a href="#External_resources"><span class="tocnumber">2.5</span> <span class="toctext">External resources</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Non-security_related_stack_overflows" id="Non-security_related_stack_overflows"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Non-security related stack overflows">edit</a>]</span> <span class="mw-headline">Non-security related stack overflows</span></h2>
+<p>In many programming languages the call stack contains a limited amount of memory, usually determined at the start of the program. The size of the call stack depends on the programming language, machine architecture, multi-threading, and amount of available memory. When too much memory is used on the call stack the stack is said to overflow; typically resulting in a program crash. The class of stack overflows that are not generally associated with a security vulnerability are usually caused by one of two factors.</p>
+<p><a name="Infinite_recursion" id="Infinite_recursion"></a></p>
+<h3><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Infinite recursion">edit</a>]</span> <span class="mw-headline">Infinite recursion</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../i/n/f/Infinite_recursion.html" title="Infinite recursion">infinite recursion</a></i></div>
+</dd>
+</dl>
+<p>The most common cause of this class of stack overflows is excessively deep or infinite recursion. Languages, like <a href="../../../s/c/h/Scheme.html" title="Scheme">Scheme</a>, which implement <a href="../../../t/a/i/Tail-call_optimization.html" title="Tail-call optimization">tail-call optimization</a> allow infinite recursion of a specific sort — <a href="../../../t/a/i/Tail_recursion.html" title="Tail recursion">tail recursion</a> — to occur without stack overflow. This works because tail-recursion calls do not take up additional stack space.</p>
+<p><a name="Very_large_stack_variables" id="Very_large_stack_variables"></a></p>
+<h3><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Very large stack variables">edit</a>]</span> <span class="mw-headline">Very large stack variables</span></h3>
+<p>The other major cause of this class of stack overflow results from an attempt to allocate more memory on the stack than will fit. This is usually the result of creating local array variables that are far too large. For this reason arrays larger than a few kilobytes should be allocated dynamically instead of as a local variable.</p>
+<p>These types of stack overflows are made worse by anything that reduces the effective stack size of a given program. For example, the same program being run without multiple threads might work fine, but as soon as multi-threading is enabled the program will crash. This is caused because most programs with threads have less stack space per thread than a program with no threading support. Similarly, people new to <a href="../../../k/e/r/Kernel_%28computer_science%29.html" title="Kernel (computer science)">kernel</a> development are usually discouraged from using recursive algorithms or large stack buffers.</p>
+<p><a name="C.2FC.2B.2B_examples" id="C.2FC.2B.2B_examples"></a></p>
+<h3><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: C/C++ examples">edit</a>]</span> <span class="mw-headline">C/C++ examples</span></h3>
+<dl>
+<dt>Infinite recursion</dt>
+</dl>
+<pre>
+int f(){
+  g();
+}
+
+int g() {
+  f();  
+}
+</pre>
+<p><code>f()</code> calls <code>g()</code>, which in turn calls <code>f()</code> and so on. Eventually, the stack overflows.</p>
+<dl>
+<dt>Large Array Allocation on the stack</dt>
+</dl>
+<pre>
+int main() {
+  int n[10000000]; // array is too large 
+
+  int j =0; //j's address exceeds the stack's limits, error
+}
+</pre>
+<p><a name="Other_languages_here" id="Other_languages_here"></a></p>
+<h3><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Other languages here">edit</a>]</span> <span class="mw-headline">Other languages here</span></h3>
+<p><a name="Security_related_stack_overflows" id="Security_related_stack_overflows"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Security related stack overflows">edit</a>]</span> <span class="mw-headline">Security related stack overflows</span></h2>
+<p>The most serious stack overflow bugs are caused when a program writes more data to a buffer located on the stack than there was actually allocated for that buffer. This almost always results in corruption of adjacent data on the stack, and in cases where the overflow was triggered by mistake, will usually cause the program to crash. This type of overflow is part of the more general class of programming bugs known as <a href="../../../b/u/f/Buffer_overflow.html" title="Buffer overflow">buffer overflows</a>.</p>
+<p>If the effected program is running with special priviledges, or accepts data to untrusted network hosts (e.g. a <a href="../../../w/e/b/Webserver.html" title="Webserver">webserver</a>) then the bug is a potencial security vulnerability. If the stack buffer is filled with data supplied from an untrusted user then that user can corrupt the stack in such a way as to inject executable code into the running program and take control of the process. This is one of the oldest and more reliable methods for <a href="../../../b/l/a/Black_hat.html" title="Black hat">crackers</a> to gain unauthorized access to a computer.</p>
+<p><a name="Exploiting_stack_overflows" id="Exploiting_stack_overflows"></a></p>
+<h3><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Exploiting stack overflows">edit</a>]</span> <span class="mw-headline">Exploiting stack overflows</span></h3>
+<p>The cannonical method for exploiting a stack based buffer overflow is to overwrite the function return address with a pointer to attacker controled data (usually on the stack itself). This is illustrated in the example below:</p>
+<dl>
+<dt>An example with <a href="../../../s/t/r/Strcpy.html" title="Strcpy">strcpy</a></dt>
+</dl>
+<pre>
+<code>void foo (char *bar) {
+  char  c[12];
+
+  strcpy(c, bar);  // no bounds checking...
+}
+
+int main (int argc, char **argv) {
+  foo(argv[1]); 
+}
+</code>
+</pre>
+<p>This code takes an argument from the command line and copies it to a local stack variable <code>c</code>. This works fine for command line arguments smaller than 12 characters (as you can see in figure <a href="http://en.wikipedia.org/wiki/Image:Stack_Overflow_3.png" class="external text" title="http://en.wikipedia.org/wiki/Image:Stack_Overflow_3.png" rel="nofollow">B</a> below). Any arguments larger than 11 characters long will result in corruption of the stack.</p>
+<dl>
+<dt>The program stack in <code>foo()</code> with various inputs</dt>
+</dl>
+<table>
+<tr>
+<td>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:202px;"><a href="../../../s/t/a/Image%7EStack_Overflow_2.png_82e3.html" class="internal" title="A - Before data is copied."><img src="../../../upload/thumb/4/4f/Stack_Overflow_2.png/200px-Stack_Overflow_2.png" alt="A - Before data is copied." width="200" height="286" longdesc="../../../s/t/a/Image%7EStack_Overflow_2.png_82e3.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../s/t/a/Image%7EStack_Overflow_2.png_82e3.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A - Before data is copied.</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:202px;"><a href="../../../s/t/a/Image%7EStack_Overflow_3.png_eada.html" class="internal" title="B. - &quot;hello&quot; is the first command line argument."><img src="../../../upload/thumb/9/93/Stack_Overflow_3.png/200px-Stack_Overflow_3.png" alt="B. - &quot;hello&quot; is the first command line argument." width="200" height="286" longdesc="../../../s/t/a/Image%7EStack_Overflow_3.png_eada.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../s/t/a/Image%7EStack_Overflow_3.png_eada.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+B. - "hello" is the first command line argument.</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:247px;"><a href="../../../s/t/a/Image%7EStack_Overflow_4.png_d0b4.html" class="internal" title="C. - &quot;AAAAAAAAAAAAAAAAAAAA\x08\x35\xC0\x80&quot; is the first command line argument."><img src="../../../upload/thumb/c/c3/Stack_Overflow_4.png/245px-Stack_Overflow_4.png" alt="C. - &quot;AAAAAAAAAAAAAAAAAAAA\x08\x35\xC0\x80&quot; is the first command line argument." width="245" height="290" longdesc="../../../s/t/a/Image%7EStack_Overflow_4.png_d0b4.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../s/t/a/Image%7EStack_Overflow_4.png_d0b4.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+C. - "AAAAAAAAAAAAAAAAAAAA\x08\x35\xC0\x80" is the first command line argument.</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p>Notice in figure <a href="http://en.wikipedia.org/wiki/Image:Stack_Overflow_4.png" class="external text" title="http://en.wikipedia.org/wiki/Image:Stack_Overflow_4.png" rel="nofollow">C</a> above, when an argument larger than 11 bytes is supplied on the command line <code>foo()</code> overwrites local stack data, the saved frame pointer, and most importantly, the return address. When <code>foo()</code> returns it pops the return address off the stack and jumps to that address (i.e. starts executing instructions from that address). As you can see in figure <a href="http://en.wikipedia.org/wiki/Image:Stack_Overflow_4.png" class="external text" title="http://en.wikipedia.org/wiki/Image:Stack_Overflow_4.png" rel="nofollow">C</a> above, the attacker has overwritten the return address with a pointer to the stack buffer <code>char c[12]</code>, which now contains attacker supplied data. In an actual stack overflow exploit the string of "A"'s would be replaced with <a href="../../../s/h/e/Shellcode.html" title="Shellcode">shellcode</a> suitable to the platform and desired function. If this program had special priviledges (e.g. the <a href="../../../s/e/t/Setuid.html" title="Setuid">SUID</a> bit set to run as the <a href="../../../s/u/p/Superuser.html" title="Superuser">superuser</a>), then the attacker could use this vulnerability to gain superuser priviledges on the effected machine.</p>
+<p><a name="Practicle_considerations" id="Practicle_considerations"></a></p>
+<h4><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Practicle considerations">edit</a>]</span> <span class="mw-headline">Practicle considerations</span></h4>
+<p>The example above demonstrates the basic concepts of how an attacker is able to exploit a stack based buffer overflow to gain control of the effected program, but it will rarely work in real world examples. The problem is that using this method we need to know the exact location of the effected buffer on the stack so that we can overwrite the return pointer with that address. In practice it's not practicle to try to find this address for a number of reasons. The start of the stack may be different for each thread in an application, the depth of the current stack at the time of exploitation may be difficult or impossible to determine, etc. There are a number of methods an attacker can employ to overcome these considerations. The most important techniques are the NOP-sled, and the jump to ESP technique.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:202px;"><a href="../../../n/o/p/Image%7ENopSled.png_d1e6.html" class="internal" title="D - Illustration of a NOP-sled payload on the stack."><img src="../../../upload/thumb/c/c7/NopSled.png/200px-NopSled.png" alt="D - Illustration of a NOP-sled payload on the stack." width="200" height="398" longdesc="../../../n/o/p/Image%7ENopSled.png_d1e6.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../n/o/p/Image%7ENopSled.png_d1e6.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+D - Illustration of a NOP-sled payload on the stack.</div>
+</div>
+</div>
+<p><a name="The_NOP-sled_technique" id="The_NOP-sled_technique"></a></p>
+<h5><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: The NOP-sled technique">edit</a>]</span> <span class="mw-headline">The NOP-sled technique</span></h5>
+<p>A NOP-sled is oldest and the most widely known technique for successfully exploiting a stack overflow. It solves the problem of finding the exact address to the buffer by effectively increasing the size of the target area. To do this much larger sections of the stack are corrupted with the <a href="../../../n/o/-/No-op.html" title="No-op">no-op</a> machine instruction. At the end of the attacker supplied data, after the no-op instructions, is placed an instruction to perform a relative jump to the top of the buffer where the shellcode is located. This collection of no-ops is refered to as the "NOP-sled" because if the return address is overwritten with any address within the no-op region of the buffer it will "slide" down the no-op's until it is redirected to the actual malicious code by the jump at the end. This technique requires the attacker to guess where on the stack the NOP-sled is instead of the, comparitively small, shellcode.</p>
+<p>While this method greatly improves the chances that at attack will be successful it is not without problems. Exploits using this technique still must rely on some amount of luck that they will guess offsets on the stack that are within the NOP-sled region. An incorrect guess will usually result in the target program crashing and could alert the <a href="../../../s/y/s/System_administrator.html" title="System administrator">system administrator</a> to the attacker's activities. Another problem is that the NOP-sled requires a much larger amount of memory in which to hold a NOP-sled large enough to be over any use. This can be a problem when the allocated size of the effected buffer is too small and the current depth of the stack is shallow (i.e. there is not much space from the end of the current stack frame to the start of the stack). Dispite its problems, the NOP-sled is often the only method that will work for a given platform, environment, or situation; as such it is still an important technique.</p>
+<p><a name="The_jump_to_ESP_technique" id="The_jump_to_ESP_technique"></a></p>
+<h5><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: The jump to ESP technique">edit</a>]</span> <span class="mw-headline">The jump to ESP technique</span></h5>
+<p>The "jump to ESP" technique allows for reliable exploitation of stack overflows without the need for extra room for a NOP-sled and without having to guess stack offsets. The strategy is to overwrite the return pointer with something that will cause the program to jump to top of the stack (where the attacker's shellcode is stored) in a dynamic way; so no matter where the top of the stack is, the program will jump there upon return. To accomplish this the return pointer is overwritten with an address within the main program code that contains the machine instructions to jump to the top of the stack. On i386 this instruction is <code>jmp <a href="../../../i/a/-/IA-32_c9a0.html#General_address_registers" title="IA-32">esp</a></code>. This technique is so named because it is most often used on i386 platforms.</p>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:302px;"><a href="../../../j/u/m/Image%7EJumpToEsp.png_b286.html" class="internal" title="E - An instruction from ntdll.dll to call the DbgPrint() routine contains the i386 machine opcode for jmp esp."><img src="../../../upload/thumb/c/c6/JumpToEsp.png/300px-JumpToEsp.png" alt="E - An instruction from ntdll.dll to call the DbgPrint() routine contains the i386 machine opcode for jmp esp." width="300" height="152" longdesc="../../../j/u/m/Image%7EJumpToEsp.png_b286.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../j/u/m/Image%7EJumpToEsp.png_b286.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+E - An instruction from ntdll.dll to call the <code>DbgPrint()</code> routine contains the <a href="../../../i/3/8/I386.html" title="I386">i386</a> machine opcode for <code>jmp esp</code>.</div>
+</div>
+</div>
+<p>In practice it is extremely rare for a program to intentionally contain instructions to jump to the top of the program stack. The traditional solution is to find an unintentional instance of a suitable <a href="../../../o/p/c/Opcode.html" title="Opcode">opcode</a> at a fixed location somewhere within the program memory. This usually requires that the machine architecture allow for memory access at unaligned addresses (see the section platform related differences for special cases). In figure <a href="http://en.wikipedia.org/wiki/Image:JumpToEsp.png" class="external text" title="http://en.wikipedia.org/wiki/Image:JumpToEsp.png" rel="nofollow">E</a> on the left you can see an example of such an unintentional instance of the i386 <code>jmp esp</code> instruction. The opcode for this instruction is <code>FF E4</code>. This two byte sequence can be found at a one byte offset from the start of the instruction <code>call DbgPrint</code> at address <code>0x7C941EED</code>. If an attacker overwrites the program return address with this address the program will first jump to <code>0x7C941EED</code>, interpret the opcode <code>FF E4</code> as the <code>jmp esp</code> instruction, and will then jump to the top of the stack and execute the attacker's code.</p>
+<p>When this technique is possible the severity of the vulnerability increases considerably. This is because exploitation will work reliably enough to automate an attack with a virtual garantee of success when it is run. For this reason, this is the technique most commonly used in <a href="../../../i/n/t/Internet_worm.html" title="Internet worm">internet worms</a> that exploit stack overflow vulnerabilities.</p>
+<p><a name="Platform_related_differences" id="Platform_related_differences"></a></p>
+<h4><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Platform related differences">edit</a>]</span> <span class="mw-headline">Platform related differences</span></h4>
+<p><a name="Protection_schemes" id="Protection_schemes"></a></p>
+<h3><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Protection schemes">edit</a>]</span> <span class="mw-headline">Protection schemes</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../s/t/a/Stack-smashing_protection.html" title="Stack-smashing protection">Stack-smashing protection</a></i></div>
+</dd>
+</dl>
+<p><a name="Stack_canaries" id="Stack_canaries"></a></p>
+<h4><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Stack canaries">edit</a>]</span> <span class="mw-headline">Stack canaries</span></h4>
+<p><a name="Nonexecutable_stack" id="Nonexecutable_stack"></a></p>
+<h4><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Nonexecutable stack">edit</a>]</span> <span class="mw-headline">Nonexecutable stack</span></h4>
+<p><a name="Notable_examples" id="Notable_examples"></a></p>
+<h3><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Notable examples">edit</a>]</span> <span class="mw-headline">Notable examples</span></h3>
+<ul>
+<li>The <a href="../../../m/o/r/Morris_worm.html" title="Morris worm">Morris worm</a> spread in part by exploiting a stack overflow in the <a href="../../../u/n/i/Unix.html" title="Unix">Unix</a> <a href="../../../f/i/n/Finger.html" title="Finger">finger</a> server.<a href="http://www.ee.ryerson.ca/~elf/hack/iworm.html" class="external autonumber" title="http://www.ee.ryerson.ca/~elf/hack/iworm.html" rel="nofollow">[1]</a></li>
+</ul>
+<p><a name="Further_reading" id="Further_reading"></a></p>
+<h3><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: Further reading">edit</a>]</span> <span class="mw-headline">Further reading</span></h3>
+<p><a name="External_resources" id="External_resources"></a></p>
+<h3><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: External resources">edit</a>]</span> <span class="mw-headline">External resources</span></h3>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/u/f/Buffer_overflow.html" title="Buffer overflow">Buffer overflow</a></li>
+<li><a href="../../../c/a/l/Call_stack.html" title="Call stack">Call stack</a></li>
+</ul>
+<div class="boilerplate metadata" id="stub"><a href="../../../l/a/m/Image%7ELampFlowchart.svg_c131.html" class="image" title="Soft Eng logo"><img src="../../../upload/shared/thumb/9/91/LampFlowchart.svg/20px-LampFlowchart.svg.png" alt="Soft Eng logo" width="20" height="27" longdesc="../../../l/a/m/Image%7ELampFlowchart.svg_c131.html" /></a> <i>This <a href="../../../c/o/m/Computer_language.html" title="Computer language">computer language</a>-related article is a <a href="../../../p/e/r/Wikipedia%7EPerfect_stub_article_2d8f.html" title="Wikipedia:Perfect stub article">stub</a>. You can <a href="../../../s/t/u/Wikipedia%7EStub_72af.html" title="Wikipedia:Stub">help</a> Wikipedia by <a href="http://en.wikipedia.org../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" class="external text" title="http://en.wikipedia.org../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html" rel="nofollow">expanding it</a></i>.</div>
+
+<!-- 
+Pre-expand include size: 2793 bytes
+Post-expand include size: 901 bytes
+Template argument size: 517 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html">http://en.wikipedia.org../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../p/r/o/Category%7EProgramming_bugs_a8ce.html" title="Category:Programming bugs">Programming bugs</a></span> | <span dir='ltr'><a href="../../../s/o/f/Category%7ESoftware_anomalies_81eb.html" title="Category:Software anomalies">Software anomalies</a></span> | <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_language_stubs_2fdd.html" title="Category:Computer language stubs">Computer language stubs</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/b/a/User%7EAbaddon314159_sandbox_18ef.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/b/a/User_talk%7EAbaddon314159_sandbox_8649.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Abaddon314159/sandbox">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../it/s/t/a/Stack_overflow.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%82%B9/%E3%82%BF/%E3%83%83/%E3%82%B9%E3%82%BF%E3%83%83%E3%82%AF%E3%82%AA%E3%83%BC%E3%83%90%E3%83%BC%E3%83%95%E3%83%AD%E3%83%BC.html">日本語</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:57, 6 April 2007 by Wikipedia user <a href="../../../a/b/a/User%7EAbaddon314159_ea91.html" title="User:Abaddon314159">Abaddon314159</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

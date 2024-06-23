@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Box-Cox transformation,Classic data sets,Cobb-Douglas,Continuous function,David Cox (statistician),Derivative,Econometrics,George EP Box,Homogeneous function,Power (mathematics),Regression analysis" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Box-Cox transformation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Box-Cox transformation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../s/t/a/Statistics.html" title="Statistics">statistics</a>, the <b><a href="../../../g/e/o/George_EP_Box_6ba9.html" title="George EP Box">Box</a>-<a href="../../../d/a/v/David_Cox_%28statistician%29_e0f1.html" title="David Cox (statistician)">Cox</a> transformation</b> of the response variable <i>Y</i> is used to make the linear model more appropriate to the data. It can be used to attempt to impose linearity, eliminate skew or stabilize the residual variance.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Background"><span class="tocnumber">1</span> <span class="toctext">Background</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">2</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Econometric_application"><span class="tocnumber">3</span> <span class="toctext">Econometric application</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Background" id="Background"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/x/Box-Cox_transformation_b270.html" title="Edit section: Background">edit</a>]</span> <span class="mw-headline">Background</span></h2>
+<p>The Box-Cox transformation is defined as:</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/1/1/911161adc0db0df9d45f145c54de512f.png" alt="\tau(Y;\lambda)=\begin{cases}(Y^\lambda-1)/\lambda &amp; \mathrm{if}\ \lambda\neq 0, \\ \ln(Y) &amp; \mathrm{if}\ \lambda=0.\end{cases}" /></dd>
+</dl>
+<p>The value at Y=1 for any λ is 0, and the <a href="../../../d/e/r/Derivative.html" title="Derivative">derivative</a> with respect to Y there is 1 for any λ. Sometimes Y is a version of some other variable scaled to give Y=1 at some sort of average value.</p>
+<p>The transformation is a <a href="../../../p/o/w/Power_%28mathematics%29.html" title="Power (mathematics)">power</a> transformation, but done in such a way as to make it <a href="../../../c/o/n/Continuous_function.html" title="Continuous function">continuous</a> with the parameter λ at λ=0. It has proved popular in <a href="../../../r/e/g/Regression_analysis.html" title="Regression analysis">regression analysis</a>, including <a href="../../../e/c/o/Econometrics.html" title="Econometrics">econometrics</a>.</p>
+<p>Box and Cox also proposed a more general form of the transformation which incorporates a shift parameter.</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/a/7/0a764525775a1f0e29509bb44c6f98bc.png" alt="\tau(Y;\lambda, \alpha) = \begin{cases} [(Y + \alpha)^\lambda - 1]/\lambda &amp; \mathrm{if}\ \lambda\neq 0, \\ = \ln(Y + \alpha)&amp; \mathrm{if}\ \lambda=0.\end{cases}" /></dd>
+</dl>
+<p>In <a href="../../../r/e/g/Regression_analysis.html" title="Regression analysis">regression analysis</a>, one sometimes carries out a series of Box-Cox transformations of the response variable with a range of values of λ and α, and one then compares the <a href="../../../r/e/s/Residual_sum_of_squares.html" title="Residual sum of squares">residual sum of squares</a> at these values in order to choose the transformation which gives the best results. Because the residual sum of squares is proportional to the log-likelihood, this procedure amounts to approximate maximum likelihood estimation.</p>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/x/Box-Cox_transformation_b270.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>The BUPA liver data set contains data on liver enzymes ALT and γGT. The data can be found via the <a href="../../../c/l/a/Classic_data_sets.html" title="Classic data sets">classic data sets</a> page. Suppose we are interested in using log(γGT) to predict ALT. A plot of the data appears in panel (a) of the figure. There appears to be non-constant variance, and a Box-Cox transformation might help.</p>
+<p><a href="../../../b/u/p/Image%7EBUPA_BoxCox.JPG_8b96.html" class="image" title="image:BUPA_BoxCox.JPG"><img src="../../../upload/e/e1/BUPA_BoxCox.JPG" alt="image:BUPA_BoxCox.JPG" width="400" height="300" longdesc="../../../b/u/p/Image%7EBUPA_BoxCox.JPG_8b96.html" /></a></p>
+<p>The log-likelihood of the power parameter appears in panel (b). The horizontal reference line is at a distance of χ<sub>1</sub><sup>2</sup>/2 from the maximum and can be used to read off an approximate 95% confidence interval for λ. It appears as though a value close to zero would be good, so we take logs.</p>
+<p>Possibly, the transformation could be improved by adding a shift parameter to the log transformation. Panel (c) of the figure shows the log-likelihood. In this case, the maximum of the likelihood is close to zero suggesting that a shift parameter is not needed. The final panel shows the transformed data with a superimposed regression line.</p>
+<p>Note that although Box-Cox transformations can make big improvements in model fit, there are some issues that the transformation cannot help with. In the current example, the data are rather heavy-tailed so that the assumption of normality is not realistic and a <a href="../../../r/o/b/Robust_regression.html" title="Robust regression">robust regression</a> approach leads to a more precise model.</p>
+<p><a name="Econometric_application" id="Econometric_application"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/x/Box-Cox_transformation_b270.html" title="Edit section: Econometric application">edit</a>]</span> <span class="mw-headline">Econometric application</span></h2>
+<p>Economists often characterize production relationships by some variant of the Box-Cox transformation.</p>
+<p>Consider a common representation of production <i>Q</i> as dependent on services provided by a capital stock <i>K</i> and by labor hours <i>N</i>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/f/8/2f85c718e858a2897cc8aa6d6f5fb049.png" alt="\tau(Q)=\alpha \tau(K)+ (1-\alpha)\tau(N).\," /></dd>
+</dl>
+<p>Solving for <i>Q</i> by inverting the Box-Cox transformation we find</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/9/0/69077e2fae57b1093f1b627677bd7dd4.png" alt="Q=\big(\alpha K^\lambda + (1-\alpha) N^\lambda\big)^{1/\lambda},\," /></dd>
+</dl>
+<p>which is known as the <i>constant elasticity of substitution (CES)</i> production function.</p>
+<p>The CES production function is a <a href="../../../h/o/m/Homogeneous_function.html" title="Homogeneous function">homogeneous function</a> of degree one.</p>
+<p>When <span class="texhtml">λ = 1</span> this produces the linear production function:</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/3/2/932dcc46087b34efee47e29a95c308f5.png" alt="Q=\alpha K + (1-\alpha)N.\," /></dd>
+</dl>
+<p>When λ → 0 this produces the famous <a href="../../../c/o/b/Cobb-Douglas_084c.html" title="Cobb-Douglas">Cobb-Douglas</a> production function:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/e/8/ae895e514b6392eb1f11a344be576f25.png" alt="Q=K^\alpha N^{1-\alpha}.\," /></dd>
+</dl>
+<p><br /></p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/x/Box-Cox_transformation_b270.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="../../../g/e/o/George_EP_Box_6ba9.html" title="George EP Box">Box, G. E. P.</a> and <a href="../../../d/a/v/David_Cox_%28statistician%29_e0f1.html" title="David Cox (statistician)">Cox, D. R.</a> (1964) <i>An analysis of transformations.</i> Journal of Royal Statistical Society, Series B, vol. 26, pp. 211-–246.</li>
+</ul>
+<p>The story of the writing of the paper is told in</p>
+<ul>
+<li>DeGroot, M. H. (1987) A Conversation with George Box, Statistical Science, vol. 2, pp. 239-258.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/x/Box-Cox_transformation_b270.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<p><a href="http://www.stat.uconn.edu/~studentjournal/index_files/pengfi_s05.pdf" class="external text" title="http://www.stat.uconn.edu/~studentjournal/index_files/pengfi_s05.pdf" rel="nofollow">Box-Cox Transformation: An Overview, Pengfei Li</a></p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/x/Box-Cox_transformation_b270.html">http://en.wikipedia.org../../../b/o/x/Box-Cox_transformation_b270.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../s/t/a/Category%7EStatistics_88d6.html" title="Category:Statistics">Statistics</a></span> | <span dir='ltr'><a href="../../../s/t/a/Category%7EStatistical_theory_4cba.html" title="Category:Statistical theory">Statistical theory</a></span> | <span dir='ltr'><a href="../../../e/c/o/Category%7EEconometrics_69b9.html" title="Category:Econometrics">Econometrics</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/x/Box-Cox_transformation_b270.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/o/x/Talk%7EBox-Cox_transformation_154c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Box-Cox_transformation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 15:26, 27 December 2006 by Wikipedia user <a href="../../../t/o/l/User%7ETolstoy_the_Cat_c08a.html" title="User:Tolstoy the Cat">Tolstoy the Cat</a>. Based on work by Wikipedia user(s) <a href="../../../e/r/i/User%7EEric_Kvaalen_2860.html" title="User:Eric Kvaalen">Eric Kvaalen</a>, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../w/i/n/User%7EWinBot_3e52.html" title="User:WinBot">WinBot</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../d/a/n/User%7EDanielPenfield_6fa8.html" title="User:DanielPenfield">DanielPenfield</a>, <a href="../../../m/a/u/User%7EMaurreen_1d2b.html" title="User:Maurreen">Maurreen</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and Aisaac and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

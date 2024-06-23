@@ -4,9 +4,7 @@ import spacy
 from bs4 import BeautifulSoup
 from kafka import KafkaProducer
 
-
 nlp = spacy.load("en_core_web_sm")
-
 
 producer = KafkaProducer(
     bootstrap_servers=['kafka:9092'],  
@@ -30,7 +28,7 @@ def process_file(file_path):
             'word': ent.text,
             'entity': ent.label_
         }
-        producer.send('word-entity-topic', value=message)
+        producer.send('wordentity', value=message)
         print(f"Produced: {message}")
 
 

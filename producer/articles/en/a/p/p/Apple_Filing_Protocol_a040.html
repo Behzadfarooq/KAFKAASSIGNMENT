@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Apple Filing Protocol,Access control list,AppleShare,AppleTalk,Asterisk,Bonjour (protocol),Communications protocol,Computer network,Creator code,Domain Name System,Extended attributes" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Apple Filing Protocol - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Apple Filing Protocol</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>The <b>Apple Filing Protocol</b> (<b>AFP</b>) is a layer 6 (<a href="../../../p/r/e/Presentation_layer.html" title="Presentation layer">presentation layer</a>) <a href="../../../c/o/m/Communications_protocol.html" title="Communications protocol">network protocol</a> that offers file services for <a href="../../../m/a/c/Mac_OS_X_b8d4.html" title="Mac OS X">Mac OS X</a> and Classic <a href="../../../m/a/c/Mac_OS_6c4f.html" title="Mac OS">Mac OS</a>. In Mac OS X, AFP is one of several file services supported including <a href="../../../s/e/r/Server_Message_Block_b980.html" title="Server Message Block">Server Message Block</a> (SMB), <a href="../../../n/e/t/Network_File_System_%28Sun%29_4a35.html" title="Network File System (Sun)">Network File System</a> (NFS), <a href="../../../f/i/l/File_Transfer_Protocol_5436.html" title="File Transfer Protocol">File Transfer Protocol</a> (FTP), and <a href="../../../w/e/b/WebDAV_0976.html" title="WebDAV">WebDAV</a>. It currently supports <a href="../../../u/n/i/Unicode.html" title="Unicode">Unicode</a> file names, <a href="../../../p/o/s/POSIX_0028.html" title="POSIX">POSIX</a> and <a href="../../../a/c/c/Access_control_list.html" title="Access control list">access control list</a> permissions, UNIX quotas, <a href="../../../r/e/s/Resource_fork.html" title="Resource fork">resource forks</a>, named extended attributes, and advanced file locking. In <a href="../../../m/a/c/Mac_OS_9_206f.html" title="Mac OS 9">Mac OS 9</a> and earlier, AFP was the primary protocol for file services.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Compatibility"><span class="tocnumber">1</span> <span class="toctext">Compatibility</span></a></li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">2</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#The_Mac_OS_X_client"><span class="tocnumber">3</span> <span class="toctext">The Mac OS X client</span></a></li>
+<li class="toclevel-1"><a href="#Third-party_implementations"><span class="tocnumber">4</span> <span class="toctext">Third-party implementations</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Compatibility" id="Compatibility"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Apple_Filing_Protocol_a040.html" title="Edit section: Compatibility">edit</a>]</span> <span class="mw-headline">Compatibility</span></h2>
+<p>AFP versions 3.0 and greater rely exclusively on <a href="../../../i/n/t/Internet_protocol_suite.html" title="Internet protocol suite">TCP/IP</a> (port 548 or 427) for establishing communication, supporting <a href="../../../a/p/p/AppleTalk_b4cb.html" title="AppleTalk">AppleTalk</a> only as a service discovery protocol. The AFP 2.x family supports both TCP/IP and AppleTalk for communication and service discovery. Many third-party AFP implementations use AFP 2.x, thereby supporting AppleTalk as a connection method. Still earlier versions rely exclusively on AppleTalk. For this reason, some older literature refers to AFP as "AppleTalk Filing Protocol". Other literature may refer to AFP as "AppleShare," the name of the Mac OS 9 (and earlier) AFP client.</p>
+<p>Notable current compatibility topics are:</p>
+<ol>
+<li><a href="../../../m/a/c/Mac_OS_X_v10.4_3c40.html" title="Mac OS X v10.4">Mac OS X v10.4</a> and later eliminates support for AFP servers that rely solely on AppleTalk for communication.</li>
+<li>Computers using Classic Mac OS can connect to AFP 3.x servers, with some limitations. For example, the maximum file size in Mac OS 9 is 2 <a href="../../../g/i/b/Gibibyte.html" title="Gibibyte">gibibytes</a>. Typically, Mac OS 9.1 or later is recommended for connecting to AFP 3.x servers; for versions of Classic Mac OS prior to 9.1, installation of the <a href="../../../a/p/p/AppleShare_f5be.html" title="AppleShare">AppleShare</a> client 3.8.8 is required.</li>
+<li>AFP 3.0 and later is required for network home directories, since Mac OS X requires POSIX permissions on user home directories. Single sign-on using <a href="../../../k/e/r/Kerberos_%28protocol%29.html" title="Kerberos (protocol)">Kerberos</a> requires AFP 3.1.</li>
+</ol>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Apple_Filing_Protocol_a040.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>Changes made in AFP since version 3.0 represent major advances in the protocol, introducing features designed specifically for Mac OS X clients.</p>
+<p>However, like the AppleShare client in Classic Mac OS, the AFP client in Mac OS X continues to support <a href="../../../t/y/p/Type_code.html" title="Type code">type</a> and <a href="../../../c/r/e/Creator_code.html" title="Creator code">creator codes</a>, along with <a href="../../../f/i/l/Filename_extension.html" title="Filename extension">filename extensions</a>.</p>
+<p>AFP 3.0 was introduced in <a href="../../../m/a/c/Mac_OS_X_Server_f77d.html" title="Mac OS X Server">Mac OS X Server</a> 10.0.3, and was used through Mac OS X Server 10.1.5. It was the first version to use the UNIX-style POSIX permissions model and Unicode <a href="../../../u/t/f/UTF-8_ae3b.html" title="UTF-8">UTF-8</a> file name encodings. Version 3.0 supported a maximum share point and file size of two <a href="../../../t/e/r/Terabyte.html" title="Terabyte">terabytes</a>, the maximum file size and volume size for Mac OS X until version 10.2. (Note that the maximum file size changed from version 2.2, described below.)</p>
+<p>AFP 3.1 was introduced in Mac OS X Server version 10.2. Notable changes included support for Kerberos authentication, automatic client reconnect, NFS resharing, and secure AFP connections via <a href="../../../s/e/c/Secure_Shell_c755.html" title="Secure Shell">Secure Shell</a> (SSH). The maximum share point and file size increased to eight terabytes with Mac OS X Server 10.2, and then to 16 terabytes with Mac OS X Server 10.3.</p>
+<p>AFP 3.2 adds support for Access Control Lists and <a href="../../../e/x/t/Extended_attributes.html" title="Extended attributes">extended attributes</a> in Mac OS X Server 10.4. Maximum share point size is at least 16 terabytes, although Apple has not published a limits document for Mac OS X Server 10.4.</p>
+<p>Early implementations of AFP server software were available in Mac OS starting with version 7.0, in AppleShare and AppleShare IP, and in early "1.x" releases of Mac OS X Server. In client operating systems, AFP was called "Personal File Sharing", and supported up to ten simultaneous connections. These AFP implementations relied on version 1.x or 2.x of the protocol. AppleShare IP 5.x, 6.x, and the "1.x" releases of Mac OS X Server introduced AFP version 2.2. This was the first version to offer transport connections using TCP/IP as well as AppleTalk. It also increased the maximum share point size from four <a href="../../../g/i/b/Gibibyte.html" title="Gibibyte">gibibytes</a> to two <a href="../../../t/e/b/Tebibyte.html" title="Tebibyte">tebibytes</a>, although the maximum file size that could be stored remained at two gibibytes due to limitations in Classic Mac OS.</p>
+<p><a name="The_Mac_OS_X_client" id="The_Mac_OS_X_client"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Apple_Filing_Protocol_a040.html" title="Edit section: The Mac OS X client">edit</a>]</span> <span class="mw-headline">The Mac OS X client</span></h2>
+<p>In Mac OS X, users can connect to AFP servers by browsing for them in the <a href="../../../c/o/m/Computer_network.html" title="Computer network">Network</a> globe or entering an AFP <a href="../../../u/n/i/Uniform_Resource_Locator_1b4e.html" title="Uniform Resource Locator">Uniform Resource Locator</a> (URL) into the Connect to Server dialog. AFP URLs take the form: <i>afp://&lt;server&gt;/&lt;share&gt;</i>, where &lt;server&gt; is the server's <a href="../../../i/p/_/IP_address_6ed9.html" title="IP address">IP address</a>, <a href="../../../d/o/m/Domain_Name_System_3b6e.html" title="Domain Name System">Domain Name System</a> (DNS) name, or <a href="../../../b/o/n/Bonjour_%28protocol%29.html" title="Bonjour (protocol)">Bonjour</a> name, and &lt;share&gt; is the name of the share point.</p>
+<p>Mac OS X also offers Personal File Sharing, a "lite" implementation of the current version of AFP. In Mac OS X 10.4 client, users can share the contents of their Public folders by checking Personal File Sharing in the Sharing section of System Preferences.</p>
+<p>AFP URLs for AppleTalk servers took the form: <i>afp:/at/&lt;AppleTalk name&gt;:&lt;AppleTalk zone&gt;</i>. For networks without AppleTalk zones, an <a href="../../../a/s/t/Asterisk.html" title="Asterisk">asterisk</a> (*) would be substituted for the zone name.</p>
+<p><a name="Third-party_implementations" id="Third-party_implementations"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Apple_Filing_Protocol_a040.html" title="Edit section: Third-party implementations">edit</a>]</span> <span class="mw-headline">Third-party implementations</span></h2>
+<p>Third party server implementations of AFP are available from a number of companies.</p>
+<ul>
+<li><a href="../../../m/i/c/Microsoft.html" title="Microsoft">Microsoft</a> includes AFP server support as an option in some versions of <a href="../../../m/i/c/Microsoft_Windows_48e2.html" title="Microsoft Windows">Windows</a>.</li>
+<li>Novell's NetWare supports AFP.</li>
+<li>An <a href="../../../o/p/e/Open_source.html" title="Open source">open source</a> AFP server called <a href="../../../n/e/t/Netatalk.html" title="Netatalk">Netatalk</a> is available for <a href="../../../u/n/i/Unix.html" title="Unix">Unix</a>-like operating systems.</li>
+<li>The <a href="../../../o/p/e/Open_Source_1846.html" title="Open Source">Open Source</a> client implementation <a href="http://sourceforge.net/projects/afpfs-ng" class="external text" title="http://sourceforge.net/projects/afpfs-ng" rel="nofollow">afpfs-ng</a> by Alex deVries, is able to mount AFP 3.x shares and view AFP resource forks. It will run on <a href="../../../l/i/n/Linux.html" title="Linux">Linux</a> 2.6 kernels, but could possibly work on <a href="../../../f/r/e/FreeBSD_a3dc.html" title="FreeBSD">FreeBSD</a> since it uses <a href="../../../f/u/s/FUSE_%28Linux%29_14cd.html" title="FUSE (Linux)">FUSE</a>. afpfs-ng is a rewrite of the original afpfs kernel module for 2.0 and 2.2 kernel written by Ben Hekster and David Foster.</li>
+<li><a href="http://www.grouplogic.com/products/extreme/overview.cfm" class="external text" title="http://www.grouplogic.com/products/extreme/overview.cfm" rel="nofollow">ExtremeZ-IP</a> and <a href="http://www.cyansoftware.com/MacServerIP.htm" class="external text" title="http://www.cyansoftware.com/MacServerIP.htm" rel="nofollow">MacServerIP</a> for Windows offer AFP 3.x support.</li>
+<li>A few <a href="../../../n/e/t/Network_Attached_Storage_bcd5.html" title="Network Attached Storage">NAS</a> solutions support AFP - <a href="http://www.infrant.com/products/products.php" class="external text" title="http://www.infrant.com/products/products.php" rel="nofollow">Infrant ReadyNAS</a>, <a href="http://www.snapserver.com/Products/650.shtml" class="external text" title="http://www.snapserver.com/Products/650.shtml" rel="nofollow">Adaptec's SnapServer</a> (AFP 2.0) and <a href="http://www.exanet.com/default.asp?contentID=71" class="external text" title="http://www.exanet.com/default.asp?contentID=71" rel="nofollow">Exanet's ExaStore</a> (AFP 3.1) being commercial examples and <a href="../../../f/r/e/FreeNAS_543c.html" title="FreeNAS">FreeNAS</a> being a <a href="../../../f/r/e/Free_software.html" title="Free software">free software</a> example.</li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Apple_Filing_Protocol_a040.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="http://manuals.info.apple.com/en/File_Services_v10.4.pdf" class="external text" title="http://manuals.info.apple.com/en/File_Services_v10.4.pdf" rel="nofollow">File Services Manual for Mac OS X Server 10.4</a></li>
+<li><a href="http://developer.apple.com/documentation/Networking/Conceptual/AFP/index.html" class="external text" title="http://developer.apple.com/documentation/Networking/Conceptual/AFP/index.html" rel="nofollow">Apple Filing Protocol Programming Guide</a></li>
+<li><a href="http://docs.info.apple.com/article.html?artnum=25557" class="external text" title="http://docs.info.apple.com/article.html?artnum=25557" rel="nofollow">Mac OS X: Mac OS Extended Format - Volume and File Limits</a></li>
+<li><a href="http://docs.info.apple.com/article.html?artnum=15460" class="external text" title="http://docs.info.apple.com/article.html?artnum=15460" rel="nofollow">AppleShare &amp; AppleShare IP File Sharing: Chart of All Limitations</a></li>
+<li><a href="http://docs.info.apple.com/article.html?artnum=107684" class="external text" title="http://docs.info.apple.com/article.html?artnum=107684" rel="nofollow">Mac OS X Server 10.3: Tested and theoretical maximums (limits)</a></li>
+<li><a href="http://docs.info.apple.com/article.html?artnum=107326" class="external text" title="http://docs.info.apple.com/article.html?artnum=107326" rel="nofollow">Mac OS X: Some Mac OS X Applications and Services Require AFP 3.0 or Later</a></li>
+<li><a href="http://docs.info.apple.com/article.html?artnum=107323" class="external text" title="http://docs.info.apple.com/article.html?artnum=107323" rel="nofollow">Mac OS X Server 10.2: Tested and theoretical maximums (limits)</a></li>
+<li><a href="http://developer.apple.com/macos/opentransport/docs/dev/Inside_AppleTalk.pdf" class="external text" title="http://developer.apple.com/macos/opentransport/docs/dev/Inside_AppleTalk.pdf" rel="nofollow">Inside AppleTalk - original specification for the AppleTalk protocol stack including AFP</a></li>
+<li><a href="http://www.accsystems.com/glossary.htm" class="external text" title="http://www.accsystems.com/glossary.htm" rel="nofollow">Glossary of Networking Terms</a></li>
+<li><a href="http://www.newsfactor.com/story.xhtml?story_title=How_Secure_Is_OS_X_&amp;story_id=23467" class="external text" title="http://www.newsfactor.com/story.xhtml?story_title=How_Secure_Is_OS_X_&amp;story_id=23467" rel="nofollow">NewsFactor Network article, A</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/p/p/Apple_Filing_Protocol_a040.html">http://en.wikipedia.org../../../a/p/p/Apple_Filing_Protocol_a040.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/p/p/Category%7EApple_Inc._software_0f45.html" title="Category:Apple Inc. software">Apple Inc. software</a></span> | <span dir='ltr'><a href="../../../n/e/t/Category%7ENetwork_protocols_8662.html" title="Category:Network protocols">Network protocols</a></span> | <span dir='ltr'><a href="../../../n/e/t/Category%7ENetwork_file_systems_5c2f.html" title="Category:Network file systems">Network file systems</a></span> | <span dir='ltr'><a href="../../../p/r/e/Category%7EPresentation_layer_protocols_ce14.html" title="Category:Presentation layer protocols">Presentation layer protocols</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/p/p/Apple_Filing_Protocol_a040.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/p/p/Talk%7EApple_Filing_Protocol_27e9.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Apple_Filing_Protocol">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../da/a/p/p/AppleTalk_Filing_Protocol_dd9d.html">Dansk</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/p/p/Apple_Filing_Protocol_a040.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/p/p/Apple_Filing_Protocol_a040.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/a/p/p/Apple_Filing_Protocol_a040.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/a/p/p/Apple_Filing_Protocol_a040.html">Português</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:47, 8 April 2007 by Wikipedia user SLi. Based on work by Wikipedia user(s) <a href="../../../c/h/r/User%7EChristTrekker_3e2b.html" title="User:ChristTrekker">ChristTrekker</a>, Geebee2000, Etraitel, <a href="../../../d/r/i/User%7EDrinibot_e464.html" title="User:Drinibot">Drinibot</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../w/k/n/User%7EWknight94_8d60.html" title="User:Wknight94">Wknight94</a>, <a href="../../../d/e/m/User%7EDemitsu_def8.html" title="User:Demitsu">Demitsu</a>, Alexthepuffin, <a href="../../../r/o/b/User%7ERobotG_33b0.html" title="User:RobotG">RobotG</a>, <a href="../../../s/d/f/User%7ESdfisher_d82c.html" title="User:Sdfisher">Sdfisher</a>, Gerritdewitt, <a href="../../../i/t/a/User%7EItai_a5d4.html" title="User:Itai">Itai</a>, <a href="../../../a/l/i/User%7EAli%40gwc.org.uk_d4f6.html" title="User:Ali@gwc.org.uk">Ali@gwc.org.uk</a>, <a href="../../../a/l/a/User%7EAlanlevin_dff6.html" title="User:Alanlevin">Alanlevin</a>, <a href="../../../g/a/i/User%7EGaius_Cornelius_c35a.html" title="User:Gaius Cornelius">Gaius Cornelius</a>, JerkerNyberg, <a href="../../../w/e/r/User%7EWereon_8361.html" title="User:Wereon">Wereon</a>, <a href="../../../m/f/n/User%7EMFNickster_1b31.html" title="User:MFNickster">MFNickster</a>, <a href="../../../a/l/i/User%7EAlistairMcMillan_232b.html" title="User:AlistairMcMillan">AlistairMcMillan</a>, <a href="../../../p/e/l/User%7EPelago_0156.html" title="User:Pelago">Pelago</a>, <a href="../../../r/o/b/User%7ERobyWayne_5f41.html" title="User:RobyWayne">RobyWayne</a>, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, Flumignan, <a href="../../../m/o/r/User%7EMortein_9836.html" title="User:Mortein">Mortein</a>, Harro, Ghoffart, <a href="../../../s/t/e/User%7EStewartadcock_c102.html" title="User:Stewartadcock">Stewartadcock</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../w/w/_/User%7EWw_6383.html" title="User:Ww">Ww</a> and <a href="../../../v/e/s/User%7EVespristiano_289e.html" title="User:Vespristiano">Vespristiano</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

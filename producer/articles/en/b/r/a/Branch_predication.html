@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Branch predication,ARM architecture,Binary GCD algorithm,Bitwise operation,Branch (computer science),Branch prediction,CPU cache,Central processing unit,Computer architecture,Computer program,IA-64" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Branch predication - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Branch predication</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Branch predication</b>, not to be confused with <a href="../../../b/r/a/Branch_prediction.html" title="Branch prediction">branch prediction</a>, is a strategy in <a href="../../../c/o/m/Computer_architecture.html" title="Computer architecture">computer architecture</a> design for mitigating the costs usually associated with conditional <a href="../../../b/r/a/Branch_%28computer_science%29.html" title="Branch (computer science)">branches</a>, particularly branches to short sections of code. It does this by allowing each instruction to conditionally either perform an operation or do nothing.</p>
+<p><a name="Overview" id="Overview"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predication.html" title="Edit section: Overview">edit</a>]</span> <span class="mw-headline">Overview</span></h2>
+<p>Because <a href="../../../c/o/m/Computer_program.html" title="Computer program">computer programs</a> respond to a user, there is no way around the fact that portions of a program need to be executed conditionally. As the majority of <a href="../../../c/e/n/Central_processing_unit.html" title="Central processing unit">processors</a> simply execute the next <a href="../../../i/n/s/Instruction_%28computer_science%29.html" title="Instruction (computer science)">instruction</a> encountered, the traditional solution is to insert <i>branch</i> instructions that allow a program to conditionally branch to a different section of code. This was a good solution until designers began improving performance by <a href="../../../i/n/s/Instruction_pipelining.html" title="Instruction pipelining">instruction pipelining</a>, which is slowed down by branches. For a more thorough description of the problems which arose and a popular solution, see <a href="../../../b/r/a/Branch_prediction.html" title="Branch prediction">branch prediction</a>.</p>
+<p>Luckily, one of the more common patterns of code that normally relies on branching has a more elegant solution. Consider the following <a href="../../../p/s/e/Pseudocode.html" title="Pseudocode">pseudocode</a>:</p>
+<pre>
+<b>if</b> <i>condition</i>
+    <i>do this</i>
+<b>else</b>
+    <i>do that</i>
+</pre>
+<p>On a system that uses conditional branching, this might translate to <a href="../../../m/a/c/Machine_language.html" title="Machine language">machine instructions</a> looking something like this:</p>
+<pre>
+  branch if <i>condition</i> to <b>label 1</b>
+  <i>do that</i>
+  branch to <b>label 2</b>
+<b>label 1:</b>
+  <i>do this</i>
+<b>label 2:</b>
+  ...
+</pre>
+<p>With branch predication, these branches can be eliminated. The basic idea is that each instruction is associated with a predicate (the word here used similarly to its usage in <a href="../../../p/r/e/Predicate_logic.html" title="Predicate logic">predicate logic</a>) and that the instruction will only be executed if the predicate is true. The machine code for the above example using branch predication might look something like this:</p>
+<pre>
+(<i>condition</i>) do this
+(not <i>condition</i>) do that
+</pre>
+<p>Note that besides eliminating branches, less code is needed in total, provided the architecture provides predicated instructions. While this does not guarantee faster execution in general, it will if the <tt>do this</tt> and <tt>do that</tt> blocks of code are short enough.</p>
+<p>Typically, in order to claim a system has branch predication, most or all of the instructions must have this ability to execute conditionally based on a predicate.</p>
+<p><a name="Advantages_and_disadvantages" id="Advantages_and_disadvantages"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predication.html" title="Edit section: Advantages and disadvantages">edit</a>]</span> <span class="mw-headline">Advantages and disadvantages</span></h2>
+<p>The main purpose of predication is to avoid jumps over very small sections of program code, increasing the effectiveness of <a href="../../../p/i/p/Pipeline_%28computer%29.html" title="Pipeline (computer)">pipelined</a> execution and avoiding problems with the <a href="../../../c/p/u/CPU_cache_a87d.html" title="CPU cache">cache</a>. It also has a number of more subtle benefits:</p>
+<ul>
+<li>Functions that are traditionally computed using simple arithmetic and <a href="../../../b/i/t/Bitwise_operation.html" title="Bitwise operation">bitwise operations</a> may be quicker to compute using predicated instructions.</li>
+<li>Predicated instructions with different predicates can be mixed with each other and with unconditional code, allowing better <a href="../../../i/n/s/Instruction_scheduling.html" title="Instruction scheduling">instruction scheduling</a> and so even better performance.</li>
+<li>Elimination of unnecessary branch instructions can make the execution of necessary branches, such as those that make up loops, faster by lessening the load on <a href="../../../b/r/a/Branch_prediction.html" title="Branch prediction">branch prediction</a> mechanisms.</li>
+</ul>
+<p>Unfortunately, predication has one strong drawback: encoding space. In typical implementations, every instruction reserves a bitfield for the predicate specifying whether that instruction should have an effect. When available memory is limited, as on embedded devices, this space cost can be prohibitive. However, some architectures such as Thumb-2 are able to avoid this issue.</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predication.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>In <a href="../../../i/n/t/Intel.html" title="Intel">Intel</a>'s <a href="../../../i/a/-/IA-64_e36e.html" title="IA-64">IA-64</a> architecture, every instruction in the IA-64 <a href="../../../i/n/s/Instruction_set.html" title="Instruction set">instruction set</a> is predicated. The predicates themselves are stored in special purpose <a href="../../../p/r/o/Processor_register.html" title="Processor register">registers</a>. One of the predicate registers is always true so that <i>unpredicated</i> instructions are simply instructions predicted with the value true. In conjunction with more traditional methods for handling branching, the IA-64 architecture has seen excellent performance in its real implementations so far, the <a href="../../../i/t/a/Itanium.html" title="Itanium">Itanium</a> and <a href="../../../i/t/a/Itanium_2.html" title="Itanium 2">Itanium 2</a> processors.</p>
+<p>On the <a href="../../../a/r/m/ARM_architecture_bb78.html" title="ARM architecture">ARM architecture</a>, almost all instructions can be conditionally executed. Thirteen different predicates are available, each depending on the four flags Carry, Overflow, Zero, and Negative in some way. The ARM's 16-bit Thumb instruction set has no branch predication, in order to save encoding space, but its successor Thumb-2 overcomes this problem using a special instruction which has no effect but supplies predicates for the next four instructions.</p>
+<p>For a concrete example of code exploiting branch predication, see the ARM assembly example in <a href="../../../b/i/n/Binary_GCD_algorithm_47e9.html" title="Binary GCD algorithm">binary GCD algorithm</a>.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/a/Branch_predication.html">http://en.wikipedia.org../../../b/r/a/Branch_predication.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../i/n/s/Category%7EInstruction_processing_c8aa.html" title="Category:Instruction processing">Instruction processing</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/a/Branch_predication.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/r/a/Talk%7EBranch_predication_0189.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Branch_predication">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 06:19, 1 November 2006 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../j/o/n/User%7EJonHarder_ef53.html" title="User:JonHarder">JonHarder</a>, <a href="../../../w/o/r/User%7EWordy_McWordWord_35f7.html" title="User:Wordy McWordWord">Wordy McWordWord</a>, <a href="../../../t/i/m/User%7ETimBentley_fb12.html" title="User:TimBentley">TimBentley</a>, <a href="../../../l/i/g/User%7ELigulem_20b6.html" title="User:Ligulem">Ligulem</a>, <a href="../../../c/y/b/User%7ECyborgTosser_1c56.html" title="User:CyborgTosser">CyborgTosser</a>, <a href="../../../s/o/l/User%7ESolipsist_66d1.html" title="User:Solipsist">Solipsist</a>, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../i/a/i/User%7EIain.mcclatchie_df3b.html" title="User:Iain.mcclatchie">Iain.mcclatchie</a> and <a href="../../../k/o/r/User%7EKorath_83d6.html" title="User:Korath">Korath</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bitwise operation,Ampersand,Arithmetic overflow,Arithmetic shift,Assembly language,Binary numeral system,Bit,Bit manipulation,Bit pattern,Bitboard,Boolean" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bitwise operation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bitwise operation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_programming.html" title="Computer programming">computer programming</a>, a <b>bitwise operation</b> operates on one or two <a href="../../../b/i/t/Bit_pattern.html" title="Bit pattern">bit patterns</a> or <a href="../../../b/i/n/Binary_numeral_system.html" title="Binary numeral system">binary numerals</a> at the level of their individual <a href="../../../b/i/t/Bit.html" title="Bit">bits</a>. On many <a href="../../../c/o/m/Computer.html" title="Computer">computers</a>, bitwise operations are slightly faster than addition and subtraction operations and significantly faster than multiplication and division operations.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Bitwise_operators"><span class="tocnumber">1</span> <span class="toctext">Bitwise operators</span></a>
+<ul>
+<li class="toclevel-2"><a href="#NOT"><span class="tocnumber">1.1</span> <span class="toctext">NOT</span></a></li>
+<li class="toclevel-2"><a href="#OR"><span class="tocnumber">1.2</span> <span class="toctext">OR</span></a></li>
+<li class="toclevel-2"><a href="#XOR"><span class="tocnumber">1.3</span> <span class="toctext">XOR</span></a>
+<ul>
+<li class="toclevel-3"><a href="#See_also"><span class="tocnumber">1.3.1</span> <span class="toctext">See also</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#AND"><span class="tocnumber">1.4</span> <span class="toctext">AND</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Bit_shifts"><span class="tocnumber">2</span> <span class="toctext">Bit shifts</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Arithmetic_shift"><span class="tocnumber">2.1</span> <span class="toctext">Arithmetic shift</span></a></li>
+<li class="toclevel-2"><a href="#Logical_shift"><span class="tocnumber">2.2</span> <span class="toctext">Logical shift</span></a></li>
+<li class="toclevel-2"><a href="#Rotate_no_carry"><span class="tocnumber">2.3</span> <span class="toctext">Rotate no carry</span></a></li>
+<li class="toclevel-2"><a href="#Rotate_through_carry"><span class="tocnumber">2.4</span> <span class="toctext">Rotate through carry</span></a></li>
+<li class="toclevel-2"><a href="#Shifts_in_C.2C_C.2B.2B.2C_and_Java"><span class="tocnumber">2.5</span> <span class="toctext">Shifts in C, C++, and Java</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">3</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1"><a href="#See_also_2"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_link"><span class="tocnumber">6</span> <span class="toctext">External link</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Bitwise_operators" id="Bitwise_operators"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: Bitwise operators">edit</a>]</span> <span class="mw-headline">Bitwise operators</span></h2>
+<p><a name="NOT" id="NOT"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: NOT">edit</a>]</span> <span class="mw-headline">NOT</span></h3>
+<p>A <b>bitwise NOT</b> or <b>complement</b>, is a <a href="../../../u/n/a/Unary_operation.html" title="Unary operation">unary operation</a> which performs logical <a href="../../../n/e/g/Negation.html" title="Negation">negation</a> on each bit, forming the <a href="../../../o/n/e/Ones%27_complement.html" title="Ones' complement">ones' complement</a> of the given binary value. Digits which were 0 become 1, and vice versa. For example:</p>
+<pre>
+NOT 0111
+  = 1000
+</pre>
+<p>In many programming languages such as the <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> family, the bitwise NOT operator is "<code>~</code>" (<a href="../../../t/i/l/Tilde.html" title="Tilde">tilde</a>). This operator must not be confused with the "logical not" operator, "<code>!</code>" (exclamation point), which treats the entire value as a single <a href="../../../b/o/o/Boolean.html" title="Boolean">Boolean</a> — changing a true value to false, and vice versa. The "logical not" is not a bitwise operation.</p>
+<p><a name="OR" id="OR"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: OR">edit</a>]</span> <span class="mw-headline">OR</span></h3>
+<p>A <b>bitwise OR</b> takes two bit patterns of equal length, and produces another one of the same length by matching up corresponding bits (the first of each; the second of each; and so on) and performing the logical <a href="../../../l/o/g/Logical_disjunction.html" title="Logical disjunction">OR</a> operation on each pair of corresponding bits. In each pair, the result is 1 if the first bit is 1 <b>OR</b> the second bit is 1 (or both), and otherwise the result is 0. For example:</p>
+<pre>
+   0101
+OR 0011
+ = 0111 
+</pre>
+<p><br />
+In the C programming language family, the bitwise OR operator is "<code>|</code>" (<a href="../../../v/e/r/Vertical_bar.html" title="Vertical bar">pipe</a>). Again, this operator must not be confused with its Boolean "logical or" counterpart, which treats its operands as Boolean values, and is spelled "<code>||</code>" (two pipes).</p>
+<p>The bitwise OR may be used in situations where a set of bits are used as <a href="../../../f/l/a/Flag_%28computing%29.html" title="Flag (computing)">flags</a>; the bits in a single binary numeral may each represent a distinct <a href="../../../b/o/o/Boolean_algebra.html" title="Boolean algebra">Boolean</a> variable. Applying the bitwise OR operation to the numeral along with a bit pattern containing 1 in some positions will result in a new numeral with those bits <i>set</i>. For example:</p>
+<pre>
+0010
+</pre>
+<p>can be considered as a set of four flags. The first, second, and fourth flags are not set (0); the third flag is set (1). The first flag may be set by applying the bitwise OR to this value, along with another value in which only the first flag is set:</p>
+<pre>
+   0010
+OR 1000
+ = 1010
+</pre>
+<p>This technique is often used to conserve space in programs dealing with large numbers of Boolean values.</p>
+<p><a name="XOR" id="XOR"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: XOR">edit</a>]</span> <span class="mw-headline">XOR</span></h3>
+<p>A <b>bitwise exclusive or</b> takes two bit patterns of equal length and performs the logical <a href="../../../e/x/c/Exclusive_disjunction.html" title="Exclusive disjunction">XOR</a> operation on each pair of corresponding bits. The result in each position is 1 if the two bits are different, and 0 if they are the same. For example:</p>
+<pre>
+    0101
+XOR 0011
+  = 0110
+</pre>
+<p>In the C programming language family, the bitwise XOR operator is "<code>^</code>" (<a href="../../../c/a/r/Caret.html" title="Caret">caret</a>).</p>
+<p><a href="../../../a/s/s/Assembly_language.html" title="Assembly language">Assembly language</a> programmers sometimes use the XOR operation as a short-cut to set the value of a <a href="../../../p/r/o/Processor_register.html" title="Processor register">register</a> to zero. Performing XOR on a value against itself always yields zero, and on many architectures, this operation requires fewer <a href="../../../c/e/n/Central_processing_unit.html" title="Central processing unit">CPU</a> clock cycles than the sequence of operations that may be required to load a zero value and save it to the register.</p>
+<p>The bitwise XOR may also be used to toggle flags in a set of bits. Given a bit pattern:</p>
+<pre>
+0010
+</pre>
+<p>The first and third bits may be toggled simultaneously by a bitwise XOR with another bit pattern containing 1 in the first and third positions:</p>
+<pre>
+    0010
+XOR 1010
+  = 1000
+</pre>
+<p>This technique may be used to manipulate bit patterns representing sets of Boolean variables.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h4><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h4>
+<ul>
+<li><a href="../../../x/o/r/Xor_swap_algorithm.html" title="Xor swap algorithm">Xor swap algorithm</a></li>
+<li><a href="../../../x/o/r/Xor_linked_list.html" title="Xor linked list">Xor linked list</a></li>
+</ul>
+<p><a name="AND" id="AND"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: AND">edit</a>]</span> <span class="mw-headline">AND</span></h3>
+<p>A <b>bitwise AND</b> takes two binary representations of equal length and performs the logical <a href="../../../l/o/g/Logical_conjunction.html" title="Logical conjunction">AND</a> operation on each pair of corresponding bits. In each pair, the result is 1 if the first bit is 1 <b>AND</b> the second bit is 1. Otherwise, the result is 0. For example:</p>
+<pre>
+    0101
+AND 0011
+  = 0001
+</pre>
+<p>In the C programming language family, the bitwise AND operator is "<code>&amp;</code>" (<a href="../../../a/m/p/Ampersand.html" title="Ampersand">ampersand</a>). Again, this operator must not be confused with its Boolean "logical and" counterpart, which treats its operands as Boolean values, and is spelled "<code>&amp;&amp;</code>" (two ampersands).</p>
+<p>The bitwise AND may be used to perform a <b>bit mask</b> operation. This operation may be used to isolate part of a string of bits, or to determine whether a particular bit is 1 or 0. For example, given a bit pattern:</p>
+<pre>
+0011
+</pre>
+<p>To determine whether the third bit is 1, a bitwise AND is applied to it and another bit pattern containing 1 in the third bit:</p>
+<pre>
+    0011
+AND 0010
+  = 0010
+</pre>
+<p>Since the result is 0010 (non-zero), the third bit in the original pattern was 1. Using bitwise AND in this manner is called <i>bit masking</i>, by analogy to the use of <a href="../../../m/a/s/Masking_tape.html" title="Masking tape">masking tape</a> to cover, or <i>mask</i>, portions that should not be altered, or are not of interest. The 0 values mask the bits that are not of concern, in this case.</p>
+<p>The bitwise AND can also be combined with the bitwise NOT to <i>clear</i> bits. For example:</p>
+<pre>
+0110
+</pre>
+<p>The second flag may be <i>cleared</i> (i.e. set to 0) by applying the bitwise AND to this value, along with the complement of another value in which only the second flag is set:</p>
+<pre>
+NOT 0100
+  = 1011
+
+    0110
+AND 1011
+  = 0010
+</pre>
+<p><a name="Bit_shifts" id="Bit_shifts"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: Bit shifts">edit</a>]</span> <span class="mw-headline">Bit shifts</span></h2>
+<p>The <b>bit shifts</b> are sometimes considered bitwise operations, since they operate on the binary representation of an integer instead of its numerical value; however, the bit shifts do not operate on pairs of corresponding bits, and therefore cannot properly be called <i>bit-wise</i> operations. In this operation, the digits are moved, or <i>shifted</i>, to the left or right. <a href="../../../p/r/o/Processor_register.html" title="Processor register">Registers</a> in a computer processor have a fixed number of available bits for storing numerals, so some bits will be "shifted out" of the register at one end, while the same number of bits are "shifted in" from the other end; the differences between bit shift operators lie in how they compute the values of those shifted-in bits.</p>
+<p><a name="Arithmetic_shift" id="Arithmetic_shift"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: Arithmetic shift">edit</a>]</span> <span class="mw-headline">Arithmetic shift</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../a/r/i/Arithmetic_shift.html" title="Arithmetic shift">Arithmetic shift</a></i></div>
+</dd>
+</dl>
+<div class="thumb tright">
+<div class="thumbinner" style="width:152px;"><a href="../../../r/o/t/Image%7ERotate_left_logically.svg_e1f7.html" class="internal" title="Left arithmetic shift"><img src="../../../upload/shared/thumb/5/5c/Rotate_left_logically.svg/150px-Rotate_left_logically.svg.png" alt="Left arithmetic shift" width="150" height="100" longdesc="../../../r/o/t/Image%7ERotate_left_logically.svg_e1f7.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../r/o/t/Image%7ERotate_left_logically.svg_e1f7.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Left arithmetic shift</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:152px;"><a href="../../../r/o/t/Image%7ERotate_right_arithmetically.svg_043d.html" class="internal" title="Right arithmetic shift"><img src="../../../upload/shared/thumb/3/37/Rotate_right_arithmetically.svg/150px-Rotate_right_arithmetically.svg.png" alt="Right arithmetic shift" width="150" height="120" longdesc="../../../r/o/t/Image%7ERotate_right_arithmetically.svg_043d.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../r/o/t/Image%7ERotate_right_arithmetically.svg_043d.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Right arithmetic shift</div>
+</div>
+</div>
+<p>In an <i>arithmetic shift</i>, the bits that are shifted out of either end are discarded. Zeros are shifted in on the right, in the case of a left arithmetic shift; in the case of a right arithmetic shift, copies of the <a href="../../../s/i/g/Sign_bit.html" title="Sign bit">sign bit</a> are shifted in on the left. This example uses a 4-bit register:</p>
+<pre>
+  0110 LEFT-SHIFT
+= 1100
+</pre>
+<pre>
+  1100 RIGHT-SHIFT
+= 1110
+</pre>
+<p>In the first case, the leftmost digit was shifted past the end of the register, and a new 0 was shifted into the rightmost position. In the second case, the rightmost 0 was shifted out (perhaps into the carry flag), and a new 1 was copied into the leftmost position, preserving the sign of the number. Multiple shifts are sometimes shortened to a single shift by some number of digits. For example:</p>
+<pre>
+  0111 LEFT-SHIFT-BY-TWO
+= 1100
+</pre>
+<p>A left arithmetic shift by <i>n</i> is equivalent to multiplying by 2<sup><i>n</i></sup> (provided the value does not <a href="../../../a/r/i/Arithmetic_overflow.html" title="Arithmetic overflow">overflow</a>), while a right arithmetic shift by <i>n</i> of a <a href="../../../t/w/o/Two%27s_complement.html" title="Two's complement">two's complement</a> value is equivalent to dividing by 2<sup><i>n</i></sup> and rounding toward <a href="../../../n/e/g/Negative_infinity.html" title="Negative infinity">negative infinity</a>. If the binary number is treated as <a href="../../../o/n/e/Ones%27_complement.html" title="Ones' complement">ones' complement</a>, then the same right-shift operation results in division by 2<sup><i>n</i></sup> and rounding toward zero.</p>
+<p><a name="Logical_shift" id="Logical_shift"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: Logical shift">edit</a>]</span> <span class="mw-headline">Logical shift</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../l/o/g/Logical_shift.html" title="Logical shift">Logical shift</a></i></div>
+</dd>
+</dl>
+<table align="right" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:152px;"><a href="../../../r/o/t/Image%7ERotate_right_logically.svg_5d6b.html" class="internal" title="Logical shift right"><img src="../../../upload/shared/thumb/6/64/Rotate_right_logically.svg/150px-Rotate_right_logically.svg.png" alt="Logical shift right" width="150" height="100" longdesc="../../../r/o/t/Image%7ERotate_right_logically.svg_5d6b.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../r/o/t/Image%7ERotate_right_logically.svg_5d6b.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Logical shift right</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:152px;"><a href="../../../r/o/t/Image%7ERotate_left_logically.svg_e1f7.html" class="internal" title="Logical shift left"><img src="../../../upload/shared/thumb/5/5c/Rotate_left_logically.svg/150px-Rotate_left_logically.svg.png" alt="Logical shift left" width="150" height="100" longdesc="../../../r/o/t/Image%7ERotate_left_logically.svg_e1f7.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../r/o/t/Image%7ERotate_left_logically.svg_e1f7.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Logical shift left</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p>In a <i>logical shift</i>, the bits that are shifted out are discarded, and zeros are shifted in (on either end). Therefore, the logical and arithmetic left-shifts are exactly the same operation. However, the logical right-shift inserts bits with value 0 instead of copies of the sign bit. Hence the logical shift is suitable for unsigned binary numbers, while the arithmetic shift is suitable for signed <a href="../../../t/w/o/Two%27s_complement.html" title="Two's complement">two's complement</a> binary numbers.<br clear="all" /></p>
+<p><a name="Rotate_no_carry" id="Rotate_no_carry"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: Rotate no carry">edit</a>]</span> <span class="mw-headline">Rotate no carry</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../c/i/r/Circular_shift.html" title="Circular shift">Circular shift</a></i></div>
+</dd>
+</dl>
+<table align="right" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:152px;"><a href="../../../r/o/t/Image%7ERotate_right.svg_bff1.html" class="internal" title="Right circular shift or rotate"><img src="../../../upload/shared/thumb/3/37/Rotate_right.svg/150px-Rotate_right.svg.png" alt="Right circular shift or rotate" width="150" height="120" longdesc="../../../r/o/t/Image%7ERotate_right.svg_bff1.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../r/o/t/Image%7ERotate_right.svg_bff1.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Right circular shift or rotate</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:152px;"><a href="../../../r/o/t/Image%7ERotate_left.svg_ed1c.html" class="internal" title="Left circular shift or rotate"><img src="../../../upload/shared/thumb/0/09/Rotate_left.svg/150px-Rotate_left.svg.png" alt="Left circular shift or rotate" width="150" height="120" longdesc="../../../r/o/t/Image%7ERotate_left.svg_ed1c.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../r/o/t/Image%7ERotate_left.svg_ed1c.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Left circular shift or rotate</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p>Another form of shift is the <i>circular shift</i> or <i>bit rotation</i>. In this operation, the bits are "rotated" as if the left and right ends of the register were joined. The value that is shifted in on the right during a left-shift is whatever value was shifted out on the left, and vice versa. This operation is useful if it is necessary to retain all the existing bits, and is frequently used in digital <a href="../../../c/r/y/Cryptography.html" title="Cryptography">cryptography</a>.<br clear="all" /></p>
+<p><a name="Rotate_through_carry" id="Rotate_through_carry"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: Rotate through carry">edit</a>]</span> <span class="mw-headline">Rotate through carry</span></h3>
+<table align="right" border="0" cellpadding="0" cellspacing="0">
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:152px;"><a href="../../../r/o/t/Image%7ERotate_right_through_carry.svg_9f31.html" class="internal" title="Right rotate through carry"><img src="../../../upload/shared/thumb/2/27/Rotate_right_through_carry.svg/150px-Rotate_right_through_carry.svg.png" alt="Right rotate through carry" width="150" height="105" longdesc="../../../r/o/t/Image%7ERotate_right_through_carry.svg_9f31.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../r/o/t/Image%7ERotate_right_through_carry.svg_9f31.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Right rotate through carry</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:152px;"><a href="../../../r/o/t/Image%7ERotate_left_through_carry.svg_fe42.html" class="internal" title="Left rotate through carry"><img src="../../../upload/shared/thumb/7/71/Rotate_left_through_carry.svg/150px-Rotate_left_through_carry.svg.png" alt="Left rotate through carry" width="150" height="105" longdesc="../../../r/o/t/Image%7ERotate_left_through_carry.svg_fe42.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../r/o/t/Image%7ERotate_left_through_carry.svg_fe42.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Left rotate through carry</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p><i>Rotate through carry</i> is similar to the <i>rotate no carry</i> operation, but the two ends of the register are considered to be separated by the <a href="../../../c/a/r/Carry_flag.html" title="Carry flag">carry flag</a>. The bit that is shifted in (on either end) is the old value of the carry flag, and the bit that is shifted out (on the other end) becomes the new value of the carry flag.</p>
+<p>A single <i>rotate through carry</i> can simulate a logical or arithmetic shift of one position by setting up the carry flag beforehand. For example, if the carry flag contains 0, then <code>x RIGHT-ROTATE-THROUGH-CARRY-BY-ONE</code> is a logical right-shift, and if the carry flag contains a copy of the sign bit, then <code>x RIGHT-ROTATE-THROUGH-CARRY-BY-ONE</code> is an arithmetic right-shift. For this reason, some microcontrollers such as <a href="../../../p/i/c/PIC_cd85.html" title="PIC">PICs</a> just have <i>rotate</i> and <i>rotate through carry</i>, and don't bother with arithmetic or logical shift instructions.</p>
+<p>Rotate through carry is especially useful when performing shifts on numbers larger than the processor's native <a href="../../../w/o/r/Word_size.html" title="Word size">word size</a>, because if a large number is stored in two registers, the bit that is shifted off the end of the first register must come in at the other end of the second. With rotate-through-carry, that bit is "saved" in the carry flag during the first shift, ready to shift in during the second shift without any extra preparation.<br clear="all" /></p>
+<p><a name="Shifts_in_C.2C_C.2B.2B.2C_and_Java" id="Shifts_in_C.2C_C.2B.2B.2C_and_Java"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: Shifts in C, C++, and Java">edit</a>]</span> <span class="mw-headline">Shifts in C, C++, and Java</span></h3>
+<p>In C, C++ and many other languages that borrow syntax from them, the left and right shift operators are "<code>&lt;&lt;</code>" and "<code>&gt;&gt;</code>", respectively. The number of places to shift is given as the second argument to the shift operators. For example,</p>
+<pre>
+x = y &lt;&lt; 2;
+</pre>
+<p>assigns <i>x</i> the result of shifting <i>y</i> to the left by two digits.</p>
+<p>In C and C++, computations on unsigned values use logical shifts; computations on signed values may use logical or arithmetic shifts, depending on the implementation.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup></p>
+<p>In <a href="../../../j/a/v/Java_%28programming_language%29.html" title="Java (programming language)">Java</a>, all integer types are signed, and the "<code>&lt;&lt;</code>" and "<code>&gt;&gt;</code>" operators perform arithmetic shifts. Java adds the operator "<code>&gt;&gt;&gt;</code>" to perform logical right shifts, but since the logical and arithmetic left-shift operations are identical, there is no "<code>&lt;&lt;&lt;</code>" operator in Java.</p>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p>Although machines often have efficient built-in instructions for performing arithmetic and logical operations, in fact all these operations can be performed just by combining the bitwise operators and zero-testing in various ways. For example, here is a <a href="../../../p/s/e/Pseudocode.html" title="Pseudocode">pseudocode</a> example showing how to multiply two arbitrary integers <code>a</code> and <code>b</code> using only bitshifts and addition:</p>
+<pre>
+c := 0
+<b>while</b> b ≠ 0
+    <b>if</b> (b <b>and</b> 1) ≠ 0
+        c := c + a
+    shift a left by one
+    shift b right by one
+<b>return</b> c
+</pre>
+<p><a name="See_also_2" id="See_also_2"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/i/t/Bit_manipulation.html" title="Bit manipulation">Bit manipulation</a></li>
+<li><a href="../../../b/i/t/Bitboard.html" title="Bitboard">Bitboard</a></li>
+<li><a href="../../../b/o/o/Boolean_algebra.html" title="Boolean algebra">Boolean algebra</a></li>
+<li><a href="../../../d/o/u/Double_dabble.html" title="Double dabble">Double dabble</a></li>
+<li><a href="../../../l/o/g/Logic_gate.html" title="Logic gate">Logic gate</a></li>
+<li><a href="../../../l/o/g/Logical_operator.html" title="Logical operator">Logical operator</a></li>
+<li><a href="../../../k/a/r/Karnaugh_map.html" title="Karnaugh map">Karnaugh map</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="http://std.dkuug.dk/JTC1/SC22/WG14/www/docs/n843.htm" class="external text" title="http://std.dkuug.dk/JTC1/SC22/WG14/www/docs/n843.htm" rel="nofollow">JTC1/SC22/WG14 N843 "C programming language"</a>, section 6.5.7#5</li>
+</ol>
+<p><a name="External_link" id="External_link"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/Bitwise_operation.html" title="Edit section: External link">edit</a>]</span> <span class="mw-headline">External link</span></h2>
+<ul>
+<li><a href="http://www.cs.uiowa.edu/~jones/bcd/divide.html" class="external text" title="http://www.cs.uiowa.edu/~jones/bcd/divide.html" rel="nofollow">Division using bitshifts</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 3342 bytes
+Post-expand include size: 584 bytes
+Template argument size: 711 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/t/Bitwise_operation.html">http://en.wikipedia.org../../../b/i/t/Bitwise_operation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_arithmetic_7383.html" title="Category:Computer arithmetic">Computer arithmetic</a></span> | <span dir='ltr'><a href="../../../p/r/o/Category%7EProgramming_constructs_6564.html" title="Category:Programming constructs">Programming constructs</a></span> | <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_example_pseudocode_710b.html" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/t/Bitwise_operation.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/t/Talk%7EBitwise_operation_0efe.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bitwise_operation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/i/t/Bitweiser_Operator_abb2.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EB%B9%84/%ED%8A%B8/_/%EB%B9%84%ED%8A%B8_%EC%97%B0%EC%82%B0.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%83%93/%E3%83%83/%E3%83%88/%E3%83%93%E3%83%83%E3%83%88%E6%BC%94%E7%AE%97.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/l/%C3%B3/g/L%C3%B3gica_bin%C3%A1ria.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/p/h/%C3%A9/Ph%C3%A9p_to%C3%A1n_thao_t%C3%A1c_bit.html">Tiếng Việt</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 04:37, 9 April 2007 by Wikipedia user ZZninepluralZalpha. Based on work by Wikipedia user(s) <a href="../../../c/b/u/User%7ECburnett_adfd.html" title="User:Cburnett">Cburnett</a>, <a href="../../../q/u/u/User%7EQuuxplusone_9b50.html" title="User:Quuxplusone">Quuxplusone</a>, <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a>, <a href="../../../s/p/o/User%7ESpoon%21_4cc3.html" title="User:Spoon!">Spoon!</a>, Locke411, <a href="../../../t/o/r/User%7ETorzsmokus_b0eb.html" title="User:Torzsmokus">Torzsmokus</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, Jonathan de Boyne Pollard, Snjrdn, <a href="../../../n/a/t/User%7ENathan_Hamblen_0375.html" title="User:Nathan Hamblen">Nathan Hamblen</a>, ClearQ, Hackster78, <a href="../../../e/s/k/User%7EESkog_db4a.html" title="User:ESkog">ESkog</a>, Distalzou, <a href="../../../p/a/u/User%7EPaul_August_2fe5.html" title="User:Paul August">Paul August</a>, Ceran, Qz, <a href="../../../d/i/s/User%7EDiscospinster_5902.html" title="User:Discospinster">Discospinster</a>, @modi, <a href="../../../k/l/u/User%7EKlutzy_125d.html" title="User:Klutzy">Klutzy</a>, Yageroy, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../g/l/e/User%7EGlen_Pepicelli_2a9e.html" title="User:Glen Pepicelli">Glen Pepicelli</a>, Plainjane335, <a href="../../../r/o/y/User%7ERoyBoy_492a.html" title="User:RoyBoy">RoyBoy</a>, <a href="../../../d/a/v/User%7EDavidCary_1a42.html" title="User:DavidCary">DavidCary</a>, <a href="../../../b/l/u/User%7EBluemoose_d309.html" title="User:Bluemoose">Bluemoose</a>, <a href="../../../p/i/l/User%7EPilatus_9ccf.html" title="User:Pilatus">Pilatus</a>, <a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a>, <a href="../../../f/u/r/User%7EFurrykef_4620.html" title="User:Furrykef">Furrykef</a>, <a href="../../../t/u/r/User%7ETurnstep_b3bf.html" title="User:Turnstep">Turnstep</a>, <a href="../../../n/t/b/User%7ENTBot_883a.html" title="User:NTBot">NTBot</a>, <a href="../../../o/r/d/User%7EOrderud_9d90.html" title="User:Orderud">Orderud</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../m/o/s/User%7EMoskvax_b0cc.html" title="User:Moskvax">Moskvax</a>, <a href="../../../a/l/i/User%7EAlistairMcMillan_232b.html" title="User:AlistairMcMillan">AlistairMcMillan</a>, Hooperbloob, <a href="../../../s/u/r/User%7ESuruena_5a7c.html" title="User:Suruena">Suruena</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../s/j/a/User%7ESjakkalle_011f.html" title="User:Sjakkalle">Sjakkalle</a>, Troller Trolling Rodriguez, <a href="../../../k/b/d/User%7EKbdank71_f952.html" title="User:Kbdank71">Kbdank71</a>, <a href="../../../j/i/m/User%7EJimwilliams57_8ea6.html" title="User:Jimwilliams57">Jimwilliams57</a>, <a href="../../../w/a/p/User%7EWapcaplet_7f49.html" title="User:Wapcaplet">Wapcaplet</a>, <a href="../../../a/h/o/User%7EAhoerstemeier_88c8.html" title="User:Ahoerstemeier">Ahoerstemeier</a>, Ak301, <a href="../../../t/i/m/User%7ETim_Starling_d5f6.html" title="User:Tim Starling">Tim Starling</a> and <a href="../../../d/e/l/User%7EDelirium_b0dc.html" title="User:Delirium">Delirium</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

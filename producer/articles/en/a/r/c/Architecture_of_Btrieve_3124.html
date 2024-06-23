@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Architecture of Btrieve,Featured articles,API,Alphabet,Application software,B-tree,Backend,Backward compatibility,Btrieve,CEO,Collation" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Architecture of Btrieve - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Architecture of Btrieve</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div style="right:10px; display:none;" class="metadata topicon" id="featured-star"><map name="ImageMap_19" id="ImageMap_19">
+<area href="../../../f/e/a/Wikipedia%7EFeatured_articles_569d.html" shape="rect" coords="0,0,14,14" alt="This is a featured article. Click here for more information." title="This is a featured article. Click here for more information." /></map>
+<div style="position: relative;"><img src="../../../upload/6/60/LinkFA-star.png" alt="" width="14" height="14" longdesc="../../../l/i/n/Image%7ELinkFA-star.png_3c98.html" usemap="#ImageMap_19" /></div>
+</div>
+<p><a href="../../../b/t/r/Btrieve.html" title="Btrieve">Btrieve</a> is a <a href="../../../d/a/t/Database.html" title="Database">database</a> developed by Pervasive. The <b>architecture of Btrieve</b> has been designed with record management in mind. This means that Btrieve only deals with the underlying record creation, data retrieval, record updating and data deletion primitives. Together with the <a href="#Micro-Kernel_Database_Engine" title="">MicroKernel Database Engine</a> it uses <a href="../../../i/s/a/ISAM_c91d.html" title="ISAM">ISAM</a>, Indexed Sequential Access Method, as its underlying storage mechanism.</p>
+<p>Btrieve is essentially a database that uses <a href="../../../p/r/i/Primary_key.html" title="Primary key">keys</a> and <a href="../../../i/n/d/Index_%28database%29.html" title="Index (database)">indexes</a> to organise <a href="../../../d/a/t/Data.html" title="Data">data</a>. However, the file structure itself is largely built around smaller units of data, called "pages" in the Btrieve world. Though the structure has changed over the various versions of Btrieve, the file structure still revolves around a File Control Record (FCR) — which defines the configuration of pages — and pages in the Btrieve file that contain data. Historically, Btrieve used "physical pages", or pages that were located at fixed positions in the file. Beginning with version 6.0 "logical pages" started to be used, which were mapped to a page allocation tables (PATs) — this allowed Btrieve to change their record update technique from what was later known as "pre-image paging" to a technique called "shadow-paging".</p>
+<p>Most notable to Btrieve is its commitment to <a href="../../../b/a/c/Backward_compatibility.html" title="Backward compatibility">backward compatibility</a>, as versions of Btrieve till version 6.15 use a standard file format and, till Btrieve 6.0 was released, were completely backwards compatible. Btrieve 6.0 introduced new features and had to break compatibility with older versions of the software to implement more advanced features. The <a href="../../../a/p/i/API_db97.html" title="API">API</a> likewise remained backwards compatible, with only one feature (split files to separate media) being dropped. At one point, Btrieve's former <a href="../../../c/e/o/CEO_8589.html" title="CEO">CEO</a> Ron Harris stated that "The version 1.0 API is still supported in version 6.15, and we're going to keep it forever!" (<i>Kyle</i>, pg 11).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Database_terminology"><span class="tocnumber">1</span> <span class="toctext">Database terminology</span></a></li>
+<li class="toclevel-1"><a href="#Micro-Kernel_Database_Engine"><span class="tocnumber">2</span> <span class="toctext">Micro-Kernel Database Engine</span></a></li>
+<li class="toclevel-1"><a href="#Paging"><span class="tocnumber">3</span> <span class="toctext">Paging</span></a>
+<ul>
+<li class="toclevel-2"><a href="#File_control_record"><span class="tocnumber">3.1</span> <span class="toctext">File control record</span></a></li>
+<li class="toclevel-2"><a href="#Page_allocation_tables"><span class="tocnumber">3.2</span> <span class="toctext">Page allocation tables</span></a></li>
+<li class="toclevel-2"><a href="#Pre-image_paging_vs_Shadow_paging"><span class="tocnumber">3.3</span> <span class="toctext">Pre-image paging vs Shadow paging</span></a></li>
+<li class="toclevel-2"><a href="#Alternate_Collating_Sequence_pages"><span class="tocnumber">3.4</span> <span class="toctext">Alternate Collating Sequence pages</span></a></li>
+<li class="toclevel-2"><a href="#Extra_pages"><span class="tocnumber">3.5</span> <span class="toctext">Extra pages</span></a></li>
+<li class="toclevel-2"><a href="#Variable-tail_allocation_tables"><span class="tocnumber">3.6</span> <span class="toctext">Variable-tail allocation tables</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Indexing"><span class="tocnumber">4</span> <span class="toctext">Indexing</span></a></li>
+<li class="toclevel-1"><a href="#File_sharing"><span class="tocnumber">5</span> <span class="toctext">File sharing</span></a></li>
+<li class="toclevel-1"><a href="#Concurrency"><span class="tocnumber">6</span> <span class="toctext">Concurrency</span></a></li>
+<li class="toclevel-1"><a href="#System_and_user_transactions"><span class="tocnumber">7</span> <span class="toctext">System and user transactions</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Database_terminology" id="Database_terminology"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Database terminology">edit</a>]</span> <span class="mw-headline">Database terminology</span></h2>
+<p>Pervasive initially used the term "navigational database" to describe Btrieve, but later changed this to "transactional database". The use of the term navigational database was unusual because a <a href="../../../n/a/v/Navigational_database.html" title="Navigational database">navigational database</a> uses "pointers" and "paths" to navigate among data <a href="../../../r/e/c/Record_%28database%29.html" title="Record (database)">records</a>, and these pointers are contained in the record itself; ISAM, which is the fundamental structure of Btrieve, uses a secondary index table to store these pointers to decrease search times. Thus, the two types of database are different, and may or may not explain why Pervasive started using different terminology for classifying their database.</p>
+<p><a name="Micro-Kernel_Database_Engine" id="Micro-Kernel_Database_Engine"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Micro-Kernel Database Engine">edit</a>]</span> <span class="mw-headline">Micro-Kernel Database Engine</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:243px;"><a href="../../../m/k/d/Image%7EMKDE_model.png_a26f.html" class="internal" title="The MKDE model allows for different database backends to be plugged in to Pervasive's software product."><img src="../../../upload/thumb/5/55/MKDE_model.png/241px-MKDE_model.png" alt="The MKDE model allows for different database backends to be plugged in to Pervasive's software product." width="241" height="145" longdesc="../../../m/k/d/Image%7EMKDE_model.png_a26f.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../m/k/d/Image%7EMKDE_model.png_a26f.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+The MKDE model allows for different database backends to be plugged in to Pervasive's software product.</div>
+</div>
+</div>
+<p>Starting with version 6.15, Pervasive started using a new modular method of separating the database <a href="../../../b/a/c/Backend.html" title="Backend">backend</a> from the interface that developers used. They separated the core database operations (like update, write and delete records) from the Btrieve and <a href="../../../s/c/a/Scalable_SQL_df39.html" title="Scalable SQL">Scalable SQL</a> modules. By separating the MKDE from the other functions it allowed <a href="../../../p/r/o/Programmer.html" title="Programmer">programmers</a> to use several methods of accessing the database simultaneously. For instance, an application may be created using the Btrieve <a href="../../../a/p/i/API_db97.html" title="API">API</a> and another <a href="../../../a/p/p/Application_software.html" title="Application software">application</a> that needs to access the same data may use a totally different method, like using Scalable SQL. Because the <a href="../../../r/e/c/Record_%28computer_science%29.html" title="Record (computer science)">record</a> primitives have been separated from these methods, both applications can use the MKDE to access the same data <a href="../../../f/i/l/File.html" title="File">file</a>.</p>
+<p>The Micro-Kernel Database Engine is unrelated to <a href="../../../m/i/c/Microkernel.html" title="Microkernel">microkernel</a> operating system kernels.</p>
+<p><a name="Paging" id="Paging"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Paging">edit</a>]</span> <span class="mw-headline">Paging</span></h2>
+<p>The Btrieve file format consists entirely of pages, which is the data that moves between memory and storage media when the engine performs an <a href="../../../i/2F/o/I_O_014e.html" title="I/O">I/O</a> operation. Versions prior to 6.0 merely used data pages, index pages and a <i>file control record</i> (FCR). The file had an index for searching that linked to physical pages. Beginning with version 6.0 <i>logical pages</i> started to be used, which are pages that are mapped to <i>physical pages</i> (pages at a fixed location in the file) on the disk through the use of a set of <i>page allocation tables</i> (PATs).</p>
+<p><a name="File_control_record" id="File_control_record"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: File control record">edit</a>]</span> <span class="mw-headline">File control record</span></h3>
+<p>The file control record (FCR) contains important information about Btrieve database files. It holds the <a href="../../../p/a/g/Page_size.html" title="Page size">page size</a>, the number of pages in current use, the number of keys that can index the file, the number of records in the file and other details. After version 6.0 two FCRs were used for redundancy. A 32-bit usage count field that exists in each FCR is used to determine which FCR was valid to use. Each time an operation is done on a file the field is incremented. The FCR with the highest usage count becomes the valid FCR.</p>
+<p><a name="Page_allocation_tables" id="Page_allocation_tables"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Page allocation tables">edit</a>]</span> <span class="mw-headline">Page allocation tables</span></h3>
+<p>A <i>page allocation table</i> (PAT) maps the logical pages to the physical pages. Each PAT is just a physical page located at well-defined locations. Like the FCRs, PATs always occur in pairs, with the currently valid copy indicated by having a higher usage count. The first pair of PATs immediately follow the first two FCRs and takes up physical pages 2 and 3. A variable number of other pages follow, and a new pair of PATs in turn follow this. Each PAT has a fixed number of pointers to logical pages, with each entry that is empty having a value of zero.</p>
+<p>The amount of logical records that can be stored in the PAT is determined by its page size. Each page pointer in versions 6.x and 7.x of the MKDE takes up 4 bytes of space, and the PAT header takes up 8 bytes, so the amount of logical pages in the PAT becomes:</p>
+<dl>
+<dd><i>Number of logical pages</i> = (<i>Page size</i> ÷ 4) - 8</dd>
+</dl>
+<p>With the introduction of MKDE version 8, the size of the page header changed and so this formula no longer applies but the principle remains the same.</p>
+<p><a name="Pre-image_paging_vs_Shadow_paging" id="Pre-image_paging_vs_Shadow_paging"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Pre-image paging vs Shadow paging">edit</a>]</span> <span class="mw-headline">Pre-image paging vs Shadow paging</span></h3>
+<p>Up till version 6.0, <i>pre-image paging</i> was used when performing updates to records. It involved the creation of a new "pre-image file" before the changes were made, and then the pages from the original data file were copied into this new pre-image file temporarily. Then the system would make the changes to the original file. Should the update be interrupted and only half the data written to the page, then the page would just be rolled back by the engine by copying the page from the pre-image file back into the corrupted page in the original database file, then the temporary pre-image file would be deleted. The preimage files were given the extension .PRE, so finding these files in the system usually indicated that a transaction had not happened correctly and recovery had not been successful.</p>
+<p>Starting in version 6.0, <i>shadow paging</i> was used instead of pre-imaging, and it is still used to this day. Instead of copying the page into a temporary file, the next spare physical location in the database file was found and the page was written to this location. This page is called a <i>shadow page</i> because it still has not had its location written to the file's PAT. Once the update to the shadow page completed, the PAT was updated and the entry recorded in the PAT of the next available and current physical page in the file. However, if a system failure occurred while doing the update to the shadow page the PAT would not be updated and so the change would be dropped because the current and next entry was not updated in the PAT.</p>
+<p>The change-over from pre-image paging to shadow-paging caused radical file format changes that broke compatibility between previous versions of Btrieve and version 6.x of the product.</p>
+<p><a name="Alternate_Collating_Sequence_pages" id="Alternate_Collating_Sequence_pages"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Alternate Collating Sequence pages">edit</a>]</span> <span class="mw-headline">Alternate Collating Sequence pages</span></h3>
+<p><i>Alternate Collating Sequence</i> (ACS) pages are pages that allow records to be sorted in a different order. <a href="../../../c/o/l/Collation.html" title="Collation">Collation</a> is the assembly of written information into a standard order. In common usage, this is called alphabetisation, though collation is not limited to ordering letters of the <a href="../../../a/l/p/Alphabet.html" title="Alphabet">alphabet</a>. For instance, an ACS might allow the sort order to sort in both case-sensitive and case-insensitive order. Prior to version 6.0 only one ACS was able to be stored in the file, however after 6.0 was released more than one ACS page could be associated with a file at any one time.</p>
+<p><a name="Extra_pages" id="Extra_pages"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Extra pages">edit</a>]</span> <span class="mw-headline">Extra pages</span></h3>
+<p>In version 6.0 and later files, more physical pages can exist than are actually used. This is because with shadow paging some pages in the system may not have an entry in the PAT. These pages are marked as "Extra" pages, and are used up before space for new pages is allocated.</p>
+<p><a name="Variable-tail_allocation_tables" id="Variable-tail_allocation_tables"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Variable-tail allocation tables">edit</a>]</span> <span class="mw-headline">Variable-tail allocation tables</span></h3>
+<p>In Btrieve, each page is fixed but a record can be larger than the page size. This means that records often need to be fragmented and spread over many different pages. With very large records this can mean that many hundreds of pages may need to be used in order to store the record. A linked list approach would be able to allow for this fragmentation, but the Btrieve engine would have a hard time reading through sequential records. Therefore, starting with version 6.1, a table is used in the file that stores pointers to each of the pages that make up the data record. This table is called a <i>variable-tail allocation table</i> (VAT).</p>
+<p><a name="Indexing" id="Indexing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Indexing">edit</a>]</span> <span class="mw-headline">Indexing</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../b/t/r/Image%7EBtree_index.PNG_3e8b.html" class="internal" title="Btrieve uses indexes on certain columns to retrieve data in a speedy fashion. The structure at the top is a b-tree data structure and indexes the Employee ID column of the database table. The arrows point from the index value to the rows that contains the value in the &quot;Employee ID&quot; column."><img src="../../../upload/thumb/0/03/Btree_index.PNG/180px-Btree_index.PNG" alt="Btrieve uses indexes on certain columns to retrieve data in a speedy fashion. The structure at the top is a b-tree data structure and indexes the Employee ID column of the database table. The arrows point from the index value to the rows that contains the value in the &quot;Employee ID&quot; column." width="180" height="115" longdesc="../../../b/t/r/Image%7EBtree_index.PNG_3e8b.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/t/r/Image%7EBtree_index.PNG_3e8b.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Btrieve uses indexes on certain columns to retrieve data in a speedy fashion. The structure at the top is a <a href="../../../b/-/t/B-tree.html" title="B-tree">b-tree</a> data structure and indexes the <b>Employee ID</b> column of the database table. The arrows point from the index value to the rows that contains the value in the "Employee ID" column.</div>
+</div>
+</div>
+<p>Btrieve uses a <a href="../../../b/-/t/B-tree.html" title="B-tree">b-tree</a> format to store <a href="../../../i/n/d/Index_%28database%29.html" title="Index (database)">record indexes</a> on particular <a href="../../../t/a/b/Table_%28database%29.html" title="Table (database)">table</a> <a href="../../../c/o/l/Column_%28database%29.html" title="Column (database)">columns</a>. The index maps each set of indexed column values to the set of unique identifiers for the <a href="../../../r/o/w/Row%28database%29.html" title="Row(database)">rows</a> that have those column values, which provides a quick way to find the rows within a table using the indexed column. B-trees are <a href="../../../t/r/e/Tree_data_structure.html" title="Tree data structure">tree data structures</a> and are very efficient as a mechanism for fast data retrieval. The drawback of a btree is that data must be constantly balanced when it is inserted into the tree, therefore Btrieve only stores the record index as btree to reduce the amount of time it takes to insert and update records. A separate b-tree is kept for each index in the system, and the root node information is kept in the FCR. In Btrieve 6.x a new index can be created a file creation time, or added and dropped after the file is created. Index pages are also created as they are needed. Before Btrieve 6.0 existing key indexes could not be removed, though supplemental indexes could be created and dropped as needed.</p>
+<p>Btrieve allows for duplicate key values in an index. Btrieve handles duplicate keys using either a <i>linked duplicate</i> method, or by using a <i>repeating duplicate</i> method (this terminology started being used when version 6.0 was released). The linked duplicate method used a pair of record pointers in the index page itself to point to the head and tail of a <a href="../../../d/o/u/Double_linked_list.html" title="Double linked list">double linked list</a> of duplicate keys. This meant that the order of the duplicate keys in the list was in the order they were entered. The duplicate key method did not use a linked list, but rather made all the keys unique by creating a new index key and appending the address of the record pointer to the end of the key. This means that the key is retrieved via its position order.</p>
+<p><a name="File_sharing" id="File_sharing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: File sharing">edit</a>]</span> <span class="mw-headline">File sharing</span></h2>
+<p>When Btrieve needed to do file sharing to gain access to records, two different types of file sharing modes could be used: <i>Single Engine File Sharing</i> (SEFS) mode, and <i>Multi Engine File Sharing</i> (MEFS) mode. SEFS only allowed the clients that accessed that engine to alter the database, other clients that accessed a different engine could not gain access to the database. MEFS allows different clients running under different engines to access the database.</p>
+<p><a name="Concurrency" id="Concurrency"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: Concurrency">edit</a>]</span> <span class="mw-headline">Concurrency</span></h2>
+<p>Btrieve was able to handle <a href="../../../c/o/n/Concurrency.html" title="Concurrency">concurrent transactions</a> in the 6.x series. Before Btrieve 6.0 the engine could only do file level locking or <i>exclusive</i> locking; from 6.0 onward, records could be locked individually. Locking at the record (or page) level was known as <i>concurrent</i> locking. The advantages were obvious: more than one client could access the file at the one time, so long as they weren't trying to access the same record, leading to performance increases. Additionally, other clients could read the locked pages, and would not see any changes to a file involved in a write transaction by another process that had locked the record.</p>
+<p>MEFS mode did not completely support concurrent locking. If a client started a concurrent transaction and then tried to perform a write operation to a record, the Btrieve engine would return a status code 85 that indicated that the file was locked — even though a concurrent lock was being used.</p>
+<p><a name="System_and_user_transactions" id="System_and_user_transactions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: System and user transactions">edit</a>]</span> <span class="mw-headline">System and user transactions</span></h2>
+<p>Starting with version 6.15 of Btrieve, a new type of <a href="../../../d/a/t/Database_transaction.html" title="Database transaction">database transaction</a> was introduced called a <i>system transaction</i>, which was separated from <i>user transactions</i>. User transactions are exclusive and concurrent transactions while system transactions are a bundle of non-transactional operations and/or user transactions. System transactions were exclusively used for data-recovery by the MKDE. If a system failure causes data corruption then when the MKDE is restarted it detects all the files that had a failed system transaction and tried to recover them. However, as user transactions might have been lost when the last system transaction was rolled back an option could be set that caused the MKDE to force system transactions that had user transactions to complete when the engine received an "End Operation" request.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/c/Architecture_of_Btrieve_3124.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small">
+<ul>
+<li>Dahunsi, Ayodele (January 1, 1998). <a href="http://www.clarionmag.com/col/98-01-btrievesql4.html" class="external text" title="http://www.clarionmag.com/col/98-01-btrievesql4.html" rel="nofollow">Understanding Btrieve and Scaleable SQL4</a>. <i>Clarion Magazine</i>.</li>
+<li>Kyle, Jim (1995). <i>Btrieve complete: a guide for developers and systems administrators</i>. Reading, Massachusetts: Addison-Wesley Publishing Company. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-201-48326-2</a>.</li>
+<li>Novell (no date). <i><a href="http://www.novell.com/documentation/nw42/index.html?btrv_enu/data/hmlnx3yv.html" class="external text" title="http://www.novell.com/documentation/nw42/index.html?btrv_enu/data/hmlnx3yv.html" rel="nofollow">Components of NetWare Btrieve</a></i>. Retrieved December 12, 2004.</li>
+<li>Pervasive (1997) . <i><a href="http://www.pervasive.com/support/technical/btrv615/btr61dos.pdf" class="external text" title="http://www.pervasive.com/support/technical/btrv615/btr61dos.pdf" rel="nofollow">Btrieve for DOS Installation and Operation manual</a></i>. Product manual.</li>
+<li>Pervasive (1998). <i><a href="http://www.pervasive.com/support/knowledge/files/btrtt-97070801.html" class="external text" title="http://www.pervasive.com/support/knowledge/files/btrtt-97070801.html" rel="nofollow">Status 96 from a NetWare NLM Application</a></i>. Pervasive KnowledgeBase article (article ID: BTRTT-97070801). Retrieved December 12, 2004.</li>
+<li>Pervasive (November 1996). <i><a href="http://www.pervasive.com/library/docs/psql/615/btr6nt95.pdf" class="external text" title="http://www.pervasive.com/library/docs/psql/615/btr6nt95.pdf" rel="nofollow">Btrieve for Windows NT/Windows 95 Installation and Operation</a></i>. Product manual.</li>
+</ul>
+</div>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/c/Architecture_of_Btrieve_3124.html">http://en.wikipedia.org../../../a/r/c/Architecture_of_Btrieve_3124.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../d/a/t/Category%7EDatabase_management_systems_6d6d.html" title="Category:Database management systems">Database management systems</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/r/c/Architecture_of_Btrieve_3124.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/r/c/Talk%7EArchitecture_of_Btrieve_141d.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Architecture_of_Btrieve">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:07, 7 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../i/n/t/User%7EIntgr_3172.html" title="User:Intgr">Intgr</a>, <a href="../../../b/r/a/User%7EBradkittenbrink_ca4e.html" title="User:Bradkittenbrink">Bradkittenbrink</a>, <a href="../../../c/a/n/User%7ECanadianCaesar_5124.html" title="User:CanadianCaesar">CanadianCaesar</a>, <a href="../../../d/a/m/User%7EDammit_ebf7.html" title="User:Dammit">Dammit</a>, <a href="../../../n/e/i/User%7ENeier_2b13.html" title="User:Neier">Neier</a>, JimKyle, <a href="../../../o/b/l/User%7EOblivious_6899.html" title="User:Oblivious">Oblivious</a>, <a href="../../../c/h/u/User%7EChuq_73ab.html" title="User:Chuq">Chuq</a>, <a href="../../../t/a/w/User%7ETawkerbot2_313a.html" title="User:Tawkerbot2">Tawkerbot2</a>, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../l/u/p/User%7ELupin_68a5.html" title="User:Lupin">Lupin</a>, <a href="../../../b/o/b/User%7EBobblewik_fbc0.html" title="User:Bobblewik">Bobblewik</a>, <a href="../../../d/a/v/User%7EDavid_Wahler_7353.html" title="User:David Wahler">David Wahler</a>, <a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a>, <a href="../../../t/a/_/User%7ETa_bu_shi_da_yu_9191.html" title="User:Ta bu shi da yu">Ta bu shi da yu</a>, <a href="../../../t/h/e/User%7ETheoClarke_a891.html" title="User:TheoClarke">TheoClarke</a>, <a href="../../../c/h/e/User%7ECheekyMonkey_5181.html" title="User:CheekyMonkey">CheekyMonkey</a>, <a href="../../../a/l/a/User%7EAlai_39a8.html" title="User:Alai">Alai</a> and <a href="../../../s/t/e/User%7EStevietheman_a9e5.html" title="User:Stevietheman">Stevietheman</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

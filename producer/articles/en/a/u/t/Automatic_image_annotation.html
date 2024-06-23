@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Automatic image annotation,Caption,Computer vision,Content-based image retrieval,Database,Image analysis,Image retrieval,Keyword,Machine learning,Metadata,Pattern recognition" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Automatic image annotation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Automatic image annotation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Automatic image annotation</b> (also known as automatic image tagging) is the process by which a computer system automatically assigns <a href="../../../m/e/t/Metadata.html" title="Metadata">metadata</a> in the form of <a href="../../../c/a/p/Caption.html" title="Caption">captioning</a> or <a href="../../../k/e/y/Keyword.html" title="Keyword">keywords</a> to a digital image. This application of <a href="../../../c/o/m/Computer_vision.html" title="Computer vision">computer vision</a> techniques is used in <a href="../../../i/m/a/Image_retrieval.html" title="Image retrieval">image retrieval</a> systems to organize and locate images of interest from a <a href="../../../d/a/t/Database.html" title="Database">database</a>.</p>
+<p>This method can be regarded as a type of multi-class image <a href="../../../s/t/a/Statistical_classification.html" title="Statistical classification">classification</a> with a very large number of classes - as large as the vocabulary size. Typically, <a href="../../../i/m/a/Image_analysis.html" title="Image analysis">image analysis</a> in the form of extracted feature vectors and the training annotation words are used by <a href="../../../m/a/c/Machine_learning.html" title="Machine learning">machine learning</a> techniques to attempt to automatically apply annotations to new images. The first methods learned the correlations between image features and training annotations, then techniques were developed using machine translation to try and translate the textual vocabulary with the 'visual vocabulary', or clustered regions known as <i>blobs</i>. Work following these efforts have included classification approaches, relevance models and so on.</p>
+<p>The advantages of automatic image annotation versus <a href="../../../c/o/n/Content-based_image_retrieval.html" title="Content-based image retrieval">content-based image retrieval</a> are that queries can be more naturally specified by the user <a href="http://research.nii.ac.jp/~m-inoue/paper/inoue04irix.pdf" class="external autonumber" title="http://research.nii.ac.jp/~m-inoue/paper/inoue04irix.pdf" rel="nofollow">[1]</a>. CBIR generally (at present) requires users to search by image concepts such as color and texture, or finding example queries. Certain image features in example images may override the concept that the user is really focusing on. The traditional methods of image retrieval such as those used by libraries have relied on manually annotated images, which is expensive and time-consuming, especially given the large and constantly-growing image databases in existence.</p>
+<p>Some annotation engines are online, including the <a href="http://www.alipr.com" class="external text" title="http://www.alipr.com" rel="nofollow">ALIPR.com</a> real-time tagging engine developed by Penn State researchers, and <a href="http://www.beholdsearch.com" class="external text" title="http://www.beholdsearch.com" rel="nofollow">Behold</a> - an image search engine that indexes over 1 million images using automatically generated tags.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Some_major_work"><span class="tocnumber">1</span> <span class="toctext">Some major work</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">2</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Some_major_work" id="Some_major_work"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatic_image_annotation.html" title="Edit section: Some major work">edit</a>]</span> <span class="mw-headline">Some major work</span></h2>
+<ul>
+<li>Word co-occurrence model</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">Y Mori, H Takahashi, and R Oka (1999). "Image-to-word transformation based on dividing and vector quantizing images with words.". <i>Proceedings of the International Workshop on Multimedia Intelligent Storage and Retrieval Management</i>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+the+International+Workshop+on+Multimedia+Intelligent+Storage+and+Retrieval+Management&amp;rft.atitle=Image-to-word+transformation+based+on+dividing+and+vector+quantizing+images+with+words.&amp;rft.au=Y+Mori%2C+H+Takahashi%2C+and+R+Oka&amp;rft.date=1999">&#160;</span></dd>
+</dl>
+<ul>
+<li>Annotation as machine translation</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">P Duygulu, K Barnard, N de Fretias, and D Forsyth (2002). "<a href="http://vision.cs.arizona.edu/kobus/research/publications/ECCV-02-1/" class="external text" title="http://vision.cs.arizona.edu/kobus/research/publications/ECCV-02-1/" rel="nofollow">Object recognition as machine translation: Learning a lexicon for a fixed image vocabulary</a>". <i>Proceedings of the European Conference on Computer Vision</i>: 97-112.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+the+European+Conference+on+Computer+Vision&amp;rft.atitle=Object+recognition+as+machine+translation%3A+Learning+a+lexicon+for+a+fixed+image+vocabulary&amp;rft.au=P+Duygulu%2C+K+Barnard%2C+N+de+Fretias%2C+and+D+Forsyth&amp;rft.date=2002&amp;rft.pages=97-112&amp;rft_id=http%3A%2F%2Fvision.cs.arizona.edu%2Fkobus%2Fresearch%2Fpublications%2FECCV-02-1%2F">&#160;</span></dd>
+</dl>
+<ul>
+<li>Statistical models</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">J Li and J Z Wang (2006). "<a href="http://www-db.stanford.edu/~wangz/project/imsearch/ALIP/ACMMM06/" class="external text" title="http://www-db.stanford.edu/~wangz/project/imsearch/ALIP/ACMMM06/" rel="nofollow">Real-time Computerized Annotation of Pictures</a>". <i>Proc. ACM Multimedia</i>: 911-920.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proc.+ACM+Multimedia&amp;rft.atitle=Real-time+Computerized+Annotation+of+Pictures&amp;rft.au=J+Li+and+J+Z+Wang&amp;rft.date=2006&amp;rft.pages=911-920&amp;rft_id=http%3A%2F%2Fwww-db.stanford.edu%2F%7Ewangz%2Fproject%2Fimsearch%2FALIP%2FACMMM06%2F">&#160;</span></dd>
+<dd><cite style="font-style:normal">J Z Wang and J Li (2002). "<a href="http://www-db.stanford.edu/~wangz/project/imsearch/ALIP/ACM02/" class="external text" title="http://www-db.stanford.edu/~wangz/project/imsearch/ALIP/ACM02/" rel="nofollow">Learning-Based Linguistic Indexing of Pictures with 2-D MHMMs</a>". <i>Proc. ACM Multimedia</i>: 436-445.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proc.+ACM+Multimedia&amp;rft.atitle=Learning-Based+Linguistic+Indexing+of+Pictures+with+2-D+MHMMs&amp;rft.au=J+Z+Wang+and+J+Li&amp;rft.date=2002&amp;rft.pages=436-445&amp;rft_id=http%3A%2F%2Fwww-db.stanford.edu%2F%7Ewangz%2Fproject%2Fimsearch%2FALIP%2FACM02%2F">&#160;</span></dd>
+</dl>
+<ul>
+<li>Automatic linguistic indexing of pictures</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">J Li and J Z Wang (2003). "<a href="http://www-db.stanford.edu/~wangz/project/imsearch/ALIP/PAMI03/" class="external text" title="http://www-db.stanford.edu/~wangz/project/imsearch/ALIP/PAMI03/" rel="nofollow">Automatic Linguistic Indexing of Pictures by a Statistical Modeling Approach</a>". <i>IEEE Trans. on Pattern Analysis and Machine Intelligence</i>: 1075-1088.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=IEEE+Trans.+on+Pattern+Analysis+and+Machine+Intelligence&amp;rft.atitle=Automatic+Linguistic+Indexing+of+Pictures+by+a+Statistical+Modeling+Approach&amp;rft.au=J+Li+and+J+Z+Wang&amp;rft.date=2003&amp;rft.pages=1075-1088&amp;rft_id=http%3A%2F%2Fwww-db.stanford.edu%2F%7Ewangz%2Fproject%2Fimsearch%2FALIP%2FPAMI03%2F">&#160;</span></dd>
+</dl>
+<ul>
+<li>Hierarchical Aspect Cluster Model</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">K Barnard, D A Forsyth (2001). "<a href="http://kobus.ca/research/publications/ICCV-01/" class="external text" title="http://kobus.ca/research/publications/ICCV-01/" rel="nofollow">Learning the Semantics of Words and Pictures</a>". <i>Proceedings of International Conference on Computer Vision</i>: 408-415.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+International+Conference+on+Computer+Vision&amp;rft.atitle=Learning+the+Semantics+of+Words+and+Pictures&amp;rft.au=K+Barnard%2C+D+A+Forsyth&amp;rft.date=2001&amp;rft.pages=408-415&amp;rft_id=http%3A%2F%2Fkobus.ca%2Fresearch%2Fpublications%2FICCV-01%2F">&#160;</span></dd>
+</dl>
+<ul>
+<li>Latent Dirichlet Allocation model</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">D Blei, A Ng, and M Jordan (2003). "<a href="http://www.ics.uci.edu/~liang/seminars/win05/papers/blei03-latent-dirichlet.pdf" class="external text" title="http://www.ics.uci.edu/~liang/seminars/win05/papers/blei03-latent-dirichlet.pdf" rel="nofollow">Latent Dirichlet allocation</a>". <i>Journal of Machine Learning Research</i>: 3:993-1022.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Journal+of+Machine+Learning+Research&amp;rft.atitle=Latent+Dirichlet+allocation&amp;rft.au=D+Blei%2C+A+Ng%2C+and+M+Jordan&amp;rft.date=2003&amp;rft.pages=3%3A993-1022&amp;rft_id=http%3A%2F%2Fwww.ics.uci.edu%2F%7Eliang%2Fseminars%2Fwin05%2Fpapers%2Fblei03-latent-dirichlet.pdf">&#160;</span></dd>
+</dl>
+<ul>
+<li>Texture similarity</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">R W Picard and T P Minka (1995). "<a href="http://citeseer.ist.psu.edu/picard95vision.html" class="external text" title="http://citeseer.ist.psu.edu/picard95vision.html" rel="nofollow">Vision Texture for Annotation</a>". <i>Multimedia Systems</i>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Multimedia+Systems&amp;rft.atitle=Vision+Texture+for+Annotation&amp;rft.au=R+W+Picard+and+T+P+Minka&amp;rft.date=1995&amp;rft_id=http%3A%2F%2Fciteseer.ist.psu.edu%2Fpicard95vision.html">&#160;</span></dd>
+</dl>
+<ul>
+<li>Support Vector Machines</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">C Cusano, G Ciocca, and R Scettini (2004). "<a href="http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2003SPIE.5304..330C&amp;db_key=INST" class="external text" title="http://adsabs.harvard.edu/cgi-bin/nph-bib_query?bibcode=2003SPIE.5304..330C&amp;db_key=INST" rel="nofollow">Image Annotation Using SVM</a>". <i>Proceedings of Internet Imaging IV</i>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+Internet+Imaging+IV&amp;rft.atitle=Image+Annotation+Using+SVM&amp;rft.au=C+Cusano%2C+G+Ciocca%2C+and+R+Scettini&amp;rft.date=2004&amp;rft_id=http%3A%2F%2Fadsabs.harvard.edu%2Fcgi-bin%2Fnph-bib_query%3Fbibcode%3D2003SPIE.5304..330C%26amp%3Bdb_key%3DINST">&#160;</span></dd>
+</dl>
+<ul>
+<li>Ensemble of Decision Trees and Random Subwindows</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">R Maree, P Geurts, J Piater, and L Wehenkel (2005). "<a href="http://www.montefiore.ulg.ac.be/~maree/#publications" class="external text" title="http://www.montefiore.ulg.ac.be/~maree/#publications" rel="nofollow">Random Subwindows for Robust Image Classification</a>". <i>Proceedings of the IEEE International Conference on Computer Vision and Pattern Recognition</i>: 1:34-30.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+the+IEEE+International+Conference+on+Computer+Vision+and+Pattern+Recognition&amp;rft.atitle=Random+Subwindows+for+Robust+Image+Classification&amp;rft.au=R+Maree%2C+P+Geurts%2C+J+Piater%2C+and+L+Wehenkel&amp;rft.date=2005&amp;rft.pages=1%3A34-30&amp;rft_id=http%3A%2F%2Fwww.montefiore.ulg.ac.be%2F%7Emaree%2F%23publications">&#160;</span></dd>
+</dl>
+<ul>
+<li>Maximum Entropy</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">J Jeon, R Manmatha (2004). "<a href="http://ciir.cs.umass.edu/pubfiles/mm-355.pdf" class="external text" title="http://ciir.cs.umass.edu/pubfiles/mm-355.pdf" rel="nofollow">Using Maximum Entropy for Automatic Image Annotation</a>". <i>Int'l Conf on Image and Video Retrieval (CIVR 2004)</i>: 24-32.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Int%27l+Conf+on+Image+and+Video+Retrieval+%28CIVR+2004%29&amp;rft.atitle=Using+Maximum+Entropy+for+Automatic+Image+Annotation&amp;rft.au=J+Jeon%2C+R+Manmatha&amp;rft.date=2004&amp;rft.pages=24-32&amp;rft_id=http%3A%2F%2Fciir.cs.umass.edu%2Fpubfiles%2Fmm-355.pdf">&#160;</span></dd>
+</dl>
+<ul>
+<li>Relevance models</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">J Jeon, V Lavrenko, and R Manmatha (2003). "<a href="http://ciir.cs.umass.edu/pubfiles/mm-41.pdf" class="external text" title="http://ciir.cs.umass.edu/pubfiles/mm-41.pdf" rel="nofollow">Automatic image annotation and retrieval using cross-media relevance models</a>". <i>Proceedings of the ACM SIGIR Conference on Research and Development in Information Retrieval</i>: 119-126.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+the+ACM+SIGIR+Conference+on+Research+and+Development+in+Information+Retrieval&amp;rft.atitle=Automatic+image+annotation+and+retrieval+using+cross-media+relevance+models&amp;rft.au=J+Jeon%2C+V+Lavrenko%2C+and+R+Manmatha&amp;rft.date=2003&amp;rft.pages=119-126&amp;rft_id=http%3A%2F%2Fciir.cs.umass.edu%2Fpubfiles%2Fmm-41.pdf">&#160;</span></dd>
+</dl>
+<ul>
+<li>Relevance models using continuous probability density functions</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">V Lavrenko, R Manmatha, and J Jeon (2003). "<a href="http://ciir.cs.umass.edu/pubfiles/mm-46.pdf" class="external text" title="http://ciir.cs.umass.edu/pubfiles/mm-46.pdf" rel="nofollow">A model for learning the semantics of pictures</a>". <i>Proceedings of the 16th Conference on Advances in Neural Information Processing Systems NIPS</i>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+the+16th+Conference+on+Advances+in+Neural+Information+Processing+Systems+NIPS&amp;rft.atitle=A+model+for+learning+the+semantics+of+pictures&amp;rft.au=V+Lavrenko%2C+R+Manmatha%2C+and+J+Jeon&amp;rft.date=2003&amp;rft_id=http%3A%2F%2Fciir.cs.umass.edu%2Fpubfiles%2Fmm-46.pdf">&#160;</span></dd>
+</dl>
+<ul>
+<li>Coherent Language Model</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">R Jin, J Y Chai, L Si (2004). "<a href="http://www.cse.msu.edu/~rongjin/publications/acmmm04.jin.pdf" class="external text" title="http://www.cse.msu.edu/~rongjin/publications/acmmm04.jin.pdf" rel="nofollow">Effective Automatic Image Annotation via A Coherent Language Model and Active Learning</a>". <i>Proceedings of MM'04</i>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+MM%2704&amp;rft.atitle=Effective+Automatic+Image+Annotation+via+A+Coherent+Language+Model+and+Active+Learning&amp;rft.au=R+Jin%2C+J+Y+Chai%2C+L+Si&amp;rft.date=2004&amp;rft_id=http%3A%2F%2Fwww.cse.msu.edu%2F%7Erongjin%2Fpublications%2Facmmm04.jin.pdf">&#160;</span></dd>
+</dl>
+<ul>
+<li>Inference networks</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">D Metzler and R Manmatha (2004). "<a href="http://ciir.cs.umass.edu/pubfiles/mm-346.pdf" class="external text" title="http://ciir.cs.umass.edu/pubfiles/mm-346.pdf" rel="nofollow">An inference network approach to image retrieval</a>". <i>Proceedings of the International Conference on Image and Video Retrieval</i>: 42-50.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+the+International+Conference+on+Image+and+Video+Retrieval&amp;rft.atitle=An+inference+network+approach+to+image+retrieval&amp;rft.au=D+Metzler+and+R+Manmatha&amp;rft.date=2004&amp;rft.pages=42-50&amp;rft_id=http%3A%2F%2Fciir.cs.umass.edu%2Fpubfiles%2Fmm-346.pdf">&#160;</span></dd>
+</dl>
+<ul>
+<li>Multiple Bernoulli distribution</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">S Feng, R Manmatha, and V Lavrenko (2004). "<a href="http://ciir.cs.umass.edu/pubfiles/mm-333.pdf" class="external text" title="http://ciir.cs.umass.edu/pubfiles/mm-333.pdf" rel="nofollow">Multiple Bernoulli relevance models for image and video annotation</a>". <i>IEEE Conference on Computer Vision and Pattern Recognition</i>: 1002-1009.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=IEEE+Conference+on+Computer+Vision+and+Pattern+Recognition&amp;rft.atitle=Multiple+Bernoulli+relevance+models+for+image+and+video+annotation&amp;rft.au=S+Feng%2C+R+Manmatha%2C+and+V+Lavrenko&amp;rft.date=2004&amp;rft.pages=1002-1009&amp;rft_id=http%3A%2F%2Fciir.cs.umass.edu%2Fpubfiles%2Fmm-333.pdf">&#160;</span></dd>
+</dl>
+<ul>
+<li>Multiple design alternatives</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">J Y Pan, H-J Yang, P Duygulu and C Faloutsos (2004). "<a href="http://www.informedia.cs.cmu.edu/documents/ICME04AutoICap.pdf" class="external text" title="http://www.informedia.cs.cmu.edu/documents/ICME04AutoICap.pdf" rel="nofollow">Automatic Image Captioning</a>". <i>Proceedings of the 2004 IEEE International Conference on Multimedia and Expo (ICME'04)</i>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+the+2004+IEEE+International+Conference+on+Multimedia+and+Expo+%28ICME%2704%29&amp;rft.atitle=Automatic+Image+Captioning&amp;rft.au=J+Y+Pan%2C+H-J+Yang%2C+P+Duygulu+and+C+Faloutsos&amp;rft.date=2004&amp;rft_id=http%3A%2F%2Fwww.informedia.cs.cmu.edu%2Fdocuments%2FICME04AutoICap.pdf">&#160;</span></dd>
+</dl>
+<ul>
+<li>Natural scene annotation</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">J Fan, Y Gao, H Luo and G Xu (2004). "<a href="http://portal.acm.org/ft_gateway.cfm?id=1009055&amp;type=pdf&amp;coll=GUIDE&amp;dl=GUIDE&amp;CFID=1581830&amp;CFTOKEN=99651762" class="external text" title="http://portal.acm.org/ft_gateway.cfm?id=1009055&amp;type=pdf&amp;coll=GUIDE&amp;dl=GUIDE&amp;CFID=1581830&amp;CFTOKEN=99651762" rel="nofollow">Automatic Image Annotation by Using Concept-Sensitive Salient Objects for Image Content Representation</a>". <i>Proceedings of the 27th annual international conference on Research and development in information retrieval</i>: 361-368.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Proceedings+of+the+27th+annual+international+conference+on+Research+and+development+in+information+retrieval&amp;rft.atitle=Automatic+Image+Annotation+by+Using+Concept-Sensitive+Salient+Objects+for+Image+Content+Representation&amp;rft.au=J+Fan%2C+Y+Gao%2C+H+Luo+and+G+Xu&amp;rft.date=2004&amp;rft.pages=361-368&amp;rft_id=http%3A%2F%2Fportal.acm.org%2Fft_gateway.cfm%3Fid%3D1009055%26type%3Dpdf%26coll%3DGUIDE%26dl%3DGUIDE%26CFID%3D1581830%26CFTOKEN%3D99651762">&#160;</span></dd>
+</dl>
+<ul>
+<li>Relevant low-level global filters</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">A Oliva and A Torralba (2001). "<a href="http://cvcl.mit.edu/Papers/IJCV01-Oliva-Torralba.pdf" class="external text" title="http://cvcl.mit.edu/Papers/IJCV01-Oliva-Torralba.pdf" rel="nofollow">Modeling the shape of the scene: a holistic representation of the spatial envelope</a>". <i>International Journal of Computer Vision</i>: 42:145-175.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=International+Journal+of+Computer+Vision&amp;rft.atitle=Modeling+the+shape+of+the+scene%3A+a+holistic+representation+of+the+spatial+envelope&amp;rft.au=A+Oliva+and+A+Torralba&amp;rft.date=2001&amp;rft.pages=42%3A145-175&amp;rft_id=http%3A%2F%2Fcvcl.mit.edu%2FPapers%2FIJCV01-Oliva-Torralba.pdf">&#160;</span></dd>
+</dl>
+<ul>
+<li>Global image features and nonparametric density estimation</li>
+</ul>
+<dl>
+<dd><cite style="font-style:normal">A Yavlinsky, E Schofield and S Rüger (2005). "<a href="http://km.doc.ic.ac.uk/www-pub/civr05-annotation.pdf" class="external text" title="http://km.doc.ic.ac.uk/www-pub/civr05-annotation.pdf" rel="nofollow">Automated Image Annotation Using Global Features and Robust Nonparametric Density Estimation</a>". <i>Int'l Conf on Image and Video Retrieval (CIVR, Singapore, Jul 2005)</i>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Int%27l+Conf+on+Image+and+Video+Retrieval+%28CIVR%2C+Singapore%2C+Jul+2005%29&amp;rft.atitle=Automated+Image+Annotation+Using+Global+Features+and+Robust+Nonparametric+Density+Estimation&amp;rft.au=A+Yavlinsky%2C+E+Schofield+and+S+R%C3%BCger&amp;rft.date=2005&amp;rft_id=http%3A%2F%2Fkm.doc.ic.ac.uk%2Fwww-pub%2Fcivr05-annotation.pdf">&#160;</span></dd>
+</dl>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatic_image_annotation.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../p/a/t/Pattern_recognition.html" title="Pattern recognition">Pattern recognition</a></li>
+<li><a href="../../../i/m/a/Image_retrieval.html" title="Image retrieval">Image retrieval</a></li>
+<li><a href="../../../c/o/n/Content-based_image_retrieval.html" title="Content-based image retrieval">Content-based image retrieval</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatic_image_annotation.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><cite style="font-style:normal">M Inoue (2004). "<a href="http://research.nii.ac.jp/~m-inoue/paper/inoue04irix.pdf" class="external text" title="http://research.nii.ac.jp/~m-inoue/paper/inoue04irix.pdf" rel="nofollow">On the need for annotation-based image retrieval</a>". <i>Workshop on Information Retrieval in Context</i>: 44-46.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=conference&amp;rft.btitle=Workshop+on+Information+Retrieval+in+Context&amp;rft.atitle=On+the+need+for+annotation-based+image+retrieval&amp;rft.au=M+Inoue&amp;rft.date=2004&amp;rft.pages=44-46&amp;rft_id=http%3A%2F%2Fresearch.nii.ac.jp%2F%7Em-inoue%2Fpaper%2Finoue04irix.pdf">&#160;</span></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automatic_image_annotation.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.alipr.com/" class="external text" title="http://www.alipr.com/" rel="nofollow">ALIPR.com</a> - Real-time automatic tagging engine developed by Penn State researchers.</li>
+<li><a href="http://www.beholdsearch.com/" class="external text" title="http://www.beholdsearch.com/" rel="nofollow">Behold Image Search</a> - An image search engine that combines automatic annotation and content based image retrieval for over 1 million images from university websites.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 79066 bytes
+Post-expand include size: 34401 bytes
+Template argument size: 23706 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/t/Automatic_image_annotation.html">http://en.wikipedia.org../../../a/u/t/Automatic_image_annotation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArtificial_intelligence_applications_16ac.html" title="Category:Artificial intelligence applications">Artificial intelligence applications</a></span> | <span dir='ltr'><a href="../../../a/p/p/Category%7EApplications_of_computer_vision_b4d5.html" title="Category:Applications of computer vision">Applications of computer vision</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/u/t/Automatic_image_annotation.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/u/t/Talk%7EAutomatic_image_annotation_56b4.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Automatic_image_annotation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../fr/a/n/n/Annotation_automatique_d%27images.html">Français</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:44, 25 January 2007 by Wikipedia user <a href="../../../k/i/p/User%7EKipmaster_f2ca.html" title="User:Kipmaster">Kipmaster</a>. Based on work by Wikipedia user(s) <a href="../../../b/a/r/User%7EBarticus88_0fa5.html" title="User:Barticus88">Barticus88</a>, <a href="../../../s/h/y/User%7EShyam_1b0b.html" title="User:Shyam">Shyam</a>, <a href="../../../k/y/n/User%7EKYN_0594.html" title="User:KYN">KYN</a>, <a href="../../../l/i/g/User%7ELigulem_20b6.html" title="User:Ligulem">Ligulem</a>, <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a> and <a href="../../../m/s/b/User%7EMsbmsb_9ce7.html" title="User:Msbmsb">Msbmsb</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

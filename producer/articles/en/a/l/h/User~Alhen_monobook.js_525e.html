@@ -1,0 +1,549 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Alhen/monobook.js,Blocking policy,Bypass your cache,Help desk" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Alhen/monobook.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Alhen/monobook.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/l/h/User%7EAlhen_a0a7.html" title="User:Alhen">User:Alhen</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</p>
+<div style="color:darkred;background-color:#EEEEEE;border: darkred 2px solid;padding:5px;" id="jswarning"><div style="clear: both;color:darkred;"></div><b><div style="display:block;">If a message on your talk page led you here, please be wary of who left it.  The code below could contain malicious content capable of compromising your account; if your account appears to be compromised, it will be <a href="../../../b/l/o/Wikipedia%7EBlocking_policy_2eb0.html" title="Wikipedia:Blocking policy">blocked</a>.  If you are unsure of whether the code is safe, you can ask at the <a href="../../../h/e/l/Wikipedia%7EHelp_desk_5342.html" title="Wikipedia:Help desk">help desk</a>.</b></div></div></span>
+<pre>//&lt;pre&gt;&lt;nowiki&gt;
+//Personalizada por Alhen a partir de la de Orgullomoore que fue personalizada a partir de la de Sanbec que fue personalizada a partir de la de Comae
+//El módulo de marcadores lo elimino, pues me daba problemas y no sabía su utilidad
+//Agrego botones, los quito, los modifico, estoy aprendiendo
+
+//document.write('&lt;'+'script src=&quot;http://es.wikipedia.org/w/index.php?' 
+//+  'title=Usuario:Axxgreazz/statuschanger2.js'
+//+  '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;' 
+//+  'type=&quot;text/javascript&quot;&gt;&lt;'+'/script&gt;');
+
+// incluir parser wiki
+
+function pluginRun()
+{
+//Cargar todos los plugins
+for (i=0;i&lt;plugin.length;i++)
+{
+ plugin[i]();
+}
+}
+
+window.onload=function(){
+pluginRun();
+}
+
+var wpUserName = 'Alhen';
+
+
+
+/************ Módulo botonera flotante **************/
+function botoneraFlotante()
+{
+var botones='&lt;style type=&quot;text/css&quot;&gt;\n .botón { background-color:white;border:1px solid #e1eAee; width:20px; height:18px; float:left; font-size:80%; padding:0px; line-height:1.7 }\n .botónbusca {border:1px solid #e1eAee; text-decoration:none;}\n&lt;/style&gt; &lt;div class=&quot;botonera&quot; style=&quot;position:fixed; bottom:100px; left:120px; z-index:3; font-size:13px; font-weight:900; text-align:center; width:45px; float:right&quot;&gt;';
+//modifica &quot;bottom&quot; y &quot;left&quot; para cambiar la ubicación de los botones
+ 
+if (document.getElementById(&quot;editform&quot;)!=null) {
+//Estos botones no se muestran si no se está editando:
+
+//-----------------------------
+botones+=creaBotón(&quot;Guardar&quot;, &quot;&lt;div style=\&quot;background-color:#4169E1;color:#87CEFA\&quot;&gt;G&lt;/div&gt;&quot;, &quot;javascript:enviar()&quot;,&quot;&quot;);
+botones+=creaBotón(&quot;Previsualizar&quot;, &quot;&lt;div style=\&quot;background-color:#4169E1;color:#87CEFA\&quot;&gt;P&lt;/div&gt;&quot;, &quot;javascript:preview()&quot;,&quot;&quot;);
+//--------------------------------
+
+
+botones+=creaBotón(&quot;Bienvenida de usuario aux&quot;, &quot;BU&quot;, &quot;javascript:Bienvenida()&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Prueba de usuario&quot;, &quot;&lt;div style=\&quot;background:#FF8A6C;color:#ffd700\&quot;&gt;P&lt;/div&gt;&quot;, &quot;javascript:prueba()&quot;,&quot;&quot;);
+
+//--------------------------------
+botones+=creaBotón(&quot;Archivo de consulta&quot;, &quot;&lt;div style=\&quot;background-color:#9ADFF7\&quot;&gt;[A]&lt;/div&gt;&quot;, &quot;javascript:aborrar()&quot;,&quot;&quot;); 
+botones+=creaBotón(&quot;bienvenida a ip&quot;, &quot;Bip&quot;, &quot;javascript:BIP()&quot;, &quot;&quot;);
+//------------
+botones+=creaBotón(&quot;Mi firma&quot;,&quot;&lt;img src=http://es.wikipedia.org/style/images/button_sig.png&gt;&quot;, &quot;javascript:Firma()&quot;, &quot;padding:0; width:20px; height:18px; &quot;);
+botones+=creaBotón(&quot;WEI&quot;, &quot;&lt;code style=\&quot;background:yellow\&quot;&gt;:\)&lt;/code&gt;&quot;, &quot;javascript:ponWEI()&quot;, &quot;background:yellow&quot;);
+//------------
+botones+=creaBotón(&quot;Redirección&quot;, &quot;—&gt;&quot;, &quot;javascript:Redirect()&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Categorize&quot;, &quot;CAT:&quot;, &quot;javascript:category()&quot;,&quot;&quot;);
+//------------
+botones+=creaBotón(&quot;Consulta de borrado&quot;, &quot;&lt;div style=\&quot;background-color:#e1eaee\&quot;&gt;[CB]&lt;/div&gt;&quot;, &quot;javascript:cborrar()&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Aviso borrar&quot;, &quot;&lt;div style=\&quot;background-color:#e1eaee\&quot;&gt;[B]&lt;/div&gt;&quot;, &quot;javascript:borrar()&quot;, &quot;&quot;);
+//------------
+botones+=creaBotón(&quot;Contextualizar&quot;, &quot;&lt;div style=\&quot;background-color:#FFFAF0 \&quot;&gt;[C]&lt;/div&gt;&quot;, &quot;javascript:contex()&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Sin Relevancia&quot;, &quot;&lt;div style=\&quot;background-color:#FFFAF0 \&quot;&gt;[S]&lt;/div&gt;&quot;, &quot;javascript:sinrel()&quot;, &quot;&quot;);
+//------------ 
+botones+=creaBotón(&quot;Fusionar&quot;, &quot;&gt;&lt;&quot;, &quot;javascript:fusionar()&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Sin origen ni licencia&quot;, &quot;&lt;div style=\&quot;background-color:#FFD700 \&quot;&gt;SOL&lt;/div&gt;&quot;, &quot;javascript:sol()&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Sin Licencia&quot;, &quot;&lt;div style=\&quot;background-color:#FFD700 \&quot;&gt;SL&lt;/div&gt;&quot;, &quot;javascript:sl()&quot;, &quot;&quot;);
+//------------
+botones+=creaBotón(&quot;Sin Origen&quot;, &quot;&lt;div style=\&quot;background-color:#FFD700 \&quot;&gt;SO&lt;/div&gt;&quot;, &quot;javascript:so()&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;mip&quot;, &quot;DP&quot;, &quot;javascript:mip()&quot;, &quot;&quot;);
+//------------
+//botones+=creaBotón(&quot;GFDL&quot;, &quot;&lt;img src=http://es.wikipedia.org/style/images/gnu-fdl.png //width=60px; height=20px&gt;&quot;, &quot;javascript:GFDL()&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Alerta de copyright&quot;, &quot;©&quot;, &quot;javascript:copyvio()&quot;, &quot;font-size:100%; vertical-align:top&quot;);
+//------------
+//botones+=creaBotón(&quot;Usuario&quot;, &quot;U&quot;, &quot;javascript:Usuario()&quot;, &quot;&quot;);botones+=creaBotón(&quot;Usuario //Discusión&quot;, &quot;UD&quot;, &quot;javascript:Discusion()&quot;, &quot;&quot;);
+
+//botones+=creaBotón(&quot;Wikistress&quot;, &quot;^&quot;, &quot;javascript:wikistress()&quot;,&quot;&quot;);
+//botones+=creaBotón(&quot;sup&quot;, &quot;sup&quot;, &quot;javascript:sup()&quot;, &quot;background:yellow&quot;);
+botones+=creaBotón(&quot;esbozo&quot;, &quot;&lt;div style=\&quot;background-color:#F0FFF0 \&quot;&gt;esb&lt;/div&gt;&quot;, &quot;javascript:esbozo()&quot;,&quot;&quot;);
+botones+=creaBotón(&quot;Miniesbozo&quot;, &quot;&lt;div style=\&quot;background-color:#F0FFF0 \&quot;&gt;min&lt;/div&gt;&quot;, &quot;javascript:miniesbozo()&quot;,&quot;&quot;);
+//------------
+//botones+=creaBotón(&quot;Coded text&quot;, &quot;&lt;code&gt;abc&lt;/code&gt;&quot;, &quot;javascript:code()&quot;,&quot;&quot;);
+botones+=creaBotón(&quot;número de bytes del artículo&quot;, &quot;IW&quot;, &quot;javascript:IW()&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Crear tabla&quot;, &quot;T&quot;, &quot;javascript:popupTableau()&quot;,&quot;&quot;);
+}
+/**********   botones cuando nó se está editando **********************************************/
+else {
+botones+=creaBotón(&quot;Café&quot;, &quot;:D&quot;, &quot;http://es.wikipedia.org/wiki/Wikipedia:Café&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Mapa de la ayuda&quot;, &quot;?&quot;, &quot;http://es.wikipedia.org/wiki/Wikipedia:Mapa&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Cartelera de acontecimientos&quot;, &quot;A&quot;, &quot;http://es.wikipedia.org/wiki/Wikipedia:Cartelera de acontecimientos&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Lista de categorías de esbozos&quot;, &quot;E&quot;, &quot;http://es.wikipedia.org/wiki/Wikiproyecto:Esbozos/Lista&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Candidatos a artículos destacados&quot;, &quot;&lt;div style=\&quot;background-color:#e0fFe0 \&quot;&gt;CAD&lt;/div&gt;&quot;, &quot;http:///es.wikipedia.org/wiki/WP:CAD&quot;, &quot;&quot;);
+botones+=creaBotón(&quot;Copyscape para copyvios&quot;, &quot;&lt;div style=\&quot;background-color:#C6E2FF \&quot;&gt;C&lt;/div&gt;&quot;, &quot;http://www.copyscape.com&quot;, &quot;&quot;);
+}
+
+
+botones+='&lt;/div&gt;'
+&lt;!--var toolbox = document.getElementById(&quot;contentTop&quot;);--&gt;
+var toolbox = document.getElementById(&quot;column-one&quot;);
+toolbox.innerHTML += botones;
+}
+
+function creaBotón(title, texto, destino, estilo)
+{
+  return '&lt;a href=&quot;'+destino+'&quot; style=&quot;text-decoration:none&quot;&gt;&lt;div class=&quot;botón&quot; style=&quot;'+estilo+'&quot; title=&quot;'+title+'&quot;&gt;'+texto+'&lt;/div&gt;&lt;/a&gt;';
+}
+//función que provee el tamaño de bytes cuando se está editando
+function IW()
+{ 
+  alert (document.getElementById(&quot;wpTextbox1&quot;).value.length);
+} 
+
+function category()
+{
+Qr='';
+if(!Qr){void(Qr=prompt('Category:',''));}
+if(Qr)insertTags('[[Categoría:'+Qr+']]','','');
+}
+
+function copyvio()
+{
+Qr='';
+if(!Qr){void(Qr=prompt('Copied from:',''));}
+if(Qr)insertTags('{'+'{copyvio|1='+Qr+'|2=~~'+'~~|3={'+'{'+'subst:CURRENTDAY}}|4={'+'{'+'subst:CURRENTMONTHNAME}}}'+'}','','');
+document.editform.wpSummary.value='Copyvio encontrado';
+}
+function Redirect()
+{
+Qr='';
+if(!Qr){void(Qr=prompt('Direct to where?',''));}
+if(Qr)insertTags('#'+'Redirect:['+'['+Qr+']]','','');
+document.editform.wpSummary.value='Redireccionando a ['+'['+Qr+']]';
+}
+function fusionar()
+{
+Qr='';
+if(!Qr){void(Qr=prompt('Fuse with:',''));}
+if(Qr)insertTags('{'+'{fusionar|'+Qr+''+'}'+'}','','');
+document.editform.wpSummary.value='Fusionar con ['+'['+Qr+']]';
+}
+
+function borrar()
+{
+Qr='';
+if(!Qr){void(Qr=prompt('Razón de borrado?',''));}
+if(Qr)insertTags('{'+'{aviso borrar|'+Qr+'|~~'+'~~'+'}'+'}','','');
+document.editform.wpSummary.value='Aviso de votación de borrado';
+}
+
+function cborrar()
+{
+Qr='';
+if(!Qr){void(Qr=prompt('Razón de borrado?',''));}
+if(Qr)insertTags('{'+'{subst:Consulta borrar|'+'{'+'{subst:'+'SUBPAGENAME}'+'}|'+Qr+'|~~'+'~~'+'|{'+'{subst:CURRENTDAY}}|{'+'{subst:CURRENTMONTHNAME}}'+'}'+'}','','');
+document.editform.wpSummary.value='Consulta de borrado creada';
+}
+
+function aborrar()
+{
+Qr='';
+Qs='';
+Qt='';
+Qu='';
+if(!Qr)
+{void(Qr=prompt('Razón de borrado?',''));
+ void(Qs=prompt('Votos a favor',''));
+ void(Qt=prompt('Votos en contra?',''));
+ void(Qu=prompt('Decisión?  borrar, no borrar',''));
+}
+if(Qr)insertTags('{'+'{archivo borrar cabecera|'+'{'+'{subst:'+'SUBPAGENAME}'+'}|'+Qr+'|{'+'{subst:CURRENTDAY}}|{'+'{subst:CURRENTMONTHNAME}}|'+Qs+'|'+ Qt+'|'+Qu+'|~~'+'~~}}','','');
+document.editform.wpSummary.value='Archivando consulta de borrado';
+}
+
+function Usuario()
+{
+Qr='';
+if(!Qr){void(Qr=prompt('User:',''));}
+if(Qr)insertTags('[[Usuario:'+Qr+'|'+Qr+']]','','');
+}
+
+function enviar()
+{
+document.editform.submit();//equivale a darle al botón de grabar la página, me queda más cerca :D
+}
+
+function preview()
+{
+document.editform.wpPreview.click();//equivale a darle al botón de previsualizar, gracias Platónides 
+}
+
+//&lt;nowiki&gt;
+//============================================================
+// Générateur de tableaux / Tablas a la francesa :D
+//============================================================
+
+/**
+ *
+ * English: Generate an array using Mediawiki syntax
+ *
+ * @author: fr:user:dake
+ * @version: 0.1
+ */
+ 
+function generateTableau(nbCol, nbRow, border, styleHeader, styleLine)
+{
+	var code = &quot;\n&quot;;
+	if (styleHeader==1) {
+		code += '{{Cabecera tabla carta alineación|center}}\n';
+	} else {
+		code += '{| border=&quot;' + border + '&quot;\n';
+		code += '|+ Título de la tabla\n';
+	}
+	
+	for (var i=0;i&lt;nbCol;i++) code += '! cabecera ' + i + '\n'
+	
+	for (var j=0;j&lt;nbRow;j++) {
+		if ((j+1)%2==0 &amp;&amp; styleLine==1) {
+			code += '|-bgcolor=&quot;#EFEFEF&quot;\n'
+		} else {		
+			code += '|-----\n'
+		}
+		
+		for (var i=0;i&lt;nbCol;i++) code += '| elemento\n';
+	}
+	
+	code += '|}';
+	insertTags('','', code); 
+}
+
+/**
+ *
+ * English: Open a popup with parameters to generate an array. 
+ * The number of rows/columns can be modified. Some additional
+ * parameters are related to templates available on :fr
+ *
+ * @author: fr:user:dake
+ * @version: 0.1
+ */
+ 
+function popupTableau()
+{
+  var popup = window.open('','name','height=400,width=500');
+  
+  javaCode =  '&lt;script type=&quot;text\/javascript&quot;&gt;function insertCode(){';
+  javaCode += 'var row = parseInt(document.paramForm.inputRow.value); '
+  javaCode += 'var col = parseInt(document.paramForm.inputCol.value); '
+  javaCode += 'var bord = parseInt(document.paramForm.inputBorder.value); '
+  javaCode += 'var styleHeader = document.paramForm.inputHeader.checked; '
+  javaCode += 'var styleLine = document.paramForm.inputLine.checked; '
+  javaCode += 'window.opener.generateTableau(col,row,bord,styleHeader,styleLine); '
+  javaCode += '}&lt;\/script&gt;';
+  
+  popup.document.write('&lt;html&gt;&lt;head&gt;&lt;title&gt;Parámetros de la tabla&lt;/title&gt;');
+  popup.document.write('&lt;script type=&quot;text\/javascript&quot; src=&quot;\/skins-1.5\/common\/wikibits.js&quot;&gt;&lt;!-- wikibits js --&gt;&lt;\/script&gt;');
+  popup.document.write('&lt;style type=&quot;text\/css&quot; media=&quot;screen,projection&quot;&gt;/*&lt;![CDATA[*/ @import &quot;\/skins-1.5\/monobook\/main.css?5&quot;; /*]]&gt;*/&lt;\/style&gt;');
+  popup.document.write(javaCode); 
+  popup.document.write('&lt;/head&gt;&lt;body&gt;');
+  popup.document.write('&lt;p&gt;Introduzca los parámetros de la tabla : &lt;/p&gt;');
+  popup.document.write('&lt;form name=&quot;paramForm&quot;&gt;');
+  popup.document.write('Número de líneas : &lt;input type=&quot;text&quot; name=&quot;inputRow&quot; value=&quot;3&quot; &gt;&lt;p&gt;');
+  popup.document.write('Número de columnas : &lt;input type=&quot;text&quot; name=&quot;inputCol&quot; value=&quot;3&quot; &gt;&lt;p&gt;');
+  popup.document.write('Grosor del borde : &lt;input type=&quot;text&quot; name=&quot;inputBorder&quot; value=&quot;1&quot; &gt;&lt;p&gt;');
+  popup.document.write('Cabecera gris (estilo «carta gráfica») : &lt;input type=&quot;checkbox&quot; name=&quot;inputHeader&quot; checked=&quot;1&quot; &gt;&lt;p&gt;');
+  popup.document.write('Lineas grises alternadas (estilo «carta gráfica») : &lt;input type=&quot;checkbox&quot; name=&quot;inputLine&quot; checked=&quot;1&quot; &gt;&lt;p&gt;');
+  popup.document.write('&lt;/form&quot;&gt;');
+  popup.document.write('&lt;p&gt;&lt;a href=&quot;javascript:insertCode()&quot;&gt; Introducir el código en la ventana de edición&lt;/a&gt;&lt;/p&gt;');
+  popup.document.write('&lt;p&gt;&lt;a href=&quot;javascript:self.close()&quot;&gt; Cerrar&lt;/a&gt;&lt;/p&gt;');
+  popup.document.write('&lt;/body&gt;&lt;/html&gt;');
+  popup.document.close();
+}
+//&lt;/nowiki&gt;
+
+
+function mip()
+{insertTags('Si tienes alguna duda puedes dejarme un mensaje en mi [[User Talk:'+'|página de discusión]]. '+' ~'+'~~','','~' ,'','');
+}
+
+function Discusion()
+{
+Qr='';
+if(!Qr){void(Qr=prompt('Link to who?',''));}if(Qr)insertTags('[[Usuario Discusión:'+Qr+'|'+Qr+']]','','');
+}
+function wikistress()
+{
+Qr='';
+if(!Qr){void(Qr=prompt('¿Cómo te sientes?',''));}
+if(Qr)insertTags('[[image:Wikistress_'+Qr+'.jpg]]','','');
+}
+
+
+function ponWEI()
+{insertTags('&lt;code style=&quot;background:#ccDEfD&quot;&gt;','&lt;/code&gt;',':)');}
+
+function contex()
+{
+insertTags('{'+'{contextualizar|{'+'{subst:CURRENTDAY}}|{'+'{subst:CURRENTMONTHNAME}}'+'}'+'}','','');
+document.editform.wpSummary.value='Plantill Contextualizar adicionada';
+document.editform.wpMinoredit.checked='true';}
+
+function sinrel()
+{
+insertTags('{'+'{sinrelevancia|{'+'{subst:CURRENTDAY}}|{'+'{subst:CURRENTMONTHNAME}}'+'}'+'}','','');
+document.editform.wpSummary.value='Plantilla Sin Relevancia adicionada';
+document.editform.wpMinoredit.checked='true';}
+
+function sol()
+{insertTags('{'+'{SOL|{'+'{subst:CURRENTDAY}}|{'+'{subst:CURRENTMONTHNAME}}'+'}'+'}','','');
+document.editform.wpSummary.value='Imagen marcada como Sin origen ni licencia';
+document.editform.wpMinoredit.checked='true';
+}
+
+function sl()
+{insertTags('{'+'{SL|{'+'{subst:CURRENTDAY}}|{'+'{subst:CURRENTMONTHNAME}}'+'}'+'}','','');
+document.editform.wpSummary.value='Imagen marcada como Sin licencia';
+document.editform.wpMinoredit.checked='true';
+}
+
+function so()
+{insertTags('{'+'{SO|{'+'{subst:CURRENTDAY}}|{'+'{subst:CURRENTMONTHNAME}}'+'}'+'}','','');
+document.editform.wpSummary.value='Imagen marcada como Sin origen';
+document.editform.wpMinoredit.checked='true';
+}
+
+function prueba()
+{insertTags('{'+'{prueba}}'+'~'+'~'+'~'+'~','','');
+document.editform.wpSummary.value='aviso de prueba';
+document.editform.wpMinoredit.checked='true';
+}
+
+function gif()
+{insertTags('{'+'{gif}}','','');}
+function PD()
+{insertTags('{'+'{PD}}','','');}
+function GFDL()
+{insertTags('{'+'{GFDL}}','','');}
+function usoleg()
+{insertTags('{'+'{uso legítimo}}','','');}
+
+function Bienvenida()
+{insertTags('{'+'{Bienvenido usuario}}'+' ~'+'~~','','~' ,'','');
+document.editform.wpSummary.value='Bienvenida usuario';
+}
+
+function BIP()
+{insertTags('{'+'{Bienvenida ip}}'+' ~'+'~~','','~' ,'','');
+document.editform.wpSummary.value='Bienvenida a ip';
+}
+function Firma()
+{insertTags('~'+'~~','','~');}
+function sup()
+{insertTags('&lt;sup&gt;','&lt;/sup&gt;',';)');}
+function esbozo()
+{insertTags('{'+'{esbozo de|}}','','');}
+function miniesbozo()
+{insertTags('{'+'{miniesbozo de|}}','','');}
+function code()
+{insertTags('&lt;code&gt;','&lt;/code&gt;',';)');}
+
+/************ Fin módulo botonera flotante **************/
+
+/************      Módulo de búsqueda     **************/
+
+function moduloBusqueda()
+{
+var btSearch = &quot;&lt;br /&gt;&lt;div&gt;&quot;;
+btSearch += buttonCode(&quot;Wikipedia, a través de Google&quot;, &quot;G&quot;, &quot;http://www.google.com/search?domains=es.wikipedia.org&amp;num=50&amp;ie=utf-8&amp;oe=utf-8&amp;q=&quot;, &quot;&amp;btnG=B%C3%BAsqueda+en+Google&amp;sitesearch=es.wikipedia.org&quot;);
+btSearch += buttonCode(&quot;Wikipedia en inglés&quot;, &quot;en&quot;, &quot;http://en.wikipedia.org/wiki/&quot;, &quot;&quot;);
+btSearch += buttonCode(&quot;Enciclopedia Libre&quot;, &quot;EL&quot;, &quot;http://enciclopedia.us.es/index.php/&quot;, &quot;&quot;);
+btSearch += buttonCode(&quot;Answers.com&quot;, &quot;Ans&quot;, &quot;http://answers.com/&quot;, &quot;&quot;);
+//btSearch += buttonCode(&quot;Wikcionario&quot;, &quot;Wkc&quot;, &quot;http://es.wiktionary.org/wiki/&quot;, &quot;&quot;);
+btSearch += &quot;&lt;br /&gt;&quot;;
+//btSearch += buttonCode(&quot;Websters dictionary en:. The Rosetta Edition.&quot;, &quot;Webster&quot;, &quot;http://www.websters-online-dictionary.org/definition/english/&quot;,&quot;.html&quot;);
+btSearch += buttonCode(&quot;Diccionario Real Academia Española&quot;, &quot;RAE&quot;, &quot;http://buscon.rae.es/draeI/SrvltGUIBusUsual?TIPO_HTML=2&amp;TIPO_BUS=2&amp;LEMA=&quot;, &quot;&quot;);
+//btSearch += buttonCode(&quot;Yahoo Spanish to English Translation&quot;, &quot;Y!&quot;,&quot;http://education.yahoo.com/reference/dict_en_es/entry?p=&quot;, &quot;&quot;);
+btSearch += buttonCode(&quot;Kate's edit counter&quot;, &quot;edits&quot;, &quot;http://kohl.wikimedia.org/~kate/cgi-bin/count_edits?user=&quot;, &quot;&amp;dbname=eswiki&quot;);
+
+var boxSearch = document.getElementById(&quot;searchform&quot;);
+if (boxSearch)
+  boxSearch.innerHTML += btSearch+&quot;&lt;/div&gt;&quot;;
+}
+
+function goSearch(inicio, fin)
+{
+  var text = document.getElementById(&quot;searchInput&quot;);
+  window.open(inicio + escape(text.value) + fin);
+}
+
+function buttonCode(titulo, texto, inicio, fin)
+{
+  return ' &lt;a class=&quot;botónbusca&quot; href=&quot;javascript:goSearch(\''+inicio+'\', \''+fin+'\')&quot; title=&quot;'+titulo+'&quot;&gt;'+texto+'&lt;/a&gt;';
+}
+
+/************     Fin módulo de búsqueda    **************/
+
+/*********** PopUps ***********/
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' 
++ 'http://es.wikipedia.org/w/index.php?title=Usuario:Alhen/popups.js' 
++ '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+/*********** Fin del módulo PopUps ***********/
+
+/***********         Motor de módulos          ***********/
+/*  Éste es el que pone en marcha los módulos.
+/*  No debes cambiar esta parte NUNCA.
+/*  Para configurar tus módulos, vete a la sección del 
+/*  final, donde pone &quot;Configuración de módulos&quot;.
+/*********************************************************/
+var plugin=new Array();
+
+
+
+function pluginLoad(nombre)
+{
+ plugin[plugin.length++]=nombre;
+}
+
+function pluginImport(nombre)   //Cargar plugin(i)
+{
+ document.write('&lt;'+'script src=&quot;/w/wiki.phtml?title='+nombre+'&amp;ctype=text/javascript&amp;action=raw&amp;dontcountme=s&quot; type=&quot;text/javascript&quot;&gt;&lt;'+'/script&gt;');
+}
+
+/****************** Configuración de módulos ******************/
+/*  Si quieres desactivar temporalmente un módulo, basta con 
+/* agregar dos barras &quot;//&quot; al principio de las líneas en las
+/* que aparezca.
+/**************************************************************/
+//Importar plugins externos:
+//pluginImport(&quot;Usuario:Comae/Prueba3&quot;);
+
+//Activar plugins
+//pluginLoad(moduloBusqueda);
+pluginLoad(botoneraFlotante);
+//pluginLoad(marcadores);
+
+/*function morelinks() {
+  var tabs = document.getElementById('p-cactions').cloneNode(true);
+  tabs.id = 'mytabs';
+  var listitems = tabs.getElementsByTagName('LI');
+  for (i=0;i&lt;listitems.length;i++) {
+    if(listitems[i].id) listitems[i].id = 'mytabs-' + listitems[i].id;
+  }
+  document.getElementById('column-content').appendChild(tabs);
+}
+if (window.addEventListener) window.addEventListener(&quot;load&quot;,morelinks,false);
+else if (window.attachEvent) window.attachEvent(&quot;onload&quot;,morelinks);*/
+
+//&lt;/nowiki&gt;&lt;/pre&gt;
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/h/User%7EAlhen_monobook.js_525e.html">http://en.wikipedia.org../../../a/l/h/User%7EAlhen_monobook.js_525e.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/l/h/User%7EAlhen_monobook.js_525e.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/l/h/User_talk%7EAlhen_monobook.js_0fa1.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Alhen/monobook.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:10, 24 October 2006 by Wikipedia user <a href="../../../a/l/h/User%7EAlhen_a0a7.html" title="User:Alhen">Alhen</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

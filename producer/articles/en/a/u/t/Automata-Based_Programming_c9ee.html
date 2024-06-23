@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Automata-Based Programming,1996,Anatoly Shalyto,C (programming language),Communicating sequential processes,Computer memory,Computer software,Control theory,Eclipse (software),Embedded systems,Europe" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Automata-Based Programming - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Automata-Based Programming</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <div class="messagebox cleanup metadata plainlinks"><b>This article or section does not adequately cite its <a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources">references or sources</a>.</b><br />
+<small>Please help <a href="http://en.wikipedia.org../../../a/u/t/Automata-Based_Programming_c9ee.html" class="external text" title="http://en.wikipedia.org../../../a/u/t/Automata-Based_Programming_c9ee.html" rel="nofollow">improve this article</a> by adding citations to <a href="../../../a/t/t/Wikipedia%7EAttribution_916a.html" title="Wikipedia:Attribution">reliable sources</a>. (<a href="../../../c/o/n/Help%7EContents_22de.html" title="Help:Contents">help</a>, <a href="../../../w/i/k/Wikipedia%7EWikiProject_Fact_and_Reference_Check_47bc.html" title="Wikipedia:WikiProject Fact and Reference Check">get involved!</a>)<br />
+Any unsourced material that has been or is likely to be challenged may be removed at any time. This article has been tagged since <b>November 2006</b>.</small></div>
+<p><br />
+<b>Automata-Based Programming</b> is a programming paradigm [1]. Its defining characteristic is the use of <a href="../../../f/i/n/Finite_state_machine.html" title="Finite state machine">finite state machines</a> to describe program behavior. The transition <a href="../../../g/r/a/Graph_%28mathematics%29.html" title="Graph (mathematics)">graphs</a> of a state machines are used in all stages of <a href="../../../c/o/m/Computer_software.html" title="Computer software">software</a> development (specification, implementation, debugging and documentation). Automata-Based Programming was introduced by <a href="../../../a/n/a/Anatoly_Shalyto_8cb4.html" title="Anatoly Shalyto">Anatoly Shalyto</a> in 1991 [2]. <a href="../../../s/w/i/Switch-technology.html" title="Switch-technology">Switch-technology</a> [3] was developed to support automata-based programming. Automata-Based Programming is considered to be rather general purpose program development methodology than just another one finite state machine implementation.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Automata-Based_Programming_Paradigm"><span class="tocnumber">1</span> <span class="toctext">Automata-Based Programming Paradigm</span></a></li>
+<li class="toclevel-1"><a href="#Main_Features"><span class="tocnumber">2</span> <span class="toctext">Main Features</span></a></li>
+<li class="toclevel-1"><a href="#Logical_Control"><span class="tocnumber">3</span> <span class="toctext">Logical Control</span></a></li>
+<li class="toclevel-1"><a href="#State-Based_Programming"><span class="tocnumber">4</span> <span class="toctext">State-Based Programming</span></a></li>
+<li class="toclevel-1"><a href="#State-Based_Object-Oriented_Programming"><span class="tocnumber">5</span> <span class="toctext">State-Based Object-Oriented Programming</span></a></li>
+<li class="toclevel-1"><a href="#Computational_algorithms"><span class="tocnumber">6</span> <span class="toctext">Computational algorithms</span></a></li>
+<li class="toclevel-1"><a href="#Instrumentation"><span class="tocnumber">7</span> <span class="toctext">Instrumentation</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Automata-Based_Programming_Paradigm" id="Automata-Based_Programming_Paradigm"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automata-Based_Programming_c9ee.html" title="Edit section: Automata-Based Programming Paradigm">edit</a>]</span> <span class="mw-headline">Automata-Based Programming Paradigm</span></h2>
+<p>The main idea of suggested approach is to construct <a href="../../../c/o/m/Computer_software.html" title="Computer software">computer programs</a> the same way the <a href="../../../c/o/n/Control_theory.html" title="Control theory">automation of technological processes</a> (and other kinds of processes too) is done.</p>
+<p>For all that on the basis of data domain analysis the sources of input events, the control system (the system of interacting finite state machines) and the control objects implementing output actions are singled out. These control objects can also form yet another type of input actions that are transmitted through a <a href="../../../f/e/e/Feedback.html" title="Feedback">feedback</a> from control objects back to the <a href="../../../f/i/n/Finite_state_machines.html" title="Finite state machines">finite state machines</a>.</p>
+<p>Automata-based programming paradigm consists in representation of <a href="../../../c/o/m/Computer_software.html" title="Computer software">computer programs</a> as systems of automated objects.</p>
+<p><a name="Main_Features" id="Main_Features"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automata-Based_Programming_c9ee.html" title="Edit section: Main Features">edit</a>]</span> <span class="mw-headline">Main Features</span></h2>
+<p>In recent years great attention has been paid to the development of the technology of programming for <a href="../../../e/m/b/Embedded_systems.html" title="Embedded systems">embedded systems</a> and <a href="../../../r/e/a/Real-time_systems.html" title="Real-time systems">real-time systems</a>. These systems have special requirements for the quality of software. One of the best known approaches for this field of tasks is <a href="../../../s/y/n/Synchronous_programming_language.html" title="Synchronous programming language">synchronous programming</a> [4, 5].</p>
+<p>Simultaneously with the advance of synchronous programming in <a href="../../../e/u/r/Europe.html" title="Europe">Europe</a>, an approach to software development for crucial systems called <i>automata-based programming</i> or <i>state-based programming</i> [3] was being created in <a href="../../../r/u/s/Russia.html" title="Russia">Russia</a>.</p>
+<p>The term <a href="../../../e/v/e/Event-driven_programming.html" title="Event-driven programming">event</a> is being used more and more widely in programming; recently it has become one of the mostly common-used terms in software development. As opposed to it, the offered approach is based on the term <a href="../../../s/t/a/State_%28computer_science%29.html" title="State (computer science)">state</a> (State-Driven Architecture). After introduction of the term <i>input action</i>, which could denote an input variable or an event, the term <i>automaton without outputs</i> might be brought in. After adding the term <i>output action</i>, the term “automaton” might be used. It is the <a href="../../../f/i/n/Finite_state_machine.html" title="Finite state machine">finite deterministic automaton</a>.</p>
+<p>That is why, the sort of programming, which is based on this term, was called “automata-based programming”. So the process of software creation could be named “automata software design” [6].</p>
+<p>The feature of this approach is that automata used for development are defined with the help of transition <a href="../../../g/r/a/Graph_%28mathematics%29.html" title="Graph (mathematics)">graphs</a>. In order to distinguish the nodes of these graphs the term <i>state coding</i> has been introduced. With <i>multivalued state coding</i> a single variable can be used to distinguish states of automaton, the number of states is equal to the number of values this variable can take on. This allowed introducing of the term <i>program observability</i> (that is, the value of the state variable can be checked).</p>
+<p>Using the concept of “state” in contrast to the concepts of “events” and “variables”, allows one to understand and to specify the task and its parts (subtasks) more clearly.</p>
+<p>It is necessary to note that using automata-based programming implies debugging by drawing up the protocols (logging) in terms of automata.</p>
+<p>For this approach there is a formal and <a href="../../../i/s/o/Isomorphism.html" title="Isomorphism">isomorphic</a> method of transforming from the transition graph to the software source code. So when using <a href="../../../h/i/g/High-level_programming_language.html" title="High-level programming language">high-level programming languages</a>, the simplest way is to use a construct which is similar to the <i>switch</i> construct of the <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C programming language</a>. That is why the first implementation of automata-based programming was called “Switch-Technology”. Additional information about automata-based programming can be found in the <a href="../../../s/w/i/Switch-technology.html#Automata-Based_Programming_Paradigm" title="Switch-technology">“Switch-technology” article</a>.</p>
+<p>Nowadays automata-based programming has been developed in several ways, for different types of task to be solved and for various type of computing devices.</p>
+<p>Russian registration certificate was issued for the <i>Automata-based programming core</i> and for the <i>Automata-based programming plug-in for Eclipse IDE</i>.</p>
+<p><a name="Logical_Control" id="Logical_Control"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automata-Based_Programming_c9ee.html" title="Edit section: Logical Control">edit</a>]</span> <span class="mw-headline">Logical Control</span></h2>
+<p>In <a href="../../../1/9/9/1996.html" title="1996">1996</a> Russian Foundation for Basic Research<a href="http://www.rfbr.ru/eng/default.asp?section_id=0" class="external autonumber" title="http://www.rfbr.ru/eng/default.asp?section_id=0" rel="nofollow">[1]</a> in the context of publishing project #96-01-14066 had supported publishing of a book [3], in which the offered technology was described in application to the logical control systems.</p>
+<p>In such systems there are no events, but input and output actions are binary variables and <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a> is working in the scanning mode. Systems of this class are usually to be implemented on <a href="../../../p/r/o/Programmable_logic_controller.html" title="Programmable logic controller">programmable logic controllers</a>, which have relatively small amount of <a href="../../../c/o/m/Computer_memory.html" title="Computer memory">memory</a> and programming is to be performed using specialized languages (for example, the language of ladder schemes or functional blocks). Methods of formal source code generation for such languages were developed for the cases in which the specification of the project being developed is represented by a system of transition graphs of interacting automata [3].</p>
+<p><a name="State-Based_Programming" id="State-Based_Programming"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automata-Based_Programming_c9ee.html" title="Edit section: State-Based Programming">edit</a>]</span> <span class="mw-headline">State-Based Programming</span></h2>
+<p>Henceforth automata approach was spread to the <a href="../../../e/v/e/Event-driven_programming.html" title="Event-driven programming">event-based</a> (reactive) systems [7]. In such systems all of the limitations mentioned above are taken away. It is obvious from the name of these systems that events are used among the input actions. Output actions could be represented by arbitrary <a href="../../../s/u/b/Subroutine.html" title="Subroutine">functions</a>. Any <a href="../../../r/e/a/Real-time_operating_system.html" title="Real-time operating system">real-time operating system</a> could be used as an environment.</p>
+<p>The automata implementation of event-based systems was made with the help of the <a href="../../../p/r/o/Procedural_programming.html" title="Procedural programming">procedural approach</a> to software development [8, 9], hence the name “state-based programming”.</p>
+<p>When using this method, output actions are assigned to the <a href="../../../g/l/o/Glossary_of_graph_theory.html" title="Glossary of graph theory">arcs</a>, <a href="../../../g/l/o/Glossary_of_graph_theory.html" title="Glossary of graph theory">loops</a> or <a href="../../../g/l/o/Glossary_of_graph_theory.html" title="Glossary of graph theory">nodes</a> of the transition graphs (in general case mixed Moore-Mealy automata are to be used [3]). This allows representing in a compact form the sequences of actions, which are the reactions to the corresponding input actions.</p>
+<p>One of the features of such approach to programming for the reactive systems is that the centralization of program logic is achieved by liquidation of logic in the event handlers and forming of system of interacting automata, which are called from these handlers [10]. Automata in such system can interact by nesting, by ability to call each other and with the help of state numbers interchange.</p>
+<p>Another important feature of this approach is that automata in it are used thrice: for specification, for implementation (they remain in the source code) and for drawing up the protocol, which is performed, as said above, in terms of automata. The latter allows to verify the propriety of automata system functioning. Logging is performed automatically on the base of created program; it can be used for debugging of programs with complicated behavior.</p>
+<p>Also this approach allows effective documenting of the decisions made during design process, especially those related to formalization of program behavior [11].</p>
+<p>All this allowed to start the Foundation for open project documentation [12], in the context of which many projects on perfecting of automata-based programming [13] are being developed.</p>
+<p><a name="State-Based_Object-Oriented_Programming" id="State-Based_Object-Oriented_Programming"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automata-Based_Programming_c9ee.html" title="Edit section: State-Based Object-Oriented Programming">edit</a>]</span> <span class="mw-headline">State-Based Object-Oriented Programming</span></h2>
+<p>The composite approach, based on both object-oriented and automata-based programming paradigms [14, 15], may be rather useful for solving tasks from a very large spectrum. This approach was called “state-based object-oriented programming”.</p>
+<p>The main feature of this approach is that, like in <a href="../../../t/u/r/Turing_machine.html" title="Turing machine">Turing machines</a>, controlling (automata) states are explicitly singled out. The number of these states is noticeably fewer than amount of all other objects' states (for example, run-time states).</p>
+<p>The term “states space” was introduced in programming. This term means the set of object's controlling states. So this approach provides more understandable behavior in comparison with the case when such space is not singled out explicitly.</p>
+<p>The minimal set of documents, which visually and clearly describe structural (static) and behavioral (dynamic) sides of a software project, is described [16].</p>
+<p>From the experience of adaptation of suggested approach [17] one can conclude that application of automata makes programs' behavior clearer as using objects makes programs' structure clearer. Existence of high quality project documentation makes further program <a href="../../../r/e/f/Refactoring.html" title="Refactoring">refactoring</a> (changing of it's structure while retaining it's functionality) much easier [18].</p>
+<p><a name="Computational_algorithms" id="Computational_algorithms"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automata-Based_Programming_c9ee.html" title="Edit section: Computational algorithms">edit</a>]</span> <span class="mw-headline">Computational algorithms</span></h2>
+<p>Automata approach can be used for computational algorithms implementation. It was shown [19] that arbitrary iterative algorithm can be implemented with the help of construction, that is equivalent to the loop operator [code]do … while[/code], inside which there is single [code]switch[/code] operator that implements automaton.</p>
+<p>Automata-based approach is very effective for implementation of some algorithms of discrete mathematics, for example, tree parsing algorithm [20].</p>
+<p>A new state-based approach to creation of algorithms' visualizers was offered. Such visualization software is widely used in the Computer Technologies department of <a href="../../../s/a/i/Saint_Petersburg_State_University_of_Information_Technologies%2C_Mechanics_and_Optics_aa6b.html" title="Saint Petersburg State University of Information Technologies, Mechanics and Optics">Saint Petersburg State University of Information Technologies, Mechanics and Optics</a> for students teaching in programming and discrete mathematics [21, 22]. This approach allows representing of visualizer's logic as a system of interacting finite state machines. This system consists of pairs of automata; each of this pairs contains “forward” and “backward” automata, which provides step-by-step forwards and backwards execution of algorithms respectively.</p>
+<p><a name="Instrumentation" id="Instrumentation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automata-Based_Programming_c9ee.html" title="Edit section: Instrumentation">edit</a>]</span> <span class="mw-headline">Instrumentation</span></h2>
+<p>Various software tools are developed to support automata programming. One of these tools is <i>UniMod</i> [23-25]. This tool is based on the following concepts: <a href="../../../u/n/i/Unified_Modeling_Language_b552.html" title="Unified Modeling Language">UML</a>, <a href="../../../s/w/i/Switch-technology.html" title="Switch-technology">Switch-technology</a>, <a href="../../../e/c/l/Eclipse_%28software%29.html" title="Eclipse (software)">Eclipse IDE</a>, <a href="../../../j/a/v/Java_%28programming_language%29.html" title="Java (programming language)">Java programming language</a>, <a href="../../../o/p/e/Open-source_software.html" title="Open-source software">open source code</a> (<a href="http://unimod.sourceforge.net/" class="external free" title="http://unimod.sourceforge.net/" rel="nofollow">http://unimod.sourceforge.net/</a>). All this enables one to talk about the <i>UniMod</i> as of the implementation of <a href="../../../e/x/e/Executable_UML_22c3.html" title="Executable UML">executable UML</a> [26].</p>
+<p>Some examples of usage of UniMod tool are shown in [27].</p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automata-Based_Programming_c9ee.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<p>[1] Nepeyvoda N.N. Styles and methods of programming. M.: Internet-university of information technologies. 2005. <a href="http://is.ifmo.ru/foundation/moving" class="external free" title="http://is.ifmo.ru/foundation/moving" rel="nofollow">http://is.ifmo.ru/foundation/moving</a> (rus)</p>
+<p>[2] Shalyto A.A. Programmatic implementation of control automata //Marine industry, "Automation and remote control" series. 1991, issue 13, pp. 41, 42. <a href="http://is.ifmo.ru/works/switch_prr/" class="external free" title="http://is.ifmo.ru/works/switch_prr/" rel="nofollow">http://is.ifmo.ru/works/switch_prr/</a> (rus)</p>
+<p>[3] Shalyto A.A. Switch-technology. Algorithmization and programming of logic control problems. SPb.: Nauka. 1998. <a href="http://is.ifmo.ru/books/switch/1" class="external free" title="http://is.ifmo.ru/books/switch/1" rel="nofollow">http://is.ifmo.ru/books/switch/1</a> (rus)</p>
+<p>[4] Benveniste A. et al. The Synchronous Languages 12 Years Later. Proceedings of the IEEE, vol. 91, no. 1, January 2003. pp. 64–83. <a href="http://www-verimag.imag.fr/~caspi/PAPIERS/iee03.pdf" class="external free" title="http://www-verimag.imag.fr/~caspi/PAPIERS/iee03.pdf" rel="nofollow">http://www-verimag.imag.fr/~caspi/PAPIERS/iee03.pdf</a> (engl)</p>
+<p>[5] Shopyrin D.G., Shalyto A.A. Synchronous programming // Information and control systems. 2004. #3. pp.35-42. <a href="http://is.ifmo.ru/works/sync_prog/" class="external free" title="http://is.ifmo.ru/works/sync_prog/" rel="nofollow">http://is.ifmo.ru/works/sync_prog/</a> (rus)</p>
+<p>[6] Shalyto A.A. Software Automation Design: Algorithmization and Programming of Problems of Logical Control //Journal of Computer and Systems Sciences International. 2000. Vol.39. №6, p.899-916. (engl) <a href="http://is.ifmo.ru/works/app-aplu/1/" class="external free" title="http://is.ifmo.ru/works/app-aplu/1/" rel="nofollow">http://is.ifmo.ru/works/app-aplu/1/</a> (rus)</p>
+<p>[7] Harel D. Statecharts: A Visual Formalism for Complex Systems //Science of Computer Programming. 1987. vol.8, pp. 231–274. <a href="http://www.tik.ee.ethz.ch/tik/education/lectures/hswcd/papers/Statecharts.pdf" class="external free" title="http://www.tik.ee.ethz.ch/tik/education/lectures/hswcd/papers/Statecharts.pdf" rel="nofollow">http://www.tik.ee.ethz.ch/tik/education/lectures/hswcd/papers/Statecharts.pdf</a> (engl)</p>
+<p>[8] Shalyto A.A. Logic Control and "Reactive" Systems: Algorithmization and Programming //Automation and Remote Control. 2001. Vol.62. №1, p.1-29. (engl) <a href="http://is.ifmo.ru/works/arew/1/" class="external free" title="http://is.ifmo.ru/works/arew/1/" rel="nofollow">http://is.ifmo.ru/works/arew/1/</a> (rus)</p>
+<p>[9] Shalyto A.A., Tukkel N.I. SWITCH-Technology: An Automated Approach to Developing Software for Reactive Systems //Programming and Computer Software. 2001. 27(5). (engl) <a href="http://is.ifmo.ru/works/switch/1/" class="external free" title="http://is.ifmo.ru/works/switch/1/" rel="nofollow">http://is.ifmo.ru/works/switch/1/</a> (rus)</p>
+<p>[10] Tukkel N.I., Shalyto A.A. State-based programming // PC World. 2001. #8, pp.116-121; #9, pp.132-138. <a href="http://is.ifmo.ru/works/mirk/" class="external free" title="http://is.ifmo.ru/works/mirk/" rel="nofollow">http://is.ifmo.ru/works/mirk/</a> (rus)</p>
+<p>[11] Tukkel N.I., Shalyto A.A. Diesel-generator control system (fragment). State-based programming. Project documentation. 2002. <a href="http://is.ifmo.ru/projects/dg/" class="external free" title="http://is.ifmo.ru/projects/dg/" rel="nofollow">http://is.ifmo.ru/projects/dg/</a> (rus)</p>
+<p>[12] Shalyto A.A. A new initiative in programming. Foundation for open project documentation // PC Week/RE. 2003. #40, pp.38,39,42. <a href="http://is.ifmo.ru/works/open_doc/" class="external free" title="http://is.ifmo.ru/works/open_doc/" rel="nofollow">http://is.ifmo.ru/works/open_doc/</a> (rus)</p>
+<p>[13] Automata programming homepage. <a href="http://is.ifmo.ru" class="external free" title="http://is.ifmo.ru" rel="nofollow">http://is.ifmo.ru</a> (rus), <a href="http://is.ifmo.ru/english/" class="external free" title="http://is.ifmo.ru/english/" rel="nofollow">http://is.ifmo.ru/english/</a> (engl)</p>
+<p>[14] Shalyto A.A., Naumov L.A. Methods of object-oriented implementation of reactive agents on base of finite state machines // Artificial Intelligence. 2004. #4. pp. 756–762. <a href="http://is.ifmo.ru/works/_aut_oop.pdf" class="external free" title="http://is.ifmo.ru/works/_aut_oop.pdf" rel="nofollow">http://is.ifmo.ru/works/_aut_oop.pdf</a> (rus)</p>
+<p>[15] Shalyto A.A., Naumov L.A., Korneev G.A. Methods of Object-Oriented Reactive Agents Implementation on the Basis of Finite Automata /2005 International Conference on “Integration of Knowledge Intensive Multiagent Systems. KIMAS ’05: Modeling, Exploration, and Engineering”. USA, MA: IEEE, 2005, pp. 460–465. <a href="http://is.ifmo.ru/articles_en/_kimas05-1.pdf" class="external free" title="http://is.ifmo.ru/articles_en/_kimas05-1.pdf" rel="nofollow">http://is.ifmo.ru/articles_en/_kimas05-1.pdf</a> (engl)</p>
+<p>[16] Tukkel N.I., Shalyto A.A. Automata and tanks // BYTE/Russia. 2003. #2. pp.69–73. <a href="http://is.ifmo.ru/works/tanks_new/" class="external free" title="http://is.ifmo.ru/works/tanks_new/" rel="nofollow">http://is.ifmo.ru/works/tanks_new/</a> (rus)</p>
+<p>[17] Tukkel N.I., Shalyto A.A. Tank control system for the "Robocode" game. Version 1. State-based object-oriented programming. 2001. <a href="http://is.ifmo.ru/projects/tanks/" class="external free" title="http://is.ifmo.ru/projects/tanks/" rel="nofollow">http://is.ifmo.ru/projects/tanks/</a> (rus)</p>
+<p>[18] Kuznetsuv D.V., Shalyto A.A. Tank control system for the "Robocode" game. Version 2. State-based object-oriented programming. 2003. <a href="http://is.ifmo.ru/projects/robocode2/" class="external free" title="http://is.ifmo.ru/projects/robocode2/" rel="nofollow">http://is.ifmo.ru/projects/robocode2/</a> (rus)</p>
+<p>[19] Tukkel N.I., Shalyto A.A. Shalyto A.A., Tukkel;nbsp; N.I. Translating Iterative Algorithms into Automation Ones //Programming and Computer Software. 2002. 28(5). <a href="http://is.ifmo.ru/works/iter/" class="external free" title="http://is.ifmo.ru/works/iter/" rel="nofollow">http://is.ifmo.ru/works/iter/</a> (rus)</p>
+<p>[20] Korneev G.A., Shamgunov N.N., Shalyto A.A. Automata-based tree traversing // Computer instruments in education. 2004. #3, pp.32–37. <a href="http://is.ifmo.ru/works/traverse/" class="external free" title="http://is.ifmo.ru/works/traverse/" rel="nofollow">http://is.ifmo.ru/works/traverse/</a> (rus)</p>
+<p>[21] Kazakov M.A., Shalyto A.A. Automata-based approach to implementation of animation in algorithms' visualizers //Computer instruments in education. 2005. #3, pp.52–76. <a href="http://is.ifmo.ru/works/heapsort/" class="external free" title="http://is.ifmo.ru/works/heapsort/" rel="nofollow">http://is.ifmo.ru/works/heapsort/</a> (rus)</p>
+<p>[22] Korneev G.A., Shalyto A.A. Constructing of visualizers of algorithms of discrete mathematics //Science and technical review of SPbSU ITMO. Issue 23. High technologies in optical and information systems. SPb.: SPbSU ITMO. 2005, pp.118–129. <a href="http://is.ifmo.ru/works/_a_visualizerExample.pdf" class="external free" title="http://is.ifmo.ru/works/_a_visualizerExample.pdf" rel="nofollow">http://is.ifmo.ru/works/_a_visualizerExample.pdf</a> (rus)</p>
+<p>[23] Gurov V.S., Mazine M.A., Narvsky A.S., Shalyto A.A. UML. Switch-technology. Eclipse. // Information and control systems. 2004. #6, pp. 12–17. <a href="http://is.ifmo.ru/works/uml-switch-eclipse/" class="external free" title="http://is.ifmo.ru/works/uml-switch-eclipse/" rel="nofollow">http://is.ifmo.ru/works/uml-switch-eclipse/</a> (rus)</p>
+<p>[24] Gurov V.S., Mazin M.A. , Narvsky A.S., Shalyto A.A. UniMod: Method and Tool for Development of Reactive Object-Oriented Programs with Explicit States Emphasis /Proceedings of St. Petersburg IEEE Chapters. Year 2005. International Conference “110 Anniversary of Radio Invention”. SPb ETU "LETI". 2005. V. 2, pp. 106–110. <a href="http://is.ifmo.ru/articles_en/_unimod.pdf" class="external free" title="http://is.ifmo.ru/articles_en/_unimod.pdf" rel="nofollow">http://is.ifmo.ru/articles_en/_unimod.pdf</a> (engl)</p>
+<p>[25] UniMod. <a href="http://unimod.sourceforge.net/intro.html" class="external free" title="http://unimod.sourceforge.net/intro.html" rel="nofollow">http://unimod.sourceforge.net/intro.html</a> (engl)</p>
+<p>[26] Executable UML. <a href="http://en.wikipedia.org/wiki/Executable_UML" class="external free" title="http://en.wikipedia.org/wiki/Executable_UML" rel="nofollow">http://en.wikipedia.org/wiki/Executable_UML</a> (engl)</p>
+<p>[27] Examples of using of UniMod tool. <a href="http://is.ifmo.ru/unimod-projects/" class="external free" title="http://is.ifmo.ru/unimod-projects/" rel="nofollow">http://is.ifmo.ru/unimod-projects/</a> (rus) <a href="http://is.ifmo.ru/unimod-projects-en/" class="external free" title="http://is.ifmo.ru/unimod-projects-en/" rel="nofollow">http://is.ifmo.ru/unimod-projects-en/</a> (engl)</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Automata-Based_Programming_c9ee.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../c/o/m/Communicating_sequential_processes.html" title="Communicating sequential processes">Communicating sequential processes</a></li>
+<li><a href="../../../e/x/e/Executable_UML_22c3.html" title="Executable UML">Executable UML</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1132 bytes
+Post-expand include size: 937 bytes
+Template argument size: 70 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/t/Automata-Based_Programming_c9ee.html">http://en.wikipedia.org../../../a/u/t/Automata-Based_Programming_c9ee.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_lacking_sources_from_November_2006_166a.html" title="Category:Articles lacking sources from November 2006">Articles lacking sources from November 2006</a></span> | <span dir='ltr'><a href="../../../a/l/l/Category%7EAll_articles_lacking_sources_2aee.html" title="Category:All articles lacking sources">All articles lacking sources</a></span> | <span dir='ltr'><a href="../../../p/r/o/Category%7EProgramming_paradigms_0e46.html" title="Category:Programming paradigms">Programming paradigms</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/u/t/Automata-Based_Programming_c9ee.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/u/t/Talk%7EAutomata-Based_Programming_8e4a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Automata-Based_Programming">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B0/%D0%B2/%D1%82/%D0%90%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.html">Русский</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 09:45, 3 March 2007 by Wikipedia user <a href="../../../o/r/p/User%7EOrphanBot_88cf.html" title="User:OrphanBot">OrphanBot</a>. Based on work by Wikipedia user(s) Kott, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../m/a/r/User%7EMartinDK_6629.html" title="User:MartinDK">MartinDK</a>, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, Vadim gurov, EPHERE, <a href="../../../s/t/i/User%7EStijn_Vermeeren_58e3.html" title="User:Stijn Vermeeren">Stijn Vermeeren</a>, <a href="../../../d/e/r/User%7EDerek_Ross_f2d2.html" title="User:Derek Ross">Derek Ross</a>, <a href="../../../j/o/g/User%7EJogloran_a21c.html" title="User:Jogloran">Jogloran</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, Kenga and <a href="../../../w/o/r/User%7EWorthawholebean_2257.html" title="User:Worthawholebean">Worthawholebean</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

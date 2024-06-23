@@ -1,0 +1,607 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Andrewa/Wikipedia approval mechanism,Blind credential,Britannica,Columbia Encyclopedia,Critical thinking,Diplomacy,Disapproval voting,Encarta,Formal disapproval,GNU FDL,Ideal" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Andrewa/Wikipedia approval mechanism - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Andrewa/Wikipedia approval mechanism</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/n/d/User%7EAndrewa_c818.html" title="User:Andrewa">User:Andrewa</a></span></div>
+	    	    	    <!-- start content -->
+	    <p><i>This is an annotated copy of a snapshot of Wikipedia approval mechanism. My comments are so extensive I thought they'd better go in a user page. I'm new to User subpages, so I hope this is an appropriate use for them.</i></p>
+<p><i>It needs to be read in conjunction with the current version of that page. There are subsequent edits to that page which I have no intention of bringing here. See also <a href="../../../w/i/k/Wikipedia_talk%7EWikipedia_approval_mechanism_17cb.html" title="Wikipedia talk:Wikipedia approval mechanism">Wikipedia talk:Wikipedia approval mechanism</a>, which contains a lot of comments too, some chronologically before mine, some after.</i></p>
+<p><i>This page is a work in progress, like anything on a Wiki, and my comments will probably be expanded even more in time. And if the proposal goes forward in any form, they will eventually get refactored into the software spec and other more appropriate places.</i></p>
+<p><i>Please feel free to add your own comments, preferable signed and at least triple-indented. Then we can assume that unsigned double-indented comments are mine unless otherwise indicated. I went to double because in Larry Sanger's and other proposals below, they use single indents already.</i></p>
+<p><i>The primary purpose here is to relate this existing discussion to the <a href="http://meta.wikimedia.org/wiki/Referees" class="extiw" title="m:Referees">m:Referees</a> proposal, henceforth just referred to as</i> <b>the proposal</b>. <a href="../../../a/n/d/User%7EAndrewa_c818.html" title="User:Andrewa">Andrewa</a></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Wikipedia_approval_mechanism.2C_defined"><span class="tocnumber">1</span> <span class="toctext">Wikipedia approval mechanism, defined</span></a></li>
+<li class="toclevel-1"><a href="#The_purpose_of_an_approval_mechanism"><span class="tocnumber">2</span> <span class="toctext">The purpose of an approval mechanism</span></a></li>
+<li class="toclevel-1"><a href="#Some_basic_requirements_of_an_adequate_approval_mechanism"><span class="tocnumber">3</span> <span class="toctext">Some basic requirements of an adequate approval mechanism</span></a></li>
+<li class="toclevel-1"><a href="#The_advantages_of_an_approval_mechanism"><span class="tocnumber">4</span> <span class="toctext">The advantages of an approval mechanism</span></a></li>
+<li class="toclevel-1"><a href="#Proposals"><span class="tocnumber">5</span> <span class="toctext">Proposals</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Sanger.27s_proposal"><span class="tocnumber">5.1</span> <span class="toctext">Sanger's proposal</span></a></li>
+<li class="toclevel-2"><a href="#Bryce.27s_Proposal"><span class="tocnumber">5.2</span> <span class="toctext">Bryce's Proposal</span></a></li>
+<li class="toclevel-2"><a href="#Magnus_Manske.27s_proposal:"><span class="tocnumber">5.3</span> <span class="toctext">Magnus Manske's proposal:</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Ehrenberg_addition"><span class="tocnumber">6</span> <span class="toctext">Ehrenberg addition</span></a></li>
+<li class="toclevel-1"><a href="#DWheeler.27s_Proposal:_Automated_Heuristics"><span class="tocnumber">7</span> <span class="toctext">DWheeler's Proposal: Automated Heuristics</span></a></li>
+<li class="toclevel-1"><a href="#Why_wikipedia_doesn.27t_need_an_additional_approval_mechanism"><span class="tocnumber">8</span> <span class="toctext">Why wikipedia doesn't need an additional approval mechanism</span></a></li>
+<li class="toclevel-1"><a href="#PeterK.27s_Proposal:_Scoring"><span class="tocnumber">9</span> <span class="toctext">PeterK's Proposal: Scoring</span></a></li>
+<li class="toclevel-1"><a href="#Legion_of_Trolls_proposal"><span class="tocnumber">10</span> <span class="toctext">Legion of Trolls proposal</span></a></li>
+<li class="toclevel-1"><a href="#Propose_and_veto"><span class="tocnumber">11</span> <span class="toctext">Propose and veto</span></a></li>
+<li class="toclevel-1"><a href="#Andrew_A.27s_proposal"><span class="tocnumber">12</span> <span class="toctext">Andrew A's proposal</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Wikipedia_approval_mechanism.2C_defined" id="Wikipedia_approval_mechanism.2C_defined"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Wikipedia approval mechanism, defined">edit</a>]</span> <span class="mw-headline">Wikipedia approval mechanism, defined</span></h3>
+<p>"Wikipedia approval mechanism" means any sort of mechanism whereby Wikipedia articles are individually marked and displayed, somehow, as "approved."</p>
+<dl>
+<dd>
+<dl>
+<dd>Satisfied by the proposal.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="The_purpose_of_an_approval_mechanism" id="The_purpose_of_an_approval_mechanism"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: The purpose of an approval mechanism">edit</a>]</span> <span class="mw-headline">The purpose of an approval mechanism</span></h3>
+<p>The <i>purpose</i> of an approval mechanism is, essentially, quality assurance. By presenting particular articles as approved, we (Wikipedians) would be representing those articles as reliable sources of information.</p>
+<dl>
+<dd>
+<dl>
+<dd>Satisfied by the proposal.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Some_basic_requirements_of_an_adequate_approval_mechanism" id="Some_basic_requirements_of_an_adequate_approval_mechanism"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Some basic requirements of an adequate approval mechanism">edit</a>]</span> <span class="mw-headline">Some basic requirements of an adequate approval mechanism</span></h3>
+<p>Among the basic requirements of an approval mechanism would have to fulfill in order to be adequate are:</p>
+<ul>
+<li>The approval must be done by <i>experts</i> about the material approved. <i>A <a href="../../../t/r/u/Wikipedia%7ETrust_model_aaec.html" title="Wikipedia:Trust model">Wikipedia:trust model</a>?</i></li>
+<li>There must be clear and reasonably stringent standards that the experts are expected to apply. <i>See <a href="../../../l/i/s/Wikipedia%7EList_of_central_issues_6fe4.html" title="Wikipedia:List of central issues">central issues</a>.</i></li>
+<li>The mechanism itself must be genuinely <i>easy</i> for the experts to use or follow. <i>Nupedia's experience seems to show that a convoluted approval procedure, while it might be rigorous, is too slow to be of</i> practical <i>use.</i></li>
+<li>The approval mechanism <i>must not</i> impede the progress of Wikipedia in any way. <i>It must not change the Wikipedia process; it should be an "add-on."</i></li>
+<li>Must not be a bear to program, and it shouldn't require extra software or rely on browser-specific stuff like Java (or Javascript) that some users won't have. <i>A common browser platform standard must be specified for them, preferably low level but not so low level that the machines don't have CDs.</i></li>
+<li>Must provide some way of verifying the expert's <a href="../../../b/l/i/Blind_credential.html" title="Blind credential">credentials</a> - and optionally <i>a way to verify that</i> he or she <i>approved the article, not an imposter.</i></li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>Mostly satisfied. The verification of qualifications is only relevant at referee level. There is one part of the proposal that would use Javascript, but the system would work for users and reviewers without it, they'd just lack one convenience tool. Apart from that, browser requirements are minimal.</dd>
+</dl>
+</dd>
+</dl>
+<p>Some "desirements":</p>
+<ul>
+<li>Makes it possible to broaden or narrow the selection of approvers (e.g., one person might only wish authors who have phd's, another would allow for anyone who has made an effort to approve any articles.)</li>
+<li>Allows for extracting topic-oriented sets (e.g., in order to produce an "Encyclopedia of Music"). (The idea is that article approval could contain more information than just the binary "high-quality" bit, e.g. topic area, level of detail, and so forth. Such "approved metadata" would allow easy extraction of user-defined subsets of the full approved article set.)</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>All satisfied by the full proposal, introducing baselining. Any sub-Encyclopedia would require its own Editorial Board.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="The_advantages_of_an_approval_mechanism" id="The_advantages_of_an_approval_mechanism"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: The advantages of an approval mechanism">edit</a>]</span> <span class="mw-headline">The advantages of an approval mechanism</span></h3>
+<p>The advantages of an approval mechanism of the sort described are clear and numerous:</p>
+<ul>
+<li>We will encourage the creation of <a href="../../../b/r/i/Wikipedia%7EBrilliant_prose_eabf.html" title="Wikipedia:Brilliant prose">really good content</a>.</li>
+<li>Large, reputable websites and the web in general are more likely to use and/or link to our content if it has been approved by experts. <i>And, especially, if the current version of an article has a persistent URL that they can link to. At present only an article which has been changed actually has such a URL!</i></li>
+<li>The addition of an approval mechanism will be attractive to academics who might not participate without it--particularly the academics who might want to be reviewers. <i>All that matters is a mass of <a href="../../../g/n/u/GNU_FDL_5de3.html" title="GNU FDL">GNU FDL</a> text on important topics that is good enough for serious scholars to find worth correcting. <a href="../../../e/n/t/User%7EEntmootsOfTrolls_3b61.html" title="User:EntmootsOfTrolls">EofT</a></i></li>
+<li>It makes it easier to collect the best articles on Wikipedia and create completed "snapshots" of them that could be printed and distributed, for example. <i>This issue is central to <a href="../../../j/i/m/User%7EJimbo_Wales_Pushing_To_1.0_7897.html" title="User:Jimbo Wales/Pushing To 1.0">Pushing To 1.0</a>.</i></li>
+</ul>
+<p>Generally, Wikipedia will become comparable to nearly any encyclopedia, once enough articles are approved. <i>It need not be perfect. Just better than <a href="../../../b/r/i/Britannica.html" title="Britannica">Britannica</a> and <a href="../../../e/n/c/Encarta.html" title="Encarta">Encarta</a> and <a href="../../../o/d/p/ODP_949d.html" title="ODP">ODP</a> and other CD or Web resources.</i></p>
+<p>I am not sure there are any significant disadvantages of an approval mechanism, but idly, I think there might be one. I think that it's possible that Wikipedia might become more of an "exclusive club" than it is, if people start comparing nascent articles contributed by new contributors to the finished projects. I might not want to contribute two sentences about widgets if I think ten neat paragraphs, with references, is what is expected. Again, I don't know if this is really apt to be a problem.</p>
+<p>Another general argument against is that this really doesn't seem necessary. An approval mechanism has been suggested since Day One of Wikipedia, and evidence aside that Wikipedia is working just fine, will probably continue to be suggested 'til kingdom come.</p>
+<dl>
+<dd>
+<dl>
+<dd>All answered and/or satisfied by the proposal.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Proposals" id="Proposals"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Proposals">edit</a>]</span> <span class="mw-headline">Proposals</span></h2>
+<p>Below, we can develop some specific proposals for approval mechanisms.</p>
+<p><a name="Sanger.27s_proposal" id="Sanger.27s_proposal"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Sanger's proposal">edit</a>]</span> <span class="mw-headline">Sanger's proposal</span></h3>
+<dl>
+<dd>When I say the approval mechanism must be really easy for people to use, I mean it. I mean it should be extremely easy to use. So what's the easiest-to-use mechanism that we can devise that nevertheless meets the criteria?</dd>
+</dl>
+<dl>
+<dd>The following: on every page on the wiki, create a simple popup approval form that anyone may use. ("If you are a genuine expert on this subject, you can <u>approve this article</u>.") On this form, the would-be article approver (whom I'll call a "reviewer") indicates name, affiliation, relevant degrees, web page (that we can use to check bona fides), and a text statement to the effect of what qualifications the person has to approve of an article. The person fills this out (with the information saved into their preferences) and hits the "approve" button.</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Satisfied by the proposal, which is a variation on this but simpler.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>When two different reviewers have approved an article, if they are not already official reviewers, the approval goes into moderation.</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>This could be added to the proposal but I think it would be premature. See how it goes. If we need such a mechanism, add it later.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>The approval goes into a moderation queue for the "approved articles" part of Wikipedia. From there, moderators can check over recently-approved articles. They can check that the reviewers actually are qualified (according to some pre-set criteria of qualification) and that they are who they say they are. (Perhaps moderator-viewable e-mail addresses will be used to check that a reviewer isn't impersonating someone.) A moderator can then "approve the approver."</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Needlessly complicated.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>The role of the moderators is not to approve the article, but to make sure that the system isn't being abused by underqualified reviewers. A certain reviewer might be marked as not in need of moderation; if two such reviewers were to approve of an article, the approval would not need to be moderated.</dd>
+</dl>
+<dl>
+<dd><b>New addition</b> I think it might be a very good idea to list, on an approved article, who the reviewers are who have approved the article.</dd>
+</dl>
+<dl>
+<dd>--Larry Sanger</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>The creation of 'Moderators' may ultimately be necessary, but it's a departure from the existing consensus model. The proposal is to use the existing model. Let's try it.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Bryce.27s_Proposal" id="Bryce.27s_Proposal"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Bryce's Proposal">edit</a>]</span> <span class="mw-headline">Bryce's Proposal</span></h3>
+<dl>
+<dd>From my experience with the Wikipedia_NEWS, it seems that there's a lot that can be done with the wiki software as it exists. The revision control system and its tracking of IP addresses is ok as a simple screen against vandalism. The editing system seems fairly natural and is worth using for managing this; certainly we can expect anyone wishing to be a reviewer ought to have a fair degree of competence with it already.</dd>
+</dl>
+<dl>
+<dd>Second, take note at how people have been making use of the user pages. People write information about themselves, the articles they've created, and even whole essays about opinions or ideas.</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Agree. The proposal supports this approach</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>What I'd propose is that we encourage people who wish to be reviewers to set up a subpage under their userpage called '/Approved?'. Any page that they added to this page is considered to be acceptable by them. (It is recommended they list the particular revision # they're approving too, but it's up to them whether to include the number or not.) The reviewer is encouraged to provide as much background and contact information about themselves on their main page (or on a subpage such as /Credentials?) as they wish. It is *completely* an opt-in system, and does not impact wikipedia as a whole, nor any of its articles.</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>The proposal is also completely opt-in.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Okay, so far it probably sounds pretty useless because it *seems* like it gives zero _control_ over the editors. But if we've learned nothing else from our use of Wiki here, it's that sometimes there is significant power in anarchy. Consider that whomever is going to be putting together the set of approved articles (let's call her the Publisher) is going to be selecting the editors based on some criteria (only those with phds, or whatever). The publisher has (and should have) the control over which reviewers they accept, and can grab their /Approved? lists at the time they wish to publish. Using the contact info provided by the reviewer, they can do as much verification as they wish; those who provide insufficient contact info to do so can be ignored (or asked politely on their userpage.) But the publisher does *not* have the power to control whether or not you or I are *able* to approve articles. Maybe for the "PhD? Reviewers Only" encyclopedia I'd get ruled out, but perhaps someone else decides to do a "master's degree or better" one, and I would fit fine there. Or maybe someone asks only that reviewers provide a telephone number they can call to verify the approved list.</dd>
+</dl>
+<dl>
+<dd>Consider a further twist on this scheme: In addition to /Approved?, people could set up other specific kinds of approval. For instance, some could create /Factchecked? pages where they've only verified any factual statements in the article against some other source; or a /Proofed? page that just lists pages that have been through the spellchecker and grammar proofer; or a /Nonplagerized? page that lists articles that the reviewer can vouch for as being original content and not merely copied from another encyclopedia. The reason I mention this approach is that I imagine there will be reviewers who specialize in checking certain aspects of articles, but not everything (a Russian professor of mathematics might vouch for everything except spelling and grammar, if he felt uncomfortable with his grasp of the English language). Other reviewers can fill in the gaps (the aformentioned professor could ask another to review those articles for spelling and grammar, and they could list them on their own area.</dd>
+</dl>
+<dl>
+<dd>I think this system is very in keeping with wiki philosophy. It is anti-elitist, in the sense that no one can be told, "No, you're not good enough to review articles," yet still allows the publisher to discriminate what to accept based on the reviewer's credentials. It leverages existing wiki functionality and Wikipedia traditions rather than requiring new code and new skills. And it lends itself to programmatic extraction of content. It also puts a check/balance situation between publisher and reviewer: If the publisher is selecting reviewers to include unfairly, someone else can always set up a fairer approach. There is also a check against reviewer bias, because once discovered, ALL of their reviewed articles would be dropped by perhaps all publishers, which gives a strong incentive to the reviewer to demonstrate the quality of their reviewing process and policies.</dd>
+</dl>
+<dl>
+<dd>-- BryceHarrington</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Most of this is covered by the proposal and supports it. The fine detail of approval for specific things such as NPOV, non-plagiarised etc could be implemented for a particular Editorial Board with extensions to the proposed software. Much of the function is already there in the proposal and the design is compatible with these concepts.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Magnus_Manske.27s_proposal:" id="Magnus_Manske.27s_proposal:"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Magnus Manske's proposal:">edit</a>]</span> <span class="mw-headline">Magnus Manske's proposal:</span></h3>
+<dl>
+<dd>I'll try to approach the whole approval mechanism from a more practical perspective, based on some things that I use in the <a href="../../../w/i/k/Wikipedia_PHP_script_978d.html" title="Wikipedia PHP script">Wikipedia PHP script</a>. So, to set up an approval mechanism, we need:</dd>
+</dl>
+<ul>
+<li>
+<ul>
+<li>Namespaces to separate different stages of articles</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>That is one way, true, but there are others. Why not just use the versioning we already have, and flag each version according to who has approved it, and to which level?</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>
+<ul>
+<li>User rights management to prevent trolls from editing approved articles</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>Using versioning avoids this need, which is what makes this approach elegant. The approval is to a particular version. Any version can still be edited, but the resulting version will not be part of the approved version until it is approved.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>From the Sanger proposal, the user hierarchy would have to be:</dd>
+</dl>
+<ol>
+<li>
+<ol>
+<li>Sysops, just a handful to ensure things are running smoothly. They can do everything, grant and reject user rights, move and delete articles etc.</li>
+<li>Moderators who can move approved articles to the "stable" namespace</li>
+<li>Reviewers who can approve articles in the standard namespace (the one we're using right now)</li>
+<li>Users who do the actual work&#160;;)</li>
+</ol>
+</li>
+</ol>
+<dl>
+<dd>
+<dl>
+<dd>This is also more complicated than the versioning approach I have suggested.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>For Wikipedia 1.0, I'd just have add an editorial board.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Stages 1-3 should have all rights of the "lowerlevels", and should be able to "rise" other users to their level. For the namespaces, I was thinking of the following:</dd>
+</dl>
+<ul>
+<li>
+<ul>
+<li>The blank namespace, of course, which is the one all current wikipedia articles are in; the normal wikipedia</li>
+<li>An approval namespace. When an article from "blank" gets approved by the first reviewer, a copy goes to the "approval" namespace.</li>
+<li>A moderated namespace. Within the "approval" namespace, noone can edit articles, but reviewers can either hit a "reject" or "approve" button. "Reject" deletes the article from the "approval" namespace, "approve" moves it to the "moderated" namespace.</li>
+<li>A stable namespace. Same as for "approval", but only moderators can "reject" or "approve" an article in "moderated" namespace. If approved, it is moved to the "stable" namespace. End of story.</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>And again, quite a complicated setup. Is it needed?</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>This system has several advantages:</dd>
+</dl>
+<ul>
+<li>
+<ul>
+<li>By having reviewers and moderators not chosen for a single category (e.g., biology), but by someone on a "higher level" trusting the individual not to make strange decisions, we can avoid problems such as having to choose a category for each article and each person prior to approval, checking reviewers for special references etc.</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>Yes. Common to my proposal.</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>
+<ul>
+<li>Reviewers and moderators can have special pages that show just the articles currently in "their" namespace, making it easy to look for topics they are qualified to approve/reject</li>
+<li>Easy handling. No pop-up forms, just two buttons, "approve" and "reject", throughout all levels.</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>The interface for my proposal is even simpler.</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>
+<ul>
+<li>No version confusion. The initial approval automatically locks that article in the "approval" namespace, and all decisions later on are on this version alone.</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>My proposal doesn't need locks or extra article namespaces at all.</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>
+<ul>
+<li>No bother of the normal wikipedia. "Approval" and "moderated" can be blanked out in every-day work, "stable" can be blanked out as an option.</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>Sililarly, my proposal has minimal impact on the base Wikipedia.</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>
+<ul>
+<li>Easy to code. Basically, I have all parts needed ready, a demo version could be up next week.</li>
+</ul>
+</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>Did this happen? Can I see it?</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>This is reminiscent of the sort of software development hierarchy I was using professionally in the 1980s, provided by IBM's SCLM product. My proposal uses a simpler and more general model, which can serve the needs of QA on the base Wikipedia, Wikipedia 1.0, and a G-rated Wikipedia, with no more complication than this proposal introduces just to deal with Wikipedia 1.0. <a href="../../../a/n/d/User%7EAndrewa_c818.html" title="User:Andrewa">Andrewa</a> 06:55, 5 Nov 2003 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Ehrenberg_addition" id="Ehrenberg_addition"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Ehrenberg addition">edit</a>]</span> <span class="mw-headline">Ehrenberg addition</span></h2>
+<p>This would be added on to any of the above approval proceses. After an article is approved, it would go into the database of approved articles. People would be able to access this from the web. After reading an article, the reader would be able to click on a link to disapprove of the article. After 5 (more, less?) people have disapproved of an article, the article goes through a reapproval process, in which only one expert must approve it, and then the nessessary applicable administrators.</p>
+<dl>
+<dd>
+<dl>
+<dd>Let's try the simpler way first. But I like the idea of asking for reader's evaluations. It's a separate issue IMO.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Perhaps put a link at the top of every article, <i>Did this article answer your questions?</i>, leading to a review page <i>Please take a few seconds to fill in this readers' assessment form. It will help us to improve Wikipedia</i>. Information gathered could be a great help IMO. The only minus I can see is that people who would otherwise have become Wikipedians might become reviewers instead, contributing less to the project than they would have otherwise. Hard to guess that one.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="DWheeler.27s_Proposal:_Automated_Heuristics" id="DWheeler.27s_Proposal:_Automated_Heuristics"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: DWheeler's Proposal: Automated Heuristics">edit</a>]</span> <span class="mw-headline">DWheeler's Proposal: Automated Heuristics</span></h2>
+<p>It might also be possible to use some automated heuristics to identify "good" articles. This could be especially useful if the Wikipedia is being extracted to some static storage (e.g., a CD-ROM or PDA memory stick). Some users might want this view as well. The heuristics may throw away some of the latest "good" changes, as long as they also throw away most of the likely "bad" changes.</p>
+<p>Here are a few possible automated heuristics:</p>
+<ul>
+<li>Ignore all anonymous changes; if someone isn't willing to have their name included, then it may not be a good change. This can be "fixed" simply by a some non-anonymous person editing the article (even trivially).</li>
+<li>Ignore changes from users who have only submitted a few changes (e.g., less than 50). If a user has submitted a number of changes, and is still accepted (not banned), then the odds are higher that the user's changes are worthwhile.</li>
+<li>Ignore pages unless at least some number of other non-anonymous readers have read the article and/or viewed its diffs (e.g., at least 2 other readers). The notion here is that, if someone else read it, then at least <i>some</i> minimal level of peer review has occurred. The reader may not be able to identify subtle falsehoods, but at least "Tom Brokaw is cool" might get noticed. This approach can be foiled (e.g., by creating "bogus readers"), but many trolls won't bother to do that.</li>
+</ul>
+<p>These heuristics can be combined with the expert rating systems discussed elsewhere here. An advantage of these automated approaches is that they can be applied immediately.</p>
+<p>Other automated heuristics can be developed by developing "trust metrics" for people. Instead of trying to rank every article (or as a supplement to doing so), rank the <i>people</i>. After all, someone who does good work on one article is more likely to do good work on another article. You could use a scheme like <a href="http://www.advogato.org" class="external text" title="http://www.advogato.org" rel="nofollow">Advogato</a>'s, where people identify how much they respect (trust) someone else. You then flow down the graph to find out how much each person should be trusted. For more information, see <a href="http://www.advogato.org/trust-metric.html" class="external text" title="http://www.advogato.org/trust-metric.html" rel="nofollow">Advogato's trust metric information</a>. Even if the Advogato metric isn't perfect, it does show how a few individuals could list other people they trust, and over time use that to derive global information. The <a href="http://www.advogato.org/code.html" class="external text" title="http://www.advogato.org/code.html" rel="nofollow">Advogato code</a> is available - it's GPLed.</p>
+<p>Another related issue might be automated heuristics that try to identify likely trouble spots (new articles or likely troublesome diffs). A trivial approach might be to have a not-publicly-known list of words that, if they're present in the new article or diffs, suggest that the change is probably a bad one. Examples include swear words, and words that indicate POV (e.g., "Jew" may suggest anti-semitism). The change might be fine, but such a flag would at least alert someone else to especially take a look there.</p>
+<p>A more sophisticated approach to automatically identify trouble spots might be to use learning techniques to identify what's probably garbage, using typical text filtering and anti-spam techniques such as naive Bayesian filtering (see Paul Graham's "A Plan for Spam"). To do this, the Wikipedia would need to store deleted articles and have a way to mark changes that were removed for cause (e.g., were egregiously POV) - presumably this would be a sysop privilege. Then the Wikipedia could train on "known bad" and "known good" (perhaps assuming that all Wikipedia articles before some date, or meeting some criteria listed above, are "good"). Then it could look for bad changes (either in the future, or simply examining the entire Wikipedia offline).</p>
+<dl>
+<dd>
+<dl>
+<dd>All good suggestions for tools that an Editorial Board might use.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Why_wikipedia_doesn.27t_need_an_additional_approval_mechanism" id="Why_wikipedia_doesn.27t_need_an_additional_approval_mechanism"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Why wikipedia doesn't need an additional approval mechanism">edit</a>]</span> <span class="mw-headline">Why wikipedia doesn't need an additional approval mechanism</span></h2>
+<p>These are arguments presented for why an additional approval mechanism is unnecessery for wikipedia:</p>
+<ul>
+<li>Wikipedia already <b>has</b> an approval mechanism! Anyone can edit any page. It means that experts of all sorts can be bold and contribute to articles, <i>peer-review is an approval mechanism</i>.</li>
+</ul>
+<ul>
+<li>An expert-centered approval mechanism is a considered a cathedral-type methodology, in contrast with the bazaar-type <a href="../../../o/p/e/Open-source.html" title="Open-source">open-source</a> projects like wikipedia, that are known to achieve good results (e.g. <a href="../../../l/i/n/Linux.html" title="Linux">Linux</a>) thru aggressive peer-review, and openness ("With enough eyeballs, all errors are shallow"). It can be argued that the <i>very reason</i> Linux has become so reliable is the radical acceptance, and for some degree, respect, for amateurs' and enthusiasts' work of all sorts.</li>
+</ul>
+<ul>
+<li>Experts themselves have controversies between themselves, for example, many subjects in <a href="../../../m/e/d/Medicine.html" title="Medicine">medicine</a> and <a href="../../../p/s/y/Psychology.html" title="Psychology">psychology</a> are highly debated. By giving a professor the free hand in deciding whether an article is "approved" or "non-approved" there is a risk of compromising the <a href="../../../n/p/o/NPOV_05ab.html" title="NPOV">NPOV</a> standards by experts' over-emphasizing their specific opinions and area of research.</li>
+</ul>
+<ul>
+<li>Low quality articles can be easily recognized by a reader with some or no experience over reading wikipedia, and by applying some basic <a href="../../../c/r/i/Critical_thinking.html" title="Critical thinking">critical thinking</a>:
+<ul>
+<li>Style may sound biased, emotional, poorly written, or just unintelligible.</li>
+<li>Blanket statements, no citing, speculative assertions: any critical person will be careful in giving too much credit for such article.</li>
+<li>History of an article shows much of the effort and review that has been brought into writing it, <i>who</i> and <i>how qualified</i> are the writers (Users seem to put some biographical information about themselves on their pages)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Cross-checking with other sources is an <i>extremely</i> important principle for good information gathering on the internet! No source should be taken as 100% reliable.</li>
+</ul>
+<ul>
+<li>Some "authoritative" and "approved" encyclopedias don't seem to stand for their own claims of creditability. See, for example, <a href="../../../c/o/l/Columbia_Encyclopedia_b1be.html" title="Columbia Encyclopedia">Columbia Encyclopedia</a>'s article about <a href="http://www.encyclopedia.com/html/t/turingtes.asp" class="external text" title="http://www.encyclopedia.com/html/t/turingtes.asp" rel="nofollow">Turing test</a>, compare with Wikipedia's <a href="../../../t/u/r/Turing_test.html" title="Turing test">Turing test</a>. Any amateur computer science hobbyist knows that a Turing test does not necessarily test whether a computer is capable of "human-like thought". See also <a href="http://meta.wikimedia.org/wiki/Making_fun_of_Britannica" class="extiw" title="m:Making_fun_of_Britannica">m:Making fun of Britannica</a>.</li>
+</ul>
+<ul>
+<li>Finding an expert who corresponds to a certain article can sometimes be troublesome. Can a Ph.D on applied Mathematics "approve" articles on pure mathematics?, or more strictly, does one will be accepted as a approver only if he/she have made research on the specific subject he/she is approving? Who will decide whether a person is qualified for approval?</li>
+</ul>
+<ul>
+<li>Some obscure or day-to-day topics don't have any immediate "expert" attached to them. Who will approve articles on hobbies, games, local cultures etc.?</li>
+</ul>
+<ul>
+<li>The very idea of an article being "approved" is debatable, especially on controversial topics, and can be seen as an unreachable <a href="../../../i/d/e/Ideal.html" title="Ideal">ideal</a> by some.</li>
+</ul>
+<ul>
+<li>The immediateness and easiness of publishing on Wikipedia is seen by some as one of the main incentives for working on the project. Creating a moderation hierarchy can become cumbersome as a whole (e.g. <a href="../../../n/u/p/Nupedia.html" title="Nupedia">Nupedia</a>) and discouraging for these contributors.</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>I think the proposal addresses all of these. I'll develop some more detailed responses perhaps.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="PeterK.27s_Proposal:_Scoring" id="PeterK.27s_Proposal:_Scoring"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: PeterK's Proposal: Scoring">edit</a>]</span> <span class="mw-headline">PeterK's Proposal: Scoring</span></h2>
+<p>This idea has some of the same principles as the Automated Heuristic suggested above. I agree that an automated method for determining "good" articles for offline readers is absolutely crucial. I have a different idea on how to go about it. I think the principles of easy editing and how wikipedia works now is what makes it great. I think we need to take those principles along with some search engine ideas to give a confidence level for documents. So people extracting the data for offline purposes can decide the confidence level they want and only extract articles that meet that confidence level.</p>
+<p>I think the exact equation for the final scoring needs to be discussed. I don't think I could come up with a final version by myself, but I'll give an example of what would give good point and bad points.</p>
+<p>Final Score: a: first thing we need it a quality/scoring value for editors. Anonymous editors would be given a value of 1 and a logged in user may get 1 point added to their value for each article he/she edits, up to a value of 100. b: 0.25 points for each time a user reads the article c: 0.25 point for each day the article has existed in wikipedia d: each time the article is edited it gets 1+(a/10)*2 points, anonymous user would give it 1.2 and a fully qualified user would give it 20 points. e: next if an anonymous user makes a large change then you get a -20 point deduction. Even though this is harsh, if it goes untouched for 80 days it will gain all those points back. It will gain the points back faster if a lot of people have read the article.</p>
+<p>This is the best I can think of right now, if I come up with a better scoring system I'll make some changes. Anyone feel free to test score a couple of articles to see how this algorithm holds up. We can even get a way of turning the score to a percentage, so that people can extract 90% qualified articles.</p>
+<dl>
+<dd>
+<dl>
+<dd>Another tool that could be incorporated, but I'm not too enthusiastic.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Legion_of_Trolls_proposal" id="Legion_of_Trolls_proposal"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Legion of Trolls proposal">edit</a>]</span> <span class="mw-headline"><a href="http://meta.wikimedia.org/wiki/Legion_of_Trolls" class="extiw" title="m:Legion_of_Trolls">Legion of Trolls</a> proposal</span></h2>
+<p>Trolls are not here to <i>approve</i>, and usually reject views of <i>experts</i> who must be certified by someone trolls grumble about. So one would expect them to be disgruntled by definition about such a mechanism. However, paradoxically, almost all trolls think they apply <i>clear and reasonably stringent standards</i>. The problem is that each troll has his own standards, unlike those of others!</p>
+<p>That said, there is much to agree on: the mechanism itself must be genuinely easy to use, nothing slow and rigorous is of any value, the progress of Wikipedia and its proven process should not be impeded, and the results of the approval can be ignored. Where trolls would disagree is that verifying the expert's credentials are of any value. Any such mechanism can be exploited, as trolls know full well, often being experts at forging new identities and the deliberate disruption of any credentialing mechanism.</p>
+<p>One might ignore this, and the trolls, but, it remains that what goes on at Wikipedia is largely a process not of approval but of <i>impulse</i> and then <i>disapproval</i>. As with <a href="../../../m/o/r/Morality.html" title="Morality">morality</a> and <a href="../../../d/i/p/Diplomacy.html" title="Diplomacy">diplomacy</a>, we move from systems of informal to <a href="../../../f/o/r/Formal_disapproval.html" title="Formal disapproval">formal disapproval</a>. Today, even our <a href="../../../r/e/a/Reality_game_show.html" title="Reality game show">reality game shows</a> demonstrate the broad utility of this approach, with <a href="../../../d/i/s/Disapproval_voting.html" title="Disapproval voting">disapproval voting</a> of uninteresting or unwanted or undesired candidates a well-understood paradigm.</p>
+<p>So, imagine an entirely different way to achieve the "desirements", one that is a natural extension of Wikipedia's present process of attempt (stubs, slanted first passes, public domain documents, broad rewrites of external texts) and disapproval (reverts, neutralizing, link adds, rewrites, NPOV dispute and deletions). Rather than something new (trolls hate what is new) and unproven that will simply repeat all the mistakes of academia. Imagine a mechanism that</p>
+<ul>
+<li>Begins with all approved, and makes it possible to broaden or narrow the selection of approvers (e.g., one person might only wish authors who have phd's, another would allow for anyone who has made an effort to approve any articles) for each reader, or supported class of reader, simply by disapproving editors.</li>
+<li>Allows for extracting topic-oriented sets (e.g., in order to produce an "Encyclopedia of Music") relying on <a href="../../../m/e/t/Metadata.html" title="Metadata">metadata</a> that is specific to each such supported class of reader, not part of the Wikipedia as a whole</li>
+<li>Exploits ongoing feedback ("I don't care about this" or "I don't understand this") to adjust the list of articles of interest. Each user can begin from some class (like <a href="http://simple.wikipedia.com" class="external text" title="http://simple.wikipedia.com" rel="nofollow">Simple-English</a>-only readers), and adjust if they like.</li>
+<li>Potentially, exploits more feedback on authors ("I can't believe this" or "I find this irrelevant") to adjust also the list of disapproved authors/editors.</li>
+<li>Credits each <a href="http://meta.wikimedia.org/wiki/troll" class="extiw" title="m:troll">troll</a> who has driven off a disapproved author or editor. OK, that's a joke, but what do you expect, I'm a troll neh neh neh...</li>
+</ul>
+<p>By embracing and extending and formalizing the disapproval, boredom and disdain that all naturally feel as a part of <a href="../../../m/i/s/Misanthropy.html" title="Misanthropy">misanthropy</a>, we can arrive at a pure and effective knowledge resources. One that rarely tells us what we don't care about. And, potentially, one that can let us avoid those who we find untruthful.</p>
+<dl>
+<dd>
+<dl>
+<dd>Some good points which are addressed in the proposal. Others will need a far bigger database monster than we can currently afford.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Propose_and_veto" id="Propose_and_veto"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Propose and veto">edit</a>]</span> <span class="mw-headline">Propose and veto</span></h2>
+<p>Include articles that have been proposed by at least one person, and vetoed by none.</p>
+<p>Where two versions of an article are so approved, pick the later one. Where no versions of an article are so approved, have no article.</p>
+<p>That's it.</p>
+<dl>
+<dd>
+<dl>
+<dd>Consistent with the proposal. Exactly this could be provided as a user option.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Andrew_A.27s_proposal" id="Andrew_A.27s_proposal"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html" title="Edit section: Andrew A's proposal">edit</a>]</span> <span class="mw-headline">Andrew A's proposal</span></h2>
+<p>See <a href="http://meta.wikimedia.org/wiki/Referees" class="extiw" title="m:Referees">m:Referees</a>. This proposal is consistent with much of the above.</p>
+<dl>
+<dd>
+<dl>
+<dd>Agree. (;-&gt; <a href="../../../a/n/d/User%7EAndrewa_c818.html" title="User:Andrewa">Andrewa</a></dd>
+</dl>
+</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html">http://en.wikipedia.org../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../w/i/k/Category%7EWikipedia_editorial_validation_5fd7.html" title="Category:Wikipedia editorial validation">Wikipedia editorial validation</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/n/d/User%7EAndrewa_Wikipedia_approval_mechanism_317c.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/n/d/User_talk%7EAndrewa_Wikipedia_approval_mechanism_b389.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Andrewa/Wikipedia_approval_mechanism">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 23:12, 24 January 2006 by Wikipedia user <a href="../../../n/e/k/User%7ENekoDaemon_8f79.html" title="User:NekoDaemon">NekoDaemon</a>. Based on work by Wikipedia user(s) <a href="../../../k/b/d/User%7EKbdank71_f952.html" title="User:Kbdank71">Kbdank71</a>, <a href="../../../d/a/v/User%7EDavid_Gerard_df91.html" title="User:David Gerard">David Gerard</a> and <a href="../../../a/n/d/User%7EAndrewa_c818.html" title="User:Andrewa">Andrewa</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Abstract machine,ABC programming language,ALF programming language,Abstract Machine Notation,Abstraction (computer science),Automata theory,Cache-oblivious model,Categorical Abstract Machine Language,Computational complexity theory,Computer,Computer engineering" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Abstract machine - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Abstract machine</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>An <b>abstract machine</b>, also called an <b>abstract computer</b>, is a theoretical model of a <a href="../../../c/o/m/Computer.html" title="Computer">computer</a> hardware or software system used in <a href="../../../a/u/t/Automata_theory.html" title="Automata theory">Automata theory</a>. Abstraction of computing processes is used in both the <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a> and <a href="../../../c/o/m/Computer_engineering.html" title="Computer engineering">computer engineering</a> disciplines and usually assumes <a href="../../../d/i/s/Discrete_time.html" title="Discrete time">discrete time</a> <a href="../../../p/a/r/Paradigm.html" title="Paradigm">paradigm</a>.</p>
+<p>In the <a href="../../../t/h/e/Theory_of_computation.html" title="Theory of computation">theory of computation</a>, abstract machines are often used in <a href="../../../t/h/o/Thought_experiments.html" title="Thought experiments">thought experiments</a> regarding computability or to analyze the complexity of algorithms (<i>see</i> <a href="../../../c/o/m/Computational_complexity_theory.html" title="Computational complexity theory">computational complexity theory</a>). A typical abstract machine consists of a definition in terms of input, output, and the set of allowable operations used to turn the former into the latter. The best-known example is the <a href="../../../t/u/r/Turing_machine.html" title="Turing machine">Turing machine</a>.</p>
+<p>More complex definitions create abstract machines with full <a href="../../../i/n/s/Instruction_set.html" title="Instruction set">instruction sets</a>, <a href="../../../p/r/o/Processor_register.html" title="Processor register">registers</a> and models of <a href="../../../c/o/m/Computer_storage.html" title="Computer storage">memory</a>. One popular model more similar to real modern machines is the <a href="../../../r/a/m/RAM_model_5b02.html" title="RAM model">RAM model</a>, which allows random access to indexed memory locations. As the performance difference between different levels of cache memory grows, cache-sensitive models such as the external-memory model and <a href="../../../c/a/c/Cache-oblivious_model.html" title="Cache-oblivious model">cache-oblivious model</a> are growing in importance.</p>
+<p>An abstract machine can also refer to a <a href="../../../m/i/c/Microprocessor.html" title="Microprocessor">microprocessor</a> design which has yet to be (or is not intended to be) implemented as hardware. An abstract machine implemented as a software simulation, or for which an <a href="../../../i/n/t/Interpreter_%28computing%29.html" title="Interpreter (computing)">interpreter</a> exists, is called a <a href="../../../v/i/r/Virtual_machine.html" title="Virtual machine">virtual machine</a>.</p>
+<p>Through the use of abstract machines it is possible to compute the amount of resources (time, memory, etc.) necessary to perform a particular operation without having to construct an actual system to do it.</p>
+<p><a name="Articles_concerning_Turing-equivalent_sequential_abstract_machine_models" id="Articles_concerning_Turing-equivalent_sequential_abstract_machine_models"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_machine.html" title="Edit section: Articles concerning Turing-equivalent sequential abstract machine models">edit</a>]</span> <span class="mw-headline">Articles concerning Turing-equivalent sequential abstract machine models</span></h2>
+<p>An approach is to take a somewhat formal taxonomic approach to classify the <a href="../../../t/u/r/Turing_equivalent.html" title="Turing equivalent">Turing equivalent</a> abstract machines. This taxonomy does not include <a href="../../../f/i/n/Finite_automata.html" title="Finite automata">finite automata</a>:</p>
+<p><b>Family: Turing-equivalent (TE) abstract machine</b>:</p>
+<p><b>Subfamilies:</b></p>
+<dl>
+<dd>Subfamily (1) Sequential TE abstract machine</dd>
+</dl>
+<dl>
+<dd>Subfamily (2) Parallel TE abstract machine</dd>
+</dl>
+<p><b>Subfamily (1)-- <i>Sequential</i> TE abstract machine model:</b> There are two classes (genera) of Sequential TE abstract machine models currently in use (cf van Emde Boas, for example):</p>
+<dl>
+<dd>Genus (1.1) Tape-based <a href="../../../t/u/r/Turing_machine.html" title="Turing machine">Turing machine</a> model</dd>
+</dl>
+<dl>
+<dd>Genus (1.2) Register-based <a href="../../../r/e/g/Register_machine.html" title="Register machine">register machine</a></dd>
+</dl>
+<p><b>Genus (1.1) -- Tape-based Turing machine model:</b> This includes the following "species":</p>
+<dl>
+<dd>{ single tape, Multi-tape Turing machine, <a href="../../../d/e/t/Deterministic_Turing_machine_1b96.html" title="Deterministic Turing machine">deterministic Turing machine</a>, <a href="../../../n/o/n/Non-deterministic_Turing_machine_4831.html" title="Non-deterministic Turing machine">Non-deterministic Turing machine</a>, <a href="../../../w/a/n/Wang_B-machine_5271.html" title="Wang B-machine">Wang B-machine</a>, <a href="../../../p/o/s/Post-Turing_machine_0dfd.html" title="Post-Turing machine">Post-Turing machine</a>, <a href="../../../o/r/a/Oracle_machine.html" title="Oracle machine">Oracle machine</a>, <a href="../../../u/n/i/Universal_Turing_machine_dd3d.html" title="Universal Turing machine">Universal Turing machine</a> }</dd>
+</dl>
+<p><b>Genus (1.2)-- The register machine model</b>: This includes (at least) the following four "species" (others are mentioned by van Emde Boas):</p>
+<dl>
+<dd>{ (1.2.1) <a href="../../../c/o/u/Counter_machine.html" title="Counter machine">Counter machine</a>, (1.2.2) <a href="../../../r/a/n/Random_access_machine.html" title="Random access machine">Random access machine</a> RAM, (1.2.3) <a href="../../../r/a/n/Random_access_stored_program_machine.html" title="Random access stored program machine">Random access stored program machine</a> RASP, (1.2.4) <a href="../../../p/o/i/Pointer_machine.html" title="Pointer machine">Pointer machine</a> }</dd>
+</dl>
+<dl>
+<dd><b>Species (1.2.1) -- Counter machine model</b>:
+<dl>
+<dd>{ abacus machine, Lambek machine, Melzak model, Minsky machine, Shepherdson-Sturgis machine, program machine, etc. }</dd>
+</dl>
+</dd>
+<dd><b>Species (1.2.2) -- Random access machine (RAM) model</b>:
+<dl>
+<dd>{ any counter-machine model with additional <i>indirect addressing</i>, but with instructions in the state machine in the <a href="../../../h/a/r/Harvard_architecture.html" title="Harvard architecture">Harvard architecture</a>; any model with an "accumulator" with additional indirect addressing but instructions in the state machine in the <a href="../../../h/a/r/Harvard_architecture.html" title="Harvard architecture">Harvard architecture</a> }</dd>
+</dl>
+</dd>
+<dd><b>Species (1.2.3) -- Random access stored program machine</b> (RASP) model includes
+<dl>
+<dd>{ any RAM with program stored in the registers similar to the <a href="../../../u/n/i/Universal_Turing_machine_dd3d.html" title="Universal Turing machine">Universal Turing machine</a> i.e. in the <a href="../../../v/o/n/Von_Neumann_architecture_b1fc.html" title="Von Neumann architecture">von Neumann architecture</a> }</dd>
+</dl>
+</dd>
+<dd><b>Species (1.2.4)-- Pointer machine</b> model includes the following:
+<dl>
+<dd>= { Schönhage Storage Modification Machine SMM, Kolmogorov-Uspensky KU-machine, Knuth linking automaton }</dd>
+</dl>
+</dd>
+</dl>
+<p><br /></p>
+<p><a name="Other_abstract_machines" id="Other_abstract_machines"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_machine.html" title="Edit section: Other abstract machines">edit</a>]</span> <span class="mw-headline">Other abstract machines</span></h2>
+<ul>
+<li><a href="../../../a/b/c/ABC_programming_language_5b80.html" title="ABC programming language">ABC programming language</a></li>
+<li><a href="../../../a/b/s/Abstract_Machine_Notation_474e.html" title="Abstract Machine Notation">Abstract Machine Notation</a></li>
+<li><a href="../../../a/l/f/ALF_programming_language_68ba.html" title="ALF programming language">ALF programming language</a></li>
+<li><a href="../../../c/a/t/Categorical_Abstract_Machine_Language_03fe.html" title="Categorical Abstract Machine Language">Categorical Abstract Machine Language</a></li>
+<li><a href="../../../c/o/n/Context-free_grammar.html" title="Context-free grammar">Context-free grammar</a></li>
+<li><a href="../../../f/i/n/Finite_automata.html" title="Finite automata">Finite automata</a></li>
+<li><a href="../../../s/p/e/Specification_and_Design_Language_ad63.html" title="Specification and Design Language">Specification and Design Language</a></li>
+<li>Historycal/Simplicity Abstract Machines for <a href="../../../p/r/o/Prolog.html" title="Prolog">Prolog</a>:
+<ul>
+<li>1.Vienna Abstract Machine (VAM_Prolog)</li>
+<li>2.<a href="../../../w/a/r/Warren_Abstract_Machine_0703.html" title="Warren Abstract Machine">Warren Abstract Machine</a> (WAM_Prolog)</li>
+<li>3.Berkeley Abstract Machine (BAM_Prolog).</li>
+</ul>
+</li>
+<li><a href="../../../m/m/i/MMIX_c3ab.html" title="MMIX">MMIX</a></li>
+<li><a href="../../../t/e/n/TenDRA_Distribution_Format_9a8e.html" title="TenDRA Distribution Format">TenDRA Distribution Format</a></li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Abstract_machine.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/b/s/Abstraction_%28computer_science%29.html" title="Abstraction (computer science)">Abstraction (computer science)</a></li>
+<li><a href="../../../d/i/s/Discrete_time.html" title="Discrete time">Discrete time</a></li>
+<li><a href="../../../s/t/a/State_space.html" title="State space">State space</a></li>
+<li><a href="../../../t/h/e/Theory_of_computation.html#Other_formal_definitions_of_computation" title="Theory of computation">Theory of computation#Other formal definitions of computation</a></li>
+</ul>
+<p><span class="boilerplate" id="foldoc"><i>This article was originally based on material from the <a href="../../../f/r/e/Free_On-line_Dictionary_of_Computing_81c7.html" title="Free On-line Dictionary of Computing">Free On-line Dictionary of Computing</a>, which is <a href="../../../f/o/l/Wikipedia%7EFoldoc_license_9ee2.html" title="Wikipedia:Foldoc license">licensed</a> under the <a href="../../../g/n/u/GNU_Free_Documentation_License_9d01.html" title="GNU Free Documentation License">GFDL</a>.</i></span></p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/b/s/Abstract_machine.html">http://en.wikipedia.org../../../a/b/s/Abstract_machine.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../f/o/l/Category%7EFOLDOC_sourced_articles_b3fe.html" title="Category:FOLDOC sourced articles">FOLDOC sourced articles</a></span> | <span dir='ltr'><a href="../../../d/i/s/Category%7EDiscrete_mathematics_0ee8.html" title="Category:Discrete mathematics">Discrete mathematics</a></span> | <span dir='ltr'><a href="../../../t/h/e/Category%7ETheory_of_computation_b1d4.html" title="Category:Theory of computation">Theory of computation</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/b/s/Abstract_machine.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/b/s/Talk%7EAbstract_machine_a274.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Abstract_machine">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ar/%D8%A2/%D9%84/%D8%A9/%D8%A2%D9%84%D8%A9_%D9%85%D8%AC%D8%B1%D8%AF%D8%A9.html">العربية</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/u/t/Automat_%28Informatik%29_9dd3.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EC%B6%94/%EC%83%81/_/%EC%B6%94%EC%83%81_%EA%B8%B0%EA%B3%84.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E8%A8%88/%E7%AE%97/%E6%A8%A1/%E8%A8%88%E7%AE%97%E6%A8%A1%E5%9E%8B.html">日本語</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:30, 4 February 2007 by Wikipedia user <a href="../../../m/i/k/User%7EMikkalai_a7bb.html" title="User:Mikkalai">Mikkalai</a>. Based on work by Wikipedia user(s) <a href="../../../p/h/y/User%7EPhysis_ac9e.html" title="User:Physis">Physis</a>, <a href="../../../w/v/b/User%7EWvbailey_8349.html" title="User:Wvbailey">Wvbailey</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../n/a/t/User%7ENatecull_052f.html" title="User:Natecull">Natecull</a>, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../r/2E/e/User%7ER.e.s._9f77.html" title="User:R.e.s.">R.e.s.</a>, <a href="../../../n/e/k/User%7ENekoDaemon_8f79.html" title="User:NekoDaemon">NekoDaemon</a>, <a href="../../../d/f/l/User%7EDfletter_7b90.html" title="User:Dfletter">Dfletter</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../p/s/y/User%7EPsyche_c17a.html" title="User:Psyche">Psyche</a>, <a href="../../../i/n/k/User%7EInky_f579.html" title="User:Inky">Inky</a>, <a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a>, <a href="../../../a/n/g/User%7EAngela_56ea.html" title="User:Angela">Angela</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../d/e/b/User%7EDeb_5525.html" title="User:Deb">Deb</a> and <a href="../../../e/l/l/User%7EEllmist_6655.html" title="User:Ellmist">Ellmist</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

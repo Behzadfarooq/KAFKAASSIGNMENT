@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bin packing problem,Approximation algorithm,Combinatorics,Computational complexity theory,Computer science,David S. Johnson,Heuristic (computer science),Knapsack problem,Michael R. Garey,NP-hard,Packing problem" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bin packing problem - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bin packing problem</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computational_complexity_theory.html" title="Computational complexity theory">computational complexity theory</a>, the <b>bin packing problem</b> is a <a href="../../../c/o/m/Combinatorics.html" title="Combinatorics">combinatorial</a> <a href="../../../n/p/-/NP-hard_1fde.html" title="NP-hard">NP-hard</a> problem. In it, objects of different volumes must be packed into a finite number of bins of capacity <i>V</i> in a way that minimizes the number of bins used.</p>
+<p>There are many variations of this problem, such as 2D packing, linear packing, packing by weight, packing by cost, and so on. They have many applications, such as filling up containers, loading trucks with weight capacity, and creating file backup in removable media.</p>
+<p>Since it is <a href="../../../n/p/-/NP-hard_1fde.html" title="NP-hard">NP-hard</a>, the most efficient known algorithms use <a href="../../../h/e/u/Heuristic_%28computer_science%29.html" title="Heuristic (computer science)">heuristics</a> to accomplish very good results in most cases, which may not be the optimal solution. The <i>Best Fit Decreasing</i> and <i>First Fit Decreasing</i> strategies use no more than 11/9&#160;<b>OPT</b>&#160;+&#160;1 bins (where <b>OPT</b> is the number of bins given by the optimal solution).<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> The simpler of these, the <i>First Fit Decreasing</i> strategy, operates by first sorting the items to be inserted in decreasing order by volume, and then inserting each item into the first bin in the list with sufficient remaining space. The sorting step is relatively expensive, but without it we only achieve the looser bound of 17/10&#160;<b>OPT</b>&#160;+&#160;2. A more efficient version of FFD uses no more than 71/60&#160;<b>OPT</b>&#160;+&#160;1 bins. <sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup><sup id="_ref-2" class="reference"><a href="#_note-2" title="">[3]</a></sup></p>
+<p>Although these simple strategies are often good enough, efficient <a href="../../../a/p/p/Approximation_algorithm.html" title="Approximation algorithm">approximation algorithms</a> have been demonstrated that can solve the bin packing problem within <i>any</i> fixed percentage of the optimal solution for sufficiently large inputs (this is called an asymptotic <a href="../../../p/o/l/Polynomial-time_approximation_scheme.html" title="Polynomial-time approximation scheme">polynomial-time approximation scheme</a>). This is an advantage the problem has over many other common NP-hard problems, some of which cannot be approximated within any constant factor at all.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Bin_packing_problem.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h3>
+<ul>
+<li><a href="../../../p/a/r/Partition_problem.html" title="Partition problem">Partition problem</a></li>
+<li><a href="../../../p/a/c/Packing_problem.html" title="Packing problem">Packing problem</a></li>
+<li><a href="../../../k/n/a/Knapsack_problem.html" title="Knapsack problem">Knapsack problem</a></li>
+<li><a href="../../../s/u/b/Subset_sum_problem.html" title="Subset sum problem">Subset sum problem</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Bin_packing_problem.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> M. Yue, "A simple proof of the inequality FFD(L) ≤ (11/9)OPT(L) + 1, for all L, for the FFD bin-packing algorithm", <i>Acta Mathematicae Applicatae Sinica</i> <b>7</b> (1991), pp. 321–331.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <a href="../../../m/i/c/Michael_R._Garey_c2db.html" title="Michael R. Garey">Michael R. Garey</a> and <a href="../../../d/a/v/David_S._Johnson_85aa.html" title="David S. Johnson">David S. Johnson</a>, "A 71/60 theorem for bin packing", <i>Journal of Complexity</i>, Vol. 1 (1985), pp. 65–106.</li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> Yue Minyi and Zhang Lei, "A simple proof of the inequality MFFD(L) ≤ 71/60 OPT(L) + 1, L for the MFFD bin-packing algorithm", <i>Acta Mathematicae Applicatae Sinica</i> <b>11</b> (1995), pp. 318–330.</li>
+</ol>
+<ul>
+<li>Michael R. Garey and David S. Johnson (1979), Computers and Intractability: A Guide to the Theory of NP-Completeness. W.H. Freeman. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-7167-1045-5</a>. A4.1: SR1, p. 226.</li>
+<li><a href="../../../v/i/j/Vijay_Vazirani_aaa6.html" title="Vijay Vazirani">Vijay V. Vazirani</a>, Approximation Algorithms. Springer. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 3-540-65367-8</a>. p. 74.</li>
+<li>David S. Johnson, Alan J. Demers, Jeffrey D. Ullman, M. R. Garey, Ronald L. Graham. <a href="http://locus.siam.org/SICOMP/volume-03/art_0203025.html" class="external text" title="http://locus.siam.org/SICOMP/volume-03/art_0203025.html" rel="nofollow">Worst-Case Performance Bounds for Simple One-Dimensional Packing Algorithms</a>. SICOMP, Volume 3, Issue 4. 1974.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Bin_packing_problem.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.phpclasses.org/browse/package/2027.html" class="external text" title="http://www.phpclasses.org/browse/package/2027.html" rel="nofollow">PHP Class to pack files without exceeding a given size limit</a></li>
+</ul>
+<div class="boilerplate metadata" id="stub"><a href="../../../l/a/m/Image%7ELampFlowchart.svg_c131.html" class="image" title="Comp Sci logo"><img src="../../../upload/shared/thumb/9/91/LampFlowchart.svg/20px-LampFlowchart.svg.png" alt="Comp Sci logo" width="20" height="27" longdesc="../../../l/a/m/Image%7ELampFlowchart.svg_c131.html" /></a>&#160;<i>This <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a>-related article is a <a href="../../../p/e/r/Wikipedia%7EPerfect_stub_article_2d8f.html" title="Wikipedia:Perfect stub article">stub</a>. You can <a href="../../../f/i/n/Wikipedia%7EFind_or_fix_a_stub_e7c5.html" title="Wikipedia:Find or fix a stub">help</a> Wikipedia by <a href="http://en.wikipedia.org../../../b/i/n/Bin_packing_problem.html" class="external text" title="http://en.wikipedia.org../../../b/i/n/Bin_packing_problem.html" rel="nofollow">expanding it</a></i>.</div>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Bin_packing_problem.html">http://en.wikipedia.org../../../b/i/n/Bin_packing_problem.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../n/p/-/Category%7ENP-complete_problems_d7a2.html" title="Category:NP-complete problems">NP-complete problems</a></span> | <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_science_stubs_2f32.html" title="Category:Computer science stubs">Computer science stubs</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/n/Bin_packing_problem.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/n/Talk%7EBin_packing_problem_f334.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bin_packing_problem">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/e/h/Beh%C3%A4lterproblem.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/p/r/o/Problema_de_la_mochila.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B7/%D0%B0/%D0%B4/%D0%97%D0%B0%D0%B4%D0%B0%D1%87%D0%B0_%D0%BE%D0%B1_%D1%83%D0%BF%D0%B0%D0%BA%D0%BE%D0%B2%D0%BA%D0%B5_%D0%B2_%D0%BA%D0%BE%D0%BD%D1%82%D0%B5%D0%B9%D0%BD%D0%B5%D1%80%D1%8B.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/p/r/o/Probl%C3%A8me_de_bin_packing.html">Français</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:13, 7 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../c/r/g/User%7ECRGreathouse_d93e.html" title="User:CRGreathouse">CRGreathouse</a>, <a href="../../../a/m/a/User%7EAmalas_f8d6.html" title="User:Amalas">Amalas</a>, <a href="../../../f/i/n/User%7EFinell_cdfb.html" title="User:Finell">Finell</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, Geopoul, <a href="../../../c/h/a/User%7ECharlotteWebb_d424.html" title="User:CharlotteWebb">CharlotteWebb</a>, <a href="../../../l/i/g/User%7ELigulembot_623f.html" title="User:Ligulembot">Ligulembot</a>, Crenshaw, <a href="../../../k/3/r/User%7EK3rb_4cf4.html" title="User:K3rb">K3rb</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../g/r/e/User%7EGrendelkhan_c5fb.html" title="User:Grendelkhan">Grendelkhan</a>, <a href="../../../f/i/b/User%7EFibonacci_80f7.html" title="User:Fibonacci">Fibonacci</a>, Rbirmann, <a href="../../../d/o/c/User%7EDocu_0014.html" title="User:Docu">Docu</a> and <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Adder (electronics),AND gate,Adder-subtracter,Adding machine,Addition,Arithmetic logic unit,Binary,Binary-coded decimal,Brent-Kung adder,Carry,Carry-save adder" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Adder (electronics) - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Adder (electronics)</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In electronics, an <b>adder</b> is a <a href="../../../d/i/g/Digital_circuit.html" title="Digital circuit">digital circuit</a> that performs <a href="../../../a/d/d/Addition.html" title="Addition">addition</a> of numbers. In modern <a href="../../../c/o/m/Computer.html" title="Computer">computers</a> adders reside in the <a href="../../../a/r/i/Arithmetic_logic_unit.html" title="Arithmetic logic unit">arithmetic logic unit</a> (ALU) where other operations are performed. Although adders can be constructed for many numerical representations, such as <a href="../../../b/i/n/Binary-coded_decimal.html" title="Binary-coded decimal">Binary-coded decimal</a> or <a href="../../../e/x/c/Excess-3.html" title="Excess-3">excess-3</a>, the most common adders operate on <a href="../../../b/i/n/Binary.html" title="Binary">binary</a> numbers. In cases where <a href="../../../t/w/o/Two%27s_complement.html" title="Two's complement">two's complement</a> is being used to represent negative numbers it is trivial to modify an adder into an <a href="../../../a/d/d/Adder-subtracter.html" title="Adder-subtracter">adder-subtracter</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Types_of_adders"><span class="tocnumber">1</span> <span class="toctext">Types of adders</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Half_adder"><span class="tocnumber">1.1</span> <span class="toctext">Half adder</span></a></li>
+<li class="toclevel-2"><a href="#Full_adder"><span class="tocnumber">1.2</span> <span class="toctext">Full adder</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Multiple-bit_adders"><span class="tocnumber">2</span> <span class="toctext">Multiple-bit adders</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Ripple_carry_adder"><span class="tocnumber">2.1</span> <span class="toctext">Ripple carry adder</span></a></li>
+<li class="toclevel-2"><a href="#Carry_look-ahead_adders"><span class="tocnumber">2.2</span> <span class="toctext">Carry look-ahead adders</span></a></li>
+<li class="toclevel-2"><a href="#Lookahead_Carry_Unit"><span class="tocnumber">2.3</span> <span class="toctext">Lookahead Carry Unit</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#3:2_compressors"><span class="tocnumber">3</span> <span class="toctext">3:2 compressors</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Types_of_adders" id="Types_of_adders"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: Types of adders">edit</a>]</span> <span class="mw-headline">Types of adders</span></h2>
+<p>For single bit adders, there are two general types.</p>
+<p>A <b>half adder</b> has two inputs, generally labelled <i>A</i> and <i>B</i>, and two outputs, the <a href="../../../s/u/m/Sum.html" title="Sum">sum</a> <i>S</i> and <a href="../../../c/a/r/Carry.html" title="Carry">carry</a> <i>C</i>. <i>S</i> is the two-bit <a href="../../../x/o/r/XOR_gate_5263.html" title="XOR gate">XOR</a> of <i>A</i> and <i>B</i>, and <i>C</i> is the <a href="../../../a/n/d/AND_gate_16cc.html" title="AND gate">AND</a> of <i>A</i> and <i>B</i>. Essentially the output of a half adder is the sum of two one-bit numbers, with <i>C</i> being the most significant of these two outputs.</p>
+<p>The second type of single bit adder is the <b>full adder</b>. The full adder takes into account a carry input such that multiple adders can be used to add larger numbers. To remove ambiguity between the input and output carry lines, the carry in is labelled <i>C<sub>i</sub></i> or <i>C<sub>in</sub></i> while the carry out is labelled <i>C<sub>o</sub></i> or <i>C<sub>out</sub></i>.</p>
+<p><a name="Half_adder" id="Half_adder"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: Half adder">edit</a>]</span> <span class="mw-headline">Half adder</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:302px;"><a href="../../../h/a/l/Image%7EHalf-adder.svg_8d84.html" class="internal" title="Half adder circuit diagram"><img src="../../../upload/shared/thumb/1/14/Half-adder.svg/300px-Half-adder.svg.png" alt="Half adder circuit diagram" width="300" height="194" longdesc="../../../h/a/l/Image%7EHalf-adder.svg_8d84.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../h/a/l/Image%7EHalf-adder.svg_8d84.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Half adder circuit diagram</div>
+</div>
+</div>
+<p>A <b>half adder</b> is a logical circuit that performs an addition operation on two binary digits. The half adder produces a sum and a carry value which are both binary digits.</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/6/8/c68f08b36735ea8ed37a321c34c4a31b.png" alt="S = A \oplus B" /></dd>
+<dd><img class='tex' src="../../../math/2/1/a/21a87ada9e3156d0da765e2c71fe0702.png" alt="C = A \cdot B" /></dd>
+</dl>
+<p>Following is the logic table for a half adder:</p>
+<table class="wikitable" style="text-align:center">
+<tr>
+<th colspan="2">Input</th>
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>S</th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</table>
+<p><a name="Full_adder" id="Full_adder"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: Full adder">edit</a>]</span> <span class="mw-headline">Full adder</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:362px;"><a href="../../../f/u/l/Image%7EFull-adder.svg_dbb4.html" class="internal" title="Full adder circuit diagram A + B + CarryIn = Sum + CarryOut"><img src="../../../upload/shared/thumb/a/a9/Full-adder.svg/360px-Full-adder.svg.png" alt="Full adder circuit diagram A + B + CarryIn = Sum + CarryOut" width="360" height="229" longdesc="../../../f/u/l/Image%7EFull-adder.svg_dbb4.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../f/u/l/Image%7EFull-adder.svg_dbb4.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Full adder circuit diagram<br />
+<b>A + B + CarryIn = Sum + CarryOut</b></div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:202px;"><a href="../../../1/-/b/Image%7E1-bit_full-adder.svg.html" class="internal" title="Schematic symbol for a 1-bit full adder"><img src="../../../upload/shared/thumb/4/48/1-bit_full-adder.svg/200px-1-bit_full-adder.svg.png" alt="Schematic symbol for a 1-bit full adder" width="200" height="172" longdesc="../../../1/-/b/Image%7E1-bit_full-adder.svg.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../1/-/b/Image%7E1-bit_full-adder.svg.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Schematic symbol for a 1-bit full adder</div>
+</div>
+</div>
+<p>A <b>full adder</b> is a logical circuit that performs an addition operation on three binary digits. The full adder produces a sum and carry value, which are both binary digits. It can be combined with other full adders (see below) or work on its own.</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/b/0/fb074f1bbe738594540c4b021dc9fc3a.png" alt="S = (A \oplus B) \oplus C_i" /></dd>
+<dd><img class='tex' src="../../../math/2/0/2/202752ed00d14d013b38072d407529a2.png" alt="C_o = (A \cdot B) + (C_i \cdot (A \oplus B)) = (A \cdot B) + (B \cdot C_i) + (C_i \cdot A)" /></dd>
+</dl>
+<table class="wikitable" style="text-align:center">
+<tr>
+<th colspan="3">Input</th>
+<th colspan="2">Output</th>
+</tr>
+<tr>
+<th><span class="texhtml"><i>A</i></span></th>
+<th><span class="texhtml"><i>B</i></span></th>
+<th><span class="texhtml"><i>C</i><sub><i>i</i></sub></span></th>
+<th><span class="texhtml"><i>C</i><sub><i>o</i></sub></span></th>
+<th><span class="texhtml"><i>S</i></span></th>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</table>
+<p>Note that the final OR gate before the carry-out output may be replaced by an XOR gate without altering the resulting logic. This is because the only discrepancy between OR and XOR gates occurs when both inputs are 1; for the adder shown here, one can check this is never possible. Using only two types of gates is convenient if one desires to implement the adder directly using common IC chips.</p>
+<p>A full adder can be constructed from two half adders by connecting <i>A</i> and <i>B</i> to the input of one half adder, connecting the sum from that to an input to the second adder, connecting <i>C<sub>i</sub></i> to the other input and <a href="../../../l/o/g/Logical_disjunction.html" title="Logical disjunction">or</a> the two carry outputs. Equivalently, <i>S</i> could be made the three-bit xor of <i>A</i>, <i>B</i>, and <i>C<sub>i</sub></i> and <i>C<sub>o</sub></i> could be made the three-bit <a href="../../../m/a/j/Majority_function.html" title="Majority function">majority function</a> of <i>A</i>, <i>B</i>, and <i>C<sub>i</sub></i>. The output of the full adder is the two-bit arithmetic sum of three one-bit numbers.</p>
+<p><a name="Multiple-bit_adders" id="Multiple-bit_adders"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: Multiple-bit adders">edit</a>]</span> <span class="mw-headline">Multiple-bit adders</span></h2>
+<p><a name="Ripple_carry_adder" id="Ripple_carry_adder"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: Ripple carry adder">edit</a>]</span> <span class="mw-headline">Ripple carry adder</span></h3>
+<p>When multiple full adders are used with the carry ins and carry outs chained together then this is called a <b>ripple carry adder</b> because the correct value of the carry bit ripples from one bit to the next.</p>
+<p>It is possible to create a logical circuit using several full adders to add multiple-bit numbers. Each full adder inputs a <span class="texhtml"><i>C</i><sub><i>i</i><i>n</i></sub></span>, which is the <span class="texhtml"><i>C</i><sub><i>o</i><i>u</i><i>t</i></sub></span> of the previous adder. This kind of adder is a <i>ripple carry adder</i>, since each carry bit "ripples" to the next full adder. Note that the first (and only the first) full adder may be replaced by a half adder.</p>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:502px;"><a href="../../../4/-/b/Image%7E4-bit_ripple_carry_adder.svg.html" class="internal" title="4-bit ripple carry adder circuit diagram"><img src="../../../upload/shared/thumb/5/5d/4-bit_ripple_carry_adder.svg/500px-4-bit_ripple_carry_adder.svg.png" alt="4-bit ripple carry adder circuit diagram" width="500" height="200" longdesc="../../../4/-/b/Image%7E4-bit_ripple_carry_adder.svg.html" class="thumbimage" /></a>
+<div class="thumbcaption">4-bit ripple carry adder circuit diagram</div>
+</div>
+</div>
+<p>The layout of a ripple carry adder is simple, which allows for fast design time; however, the ripple carry adder is relatively slow, since each full adder must wait for the carry bit to be calculated from the previous full adder. The <a href="../../../g/a/t/Gate_delay.html" title="Gate delay">gate delay</a> can easily be calculated by inspection of the full adder circuit. Following the path from <span class="texhtml"><i>C</i><sub><i>i</i><i>n</i></sub></span> to <span class="texhtml"><i>C</i><sub><i>o</i><i>u</i><i>t</i></sub></span> shows 2 gates that must be passed through. Ergo, a 32-bit adder requires 31 carry computations and the final sum calculation for a total of <span class="texhtml">31 * 2 + 1 = 63</span> gate delays.</p>
+<p><a name="Carry_look-ahead_adders" id="Carry_look-ahead_adders"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: Carry look-ahead adders">edit</a>]</span> <span class="mw-headline">Carry look-ahead adders</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../c/a/r/Carry_look-ahead_adder.html" title="Carry look-ahead adder">Carry look-ahead adder</a></i></div>
+</dd>
+</dl>
+<p>To reduce the computation time, engineers devised faster ways to add two binary numbers by using <a href="../../../c/a/r/Carry_lookahead_adder.html" title="Carry lookahead adder">carry lookahead adders</a>. They work by creating Propagate and Generate signals (<i>P</i> and <i>G</i>) for each bit position, based on whether a carry is propagated through from a less significant bit position (at least one input is a '1'), a carry is generated in that bit position (both inputs are '1'), or if a carry is killed in that bit position (both inputs are '0'). In most cases, <i>P</i> is simply the sum output of a half-adder and <i>G</i> is the carry output of the same adder. After <i>P</i> and <i>G</i> are generated the carries for every bit position are created. Some advanced carry lookahead architectures are the <a href="../../../m/a/n/Manchester_carry_chain.html" title="Manchester carry chain">Manchester carry chain</a> and the <a href="../../../b/r/e/Brent-Kung_adder_eff8.html" title="Brent-Kung adder">Brent-Kung adder</a>.</p>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:502px;"><a href="../../../4/-/b/Image%7E4-bit_carry_lookahead_adder.svg.html" class="internal" title="4-bit adder with Carry Look Ahead"><img src="../../../upload/shared/thumb/0/04/4-bit_carry_lookahead_adder.svg/500px-4-bit_carry_lookahead_adder.svg.png" alt="4-bit adder with Carry Look Ahead" width="500" height="300" longdesc="../../../4/-/b/Image%7E4-bit_carry_lookahead_adder.svg.html" class="thumbimage" /></a>
+<div class="thumbcaption">4-bit adder with Carry Look Ahead</div>
+</div>
+</div>
+<p>Some other multi-bit adder architectures break the adder into blocks. It is possible to vary the length of these blocks based on the propagation delay of the circuits to optimize computation time. These block based adders include the <a href="../../../c/a/r/Carry_bypass_adder.html" title="Carry bypass adder">carry bypass adder</a> which will determine <i>P</i> and <i>G</i> values for each block rather than each bit, and the <a href="../../../c/a/r/Carry_select_adder.html" title="Carry select adder">carry select adder</a> which pre-generates sum and carry values for either possible carry input to the block.</p>
+<p>Other adder designs include the conditional sum adder, carry skip adder, and carry complete adder.</p>
+<p><a name="Lookahead_Carry_Unit" id="Lookahead_Carry_Unit"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: Lookahead Carry Unit">edit</a>]</span> <span class="mw-headline">Lookahead Carry Unit</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../l/o/o/Lookahead_Carry_Unit_7ba8.html" title="Lookahead Carry Unit">Lookahead Carry Unit</a></i></div>
+</dd>
+</dl>
+<p>By combining multiple carry look-head adders even larger adders can be created. This can be used at multiple levels to make even larger adders. For example, the following adder is a 64-bit adder that uses 16 4-bit CLAs with two levels of LCUs.</p>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:502px;"><a href="../../../6/4/-/Image%7E64-bit_lookahead_carry_unit.svg.html" class="internal" title="A 64-bit adder"><img src="../../../upload/shared/thumb/5/58/64-bit_lookahead_carry_unit.svg/500px-64-bit_lookahead_carry_unit.svg.png" alt="A 64-bit adder" width="500" height="300" longdesc="../../../6/4/-/Image%7E64-bit_lookahead_carry_unit.svg.html" class="thumbimage" /></a>
+<div class="thumbcaption">A 64-bit adder</div>
+</div>
+</div>
+<p><a name="3:2_compressors"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: 3:2 compressors">edit</a>]</span> <span class="mw-headline">3:2 compressors</span></h2>
+<p>We can view a full adder as a <i>3:2 compressor</i>: it sums three one-bit inputs, and returns the result as a single two-bit number. Thus, for example, an input of <i>101</i> results in an output of <i>1+0+1=10</i> (2). The carry-out represents bit one of the result, while the sum represents bit zero. Likewise, a half adder can be used as a <i>2:2 compressor</i>.</p>
+<p>3:2 compressors can be used to speed up the summation of three or more addends. If the addends are exactly three, the layout is known as the <a href="../../../c/a/r/Carry_save_adder.html" title="Carry save adder">Carry save adder</a>. If the addends are four or more, more than one layer of compressors is necessary and there are various possible design for the circuit: the most common are <a href="../../../d/a/d/Dadda_tree.html" title="Dadda tree">Dadda</a> and <a href="../../../w/a/l/Wallace_tree.html" title="Wallace tree">Wallace trees</a>. This kind of circuit is most notably used in multipliers, which is why these circuits are also known as Dadda and Wallace multipliers.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../c/a/r/Carry_look-ahead_adder.html" title="Carry look-ahead adder">Carry look-ahead adder</a></li>
+<li><a href="../../../c/a/r/Carry-save_adder.html" title="Carry-save adder">Carry-save adder</a></li>
+<li><a href="../../../c/a/r/Carry_bypass_adder.html" title="Carry bypass adder">Carry bypass adder</a></li>
+<li><a href="../../../c/a/r/Carry_select_adder.html" title="Carry select adder">Carry select adder</a></li>
+<li><a href="../../../l/i/n/Ling_adder.html" title="Ling adder">Ling adder</a></li>
+<li><a href="../../../k/o/g/Kogge-Stone_Adder_9237.html" title="Kogge-Stone Adder">Kogge-Stone Adder</a></li>
+<li><a href="../../../b/r/e/Brent-Kung_adder_eff8.html" title="Brent-Kung adder">Brent-Kung adder</a></li>
+<li><a href="../../../s/e/r/Serial_binary_adder.html" title="Serial binary adder">Serial binary adder</a></li>
+</ul>
+<ul>
+<li><a href="../../../a/d/d/Adding_machine.html" title="Adding machine">Adding machine</a></li>
+<li><a href="../../../a/d/d/Adder-subtracter.html" title="Adder-subtracter">Adder-subtracter</a></li>
+<li><a href="../../../s/u/b/Subtracter_%28electronics%29.html" title="Subtracter (electronics)">Subtracter (electronics)</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/d/Adder_%28electronics%29.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.aoki.ecei.tohoku.ac.jp/arith/mg/algorithm.html" class="external text" title="http://www.aoki.ecei.tohoku.ac.jp/arith/mg/algorithm.html" rel="nofollow">Hardware algorithms for arithmetic modules</a>, includes description of several adder layouts with figures.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2228 bytes
+Post-expand include size: 416 bytes
+Template argument size: 514 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/d/Adder_%28electronics%29.html">http://en.wikipedia.org../../../a/d/d/Adder_%28electronics%29.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_arithmetic_7383.html" title="Category:Computer arithmetic">Computer arithmetic</a></span> | <span dir='ltr'><a href="../../../a/d/d/Category%7EAdders_cd48.html" title="Category:Adders">Adders</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/d/Adder_%28electronics%29.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/d/d/Talk%7EAdder_%28electronics%29_9761.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Adder_%28electronics%29">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../da/a/d/d/Additionskredsl%C3%B8b_%28digital_elektronik%29.html">Dansk</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/v/o/l/Volladdierer.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/s/u/m/Sumador.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/d/d/Additionneur.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EA%B0%80/%EC%82%B0/%EA%B8%B0/%EA%B0%80%EC%82%B0%EA%B8%B0.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/f/u/l/Full-adder.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E5%8A%A0/%E7%AE%97/%E5%99%A8/%E5%8A%A0%E7%AE%97%E5%99%A8.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/s/u/m/Sumator_%28uk%C5%82ad_logiczny%29.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/s/u/m/Summain.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/a/d/d/Adderare.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../uk/%D1%81/%D1%83/%D0%BC/%D0%A1%D1%83%D0%BC%D0%B0%D1%82%D0%BE%D1%80.html">Українська</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 15:07, 14 February 2007 by Wikipedia user <a href="../../../c/b/u/User%7ECburnett_adfd.html" title="User:Cburnett">Cburnett</a>. Based on work by Wikipedia user(s) <a href="../../../f/r/e/User%7EFresheneesz_184e.html" title="User:Fresheneesz">Fresheneesz</a>, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../g/e/o/User%7EGeorge_Leung_a0b3.html" title="User:George Leung">George Leung</a>, Hooperbloob, <a href="../../../a/n/t/User%7EAntiVandalBot_aa84.html" title="User:AntiVandalBot">AntiVandalBot</a>, <a href="../../../d/u/l/User%7EDullfig_a732.html" title="User:Dullfig">Dullfig</a>, <a href="../../../h/e/r/User%7EHereToHelp_1de7.html" title="User:HereToHelp">HereToHelp</a>, <a href="../../../p/p/n/User%7EPpntori_9156.html" title="User:Ppntori">Ppntori</a>, Zmaier, <a href="../../../m/r/a/User%7EMrand_eed8.html" title="User:Mrand">Mrand</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../e/r/c/User%7EERcheck_559a.html" title="User:ERcheck">ERcheck</a>, <a href="../../../s/a/n/User%7ESanskritkanji_f988.html" title="User:Sanskritkanji">Sanskritkanji</a>, <a href="../../../t/i/m/User%7ETiml2k4_e7db.html" title="User:Timl2k4">Timl2k4</a>, Meithan, <a href="../../../t/r/e/User%7ETree_Biting_Conspiracy_dd8c.html" title="User:Tree Biting Conspiracy">Tree Biting Conspiracy</a>, <a href="../../../l/i/n/User%7ELindosland_587d.html" title="User:Lindosland">Lindosland</a>, <a href="../../../t/a/w/User%7ETawkerbot2_313a.html" title="User:Tawkerbot2">Tawkerbot2</a>, Klahkorp, <a href="../../../p/a/r/User%7EParikshit_Narkhede_e4a4.html" title="User:Parikshit Narkhede">Parikshit Narkhede</a>, <a href="../../../w/t/s/User%7EWtshymanski_3fd9.html" title="User:Wtshymanski">Wtshymanski</a>, Jpape, <a href="../../../e/s/k/User%7EEskimbot_5fb5.html" title="User:Eskimbot">Eskimbot</a>, <a href="../../../m/c/c/User%7EMcCart42_fb5b.html" title="User:McCart42">McCart42</a>, <a href="../../../z/w/o/User%7EZwoBot_a763.html" title="User:ZwoBot">ZwoBot</a>, BioPizza, <a href="../../../k/e/l/User%7EKelly_Martin_056a.html" title="User:Kelly Martin">Kelly Martin</a>, <a href="../../../s/t/e/User%7EStevertigo_b55d.html" title="User:Stevertigo">Stevertigo</a>, <a href="../../../b/o/o/User%7EBookandcoffee_bb60.html" title="User:Bookandcoffee">Bookandcoffee</a>, <a href="../../../v/i/n/User%7EVindicator_4694.html" title="User:Vindicator">Vindicator</a>, <a href="../../../c/k/a/User%7ECkape_5c5d.html" title="User:Ckape">Ckape</a>, <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a>, <a href="../../../t/i/m/User%7ETimo_Honkasalo_9467.html" title="User:Timo Honkasalo">Timo Honkasalo</a>, <a href="../../../g/l/e/User%7EGlenn_a98b.html" title="User:Glenn">Glenn</a>, Ssta and <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

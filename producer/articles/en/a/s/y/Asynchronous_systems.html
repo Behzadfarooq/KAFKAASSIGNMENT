@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Asynchronous systems,Assertion,Asynchronous circuit,Asynchronous communication,Channel (communications),Clock signal,Component,Concurrent,Controller (computing),Delay calculation,Design flow (EDA)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Asynchronous systems - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Asynchronous systems</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <dl>
+<dd><span class="plainlinks selfreference"><i>For additional information, see <a href="../../../a/s/y/Asynchronous_circuit.html" title="Asynchronous circuit">Asynchronous circuit</a>.</i></span></dd>
+</dl>
+<p>In a <a href="../../../s/y/n/Synchronous_system.html" title="Synchronous system">synchronous system</a>, operations are coordinated under the centralized control of a fixed-rate <a href="../../../c/l/o/Clock_signal.html" title="Clock signal">clock signal</a> or several clocks. An <b>asynchronous digital system</b>, in contrast, has no global clock: instead, it operates under distributed control, with <a href="../../../c/o/n/Concurrent.html" title="Concurrent">concurrent</a> hardware <a href="../../../c/o/m/Component.html" title="Component">components</a> communicating and <a href="../../../s/y/n/Synchronizing.html" title="Synchronizing">synchronizing</a> on <a href="../../../c/h/a/Channel_%28communications%29.html" title="Channel (communications)">channels</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Modularity"><span class="tocnumber">1</span> <span class="toctext">Modularity</span></a></li>
+<li class="toclevel-1"><a href="#Design_styles"><span class="tocnumber">2</span> <span class="toctext">Design styles</span></a></li>
+<li class="toclevel-1"><a href="#Asynchronous_communication"><span class="tocnumber">3</span> <span class="toctext">Asynchronous communication</span></a></li>
+<li class="toclevel-1"><a href="#Asynchronous_datapaths"><span class="tocnumber">4</span> <span class="toctext">Asynchronous datapaths</span></a></li>
+<li class="toclevel-1"><a href="#Literature"><span class="tocnumber">5</span> <span class="toctext">Literature</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Modularity" id="Modularity"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_systems.html" title="Edit section: Modularity">edit</a>]</span> <span class="mw-headline">Modularity</span></h2>
+<p>Asynchronous systems -- much like <a href="../../../o/b/j/Object-oriented.html" title="Object-oriented">object-oriented</a> software -- are typically constructed out of <a href="../../../m/o/d/Module_%28programming%29.html" title="Module (programming)">modular</a> 'hardware objects', each with well-defined communication <a href="../../../i/n/t/Interface_%28computer_science%29.html" title="Interface (computer science)">interfaces</a>. These <a href="../../../m/o/d/Modularity_%28programming%29.html" title="Modularity (programming)">modules</a> may operate at variable speeds, whether due to data-dependent processing, dynamic voltage scaling, or <a href="../../../p/r/o/Process_variation.html" title="Process variation">process variation</a>. The modules can then be combined together to form a correct working system, without reference to a global <a href="../../../c/l/o/Clock_signal.html" title="Clock signal">clock signal</a>. Typically, low power is obtained since components are activated only on demand. Furthermore, several asynchronous styles have been shown to accommodate clocked interfaces, and thereby support mixed-timing design. Hence, asynchronous systems match well the need for correct-by-construction <a href="../../../m/e/t/Methodology.html" title="Methodology">methodologies</a> in assembling large-scale heterogeneous and scalable systems.</p>
+<p><a name="Design_styles" id="Design_styles"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_systems.html" title="Edit section: Design styles">edit</a>]</span> <span class="mw-headline">Design styles</span></h2>
+<p>There is a large spectrum of asynchronous design styles, with tradeoffs between robustness and performance (and other parameters such as power). The choice of design style depends on the application target: reliability/ease-of-design vs. speed. The most robust designs use 'delay-insensitive circuits', whose operation is correct regardless of <a href="../../../d/e/l/Delay_calculation.html" title="Delay calculation">gate and wire delays</a>; however, only limited useful systems can be designed with this style. Slightly less robust, but much more useful, are 'quasi-delay-insensitive circuits' (also known as 'speed-independent'), which operate correctly regardless of <a href="../../../d/e/l/Delay_calculation.html" title="Delay calculation">gate delays</a>; however, wires at each <a href="../../../f/a/n/Fanout.html" title="Fanout">fanout</a> point must be tuned for roughly equal delays. Less robust but faster circuits, requiring simple localized one-sided timing constraints, include <a href="../../../c/o/n/Controller_%28computing%29.html" title="Controller (computing)">controllers</a> using 'fundamental mode operation' (i.e. with setup/hold requirements on when new inputs can be received), and 'bundled datapaths' using matched delays (see below). At the extreme, high-performance 'timed circuits' have been proposed, which use tight two-side timing constraints, where the <a href="../../../c/l/o/Clock_signal.html" title="Clock signal">clock</a> can still be avoided but careful physical delay tuning is required, such as for some high-speed <a href="../../../p/i/p/Pipeline_%28computer%29.html" title="Pipeline (computer)">pipeline</a> applications.</p>
+<p><a name="Asynchronous_communication" id="Asynchronous_communication"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_systems.html" title="Edit section: Asynchronous communication">edit</a>]</span> <span class="mw-headline">Asynchronous communication</span></h2>
+<p><a href="../../../a/s/y/Asynchronous_communication.html" title="Asynchronous communication">Asynchronous communication</a> is typically performed on <a href="../../../c/h/a/Channel_%28communications%29.html" title="Channel (communications)">channels</a>. Communication is used both to <a href="../../../s/y/n/Synchronize.html" title="Synchronize">synchronize</a> operations of the concurrent system as well as to pass data. A simple channel typically consists of two wires: a request and an acknowledge. In a '4-phase <a href="../../../h/a/n/Handshaking.html" title="Handshaking">handshaking</a> <a href="../../../p/r/o/Protocol_%28computing%29.html" title="Protocol (computing)">protocol</a>' (or return-to-zero), the request is asserted by the sender component, and the receiver responds by asserting the acknowledge; then both signals are de-asserted in turn. In a '2-phase <a href="../../../h/a/n/Handshaking.html" title="Handshaking">handshaking</a> <a href="../../../p/r/o/Protocol_%28computing%29.html" title="Protocol (computing)">protocol</a>' (or transition-signalling), the requester simply toggles the value on the request wire (once), and the receiver responds by toggling the value on the acknowledge wire. Channels can also be extended to communicate data.</p>
+<p><a name="Asynchronous_datapaths" id="Asynchronous_datapaths"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_systems.html" title="Edit section: Asynchronous datapaths">edit</a>]</span> <span class="mw-headline">Asynchronous datapaths</span></h2>
+<p>Asynchronous datapaths are typically encoded using several schemes. Robust schemes use two wires or 'rails' for each bit, called 'dual-rail encoding'. In this case, first rail is <a href="../../../a/s/s/Assertion.html" title="Assertion">asserted</a> to transmit a 0 value, or the second rail is asserted to transmit a 1 value. The asserted rail is then reset to zero before the next data value is transmitted, thereby indicating 'no data' or a 'spacer' state. A less robust, but widely-used and practical scheme, is called 'single-rail bundled data'. Here, a single-rail (i.e. synchronous-style) function block can be used, with an accompanying <a href="../../../w/o/r/Worst-case.html" title="Worst-case">worst-case</a> matched delay. After valid data inputs arrive, a request signal is <a href="../../../a/s/s/Assertion.html" title="Assertion">asserted</a> as the input to the matched delay. When the matched delay produces a 'done' output, the block guaranteed to have completed computation. While this scheme has timing constraints, they are simple, localized (unlike in <a href="../../../s/y/n/Synchronous_system.html" title="Synchronous system">synchronous systems</a>), and one-sided, hence are usually easy to validate.</p>
+<p><a name="Literature" id="Literature"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_systems.html" title="Edit section: Literature">edit</a>]</span> <span class="mw-headline">Literature</span></h2>
+<p>The literature in this field exists in a variety of conference and journal proceedings. The leading symposium is the IEEE Async Symposium (International Symposium on Asynchronous Circuits and Systems), founded in 1994. A variety of asynchronous papers have also been published since the mid-1980's in such conferences as IEEE/ACM <a href="http://www.dac.com" class="external text" title="http://www.dac.com" rel="nofollow">Design Automation Conference</a>, IEEE <a href="http://www.iccd-conference.com" class="external text" title="http://www.iccd-conference.com" rel="nofollow">International Conference on Computer Design</a>, IEEE/ACM <a href="http://www.iccd.com" class="external text" title="http://www.iccd.com" rel="nofollow">International Conference on Computer-Aided Design</a>, <a href="http://www.isscc.org/isscc/" class="external text" title="http://www.isscc.org/isscc/" rel="nofollow">International Solid-State Circuits Conference</a>, and Advanced Research in VLSI, as well as in leading journals such as IEEE Transactions on VLSI Systems, IEEE <a href="http://tcad.polito.it/" class="external text" title="http://tcad.polito.it/" rel="nofollow">Transactions on Computer-Aided Design</a>, and Transactions on Distributed Computing.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_systems.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Claire Tristram, "It's Time for Clockless Chips", cover story, MIT's Technology Review Magazine, vol. 104:8, pp. 36-41, October 2001.</li>
+</ul>
+<ul>
+<li>C.H. van Berkel, M.B. Josephs, and S.M. Nowick, "Applications of Asynchronous Circuits," Proceedings of the IEEE, Vol. 87, No. 2, pp. 223-233, February 1999. (<i>This entire issue is devoted to asynchronous circuits, with many other relevant articles</i>.)</li>
+</ul>
+<ul>
+<li>L. Lavagno and S.M. Nowick, "Asynchronous Control Circuits", chapter 10 in Logic Synthesis and Verification, eds. Soha Hassoun and Tsutomu Sasao, pp. 255-284, Kluwer Academic Publishers, 2002.(<i>Includes pointers to recent asynchronous chips, as well as coverage of CAD techniques for asynchronous control circuits</i>.)</li>
+</ul>
+<hr />
+<p>Adapted from <a href="http://www1.cs.columbia.edu/~nowick/" class="external text" title="http://www1.cs.columbia.edu/~nowick/" rel="nofollow">Steve Nowick</a>'s column in the ACM <a href="http://www.sigda.org" class="external text" title="http://www.sigda.org" rel="nofollow">SIGDA</a> <a href="http://www.sigda.org/newsletter/index.html" class="external text" title="http://www.sigda.org/newsletter/index.html" rel="nofollow">e-newsletter</a> by <a href="http://www.eecs.umich.edu/~imarkov/" class="external text" title="http://www.eecs.umich.edu/~imarkov/" rel="nofollow">Igor Markov</a><br />
+Original text is available at <a href="http://www.sigda.org/newsletter/2006/eNews_060115.html" class="external free" title="http://www.sigda.org/newsletter/2006/eNews_060115.html" rel="nofollow">http://www.sigda.org/newsletter/2006/eNews_060115.html</a></p>
+<hr />
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_systems.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/s/y/Asynchronous_circuit.html" title="Asynchronous circuit">Asynchronous circuit</a></li>
+<li><a href="../../../i/n/t/Integrated_circuit_design.html" title="Integrated circuit design">Integrated circuit design</a></li>
+<li><a href="../../../e/l/e/Electronic_design_automation.html" title="Electronic design automation">Electronic design automation</a></li>
+<li><a href="../../../d/e/s/Design_flow_%28EDA%29_e7bf.html" title="Design flow (EDA)">Design flow (EDA)</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_systems.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.scitechinfo.com/node/638" class="external text" title="http://www.scitechinfo.com/node/638" rel="nofollow">ARM ARM996HS clockless processor</a></li>
+<li><a href="http://www.na2.es/research.htm" class="external text" title="http://www.na2.es/research.htm" rel="nofollow">Navarre AsyncArt. N-Protocol: Asynchronous Design Methodology for FPGAs</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2082 bytes
+Post-expand include size: 109 bytes
+Template argument size: 108 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/s/y/Asynchronous_systems.html">http://en.wikipedia.org../../../a/s/y/Asynchronous_systems.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../e/l/e/Category%7EElectrical_circuits_0891.html" title="Category:Electrical circuits">Electrical circuits</a></span> | <span dir='ltr'><a href="../../../d/i/g/Category%7EDigital_electronics_cb0a.html" title="Category:Digital electronics">Digital electronics</a></span> | <span dir='ltr'><a href="../../../e/l/e/Category%7EElectronic_design_automation_d50b.html" title="Category:Electronic design automation">Electronic design automation</a></span> | <span dir='ltr'><a href="../../../f/o/r/Category%7EFormal_methods_c623.html" title="Category:Formal methods">Formal methods</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/s/y/Asynchronous_systems.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/s/y/Talk%7EAsynchronous_systems_1a7c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Asynchronous_systems">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 21:26, 29 November 2006 by Wikipedia user <a href="../../../f/l/y/User%7EFlyHigh_680e.html" title="User:FlyHigh">FlyHigh</a>. Based on work by Wikipedia user(s) <a href="../../../m/i/k/User%7EMikeblas_16be.html" title="User:Mikeblas">Mikeblas</a>, <a href="../../../s/h/a/User%7EShadowlynk_6f44.html" title="User:Shadowlynk">Shadowlynk</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../z/e/m/User%7EZemyla_d91d.html" title="User:Zemyla">Zemyla</a>, <a href="../../../k/c/o/User%7EKcordina_3fec.html" title="User:Kcordina">Kcordina</a>, <a href="../../../l/o/u/User%7ELouScheffer_be0c.html" title="User:LouScheffer">LouScheffer</a>, <a href="../../../w/k/n/User%7EWknight94_8d60.html" title="User:Wknight94">Wknight94</a> and <a href="../../../i/g/o/User%7EIgor_Markov_42b5.html" title="User:Igor Markov">Igor Markov</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

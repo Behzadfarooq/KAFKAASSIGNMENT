@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Buchberger's algorithm,Algebraic geometry,Bruno Buchberger,Commutative algebra,Dickson's lemma,Digital object identifier,Euclidean algorithm,Faugère F4 algorithm,Gaussian elimination,Greatest common divisor,Gröbner bases" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Buchberger's algorithm - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Buchberger's algorithm</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In computational <a href="../../../a/l/g/Algebraic_geometry.html" title="Algebraic geometry">algebraic geometry</a> and computational <a href="../../../c/o/m/Commutative_algebra.html" title="Commutative algebra">commutative algebra</a>, <b>Buchberger's algorithm</b> is a method of transforming a given set of generators for a polynomial <a href="../../../r/i/n/Ring_ideal.html" title="Ring ideal">ideal</a> into a <a href="../../../g/r/%C3%B6/Gr%C3%B6bner_basis.html" title="Gröbner basis">Gröbner basis</a> with respect to some <a href="../../../m/o/n/Monomial_order.html" title="Monomial order">monomial order</a>. It was invented by Austrian mathematician <a href="../../../b/r/u/Bruno_Buchberger_2bd2.html" title="Bruno Buchberger">Bruno Buchberger</a>. One can view it as a generalization of the <a href="../../../e/u/c/Euclidean_algorithm.html" title="Euclidean algorithm">Euclidean algorithm</a> for univariate <a href="../../../g/r/e/Greatest_common_divisor.html" title="Greatest common divisor">GCD</a> computation and of <a href="../../../g/a/u/Gaussian_elimination.html" title="Gaussian elimination">Gaussian elimination</a> for linear systems.</p>
+<p>A crude version of this algorithm to find a basis for an ideal <i>I</i> of a ring <i>R</i> proceeds as follows:</p>
+<dl>
+<dd><b>Input</b> A set of polynomials <i>F</i> = {<i>f</i><sub>1</sub>, <i>f</i><sub>2</sub>, ..., <i>f</i><sub><i>k</i></sub>} that generate <i>I</i></dd>
+<dd><b>Output</b> A <a href="../../../g/r/%C3%B6/Gr%C3%B6bner_basis.html" title="Gröbner basis">Gröbner basis</a> for <i>I</i></dd>
+</dl>
+<dl>
+<dd>
+<ol>
+<li>Let <i>g<sub>i</sub></i> be the leading term of <i>f<sub>i</sub></i> with respect to the given ordering, and denote the <a href="../../../l/e/a/Least_common_multiple.html" title="Least common multiple">least common multiple</a> of <i>g<sub>i</sub></i> and <i>g<sub>j</sub></i> by <i>a<sub>ij</sub></i>.</li>
+<li>Let <i>S</i><sub><i>ij</i></sub> ← (<i>a</i><sub><i>ij</i></sub> / <i>g</i><sub><i>i</i></sub>) <i>f</i><sub><i>i</i></sub> − (<i>a</i><sub><i>ij</i></sub> / <i>g</i><sub><i>j</i></sub>) <i>f</i><sub><i>j</i></sub><br />
+<i>(Note that the leading terms here will cancel by construction)</i>.</li>
+<li>Using the <a href="../../../m/u/l/Multivariate_division_algorithm.html" title="Multivariate division algorithm">multivariate division algorithm</a>, reduce all the <i>S<sub>ij</sub></i> relative to the set <i>F</i>.</li>
+<li>Add all the nonzero polynomials resulting from step 3 to <i>F</i>, and repeat steps 1-4 until nothing new is added.</li>
+</ol>
+</dd>
+</dl>
+<p>The polynomial <i>S</i><sub><i>ij</i></sub> is commonly referred to as the <i>S</i>-polynomial, where <i>S</i> refers to <i>subtraction</i> (Buchberger) or <i><a href="../../../s/y/z/Syzygy.html" title="Syzygy">syzygy</a></i> (others).</p>
+<p>There are numerous ways to improve this algorithm beyond what has been stated above. For example, one could reduce all the new elements of <i>F</i> relative to each other before adding them. It also should be noted that if the leading terms of <i>f<sub>i</sub></i> and <i>f<sub>j</sub></i> share no variables in common, then <i>S<sub>ij</sub></i> will <i>always</i> reduce to 0 (if we use only f<sub>i</sub> and f<sub>j</sub> for reduction), so we needn't calculate it at all.</p>
+<p>To date, all algorithms to compute Gröbner bases have been refinements of Buchberger's idea of computing <i>S</i>-polynomials, then reducing them modulo <i>F</i>.</p>
+<p>The algorithm terminates because it is consistently increasing the size of the monomial ideal generated by the leading terms of our set <i>F</i>, and <a href="../../../d/i/c/Dickson%27s_lemma.html" title="Dickson's lemma">Dickson's lemma</a> (or the <a href="../../../h/i/l/Hilbert_basis_theorem.html" title="Hilbert basis theorem">Hilbert basis theorem</a>) guarantees that any such ascending chain must eventually become constant. Unfortunately, it may take a very long time to terminate, corresponding to the fact that <a href="../../../g/r/%C3%B6/Gr%C3%B6bner_bases.html" title="Gröbner bases">Gröbner bases</a> can be <i>extremely</i> large.</p>
+<p>Another method for computing Gröbner bases, based on the same mathematics as the Buchberger algorithm, is the <a href="../../../f/a/u/Faug%C3%A8re_F4_algorithm_2e9e.html" title="Faugère F4 algorithm">Faugère F4 algorithm</a>.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/c/Buchberger%27s_algorithm.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><cite style="font-style:normal"><a href="../../../b/r/u/Bruno_Buchberger_2bd2.html" title="Bruno Buchberger">Buchberger, B.</a> (August 1976). "<a href="http://doi.acm.org/10.1145/1088216.1088219" class="external text" title="http://doi.acm.org/10.1145/1088216.1088219" rel="nofollow">Theoretical Basis for the Reduction of Polynomials to Canonical Forms</a>". <i>ACM SIGSAM Bull.</i> <b>10</b> (3): 19–29. <a href="../../../d/i/g/Digital_object_identifier.html" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1145/1088216.1088219" class="external text" title="http://dx.doi.org/10.1145/1088216.1088219" rel="nofollow">10.1145/1088216.1088219</a>. <a href="../../../i/n/t/International_Standard_Serial_Number_e5d2.html" title="International Standard Serial Number">ISSN</a> <a href="http://dispatch.opac.ddb.de/DB=1.1/LNG=EN/CMD?ACT=SRCHA&amp;IKT=8&amp;TRM=0163-5824" class="external text" title="http://dispatch.opac.ddb.de/DB=1.1/LNG=EN/CMD?ACT=SRCHA&amp;IKT=8&amp;TRM=0163-5824" rel="nofollow">0163-5824</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.atitle=Theoretical+Basis+for+the+Reduction+of+Polynomials+to+Canonical+Forms&amp;rft.title=ACM+SIGSAM+Bull.&amp;rft.jtitle=ACM+SIGSAM+Bull.&amp;rft.date=1976&amp;rft.volume=10&amp;rft.issue=3&amp;rft.aulast=Buchberger&amp;rft.aufirst=B.&amp;rft.pages=19%E2%80%9329&amp;rft_id=info:doi/10.1145%2F1088216.1088219&amp;rft_id=http%3A%2F%2Fdoi.acm.org%2F10.1145%2F1088216.1088219">&#160;</span></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/c/Buchberger%27s_algorithm.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li>Eric W. Weisstein, <i><a href="http://mathworld.wolfram.com/BuchbergersAlgorithm.html" class="external text" title="http://mathworld.wolfram.com/BuchbergersAlgorithm.html" rel="nofollow">Buchberger's Algorithm</a></i> at <a href="../../../m/a/t/MathWorld_3918.html" title="MathWorld">MathWorld</a>.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 6486 bytes
+Post-expand include size: 2651 bytes
+Template argument size: 1533 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/u/c/Buchberger%27s_algorithm.html">http://en.wikipedia.org../../../b/u/c/Buchberger%27s_algorithm.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_algebra_f308.html" title="Category:Computer algebra">Computer algebra</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/u/c/Buchberger%27s_algorithm.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/u/c/Talk%7EBuchberger%27s_algorithm_6cde.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Buchberger%27s_algorithm">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 14:59, 22 February 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../k/s/m/User%7EKSmrq_61e9.html" title="User:KSmrq">KSmrq</a>, <a href="../../../a/l/l/User%7EAllansteel_6e83.html" title="User:Allansteel">Allansteel</a>, <a href="../../../m/i/k/User%7EMikkalai_a7bb.html" title="User:Mikkalai">Mikkalai</a>, <a href="../../../h/a/n/User%7EHannes_Eder_3b19.html" title="User:Hannes Eder">Hannes Eder</a>, <a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">Mets501</a>, Chewie, <a href="../../../t/a/w/User%7ETawkerbot2_313a.html" title="User:Tawkerbot2">Tawkerbot2</a>, <a href="../../../l/e/l/User%7ELeland_McInnes_a728.html" title="User:Leland McInnes">Leland McInnes</a>, <a href="../../../k/o/m/User%7EKompik_eacd.html" title="User:Kompik">Kompik</a>, <a href="../../../b/r/y/User%7EBryan_Derksen_3ce8.html" title="User:Bryan Derksen">Bryan Derksen</a>, <a href="../../../s/i/m/User%7ESimplex_4f6d.html" title="User:Simplex">Simplex</a>, <a href="../../../t/a/b/User%7ETabletop_b4b4.html" title="User:Tabletop">Tabletop</a>, <a href="../../../c/r/u/User%7ECrust_e04a.html" title="User:Crust">Crust</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../k/e/v/User%7EKevinatilusa_8edf.html" title="User:Kevinatilusa">Kevinatilusa</a> and <a href="../../../j/e/n/User%7EJengod_485b.html" title="User:Jengod">Jengod</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

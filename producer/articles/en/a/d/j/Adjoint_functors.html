@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Adjoint functors,1958,Abelian group,Abstract algebra,Abuse of notation,Additive category,Additive functor,Adjoint operator,Alexander Grothendieck,Algebraic geometry,Associative algebra" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Adjoint functors - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Adjoint functors</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, <b>adjoint functors</b> are pairs of <a href="../../../f/u/n/Functor.html" title="Functor">functors</a> which stand in a particular relationship with one another. Such functors are ubiquitous in mathematics. Adjoint functors are studied in a branch of mathematics known as <a href="../../../c/a/t/Category_theory.html" title="Category theory">category theory</a>. Like much of category theory, the general notion of adjoint functors arises at an abstract level beyond the everyday usage of mathematicians.</p>
+<p>Adjoint functors can be considered from several different points of view. This article starts with a number of introductory sections considering some of these.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Motivation"><span class="tocnumber">1</span> <span class="toctext">Motivation</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Ubiquity_of_adjoint_functors"><span class="tocnumber">1.1</span> <span class="toctext">Ubiquity of adjoint functors</span></a></li>
+<li class="toclevel-2"><a href="#Deep_problems_formulated_with_adjoint_functors"><span class="tocnumber">1.2</span> <span class="toctext">Deep problems formulated with adjoint functors</span></a></li>
+<li class="toclevel-2"><a href="#Adjoint_functors_as_solving_optimization_problems"><span class="tocnumber">1.3</span> <span class="toctext">Adjoint functors as solving optimization problems</span></a></li>
+<li class="toclevel-2"><a href="#The_case_of_partial_orders"><span class="tocnumber">1.4</span> <span class="toctext">The case of partial orders</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Formal_definitions"><span class="tocnumber">2</span> <span class="toctext">Formal definitions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Unit_and_co-unit"><span class="tocnumber">2.1</span> <span class="toctext">Unit and co-unit</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Properties"><span class="tocnumber">4</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Uniqueness_of_adjoints"><span class="tocnumber">4.1</span> <span class="toctext">Uniqueness of adjoints</span></a></li>
+<li class="toclevel-2"><a href="#Relation_to_universal_constructions"><span class="tocnumber">4.2</span> <span class="toctext">Relation to universal constructions</span></a></li>
+<li class="toclevel-2"><a href="#Characterization_via_unit_and_co-unit"><span class="tocnumber">4.3</span> <span class="toctext">Characterization via unit and co-unit</span></a></li>
+<li class="toclevel-2"><a href="#Adjoints_preserve_certain_limits"><span class="tocnumber">4.4</span> <span class="toctext">Adjoints preserve certain limits</span></a></li>
+<li class="toclevel-2"><a href="#Additivity"><span class="tocnumber">4.5</span> <span class="toctext">Additivity</span></a></li>
+<li class="toclevel-2"><a href="#Composition"><span class="tocnumber">4.6</span> <span class="toctext">Composition</span></a></li>
+<li class="toclevel-2"><a href="#Adjoint_pairs_extend_equivalences"><span class="tocnumber">4.7</span> <span class="toctext">Adjoint pairs extend equivalences</span></a></li>
+<li class="toclevel-2"><a href="#General_existence_theorem"><span class="tocnumber">4.8</span> <span class="toctext">General existence theorem</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Motivation" id="Motivation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Motivation">edit</a>]</span> <span class="mw-headline">Motivation</span></h2>
+<p><a name="Ubiquity_of_adjoint_functors" id="Ubiquity_of_adjoint_functors"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Ubiquity of adjoint functors">edit</a>]</span> <span class="mw-headline">Ubiquity of adjoint functors</span></h3>
+<p>The idea of an adjoint functor was formulated by <a href="../../../d/a/n/Daniel_Kan_ea2f.html" title="Daniel Kan">Daniel Kan</a> in <a href="../../../1/9/5/1958.html" title="1958">1958</a>. Like many of the concepts in category theory, it was suggested by the needs of <a href="../../../h/o/m/Homological_algebra.html" title="Homological algebra">homological algebra</a>, which was at the time devoted to computations. Those faced with giving tidy, systematic presentations of the subject would have noticed relations such as</p>
+<dl>
+<dd>Hom(<i>F</i>(<i>X</i>), <i>Y</i>) = Hom(<i>X</i>, <i>G</i>(<i>Y</i>))</dd>
+</dl>
+<p>in the category of <a href="../../../a/b/e/Abelian_group.html" title="Abelian group">abelian groups</a>, where <i>F</i> was the functor –<span class="Unicode">⊗</span><i>A</i> (i.e. take the <a href="../../../t/e/n/Tensor_product.html" title="Tensor product">tensor product</a> with <i>A</i>), and <i>G</i> was the functor Hom(<i>A</i>,–). The use of the <i>equals</i> sign is an <a href="../../../a/b/u/Abuse_of_notation.html" title="Abuse of notation">abuse of notation</a>; those two groups aren't really identical but there is a way of identifying them that is <i>natural</i>. It can be seen to be natural on the basis, firstly, that these are two alternative descriptions of the <a href="../../../b/i/l/Bilinear_mapping.html" title="Bilinear mapping">bilinear mappings</a> from <i>X</i> × <i>A</i> to <i>Y</i>. That's something particular to the case of tensor product, though. What category theory teaches is that 'natural' is a well-defined <i><a href="../../../t/e/r/Term_of_art.html" title="Term of art">term of art</a></i> in mathematics: <a href="../../../n/a/t/Natural_equivalence.html" title="Natural equivalence">natural equivalence</a>.</p>
+<p>The terminology comes from the <a href="../../../h/i/l/Hilbert_space.html" title="Hilbert space">Hilbert space</a> idea of <a href="../../../a/d/j/Adjoint_operator.html" title="Adjoint operator">adjoint operators</a> <i>T</i>, <i>U</i> with &lt;<i>Tx</i>,<i>y</i>&gt; = &lt;<i>x</i>,<i>Uy</i>&gt;, which is formally similar to the above Hom relation. We say that <i>F</i> is <i>left adjoint</i> to <i>G</i>, and <i>G</i> is <i>right adjoint</i> to <i>F</i>. Note that <i>G</i> may have itself a right adjoint that is quite different from <i>F</i> (see below for an example). The analogy to adjoint maps of Hilbert spaces can be made precise in certain contexts <a href="http://www.arxiv.org/abs/q-alg/9609018" class="external autonumber" title="http://www.arxiv.org/abs/q-alg/9609018" rel="nofollow">[1]</a>.</p>
+<p>If one starts looking for these adjoint pairs of functors, they turn out to be very common in <a href="../../../a/b/s/Abstract_algebra.html" title="Abstract algebra">abstract algebra</a>, and elsewhere as well. The example section below provides evidence of this; furthermore, <a href="../../../u/n/i/Universal_construction.html" title="Universal construction">universal constructions</a>, which may be more familiar to some, give rise to numerous adjoint pairs of functors.</p>
+<p>In accordance with the thinking of <a href="../../../s/a/u/Saunders_Mac_Lane_74e8.html" title="Saunders Mac Lane">Saunders Mac Lane</a>, any idea such as adjoint functors that occurs widely enough in mathematics should be studied for its own sake.</p>
+<p><a name="Deep_problems_formulated_with_adjoint_functors" id="Deep_problems_formulated_with_adjoint_functors"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Deep problems formulated with adjoint functors">edit</a>]</span> <span class="mw-headline">Deep problems formulated with adjoint functors</span></h3>
+<p>By itself, the <i>generality</i> of the adjoint functor concept isn't a recommendation to most mathematicians. Concepts are judged according to their use in solving problems, at least as much as for their use in building theories. The tension between these two potential motivations for developing a mathematical concept was especially great during the 1950s when category theory was initially developed. Enter <a href="../../../a/l/e/Alexander_Grothendieck_0d2a.html" title="Alexander Grothendieck">Alexander Grothendieck</a>, who used category theory to take compass bearings in foundational, axiomatic work — in <a href="../../../f/u/n/Functional_analysis.html" title="Functional analysis">functional analysis</a>, <a href="../../../h/o/m/Homological_algebra.html" title="Homological algebra">homological algebra</a> and finally <a href="../../../a/l/g/Algebraic_geometry.html" title="Algebraic geometry">algebraic geometry</a>.</p>
+<p>It is probably wrong to say that he promoted the adjoint functor concept in isolation: but recognition of the role of adjunction was inherent in Grothendieck's approach. For example, one of his major achievements was the formulation of <a href="../../../s/e/r/Serre_duality.html" title="Serre duality">Serre duality</a> in relative form — one could say loosely, in a continuous family of algebraic varieties. The entire proof turned on the existence of a right adjoint to a certain functor. This is something undeniably abstract, and non-constructive, but also powerful in its own way.</p>
+<p><a name="Adjoint_functors_as_solving_optimization_problems" id="Adjoint_functors_as_solving_optimization_problems"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Adjoint functors as solving optimization problems">edit</a>]</span> <span class="mw-headline">Adjoint functors as solving optimization problems</span></h3>
+<p>One good way to motivate adjoint functors is to explain what problem they solve, and how they solve it.</p>
+<p>That can only be done, in some sense, by what mathematicians call '<a href="../../../h/a/n/Hand-waving.html" title="Hand-waving">hand-waving</a>'. It can be said, however, that adjoint functors pin down the concept of the <i>best structure</i> of a type one is interested in constructing. For example, an elementary question in <a href="../../../r/i/n/Ring_theory.html" title="Ring theory">ring theory</a> is how to add a multiplicative identity to a ring that doesn't have one (the definition in this encyclopedia actually assumes one: see <a href="../../../r/i/n/Ring_%28mathematics%29.html" title="Ring (mathematics)">ring (mathematics)</a> and <a href="../../../g/l/o/Glossary_of_ring_theory.html" title="Glossary of ring theory">glossary of ring theory</a>). The <i>best</i> way is to add an element '1' to the ring, add nothing extra you don't need (you will need to have <i>r</i>+1 for <i>r</i> in the ring, clearly), and add no relations in the new ring that aren't forced by axioms. This is rather vague, though suggestive.</p>
+<p>There are several ways to make precise this concept of <i>best structure</i>. Adjoint functors are one method; the notion of <a href="../../../u/n/i/Universal_property.html" title="Universal property">universal properties</a> provides another, essentially equivalent but arguably more concrete approach.</p>
+<p>Universal properties are also based on category theory. The idea is to set up the problem in terms of some auxiliary category <i>C</i>; and then identify what we want to do as showing that <i>C</i> has an <a href="../../../i/n/i/Initial_object.html" title="Initial object">initial object</a>. This has an advantage that the <i>optimisation</i> — the sense that we are finding the <i>best</i> solution — is singled out and recognisable rather like the attainment of a <a href="../../../s/u/p/Supremum.html" title="Supremum">supremum</a>. To do it is something of a knack: for example, take the given ring <i>R</i>, and make a category <i>C</i> whose <i>objects</i> are ring homomorphisms <i>R</i> → <i>S</i>, with <i>S</i> a ring having a multiplicative identity. The <i>morphisms</i> in <i>C</i> must fill in triangles that are <a href="../../../c/o/m/Commutative_diagram.html" title="Commutative diagram">commutative diagrams</a>, and preserve multiplicative identity. The assertion is that <i>C</i> has an initial object <i>R</i> → <i>R</i>*, and <i>R</i>* is then the sought-after ring.</p>
+<p>The adjoint functor method for defining a multiplicative identity for rings is to look at two categories, <i>C</i><sub>0</sub> and <i>C</i><sub>1</sub>, of rings, respectively without and with assumption of multiplicative identity. There is a functor from <i>C</i><sub>1</sub> to <i>C</i><sub>0</sub> that forgets about the 1. We are seeking a left adjoint to it. This is a clear, if dry, formulation.</p>
+<p>One way to see what is achieved by using either formulation is to try a direct method. (This is favoured, for example, by <a href="../../../j/o/h/John_Horton_Conway_42ec.html" title="John Horton Conway">John H. Conway</a>.<sup class="noprint"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since February 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup>) One simply adds to <i>R</i> a new element 1, and calculates on the basis that any equation resulting is valid <i>if and only if it holds for all rings</i> that we can create from <i>R</i> and 1. This is the <a href="../../../i/m/p/Impredicative.html" title="Impredicative">impredicative</a> method: meaning that the ring we are trying to construct is one of the rings quantified over in 'all rings'. This overt use of impredicativity is <i>honest</i>, in a way that category theory has no intention of being.</p>
+<p>The <i>answer</i> regarding the way to get a (<a href="../../../u/n/i/Unital.html" title="Unital">unital</a>) ring from one that is not unital is simple enough (see examples below); this section has been a discussion of how to formulate the question.</p>
+<p>The major argument in favour of adjoint functors is probably this: if one goes through the universal property or impredicative reasoning often enough, it seems like repeating the same kind of steps.</p>
+<p><a name="The_case_of_partial_orders" id="The_case_of_partial_orders"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: The case of partial orders">edit</a>]</span> <span class="mw-headline">The case of partial orders</span></h3>
+<p>Every <a href="../../../p/a/r/Partially_ordered_set.html" title="Partially ordered set">partially ordered set</a> can be viewed as a category (with a single morphism between <i>x</i> and <i>y</i> if and only if <i>x</i> ≤ <i>y</i>). A pair of adjoint functors between two partially ordered sets is called a <a href="../../../g/a/l/Galois_connection.html" title="Galois connection">Galois connection</a> (or, if it contravariant, an <i>antitone</i> Galois connection). See that article for a number of examples: the case of <a href="../../../g/a/l/Galois_theory.html" title="Galois theory">Galois theory</a> of course is a leading one. Any Galois connection gives rise to <a href="../../../c/l/o/Closure_operator.html" title="Closure operator">closure operators</a> and to inverse order-preserving bijections between the corresponding closed elements.</p>
+<p>As is the case for Galois groups, the real interest lies often in refining a correspondence to a <a href="../../../d/u/a/Duality.html" title="Duality">duality</a> (i.e. <i>antitone</i> order isomorphism). A treatment of Galois theory along these lines by <a href="../../../i/r/v/Irving_Kaplansky_8380.html" title="Irving Kaplansky">Kaplansky</a> was influential in the recognition of the general structure here.</p>
+<p>The partial order case collapses the adjunction definitions quite noticeably, but can provide several themes:</p>
+<ul>
+<li>adjunctions may not be dualities or isomorphisms, but are candidates for upgrading to that status</li>
+<li>closure operators may indicate the presence of adjunctions, as corresponding <a href="../../../m/o/n/Monad_%28category_theory%29.html" title="Monad (category theory)">monads</a> (cf. the <a href="../../../k/u/r/Kuratowski_closure_axioms.html" title="Kuratowski closure axioms">Kuratowski closure axioms</a>)</li>
+<li>a very general comment of Martin Hyland is that <i>syntax and semantics</i> are adjoint: take <i>C</i> to be the set of all logical theories (axiomatizations), and <i>D</i> the power set of the set of all mathematical structures. For a theory <i>T</i> in <i>C</i>, let <i>F</i>(<i>T</i>) be the set of all structures that satisfy the axioms <i>T</i>; for a set of mathematical structures <i>S</i>, let <i>G</i>(<i>S</i>) be the minimal axiomatization of <i>S</i>. We can then say that <i>F</i>(<i>T</i>) is a subset of <i>S</i> if and only if <i>T</i> logically implies <i>G</i>(<i>S</i>): the "semantics functor" <i>F</i> is left adjoint to the "syntax functor" <i>G</i>.</li>
+<li><a href="../../../d/i/v/Division_%28mathematics%29.html" title="Division (mathematics)">division</a> is (in general) the attempt to <i>invert</i> multiplication, but many examples, such as the introduction of <a href="../../../i/m/p/Implication.html" title="Implication">implication</a> in <a href="../../../p/r/o/Propositional_calculus.html" title="Propositional calculus">propositional logic</a>, or the <a href="../../../i/d/e/Ideal_quotient.html" title="Ideal quotient">ideal quotient</a> for division by <a href="../../../r/i/n/Ring_ideal.html" title="Ring ideal">ring ideals</a>, can be recognised as the attempt to provide an adjoint.</li>
+</ul>
+<p>Together these observations provide explanatory value all over mathematics.</p>
+<p><a name="Formal_definitions" id="Formal_definitions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Formal definitions">edit</a>]</span> <span class="mw-headline">Formal definitions</span></h2>
+<p>A pair of <b>adjoint functors</b> between two categories <i>C</i> and <i>D</i> consists of two <a href="../../../f/u/n/Functor.html" title="Functor">functors</a> <i>F</i>&#160;: <i>C</i> → <i>D</i> and <i>G</i>&#160;: <i>D</i> → <i>C</i> and a <a href="../../../n/a/t/Natural_transformation.html" title="Natural transformation">natural isomorphism</a></p>
+<dl>
+<dd>Φ&#160;: Hom<sub><i>D</i></sub>(<i>F</i>–, –) → Hom<sub><i>C</i></sub>(–, <i>G</i>–)</dd>
+</dl>
+<p>consisting of <a href="../../../b/i/j/Bijection.html" title="Bijection">bijections</a>:</p>
+<dl>
+<dd>Φ<sub><i>X</i>,<i>Y</i></sub>&#160;: Hom<sub><i>D</i></sub>(<i>F</i>(<i>X</i>), <i>Y</i>) → Hom<sub><i>C</i></sub>(<i>X</i>, <i>G</i>(<i>Y</i>))</dd>
+</dl>
+<p>for all objects <i>X</i> in <i>C</i> and <i>Y</i> in <i>D</i>. We then say that <i>F</i> is a <b>left-adjoint</b> of <i>G</i> and <i>G</i> is a <b>right-adjoint</b> of <i>F</i>, and often write <i>F</i>⊣<i>G</i>.</p>
+<p>In order to interpret Φ a <i>natural isomorphism</i>, one must recognize Hom<sub><i>D</i></sub>(<i>F</i>–, –) and Hom<sub><i>C</i></sub>(–, <i>G</i>–) as functors. In fact, they are both <a href="../../../b/i/f/Bifunctor.html" title="Bifunctor">bifunctors</a> from <i>C</i><sup>op</sup> × <i>D</i> to <b>Set</b> (the <a href="../../../c/a/t/Category_of_sets.html" title="Category of sets">category of sets</a>). For details, see the article on <a href="../../../h/o/m/Hom_functor.html" title="Hom functor">Hom functors</a>. Explicitly, the naturality of Φ means that for all <a href="../../../m/o/r/Morphism.html" title="Morphism">morphisms</a> <i>f</i>&#160;: <i>X</i>′ → <i>X</i> in <i>C</i> and all morphisms <i>g</i>&#160;: <i>Y</i> → <i>Y</i>′ in <i>D</i> the following diagram <a href="../../../c/o/m/Commutative_diagram.html" title="Commutative diagram">commutes</a>:</p>
+<div style="text-align: center;"><a href="../../../a/d/j/Image%7EAdjointFunctors-01.png_0b83.html" class="image" title="Image:AdjointFunctors-01.png"><img src="../../../upload/shared/a/aa/AdjointFunctors-01.png" alt="Image:AdjointFunctors-01.png" width="311" height="132" longdesc="../../../a/d/j/Image%7EAdjointFunctors-01.png_0b83.html" /></a></div>
+<p>The horizontal arrows in this diagram are those induced by <i>f</i> and <i>g</i>.</p>
+<p><a name="Unit_and_co-unit" id="Unit_and_co-unit"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Unit and co-unit">edit</a>]</span> <span class="mw-headline">Unit and co-unit</span></h3>
+<p>Every adjoint pair of functors defines a <b>unit</b> η, a <a href="../../../n/a/t/Natural_transformation.html" title="Natural transformation">natural transformation</a> from the functor 1<sub><i>C</i></sub> to <i>GF</i> consisting of morphisms</p>
+<dl>
+<dd>η<sub><i>X</i></sub>&#160;: <i>X</i> → <i>GF</i>(<i>X</i>)</dd>
+</dl>
+<p>for every <i>X</i> in <i>C</i>. η<sub><i>X</i></sub> is defined as Φ<sub><i>X,F</i>(<i>X</i>)</sub> (id<sub><i>F</i>(<i>X</i>)</sub>).</p>
+<p>Analogously, one may define a <b>co-unit</b> ε, a natural transformation from <i>FG</i> to 1<sub><i>D</i></sub> consisting of morphisms</p>
+<dl>
+<dd>ε<sub><i>Y</i></sub>&#160;: <i>FG</i>(<i>Y</i>) → <i>Y</i>.</dd>
+</dl>
+<p>for every <i>Y</i> in <i>D</i>. ε<sub><i>Y</i></sub> is defined as Φ<sub><i>G</i>(<i>Y</i>),<i>Y</i></sub><sup>−1</sup>(id<sub><i>G</i>(<i>Y</i>)</sub>).</p>
+<p>If the unit and counit are actually isomorphisms, then the adjunction provides an <a href="../../../e/q/u/Equivalence_of_categories.html" title="Equivalence of categories">equivalence of categories</a>. For this reason, an adjunction may be considered an even weaker form of equivalence of categories.</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p><b><a href="../../../f/r/e/Free_object.html" title="Free object">Free objects</a> and <a href="../../../f/o/r/Forgetful_functor.html" title="Forgetful functor">forgetful functors</a>.</b> If <i>F</i>&#160;: <a href="../../../c/a/t/Category_of_sets.html" title="Category of sets"><b>Set</b></a> → <a href="../../../c/a/t/Category_of_groups.html" title="Category of groups"><b>Grp</b></a> is the functor assigning to each set <i>X</i> the <a href="../../../f/r/e/Free_group.html" title="Free group">free group</a> over <i>X</i>, and if <i>G</i>&#160;: <b>Grp</b> → <b>Set</b> is the forgetful functor assigning to each group its underlying set, then the universal property of the free group shows that <i>F</i> is left adjoint to <i>G</i>. The unit of this adjoint pair is the embedding of a set <i>X</i> into the free group over <i>X</i>.</p>
+<p>In general, free constructions in mathematics tend to be left adjoints of forgetful functors. <a href="../../../f/r/e/Free_ring.html" title="Free ring">Free rings</a>, <a href="../../../f/r/e/Free_abelian_group.html" title="Free abelian group">free abelian groups</a>, and <a href="../../../f/r/e/Free_module.html" title="Free module">free modules</a> follow this general pattern.</p>
+<p><b><a href="../../../p/r/o/Product_%28category_theory%29.html" title="Product (category theory)">Products</a>.</b> Let Δ&#160;: <b>Grp</b> → <b>Grp<sup>2</sup></b> be the <a href="../../../d/i/a/Diagonal_functor.html" title="Diagonal functor">diagonal functor</a> which assigns to every group <i>X</i> the pair (<i>X</i>, <i>X</i>) in the product category <b>Grp<sup>2</sup></b>, and Π&#160;: <b>Grp<sup>2</sup></b> → <b>Grp</b> the functor which assigns to each pair (<i>Y</i><sub>1</sub>, <i>Y</i><sub>2</sub>) the product group <i>Y</i><sub>1</sub>×<i>Y</i><sub>2</sub>. The universal property of the product group shows that Π is right-adjoint to Δ. The co-unit gives the natural projections from the product to the factors.</p>
+<p>The <a href="../../../c/a/r/Cartesian_product.html" title="Cartesian product">cartesian product</a> of <a href="../../../s/e/t/Set.html" title="Set">sets</a>, the product of rings, the <a href="../../../p/r/o/Product_topology.html" title="Product topology">product of topological spaces</a> etc. follow the same pattern; it can also be extended in a straightforward manner to more than just two factors. In fact, any <a href="../../../l/i/m/Limit_%28category_theory%29.html" title="Limit (category theory)">limit</a> or colimit is adjoint to a diagonal functor.</p>
+<p><b><a href="../../../c/o/p/Coproduct.html" title="Coproduct">Coproducts</a>.</b> If <i>F</i>&#160;: <b>Ab<sup>2</sup></b> → <a href="../../../c/a/t/Category_of_abelian_groups.html" title="Category of abelian groups"><b>Ab</b></a> assigns to every pair (<i>X</i><sub>1</sub>, <i>X</i><sub>2</sub>) of abelian groups their <a href="../../../d/i/r/Direct_sum.html" title="Direct sum">direct sum</a> and if <i>G</i>&#160;: <b>Ab</b> → <b>Ab<sup>2</sup></b> is the functor which assigns to every abelian group <i>Y</i> the pair (<i>Y</i>, <i>Y</i>), then <i>F</i> is left adjoint to <i>G</i>, again a consequence of the universal property of direct sums. The unit of the adjoint pair provides the natural embeddings from the factors into the direct sum.</p>
+<p>Analogous examples are given by the <a href="../../../d/i/r/Direct_sum.html" title="Direct sum">direct sum</a> of <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector spaces</a> and <a href="../../../m/o/d/Module_%28mathematics%29.html" title="Module (mathematics)">modules</a>, by the <a href="../../../f/r/e/Free_product.html" title="Free product">free product</a> of groups and by the disjoint union of sets.</p>
+<p><b>Kernels.</b> Consider the category <i>D</i> of homomorphisms of abelian groups. If <i>f</i><sub>1</sub>&#160;: <i>A</i><sub>1</sub> → <i>B</i><sub>1</sub> and <i>f</i><sub>2</sub>&#160;: <i>A</i><sub>2</sub> → <i>B</i><sub>2</sub> are two objects of <i>D</i>, then a morphism from <i>f</i><sub>1</sub> to <i>f</i><sub>2</sub> is a pair (<i>g</i><sub><i>A</i></sub>, <i>g</i><sub><i>B</i></sub>) of morphisms such that <i>g<sub>B</sub>f</i><sub>1</sub> = <i>f</i><sub>2</sub><i>g<sub>A</sub></i>. Let <i>G</i>&#160;: <i>D</i> → <b>Ab</b> be the functor which assigns to each homomorphism its <a href="../../../k/e/r/Kernel_%28algebra%29.html" title="Kernel (algebra)">kernel</a> and let <i>F</i>&#160;: <b>Ab</b> → <i>D</i> be the morphism which maps the group <i>A</i> to the homomorphism <i>A</i> → 0. Then <i>G</i> is right adjoint to <i>F</i>, which expresses the universal property of kernels, and the co-unit of this adjunction yields the natural embedding of a homomorphism's kernel into the homomorphism's domain.</p>
+<p>A suitable variation of this example also shows that the kernel functors for vector spaces and for modules are right adjoints. Analogously, one can show that the cokernel functors for abelian groups, vector spaces and modules are left adjoints.</p>
+<p><b>Making a ring <a href="../../../u/n/i/Unital.html" title="Unital">unital</a></b> This example was discussed in section 1.3 above. Given a non-unital ring <i>R</i>, a multiplicative identity element can be added by taking <i>R</i>x<b>Z</b> and defining a <b>Z</b>-bilinear product with (r,0)(0,1) = (0,1)(r,0) = (r,0), (r,0)(s,0) = (rs,0), (0,1)(0,1) = (0,1). This constructs a left adjoint to the functor taking a ring to the underlying non-unital ring.</p>
+<p><b>Ring extensions.</b> Suppose <i>R</i> and <i>S</i> are rings, and ρ&#160;: <i>R</i> → <i>S</i> is a <a href="../../../r/i/n/Ring_homomorphism.html" title="Ring homomorphism">ring homomorphism</a>. Then <i>S</i> can be seen as a (left) <i>R</i>-module, and the <a href="../../../t/e/n/Tensor_product.html" title="Tensor product">tensor product</a> with <i>S</i> yields a functor <i>F</i>&#160;: <i>R</i>-<b>Mod</b> → <i>S</i>-<b>Mod</b>. Then <i>F</i> is left adjoint to the forgetful functor <i>G</i>&#160;: <i>S</i>-<b>Mod</b> → <i>R</i>-<b>Mod</b>.</p>
+<p><b>Tensor products.</b> If <i>R</i> is a ring and <i>M</i> is a right <i>R</i> module, then the tensor product with <i>M</i> yields a functor <i>F</i>&#160;: <i>R</i>-<b>Mod</b> → <b>Ab</b>. The functor <i>G</i>&#160;: <b>Ab</b> → <i>R</i>-<b>Mod</b>, defined by <i>G</i>(<i>A</i>) = Hom<sub><b>Z</b></sub>(<i>A</i>, <i>M</i>) for every abelian group <i>A</i>, is a right adjoint to <i>F</i>.</p>
+<p><b>From monoids and groups to rings</b> The integral monoid ring construction gives a functor from <a href="../../../m/o/n/Monoid.html" title="Monoid">monoids</a> to rings. This functor is left adjoint to the functor that associates to a given ring its underlying multiplicative monoid. Similarly, the <a href="../../../i/n/t/Integral_group_ring.html" title="Integral group ring">integral group ring</a> construction yields a functor from <a href="../../../g/r/o/Group_%28mathematics%29.html" title="Group (mathematics)">groups</a> to rings, left adjoint to the functor that assigns to a given ring its <a href="../../../g/r/o/Group_of_units.html" title="Group of units">group of units</a>. One can also start with a <a href="../../../f/i/e/Field_%28mathematics%29.html" title="Field (mathematics)">field</a> <i>K</i> and consider the category of <i>K</i>-<a href="../../../a/s/s/Associative_algebra.html" title="Associative algebra">algebras</a> instead of the category of rings, to get the monoid and group rings over <i>K</i>.</p>
+<p><b>Direct and inverse images of sheaves</b> Every <a href="../../../c/o/n/Continuous_map.html" title="Continuous map">continuous map</a> <i>f</i>&#160;: <i>X</i> → <i>Y</i> between <a href="../../../t/o/p/Topological_space.html" title="Topological space">topological spaces</a> induces a functor <i>f</i> <sub>∗</sub> from the category of <a href="../../../s/h/e/Sheaf_%28mathematics%29.html" title="Sheaf (mathematics)">sheaves</a> (of sets, or abelian groups, or rings...) on <i>X</i> to the corresponding category of sheaves on <i>Y</i>, the <i><a href="../../../d/i/r/Direct_image_functor.html" title="Direct image functor">direct image functor</a></i>. It also induces a functor <i>f</i> <sup>−1</sup> from the category of sheaves of abelian groups on <i>Y</i> to the category of sheaves of abelian groups on <i>X</i>, the <i><a href="../../../i/n/v/Inverse_image_functor.html" title="Inverse image functor">inverse image functor</a></i>. <i>f</i> <sup>−1</sup> is left adjoint to <i>f</i> <sub>∗</sub>. Here a more subtle point is that the left adjoint for <a href="../../../c/o/h/Coherent_sheaf.html" title="Coherent sheaf">coherent sheaves</a> will differ from that for sheaves (of sets).</p>
+<p><b>The Grothendieck construction</b>. In <a href="../../../k/-/t/K-theory.html" title="K-theory">K-theory</a>, the point of departure is to observe that the category of <a href="../../../v/e/c/Vector_bundle.html" title="Vector bundle">vector bundles</a> on a <a href="../../../t/o/p/Topological_space.html" title="Topological space">topological space</a> has a commutative monoid structure under <a href="../../../d/i/r/Direct_sum.html" title="Direct sum">direct sum</a>. To make an <a href="../../../a/b/e/Abelian_group.html" title="Abelian group">abelian group</a> out of this monoid, one can follow the method of making a <a href="../../../p/r/e/Presentation_of_a_group.html" title="Presentation of a group">presentation of a group</a>, adding formally an additive inverse for each bundle (or equivalence class). Alternatively one can observe that the functor that for each group takes the underlying monoid (ignoring inverses) has a left adjoint. This is a once-for-all construction, in line with the third section discussion above. That is, one can imitate the construction of <a href="../../../n/e/g/Negative_number.html" title="Negative number">negative numbers</a>; but there is the other option of an <a href="../../../e/x/i/Existence_theorem.html" title="Existence theorem">existence theorem</a>. For the case of finitary algebraic structures, the existence by itself can be referred to <a href="../../../u/n/i/Universal_algebra.html" title="Universal algebra">universal algebra</a>, or <a href="../../../m/o/d/Model_theory.html" title="Model theory">model theory</a>; naturally there is also a proof adapted to category theory, too.</p>
+<p><b>Frobenius reciprocity</b> in the <a href="../../../g/r/o/Group_representation.html" title="Group representation">representation theory of groups</a>: see <a href="../../../i/n/d/Induced_representation.html" title="Induced representation">induced representation</a>. This example foreshadowed the general theory by about half a century.</p>
+<p><b>Stone-Čech compactification.</b> Let <i>D</i> be the category of <a href="../../../c/o/m/Compact_space.html" title="Compact space">compact</a> <a href="../../../h/a/u/Hausdorff_space.html" title="Hausdorff space">Hausdorff spaces</a> and <i>G</i>&#160;: <i>D</i> → <b>Top</b> be the forgetful functor which treats every compact Hausdorff space as a <a href="../../../t/o/p/Topological_space.html" title="Topological space">topological space</a>. Then <i>G</i> has a left adjoint <i>F</i>&#160;: <b>Top</b> → <i>D</i>, the Stone-Čech <a href="../../../c/o/m/Compactification.html" title="Compactification">compactification</a>. The unit of this adjoint pair yields a <a href="../../../c/o/n/Continuous_function_%28topology%29.html" title="Continuous function (topology)">continuous</a> map from every topological space <i>X</i> into its Stone-Čech compactification. This map is an <a href="../../../e/m/b/Embedding.html" title="Embedding">embedding</a> (i.e. <a href="../../../i/n/j/Injective.html" title="Injective">injective</a>, continuous and open) if and only if <i>X</i> is a <a href="../../../t/y/c/Tychonoff_space.html" title="Tychonoff space">Tychonoff space</a>.</p>
+<p><b>Soberification.</b> The article on <a href="../../../s/t/o/Stone_duality.html" title="Stone duality">Stone duality</a> describes an adjunction between the category of topological spaces and the category of <a href="../../../s/o/b/Sober_space.html" title="Sober space">sober spaces</a> that is known as soberification. Notably, the article also contains a detailed description of another adjunction that prepares the way for the famous <a href="../../../d/u/a/Duality_%28category_theory%29.html" title="Duality (category theory)">duality</a> of sober spaces and spatial locales, exploited in <a href="../../../p/o/i/Pointless_topology.html" title="Pointless topology">pointless topology</a>.</p>
+<p><b>A functor with a left and a right adjoint.</b> Let <i>G</i> be the functor from <a href="../../../t/o/p/Topological_space.html" title="Topological space">topological spaces</a> to <a href="../../../s/e/t/Set.html" title="Set">sets</a> that associates to every topological space its underlying set (forgetting the topology, that is). <i>G</i> has a left adjoint <i>F</i>, creating the <a href="../../../d/i/s/Discrete_space.html" title="Discrete space">discrete space</a> on a set <i>Y</i>, and a right adjoint <i>H</i> creating the <a href="../../../t/r/i/Trivial_topology.html" title="Trivial topology">trivial topology</a> on <i>Y</i>.</p>
+<p>The functor π<sub>0</sub> which assigns to a category its sets of connected components is left-adjoint to the functor <i>D</i> which assigns to a set the discrete category on that set. Moreover, <i>D</i> is left-adjoint to the object functor <i>U</i> which assigns to each category its set of objects, and finally <i>U</i> is left-adjoint to <i>A</i> which assigns to each set the antidiscrete category on that set.</p>
+<p><a name="Properties" id="Properties"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Properties">edit</a>]</span> <span class="mw-headline">Properties</span></h2>
+<p><a name="Uniqueness_of_adjoints" id="Uniqueness_of_adjoints"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Uniqueness of adjoints">edit</a>]</span> <span class="mw-headline">Uniqueness of adjoints</span></h3>
+<p>If the functor <i>F</i>&#160;: <i>C</i> → <i>D</i> has two right-adjoints <i>G</i><sub>1</sub> and <i>G</i><sub>2</sub>, then <i>G</i><sub>1</sub> and <i>G</i><sub>2</sub> are <a href="../../../n/a/t/Natural_transformation.html" title="Natural transformation">naturally isomorphic</a>. The same is true for left-adjoints.</p>
+<p><a name="Relation_to_universal_constructions" id="Relation_to_universal_constructions"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Relation to universal constructions">edit</a>]</span> <span class="mw-headline">Relation to universal constructions</span></h3>
+<p>All pairs of adjoint functors arise from <a href="../../../u/n/i/Universal_property.html" title="Universal property">universal constructions</a>. Let <i>F</i> and <i>G</i> be a pair of adjoint functors with unit η and co-unit ε. Then we have a universal morphism for each object in <i>C</i> and <i>D</i>:</p>
+<ul>
+<li>For each object <i>X</i> in <i>C</i>, (<i>F</i>(<i>X</i>), η<sub><i>X</i></sub>) is a universal morphism from <i>X</i> to <i>G</i>. That is, for all <i>f</i>&#160;: <i>X</i> → <i>G</i>(<i>Y</i>) there exists a unique <i>g</i>&#160;: <i>F</i>(<i>X</i>) → <i>Y</i> for which the following diagrams commute.</li>
+<li>For each object <i>Y</i> in <i>D</i>, (<i>G</i>(<i>Y</i>), ε<sub><i>Y</i></sub>) is a universal morphism from <i>F</i> to <i>Y</i>. That is, for all <i>g</i>&#160;: <i>F</i>(<i>X</i>) → <i>Y</i> there exists a unique <i>f</i>&#160;: <i>X</i> → <i>G</i>(<i>Y</i>) for which the following diagrams commute.</li>
+</ul>
+<div style="text-align: center; margin-top: 2ex;"><a href="../../../a/d/j/Image%7EAdjointFunctors-02.png_dbc3.html" class="image" title="Image:AdjointFunctors-02.png"><img src="../../../upload/2/2f/AdjointFunctors-02.png" alt="Image:AdjointFunctors-02.png" width="309" height="131" longdesc="../../../a/d/j/Image%7EAdjointFunctors-02.png_dbc3.html" /></a></div>
+<p>Conversely, given any two functors <i>F</i> and <i>G</i> and <a href="../../../n/a/t/Natural_transformation.html" title="Natural transformation">natural transformations</a> η&#160;: 1<sub><i>C</i></sub> → <i>GF</i> and ε&#160;: <i>FG</i> → 1<sub><i>D</i></sub> which are universal in the above sense, then <i>F</i> and <i>G</i> form an adjoint pair. (Actually it is sufficient to specify only one of η or ε). The isomorphism φ is then determined by the equations</p>
+<dl>
+<dd><i>f</i> = φ<sub><i>X</i>,<i>Y</i></sub>(<i>g</i>) = <i>G</i>(<i>g</i>) <small>O</small> η<sub><i>X</i></sub></dd>
+<dd><i>g</i> = φ<sub><i>X</i>,<i>Y</i></sub><sup>−1</sup>(<i>f</i>) = ε<sub><i>Y</i></sub> <small>O</small> <i>F</i>(<i>f</i>)</dd>
+</dl>
+<p>Universal constructions are more general than adjoint functor pairs: as mentioned earlier, a universal construction is like an optimization problem; it gives rise to an adjoint pair if and only if this problem has a solution for every object of <i>C</i> (equivalently, every object of <i>D</i>).</p>
+<p><a name="Characterization_via_unit_and_co-unit" id="Characterization_via_unit_and_co-unit"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Characterization via unit and co-unit">edit</a>]</span> <span class="mw-headline">Characterization via unit and co-unit</span></h3>
+<p>There exists yet another characterization of adjoint functors via the unit</p>
+<dl>
+<dd>η&#160;: 1<sub><i>C</i></sub> → <i>GF</i></dd>
+</dl>
+<p>and co-unit</p>
+<dl>
+<dd>ε&#160;: <i>FG</i> → 1<sub><i>D</i></sub>.</dd>
+</dl>
+<p>These natural transformations have the following properties: the natural transformation</p>
+<dl>
+<dd>(ε<i>F</i>)<small>O</small>(<i>F</i>η)&#160;: <i>F</i> → <i>FGF</i> → <i>F</i></dd>
+</dl>
+<p>is equal to 1<sub><i>F</i></sub>, and the composition</p>
+<dl>
+<dd>(<i>G</i>ε)o(η<i>G</i>)&#160;: <i>G</i> → <i>GFG</i> → <i>G</i></dd>
+</dl>
+<p>is equal to 1<sub><i>G</i></sub>. These are called the <i>zig-zag equations</i> because of the appearance of the corresponding <a href="../../../s/t/r/String_diagram.html" title="String diagram">string diagrams</a>.</p>
+<p>Conversely, given two natural transformations η and ε with these properties, then the functors <i>F</i> and <i>G</i> form an adjoint pair.</p>
+<p><a name="Adjoints_preserve_certain_limits" id="Adjoints_preserve_certain_limits"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Adjoints preserve certain limits">edit</a>]</span> <span class="mw-headline">Adjoints preserve certain limits</span></h3>
+<p>The most important property of adjoints is their continuity: every functor that has a left adjoint (and therefore <i>is</i> a right adjoint) is <i>continuous</i> (i.e. commutes with <a href="../../../l/i/m/Limit_%28category_theory%29.html" title="Limit (category theory)">limits</a> in the category theoretical sense); every functor that has a right adjoint (and therefore <i>is</i> a left adjoint) is <i>cocontinuous</i> (i.e. commutes with <a href="../../../l/i/m/Limit_%28category_theory%29.html" title="Limit (category theory)">colimits</a>).</p>
+<p>Since many common constructions in mathematics are limits or colimits, this provides a wealth of information. For example:</p>
+<ul>
+<li>applying a right adjoint functor to a <a href="../../../p/r/o/Product_%28category_theory%29.html" title="Product (category theory)">product</a> of objects yields the product of the images;</li>
+<li>applying a left adjoint functor to a <a href="../../../c/o/p/Coproduct.html" title="Coproduct">coproduct</a> of objects yields the coproduct of the images;</li>
+<li>every right adjoint functor is <a href="../../../l/e/f/Left_exact_functor.html" title="Left exact functor">left exact</a>;</li>
+<li>every left adjoint functor is <a href="../../../r/i/g/Right_exact_functor.html" title="Right exact functor">right exact</a>.</li>
+</ul>
+<p><a name="Additivity" id="Additivity"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Additivity">edit</a>]</span> <span class="mw-headline">Additivity</span></h3>
+<p>If the functor <i>F</i>&#160;: <i>C</i> → <i>D</i> is left adjoint to <i>G</i>&#160;: <i>D</i> → <i>C</i> and both <i>C</i> and <i>D</i> are <a href="../../../a/d/d/Additive_category.html" title="Additive category">additive categories</a>, then both <i>F</i> and <i>G</i> are <a href="../../../a/d/d/Additive_functor.html" title="Additive functor">additive functors</a>.</p>
+<p><a name="Composition" id="Composition"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Composition">edit</a>]</span> <span class="mw-headline">Composition</span></h3>
+<p>If the functor <i>F</i><sub>1</sub>&#160;: <i>C</i> → <i>D</i> has <i>G</i><sub>1</sub>&#160;: <i>D</i> → <i>C</i> as right adjoint and the functor <i>F</i><sub>2</sub>&#160;: <i>D</i> → <i>E</i> has <i>G</i><sub>2</sub>&#160;: <i>E</i> → <i>D</i> as right adjoint, then the composition <i>F</i><sub>2</sub>o<i>F</i><sub>1</sub>&#160;: <i>C</i> → <i>E</i> has <i>G</i><sub>1</sub>o<i>G</i><sub>2</sub>&#160;: <i>E</i> → <i>C</i> as right adjoint.</p>
+<p><a name="Adjoint_pairs_extend_equivalences" id="Adjoint_pairs_extend_equivalences"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: Adjoint pairs extend equivalences">edit</a>]</span> <span class="mw-headline">Adjoint pairs extend equivalences</span></h3>
+<p>Every adjoint pair extends an <a href="../../../e/q/u/Equivalence_of_categories.html" title="Equivalence of categories">equivalence</a> of certain subcategories. Specifically, if <i>F</i>&#160;: <i>C</i> → <i>D</i> is left adjoint to <i>G</i>&#160;: <i>D</i> → <i>C</i> with unit η and co-unit ε, define <i>C</i><sub>1</sub> as the <a href="../../../f/u/l/Full_subcategory.html" title="Full subcategory">full subcategory</a> of <i>C</i> consisting of those objects <i>X</i> of <i>C</i> for which η<sub><i>X</i></sub> is an isomorphism, and define <i>D</i><sub>1</sub> as the full subcategory of <i>D</i> consisting of those objects <i>Y</i> of <i>D</i> for which ε<sub><i>Y</i></sub> is an isomorphism. Then <i>F</i> and <i>G</i> can be restricted to <i>C</i><sub>1</sub> and <i>D</i><sub>1</sub> and yield inverse equivalences of these subcategories.</p>
+<p>In a sense, then, adjoints are "generalized" inverses. Note however that a right inverse of <i>F</i> (i.e. a functor <i>G</i> such that <i>FG</i> is naturally isomorphic to 1<sub><i>D</i></sub>) need not be a right (or left) adjoint of <i>F</i>. Adjoints generalize <i>two-sided</i> inverses.</p>
+<p><a name="General_existence_theorem" id="General_existence_theorem"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/j/Adjoint_functors.html" title="Edit section: General existence theorem">edit</a>]</span> <span class="mw-headline">General existence theorem</span></h3>
+<p>Not every functor <i>G</i>&#160;: <i>D</i> → <i>C</i> admits a left adjoint. If <i>D</i> is <a href="../../../l/i/m/Limit_%28category_theory%29.html" title="Limit (category theory)">complete</a>, then the functors with left adjoints can be characterized by the <b>adjoint functor theorem</b> of <a href="../../../p/e/t/Peter_J._Freyd_76af.html" title="Peter J. Freyd">Peter J. Freyd</a>: <i>G</i> has a left adjoint if and only if it is <a href="../../../l/i/m/Limit_%28category_theory%29.html" title="Limit (category theory)">continuous</a> and a certain smallness condition is satisfied: for every object <i>X</i> of <i>C</i> there exists a family of morphisms</p>
+<dl>
+<dd><i>f</i><sub><i>i</i></sub>&#160;: <i>X</i> → <i>G</i>(<i>Y<sub>i</sub></i>)</dd>
+</dl>
+<p>where the indices <i>i</i> come from a <i><a href="../../../s/e/t/Set.html" title="Set">set</a></i> <i>I</i>, not a <i><a href="../../../c/l/a/Class_%28set_theory%29.html" title="Class (set theory)">proper class</a></i>, such that every morphism</p>
+<dl>
+<dd><i>h</i>&#160;: <i>X</i> → <i>G</i>(<i>Y</i>)</dd>
+</dl>
+<p>can be written as</p>
+<dl>
+<dd><i>h</i> = <i>G</i>(<i>t</i>) o <i>f</i><sub><i>i</i></sub></dd>
+</dl>
+<p>for some <i>i</i> in <i>I</i> and some morphism</p>
+<dl>
+<dd><i>t</i>&#160;: <i>Y</i><sub><i>i</i></sub> → <i>Y</i> in <i>D</i>.</dd>
+</dl>
+<p>An analogous statement characterizes those functors with a right adjoint.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/j/Adjoint_functors.html">http://en.wikipedia.org../../../a/d/j/Adjoint_functors.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_unsourced_statements_since_February_2007_f7dc.html" title="Category:Articles with unsourced statements since February 2007">Articles with unsourced statements since February 2007</a></span> | <span dir='ltr'><a href="../../../a/l/l/Category%7EAll_articles_with_unsourced_statements_2f67.html" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="../../../a/d/j/Category%7EAdjoint_functors_e52c.html" title="Category:Adjoint functors">Adjoint functors</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/j/Adjoint_functors.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/d/j/Talk%7EAdjoint_functors_1741.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Adjoint_functors">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/d/j/Adjunktion_%28Kategorientheorie%29_19ee.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/f/u/n/Funtores_adjuntos.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D1%81/%D0%BE/%D0%BF/%D0%A1%D0%BE%D0%BF%D1%80%D1%8F%D0%B6%D1%91%D0%BD%D0%BD%D1%8B%D0%B5_%D1%84%D1%83%D0%BD%D0%BA%D1%82%D0%BE%D1%80%D1%8B.html">Русский</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 01:49, 1 April 2007 by Wikipedia user <a href="../../../r/o/b/User%7ERoboto_de_Ajvol_7755.html" title="User:Roboto de Ajvol">Roboto de Ajvol</a>. Based on work by Wikipedia user(s) <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../f/r/o/User%7EFropuff_31b9.html" title="User:Fropuff">Fropuff</a>, <a href="../../../p/h/y/User%7EPhysis_ac9e.html" title="User:Physis">Physis</a>, <a href="../../../m/e/l/User%7EMelchoir_2750.html" title="User:Melchoir">Melchoir</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, Conniption, <a href="../../../t/d/v/User%7ETdvance_c398.html" title="User:Tdvance">Tdvance</a>, <a href="../../../r/i/c/User%7ERichard_L._Peterson_830c.html" title="User:Richard L. Peterson">Richard L. Peterson</a>, <a href="../../../m/a/r/User%7EMarc_Harper_b782.html" title="User:Marc Harper">Marc Harper</a>, <a href="../../../l/e/t/User%7ELethe_ae09.html" title="User:Lethe">Lethe</a>, <a href="../../../e/w/l/User%7EEwlyahoocom_d1b9.html" title="User:Ewlyahoocom">Ewlyahoocom</a>, <a href="../../../g/a/i/User%7EGaius_Cornelius_c35a.html" title="User:Gaius Cornelius">Gaius Cornelius</a>, <a href="../../../s/m/i/User%7ESmimram_796e.html" title="User:Smimram">Smimram</a>, <a href="../../../j/t/w/User%7EJtwdog_b9bf.html" title="User:Jtwdog">Jtwdog</a>, <a href="../../../g/a/u/User%7EGauge_3e29.html" title="User:Gauge">Gauge</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../s/u/r/User%7ESurrealWarrior_22bc.html" title="User:SurrealWarrior">SurrealWarrior</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../t/i/l/User%7ETillmo_100c.html" title="User:Tillmo">Tillmo</a>, <a href="../../../j/o/s/User%7EJosh_Parris_1d3f.html" title="User:Josh Parris">Josh Parris</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a>, <a href="../../../p/a/u/User%7EPaul_August_2fe5.html" title="User:Paul August">Paul August</a>, <a href="../../../f/p/a/User%7EFpahl_ff1f.html" title="User:Fpahl">Fpahl</a>, <a href="../../../a/l/e/User%7EAlexG_f944.html" title="User:AlexG">AlexG</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../s/c/h/User%7ESchneelocke_ee99.html" title="User:Schneelocke">Schneelocke</a>, <a href="../../../d/e/f/User%7EDefLog_1d4c.html" title="User:DefLog">DefLog</a>, <a href="../../../m/a/r/User%7EMarkus_Kr%C3%B6tzsch_72f1.html" title="User:Markus Krötzsch">Markus Krötzsch</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../w/a/l/User%7EWaltpohl_11fc.html" title="User:Waltpohl">Waltpohl</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, <a href="../../../s/t/e/User%7EStewartadcock_c102.html" title="User:Stewartadcock">Stewartadcock</a>, <a href="../../../s/n/o/User%7ESnobot_2eb5.html" title="User:Snobot">Snobot</a>, <a href="../../../l/o/r/User%7ELoren_Rosen_2e64.html" title="User:Loren Rosen">Loren Rosen</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../t/o/b/User%7EToby_Bartels_e090.html" title="User:Toby Bartels">Toby Bartels</a> and <a href="../../../m/a/v/User%7EMaveric149_24ee.html" title="User:Maveric149">Maveric149</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

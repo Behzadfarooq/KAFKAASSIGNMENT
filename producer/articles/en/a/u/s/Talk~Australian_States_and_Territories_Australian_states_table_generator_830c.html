@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Australian States and Territories/Australian states table generator,Perl,States and territories of Australia" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Australian States and Territories/Australian states table generator - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Australian States and Territories/Australian states table generator</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/u/s/Talk%7EAustralian_States_and_Territories_ab05.html" title="Talk:Australian States and Territories">Talk:Australian States and Territories</a></span></div>
+	    	    	    <!-- start content -->
+	    <p>This is the <a href="../../../p/e/r/Perl.html" title="Perl">Perl</a> script used to generate the tables for the 8 <a href="../../../s/t/a/States_and_territories_of_Australia_07c2.html" title="States and territories of Australia">States and territories of Australia</a>.</p>
+<pre>
+#!/usr/bin/perl
+
+# Table generator for Australian states
+# Licensed under GFDL, submitted to Wikipedia.
+#
+# This is a Perl script. To run it on a Windows platform, you need 
+# to download a Windows Perl distribution such as ActivePerl 
+# http://www.ActiveState.com/ActivePerl
+#
+# Usage: perl whatever_filename_you_gave_this_script.pl "Full name of state"
+#
+# e.g. perl gen.pl "Australian Capital Territory"
+# 
+# Wikitext will appear on standard output, and unless you comment out the relevant
+# lines, it will be copied to the Windows clipboard also.
+#
+# This script consists of three sections: wikitext with substitution tags, a CSV
+# spreadsheet, and the Perl code to perform the substitution and output the result.
+# The CSV section can be edited with any spreadsheet application.
+
+use Text::ParseWords;
+
+# Optional clipboard dump:
+use Win32::Clipboard;
+
+#-------------------------------------------------------------------------
+$wikitext = &lt;&lt;'END OF WIKITEXT';
+&lt;table border="1" cellpadding="2" cellspacing="0" align="right" width="300px"&gt;
+&lt;caption&gt;&lt;font size="+1"&gt;
+        '''&lt;&lt;Name&gt;&gt;'''
+&lt;/font&gt;&lt;/caption&gt;&lt;tr&gt;&lt;td style="background:#efefef;" align="center" colspan=2&gt;
+&lt;table border="0" cellpadding="2" cellspacing="0"&gt;
+&lt;tr&gt;&lt;td align="center" width="140px"&gt;
+        [[Image:&lt;&lt;Flag&gt;&gt;|&lt;&lt;Name&gt;&gt; state flag]]
+&lt;/td&gt;&lt;td align="center" width="140px"&gt;
+        [[Image::&lt;&lt;COA&gt;&gt;|&lt;&lt;Name&gt;&gt; coat of arms]]
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align="center" width="140px"&gt;&lt;font size=-1&gt;
+        State flag ([[Flag of &lt;&lt;Name&gt;&gt;|Full size]])
+&lt;/font&gt;&lt;/td&gt;&lt;td align="center" width="140px"&gt;
+        &lt;font size=-1&gt;Coat of Arms ([[Coat of Arms of &lt;&lt;Name&gt;&gt;|Full size]])&lt;/font&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td align="center" colspan=2&gt;
+        [[Image:&lt;&lt;Map&gt;&gt;|Location of &lt;&lt;Name&gt;&gt;]]
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
+        [[Capital]]
+&lt;/td&gt;&lt;td&gt;
+        [[&lt;&lt;Capital article&gt;&gt;|&lt;&lt;Capital&gt;&gt;]]
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
+        [[Area]]&lt;br&gt;
+        — Land &lt;br&gt;
+        — Marine &lt;br&gt;
+        — Total
+&lt;/td&gt;&lt;td&gt;
+        &lt;br&gt;
+        &lt;&lt;Land area&gt;&gt; [[square kilometer|km²]]&lt;br&gt;
+        &lt;&lt;Marine area&gt;&gt; [[square kilometer|km²]] &lt;br&gt; 
+        &lt;&lt;Total area&gt;&gt; [[square kilometer|km²]] &lt;br&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
+        [[Population]] (2002)&lt;br&gt; 
+        [[Density]]
+&lt;/td&gt;&lt;td&gt;
+        &lt;&lt;Population&gt;&gt;&lt;br&gt; 
+        &lt;&lt;Density&gt;&gt;/km²              
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
+        [[Time zone]]  
+&lt;/td&gt;&lt;td&gt;
+        &lt;&lt;Time zone&gt;&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
+        Highest point
+&lt;/td&gt;&lt;td&gt;
+        &lt;&lt;Mountain&gt;&gt; (&lt;&lt;Height&gt;&gt; [[metre|m]])
+&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;
+        [[ISO 3166-2]] code:
+&lt;/td&gt;&lt;td&gt;
+        &lt;&lt;ISO 3166-2&gt;&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+END OF WIKITEXT
+
+#-------------------------------------------------------------------------
+
+$csv = &lt;&lt;'END OF CSV SPREADSHEET';
+Name,Flag,COA,Big flag,Big COA,,Capital,Capital article,Mainland area,Island area,Land area,Marine area,Total,Population,Density,Mainland coastal length,Island,Total length,ISO 3166-2,Mountain,Height,Time zone
+Australian Capital Territory,Australian_Capital_Territory_flag_small.jpg,Canberra_coat_of_arms_small.jpg,Australian_Capital_Territory_flag.jpg,Canberra_coat_of_arms.jpg,ACT_in_Australia_map.png,Canberra,Canberra, 2 358,  0, 2 358,  0, 2 358, 322 200,136.64,  54,  3,  57,AU-CT,Bimberi Peak,1912,UTC+10 (except during [[daylight saving time]]—UTC+11)
+New South Wales,New_South_Wales_flag_small.png,New_South_Wales_coat_of_arms_small.jpg,,New_South_Wales_coat_of_arms.png,NSW_in_Australia_map.png,Canberra,Canberra, 800 628,  14, 800 642, 8 802, 809 444,6 657 400,8.32, 2 007,  130, 2 137,AU-NS,Mt Kosciuszko,2228,UTC+10 (except during [[daylight saving time]]—UTC+11)
+Northern Territory,Northern_Territory_flag_small.png,Northern_Territory_crest_small.jpg,Northern_Territory_flag.png,Northern_Territory_crest.jpg,NT_in_Australia_map.png,Sydney,Sydney,1 335 742, 13 387,1 349 129, 71 839,1 420 968, 197 700,0.15, 5 437, 5 516, 10 953,AU-NT,Mt Zeil,1531,UTC+9:30
+Queensland,Queensland_flag_small.png,Queensland_coat_of_arms_small.jpg,,,QLD_in_Australia_map.png,Darwin,"Darwin, Australia",1 723 936, 6 712,1 730 648, 121 994,1 852 642,3 729 000,2.15, 6 973, 6 374, 13 347,AU-QL,Bartle Frere (South Peak),1622,UTC+10
+South Australia,South_Australia_flag_small.png,South_Australia_coat_of_arms_small.jpg,South_Australia_flag.png,South_Australia_coat_of_arms.jpg,SA_in_Australia_map.png,Brisbane,Brisbane, 978 810, 4 672, 983 482, 60 032,1 043 514,1 522 500,1.55, 3 816, 1 251, 5 067,AU-SA,Mt Woodroffe,1435,UTC+9:30 (except during [[daylight saving time]]—UTC+10:30)
+Tasmania,Tasmania_flag_small.png,Tasmania_coat_of_arms_small.jpg,Tasmania_flag.png,Tasmania_coat_of_arms.jpg,TAS_in_Australia_map.png,Adelaide,Adelaide, 64 519, 3 882, 68 401, 22 357, 90 758, 473 400,6.92, 2 833, 2 049, 4 882,AU-TS,Mt Ossa,1617,UTC+10 (except during [[daylight saving time]]—UTC+11)
+Victoria,Victoria_state_flag_small.png,Victoria_state_armorial_ensign_small.jpg,,,VIC_in_Australia_map.png,Hobart,"Hobart, Australia", 227 010,  406, 227 416, 10 213, 237 629,4 888 200,21.49, 1 868,  644, 2 512,AU-VI,Mt Bogong,1986,UTC+10 (except during [[daylight saving time]]—UTC+11)
+Western Australia,Western_Australia_flag_small.png,Western_Australia_coat_of_arms_small.jpg,Western_Australia_flag.png,Western_Australia_coat_of_arms.jpg,WA_in_Australia_map.png,Melbourne,Melbourne,2 526 786, 3 089,2 529 875, 115 740,2 645 615,1 934 500,0.76, 12 889, 7 892, 20 781,AU-WA,Mt Meharry,1253,UTC+8
+END OF CSV SPREADSHEET
+#-------------------------------------------------------------------------
+
+$stateName = shift;
+@lines = split('\n', $csv);
+@heads = parse_line(',', 0, $lines[0]);
+
+foreach $line (@lines) {
+        @cells = parse_line(',', 0, $line);
+        if ($cells[0] eq $stateName) {
+                for ($col=0; $col &lt; scalar(@cells); $col++) {
+                        $wikitext =~ s/&lt;&lt;$heads[$col]&gt;&gt;/$cells[$col]/g;
+                }
+        }
+}
+
+print $wikitext;
+
+# optional:
+Win32::Clipboard()-&gt;Set($wikitext);
+
+</pre>
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/s/Talk%7EAustralian_States_and_Territories_Australian_states_table_generator_830c.html">http://en.wikipedia.org../../../a/u/s/Talk%7EAustralian_States_and_Territories_Australian_states_table_generator_830c.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/u/s/Australian_States_and_Territories_Australian_states_table_generator_2c0c.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/u/s/Talk%7EAustralian_States_and_Territories_Australian_states_table_generator_830c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Australian_States_and_Territories/Australian_states_table_generator">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 00:52, 3 February 2006 by Wikipedia user <a href="../../../c/o/m/User%7ECommander_Keane_bot_0a32.html" title="User:Commander Keane bot">Commander Keane bot</a>. Based on work by Wikipedia user(s) <a href="../../../t/i/m/User%7ETim_Starling_d5f6.html" title="User:Tim Starling">Tim Starling</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bayesian inference,A priori (statistics),Artificial intelligence,Azores,Bayes' theorem,Bayes factor,Bayesian filtering,Bayesian model comparison,Bayesian network,Bayesian probability,Bayesian search theory" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bayesian inference - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bayesian inference</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>Bayesian inference</b> is <a href="../../../s/t/a/Statistical_inference.html" title="Statistical inference">statistical inference</a> in which evidence or observations are used to update or to newly infer the <a href="../../../p/r/o/Probability.html" title="Probability">probability</a> that a hypothesis may be true. The name "Bayesian" comes from the frequent use of <a href="../../../b/a/y/Bayes%27_theorem.html" title="Bayes' theorem">Bayes' theorem</a> in the inference process. Bayes' theorem was derived from the work of the Reverend <a href="../../../t/h/o/Thomas_Bayes_3ee9.html" title="Thomas Bayes">Thomas Bayes</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Evidence_and_changing_beliefs"><span class="tocnumber">1</span> <span class="toctext">Evidence and changing beliefs</span></a></li>
+<li class="toclevel-1"><a href="#Simple_examples_of_Bayesian_inference"><span class="tocnumber">2</span> <span class="toctext">Simple examples of Bayesian inference</span></a>
+<ul>
+<li class="toclevel-2"><a href="#From_which_bowl_is_the_cookie.3F"><span class="tocnumber">2.1</span> <span class="toctext">From which bowl is the cookie?</span></a></li>
+<li class="toclevel-2"><a href="#False_positives_in_a_medical_test"><span class="tocnumber">2.2</span> <span class="toctext">False positives in a medical test</span></a></li>
+<li class="toclevel-2"><a href="#In_the_courtroom"><span class="tocnumber">2.3</span> <span class="toctext">In the courtroom</span></a></li>
+<li class="toclevel-2"><a href="#Search_theory"><span class="tocnumber">2.4</span> <span class="toctext">Search theory</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#More_mathematical_examples"><span class="tocnumber">3</span> <span class="toctext">More mathematical examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Naive_Bayes_classifier"><span class="tocnumber">3.1</span> <span class="toctext">Naive Bayes classifier</span></a></li>
+<li class="toclevel-2"><a href="#Posterior_distribution_of_the_binomial_parameter"><span class="tocnumber">3.2</span> <span class="toctext">Posterior distribution of the binomial parameter</span></a></li>
+<li class="toclevel-2"><a href="#Computer_applications"><span class="tocnumber">3.3</span> <span class="toctext">Computer applications</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Evidence_and_changing_beliefs" id="Evidence_and_changing_beliefs"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: Evidence and changing beliefs">edit</a>]</span> <span class="mw-headline">Evidence and changing beliefs</span></h2>
+<p>Bayesian inference uses aspects of the <a href="../../../s/c/i/Scientific_method.html" title="Scientific method">scientific method</a>, which involves collecting <a href="../../../e/v/i/Evidence.html" title="Evidence">evidence</a> that is meant to be consistent or inconsistent with a given <a href="../../../h/y/p/Hypothesis.html" title="Hypothesis">hypothesis</a>. As evidence accumulates, the degree of belief in a hypothesis changes. With enough evidence, it will often become very high or very low. Thus, it could in theory be considered a suitable logical basis to discriminate between conflicting hypotheses — hypotheses with a very high degree of belief should be accepted as true; those with a very low degree of belief should be rejected as false. In practice, while the general mathematical framework of Bayesian inference does hold, it necessitates the assigning of <i><a href="../../../a/_/p/A_priori_%28statistics%29.html" title="A priori (statistics)">a priori</a></i> probabilities to hypotheses that might be subject to arbitrary bias.</p>
+<dl>
+<dd>An example of Bayesian inference is
+<dl>
+<dd><i>For billions of years, the sun has risen after it has set. The sun has set tonight. With very high probability (or I strongly believe that or it is true that) the sun will rise tomorrow. With very low probability (or I do not at all believe that or it is false that) the sun will not rise tomorrow.</i></dd>
+</dl>
+</dd>
+</dl>
+<p>Bayesian inference uses a numerical estimate of the degree of belief in a hypothesis before evidence has been observed and calculates a numerical estimate of the degree of belief in the hypothesis after evidence has been observed. Bayesian inference usually relies on degrees of belief, or subjective probabilities, in the induction process and does not necessarily claim to provide an objective method of induction. Nonetheless, some Bayesian statisticians believe probabilities can have an objective value and therefore Bayesian inference can provide an objective method of induction. See <a href="../../../s/c/i/Scientific_method.html" title="Scientific method">scientific method</a>.</p>
+<p>Bayes' theorem adjusts probabilities given new evidence in the following way:</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/8/9/1899d9d21323179a019429871fbe831a.png" alt="P(H_0|E) = \frac{P(E|H_0)\;P(H_0)}{P(E)}" /></dd>
+</dl>
+<p>where</p>
+<ul>
+<li><span class="texhtml"><i>H</i><sub>0</sub></span> represents a hypothesis, called a <a href="../../../n/u/l/Null_hypothesis.html" title="Null hypothesis">null hypothesis</a>, that was inferred before new evidence, <span class="texhtml"><i>E</i></span>, became available.</li>
+<li><span class="texhtml"><i>P</i>(<i>H</i><sub>0</sub>)</span> is called the <i><a href="../../../p/r/i/Prior_probability.html" title="Prior probability">prior probability</a></i> of <span class="texhtml"><i>H</i><sub>0</sub></span>.</li>
+<li><span class="texhtml"><i>P</i>(<i>E</i> | <i>H</i><sub>0</sub>)</span> is called the <i><a href="../../../c/o/n/Conditional_probability.html" title="Conditional probability">conditional probability</a></i> of seeing the evidence <span class="texhtml"><i>E</i></span> given that the hypothesis <span class="texhtml"><i>H</i><sub>0</sub></span> is true. It is also called the <i><a href="../../../l/i/k/Likelihood_function.html" title="Likelihood function">likelihood function</a></i> when it is expressed as a function of <span class="texhtml"><i>H</i><sub>0</sub></span> given <span class="texhtml"><i>E</i></span>.</li>
+<li><span class="texhtml"><i>P</i>(<i>E</i>)</span> is called the <i><a href="../../../m/a/r/Marginal_probability.html" title="Marginal probability">marginal probability</a></i> of <span class="texhtml"><i>E</i></span>: the probability of witnessing the new evidence <span class="texhtml"><i>E</i></span> under all mutually exclusive hypotheses. It can be calculated as the sum of the product of all probabilities of mutually exclusive hypotheses and corresponding conditional probabilities: <img class='tex' src="../../../math/3/3/a/33adf87223923bbd644574efdd400959.png" alt="\sum  P(E|H_i)P(H_i)" />.</li>
+<li><span class="texhtml"><i>P</i>(<i>H</i><sub>0</sub> | <i>E</i>)</span> is called the <i><a href="../../../p/o/s/Posterior_probability.html" title="Posterior probability">posterior probability</a></i> of <span class="texhtml"><i>H</i><sub>0</sub></span> given <span class="texhtml"><i>E</i></span>.</li>
+</ul>
+<p>The factor <span class="texhtml"><i>P</i>(<i>E</i> | <i>H</i><sub>0</sub>) / <i>P</i>(<i>E</i>)</span> represents the impact that the evidence has on the belief in the hypothesis. If it is likely that the evidence will be observed when the hypothesis under consideration is true, then this factor will be large. Multiplying the prior probability of the hypothesis by this factor would result in a large posterior probability of the hypothesis given the evidence. Under Bayesian inference, Bayes' theorem therefore measures how much new evidence should alter a belief in a hypothesis.</p>
+<p>Bayesian statisticians argue that even when people have very different prior subjective probabilities, new evidence from repeated observations will tend to bring their posterior probabilities closer together. While this is true for perfectly rational people with similar tendencies of attributing degrees of belief, differences radical enough in these tendencies can (and often do) vastly impede this process.</p>
+<p>Multiplying the prior probability <span class="texhtml"><i>P</i>(<i>H</i><sub>0</sub>)</span> by the factor <span class="texhtml"><i>P</i>(<i>E</i> | <i>H</i><sub>0</sub>) / <i>P</i>(<i>E</i>)</span> will never yield a probability that is greater than 1. Since <span class="texhtml"><i>P</i>(<i>E</i>)</span> is at least as great as <img class='tex' src="../../../math/f/c/8/fc8bdd812d9db15de150013ddc96e4ef.png" alt="P(E \cap H_0)" />, which equals <img class='tex' src="../../../math/2/6/9/26902184cf4f997d8ff2eb5bce97a7d8.png" alt="P(E|H_0) \cdot P(H_0)" /> (see <a href="../../../j/o/i/Joint_probability.html" title="Joint probability">joint probability</a>), replacing <span class="texhtml"><i>P</i>(<i>E</i>)</span> with <img class='tex' src="../../../math/f/c/8/fc8bdd812d9db15de150013ddc96e4ef.png" alt="P(E \cap H_0)" /> in the factor <span class="texhtml"><i>P</i>(<i>E</i> | <i>H</i><sub>0</sub>) / <i>P</i>(<i>E</i>)</span> will yield a posterior probability of 1. Therefore, the posterior probability could yield a probability greater than 1 only if <span class="texhtml"><i>P</i>(<i>E</i>)</span> were less than <img class='tex' src="../../../math/1/0/5/1050b4b4c3454616534fc8cc88400916.png" alt="P(E \cap H_0)," /> which is never true.</p>
+<p>The probability of <span class="texhtml"><i>E</i></span> given <span class="texhtml"><i>H</i><sub>0</sub></span>, <span class="texhtml"><i>P</i>(<i>E</i> | <i>H</i><sub>0</sub>)</span>, can be represented as a function of its second argument with its first argument held at a given value. Such a function is called a <a href="../../../l/i/k/Likelihood_function.html" title="Likelihood function">likelihood function</a>; it is a function of <span class="texhtml"><i>H</i><sub>0</sub></span> given <span class="texhtml"><i>E</i></span>. A ratio of two likelihood functions is called a likelihood ratio, <span class="texhtml">Λ</span>. For example,</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/d/3/fd35f2122784196093498a32d5010449.png" alt="\Lambda = \frac{L(H_0|E)}{L(\mbox{not } H_0|E)} = \frac{P(E|H_0)}{P(E|\mbox{not } H_0)}" /></dd>
+</dl>
+<p>The marginal probability, <span class="texhtml"><i>P</i>(<i>E</i>)</span>, can also be represented as the sum of the product of all probabilities of mutually exclusive hypotheses and corresponding conditional probabilities: <span class="texhtml"><i>P</i>(<i>E</i> | <i>H</i><sub>0</sub>)<i>P</i>(<i>H</i><sub>0</sub>) + <i>P</i>(<i>E</i> | not <i>H</i><sub>0</sub>)<i>P</i>(not <i>H</i><sub>0</sub>)</span>.</p>
+<p>As a result, we can rewrite Bayes' theorem as</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/a/b/6abfd2c4b7016aea890c69e18b4b9371.png" alt="P(H_0|E) = \frac{P(E|H_0)P(H_0)}{P(E|H_0)P(H_0)+ P(E|\mbox{not }H_0)P(\mbox{not }H_0)} = \frac{\Lambda P(H_0)}{\Lambda P(H_0) + P(\mbox{not } H_0)}" /></dd>
+</dl>
+<p>With two <a href="../../../s/t/a/Statistical_independence.html" title="Statistical independence">independent</a> pieces of evidence <span class="texhtml"><i>E</i><sub>1</sub></span> and <span class="texhtml"><i>E</i><sub>2</sub></span>, Bayesian inference can be applied iteratively. We could use the first piece of evidence to calculate an initial posterior probability, and then use that posterior probability as a new prior probability to calculate a second posterior probability given the second piece of evidence.</p>
+<p>Independence of evidence implies that</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/1/f/21f1a8e72dacf2c7685512bbb081087c.png" alt="P(E_1, E_2 | H_0) = P(E_1 | H_0) \times P(E_2 | H_0)" /></dd>
+<dd><img class='tex' src="../../../math/6/4/8/648e59af7d8a3c543b5309a8e4f4edf1.png" alt="P(E_1, E_2) = P(E_1) \times P(E_2)" /></dd>
+<dd><img class='tex' src="../../../math/1/f/9/1f9e02a0662d647d99c9b8af96da2025.png" alt="P(E_1,E_2|\mbox{not }H_0) = P(E_1|\mbox{not }H_0) \times P(E_2|\mbox{not }H_0)" /></dd>
+</dl>
+<p>Bayes' theorem applied iteratively implies</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/d/b/cdb233fe214d04f4b3c2b4a8b8ed07f3.png" alt="P(H_0|E_1, E_2) = \frac{P(E_1|H_0)\times P(E_2|H_0)\;P(H_0)}{P(E_1)\times P(E_2)}" /></dd>
+</dl>
+<p>Using likelihood ratios, we find that</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/5/d/b5d96c9c6da1c5cd6d7d3d2a09dbdfc9.png" alt="P(H_0|E_1, E_2) = \frac{\Lambda_1 \Lambda_2 P(H_0)}{[\Lambda_1 P(H_0) + P(\mbox{not } H_0)] [\Lambda_2 P(H_0) + P(\mbox{not } H_0)]}" />,</dd>
+</dl>
+<p>This iteration of Bayesian inference could be extended with more independent pieces of evidence.</p>
+<p>Bayesian inference is used to calculate probabilities for decision making under uncertainty. In addition to probabilities, a <a href="../../../l/o/s/Loss_function.html" title="Loss function">loss function</a> should be calculated in order to reflect the consequences of making an error. Probabilities represent the chance or belief of being wrong. A loss function represents the consequences of being wrong.</p>
+<p><a name="Simple_examples_of_Bayesian_inference" id="Simple_examples_of_Bayesian_inference"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: Simple examples of Bayesian inference">edit</a>]</span> <span class="mw-headline">Simple examples of Bayesian inference</span></h2>
+<p><a name="From_which_bowl_is_the_cookie.3F" id="From_which_bowl_is_the_cookie.3F"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: From which bowl is the cookie?">edit</a>]</span> <span class="mw-headline">From which bowl is the cookie?</span></h3>
+<p>To illustrate, suppose there are two bowls full of cookies. Bowl #1 has 10 chocolate chip and 30 plain cookies, while bowl #2 has 20 of each. Our friend Fred picks a bowl at random, and then picks a cookie at random. We may assume there is no reason to believe Fred treats one bowl differently from another, likewise for the cookies. The cookie turns out to be a plain one. How probable is it that Fred picked it out of bowl #1?</p>
+<p>Intuitively, it seems clear that the answer should be more than a half, since there are more plain cookies in bowl #1. The precise answer is given by Bayes' theorem. Let <i>H</i><sub>1</sub> correspond to bowl #1, and <i>H</i><sub>2</sub> to bowl #2. It is given that the bowls are identical from Fred's point of view, thus <i>P</i>(<i>H</i><sub>1</sub>) = <i>P</i>(<i>H</i><sub>2</sub>), and the two must add up to 1, so both are equal to 0.5. The datum <i>D</i> is the observation of a plain cookie. From the contents of the bowls, we know that P(<i>D</i> | <i>H</i><sub>1</sub>) = 30/40 = 0.75 and P(<i>D</i> | <i>H</i><sub>2</sub>) = 20/40 = 0.5. Bayes' formula then yields</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/a/e/bae616453d413a8f88ddffdda2d42f77.png" alt="\begin{matrix} P(H_1 | D) &amp;=&amp; \frac{P(H_1) \cdot P(D | H_1)}{P(H_1) \cdot P(D | H_1) + P(H_2) \cdot P(D | H_2)} \\  \\  \ &amp; =&amp; \frac{0.5 \times 0.75}{0.5 \times 0.75 + 0.5 \times 0.5} \\  \\  \ &amp; =&amp; 0.6 \end{matrix}" /></dd>
+</dl>
+<p>Before observing the cookie, the probability that Fred chose bowl #1 is the prior probability, <i>P</i>(<i>H</i><sub>1</sub>), which is 0.5. After observing the cookie, we revise the probability to <i>P</i>(<i>H</i><sub>1</sub>|<i>D</i>), which is 0.6.</p>
+<p>It's worth noting that our belief that observing the plain cookie should somehow affect the prior probability <span class="texhtml"><i>P</i>(<i>H</i><sub>1</sub>)</span> has formed the posterior probability <span class="texhtml"><i>P</i>(<i>H</i><sub>1</sub> | <i>D</i>)</span>, increased from 0.5 to 0.6. This reflects our intuition that the cookie is more likely from the bowl 1, since it has a higher ratio of plain to chocolate cookies than the other. The decision is given as a probability, which is different from classical statistics.</p>
+<p><a name="False_positives_in_a_medical_test" id="False_positives_in_a_medical_test"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: False positives in a medical test">edit</a>]</span> <span class="mw-headline">False positives in a medical test</span></h3>
+<p><a href="../../../t/y/p/Type_I_and_type_II_errors_c67e.html" title="Type I and type II errors">False positives</a> result when a test falsely or incorrectly reports a positive result. For example, a medical test for a <a href="../../../d/i/s/Disease.html" title="Disease">disease</a> may return a positive result indicating that patient has a disease even if the patient does not have the disease. We can use Bayes' theorem to determine the probability that a positive result is in fact a false positive. We find that if a disease is rare, then the majority of positive results may be false positives, even if the test is accurate.</p>
+<p>Suppose that a test for a disease generates the following results:</p>
+<ul>
+<li>If a tested patient has the disease, the test returns a positive result 99% of the time, or with probability 0.99</li>
+<li>If a tested patient does not have the disease, the test returns a negative result 95% of the time, or with probability 0.95.</li>
+</ul>
+<p>Suppose also that only 0.1% of the population has that disease, so that a randomly selected patient has a 0.001 prior probability of having the disease.</p>
+<p>We can use Bayes' theorem to calculate the probability that a positive test result is a false positive.</p>
+<p>Let <i>A</i> represent the condition in which the patient has the disease, and <i>B</i> represent the evidence of a positive test result. Then, probability that the patient actually has the disease given the positive test result is</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/e/c/aecbfa119235de5881b19d0650e73908.png" alt="\begin{matrix} P(A | B) &amp;=&amp; \frac{P(B | A) P(A)}{P(B | A)P(A) + P(B |\mbox{not } A)P(\mbox{not }A)} \\ \\  P(A|B) &amp;= &amp;\frac{0.99\times 0.001}{0.99 \times 0.001 + 0.05\times 0.999}  \\ ~\\ &amp;\approx &amp;0.019 .\end{matrix}" /></dd>
+</dl>
+<p>and hence the probability that a positive result is a false positive is about &#160;(1 − 0.019) = 0.981.</p>
+<p>Despite the apparent high accuracy of the test, the incidence of the disease is so low that the vast majority of patients who test positive do not have the disease. Nonetheless, the fraction of patients who test positive who have the disease (.019) is 19 times the fraction of people who have not yet taken the test who have the disease (.001). Thus the test is not useless, and re-testing may improve the reliability of the result.</p>
+<p>In order to reduce the problem of false positives, a test should be very accurate in reporting a <i>negative</i> result when the patient does not have the disease. If the test reported a negative result in patients without the disease with probability 0.999, then</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/d/0/8d014382edcb263450464878bfb3e04d.png" alt="P(A|B) = \frac{0.99\times 0.001}{0.99 \times 0.001 + 0.001\times 0.999} \approx 0.5" />,</dd>
+</dl>
+<p>so that 1- 0.5 = 0.5 now is the probability of a false positive.</p>
+<p>On the other hand, <a href="../../../t/y/p/Type_I_and_type_II_errors_c67e.html" title="Type I and type II errors">false negatives</a> result when a test falsely or incorrectly reports a negative result. For example, a medical test for a <a href="../../../d/i/s/Disease.html" title="Disease">disease</a> may return a negative result indicating that patient does not have a disease even though the patient actually has the disease. We can also use Bayes' theorem to calculate the probability of a false negative. In the first example above,</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/4/1/a41e4b4e0fa42b8f1091b982e4831834.png" alt="\begin{matrix} P(A |\mbox{not } B) &amp;=&amp; \frac{P(\mbox{not }B | A) P(A)}{P(\mbox{not }B | A)P(A) + P(\mbox{not }B |\mbox{not } A)P(\mbox{not }A)} \\ \\  P(A|\mbox{not }B) &amp;= &amp;\frac{0.01\times 0.001}{0.01 \times 0.001 + 0.95\times 0.999}\, ,\\ ~\\ &amp;\approx &amp;0.0000105\, .\end{matrix}" /></dd>
+</dl>
+<p>The probability that a negative result is a false negative is about 0.0000105 or 0.00105%. When a disease is rare, false negatives will not be a major problem with the test.</p>
+<p>But if 60% of the population had the disease, then the probability of a false negative would be greater. With the above test, the probability of a false negative would be</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/e/0/de0286c610a144d1214283f793821f43.png" alt="\begin{matrix} P(A |\mbox{not } B) &amp;=&amp; \frac{P(\mbox{not }B | A) P(A)}{P(\mbox{not }B | A)P(A) + P(\mbox{not }B |\mbox{not } A)P(\mbox{not }A)} \\ \\  P(A|\mbox{not }B) &amp;= &amp;\frac{0.01\times 0.6}{0.01 \times 0.6 + 0.95\times 0.4}\, ,\\ ~\\ &amp;\approx &amp;0.0155\, .\end{matrix}" /></dd>
+</dl>
+<p>The probability that a negative result is a false negative rises to 0.0155 or 1.55%.</p>
+<p><a name="In_the_courtroom" id="In_the_courtroom"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: In the courtroom">edit</a>]</span> <span class="mw-headline">In the courtroom</span></h3>
+<p>Bayesian inference can be used in a court setting by an individual juror to coherently accumulate the evidence for and against the guilt of the defendant, and to see whether, in totality, it meets their personal threshold for 'beyond a reasonable doubt'.</p>
+<ul>
+<li>Let <span class="texhtml"><i>G</i></span> be the event that the defendant is guilty.</li>
+</ul>
+<ul>
+<li>Let <span class="texhtml"><i>E</i></span> be the event that the defendant's DNA matches DNA found at the crime scene.</li>
+</ul>
+<ul>
+<li>Let <span class="texhtml"><i>P</i>(<i>E</i> | <i>G</i>)</span> be the probability of seeing event <span class="texhtml"><i>E</i></span> assuming that the defendant is guilty. (Usually this would be taken to be unity.)</li>
+</ul>
+<ul>
+<li>Let <span class="texhtml"><i>P</i>(<i>G</i> | <i>E</i>)</span> be the probability that the defendant is guilty assuming the DNA match event <span class="texhtml"><i>E</i></span></li>
+</ul>
+<ul>
+<li>Let <span class="texhtml"><i>P</i>(<i>G</i>)</span> be the juror's personal estimate of the probability that the defendant is guilty, based on the evidence <i>other than</i> the DNA match. This could be based on his responses under questioning, or previously presented evidence.</li>
+</ul>
+<p>Bayesian inference tells us that if we can assign a probability p(G) to the defendant's guilt before we take the DNA evidence into account, then we can revise this probability to the conditional probability <span class="texhtml"><i>P</i>(<i>G</i> | <i>E</i>)</span>, since</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/e/3/ee350f0c1700954c4fdb81af6839ff6a.png" alt="P(G | E) = \frac{P(G) P(E | G)}{P(E)}" /></dd>
+</dl>
+<p>Suppose, on the basis of other evidence, a juror decides that there is a 30% chance that the defendant is guilty. Suppose also that the forensic evidence is that the probability that a person chosen at random would have DNA that matched that at the crime scene was 1 in a million, or 10<sup>-6</sup>.</p>
+<p>The event E can occur in two ways. Either the defendant is guilty (with prior probability 0.3) and thus his DNA is present with probability 1, or he is innocent (with prior probability 0.7) and he is unlucky enough to be one of the 1 in a million matching people.</p>
+<p>Thus the juror could coherently revise his opinion to take into account the <a href="../../../d/n/a/DNA_evidence_bc06.html" title="DNA evidence">DNA evidence</a> as follows:</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/b/8/8b87b64cd2bb962d0f799dd42ec58b8f.png" alt="P(G | E) = (0.3 \times 1.0) /(0.3 \times 1.0 + 0.7 \times 10^{-6}) = 0.99999766667" />.</dd>
+</dl>
+<p>The benefit of adopting a Bayesian approach is that it gives the juror a formal mechanism for combining the evidence presented. The approach can be applied successively to all the pieces of evidence presented in court, with the posterior from one stage becoming the prior for the next.</p>
+<p>The juror would still have to have a prior for the guilt probability before the first piece of evidence is considered. It has been suggested that this could be the guilt probability of a random person of the appropriate sex taken from the town where the crime occurred. Thus, for a crime committed by an adult male in a town containing 50,000 adult males the appropriate initial prior probability might be 1/50,000.</p>
+<p>For the purpose of explaining Bayes' theorem to jurors, it will usually be appropriate to give it in the form of <a href="../../../b/e/t/Betting_odds.html" title="Betting odds">betting odds</a> rather than probabilities, as these are more widely understood. In this form Bayes' theorem states that</p>
+<dl>
+<dd>Posterior odds = prior odds x <a href="../../../b/a/y/Bayes_factor.html" title="Bayes factor">Bayes factor</a></dd>
+</dl>
+<p>In the example above, the juror who has a prior probability of 0.3 for the defendant being guilty would now express that in the form of odds of 3:7 in favour of the defendant being guilty, the Bayes factor is one million, and the resulting posterior odds are 3 million to 7 or about 429,000 to one in favour of guilt.</p>
+<p>In the United Kingdom, Bayes' theorem was explained to the jury in the odds form by a statistician <a href="../../../e/x/p/Expert_witness.html" title="Expert witness">expert witness</a> in the rape case of <a href="../../../r/e/g/Regina_versus_Denis_John_Adams_c1ae.html" title="Regina versus Denis John Adams">Regina versus Denis John Adams</a>. A conviction was secured but the case went to Appeal, as no means of accumulating evidence had been provided for those jurors who did not want to use Bayes' theorem. The Court of Appeal upheld the conviction and gave their opinion that "To introduce Bayes' Theorem, or any similar method, into a criminal trial plunges the Jury into inappropriate and unnecessary realms of theory and complexity, deflecting them from their proper task." No further appeal was allowed and the issue of Bayesian assessment of forensic DNA data remains controversial.</p>
+<p>Gardner-Medwin argues that the criterion on which a verdict in a criminal trial should be based is <i>not</i> the probability of guilt, but rather the <i>probability of the evidence, given that the defendant is innocent</i>. He argues that if the posterior probability of guilt is to be computed by Bayes' theorem, the prior probability of guilt must be known. This will depend on the incidence of the crime and this is an odd piece of evidence to consider in a criminal trial. Consider the following three propositions:</p>
+<p>A: The known facts and testimony could have arisen if the defendant is guilty,</p>
+<p>B: The known facts and testimony could have arisen if the defendant is innocent,</p>
+<p>C: The defendant is guilty.</p>
+<p>Gardner-Medwin argues that the jury should believe both A and not-B in order to convict. A and not-B implies the truth of C, but the reverse is not true. It is possible that B and C are both true, but in this case he argues that a jury should acquit, even though they know that they are probably acquitting a guilty person.</p>
+<p>Other court cases in which probabilistic arguments played some role were the <a href="../../../h/o/w/Howland_will_forgery_trial.html" title="Howland will forgery trial">Howland will forgery trial</a> and the <a href="../../../s/a/l/Sally_Clark_6680.html" title="Sally Clark">Sally Clark</a> case.</p>
+<p>A Bayesian approach to the issue of fallacies in legal reasoning (including a new fallacy called the jury observation fallacy) is dealt with in the paper: Fenton NE and Neil M, <i>The Jury Observation Fallacy and the use of Bayesian Networks to present Probabilistic Legal Arguments</i>, Mathematics Today (Bulletin of the IMA, 36(6)), 180-187, 2000. A version of the paper can be found here: <a href="http://www.dcs.qmul.ac.uk/~norman/papers/jury_fallacy.pdf" class="external free" title="http://www.dcs.qmul.ac.uk/~norman/papers/jury_fallacy.pdf" rel="nofollow">http://www.dcs.qmul.ac.uk/~norman/papers/jury_fallacy.pdf</a></p>
+<p><a name="Search_theory" id="Search_theory"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: Search theory">edit</a>]</span> <span class="mw-headline">Search theory</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../b/a/y/Bayesian_search_theory.html" title="Bayesian search theory">Bayesian search theory</a></i></div>
+</dd>
+</dl>
+<p>In May 1968 the US nuclear submarine <a href="../../../u/s/s/USS_Scorpion_%28SSN-589%29_5ec6.html" title="USS Scorpion (SSN-589)"><i>Scorpion</i> (SSN-589)</a> failed to arrive as expected at her home port of <a href="../../../n/o/r/Norfolk%2C_Virginia_e3c8.html" title="Norfolk, Virginia">Norfolk, Virginia</a>. The US Navy was convinced that the vessel had been lost off the Eastern seaboard but an extensive search failed to discover the wreck. The US Navy's deep water expert, <a href="../../../j/o/h/John_Craven_USN_d00d.html" title="John Craven USN">John Craven USN</a>, believed that it was elsewhere and he organised a search south west of the <a href="../../../a/z/o/Azores.html" title="Azores">Azores</a> based on a controversial approximate triangulation by hydrophones. He was allocated only a single ship, the <a href="../../../u/s/n/USNS_Mizar_%28AGOR-11%29_0d78.html" title="USNS Mizar (AGOR-11)"><i>Mizar</i></a>, and he took advice from a firm of consultant mathematicians in order to maximise his resources. A Bayesian search methodology was adopted. Experienced submarine commanders were interviewed to construct hypotheses about what could have caused the loss of the <i>Scorpion</i>.</p>
+<p>The sea area was divided up into grid squares and a probability assigned to each square, under each of the hypotheses, to give a number of probability grids, one for each hypothesis. These were then added together to produce an overall probability grid. The probability attached to each square was then the probability that the wreck was in that square. A second grid was constructed with probabilities that represented the probability of successfully finding the wreck if that square were to be searched and the wreck were to be actually there. This was a known function of water depth. The result of combining this grid with the previous grid is a grid which gives the probability of finding the wreck in each grid square of the sea if it were to be searched.</p>
+<p>This sea grid was systematically searched in a manner which started with the high probability regions first and worked down to the low probability regions last. Each time a grid square was searched and found to be empty its probability was reassessed using <a href="../../../b/a/y/Bayes%27_theorem.html" title="Bayes' theorem">Bayes' theorem</a>. This then forced the probabilities of all the other grid squares to be reassessed (upwards), also by Bayes' theorem. The use of this approach was a major computational challenge for the time but it was eventually successful and the <i>Scorpion</i> was found in October of that year. Suppose a grid square has a probability <i>p</i> of containing the wreck and that the probability of successfully detecting the wreck if it is there is <i>q</i>. If the square is searched and no wreck is found, then, by Bayes' theorem, the revised probability of the wreck being in the square is given by</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/0/e/30ebd2fa6a36a9343b0f802750be5269.png" alt="p^' = \frac{p(1-q)}{(1-p)+p(1-q)}." /></dd>
+</dl>
+<p><a name="More_mathematical_examples" id="More_mathematical_examples"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: More mathematical examples">edit</a>]</span> <span class="mw-headline">More mathematical examples</span></h2>
+<p><a name="Naive_Bayes_classifier" id="Naive_Bayes_classifier"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: Naive Bayes classifier">edit</a>]</span> <span class="mw-headline">Naive Bayes classifier</span></h3>
+<p>See <a href="../../../n/a/i/Naive_Bayes_classifier_acb3.html" title="Naive Bayes classifier">naive Bayes classifier</a>.</p>
+<p><a name="Posterior_distribution_of_the_binomial_parameter" id="Posterior_distribution_of_the_binomial_parameter"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: Posterior distribution of the binomial parameter">edit</a>]</span> <span class="mw-headline">Posterior distribution of the binomial parameter</span></h3>
+<p>In this example we consider the computation of the posterior distribution for the binomial parameter. This is the same problem considered by Bayes in Proposition 9 of his essay.</p>
+<p>We are given <i>m</i> observed successes and <i>n</i> observed failures in a binomial experiment. The experiment may be tossing a coin, drawing a ball from an urn, or asking someone their opinion, among many other possibilities. What we know about the parameter (let's call it <i>a</i>) is stated as the prior distribution, <i>p</i>(<i>a</i>).</p>
+<p>For a given value of <i>a</i>, the probability of <i>m</i> successes in <i>m</i>+<i>n</i> trials is</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/5/3/f535a945924471afd2544477cf9af122.png" alt="p(m,n|a) = \begin{pmatrix} n+m \\ m \end{pmatrix} a^m (1-a)^n." /></dd>
+</dl>
+<p>Since <i>m</i> and <i>n</i> are fixed, and <i>a</i> is unknown, this is a likelihood function for <i>a</i>. From the continuous form of the law of total probability we have</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/0/a/b0a53be0d8251a1986a9ad94719ffc40.png" alt="p(a|m,n) = \frac{p(m,n|a)\,p(a)}{\int_0^1 p(m,n|a)\,p(a)\,da}      = \frac{\begin{pmatrix} n+m \\ m \end{pmatrix} a^m (1-a)^n\,p(a)}          {\int_0^1 \begin{pmatrix} n+m \\ m \end{pmatrix} a^m (1-a)^n\,p(a)\,da}." /></dd>
+</dl>
+<p>For some special choices of the prior distribution <i>p</i>(<i>a</i>), the integral can be solved and the posterior takes a convenient form. In particular, if <i>p</i>(<i>a</i>) is a <a href="../../../b/e/t/Beta_distribution.html" title="Beta distribution">beta distribution</a> with parameters <i>m</i><sub>0</sub> and <i>n</i><sub>0</sub>, then the posterior is also a beta distribution with parameters <i>m</i>+<i>m</i><sub>0</sub> and <i>n</i>+<i>n</i><sub>0</sub>.</p>
+<p>A <i><a href="../../../c/o/n/Conjugate_prior.html" title="Conjugate prior">conjugate prior</a></i> is a prior distribution, such as the beta distribution in the above example, which has the property that the posterior is the same type of distribution.</p>
+<p>What is "Bayesian" about Proposition 9 is that Bayes presented it as a probability for the parameter <i>a</i>. That is, not only can one compute probabilities for experimental outcomes, but also for the parameter which governs them, and the same algebra is used to make inferences of either kind. Interestingly, Bayes actually states his question in a way that might make the idea of assigning a probability distribution to a parameter palatable to a <a href="../../../f/r/e/Frequentist_statistics.html" title="Frequentist statistics">frequentist</a>. He supposes that a billiard ball is thrown at random onto a billiard table, and that the probabilities <i>p</i> and <i>q</i> are the probabilities that subsequent billiard balls will fall above or below the first ball. By making the binomial parameter <i>a</i> depend on a random event, he cleverly escapes a philosophical quagmire that was an issue he most likely was not even aware of.</p>
+<p><a name="Computer_applications" id="Computer_applications"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: Computer applications">edit</a>]</span> <span class="mw-headline">Computer applications</span></h3>
+<p>Bayesian inference has applications in <a href="../../../a/r/t/Artificial_intelligence.html" title="Artificial intelligence">artificial intelligence</a> and <a href="../../../e/x/p/Expert_system.html" title="Expert system">expert systems</a>. Bayesian inference techniques have been a fundamental part of computerized <a href="../../../p/a/t/Pattern_recognition.html" title="Pattern recognition">pattern recognition</a> techniques since the late 1950s. There is also an ever growing connection between Bayesian methods and simulation <a href="../../../m/o/n/Monte_Carlo_method_ff34.html" title="Monte Carlo method">Monte Carlo</a> techniques since complex models cannot be processed in closed form by a Bayesian analysis, while the <a href="../../../g/r/a/Graphical_model.html" title="Graphical model">graphical model</a> structure inherent to all statistical models, even the most complex ones, allows for efficient simulation algorithms like the <a href="../../../g/i/b/Gibbs_sampling.html" title="Gibbs sampling">Gibbs sampling</a> and other <a href="../../../m/e/t/Metropolis-Hastings_algorithm_12f9.html" title="Metropolis-Hastings algorithm">Metropolis-Hastings algorithm</a> schemes. Recently Bayesian inference has gained popularity amongst the <a href="../../../p/h/y/Phylogenetics.html" title="Phylogenetics">phylogenetics</a> community for these reasons; applications such as <a href="http://evolve.zoo.ox.ac.uk/beast" class="external text" title="http://evolve.zoo.ox.ac.uk/beast" rel="nofollow">BEAST</a> and <a href="http://mrbayes.csit.fsu.edu/" class="external text" title="http://mrbayes.csit.fsu.edu/" rel="nofollow">MrBayes</a> allow many demographic and evolutionary parameters to be estimated simultaneously.</p>
+<p>As applied to <a href="../../../s/t/a/Statistical_classification.html" title="Statistical classification">statistical classification</a>, Bayesian inference has been used in recent years to develop algorithms for identifying unsolicited bulk <a href="../../../e/-/m/E-mail_spam.html" title="E-mail spam">e-mail spam</a>. Applications which make use of Bayesian inference for spam filtering include <a href="../../../b/o/g/Bogofilter.html" title="Bogofilter">Bogofilter</a>, <a href="../../../s/p/a/SpamAssassin_f1a3.html" title="SpamAssassin">SpamAssassin</a>, InBoxer, and <a href="../../../m/o/z/Mozilla.html" title="Mozilla">Mozilla</a>. Spam classification is treated in more detail in the article on the <b><a href="../../../n/a/i/Naive_Bayes_classifier_acb3.html" title="Naive Bayes classifier">naive Bayes classifier</a></b>.</p>
+<p>In some applications <a href="../../../f/u/z/Fuzzy_logic.html" title="Fuzzy logic">fuzzy logic</a> is an alternative to Bayesian inference. Fuzzy logic and Bayesian inference, however, are mathematically and semantically not compatible: You cannot, in general, understand the <i>degree of truth</i> in fuzzy logic as probability and vice versa.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="http://www.inference.phy.cam.ac.uk/mackay/itila/book.html" class="external text" title="http://www.inference.phy.cam.ac.uk/mackay/itila/book.html" rel="nofollow">On-line textbook: Information Theory, Inference, and Learning Algorithms</a>, by David MacKay, has chapters on Bayesian methods, including examples; arguments in favour of Bayesian methods (in the style of <a href="../../../e/d/w/Edwin_Thompson_Jaynes_4988.html" title="Edwin Thompson Jaynes">Edwin Jaynes</a>); modern <a href="../../../m/o/n/Monte_Carlo_method_ff34.html" title="Monte Carlo method">Monte Carlo methods</a>, message-passing methods, and <a href="../../../c/a/l/Calculus_of_variations.html" title="Calculus of variations">variational methods</a>; and examples illustrating the connections between Bayesian inference and <a href="../../../d/a/t/Data_compression.html" title="Data compression">data compression</a>.</li>
+<li><a href="http://cocosci.berkeley.edu/tom/bayes.html" class="external text" title="http://cocosci.berkeley.edu/tom/bayes.html" rel="nofollow">Bayesian reading list</a>, categorized and annotated. Designed for cognitive science; maintained by <a href="http://psychology.berkeley.edu/faculty/profiles/tgriffiths.html" class="external text" title="http://psychology.berkeley.edu/faculty/profiles/tgriffiths.html" rel="nofollow">Tom Griffiths</a>.</li>
+<li>Berger, J.O. (1999) Statistical Decision Theory and Bayesian Statistics. Second Edition. Springer Verlag, New York. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-387-96098-8</a> and also <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 3-540-96098-8</a>.</li>
+<li>Bolstad, William M. (2004) Introduction to Bayesian Statistics, John Wiley <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-471-27020-2</a></li>
+<li>Bretthorst, G. Larry, 1988, <a href="http://bayes.wustl.edu/glb/book.pdf" class="external text" title="http://bayes.wustl.edu/glb/book.pdf" rel="nofollow"><i>Bayesian Spectrum Analysis and Parameter Estimation</i></a> in Lecture Notes in Statistics, 48, Springer-Verlag, New York, New York</li>
+<li>Dawid, A.P. and Mortera, J. (1996) Coherent analysis of forensic identification evidence. Journal of the Royal Statistical Society, Series B, 58,425-443.</li>
+<li>Foreman, L.A; Smith, A.F.M. and Evett, I.W. (1997). Bayesian analysis of deoxyribonucleic acid profiling data in forensic identification applications (with discussion). Journal of the Royal Statistical Society, Series A, 160, 429-469.</li>
+<li>Gardner-Medwin, A. <i>What probability should the jury address?</i>. Significance. Volume 2, Issue 1, March 2005</li>
+<li>Gelman, A., Carlin, B., Stern, H., and Rubin, D.B. (2003). Bayesian Data Analysis. Second Edition. Chapman &amp; Hall/CRD, Boca Raton, Florida. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 1-58488-388-X</a>.</li>
+<li>Gelman, A. and Meng, X.L. (2004). Applied Bayesian Modeling and Causal Inference from Incomplete-Data Perspectives: an essential journey with Donald Rubin's statistical family. John Wiley &amp; Sons, Chichester, UK. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-470-09043-X</a></li>
+<li>Jaynes, E.T. (1998) <a href="http://www-biba.inrialpes.fr/Jaynes/prob.html" class="external text" title="http://www-biba.inrialpes.fr/Jaynes/prob.html" rel="nofollow"><i>Probability Theory: The Logic of Science</i></a>.</li>
+<li>Lee, Peter M. Bayesian Statistics: An Introduction. Second Edition. (1997). <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-340-67785-6</a>.</li>
+<li>O'Hagan, A. and Forster, J. (2003) Kendall's Advanced Theory of Statistics, Volume 2B: Bayesian Inference. Arnold, New York. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-340-52922-9</a>.</li>
+<li>Robert, C.P. (2001) The Bayesian Choice. Springer Verlag, New York.</li>
+<li>Robertson, B. and Vignaux, G.A. (1995) Interpreting Evidence: Evaluating Forensic Science in the Courtroom. John Wiley and Sons. Chichester.</li>
+<li>Winkler, Robert L, <i>Introduction to Bayesian Inference and Decision, 2nd Edition</i> (2003) Probabilistic. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-9647938-4-9</a></li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/a/y/Bayesian_model_comparison.html" title="Bayesian model comparison">Bayesian model comparison</a></li>
+<li><a href="../../../b/a/y/Bayesian_probability.html" title="Bayesian probability">Bayesian probability</a></li>
+<li><a href="../../../b/a/y/Bayesian_filtering.html" title="Bayesian filtering">Bayesian filtering</a></li>
+<li><a href="../../../b/a/y/Bayesian_network.html" title="Bayesian network">Bayesian network</a></li>
+<li><a href="../../../b/a/y/Bayes_factor.html" title="Bayes factor">Bayes factor</a></li>
+<li><a href="../../../h/i/e/Hierarchical_Bayes_model_ff1b.html" title="Hierarchical Bayes model">Hierarchical Bayes model</a></li>
+<li><a href="../../../i/n/f/Inferential_statistics.html" title="Inferential statistics">Inferential statistics</a></li>
+<li><a href="../../../o/c/c/Occam%27s_Razor_046a.html" title="Occam's Razor">Occam's Razor</a></li>
+<li><a href="../../../c/r/o/Cromwell%27s_rule.html" title="Cromwell's rule">Cromwell's rule</a></li>
+<li><a href="../../../p/r/o/Prosecutor%27s_fallacy.html" title="Prosecutor's fallacy">Prosecutor's fallacy</a></li>
+<li><a href="../../../m/i/n/Minimum_message_length.html" title="Minimum message length">Minimum message length</a></li>
+<li><a href="../../../m/i/n/Minimum_description_length.html" title="Minimum description length">Minimum description length</a></li>
+<li><a href="../../../g/a/u/Gaussian_process_regression.html" title="Gaussian process regression">Gaussian process regression</a></li>
+<li><a href="../../../m/a/x/Maximum_entropy_thermodynamics.html" title="Maximum entropy thermodynamics">Maximum entropy thermodynamics</a></li>
+<li><a href="../../../l/i/s/List_of_publications_in_statistics.html#Bayesian_statistics" title="List of publications in statistics">Important publications in Bayesian statistics</a></li>
+<li><a href="../../../t/h/e/The_Wisdom_of_Crowds_5778.html" title="The Wisdom of Crowds">The Wisdom of Crowds</a></li>
+<li><a href="../../../r/a/v/Raven_paradox.html" title="Raven paradox">Raven paradox</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_inference.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.dcs.qmw.ac.uk/%7Enorman/BBNs/BBNs.htm" class="external text" title="http://www.dcs.qmw.ac.uk/%7Enorman/BBNs/BBNs.htm" rel="nofollow">A nice on-line introductory tutorial to Bayesian probability</a>from Queen Mary University of London</li>
+<li><a href="http://yudkowsky.net/bayes/bayes.html" class="external text" title="http://yudkowsky.net/bayes/bayes.html" rel="nofollow">An Intuitive Explanation of Bayesian Reasoning</a> Bayes' Theorem for the curious and bewildered; an excruciatingly gentle introduction by Eliezer Yudkowsky</li>
+<li>Paul Graham. <a href="http://www.paulgraham.com/spam.html" class="external text" title="http://www.paulgraham.com/spam.html" rel="nofollow">"A Plan for Spam"</a> <i>(exposition of a popular approach for spam classification)</i></li>
+<li><a href="http://www.mcs.vuw.ac.nz/~vignaux/docs/Adams_NLJ.html" class="external text" title="http://www.mcs.vuw.ac.nz/~vignaux/docs/Adams_NLJ.html" rel="nofollow">Commentary on Regina versus Adams</a></li>
+<li><a href="http://webuser.bus.umich.edu/plenk/downloads.htm" class="external text" title="http://webuser.bus.umich.edu/plenk/downloads.htm" rel="nofollow">Mathematical notes on Bayesian statistics and Markov chain Monte Carlo</a></li>
+<li><a href="http://www.thebroth.com/blog/118/bayesian-rating" class="external text" title="http://www.thebroth.com/blog/118/bayesian-rating" rel="nofollow">Bayesian Rating/Ranking</a> How to implement Bayes' Theorem for online rating and ranking systems</li>
+<li><a href="http://cocosci.berkeley.edu/tom/bayes.html" class="external text" title="http://cocosci.berkeley.edu/tom/bayes.html" rel="nofollow">Bayesian reading list</a>, categorized and annotated. Designed for cognitive science; maintained by <a href="http://psychology.berkeley.edu/faculty/profiles/tgriffiths.html" class="external text" title="http://psychology.berkeley.edu/faculty/profiles/tgriffiths.html" rel="nofollow">Tom Griffiths</a>.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1114 bytes
+Post-expand include size: 210 bytes
+Template argument size: 260 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/y/Bayesian_inference.html">http://en.wikipedia.org../../../b/a/y/Bayesian_inference.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../b/a/y/Category%7EBayesian_statistics_6ca7.html" title="Category:Bayesian statistics">Bayesian statistics</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/y/Bayesian_inference.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/a/y/Talk%7EBayesian_inference_104a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bayesian_inference">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../cy/a/n/w/Anwythiad_Bayesaidd_670b.html">Cymraeg</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/b/a/y/Bayessche_Statistik_fab6.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/i/n/f/Inferencia_bayesiana.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/i/n/f/Inf%C3%A9rence_bay%C3%A9sienne.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/i/n/f/Inferenza_bayesiana.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/b/a/y/Bayesiaanse_kansrekening.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%83%99/%E3%82%A4/%E3%82%BA/%E3%83%99%E3%82%A4%E3%82%BA%E6%8E%A8%E5%AE%9A.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/i/n/f/Infer%C3%AAncia_bayesiana.html">Português</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 18:31, 1 April 2007 by Wikipedia user Tobyr2. Based on work by Wikipedia user(s) <a href="../../../s/e/l/User%7ESelket_adc6.html" title="User:Selket">Selket</a>, <a href="../../../e/d/j/User%7EEdJohnston_759e.html" title="User:EdJohnston">EdJohnston</a>, <a href="../../../b/o/_/User%7EBo_Jacoby_56d6.html" title="User:Bo Jacoby">Bo Jacoby</a>, <a href="../../../j/e/f/User%7EJeffmcneill_7ee2.html" title="User:Jeffmcneill">Jeffmcneill</a>, <a href="../../../b/i/l/User%7EBilljefferys_1728.html" title="User:Billjefferys">Billjefferys</a>, <a href="../../../b/a/s/User%7EBasar_06bc.html" title="User:Basar">Basar</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, Maghnus, <a href="../../../j/a/m/User%7EJames_Kidd_2d2a.html" title="User:James Kidd">James Kidd</a>, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, <a href="../../../b/h/e/User%7EBhepburn_537c.html" title="User:Bhepburn">Bhepburn</a>, <a href="../../../n/i/e/User%7ENielsenGW_be05.html" title="User:NielsenGW">NielsenGW</a>, Facopad, <a href="../../../b/o/g/User%7EBoggie_c370.html" title="User:Boggie">Boggie</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, BlaiseFEgan, <a href="../../../n/u/r/User%7ENurban_e49c.html" title="User:Nurban">Nurban</a>, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, <a href="../../../j/i/n/User%7EJinian_e84f.html" title="User:Jinian">Jinian</a>, <a href="../../../a/n/c/User%7EAncheta_Wis_6134.html" title="User:Ancheta Wis">Ancheta Wis</a>, <a href="../../../b/e/n/User%7EBenBildstein_8e0b.html" title="User:BenBildstein">BenBildstein</a>, BoH, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../a/c/e/User%7EAceMyth_ce06.html" title="User:AceMyth">AceMyth</a>, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../b/r/e/User%7EBrendan642_06d9.html" title="User:Brendan642">Brendan642</a>, <a href="../../../c/o/m/User%7EComrade_jo_c286.html" title="User:Comrade jo">Comrade jo</a>, <a href="../../../l/i/n/User%7ELindsay658_d7de.html" title="User:Lindsay658">Lindsay658</a>, Wyxel, <a href="../../../e/d/w/User%7EEdward_Z._Yang_0d06.html" title="User:Edward Z. Yang">Edward Z. Yang</a>, <a href="../../../t/d/u/User%7ETdunning_f81a.html" title="User:Tdunning">Tdunning</a>, Hooperbloob, <a href="../../../l/e/o/User%7ELeonardoGregianin_7e7f.html" title="User:LeonardoGregianin">LeonardoGregianin</a>, JeonghunNoh, <a href="../../../e/l/_/User%7EEl_C_6d95.html" title="User:El C">El C</a>, <a href="../../../g/a/i/User%7EGaius_Cornelius_c35a.html" title="User:Gaius Cornelius">Gaius Cornelius</a>, <a href="../../../d/a/v/User%7EDavidCary_1a42.html" title="User:DavidCary">DavidCary</a>, <a href="../../../j/h/e/User%7EJheald_bb56.html" title="User:Jheald">Jheald</a>, <a href="../../../d/r/i/User%7EDrini_e6be.html" title="User:Drini">Drini</a>, <a href="../../../n/o/t/User%7ENothlit_a66a.html" title="User:Nothlit">Nothlit</a>, <a href="../../../g/d/r/User%7EGdrbot_313e.html" title="User:Gdrbot">Gdrbot</a>, <a href="../../../b/a/n/User%7EBanno_733d.html" title="User:Banno">Banno</a>, <a href="../../../e/d/h/User%7EEdH_fee0.html" title="User:EdH">EdH</a>, <a href="../../../r/a/v/User%7ERavik_7a00.html" title="User:Ravik">Ravik</a>, <a href="../../../p/a/c/User%7EPacaro_4866.html" title="User:Pacaro">Pacaro</a>, <a href="../../../r/e/e/User%7EReetep_9f11.html" title="User:Reetep">Reetep</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../j/u/n/User%7EJung_dalglish_e6de.html" title="User:Jung dalglish">Jung dalglish</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../j/o/h/User%7EJohnOwens_79a2.html" title="User:JohnOwens">JohnOwens</a>, <a href="../../../h/i/k/User%7EHike395_91ce.html" title="User:Hike395">Hike395</a>, <a href="../../../c/b/u/User%7ECburnett_adfd.html" title="User:Cburnett">Cburnett</a>, <a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a>, <a href="../../../k/a/r/User%7EKarada_595b.html" title="User:Karada">Karada</a>, <a href="../../../r/o/y/User%7ERoylee_ce6a.html" title="User:Roylee">Roylee</a>, <a href="../../../p/e/r/User%7EPerey_ed5e.html" title="User:Perey">Perey</a>, <a href="../../../w/i/l/User%7EWile_E._Heresiarch_9879.html" title="User:Wile E. Heresiarch">Wile E. Heresiarch</a>, DimaDorfman, <a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>, <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a>, <a href="../../../w/h/i/User%7EWhisperToMe_201b.html" title="User:WhisperToMe">WhisperToMe</a>, <a href="../../../j/o/n/User%7EJonik_dfea.html" title="User:Jonik">Jonik</a>, <a href="../../../f/u/b/User%7EFubar_Obfusco_9a7a.html" title="User:Fubar Obfusco">Fubar Obfusco</a>, <a href="../../../l/e/x/User%7ELexor_1be7.html" title="User:Lexor">Lexor</a>, <a href="../../../a/p/h/User%7EAPH_6b7e.html" title="User:APH">APH</a>, <a href="../../../f/e/l/User%7EFelineAvenger_8052.html" title="User:FelineAvenger">FelineAvenger</a>, <a href="../../../s/u/i/User%7ESuisui_3e3f.html" title="User:Suisui">Suisui</a>, <a href="../../../w/m/a/User%7EWmahan_ede0.html" title="User:Wmahan">Wmahan</a>, <a href="../../../h/e/n/User%7EHenrygb_9b92.html" title="User:Henrygb">Henrygb</a>, Donsimon, L353a1, <a href="../../../l/o/u/User%7ELouI_01b3.html" title="User:LouI">LouI</a>, <a href="../../../p/c/a/User%7EPcarbonn_cbe1.html" title="User:Pcarbonn">Pcarbonn</a>, <a href="../../../l/e/o/User%7ELeonard_G._0170.html" title="User:Leonard G.">Leonard G.</a>, <a href="../../../j/i/m/User%7EJimD_18f0.html" title="User:JimD">JimD</a>, <a href="../../../j/o/s/User%7EJose_Ramos_c07e.html" title="User:Jose Ramos">Jose Ramos</a> and <a href="../../../n/o/v/User%7ENovum_13b5.html" title="User:Novum">Novum</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

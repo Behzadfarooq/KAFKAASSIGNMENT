@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Branch predictor,2001,AMD K8,Branch delay slot,Branch target predictor,Central processing unit,Computer architecture,Conditional branch,DEC Alpha,Hardware,IA-64" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Branch predictor - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Branch predictor</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_architecture.html" title="Computer architecture">computer architecture</a>, a <i>branch predictor</i> is the part of a <a href="../../../c/e/n/Central_processing_unit.html" title="Central processing unit">processor</a> that determines whether a <a href="../../../c/o/n/Conditional_branch.html" title="Conditional branch">conditional branch</a> in the <a href="../../../i/n/s/Instruction_%28computer_science%29.html" title="Instruction (computer science)">instruction</a> flow of a program is likely to be taken or not. This is called <b>branch prediction</b>. Branch predictors are crucial in today's modern, <a href="../../../s/u/p/Superscalar.html" title="Superscalar">superscalar</a> processors for achieving high performance. They allow processors to fetch and execute instructions without waiting for a branch to be resolved.</p>
+<p>Almost all <a href="../../../i/n/s/Instruction_pipeline.html" title="Instruction pipeline">pipelined</a> processors do branch prediction of some form, because they must guess the address of the next instruction to fetch before the current instruction has been executed. Many earlier <a href="../../../m/i/c/Microprogram.html" title="Microprogram">microprogrammed</a> CPUs did not do branch prediction because there was little or no performance penalty for altering the flow of the instruction stream.</p>
+<p>Branch prediction is not the same as <a href="../../../b/r/a/Branch_target_predictor.html" title="Branch target predictor">branch target prediction</a>. Branch prediction attempts to guess whether a conditional branch will be taken or not. Branch target prediction attempts to guess the target of the branch or unconditional jump before it is computed by parsing the instruction itself.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Trivial_prediction"><span class="tocnumber">1</span> <span class="toctext">Trivial prediction</span></a></li>
+<li class="toclevel-1"><a href="#Static_prediction"><span class="tocnumber">2</span> <span class="toctext">Static prediction</span></a></li>
+<li class="toclevel-1"><a href="#Next_line_prediction"><span class="tocnumber">3</span> <span class="toctext">Next line prediction</span></a></li>
+<li class="toclevel-1"><a href="#Bimodal_branch_prediction"><span class="tocnumber">4</span> <span class="toctext">Bimodal branch prediction</span></a></li>
+<li class="toclevel-1"><a href="#Local_branch_prediction"><span class="tocnumber">5</span> <span class="toctext">Local branch prediction</span></a></li>
+<li class="toclevel-1"><a href="#Global_branch_prediction"><span class="tocnumber">6</span> <span class="toctext">Global branch prediction</span></a></li>
+<li class="toclevel-1"><a href="#Combined_branch_prediction"><span class="tocnumber">7</span> <span class="toctext">Combined branch prediction</span></a></li>
+<li class="toclevel-1"><a href="#Agree_prediction"><span class="tocnumber">8</span> <span class="toctext">Agree prediction</span></a></li>
+<li class="toclevel-1"><a href="#Overriding_branch_prediction"><span class="tocnumber">9</span> <span class="toctext">Overriding branch prediction</span></a></li>
+<li class="toclevel-1"><a href="#Neural_Branch_Predictors"><span class="tocnumber">10</span> <span class="toctext">Neural Branch Predictors</span></a></li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">11</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">12</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">13</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Trivial_prediction" id="Trivial_prediction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Trivial prediction">edit</a>]</span> <span class="mw-headline">Trivial prediction</span></h2>
+<p>The early implementations of <a href="../../../s/p/a/SPARC_a940.html" title="SPARC">SPARC</a> and <a href="../../../m/i/p/MIPS_architecture_ccf5.html" title="MIPS architecture">MIPS</a> (two of the first commercial <a href="../../../r/i/s/RISC_0a73.html" title="RISC">RISC</a> architectures) did trivial branch prediction: they always predicted that a branch (or unconditional jump) would not be taken, so they always fetched the next sequential instruction. Only when the branch or jump was evaluated did the instruction fetch pointer get set to a nonsequential address.</p>
+<p>Both CPUs evaluated branches in the decode stage and had a single cycle instruction fetch. As a result, the branch target recurrence was two cycles long, and the machine would always fetch the instruction immediately after any taken branch. Both architectures defined <a href="../../../b/r/a/Branch_delay_slot.html" title="Branch delay slot">branch delay slots</a> in order to utilize these fetched instructions.</p>
+<p><a name="Static_prediction" id="Static_prediction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Static prediction">edit</a>]</span> <span class="mw-headline">Static prediction</span></h2>
+<p>Processors that implement "Static prediction" predict that backward-pointing branches will be taken (assuming that the backwards branch is the bottom of a program loop), and forward-pointing branches will not be taken (assuming they are early exits from the loop or other processing code). This only mispredicts the very last branch of a loop.</p>
+<p>Static prediction is used as a fall-back technique in most processors with dynamic branch prediction when there isn't any information for dynamic predictors to use. Both the Motorola <a href="../../../p/o/w/PowerPC_1c02.html" title="PowerPC">MPC7450 (G4e)</a> and the Intel <a href="../../../p/e/n/Pentium_4.html" title="Pentium 4">Pentium 4</a> use this technique <a href="http://arstechnica.com/articles/paedia/cpu/p4andg4e.ars/4" class="external text" title="http://arstechnica.com/articles/paedia/cpu/p4andg4e.ars/4" rel="nofollow">1</a>.</p>
+<p><a name="Next_line_prediction" id="Next_line_prediction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Next line prediction">edit</a>]</span> <span class="mw-headline">Next line prediction</span></h2>
+<p>Some superscalar processors (<a href="../../../m/i/p/MIPS_architecture_ccf5.html" title="MIPS architecture">MIPS</a> R8000, <a href="../../../d/e/c/DEC_Alpha_cb8e.html" title="DEC Alpha">DEC Alpha</a> EV6 and EV8) fetched with each line of instructions a pointer to the next line. This next line predictor is not directly comparable to the other predictors listed here because it handles branch target prediction as well as branch direction prediction.</p>
+<p>When a next line predictor points to aligned groups of 2, 4 or 8 instructions, the branch target will usually not be the first instruction fetched, and so the initial instructions fetched are wasted. Assuming for simplicity a uniform distribution of branch targets, 0.5, 1.5, and 3.5 instructions fetched are discarded, respectively.</p>
+<p>Since the branch itself will generally not be the last instruction in an aligned group, instructions after the taken branch (or its delay slot) will be discarded. Once again assuming a uniform distribution of branch instruction placements, 0.5, 1.5, and 3.5 instructions fetched are discarded.</p>
+<p>The discarded instructions at the branch and destination lines add up to nearly a complete fetch cycle, even for a single-cycle next-line predictor.</p>
+<p><a name="Bimodal_branch_prediction" id="Bimodal_branch_prediction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Bimodal branch prediction">edit</a>]</span> <span class="mw-headline">Bimodal branch prediction</span></h2>
+<p>A <i>bimodal</i> branch predictor has a table of two-bit entries, indexed with the least significant bits of the instruction addresses. Unlike the instruction cache, bimodal predictor entries typically do not have tags, and so a particular counter may be mapped to different branch instructions (this is called branch interference or branch aliasing), in which case it is likely to be less accurate. Each counter has one of four states:</p>
+<ul>
+<li>Strongly not taken</li>
+<li>Weakly not taken</li>
+<li>Weakly taken</li>
+<li>Strongly taken</li>
+</ul>
+<p>When a branch is evaluated, the corresponding entry is updated according to the underlying <a href="../../../m/o/o/Moore_machine.html" title="Moore machine">Moore machine</a>. In the case of two-bit saturating counters ("2-bit Smith Counters with Saturation"), branches evaluated as not taken decrement the state towards strongly not taken, and branches evaluated as taken increment the state towards strongly taken. The primary benefit of this two-bit saturating counter scheme is that loop closing branches are always predicted taken. A one-bit scheme (like the R8000), mispredicts both the first and last branch of a loop. A two-bit scheme mispredicts just the last branch. Similarly, on heavily biased branches which almost always go one way, a one-bit scheme mispredicts twice for each odd branch, and a two-bit scheme mispredicts once.</p>
+<p>On the <a href="../../../s/p/e/SPEC_d95e.html" title="SPEC">SPEC</a>'89 benchmarks, very large bimodal predictors saturate at 93.5% correct, once every branch maps to a unique counter.</p>
+<p>Because the bimodal counter table is indexed with the instruction address bits, a superscalar processor can split the table into separate <a href="../../../s/t/a/Static_random_access_memory.html" title="Static random access memory">SRAMs</a> for each instruction fetched, and fetch a prediction for every instruction in parallel with fetching the instruction, so that the branch prediction is available as soon as the branch is decoded.</p>
+<p><a name="Local_branch_prediction" id="Local_branch_prediction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Local branch prediction">edit</a>]</span> <span class="mw-headline">Local branch prediction</span></h2>
+<p>Bimodal branch prediction mispredicts the exit of every loop. For loops which tend to have the same loop count every time (and for many other branches with repetitive behavior), we can do much better.</p>
+<p>Local branch predictors keep two tables. The first table is the local branch history table. It is indexed by the low-order bits of each branch instruction's address, and it records the taken/not-taken history of the n most recent executions of the branch.</p>
+<p>The other table is the pattern history table. Like the bimodal predictor, this table contains bimodal counters; however, its index is generated from the branch history in the first table. To predict a branch, the branch history is looked up, and that history is then used to look up a bimodal counter which makes a prediction.</p>
+<p>On the <a href="../../../s/p/e/SPEC_d95e.html" title="SPEC">SPEC</a>'89 benchmarks, very large local predictors saturate at 97.1% correct.</p>
+<p>Local prediction is slower than bimodal prediction because it requires two sequential table lookups for each prediction. A fast implementation would use a separate bimodal counter array for each instruction fetched, so that the second array access can proceed in parallel with instruction fetch. These arrays are not redundant, as each counter is intended to store the behavior of a single branch.</p>
+<p><a name="Global_branch_prediction" id="Global_branch_prediction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Global branch prediction">edit</a>]</span> <span class="mw-headline">Global branch prediction</span></h2>
+<p>Global branch predictors make use of the fact that the behavior of many branches is strongly correlated with the history of other recently taken branches. We can keep a single shift register updated with the recent history of every branch executed, and use this value to index into a table of bimodal counters. This scheme, by itself, is only better than the bimodal scheme for large table sizes, and is never as good as local prediction.</p>
+<p>If, instead, we index the table of bimodal counters with the recent history concatenated with a few bits of the branch instruction's address, we get the <i>gselect</i> predictor. Gselect does better than local prediction for small table sizes, and local prediction is only slightly better for table storage larger than 1KB.</p>
+<p>We can do slightly better than gselect by XORing the branch instruction address with the global history, rather than concatenating. The result is <i>gshare</i>, which is a little better than gselect for tables larger than 256 bytes.</p>
+<p>On the SPEC'89 benchmarks, very large gshare predictors saturate at 96.6% correct, which is just a little worse than large local predictors.</p>
+<p>Gselect and gshare are easier to make fast than local prediction, because they require a single table lookup per branch. As with bimodal prediction, the table can be split so that parallel lookups can be made for each instruction fetched, so that the table lookup can proceed in parallel with instruction load.</p>
+<p><a name="Combined_branch_prediction" id="Combined_branch_prediction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Combined branch prediction">edit</a>]</span> <span class="mw-headline">Combined branch prediction</span></h2>
+<p>Scott McFarling proposed combined branch prediction in his 1993 paper <a href="http://citeseer.nj.nec.com/mcfarling93combining.html" class="external text" title="http://citeseer.nj.nec.com/mcfarling93combining.html" rel="nofollow">2</a>. <i>Combined branch prediction</i> is about as accurate as local prediction, and almost as fast as global prediction.</p>
+<p>Combined branch prediction uses three predictors in parallel: bimodal, gshare, and a bimodal-like predictor to pick which of bimodal or gshare to use on a branch-by-branch basis. The choice predictor is yet another 2-bit up/down saturating counter, in this case the MSB choosing the prediction to use. In this case the counter is updated whenever the bimodal and gshare predictions disagree, to favor whichever predictor was actually right.</p>
+<p>On the SPEC'89 benchmarks, such a predictor is about as good as the local predictor.</p>
+<p>Another way of combining branch predictors is to have e.g. 3 different branch predictors, and merge their results by a majority vote.</p>
+<p>Predictors like gshare use multiple table entries to track the behavior of any particular branch. This multiplication of entries makes it much more likely that two branches will map to the same table entry (a situation called aliasing), which in turn makes it much more likely that prediction accuracy will suffer for those branches. Once you have multiple predictors, it is beneficial to arrange that each predictor will have different aliasing patterns, so that it is more likely that at least one predictor will have no aliasing. Combined predictors with different indexing functions for the different predictors are called <i>gskew</i> predictors, and are analogous to skewed associative caches used for data and instruction caching.</p>
+<p><a name="Agree_prediction" id="Agree_prediction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Agree prediction">edit</a>]</span> <span class="mw-headline">Agree prediction</span></h2>
+<p>Another technique to reduce destructive aliasing within the pattern history tables is an <i>agree predictor</i>. Some method is used to establish a relatively static prediction for the branch, perhaps a bimodal predictor or hint bits within the branch instruction. Another predictor (e.g. a gskew predictor) makes predictions, but rather than predicting taken/not-taken, the predictor predicts agree/disagree with the base prediction.</p>
+<p>The intention is that if branches covered by the gskew predictor tend to be a bit biased in one direction, perhaps 70%/30%, then all those biases can be aligned so that the gskew pattern history table will tend to have more agree entries than disagree entries. This reduces the likelihood that two aliasing branches would best have opposite values in the PHT.</p>
+<p>Agree predictors work well with combined predictors, because the combined predictor usually has a bimodal predictor which can be used as the base for the agree predictor. Agree predictors do less well with branches that are not biased in one direction, if that causes the base predictor to give changing predictions. So an agree predictor may work best as part of a three-predictor scheme, with one agree predictor and another non-agree type predictor.</p>
+<p><a name="Overriding_branch_prediction" id="Overriding_branch_prediction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Overriding branch prediction">edit</a>]</span> <span class="mw-headline">Overriding branch prediction</span></h2>
+<p>The EV6 and EV8 cores used a fast single-cycle next line predictor to handle the branch target recurrence and provide a simple and fast branch prediction. Because the next line predictor is so inaccurate, and the branch resolution recurrence takes so long, both cores have two-cycle secondary branch predictors which can override the prediction of the next line predictor at the cost of a single lost fetch cycle.</p>
+<p>Since a fetch of 4 instructions or more may contain more than one branch, an overriding predictor will sometimes have to predict a next PC which is neither the fall-through nor the earlier predicted next line. The overriding predictor usually extracts the target address from the instruction bytes themselves since they are available by the time the predictor must generate a predicted next fetch address.</p>
+<p><a name="Neural_Branch_Predictors" id="Neural_Branch_Predictors"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: Neural Branch Predictors">edit</a>]</span> <span class="mw-headline">Neural Branch Predictors</span></h2>
+<p>The first dynamic neural branch predictors (LVQ and MLP) were proposed by Lucian Vintan (<a href="../../../l/u/c/Lucian_Blaga_University_of_Sibiu_76a1.html" title="Lucian Blaga University of Sibiu">Lucian Blaga University of Sibiu</a>, <a href="../../../r/o/m/Romania.html" title="Romania">Romania</a>), in his paper entitled "Towards a High Performance Neural Branch Predictor", Proceedings of The International Joint Conference on Neural Networks - IJCNN '99, Washington DC, USA, 1999. The neural branch predictor research was developed further by Daniel Jimenez (<a href="../../../r/u/t/Rutgers_University_ce58.html" title="Rutgers University">Rutgers University</a>, USA). In <a href="../../../2/0/0/2001.html" title="2001">2001</a>, (HPCA Conference) the first perceptron predictor that was feasible to implement in <a href="../../../h/a/r/Hardware.html" title="Hardware">hardware</a>.</p>
+<p>The main advantage of the neural predictor is its ability to exploit long histories while requiring only linear resource growth. Classical predictors require exponential resource growth. Jimenez reports a global improvement of 5.7% over a McFarling-style hybrid predictor (he also used a gshare/perceptron overriding hybrid predictors).</p>
+<p>The main disadvantage of the perceptron predictor is its high latency. Even after taking advantage of high-speed arithmetic tricks, the computation latency is relatively high compared to the clock period of a deeply pipelined microarchitecture. The <a href="../../../i/n/t/Intel.html" title="Intel">Intel</a> <a href="../../../p/e/n/Pentium_IV_590d.html" title="Pentium IV">Pentium IV</a> has 20 stages in its integer pipeline, and researchers conclude that performance of aggressively clocked microarchitectures continues to improve until 52 stages.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup></p>
+<p>In order to reduce the prediction latency, Jimenez proposed in 2003 the <i>fast-path neural predictor</i>, where the perceptron predictor chooses its weights according to the current branch’s path, rather than according to the branch’s PC. Many other researchers developed this concept (A. Seznec, M. Monchiero, Tarjan &amp; Skadron, V. Desmet, Akkary et al, etc.)</p>
+<p>The neural branch predictor concept is very promising. Most of the state of the art branch predictors are using a perceptron predictor (see Intel's "Championship Branch Prediction Competition" - <a href="http://camino.rutgers.edu/cbp2/" class="external autonumber" title="http://camino.rutgers.edu/cbp2/" rel="nofollow">[1]</a>). Intel already implements this idea in one of the <a href="../../../i/a/-/IA-64_e36e.html" title="IA-64">IA-64</a>'s simulators.</p>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>Microprogrammed processors took multiple cycles per instruction, and generally did not require branch prediction. The VAX 9000 was both microprogrammed and pipelined, and probably did some branch prediction.</p>
+<p>The Burroughs B4900, a cacheless, microprogrammed machine, released in ~1982 was pipelined and used branch prediction. The B4900 branch prediction history state was stored back into the in-memory instructions during program execution. The B4900 implemented 4-state branch prediction by using 4 semantically equivalent branch opcodes to represent each branch operator type. The opcode used indicated the history of that particular branch instruction. If the hardware determined that the branch prediction state of a particular branch needed to be updated, it would rewrite the opcode with the semantically equivalent opcode that hinted the proper history. This scheme obtained a 93% hit rate. US patent 4,435,756 and others were granted on this scheme.</p>
+<p>The first commercial RISC processors, MIPS and SPARC, did only trivial "not-taken" branch prediction. Because they used branch delay slots, fetched just one instruction per cycle, and executed in-order, there was no performance loss. Later, the R4000 used the same trivial "not-taken" branch prediction, and lost two cycles to each taken branch because the branch resolution recurrence was four cycles long.</p>
+<p>Branch prediction became more important with the introduction of pipelined superscalar processors like the Intel Pentium, DEC Alpha 21064, the MIPS R8000, and the IBM Power series. These processors all relied on one-bit or simple bimodal predictors.</p>
+<p>The DEC Alpha EV6 <a href="http://citeseer.ist.psu.edu/seznec02design.html" class="external text" title="http://citeseer.ist.psu.edu/seznec02design.html" rel="nofollow">4</a> uses a next-line predictor overridden by a combined local predictor and global predictor, where the combining choice is made by a bimodal predictor.</p>
+<p>The <a href="../../../a/m/d/AMD_K8_b3da.html" title="AMD K8">AMD K8</a> has a combined bimodal and global predictor, where the combining choice is another bimodal predictor. This processor caches the base and choice bimodal predictor counters in bits of the L2 cache otherwise used for ECC. As a result, it has effectively very large base and choice predictor tables, and parity rather than ECC on instructions in the L2 cache. Parity is just fine, since any instruction suffering a parity error can be invalidated and refetched from memory.</p>
+<p>The Alpha EV8 <a href="http://citeseer.ist.psu.edu/seznec02design.html" class="external text" title="http://citeseer.ist.psu.edu/seznec02design.html" rel="nofollow">4</a>(cancelled late in design) had a minimum branch misprediction penalty of 14 cycles. It was to use a complex but fast next line predictor overridden by a combined bimodal and majority-voting predictor. The majority vote was between the bimodal and two gskew predictors.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="http://portal.acm.org/citation.cfm?id=545219&amp;dl=acm&amp;coll=&amp;CFID=15151515&amp;CFTOKEN=6184618" class="external text" title="http://portal.acm.org/citation.cfm?id=545219&amp;dl=acm&amp;coll=&amp;CFID=15151515&amp;CFTOKEN=6184618" rel="nofollow">Increasing processor performance by implementing deeper pipelines</a>. Eric Sprangle, Doug Carmean.</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branch_predictor.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://arstechnica.com/articles/paedia/cpu/p4andg4e.ars/4" class="external text" title="http://arstechnica.com/articles/paedia/cpu/p4andg4e.ars/4" rel="nofollow">1</a> - ArsTechnica article on the Pentium 4.</li>
+<li><a href="http://citeseer.nj.nec.com/mcfarling93combining.html" class="external text" title="http://citeseer.nj.nec.com/mcfarling93combining.html" rel="nofollow">2</a> - Combining Branch Predictors - McFarling - 1993 - introduces combined predictors. Very good.</li>
+<li><a href="http://citeseer.nj.nec.com/109851.html" class="external text" title="http://citeseer.nj.nec.com/109851.html" rel="nofollow">3</a> - Multiple-Block Ahead Branch Predictors - Seznec et al - 1996 - demonstrates prediction accuracy is not impaired by indexing with previous branch address.</li>
+<li><a href="http://citeseer.ist.psu.edu/seznec02design.html" class="external text" title="http://citeseer.ist.psu.edu/seznec02design.html" rel="nofollow">4</a> - Design Tradeoffs for the Alpha EV8 Conditional Branch Predictor - Seznec et al - 2002 - describes the Alpha EV8 branch predictor. This paper does an excellent job discussing how they arrived at their design from various hardware constraints and simulation studies. Very good.</li>
+<li><a href="http://citeseer.ist.psu.edu/jimenez03reconsidering.html" class="external text" title="http://citeseer.ist.psu.edu/jimenez03reconsidering.html" rel="nofollow">5</a> - Reconsidering Complex Branch Predictors - Jimenez - 2003 - describes the EV6 and K8 branch predictors, and pipelining considerations.</li>
+<li><a href="http://x86.org/articles/branch/branchprediction.htm" class="external text" title="http://x86.org/articles/branch/branchprediction.htm" rel="nofollow">Branch Prediction in the Pentium Family</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/a/Branch_predictor.html">http://en.wikipedia.org../../../b/r/a/Branch_predictor.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../i/n/s/Category%7EInstruction_processing_c8aa.html" title="Category:Instruction processing">Instruction processing</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/a/Branch_predictor.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/r/a/Talk%7EBranch_predictor_851d.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Branch_predictor">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/s/p/r/Sprungvorhersage.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/p/r/e/Predictor_de_saltos.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/p/r/e/Predizione_delle_diramazioni.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E5%88%86/%E5%B2%90/%E4%BA%88/%E5%88%86%E5%B2%90%E4%BA%88%E6%B8%AC.html">日本語</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:09, 26 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../j/u/g/User%7EJugander_3f9c.html" title="User:Jugander">Jugander</a>, <a href="../../../a/r/c/User%7EArch_dude_3aef.html" title="User:Arch dude">Arch dude</a>, <a href="../../../c/t/h/User%7ECTho_8891.html" title="User:CTho">CTho</a>, <a href="../../../k/w/e/User%7EKwertii_f6e2.html" title="User:Kwertii">Kwertii</a>, <a href="../../../e/n/e/User%7EENeville_1e2d.html" title="User:ENeville">ENeville</a>, <a href="../../../a/t/o/User%7EAtomota_32da.html" title="User:Atomota">Atomota</a>, Gaither, <a href="../../../j/o/n/User%7EJonHarder_ef53.html" title="User:JonHarder">JonHarder</a>, <a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a>, <a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a>, <a href="../../../c/a/l/User%7ECalbaer_c1bc.html" title="User:Calbaer">Calbaer</a>, <a href="../../../g/w/e/User%7EGwernol_c4bf.html" title="User:Gwernol">Gwernol</a>, <a href="../../../o/r/p/User%7EOrphanBot_88cf.html" title="User:OrphanBot">OrphanBot</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../r/b/a/User%7ERbarreira_44f4.html" title="User:Rbarreira">Rbarreira</a>, <a href="../../../t/i/m/User%7ETimBentley_fb12.html" title="User:TimBentley">TimBentley</a>, <a href="../../../i/a/i/User%7EIain.mcclatchie_df3b.html" title="User:Iain.mcclatchie">Iain.mcclatchie</a>, <a href="../../../l/i/g/User%7ELigulem_20b6.html" title="User:Ligulem">Ligulem</a>, <a href="../../../k/r/y/User%7EKrystyn_Dominik_fe63.html" title="User:Krystyn Dominik">Krystyn Dominik</a>, <a href="../../../o/r/d/User%7EOrderud_9d90.html" title="User:Orderud">Orderud</a>, <a href="../../../j/o/s/User%7EJosh_Cherry_99df.html" title="User:Josh Cherry">Josh Cherry</a>, Agl, <a href="../../../e/c/h/User%7EEchoray_be35.html" title="User:Echoray">Echoray</a>, <a href="../../../d/a/v/User%7EDavidCary_1a42.html" title="User:DavidCary">DavidCary</a>, <a href="../../../s/u/s/User%7ESusvolans_0bbe.html" title="User:Susvolans">Susvolans</a>, Beige Tangerine, <a href="../../../d/y/l/User%7EDyl_bfb4.html" title="User:Dyl">Dyl</a>, Bmiller128, <a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a>, <a href="../../../k/a/t/User%7EKate_3866.html" title="User:Kate">Kate</a>, <a href="../../../v/a/m/User%7EVampWillow_af3c.html" title="User:VampWillow">VampWillow</a>, <a href="../../../d/a/v/User%7EDavid.Monniaux_7db1.html" title="User:David.Monniaux">David.Monniaux</a>, <a href="../../../m/o/d/User%7EModster_b6f4.html" title="User:Modster">Modster</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../c/y/r/User%7ECyrius_3685.html" title="User:Cyrius">Cyrius</a>, <a href="../../../c/h/r/User%7EChris_Roy_4549.html" title="User:Chris Roy">Chris Roy</a> and <a href="../../../d/o/r/User%7EDori_d946.html" title="User:Dori">Dori</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

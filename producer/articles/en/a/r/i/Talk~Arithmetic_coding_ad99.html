@@ -1,0 +1,361 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Arithmetic coding,Bzip,Claude Shannon,DjVu,H.264/MPEG-4 AVC,Information entropy,JBIG,JBIG2,JPEG 2000,Logarithm,PAQ" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Arithmetic coding - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Arithmetic coding</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>Oy, oy, oy, just think what if Newton and Briggs had decided to patent <a href="../../../l/o/g/Logarithm.html" title="Logarithm">logarithms</a>!</p>
+<p>Converted the sums and products to TeX, with the exception of one which had the unexpected expression "log_2". I think it is missing its argument. --Ejrh</p>
+<p>JPEG2000 has an arithmetic coder... there must be an associated patent license. -- taral@taral.net</p>
+<p><br />
+If these are covered by patent, we should have the list of patent numbers in the article so that we know when they expire. --<a href="../../../s/s/d/User%7ESsd_e9c6.html" title="User:Ssd">ssd</a> 18:26, 11 Jul 2004 (UTC)</p>
+<dl>
+<dd>
+<dl>
+<dd>Look here <a href="http://www.faqs.org/faqs/compression-faq/part1/" class="external autonumber" title="http://www.faqs.org/faqs/compression-faq/part1/" rel="nofollow">[1]</a></dd>
+</dl>
+</dd>
+</dl>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Entropy_number_wrong"><span class="tocnumber">1</span> <span class="toctext">Entropy number wrong</span></a></li>
+<li class="toclevel-1"><a href="#Improving_the_article"><span class="tocnumber">2</span> <span class="toctext">Improving the article</span></a></li>
+<li class="toclevel-1"><a href="#Renormalisation"><span class="tocnumber">3</span> <span class="toctext">Renormalisation</span></a></li>
+<li class="toclevel-1"><a href="#Encoding_shorter_than_entropy_is_misleading"><span class="tocnumber">4</span> <span class="toctext">Encoding shorter than entropy is misleading</span></a></li>
+<li class="toclevel-1"><a href="#The_relationship_between_arithmetic_coding_and_Huffman"><span class="tocnumber">5</span> <span class="toctext">The relationship between arithmetic coding and Huffman</span></a></li>
+<li class="toclevel-1"><a href="#Range_coding_and_arithmetic_coding"><span class="tocnumber">6</span> <span class="toctext">Range coding and arithmetic coding</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Range_coding_and_arithmetic_coding_patents"><span class="tocnumber">6.1</span> <span class="toctext">Range coding and arithmetic coding patents</span></a></li>
+<li class="toclevel-2"><a href="#Changes_to_this_subsection_of_the_article"><span class="tocnumber">6.2</span> <span class="toctext">Changes to this subsection of the article</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">7</span> <span class="toctext">Applications</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Entropy_number_wrong" id="Entropy_number_wrong"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html" title="Edit section: Entropy number wrong">edit</a>]</span> <span class="mw-headline">Entropy number wrong</span></h2>
+<p>I think the entropy estimate in the example is wrong. Each character seems to contain (-log2(.6) * .6) + (-log2(.2) * .2) + (-log2(.1) * .1) + (-log2(.1) * .1) = 1.57 bits of entropy. Ignoring the fact that an end of message only occurs at the end (which would reduce entropy of the entire message), a three character message like the example would have an entropy of 3*1.57=4.71. The article says 7.381.</p>
+<p>As a check; you could actually encode any three character message of a four symbol alphabet in only 6 bits by simply assigning a 2 bit code to each of the inputs. Our example must have less entropy because the probabilities are skewed away from .25/.25/.25/.25. Mfinn68916 15:53, 27 March 2007 (UTC)</p>
+<p><a name="Improving_the_article" id="Improving_the_article"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html" title="Edit section: Improving the article">edit</a>]</span> <span class="mw-headline">Improving the article</span></h2>
+<p><i>(note: these comments on improving the article were originally left on my talk page; I've taken the liberty of copying them here to start discussion of where the article can be improved.)</i></p>
+<p>I still think my version is better for a few reasons. The main one is that the article jumps right into an example, which it then interrupts with a discussion. I think it is better to start with an analogy describing the method. Follow this with a complete example of the simple static case. Then discuss the adaptive case. And those diagrams in the history looked interesting, too. It was a shame to discard them.<br /></p>
+<p>And in general, the prose is too wordy, with too many asides within sentences. Go for simpler sentence structure, with fewer words. I don't have the page in front of me, but I remember the first sentence had these flaws. There was no need to define a message within the definition of arithmetic coding. A separate sentence would flow better.<br /></p>
+<p>And finally, I feel it would be better to do the examples in binary rather than decimal. It is just as easy, and that's really how the algorithm works in any implementation I've seen. To do it in decimal is analogous, but needlessly confusing. And speaking of analogies, your algorithm is an analogy as well. The real algorithm doesn't calculate all the interval endpoints; it just calculates the two it needs at each stage. And the decoding works more like how I described, by scaling the intervals to [0, 1) at each step.<br /></p>
+<p>I know my version was not finished, but it had some of the elements I describe here. Could you look at it again and see if it may be possible to work some of it into yours? Scottcraig 08:08, 13 Nov 2004 (UTC)</p>
+<dl>
+<dd>I think it would be better to begin discussion of these one at a time. I'll start with the issue of simplifications; there are two simplifications that you're complaining about here. The first is doing the example in decimal, when the actual computer will almost certainly be doing it in binary. You say "it is just as easy" for someone trying to grasp the basic concept of arithmetic coding to follow an example in binary as in decimal. Can you actually tell us why you think that? Among all the computer scientists and programmers I know, I don't know anyone who thinks in binary; I don't know anyone who finds it "just as easy" as decimal. We're trying to get across the basic concept of arithmetic coding; even if (for the sake of argument) 90% of our audience found binary just as easy as decimal, and only 10% found it an obstacle to following the obstacle and understand the principle illustrated, there's no reason to throw <i>any</i> unneeded obstacle in the path of the readers.</dd>
+</dl>
+<dl>
+<dd>The second simplification is showing the algorithm as if the calculation was performed with infinite precision at each step and then converted to digits only at the end of the calculation. I think this is the proper way to introduce the concept -- which is a <i>hard concept</i> for those who don't already understand it -- that this mathematical interval actually contains the whole message we encoded into it. We would only obscure understanding of the basic concept by introducing the complication of re-normalization too fast. It <i>would</i> be a good idea to discuss the difference between the simplified version that makes the concept clear and the way it's actually done in production code; I think it would be wiser to discuss those differences <i>after</i> the basic concept has been explained. -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 17:42, 13 Nov 2004 (UTC)</dd>
+</dl>
+<p><a name="Renormalisation" id="Renormalisation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html" title="Edit section: Renormalisation">edit</a>]</span> <span class="mw-headline">Renormalisation</span></h2>
+<p>The description isn't quite accurate. You've left out an important case. Namely when the range is of the form [0111111111..., 1000000000...). Digits are also shifted, just not sent to the output. Scottcraig 20:16, 3 Dec 2004 (UTC)</p>
+<dl>
+<dd>Can you go into more detail about that? I'm not following the example you just gave. -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 20:34, 3 Dec 2004 (UTC)</dd>
+</dl>
+<p>The idea is that there is no limit to how much buffering you might have to do before you can know the correct value for a certain bit. Whenever the start and end of the range match in some number of bits, those bits are known for sure, and can be sent to the output. However, there's no limit to how small the range can get (i.e. how many bits are required to describe it) without any bits matching at all. This is problematic because the encoder and decoder need unlimited buffers.</p>
+<p>To solve this problem, encoders typically use a technique called "bit-stuffing" that wastes a bit, but puts a finite limit on the amount of buffering required. Conceptually, bit stuffing puts a zero bit in the middle of a long string of 1 bits to limit the number of bits that can be flipped by a carry. So, for instance, you might find that you have reduced the range to [.01111111, .10000000). If your encoder/decoder has only 8 bits of buffer, you're toast because you still don't know what that first bit will be. However, in this situation, you can stuff a zero bit after the 7th bit, thereby representing this range as [0111111<b>0</b>1, 0111111<b>1</b>0). The extra digit in the 8th position has "absorbed" the carry from subsequent bits. Now you have 7 known bits, and you can send them to the output. Strictly speaking, this representation is no longer truly binary: the bit-stuffed sequence "0111111<b>1</b>0" is equivalent to the binary fraction ".10000000". --<a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a> 20:37, Dec 21, 2004 (UTC)</p>
+<dl>
+<dd>I believe I understand now. What confused me was describing a "range" but marking it in interval notation instead. The important part is that the range can get smaller but will <i>not</i> always naturally converge to matching initial digits; however, when such convergence fails to occur naturally, nothing stops the encoder from voluntarily limiting its range to create such matching initial digits, which it does and then proceeds to renormalize. Is that correct? -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 23:31, 21 Dec 2004 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I never looked at it that way. Since the range [.0111111, .1000000) is too hard to deal with for practical reasons, we take all the messages that would have been mapped to that interval and re-map them to the new interval [.01111110, 0.1111111), which is half of the original interval. From that point of view, the encodings are still perfectly valid binary fractions; it's just that the encoding interval [0,1) has some holes in it due to the practical limitations of the encoder/decoder. --<a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a> 01:47, Dec 22, 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p>I will explain more thoroughly. I had assumed you had known about this already and only had to remind you, which is why I kept it short. I didn't see your question until today.</p>
+<p>Suppose the current interval is [0111111111..., 1000000000...) to a large number of digits, with more symbols to encode. Now the left endpoint may move above 1/2, in which case both ends will start with 10000... . But the right endpoint could move below 1/2, in which case both ends start with 0111111... . But if all those digits are kept until either case happens, then all the precision is lost. So instead of this, we shift both endpoints past the 0111... and 1000... parts, keeping a count of the number of shifts. When case 1 or 2 eventually happens, we can output the correct digits. If neither has occurred and there are no more symbols, just output 10000... to the saved number of 0s. Scottcraig 07:53, 22 Dec 2004 (UTC)</p>
+<dl>
+<dd>I see. That's different from bit stuffing. I wonder why people do bit stuffing when this seems so much simpler and better? --<a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a> 15:36, Dec 22, 2004 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>There are pros and cons to both. The original way achieves better compression. But it does not work so well with streaming data. It pauses, processing some symbols, then outputs a burst. I suppose this is why bit stuffing was developed. (I hadn't heard of it before. Thanks.) Bit stuffing ensures that every byte is sent as processed, at a slight cost. It's not that these situations occur that often anyway, so there wouldn't be much penalty. But it may be necessary to ensure that the pausing never occurs, I suppose. There is also a slight possibility that the stream may pause for so long that the number of shifts wraps around. This seems extremely unlikely, but bit-stuffing prevents it.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Actually, the whole discussion of renormalization concerns the specific implementation of the algorithm, not the algorithm itself. If we can't talk about the binary implementation, then the topic of renormalization is pretty well disconnected from anything else.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>No one ever said we couldn't talk about the binary implementation. What was objected to was the idea that we should do <i>all the examples</i> in binary, on the assumption that someone who does not yet understand the basic idea of arithmetic coding and is coming to this article to learn will find it no obstacle at all to have the only demonstrations of the central concept in binary rather than decimal arithmetic. -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 07:04, 23 Dec 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>The topic arises by answering the question, "Which bits can we store?"</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Consider the current interval endpoints as a binary fraction, say xx...xx0abcdefgh... and xx...xx1ijklmnop... . They agree on the first part, and any subsequent narrowing will as well, so these bits can be sent to output. At the first difference, the left always has a 0, and the right has a 1. These can't be sent out yet, but they don't need to be stored either. So start storing from there, 16 bits each or what have you.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>But if we stop here, then the problem under discussion arises. If the left starts with 01111, and the right starts with 10000, then storing the 1111 and 0000 robs some precision. (Remember the initial 0 and 1 are not stored anyway.) Because we know that eventually the 01111 will flip to 10000, or vice versa. If the string length goes past 16 (or what have you) bits, then the algorithm hits a wall with no way to recover. So instead, keep a counter of the length that will be output when we know if it's 0111... or 1000..., and store the 16 bits after that.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>So suppose at the current step, we are storing three variables as unsigned ints: n, left, and right. Then not counting the bits already output, the endpoints are 2<sup>16</sup>*(2<sup>n</sup>-1) + left, and 2<sup>n+16</sup> + right. i.e., 01111leftbits and 10000rightbits. Note that left can be greater than right.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Next suppose that the next encoded symbol reduces the interval to a/c to b/c of the current one. (The data model must use fractions.)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>The current interval has a width of 2<sup>16</sup> + right - left, or w = right + not(left) + 1, which is always positive. Then the new interval is left&#160;:= left + (w div c) * a, to right&#160;:= left + (w div c) * b, with adjustments still to be made depending on overflow in the calculations. Step 1 Case a) The calculation of left overflows, then the left end has moved above the half mark. Output 10...0 and set n to 0. Case b) The calculation of right does not overflow, then the right point has moved below the half mark. Output 01...1 and set n to 0. Case c) left does not overflow and right does. Do nothing. Step 2) In cases a or b, output the common starting digits and shift left. Step 3) If (0)111/(1)000 occurs, shift left while incrementing n.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I'm not really sure if all the above details are correct; there may be some off by one errors or the like. I'm sure the correct code can be found. I just don't have it in front of me. Scottcraig 05:28, 23 Dec 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>In the first table under the heading: <b>Interval reduced to eight-bit precision (as fractions)</b>, the denominators in the fractions are 256. Should they not be 255? 60.234.137.171 19:43, 18 March 2007 (UTC)</li>
+</ul>
+<p><a name="Encoding_shorter_than_entropy_is_misleading" id="Encoding_shorter_than_entropy_is_misleading"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html" title="Edit section: Encoding shorter than entropy is misleading">edit</a>]</span> <span class="mw-headline">Encoding shorter than entropy is misleading</span></h2>
+<p>The article used to contain this text:</p>
+<blockquote>
+<p>...we could have encoded the same message in the binary fraction .1000101 (equivalent to .5390625 decimal) at a cost of only 7 bits. This is actually <i>shorter</i> than the information content, or <a href="../../../i/n/f/Information_entropy.html" title="Information entropy">entropy</a> of our message, which with a probability of 0.6% has an entropy of approximately 7.381 bits.</p>
+</blockquote>
+<p>I have changed this because it is misleading. The fact is that giving the binary fraction as ".1000101" is ambiguous; these same bits can start any binary fraction in the range [.1000101, .1000110). For instance, both sequences "10001010" and "10001011" would start with the same bits, but one would decode to "NEUTRAL, NEGATIVE, END" while the other decodes to "NEUTRAL, END".</p>
+<p>This is a subtle problem. We, as humans looking at the fraction ".1000101", know that all the subsequent bits must be zeoro. How do we know that? Because the symbol following the final "1" is a quote mark, which indicates that the fraction ends at that point. We have cheated, and implicitly added an extra symbol to the encoding. In a computer, there are two ways to deal with this problem:</p>
+<ol>
+<li>Add enough bits to make the fraction unambiguous. In this case, adding another zero bit makes the encoding unambiguous, in that subsequent bits don't affect the message. Now our encoding is 8 bits, which is more than the message's entropy.</li>
+<li>Encode the length of the stream in out-of-band data. This is an acceptable real-world solution, since filesystems do store file sizes in their metadata, but now the metadata must be included in theoretical discussions of message length.</li>
+</ol>
+<p>In either case, <a href="../../../c/l/a/Claude_Shannon_8ca9.html" title="Claude Shannon">Claude Shannon</a> rests happily in his grave. --<a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a> 19:43, Dec 21, 2004 (UTC)</p>
+<dl>
+<dd>Of course the encoding of a particular message can be shorter than its entropy. The title of this section is just wrong.</dd>
+</dl>
+<dl>
+<dd>Shannon's result is that no encoding scheme can encode every message shorter than its entropy. This does not preclude the possibility that some are shorter, as long as some are not.</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Fair enough. I have renamed this section, and removed the contentious statements from my explanation above. But what you describe is not what happened here. I think my explanation given above is correct, and it has nothing to do with decimal representation. --<a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a> 20:41, Dec 21, 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>On the other hand, you have uncovered a problem with the article. The ambiguity you describe comes from performing the encoding in decimal before converting to binary. I would prefer to do everything in binary. I think this would be much clearer, and provide the motivation for arithmetic coding in the first place. But others feel that requiring familiarity with binary would be too burdensome for our audience. As a result, the description lacks motivation, and has problems like the one you found. Scottcraig 20:15, 21 Dec 2004 (UTC)</dd>
+</dl>
+<dl>
+<dd>Ooops. Thanks for catching that; I hadn't realized that "10001011" would decode to a different symbol stream than "10001010". Perhaps you could add something to the article about how a decoder knows it's added enough digits to make the end result truly un-ambiguous?</dd>
+</dl>
+<dl>
+<dd>At the risk of making myself look even more like a dunce than I do, I also have to question your statement that a message's encoding can't be shorter than its entropy. That is certainly true over the set of <i>all</i> messages, that the total of their encodings will always be more than the total of their entropies. But consider a set of symbols such that one symbol, let's call it A, has a probability of <i>just</i> less than .5, and the least probable symbol still has a probability greater than (.5 - p(A)). <i>(Hope I got that notation right...)</i></dd>
+</dl>
+<dl>
+<dd>Anyways, under those conditions, those symbol probabilities would produce a Huffman tree that assigns A a one-bit code -- and yet the entropy of A must be greater than 1 bit, since its probability is less than .5. Every time an A appears, then, the cost of the encoding goes up by 1, but the total entropy of the message goes up by more than 1. With that being the case, doesn't it follow that to create a message whose encoding was shorter than its entropy, all we would need to do is take any message which did <i>not</i> meet that criteria and add A's until it did? -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 20:59, 21 Dec 2004 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Agreed. I was wrong to say that no message can ever be encoded in fewer bits than its entropy. --<a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a> 21:12, Dec 21, 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="The_relationship_between_arithmetic_coding_and_Huffman" id="The_relationship_between_arithmetic_coding_and_Huffman"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html" title="Edit section: The relationship between arithmetic coding and Huffman">edit</a>]</span> <span class="mw-headline">The relationship between arithmetic coding and Huffman</span></h2>
+<p>Could Antaeus Feldspar give a reference to e.g. a scientific paper that proves "it has been shown that Huffman is just a specialized case of arithmetic coding"? It is clear to me that in the case of the probabilities of the symbols being 2^(-n) n=(1,...) , then Huffman and the arithmetic coder get the same results. But this is not showing that Huffman is a special case of the arithmetic coding?! I don't believe that "Huffman is a special case of arithmetic coding" but that there are cases were both algorithms work identically?? -- stef@nstrahl.de 18:10, 16 Feb 2005 (CET)</p>
+<dl>
+<dd>No, I do not have a reference in the literature for this. My understanding that Huffman had been at some point formally proven to be a specialized case of arithmetic coding was based on years of subscribing to the Usenet newsgroup comp.compression. I would be unable at this point to find the exact post(s) where that claim was made. If you feel you have a better phrasing for the relationship between arithmetic coding and Huffman coding, by all means present it for consideration. -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 00:54, 17 Feb 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Thanks for the reference to comp.compression. If found <a href="http://groups.google.de/groups?hl=de&amp;lr=&amp;selm=3ogjm9%24fpr%40geraldo.cc.utexas.edu" class="external autonumber" title="http://groups.google.de/groups?hl=de&amp;lr=&amp;selm=3ogjm9%24fpr%40geraldo.cc.utexas.edu" rel="nofollow">[2]</a> where Charles Bloom gives a reference to his paper <a href="http://www.cbloom.com/papers/bre_ps.zip" class="external text" title="http://www.cbloom.com/papers/bre_ps.zip" rel="nofollow">Binary Range Encoding - A New Entropy Encoder</a> in which he joins Shannon-Fano, Huffman, and arithmetic Coders into a theoretical framework. I haven't read it yet but I think this will give the prove. I'll report more details if I have done so. -- stef@nstrahl.de 22:01, 16 Feb 2005 (CET)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>That probably <i>is</i> it. Bloom was/is one of the most prolific and most knowledgeable c.c posters and I always tried to keep up with his posts. -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 00:35, 19 Feb 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Range_coding_and_arithmetic_coding" id="Range_coding_and_arithmetic_coding"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html" title="Edit section: Range coding and arithmetic coding">edit</a>]</span> <span class="mw-headline">Range coding and arithmetic coding</span></h2>
+<p>The article currently mentions <a href="../../../r/a/n/Range_coding.html" title="Range coding">range coding</a> (which is a good thing for it to do), but it does seem to support what I understand to be some common misconceptions about range coding in relation to arithmetic coding.</p>
+<p>I've already expounded on this in <a href="../../../r/a/n/Talk%7ERange_encoding_f1ca.html#Range_encoding_and_arithmetic_encoding" title="Talk:Range encoding">Talk:Range encoding#Range encoding and arithmetic encoding</a>, but the key points are:-</p>
+<ol>
+<li>Range coding seems to be a different interpretation of the same thing, rather than being a different thing itself.
+<ol>
+<li>As I understand it, all range coders (decoders/encoders) are the corresponding arithmetic coders, and vice-versa. (It's just a matter of what you interpret the actual range/arithmetic code as being. You could interpret it as being an arithmetic code in the usual way, or you could interpret it as being the common prefix of a range of natural numbers (non-negative integers), in the usual range coding way.)</li>
+<li>Differences in renormalisation are implementational, and there's no reason why byte-based renormalisation can't be applied in implementations of arithmetic coding.</li>
+</ol>
+</li>
+<li>Although <i><b>I am not a lawyer</b></i>, it does seem that the 'myth' that arithmetic-coding-applicable patents don't apply to range coding relies on range coding being different to arithmetic coding. I strongly suspect it's a myth, a rumour that keeps getting (unwisely) propagated. But, as I said, <i><b>I am not a lawyer.</b></i> More on this below.</li>
+</ol>
+<p>--<a href="../../../s/i/m/User%7ESimon_G_Best_ceea.html" title="User:Simon G Best">Simon G Best</a> 17:24, 20 July 2006 (UTC)</p>
+<p><a name="Range_coding_and_arithmetic_coding_patents" id="Range_coding_and_arithmetic_coding_patents"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html" title="Edit section: Range coding and arithmetic coding patents">edit</a>]</span> <span class="mw-headline">Range coding and arithmetic coding patents</span></h3>
+<p>The article says:-</p>
+<blockquote>
+<p>Range encoding, unlike arithmetic coding, is generally believed not to be covered by any company's patents.</p>
+</blockquote>
+<p>Source? It's a rumour I've come across quite a number of times, now, but I strongly suspect it's a myth (as range coding and arithmetic coding do seem to be the same thing (just interpreted in two, different ways)). I'm certainly doubtful that it's "<i>generally</i> believed", as there seems to be no shortage of people who look at range coding, and conclude that it's really just arithmetic coding interpreted a different way. (In my experience, this kind of observation seems to be made, by someone or other, whenever range coding comes up on the net. (And no, not just by me&#160;:o) ).) "Rumoured" might be better than "generally believed".</p>
+<p>I should emphasise, of course, that <i><b>I am not a lawyer.</b></i></p>
+<p>--<a href="../../../s/i/m/User%7ESimon_G_Best_ceea.html" title="User:Simon G Best">Simon G Best</a> 17:24, 20 July 2006 (UTC)</p>
+<p><a name="Changes_to_this_subsection_of_the_article" id="Changes_to_this_subsection_of_the_article"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html" title="Edit section: Changes to this subsection of the article">edit</a>]</span> <span class="mw-headline">Changes to this subsection of the article</span></h3>
+<p>(I've added a subsection heading for this, so that it doesn't seem to be part of the preceding subsection on patents. --<a href="../../../s/i/m/User%7ESimon_G_Best_ceea.html" title="User:Simon G Best">Simon G Best</a> 21:38, 20 July 2006 (UTC))</p>
+<p>I've now edited the subsection of the article on range encoding to clarify and expand upon the relationship between range coding and arithmetic coding. It was a bit of a rewrite. The article on <a href="../../../r/a/n/Range_encoding.html" title="Range encoding">range encoding</a> needs to be brought into line with these changes, which I may well do. It's just too hot and humid here, right now. Especially humid.</p>
+<p>--<a href="../../../s/i/m/User%7ESimon_G_Best_ceea.html" title="User:Simon G Best">Simon G Best</a> 21:34, 20 July 2006 (UTC)</p>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p>What common programs/file formats/standards use Arithmetic coding? --<a href="../../../a/p/o/User%7EApoc2400_9496.html" title="User:Apoc2400">Apoc2400</a> 08:18, 10 October 2006 (UTC)</p>
+<dl>
+<dd><a href="../../../b/z/i/Bzip.html" title="Bzip">bzip</a> (ok, not exactly common, sadly), <a href="../../../p/a/q/PAQ_6f5f.html" title="PAQ">PAQ</a>, most <a href="../../../p/p/m/PPM_compression_algorithm_dc92.html" title="PPM compression algorithm">PPM</a> implementations, <a href="../../../d/j/v/DjVu_a16f.html" title="DjVu">DjVu</a>, <a href="../../../j/b/i/JBIG_d796.html" title="JBIG">JBIG</a>/<a href="../../../j/b/i/JBIG2_ec4e.html" title="JBIG2">JBIG2</a>, <a href="../../../j/p/e/JPEG_2000_17a0.html" title="JPEG 2000">JPEG 2000</a>, <a href="../../../h/2E/2/H.264_MPEG-4_AVC_e044.html" title="H.264/MPEG-4 AVC">H.264/MPEG-4 AVC</a>... --<a href="../../../p/i/e/User%7EPiet_Delport_08f7.html" title="User:Piet Delport">Piet Delport</a> 01:21, 11 October 2006 (UTC)</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/i/Talk%7EArithmetic_coding_ad99.html">http://en.wikipedia.org../../../a/r/i/Talk%7EArithmetic_coding_ad99.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/r/i/Arithmetic_coding.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/r/i/Talk%7EArithmetic_coding_ad99.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Arithmetic_coding">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 15:53, 27 March 2007 by Wikipedia user Mfinn68916. Based on work by Wikipedia user(s) <a href="../../../p/i/e/User%7EPiet_Delport_08f7.html" title="User:Piet Delport">Piet Delport</a>, <a href="../../../a/p/o/User%7EApoc2400_9496.html" title="User:Apoc2400">Apoc2400</a>, <a href="../../../s/i/m/User%7ESimon_G_Best_ceea.html" title="User:Simon G Best">Simon G Best</a>, <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a>, Scottcraig, <a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a>, <a href="../../../g/n/o/User%7EGnomz007_d993.html" title="User:Gnomz007">Gnomz007</a>, <a href="../../../s/s/d/User%7ESsd_e9c6.html" title="User:Ssd">Ssd</a> and <a href="../../../e/j/r/User%7EEjrh_42e6.html" title="User:Ejrh">Ejrh</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

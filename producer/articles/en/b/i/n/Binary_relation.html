@@ -1,0 +1,334 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Binary relation,Affine space,Antisymmetric relation,Arithmetic,Asymmetric relation,Axiomatic set theory,Bijection,Cartesian product,Category theory,Class (mathematics),Codomain" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Binary relation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Binary relation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, a <b>binary relation</b> (or a <b>dyadic relation</b>) is an arbitrary association of elements of one <a href="../../../s/e/t/Set_%28mathematics%29.html" title="Set (mathematics)">set</a> with elements of another (perhaps the same) set.</p>
+<p>An example is the "divides" relation between the set of <a href="../../../p/r/i/Prime_number.html" title="Prime number">prime numbers</a> <b>P</b> and the set of <a href="../../../i/n/t/Integer.html" title="Integer">integers</a> <b>Z</b>, in which every prime <i>p</i> is associated to every integer <i>z</i> that is a <a href="../../../d/i/v/Divisibility.html" title="Divisibility">multiple</a> of <i>p</i>. In this relation, for instance, the prime 2 is associated to numbers that include -4, 0, 6, 10, but not 1 or 9; and the prime 3 is associated with numbers that include 0, 6, and 9, but not 4 or 13.</p>
+<p>Binary relations are used in many branches of mathematics to model concepts like "is greater than", "is equal to", and "divides" in <a href="../../../a/r/i/Arithmetic.html" title="Arithmetic">arithmetic</a>, "is congruent to" in <a href="../../../g/e/o/Geometry.html" title="Geometry">geometry</a>, "is adjacent to" in <a href="../../../g/r/a/Graph_theory.html" title="Graph theory">graph theory</a>, and many more. The all-important concept of <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">function</a> is defined as a special case of binary relation. Binary relations are also heavily used in computer science, especially within the <a href="../../../r/e/l/Relational_model.html" title="Relational model">relational model</a> for <a href="../../../d/a/t/Database.html" title="Database">databases</a>.</p>
+<p>A binary relation is a special case of a <a href="../../../r/e/l/Relation_%28mathematics%29.html" title="Relation (mathematics)"><i>k</i>-ary relation</a>, that is, a set of <i>k</i>-tuples where the <i>j</i><sup>th</sup> component of each <i>k</i>-tuple is taken from the <i>j</i><sup>th</sup> domain <i>X</i><sub><i>j</i></sub> of the relation.</p>
+<p>In some systems of <a href="../../../a/x/i/Axiomatic_set_theory.html" title="Axiomatic set theory">axiomatic set theory</a>, relations are extended to <a href="../../../c/l/a/Class_%28mathematics%29.html" title="Class (mathematics)">classes</a>, which are generalizations of sets. This extension is needed for, among other things, modeling the concepts of "is an element of" or "is a subset of" in <a href="../../../s/e/t/Set_theory.html" title="Set theory">set theory</a>, without running into logical inconsistencies such as <a href="../../../r/u/s/Russell%27s_paradox.html" title="Russell's paradox">Russell's paradox</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Formal_definition"><span class="tocnumber">1</span> <span class="toctext">Formal definition</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Is_a_relation_more_than_its_graph.3F"><span class="tocnumber">1.1</span> <span class="toctext">Is a relation more than its graph?</span></a></li>
+<li class="toclevel-2"><a href="#Example"><span class="tocnumber">1.2</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Special_types_of_binary_relations"><span class="tocnumber">2</span> <span class="toctext">Special types of binary relations</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Total_or_partial"><span class="tocnumber">2.1</span> <span class="toctext">Total or partial</span></a></li>
+<li class="toclevel-2"><a href="#Functional.2C_injective.2C_surjective.2C_bijective"><span class="tocnumber">2.2</span> <span class="toctext">Functional, injective, surjective, bijective</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Relations_over_a_set"><span class="tocnumber">3</span> <span class="toctext">Relations over a set</span></a></li>
+<li class="toclevel-1"><a href="#Operations_on_binary_relations"><span class="tocnumber">4</span> <span class="toctext">Operations on binary relations</span></a></li>
+<li class="toclevel-1"><a href="#Sets_versus_classes"><span class="tocnumber">5</span> <span class="toctext">Sets versus classes</span></a></li>
+<li class="toclevel-1"><a href="#Examples_of_common_binary_relations"><span class="tocnumber">6</span> <span class="toctext">Examples of common binary relations</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Formal_definition" id="Formal_definition"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Formal definition">edit</a>]</span> <span class="mw-headline">Formal definition</span></h2>
+<p>A binary relation <i>R</i> is usually defined as an ordered triple (<i>X</i>, <i>Y</i>, <i>G</i>) where <i>X</i> and <i>Y</i> are arbitrary sets (or classes), and <i>G</i> is a <a href="../../../s/u/b/Subset.html" title="Subset">subset</a> of the <a href="../../../c/a/r/Cartesian_product.html" title="Cartesian product">Cartesian product</a> <i>X</i> × <i>Y</i>. The sets <i>X</i> and <i>Y</i> are called the <b><a href="../../../d/o/m/Domain_%28mathematics%29.html" title="Domain (mathematics)">domain</a></b> and <b><a href="../../../c/o/d/Codomain.html" title="Codomain">codomain</a></b>, respectively, of the relation, and <i>G</i> is called its <a href="../../../g/r/a/Graph.html" title="Graph">graph</a>.</p>
+<p>The statement (<i>x</i>,<i>y</i>) ∈ <i>G</i> is read "<i>x</i> <b>is</b> <i>R</i><b>-related to</b> <i>y</i>", and is denoted by <i>xRy</i> or <i>R</i>(<i>x</i>,<i>y</i>). The latter notation corresponds to viewing <i>R</i> as the <a href="../../../i/n/d/Indicator_function.html" title="Indicator function">characteristic function</a> of the set of pairs <i>G</i>.</p>
+<p>The order of the elements in each pair of <i>G</i> is important: if <i>a</i> ≠ <i>b</i>, then <i>aRb</i> and <i>bRa</i> can be true or false, independently of each other.</p>
+<p><a name="Is_a_relation_more_than_its_graph.3F" id="Is_a_relation_more_than_its_graph.3F"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Is a relation more than its graph?">edit</a>]</span> <span class="mw-headline">Is a relation more than its graph?</span></h3>
+<p>According to the definition above, two relations with the same graph may be different, if they differ in the sets <i>X</i> and <i>Y</i>. For example, if <i>G</i> = {(1,2),(1,3),(2,7)}, then (<b>Z</b>,<b>Z</b>, <i>G</i>), (<b>R</b>, <b>N</b>, <i>G</i>), and (<b>N</b>, <b>R</b>, <i>G</i>) are three distinct relations.</p>
+<p>Some mathematicians do not consider the sets <i>X</i> and <i>Y</i> to be part of the relation, and therefore define a binary relation as being a subset of <i>X</i>×<i>Y</i>, i.e. just the graph <i>G</i>. According to this view, the set of pairs {(1,2),(1,3),(2,7)} is a relation from any set that contains {1,2} to any set that contains {2,3,7}.</p>
+<p>Either approach is adequate for most uses, provided that one attends to the necessary changes in language, notation, and the definitions of concepts like <a href="../../../r/e/s/Restriction_%28mathematics%29.html" title="Restriction (mathematics)">restrictions</a>, <a href="../../../c/o/m/Composition_of_relations.html" title="Composition of relations">composition</a>, <a href="../../../i/n/v/Inverse_relation.html" title="Inverse relation">inverse relation</a>, and so on. The choice between the two definitions usually matters only in very formal contexts, like <a href="../../../c/a/t/Category_theory.html" title="Category theory">category theory</a>.</p>
+<p><a name="Example" id="Example"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h3>
+<p>Example: Suppose there are four objects: {ball, car, doll, gun} and four persons: {John, Mary, So, Venus}. Suppose that John owns the ball, Mary owns the doll, and Venus owns the car. No one owns the gun and So owns nothing. Then the binary relation "is owned by" is given as</p>
+<dl>
+<dd><i>R</i>=({ball, car, doll, gun}, {John, Mary, So, Venus}, {(ball, John), (doll, Mary), (car, Venus)}).</dd>
+</dl>
+<p>Thus the first element of R is the set of objects, the second is the set of people, and the last element is a set of ordered pairs of the form ( object, owner ).</p>
+<p>The pair (ball, John), denoted by <sub>ball</sub><i>R</i><sub>John</sub> means that the ball is owned by John.</p>
+<p>Two different relations could have the same graph. For example: the relation</p>
+<dl>
+<dd>({ball, car, doll, gun}, {John, Mary, Venus}, {(ball,John), (doll, Mary), (car, Venus)})</dd>
+</dl>
+<p>is different from the previous one as everyone is an owner. But the graphs of the two relations are the same.</p>
+<p>Nevertheless, <i>R</i> is usually identified or even defined as G(<i>R</i>) and "an ordered pair (<i>x</i>, <i>y</i>) ∈ G(<i>R</i>)" is usually denoted as "(<i>x</i>, <i>y</i>) ∈ <i>R</i>".</p>
+<p><a name="Special_types_of_binary_relations" id="Special_types_of_binary_relations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Special types of binary relations">edit</a>]</span> <span class="mw-headline">Special types of binary relations</span></h2>
+<p>Some important classes of binary relations <i>R</i> over <i>X</i> and <i>Y</i> are listed below</p>
+<p><a name="Total_or_partial" id="Total_or_partial"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Total or partial">edit</a>]</span> <span class="mw-headline">Total or partial</span></h3>
+<ul>
+<li><b>left-total</b>: for all <i>x</i> in <i>X</i> there exists a <i>y</i> in <i>Y</i> such that <i>xRy</i> (this property, although sometimes also referred to as <i>total</i>, is different from the definition of <i>total</i> in the next section).</li>
+<li><b>right-total</b> or surjective: for all <i>y</i> in <i>Y</i> there exists an <i>x</i> in <i>X</i> such that <i>xRy</i>.</li>
+</ul>
+<p><a name="Functional.2C_injective.2C_surjective.2C_bijective" id="Functional.2C_injective.2C_surjective.2C_bijective"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Functional, injective, surjective, bijective">edit</a>]</span> <span class="mw-headline">Functional, injective, surjective, bijective</span></h3>
+<ul>
+<li><b>functional</b> (also called right-definite): for all <i>x</i> in <i>X</i>, and <i>y</i> and <i>z</i> in <i>Y</i> it holds that if <i>xRy</i> and <i>xRz</i> then <i>y</i> = <i>z</i>.</li>
+<li><b>surjective</b>: for all <i>y</i> in <i>Y</i> there exists an <i>x</i> in <i>X</i> such that <i>xRy</i>.</li>
+<li><b>injective</b>: for all <i>x</i> and <i>z</i> in <i>X</i> and <i>y</i> in <i>Y</i> it holds that if <i>xRy</i> and <i>zRy</i> then <i>x</i> = <i>z</i>.</li>
+<li><b>bijective</b>: left-total, right-total, functional, and injective.</li>
+</ul>
+<p>A binary relation that is functional (or right-definite) is called a <a href="../../../p/a/r/Partial_function.html" title="Partial function">partial function</a>; a binary relation that is both left-total and functional is called a <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">function</a>.</p>
+<p><a name="Relations_over_a_set" id="Relations_over_a_set"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Relations over a set">edit</a>]</span> <span class="mw-headline">Relations over a set</span></h2>
+<p>If <i>X</i> = <i>Y</i> then we simply say that the binary relation is over <i>X</i>. Or it is an <b>endorelation</b> over <i>X</i>.</p>
+<p>Some important classes of binary relations over a set <i>X</i> are:</p>
+<ul>
+<li><b><a href="../../../r/e/f/Reflexive_relation.html" title="Reflexive relation">reflexive</a></b>: for all <i>x</i> in <i>X</i> it holds that <i>xRx</i>. For example, "greater than or equal to" is a reflexive relation but "greater than" is not.</li>
+<li><b><a href="../../../i/r/r/Irreflexive_relation.html" title="Irreflexive relation">irreflexive</a></b>: for all <i>x</i> in <i>X</i> it holds that <b>not</b> <i>xRx</i>. "Greater than" is an example of an irreflexive relation.</li>
+<li><b>coreflexive</b>: for all <i>x</i> and <i>y</i> in <i>X</i> it holds that if <i>xRy</i> then <i>x</i> = <i>y</i>.</li>
+<li><b><a href="../../../s/y/m/Symmetric_relation.html" title="Symmetric relation">symmetric</a></b>: for all <i>x</i> and <i>y</i> in <i>X</i> it holds that if <i>xRy</i> then <i>yRx</i>. "Is a blood relative of" is a symmetric relation, because <i>x</i> is a blood relative of <i>y</i> if and only if <i>y</i> is a blood relative of <i>x</i>.</li>
+<li><b><a href="../../../a/n/t/Antisymmetric_relation.html" title="Antisymmetric relation">antisymmetric</a></b>: for all <i>x</i> and <i>y</i> in <i>X</i> it holds that if <i>xRy</i> and <i>yRx</i> then <i>x</i> = <i>y</i>. "Greater than or equal to" is an antisymmetric relation, because if <i>x</i>≥<i>y</i> and <i>y</i>≥<i>x</i>, then <i>x</i>=<i>y</i>.</li>
+<li><b><a href="../../../a/s/y/Asymmetric_relation.html" title="Asymmetric relation">asymmetric</a></b>: for all <i>x</i> and <i>y</i> in <i>X</i> it holds that if <i>xRy</i> then <b>not</b> <i>yRx</i>. "Greater than" is an asymmetric relation, because if <i>x</i>&gt;<i>y</i> then not <i>y</i>&gt;<i>x</i>.</li>
+<li><b><a href="../../../t/r/a/Transitive_relation.html" title="Transitive relation">transitive</a></b>: for all <i>x</i>, <i>y</i> and <i>z</i> in <i>X</i> it holds that if <i>xRy</i> and <i>yRz</i> then <i>xRz</i>. "Is an ancestor of" is a transitive relation, because if <i>x</i> is an ancestor of <i>y</i> and <i>y</i> is an ancestor of <i>z</i>, then <i>x</i> is an ancestor of <i>z</i>.</li>
+<li><b><a href="../../../t/o/t/Total_relation.html" title="Total relation">total</a></b> (or <b>linear</b>): for all <i>x</i> and <i>y</i> in <i>X</i> it holds that <i>xRy</i> or <i>yRx</i> (or both). "Is greater than or equal to" is an example of a total relation (this definition for <i>total</i> is different from the one in the previous section).</li>
+<li><b>trichotomous</b>: for all <i>x</i> and <i>y</i> in <i>X</i> exactly one of <i>xRy</i>, <i>yRx</i> or <i>x</i> = <i>y</i> holds. "Is greater than" is an example of a trichotomous relation.</li>
+<li><b>Euclidean</b>: for all <i>x</i>, <i>y</i> and <i>z</i> in <i>X</i> it holds that if <i>xRy</i> and <i>xRz</i>, then <i>yRz</i>.</li>
+<li><b>extendable</b> (or <b>serial</b>): for all <i>x</i> in <i>X</i>, there exists <i>y</i> in <i>X</i> such that <i>xRy</i>. "Is greater than" is an extendable relation on the integers. But it is not an extendable relation on the positive integers, because there is no <i>y</i> in the positive integers such that 1&gt;<i>y</i>.</li>
+<li><b>set-like</b>: for every <i>x</i> in <i>X</i>, the class of all <i>y</i> such that <i>yRx</i> is a set. (This makes sense only if we allow relations on proper classes.) The usual ordering &lt; on the class of ordinal numbers is set-like, while its inverse &lt;<sup>-1</sup> is not.</li>
+</ul>
+<p>A relation which is reflexive, symmetric and transitive is called an <a href="../../../e/q/u/Equivalence_relation.html" title="Equivalence relation">equivalence relation</a>. A relation which is reflexive, antisymmetric and transitive is called a <a href="../../../p/a/r/Partial_order.html" title="Partial order">partial order</a>. A partial order which is total is called a <a href="../../../t/o/t/Total_order.html" title="Total order">total order</a> or a <a href="../../../l/i/n/Linear_order.html" title="Linear order">linear order</a> or a chain. A linear order in which every nonempty set has a <a href="../../../l/e/a/Least_element.html" title="Least element">least element</a> is called a <a href="../../../w/e/l/Well-order.html" title="Well-order">well-order</a>.</p>
+<p>A relation which is symmetric, transitive, and extendable is also reflexive.</p>
+<p><a name="Operations_on_binary_relations" id="Operations_on_binary_relations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Operations on binary relations">edit</a>]</span> <span class="mw-headline">Operations on binary relations</span></h2>
+<p>If <i>R</i> is a binary relation over <i>X</i> and <i>Y</i>, then the following is a binary relation over <i>Y</i> and <i>X</i>:</p>
+<ul>
+<li><b><a href="../../../i/n/v/Inverse_relation.html" title="Inverse relation">Inverse</a></b> or <b>converse</b>: <i>R</i>&#160;<sup>-1</sup>, defined as <i>R</i>&#160;<sup>-1</sup> = { (y, x) | (x, y) ∈ <i>R</i> }. A binary relation over a set is equal to its inverse if and only if it is symmetric.</li>
+</ul>
+<p>If <i>R</i> is a binary relation over <i>X</i>, then each of the following are binary relations over <i>X</i>:</p>
+<ul>
+<li><b>Reflexive closure</b>: <i>R</i>&#160;<sup>=</sup>, defined as <i>R</i>&#160;<sup>=</sup> = {(<i>x</i>, <i>x</i>) | <i>x</i> ∈ <i>X</i>} ∪ <i>R</i> or the smallest reflexive relation over <i>X</i> containing <i>R</i>. This can be seen to be equal to the intersection of all reflexive relations containing <i>R</i>.</li>
+<li><b><a href="../../../t/r/a/Transitive_closure.html" title="Transitive closure">Transitive closure</a></b>: <i>R</i>&#160;<sup>+</sup>, defined as the smallest transitive relation over <i>X</i> containing <i>R</i>. This can be seen to be equal to the intersection of all transitive relations containing <i>R</i>.</li>
+<li><b>Transitive-reflexive closure</b>: <i>R</i>&#160;<sup>*</sup>, defined as <i>R</i>&#160;<sup>*</sup> = (<i>R</i>&#160;<sup>+</sup>)&#160;<sup>=</sup>.</li>
+</ul>
+<p>If <i>R</i>, <i>S</i> are binary relations over <i>X</i> and <i>Y</i>, then each of the following are binary relations:</p>
+<ul>
+<li><b>Union</b>: <i>R</i> ∪ <i>S</i> ⊆ <i>X</i> × <i>Y</i>, defined as <i>R</i> ∪ <i>S</i> = {(<i>x</i>, <i>y</i>) | (<i>x</i>, <i>y</i>) ∈ <i>R</i> or (<i>x</i>, <i>y</i>) ∈ <i>S</i>}.</li>
+<li><b>Intersection</b>: <i>R</i> ∩ <i>S</i> ⊆ <i>X</i> × <i>Y</i>, defined as <i>R</i> ∩ <i>S</i> = { (<i>x</i>, <i>y</i>) | (<i>x</i>, <i>y</i>) ∈ <i>R</i> and (<i>x</i>, <i>y</i>) ∈ <i>S</i> }.</li>
+</ul>
+<p>If <i>R</i> is a binary relation over <i>X</i> and <i>Y</i>, and <i>S</i> is a binary relation over <i>Y</i> and <i>Z</i>, then the following is a binary relation over <i>X</i> and <i>Z</i>: (see main article <i><a href="../../../c/o/m/Composition_of_relations.html" title="Composition of relations">composition of relations</a></i>)</p>
+<ul>
+<li><b>Composition</b>: <i>S</i>&#160;<small>o</small>&#160;<i>R</i> (also denoted <i>R</i>&#160;<small>o</small>&#160;<i>S</i>), defined as <i>S</i>&#160;<small>o</small>&#160;<i>R</i> = { (<i>x</i>, <i>z</i>) | there exists <i>y</i> ∈ <i>Y</i>, such that (<i>x</i>, <i>y</i>) ∈ <i>R</i> and (<i>y</i>, <i>z</i>) ∈ <i>S</i> }. The order of <i>R</i> and <i>S</i> in the notation <i>S</i>&#160;<small>o</small>&#160;<i>R</i>, used here agrees with the standard notational order for <a href="../../../c/o/m/Composition_of_functions.html" title="Composition of functions">composition of functions</a>.</li>
+</ul>
+<p><a name="Sets_versus_classes" id="Sets_versus_classes"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Sets versus classes">edit</a>]</span> <span class="mw-headline">Sets versus classes</span></h2>
+<p>Certain mathematical "relations", such as "equal to", "member of", and "subset of", cannot be understood to be binary relations as defined above, because their domains and codomains cannot be taken to be sets in the usual systems of <a href="../../../a/x/i/Axiomatic_set_theory.html" title="Axiomatic set theory">axiomatic set theory</a>.</p>
+<p>For example, if we try to model the general concept of "equality" as a binary relation <span class="texhtml">=</span> , we must take the domain and codomain to be the "set of all sets", which is not a set in the usual set theory. The usual work-around to this problem is to select a "large enough" set <i>A</i>, that contains all the objects of interest, and work with the restriction <span class="texhtml">= <sub><i>A</i></sub></span> instead of <span class="texhtml">=</span> .</p>
+<p>Similarly, the "subset of" relation <img class='tex' src="../../../math/a/0/7/a07903a0504f50f27e2a85c27e47fbd5.png" alt="\subseteq" /> needs to be restricted to have domain and codomain <i>P</i>(<i>A</i>) (the power set of a specific set <i>A</i>): the resulting set relation can be denoted <img class='tex' src="../../../math/d/a/7/da7c795e7dd4c92544942cb1b99c412c.png" alt="\subseteq_A" />. Also, the "member of" relation needs to be restricted to have domain <i>A</i> and codomain <i>P</i>(<i>A</i>) to obtain a binary relation <img class='tex' src="../../../math/f/c/3/fc30c04380a2b3b5331a4a1ed8c39610.png" alt="\in_A" /> which is a set.</p>
+<p>Another solution to this problem is to use a set theory with proper classes, such as <a href="../../../n/b/g/NBG_f39d.html" title="NBG">NBG</a> or <a href="../../../m/o/r/Morse-Kelley_set_theory_4176.html" title="Morse-Kelley set theory">Morse-Kelley set theory</a>, and allow the domain and codomain (and so the graph) to be <a href="../../../p/r/o/Proper_class.html" title="Proper class">proper classes</a>: in such a theory, equality, membership, and subset are binary relations without special comment. (A minor modification needs to be made to the concept of the ordered triple (<i>X</i>, <i>Y</i>, <i>G</i>), as normally a proper class cannot be a member of an ordered tuple; or of course one can identify the function with its graph in this context.)</p>
+<p>In most mathematical contexts, references to the relations of equality, membership and subset are harmless because they can be understood implicitly to be restricted to some set in the context.</p>
+<p><a name="Examples_of_common_binary_relations" id="Examples_of_common_binary_relations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: Examples of common binary relations">edit</a>]</span> <span class="mw-headline">Examples of common binary relations</span></h2>
+<ul>
+<li><a href="../../../o/r/d/Order_relation.html" title="Order relation">Order relations</a>, including <a href="../../../s/t/r/Strict_order.html" title="Strict order">strict orders</a>:
+<ul>
+<li><a href="../../../g/r/e/Greater_than.html" title="Greater than">Greater than</a></li>
+<li>Greater than or equal to</li>
+<li><a href="../../../l/e/s/Less_than.html" title="Less than">Less than</a></li>
+<li>Less than or equal to</li>
+<li><a href="../../../d/i/v/Divides.html" title="Divides">Divides</a> (evenly)</li>
+<li>is a <a href="../../../s/u/b/Subset.html" title="Subset">subset</a> of</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="../../../e/q/u/Equivalence_relation.html" title="Equivalence relation">Equivalence relations</a>:
+<ul>
+<li><a href="../../../e/q/u/Equality_%28mathematics%29.html" title="Equality (mathematics)">Equality</a></li>
+<li>is <a href="../../../p/a/r/Parallel.html" title="Parallel">parallel</a> to (for <a href="../../../a/f/f/Affine_space.html" title="Affine space">affine spaces</a>)</li>
+<li>is in <a href="../../../b/i/j/Bijection.html" title="Bijection">bijection</a> with</li>
+<li><a href="../../../i/s/o/Isomorphism.html" title="Isomorphism">isomorphy</a></li>
+</ul>
+</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_relation.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<table cellspacing="0" cellpadding="0" class="" style="background:transparent; width:100%;">
+<tr>
+<td width="" align="left" valign="top" style="padding-left:;">
+<ul>
+<li><a href="../../../r/e/l/Relation_%28mathematics%29.html" title="Relation (mathematics)">Relation</a></li>
+<li><a href="../../../r/e/l/Relation_algebra.html" title="Relation algebra">Relation algebra</a></li>
+<li><a href="../../../r/e/l/Relation_construction.html" title="Relation construction">Relation construction</a>
+<ul>
+<li><a href="../../../r/e/l/Relation_composition.html" title="Relation composition">Relation composition</a></li>
+<li><a href="../../../r/e/l/Relation_reduction.html" title="Relation reduction">Relation reduction</a></li>
+</ul>
+</li>
+<li><a href="../../../c/o/r/Correspondence_%28mathematics%29.html" title="Correspondence (mathematics)">Correspondence</a></li>
+<li><a href="../../../e/q/u/Equivalence_relation.html" title="Equivalence relation">Equivalence relation</a></li>
+<li><a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">Function</a></li>
+</ul>
+</td>
+<td width="" align="left" valign="top" style="padding-left:;">
+<ul>
+<li><a href="../../../h/a/s/Hasse_diagram.html" title="Hasse diagram">Hasse diagram</a></li>
+<li><a href="../../../i/n/c/Incidence_structure.html" title="Incidence structure">Incidence structure</a></li>
+<li><a href="../../../l/o/g/Logic_of_relatives.html" title="Logic of relatives">Logic of relatives</a></li>
+<li><a href="../../../o/r/d/Order_theory.html" title="Order theory">Order theory</a></li>
+<li><a href="../../../p/a/r/Partial_order.html" title="Partial order">Partial order</a></li>
+<li><a href="../../../r/e/f/Reflexive_relation.html" title="Reflexive relation">Reflexive relation</a></li>
+<li><a href="../../../t/o/t/Total_order.html" title="Total order">Total order</a></li>
+<li><a href="../../../t/r/i/Triadic_relation.html" title="Triadic relation">Triadic relation</a></li>
+<li><a href="../../../w/e/l/Well-order.html" title="Well-order">Well-order</a></li>
+</ul>
+</td>
+</tr>
+</table>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Binary_relation.html">http://en.wikipedia.org../../../b/i/n/Binary_relation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../m/a/t/Category%7EMathematical_relations_ffb8.html" title="Category:Mathematical relations">Mathematical relations</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/n/Binary_relation.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/n/Talk%7EBinary_relation_26f3.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Binary_relation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../cs/b/i/n/Bin%C3%A1rn%C3%AD_relace.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../et/b/i/n/Binaarne_seos.html">Eesti</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/r/e/l/Relaci%C3%B3n_binaria.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fa/%D8%B1/%D8%A7/%D8%A8/%D8%B1%D8%A7%D8%A8%D8%B7%D9%87_%D8%AF%D9%88%D8%AA%D8%A7%D8%A6%DB%8C.html">فارسی</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/r/e/l/Relation_binaire.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hr/b/i/n/Binarne_relacije.html">Hrvatski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/r/e/l/Relazione_binaria.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%99/%D7%97/%D7%A1/%D7%99%D7%97%D7%A1.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E4%BA%8C/%E9%A0%85/%E9%96%A2/%E4%BA%8C%E9%A0%85%E9%96%A2%E4%BF%82.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B1/%D0%B8/%D0%BD/%D0%91%D0%B8%D0%BD%D0%B0%D1%80%D0%BD%D0%BE%D0%B5_%D0%BE%D1%82%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%B8%D0%B5.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sk/b/i/n/Bin%C3%A1rna_rel%C3%A1cia.html">Slovenčina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../uk/%D0%B1/%D1%96/%D0%BD/%D0%91%D1%96%D0%BD%D0%B0%D1%80%D0%BD%D0%B5_%D0%B2%D1%96%D0%B4%D0%BD%D0%BE%D1%88%D0%B5%D0%BD%D0%BD%D1%8F.html">Українська</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E4%BA%8C/%E5%85%83/%E5%85%B3/%E4%BA%8C%E5%85%83%E5%85%B3%E7%B3%BB.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:35, 5 February 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../e/j/e/User%7EEje211_5793.html" title="User:Eje211">Eje211</a>, <a href="../../../a/r/t/User%7EArthur_Rubin_34a7.html" title="User:Arthur Rubin">Arthur Rubin</a>, Penumbra2000, <a href="../../../a/r/d/User%7EArdric47_8ef5.html" title="User:Ardric47">Ardric47</a>, <a href="../../../d/r/e/User%7EDreftymac_20ab.html" title="User:Dreftymac">Dreftymac</a>, <a href="../../../r/o/y/User%7ERoyalguard11_b1fa.html" title="User:Royalguard11">Royalguard11</a>, <a href="../../../m/f/h/User%7EMFH_a7c6.html" title="User:MFH">MFH</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../l/a/j/User%7ELajujKej_5c55.html" title="User:LajujKej">LajujKej</a>, <a href="../../../a/d/r/User%7EAdrian.benko_9ee6.html" title="User:Adrian.benko">Adrian.benko</a>, <a href="../../../s/h/a/User%7EShanes_8450.html" title="User:Shanes">Shanes</a>, <a href="../../../e/j/_/User%7EEJ_933d.html" title="User:EJ">EJ</a>, <a href="../../../p/a/t/User%7EPatrick_7b47.html" title="User:Patrick">Patrick</a>, <a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">Mets501</a>, <a href="../../../p/a/u/User%7EPaul_August_2fe5.html" title="User:Paul August">Paul August</a>, <a href="../../../c/h/o/User%7EChocolateboy_d22d.html" title="User:Chocolateboy">Chocolateboy</a>, <a href="../../../d/b/t/User%7EDbtfz_4176.html" title="User:Dbtfz">Dbtfz</a>, Pigcatian, <a href="../../../j/o/n/User%7EJon_Awbrey_aa98.html" title="User:Jon Awbrey">Jon Awbrey</a>, <a href="../../../r/a/n/User%7ERandall_Holmes_3178.html" title="User:Randall Holmes">Randall Holmes</a>, <a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../f/r/e/User%7EFresheneesz_184e.html" title="User:Fresheneesz">Fresheneesz</a>, <a href="../../../t/o/m/User%7ETomo_c7d2.html" title="User:Tomo">Tomo</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../t/r/o/User%7ETrovatore_c393.html" title="User:Trovatore">Trovatore</a>, <a href="../../../q/u/a/User%7EQuarl_316b.html" title="User:Quarl">Quarl</a>, <a href="../../../y/u/v/User%7EYuval_madar_8fce.html" title="User:Yuval madar">Yuval madar</a>, <a href="../../../m/j/b/User%7EMjb_eccd.html" title="User:Mjb">Mjb</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../b/o/t/User%7EBota47_16c2.html" title="User:Bota47">Bota47</a>, <a href="../../../k/o/f/User%7EKoffieyahoo_12ee.html" title="User:Koffieyahoo">Koffieyahoo</a>, <a href="../../../m/a/t/User%7EMathMartin_aca3.html" title="User:MathMartin">MathMartin</a>, <a href="../../../x/a/v/User%7EXavic69_b0bf.html" title="User:Xavic69">Xavic69</a>, <a href="../../../d/p/v/User%7EDpv_75fb.html" title="User:Dpv">Dpv</a>, <a href="../../../s/l/i/User%7ESlipstream%40npj_b716.html" title="User:Slipstream@npj">Slipstream@npj</a>, <a href="../../../e/l/w/User%7EElwikipedista_f3ae.html" title="User:Elwikipedista">Elwikipedista</a>, <a href="../../../a/n/d/User%7EAndycjp_621c.html" title="User:Andycjp">Andycjp</a>, <a href="../../../t/a/r/User%7ETarquin_cdb6.html" title="User:Tarquin">Tarquin</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../j/o/r/User%7EJoriki_8fdd.html" title="User:Joriki">Joriki</a>, <a href="../../../d/a/l/User%7EDallashan_65f6.html" title="User:Dallashan">Dallashan</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../g/u/a/User%7EGuanabot_b902.html" title="User:Guanabot">Guanabot</a>, <a href="../../../f/r/o/User%7EFropuff_31b9.html" title="User:Fropuff">Fropuff</a>, Jlr, <a href="../../../d/o/m/User%7EDominus_070e.html" title="User:Dominus">Dominus</a>, <a href="../../../i/s/o/User%7EIsomorphic_e88d.html" title="User:Isomorphic">Isomorphic</a>, <a href="../../../t/a/k/User%7ETakuyaMurata_085a.html" title="User:TakuyaMurata">TakuyaMurata</a>, <a href="../../../w/s/h/User%7EWshun_5beb.html" title="User:Wshun">Wshun</a>, <a href="../../../r/o/a/User%7ERoadrunner_b57c.html" title="User:Roadrunner">Roadrunner</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, <a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a>, <a href="../../../b/r/y/User%7EBryan_Derksen_3ce8.html" title="User:Bryan Derksen">Bryan Derksen</a> and <a href="../../../j/a/n/User%7EJan_Hidders_5932.html" title="User:Jan Hidders">Jan Hidders</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

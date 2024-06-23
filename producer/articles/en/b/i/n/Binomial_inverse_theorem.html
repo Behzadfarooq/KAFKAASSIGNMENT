@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Binomial inverse theorem,Invertible matrix,Mathematics,Matrix (mathematics),Matrix inversion lemma,Sherman-Morrison formula,Woodbury matrix identity" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Binomial inverse theorem - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Binomial inverse theorem</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, the <b>binomial inverse theorem</b> is useful for expressing <a href="../../../m/a/t/Matrix_%28mathematics%29.html" title="Matrix (mathematics)">matrix</a> inverses in different ways.</p>
+<p>If <img class='tex' src="../../../math/5/3/0/530ee628eaab3c5024697b59f8b111d3.png" alt="A,\ U,\ B,\ V\!" /> are matrices of sizes <img class='tex' src="../../../math/9/9/5/995fdb23305e7b0fef451ebf46ed8dff.png" alt="p\times p,\ p\times q,\ q\times q,\ q\times p" /> respectively, then</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/a/b/cab5caea4a2f418fbe85c2fbb752e75c.png" alt="\left(A+UBV\right)^{-1}= A^{-1} - A^{-1}UB\left(B+BVA^{-1}UB\right)^{-1}BVA^{-1}" /></dd>
+</dl>
+<p>provided <img class='tex' src="../../../math/c/d/1/cd152610fcd555ce2f62e00de9be95d4.png" alt="A\!" /> and <img class='tex' src="../../../math/2/9/0/290130ec6cb7133b99efcc7167245370.png" alt="B + BVA^{-1}UB\!" /> are nonsingular. Note that if <img class='tex' src="../../../math/4/d/0/4d00ad7ecb0b7327607e4201e7ff00c8.png" alt="B\!" /> is invertible, the two <img class='tex' src="../../../math/4/d/0/4d00ad7ecb0b7327607e4201e7ff00c8.png" alt="B\!" /> terms flanking the quantity inverse in the right-hand side can be replaced with <img class='tex' src="../../../math/1/f/a/1fa7568aaebb1bfaf67e99f72921bee3.png" alt="(B^{-1})^{-1}\!" />, which results in</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/e/a/3ea1af8e0491fdfaa9e7562d0d297ce4.png" alt="\left(A+UBV\right)^{-1}= A^{-1} - A^{-1}U\left(B^{-1}+VA^{-1}U\right)^{-1}VA^{-1}" /></dd>
+</dl>
+<p>This is the <a href="../../../m/a/t/Matrix_inversion_lemma.html" title="Matrix inversion lemma">matrix inversion lemma</a>, which can also be derived using <a href="../../../i/n/v/Invertible_matrix.html#Blockwise_inversion" title="Invertible matrix">matrix blockwise inversion</a>.</p>
+<p><a name="Verification" id="Verification"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binomial_inverse_theorem.html" title="Edit section: Verification">edit</a>]</span> <span class="mw-headline">Verification</span></h2>
+<p>First notice that</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/4/1/641fcf22c68301b89f6d68c2d0c0e846.png" alt="\left(A + UBV\right) A^{-1}UB = UB + UBVA^{-1}UB = U \left(B + BVA^{-1}UB\right)." /></dd>
+</dl>
+<p>Now multiply the matrix we wish to invert by its alleged inverse</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/b/f/4bf1edbfa39cb52c83bd8621a5f34b2c.png" alt="\left(A + UBV\right) \left( A^{-1} - A^{-1}UB\left(B + BVA^{-1}UB\right)^{-1}BVA^{-1} \right)" /></dd>
+<dd><img class='tex' src="../../../math/5/1/7/517af3a7797065b81998f4d7672072e3.png" alt="= I_p + UBVA^{-1} - U \left(B + BVA^{-1}UB\right) \left(B + BVA^{-1}UB\right)^{-1}BVA^{-1}" /></dd>
+<dd><img class='tex' src="../../../math/f/4/d/f4d07b2f5ce62946a10696e0295180bc.png" alt="= I_p + UBVA^{-1} - U BVA^{-1} = I_p \!" /></dd>
+</dl>
+<p>which verifies that it is the inverse.</p>
+<p>So we get that -- if <img class='tex' src="../../../math/d/d/6/dd6509e498f8144d17e56ace0bd7538d.png" alt="A^{-1}\!" /> and <img class='tex' src="../../../math/d/5/3/d5351c9c83d21a890361cc4c3380ef2c.png" alt="\left(B + BVA^{-1}UB\right)^{-1}" /> exist, then <img class='tex' src="../../../math/6/1/6/6168523f82e000b306fe01e8c4f15296.png" alt="\left(A + UBV\right)^{-1}" /> exists and is given by the theorem above.</p>
+<p><a name="Special_cases" id="Special_cases"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binomial_inverse_theorem.html" title="Edit section: Special cases">edit</a>]</span> <span class="mw-headline">Special cases</span></h2>
+<p>If <img class='tex' src="../../../math/2/a/8/2a88595bad91ecc44f783ec28ff50a5d.png" alt="p = q\!" /> and <img class='tex' src="../../../math/1/2/4/1247e82409024264c9d0a3de8dc408bf.png" alt="U = V = I_p\!" /> is the identity matrix, then</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/0/4/c04c87037bcd4766b840ca7087ade570.png" alt="\left(A+B\right)^{-1} = A^{-1} - A^{-1}B\left(B+BA^{-1}B\right)^{-1}BA^{-1}." /></dd>
+</dl>
+<p>If <img class='tex' src="../../../math/8/e/e/8ee89c08f3b4180ee5fb8acf5ff81421.png" alt="B = I_q\!" /> is the identity matrix and <img class='tex' src="../../../math/d/b/a/dba45de7cc3bc221f42b5c34199cefa5.png" alt="q = 1\!" />, then <span class="texhtml"><i>U</i></span> is a column vector, written <span class="texhtml"><i>u</i></span>, and <span class="texhtml"><i>V</i></span> is a row vector, written <span class="texhtml"><i>v</i><sup><i>T</i></sup></span>. Then the theorem implies</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/f/b/7fb3c4aa5b9f6632ef833bc81607e2ce.png" alt="\left(A+uv^T\right)^{-1} = A^{-1}- \frac{A^{-1}uv^TA^{-1}}{1+v^TA^{-1}u}." /></dd>
+</dl>
+<p>This is useful if one has a matrix <span class="texhtml"><i>A</i></span> with a known inverse <span class="texhtml"><i>A</i> <sup>− 1</sup></span> and one needs to invert matrices of the form <span class="texhtml"><i>A</i> + <i>u</i><i>v</i><sup><i>T</i></sup></span> quickly.</p>
+<p>If we set <img class='tex' src="../../../math/2/c/4/2c4da22c7dd2fd2594011c2c00848234.png" alt="A = I_p\!" /> and <img class='tex' src="../../../math/8/e/e/8ee89c08f3b4180ee5fb8acf5ff81421.png" alt="B = I_q\!" />, we get</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/d/9/dd9034f7ea05f6332ef136edeee1c5d0.png" alt="\left(I_p + UV\right)^{-1} = I_p - U\left(I_q + VU\right)^{-1}V" /></dd>
+</dl>
+<p>In particular, if <img class='tex' src="../../../math/d/b/a/dba45de7cc3bc221f42b5c34199cefa5.png" alt="q = 1\!" />, then</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/c/9/5c92f6b47ddd38c057c420a0454452b4.png" alt="\left(I+uv^T\right)^{-1} = I - \frac{uv^T}{1+v^Tu}." /></dd>
+</dl>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binomial_inverse_theorem.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../w/o/o/Woodbury_matrix_identity.html" title="Woodbury matrix identity">Woodbury matrix identity</a></li>
+<li><a href="../../../s/h/e/Sherman-Morrison_formula_0a25.html" title="Sherman-Morrison formula">Sherman-Morrison formula</a></li>
+<li><a href="../../../i/n/v/Invertible_matrix.html" title="Invertible matrix">Invertible matrix</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Binomial_inverse_theorem.html">http://en.wikipedia.org../../../b/i/n/Binomial_inverse_theorem.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../l/i/n/Category%7ELinear_algebra_5c7d.html" title="Category:Linear algebra">Linear algebra</a></span> | <span dir='ltr'><a href="../../../m/a/t/Category%7EMatrix_theory_c96a.html" title="Category:Matrix theory">Matrix theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/n/Binomial_inverse_theorem.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/n/Talk%7EBinomial_inverse_theorem_c5a2.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Binomial_inverse_theorem">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:42, 18 February 2007 by Wikipedia user <a href="../../../t/e/d/User%7ETedPavlic_7a6f.html" title="User:TedPavlic">TedPavlic</a>. Based on work by Wikipedia user(s) <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a>, <a href="../../../m/a/x/User%7EMaxSem_bf93.html" title="User:MaxSem">MaxSem</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and <a href="../../../r/o/b/User%7ERobinh_3ed9.html" title="User:Robinh">Robinh</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

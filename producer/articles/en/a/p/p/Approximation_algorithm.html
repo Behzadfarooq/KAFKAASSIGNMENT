@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Approximation algorithm,Bin packing problem,Boolean satisfiability problem,Charles E. Leiserson,Clifford Stein,Computer science,Constant factor approximation algorithm,Decision problem,Domination analysis,Heuristic (computer science),Introduction to Algorithms" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Approximation algorithm - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Approximation algorithm</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a> and <a href="../../../o/p/e/Operations_research.html" title="Operations research">operations research</a>, <b>approximation algorithms</b> are an approach to attacking difficult <a href="../../../o/p/t/Optimization_problem.html" title="Optimization problem">optimization problems</a>. Approximation algorithms are often associated with <a href="../../../n/p/-/NP-hard_1fde.html" title="NP-hard">NP-hard</a> problems. Since it is unlikely that there can ever be efficient (<a href="../../../p/o/l/Polynomial_time.html" title="Polynomial time">Polynomial Time</a>) exact algorithms solving NP-hard problems, one settles for non-optimal solutions, but requires them to be found in <a href="../../../p/o/l/Polynomial_time.html" title="Polynomial time">polynomial time</a>. Unlike <a href="../../../h/e/u/Heuristic_%28computer_science%29.html" title="Heuristic (computer science)">heuristics</a>, which usually only find reasonably good solutions reasonably fast, one wants provable solution quality and provable run time bounds. Ideally, the approximation is optimal up to a small constant factor (say within 5% of the optimal solution). It should be noted that approximation algorithms are increasingly being used for problems where polynomial algorithms are known but are too expensive due to the sizes of the data sets.</p>
+<p>A typical example for an approximation algorithm is the one for <a href="../../../v/e/r/Vertex_cover_problem.html" title="Vertex cover problem">vertex cover</a> in graphs: Find an uncovered edge and add <i>both</i> endpoints to the vertex cover, until none remain. It is clear that the resulting cover is at most twice as large as the optimal one. This is in fact a <a href="../../../c/o/n/Constant_factor_approximation_algorithm.html" title="Constant factor approximation algorithm">constant factor approximation algorithm</a> with a factor of 2.</p>
+<p>NP-hard problems vary greatly in their approximability; some, such as the <a href="../../../b/i/n/Bin_packing_problem.html" title="Bin packing problem">bin packing problem</a>, can be approximated to arbitrary factors (such approximation algorithms are often called <a href="../../../p/o/l/Polynomial_time_approximation_scheme.html" title="Polynomial time approximation scheme">polynomial time approximation schemes</a> or <i>PTAS</i>). Others are impossible to approximate within any constant (or even polynomial) factor (unless <a href="../../../p/_/3D/P_%3D_NP_f415.html" title="P = NP">P = NP</a>), such as the <a href="../../../m/a/x/Maximum_clique_problem.html" title="Maximum clique problem">maximum clique problem</a>.</p>
+<p>NP-hard problems can often be expressed as integer programs (IP) and solved exactly in exponential time. Many approximation algorithms are from the LP-relaxation of the integer program.</p>
+<p>Not all approximation algorithms are suitable for all practical applications. They often use IP/LP/Semidefinite solvers, complex data structures or sophisticated algorithmic techniques which lead to difficult implementation problems. Also, for some approximation algorithms, the polynomial running time can be quite bad, say O(<i>n</i><sup>2000</sup>). Yet study of even very expensive algorithms is not a completely theoretical pursuit as they allow us to gain valuable insight. A classic example is the initial PTAS for Euclidean TSP due to Arora which had prohibitive running time, yet within a year, Arora refined the ideas into a linear time algorithm. Such algorithms are also worthwhile in some applications where the running times and cost can be justified e.g. computational biology, financial engineering, transportation planning, and inventory management. In such scenarios, they must compete with the corresponding direct IP formulations.</p>
+<p>Another limitation of the approach is that it applies only to optimization problems and not to "pure" <a href="../../../d/e/c/Decision_problem.html" title="Decision problem">decision problems</a> like <a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Boolean satisfiability problem">satisfiability</a> (although it's often possible to conceive optimization versions of such problems, such as the <a href="../../../m/a/x/Maximum_satisfiability_problem.html" title="Maximum satisfiability problem">maximum satisfiability problem</a>).</p>
+<p><a name="Performance_guarantees" id="Performance_guarantees"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Approximation_algorithm.html" title="Edit section: Performance guarantees">edit</a>]</span> <span class="mw-headline">Performance guarantees</span></h2>
+<p>For some approximation algorithms it is possible to prove certain properties about the approximation of the optimum result. For example, in the case of a <b><i>ρ</i>-approximation algorithm</b> it has been proven that the approximation <i>a</i> will not be more (or less, depending on the situation) than a factor <i>ρ</i> times the optimum solution <i>s</i>.</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/c/8/bc8d9cfffeb177f5aae64d6bca3c1554.png" alt="\begin{cases}s \leq a \leq \rho s,\qquad\mbox{if } \rho &gt; 1; \\ \rho s \leq a \leq s,\qquad\mbox{if } \rho &lt; 1.\end{cases}" /></dd>
+</dl>
+<p>The factor <i>ρ</i> is called the <i>relative performance guarantee</i>. An approximation algorithms has an <i>absolute performance guarantee</i> or <i>bounded error</i> <i>ε</i>, if it has been proven that</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/5/b/25b7eb57409e6abd3b9286976acf6995.png" alt="(s - \epsilon) \leq a \leq (s + \epsilon)." /></dd>
+</dl>
+<p>The <i>absolute performance ratio</i> <span class="texhtml"><i>R</i><sub><i>A</i></sub></span> of some approximation algorithm <span class="texhtml"><i>A</i></span>, and where <span class="texhtml"><i>I</i></span> refers to an instance of a problem is:</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/0/1/b010b7ece88e773b083c44864c58bb82.png" alt="R_A = \inf \{ r \geq 1 | R_A(I) \leq r, \forall I \}" /></dd>
+</dl>
+<p>That is to say that <span class="texhtml"><i>R</i><sub><i>A</i></sub></span> is the largest bound on the approximation ratio, <span class="texhtml"><i>r</i></span>, that one sees over all possible instances of the problem. Likewise, the <i>asymptotic performance ratio</i> <img class='tex' src="../../../math/a/0/8/a081c687c9699a5904a37cac59d66b85.png" alt="R_A^\infty" /> is:</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/d/b/ddbcabed906db77d20d3ccfba579dfbc.png" alt="R_A^\infty = \inf \{ r \geq 1 | \exists n \in \mathbb{Z}^+, R_A(I) \leq r, \forall I, I \geq n\}" /></dd>
+</dl>
+<p>That is to say that it is the same as the <i>absolute performance ratio</i>, with a lower bound <span class="texhtml"><i>n</i></span> on the size of problem instances. These two types of ratios are used because there exist algorithms where the difference between these two is significant.</p>
+<p><a href="../../../d/o/m/Domination_analysis.html" title="Domination analysis">Domination analysis</a> provides an alternative way to analyze the quality of an approximation algorithm in terms of the rank of the computed solution in the sorted sequence of all possible solutions.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Approximation_algorithm.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="../../../v/i/j/Vijay_Vazirani_aaa6.html" title="Vijay Vazirani">Vijay Vazirani</a> <i>Approximation Algorithms</i>. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 3-540-65367-8</a>.</li>
+<li><a href="../../../t/h/o/Thomas_H._Cormen_67e5.html" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="../../../c/h/a/Charles_E._Leiserson_1e0a.html" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="../../../r/o/n/Ronald_L._Rivest_593e.html" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="../../../c/l/i/Clifford_Stein_13fe.html" title="Clifford Stein">Clifford Stein</a>. <i><a href="../../../i/n/t/Introduction_to_Algorithms_bdfd.html" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-262-03293-7</a>. Chapter 35: Approximation Algorithms, pp.1022–1056.</li>
+<li>Dorit H. Hochbaum, ed. <i>Approximation Algorithms for NP-Hard problems, PWS Publishing Company, 1997. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-534-94968-1</a>. Chapter 9: Various Notions of Approximations: Good, Better, Best, and More</i></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Approximation_algorithm.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li>Pierluigi Crescenzi, Viggo Kann, Magnús Halldórsson, <a href="../../../m/a/r/Marek_Karpinski_e99e.html" title="Marek Karpinski">Marek Karpinski</a> and Gerhard Woeginger, <a href="http://www.nada.kth.se/~viggo/wwwcompendium/" class="external text" title="http://www.nada.kth.se/~viggo/wwwcompendium/" rel="nofollow"><i>A compendium of NP optimization problems</i></a>.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/p/p/Approximation_algorithm.html">http://en.wikipedia.org../../../a/p/p/Approximation_algorithm.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputational_complexity_theory_6470.html" title="Category:Computational complexity theory">Computational complexity theory</a></span> | <span dir='ltr'><a href="../../../a/p/p/Category%7EApproximation_algorithms_4f09.html" title="Category:Approximation algorithms">Approximation algorithms</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/p/p/Approximation_algorithm.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/p/p/Talk%7EApproximation_algorithm_5068.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Approximation_algorithm">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../cs/a/p/r/Aproxima%C4%8Dn%C3%AD_algoritmy.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/l/g/Algorithme_d%27approximation.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%90/%D7%9C/%D7%92/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%A7%D7%99%D7%A8%D7%95%D7%91.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E8%BF%91/%E4%BC%BC/%E3%82%A2/%E8%BF%91%E4%BC%BC%E3%82%A2%E3%83%AB%E3%82%B4%E3%83%AA%E3%82%BA%E3%83%A0.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/l/g/Algorytm_aproksymacyjny.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../th/%E0%B8%AD/%E0%B8%B1/%E0%B8%A5/%E0%B8%AD%E0%B8%B1%E0%B8%A5%E0%B8%81%E0%B8%AD%E0%B8%A3%E0%B8%B4%E0%B8%97%E0%B8%B6%E0%B8%A1%E0%B9%81%E0%B8%9A%E0%B8%9A%E0%B8%9B%E0%B8%A3%E0%B8%B0%E0%B8%A1%E0%B8%B2%E0%B8%93.html">ไทย</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/p/p/Approximationsalgorithmus.html">Deutsch</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 11:07, 5 April 2007 by Wikipedia user Vavi. Based on work by Wikipedia user(s) Bmatheny, Pnamjoshi, <a href="../../../c/u/l/User%7ECulix_695a.html" title="User:Culix">Culix</a>, Ashishgoel.1973, <a href="../../../d/a/v/User%7EDavid_Eppstein_0880.html" title="User:David Eppstein">David Eppstein</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../n/o/t/User%7ENotQuiteEXPComplete_14f9.html" title="User:NotQuiteEXPComplete">NotQuiteEXPComplete</a>, <a href="../../../m/e/l/User%7EMellum_a257.html" title="User:Mellum">Mellum</a>, <a href="../../../a/n/d/User%7EAndris_6e9c.html" title="User:Andris">Andris</a>, <a href="../../../t/r/i/User%7ETribaal_4859.html" title="User:Tribaal">Tribaal</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../b/o/t/User%7EBota47_16c2.html" title="User:Bota47">Bota47</a>, <a href="../../../n/a/t/User%7ENathanHurst_9ea1.html" title="User:NathanHurst">NathanHurst</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../j/n/e/User%7EJnestorius_2da6.html" title="User:Jnestorius">Jnestorius</a>, <a href="../../../h/a/h/User%7EHaham_hanuka_7d7e.html" title="User:Haham hanuka">Haham hanuka</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../o/j/i/User%7EOjigiri_d598.html" title="User:Ojigiri">Ojigiri</a> and <a href="../../../d/a/n/User%7EDanny_4e16.html" title="User:Danny">Danny</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

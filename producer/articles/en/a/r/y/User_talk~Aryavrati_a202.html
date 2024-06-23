@@ -1,0 +1,499 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User talk:Aryavrati" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User talk:Aryavrati - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-3">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User talk:Aryavrati</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>1. Explain the terms below</b> <b>(a) Cookie (explain what it is and how to use, with HTTP syntax)</b> <b>(b) Session (explain what it is and how it is implemented)</b> <b>(c) If cookie is disabled from the client’s browser, what are the possible options to do the session tracking?''''</b></p>
+<p><b>(a) Cookie (explain what it is and how to use, with HTTP syntax)</b></p>
+<p>A cookie is a small piece of data which is sent from a web server to a web browser and stored locally on the user's machine. The cookie is stored on the user's machine but is not an executable program and cannot do anything to the machine. Whenever a web browser requests a file from the same web server that sent the cookie, the browser sends a copy of that cookie back to the server. This is the format a CGI script would use to add to the HTTP headers a new piece of data which is to be stored by the client for later retrieval.</p>
+<p>Set-Cookie: NAME=VALUE; expires=DATE; path=PATH; domain=DOMAIN_NAME; secure</p>
+<p><b>(b) Session (explain what it is and how it is implemented)</b></p>
+<p>A lasting connection, usually involving the exchange of many packets between a host and a server.</p>
+<p><b>(c) If cookie is disabled from the client’s browser, what are the possible options to do the session tracking?</b></p>
+<hr />
+<p>If cookie is disabled from the client's brower, we can track session using (1) Hidden variables (2) URL rewrite.</p>
+<hr />
+<p><b>2. a) What are the advantages of using Servlet/JSP over conventional CGI programming?</b></p>
+<ol>
+<li>Provides an extensive infrastructure for automatically parsing and decoding HTML form data, reading and setting HTTP headers, handling cookies, tracking sessions and other utilities.</li>
+<li>No need to learn new programming languages if you are familiar with Java already.</li>
+<li>Easy to implement DB connection pooling &amp; resource-sharing optimization.</li>
+<li>Powerful. Java servlets let you easily do several things that are difficult or impossible with regular CGI. For one thing, servlets can talk directly to the Web server (regular CGI programs can't). This simplifies operations that need to look up images and other data stored in standard places. Servlets can also share data among each other, making useful things like database connection pools easy to implement. They can also maintain information from request to request, simplifying things like session tracking and caching of previous computations.</li>
+<li>Efficient. With traditional CGI, a new process is started for each HTTP request. If the CGI program does a relatively fast operation, the overhead of starting the process can dominate the execution time. With servlets, the Java Virtual Machine stays up, and each request is handled by a lightweight Java thread, not a heavyweight operating system process. Similarly, in traditional CGI, if there are N simultaneous request to the same CGI program, then the code for the CGI program is loaded into memory N times. With servlets, however, there are N threads but only a single copy of the servlet class. Servlets also have more alternatives than do regular CGI programs for optimizations such as caching previous computations, keeping database connections open, and the like.</li>
+<li>Powerful, Portable, Secure and Inexpensive</li>
+</ol>
+<p><b>(b)</b> JSP doesn't give you anything that you couldn't in principle do with a servlet. But it is more convenient to write (and to modify!) regular HTML than to have a zillion println statements that generate the HTML. Plus, by separating the look from the content you can put different people on different tasks: your Web page design experts can build the HTML, leaving places for your servlet programmers to insert the dynamic content.</p>
+<p>Servlets and JSP do the same thing: they receive requests at web server and send responses back to the browser, but there are some differences:</p>
+<p>1. Servlets are precompiled whereas JSP are compiled by the JSP container "on the fly" the first time they are requested and then kept compiled to listen to further requests.</p>
+<p>2. Servlets were the origin (as I said at the begining) but some people thought it wasn't nice at all to have HTML inside Java compiled code and then they created JSP (that is Java inside HTML&#160;:-) and they think they've got independence between logic and presentation.</p>
+<p>At it's simplest, JSP is a shortcut for writing a servlet. At the end of the day a JSP gets turned into a servlet to run.</p>
+<p>The difference in emphasis is that JSP should be mostly HTML, with a little bit of java code. Servlets should be just java code - minimal (if any) HTML.</p>
+<p>rather than in a servlet out.println("&lt;html&gt;&lt;body&gt;"); out.println("Hello" + request.getuserName()); out.println("&lt;/body&gt;&lt;/html&gt;");</p>
+<p>you have &lt;html&gt; &lt;body&gt;</p>
+<pre>
+ Hello &lt;%= request.getUserName() %&gt;
+</pre>
+<p>&lt;/body&gt; &lt;/html&gt; CALLING business and integration tier logic from servlets is a good choice. JSP should be considered as part of the presentation layer. That generally means keeping business and data-access logic out of JSP; except in trivial applications.</p>
+<p>Servlets and Java Server Pages are complementary APIs, both providing a means for generating dynamic Web content. A servlet is a Java class implementing the javax.servlet.Servlet interface that runs within a Web or application server's servlet engine, servicing client requests forwarded to it through the server. A Java Server Page is a slightly more complicated beast. JSP pages contain a mixture of HTML, Java scripts (not to be confused with JavaScript), JSP elements, and JSP directives. The elements in a Java Server Page will generally be compiled by the JSP engine into a servlet, but the JSP specification only requires that the JSP page execution entity follow the Servlet Protocol.</p>
+<p>The advantage of Java Server Pages is that they are document-centric. Servlets, on the other hand, look and act like programs. A Java Server Page can contain Java program fragments that instantiate and execute Java classes, but these occur inside an HTML template file and are primarily used to generate dynamic content. Some of the JSP functionality can be achieved on the client, using JavaScript. The power of JSP is that it is server-based and provides a framework for Web application development. Rather than choosing between servlets and Java Server Pages, you will find that most non-trivial applications will want to use a combination of JSP and servlets</p>
+<p><br /></p>
+<pre>
+JSP  can be used for dynamic processing of your html response to the user and servlets for pure business logic/validation or can work as controller for routing requests to appropriate JSP files.
+</pre>
+<p><b>(c)</b></p>
+<ol>
+<li>JSP page (MyFirstJSP.jsp)</li>
+<li>-&gt; Translated to Servlet (MyFirstJSP.servlet)</li>
+<li>-&gt; Compiled to class (MyFirstJSP.class)</li>
+<li>-&gt; Loaded into memory (Initialization)</li>
+<li>-&gt; Execution (repeats)</li>
+<li>-&gt; Destruction</li>
+</ol>
+<ol>
+<li>Any change in JSP page automatically repeats the whole life cycle</li>
+</ol>
+<p><br /></p>
+<p><b>3. Session tracking using Servlet or JSP</b></p>
+<p><b>(a) How to create a Session in Servlet? (Show an example using actual codes.)</b></p>
+<p>HttpSession session = request.getSession();</p>
+<p>String username= session.getAttribute("userName");</p>
+<p><b>(b) How to store information (shopping cart – ordered items) into the session and retrieve</b></p>
+<p>back? When explicit casting is used and why? Store ordered items into the seesion: request is an instance of HttpServletRequest</p>
+<p>HttpSession session = request.getSession();</p>
+<p>Synchronized (session){</p>
+<pre>
+           Cart cart = (Cart) session.getAttribute(“cart”);
+</pre>
+<pre>
+           if( cart == null){
+</pre>
+<pre>
+                       Cart= new Cart();
+</pre>
+<pre>
+                       session.setAttribute(“cart”, cart); }
+</pre>
+<p>//suppose product and quantity are the type of product and the quantity of this product</p>
+<p>// that the customer wants to add to the cart</p>
+<p>LineItem lineItem= new LineItem(product, quantity);</p>
+<p>if ( quantity &gt;0)</p>
+<pre>
+           cart.addItem(lineItem);
+</pre>
+<p>Retrieve back from the session:</p>
+<pre>
+          double total = cart.getTotalOrder();
+</pre>
+<p>Explicit casting is used here : Cart cart = (Cart) session.getAttribute(“cart”); Because session.getAttribute(java.lang.String name )returns the object bound with the specified name in this session, in this case is Cart, or null if no object is bound under the name.</p>
+<p><b>(c) What happens if session expires or a client kills the browser? What can you do to prevent possible loss of information?</b></p>
+<p>If session expires or client kills the browser, and the page you requested is created using information you submitted in a form such as adding items into the shopping cart, this page is no longer available, all information on the page will be lost, that is all items in the cart will be gone.. To prevent possible loss of information, we can put a logout mechanism into the Web pages, and when the user logs out, we just invalidate the session by calling the invalidate method, i.e.</p>
+<p>public void invalidate(). An alternative is forcing sessions to terminate after a specified period of inactivity.</p>
+<p><br />
+<b>4. Write comments where (a) – (f) is marked about the bold-faced code</b> &lt;%@ page language="java" import="com.wrox.projsp.ch05.*, java.util.*" errorPage="error.jsp" %&gt; // (a) use of page directive to define behavior of the jsp page. // Directive: Page // Attributes: language – scripting language to be used // import - comma separated list of packages or classes. // errorPage – Defines URL to another JSP page within current web // Application,which is invoked when a checked or unchecked exception is thrown. &lt;jsp:useBean id="loginBean" scope="page" class="com.wrox.projsp.ch05.Login"&gt; &lt;jsp:setProperty name="loginBean" property="*"/&gt; &lt;/jsp:useBean&gt; // (b) &lt;jsp:useBean/&gt; action is used to instantiate a JavaBean. // Action: useBean. // Attribute: id –Name used to identify the object instance. // scope – The scope within which the reference is available. // class - The fully qualified class name of the bean // Elements: &lt;jsp:SetProperty/&gt; - used with &lt;jsp:useBean&gt; tag to set the bean // properties. // Attribute: name – the name of a bean instance property – name of property. If this attribute has the value “*”, the tag looks through all parameters in “request” object and tries to match the request parameter names and types to property names and types in the Bean. The values in the “request” object are assigned to each matching bean property. &lt;jsp:useBean id="monitor" scope="application" class="java.util.HashMap"/&gt; &lt;% String display = "showLogin.html"; User user = loginBean.authenticate(); if (user != null) { user.setIpAddr(request.getRemoteHost()); session.setAttribute("user", user); // (c) instantiate “HashMap” bean and assigns it unique id “montor” within application scope. // (extra) Authenticates user using authenticate() method of “loginBean” bean. // (extra) if user is authenticated then sets (register) IPaddress for that user. // (explanations for bold faced code) set session for user and add user object to session. // // monitor.put(user, session); System.out.println("Assigned new session for: " + user); session.setMaxInactiveInterval(900); display = "browse.jsp"; } %&gt; &lt;jsp:forward page="&lt;%= display %&gt;"/&gt; // (d) // (extra) saves user session data in HashMap. // (extra) setMaxInactiveInterval() Specifies the time, in seconds, between client requests before the servlet container will invalidate this session. // (explanations for bold faced code) if user is registered then redirect to “Browse.jsp” else redirect to “showLogin.html”</p>
+<p><b>5. Write comments like in question No.4</b></p>
+<p><br />
+&lt;%@ page import="com.wrox.projsp.ch05.*" errorPage="error.jsp" %&gt; &lt;html&gt;&lt;title&gt;Process the Order&lt;/title&gt; &lt;body&gt; &lt;% if(session.getValue("user") == null) { response.sendRedirect("showLogin.html"); }</p>
+<p>// <b>(a)</b> // if session is not set for the user redirect the user to Login page. // // // // User user = (User)session.getValue("user");</p>
+<p>// <b>(b)</b> // // get user object from session and assign it to local “User” object. // // String display = "showDetails.jsp"; int mode = (new Integer(request.getParameter("action"))).intValue(); System.out.println("Action" + mode); Order order = null; switch(mode) { /* 0 = add / modify 1 = complete 2 = clear 3 = display</p>
+<ul>
+<li>/</li>
+</ul>
+<p>case(0): case(2): String itemIds[] = request.getParameterValues("itemId");</p>
+<p>// <b>(c)</b> // retrieve values of “itemid” variable of request object. // If (itemIds != null &amp;&amp; itemIds.length != 0) { order = new Order(user); order.setItemIds(itemIds); session.setAttribute("anOrder", order);</p>
+<p>// <b>(d)</b> // save/add the order details in session. // // } else session.removeAttribute("anOrder"); break; case(1): // Complete the order here order = (Order)session.getAttribute("anOrder"); System.out.println("Order: " + order); order.complete((Catalog)pageContext.getAttribute("catalog", pageContext.APPLICATION_SCOPE)); display = "receipt.html"; break; } response.sendRedirect(display);</p>
+<p>// <b>(e)</b></p>
+<p>// redirect to “showDetail.jsp” page. // / %&gt;</p>
+<p><b>(f) Explain about the scope (page, request, session, application) of java beans in JSP</b> Answer:</p>
+<p>A bean with a scope of page is only visible on the current Java Server Page and disappears when the page finishes executing or forwards itself to another JSP or a servlet. A bean with request scope is visible to other Java Server Pages and servlets and is stored in the request object. Request object disappears when the request completes, it should be obvious that a bean stored in the request is no longer visible. Beans with session scope are stored in the session object. Meaning that you can access this bean from a servlet like this: &lt;jsp:useBean id=”mySesssionBean” scope= “session” class= “usingjsp.TestBean” /&gt; HttpSession session = request.getSession(); usingjsp.TestBean theBean usingjsp.TestBean theBean = sessopm/getAttribute(“mySessionBean”); Beans with application scope are stored in the application object, which is actually a ServletContext object. A bean with application scope is visible to any other JSP or servlet within the same “application”.</p>
+<pre>
+# Page: page scope means that the object is associated with the particular request to this page.
+  
+#  Request: request scope means that the object is associated with this particular client request.
+#  Session: session scope means that the object will be available during any requests made the same client within the current     session.
+#  Application:  application means that the object will be available in any JSP page with in the same web application.
+</pre>
+<p><b>(g) List and explain about the implicit objects (provided without explicit declaration) in JSP.</b></p>
+<p>Answer: <b>Request</b>: the request object represents the request that the client sent to server. It is object of HttpServletRequest class, which provides access to the incoming HTTP headers, request type and request parameters among other things.</p>
+<p><b>Response</b>: response object is HttpServletResponse instance that represents server’s response to the request.</p>
+<p><b>Pagecontext</b>: the pageContext provides a single point of access to many of the page attributes and is convient place to put shared data within the page.</p>
+<p><b>Session</b>: The session object represents the session created for the requesting client.</p>
+<p><b>Application</b>: The application object represents the servlet context, obtained from the servlet configuration object. Out: the out object is the object that writes into the output stream to the client.</p>
+<p><b>Config</b>: the config object is ServletConfig for the JSP page and has page scope.</p>
+<p><b>Page</b>: The page object is the instance of the page’s implementation servelt class that is processing the current request.</p>
+<p>(h) Explain directory structure for tomcat web applications – Where is the application home directory placed, where html/jsp, java bean or servlet classes are stored? Answer:</p>
+<p>A web application has four parts: a) A public directory b) A WEB-INF/web.xml file c) A WEB-INF/classes directory d) A WEB-INF/lib directory -&gt;The public area is the root of the application, excluding WEB-INF directory. The application home directory is placed under “wwwroot” directory. -&gt;All html/jsp files are placed under public area or root of the application. -&gt; all java Beans and servlet classes are placed under WEB-INF/classes directory.</p>
+<p>Example:</p>
+<pre>
+myWebApp\
+                     index.html
+</pre>
+<p>login.jsp</p>
+<pre>
+                     summary.jsp
+</pre>
+<p>WEB-INF\ Web.xml Classes\ Login.class Shoppingcart.class</p>
+<pre>
+               Lib\
+                         DbLibrary.jar
+</pre>
+<p>xmlTools.jar</p>
+<p><b>(i) What is war file and used for?</b></p>
+<pre>
+        The various directories and files that make up a web application can be packaged into a “Web Application Archive” (WAR). War files is a simplified way to distribute java class files and other resources. Any JSP server automatically deploy an application packaged as a WAR file.
+</pre>
+<p><b>6) a) Explain what is a validity and well-formness rule in XML?</b></p>
+<p>Validity Rules: To be valid an XML document must be 1. Well-formed 2. Must have a Document Type Definition (DTD) 3. Must comply with the constraints specified in the DTD</p>
+<p>Well formedness rules: • Open and close all tags • Empty tags end with /&gt; • There is a unique root element • Elements may not overlap • Attribute values are quoted • &lt; and &amp; are only used to start tags and entities • Only the five predefined entity references are used</p>
+<p><b>b) What are the advantages of using XML? (list 3)</b></p>
+<p>• Domain-Specific Markup Languages – A DTD precisely describes the format – DTDs verify that documents adhere to the format – Ensures interoperability of unrelated tools • Self-Describing Data – DTDs explain the format so reverse engineering isn't as necessary – Comments in DTDs can go even further</p>
+<pre>
+&lt;!ELEMENT YEAR (#PCDATA)&gt; 
+</pre>
+<p>• Interchange of Data Among Applications – E-commerce and syndication – DTDs make sure that two independent applications speak the same language – DTDs detect malformed data – DTDs verify correct data • Structured and Integrated Data – Can specify relationships between elements using element declarations – Can assemble data from multiple sources using external entity references declared in the DTD</p>
+<p><b>f) List two major advantages of XML over HTML and explain about reason for each advantage.</b> Both grew out of SGML -XML is a subset. -HTML is a mark up language written in SGML XML is more complicated but more powerful</p>
+<p><b>f) What is XSLT? How XSLT is used with XML?</b> XSLT (eXtensible Stylesheet Language Transformations) is a part of XSL (eXtensible Stylesheet Language). An XSLT stylesheet is an XML document defining a transformation for a class of XML documents. A stylesheet seperates contents and logical structure from presentation. Not intended as completely general-purpose XML transformation language - designed for XSL Formatting Objects. Nevertheless: XSLT is generally useful. The basic design: XSLT is declarative and based on pattern-matching and templates</p>
+<p><br /></p>
+<p><b>7. With a given DTD, make an example of VALID XML file. (You may start with</b> the root element excluding processing instructions)</p>
+<pre>
+&lt;planner value= “2006”
+</pre>
+<p>&lt;date month= “May” day = “26”&gt;</p>
+<pre>
+                   &lt;note subject= “ AJAX Reader” 
+</pre>
+<p>contents= “ AJAX reader uses XML technology” time= “ May 23 2005”/&gt; &lt;/note&gt; &lt;note subject= “How to do business” contents= “ Doing business in the 21st century is different”/&gt; &lt;/note&gt;</p>
+<p>&lt;/date&gt; &lt;date month= “January” day= “ 31”&gt; &lt;note subject = “Who born on this date” contents= “Khoa was born on this date!heyhey!!!Free to changeguys” time= “ May 21, 2006”/&gt; &lt;/date&gt; &lt;/planner&gt;</p>
+<p><br /></p>
+<pre>
+&lt;!ELEMENT planner ( year* )&gt; 
+</pre>
+<pre>
+&lt;!ELEMENT year ( date+ )&gt; 
+</pre>
+<pre>
+&lt;!ATTLIST year value CDATA #REQUIRED&gt; 
+</pre>
+<pre>
+&lt;!ELEMENT date ( note+ )&gt; 
+</pre>
+<pre>
+ &lt;!ATTLIST date month CDATA #REQUIRED&gt; 
+</pre>
+<pre>
+&lt;!ATTLIST date day CDATA #REQUIRED&gt; 
+</pre>
+<pre>
+&lt;!ELEMENT note ( subject &amp; contents )&gt; 
+</pre>
+<pre>
+&lt;!ELEMENT subject ( #PCDATA )&gt; 
+</pre>
+<pre>
+&lt;!ELEMENT contents ( #PCDATA )&gt; 
+</pre>
+<pre>
+&lt;!ATTLIST note time CDATA #IMPLIED&gt; 
+</pre>
+<p><b>(8) Explain the difference of DOM parser and SAX parser. Show one Java sentence that invokes builder.parse method when requesting actual parsing in both parser cases in terms of return value and its parameters. And explain shortly how they are handled in different way. (which one is event driven?)</b></p>
+<p>Answer: Both SAX and DOM were created to serve the same purpose, which is giving you access to the information stored in XML documents using any programming language (and a parser for that language). However, both of them take very different approaches to giving you access to your information.</p>
+<p>DOM gives you access to the information stored in your XML document as a hierarchical object model. DOM creates a tree of nodes (based on the structure and information in your XML document) and you can access your information by interacting with this tree of nodes.</p>
+<pre>
+SAX chooses to give you access to the information in your XML document, not as a tree of nodes, but as a sequence of events!
+</pre>
+<p>If your XML documents contain document data (e.g., Framemaker documents stored in XML format), then DOM is a completely natural fit for your solution. If you are creating some sort of document information management system, then you will probably have to deal with a lot of document data</p>
+<p>If the information stored in your XML documents is machine readable (and generated) data then SAX is the right API for giving your programs access to this information. Machine readable and generated data include things like: • Java object properties stored in XML format • queries that are formulated using some kind of text based query language (SQL, XQL, OQL) • result sets that are generated based on queries (this might include data in relational database tables encoded into XML). In short: The SAX document handler you write does element to object mapping. If your information is structured in a way that makes it easy to create this mapping you should use the SAX API. On the other hand, if your data is much better represented as a tree then you should use DOM. Example: void parse(InputSource source) InputSource :A single input source for an XML entity. Return type : void</p>
+<p><b>9. Which parser is more efficient when making a Web Browser? Why? In what kind of applications is the other parser more efficient?</b></p>
+<p>The DOM parser always reads the whole xml document as an atomar processing step. It either throws an exception when it encounters an error during parsing, or returns a complete DOM tree as a representation of the xml document.</p>
+<p>In contrast, the SAX parser works incrementally and generates events that are passed to the application. An application can receive these events by implementing the abstract methods of the SAX2XMLReader class.</p>
+<p>The strength of the SAX specification is that it can scan and parse gigabytes worth of XML documents without hitting resource limits, because it does not try to create the DOM representation in memory. Because of this design, the SAX implementation is generally faster and requires fewer resources.</p>
+<p>( according to me it should be DOM for webservers . anyone else sure about this answer? )</p>
+<p><b>11. For what the "synchronized" keyword is used and show how they are used in java</b></p>
+<p>code? When/why do you have to care about the synchronization in the e-commerce</p>
+<p>applications? In java, the keyword synchronized is added to the method declarations to avoid race conditions occur when multiple, asynchronously executing threads access the same object returning unexpected (wrong) results. Race conditions can be avoided by synchronizing the methods which access the shared resource</p>
+<pre>
+     Example of using synchronized: public synchronized int get(){..} 
+</pre>
+<pre>
+           We have to care about the synchronization in the e-commerce applications
+</pre>
+<p>to make sure no other threads can be generating an order number. No same order number can be made in e-commerce appl</p>
+<p><b>12. Explain why Java Applets have more security issues than Java Applications and what are the examples of those security related restrictions for Applets? In addition to those security issues, what are the limitations that applet has? (list one)</b></p>
+<p>A Java applet is a Java program which is run from inside a web browser. Unlike a Java application, an applet is restricted in some areas, unless it has been deemed trustworthy by the end user. This security restriction is in place to protect the end user from malicious code which could, for example, delete files or copy sensitive information from the hard disk of the end user.</p>
+<p>-&gt; Limitations: applets loaded over the net are prevented from starting other programs on the client. Applets loaded over the net are also not allowed to load libraries, or to define native method calls.</p>
+<p><b>13. Explain about JDBC – how is it used in e-commerce and what is the advantage of using JDBC?</b> Short for Java Database Connectivity, a Java API that enables Java programs to execute SQL statements.</p>
+<p><b>15. How does prepared statement improve the performance of e-commerce applications?</b> PreparedStatement is used to execute dynamic SQL statement with input parameters. PreparedStatement gives better performance when compared to Statement because it is pre-parsed and pre-compiled. This means that compilation and parsing of such statement is done only once by the database. Afterwards the database reuses the already parsed and compiled statement. This significantly improves the performance because whenever a statement has to be executed repeatedly, it doesn't need to be parsed and compiled time and again. So the overload incurred by parsing and compiling the same statement can be reduced</p>
+<pre>
+  (Show using an example code)
+</pre>
+<p>Connection con = DriverManager.getConnection (url, user, password);</p>
+<p>PreparedStatement ps = con.prepareStatement("select * from post where postid = ?"); //sets the first question mark placeholder to a Java int with a value of 2</p>
+<p>ps.setInt(1, 2); ResultSet rs = ps.executeQuery(); . � ps.close();</p>
+<p><b>(16) Explain what does “class.forname” do in general? (A code is given below to help you refresh your memory. Explanation could be related to it, but doesn’t have to because the example below doesn’t make good use of the original intention of class.forname of java)</b></p>
+<p><br />
+Class.forName("org.gjt.mm.mysql.Driver"); String dbURL = "jdbc:mysql://localhost:3306/murach";</p>
+<p>String username = "root"; String password = "";</p>
+<p>(A) The Class.forname() method loads and registers a database driver.</p>
+<pre>
+   As per above example, at run time, the Class.forname() method locates and loads the class “org.gjt.mm.mysql.Driver” from the classpath using the bootstrap class loader. When u load the driver class using the class.forname() method, an instance of the driver is automatically registered with the java.sql.DriverManager class.
+</pre>
+<p><br />
+<b>17. What is Java Bean – what is requirement to be classified as JavaBean?</b></p>
+<p>A reusable component that can be used in any Java application development environment. JavaBeans are dropped into an application container, such as a form, and can perform functions ranging from a simple animation to complex calculations. A Javabean is just a java class with the following requirements.</p>
+<ol>
+<li>It has a public no-args constructor</li>
+<li>It has 'set' and 'get' methods for its properties.</li>
+<li>It may have any general functions.</li>
+<li>If required it must be Serializable.</li>
+</ol>
+<p><br />
+<b>19. Please explain how tag library is deployed. Explain step by step – how it is used in jsp</b> page, what needs to be defined, how actual java codes are created by extending which class, etc. How and where the relation/association between the java class (tag handler class) and the tag names needs to be defined.</p>
+<pre>
+How it is used in JSP page:
+</pre>
+<p>The JSP page implementation class invokes the setPageContext, setParent, and attribute setting methods before calling doStartTag. The JSP page implementation class also guarantees that release will be invoked on the tag handler before the end of the page. A typical tag handler method invocation sequence: ATag t = new ATag(); t.setPageContext(...); t.setParent(...); t.setAttribute1(value1); t.setAttribute2(value2); t.doStartTag(); t.doEndTag(); t.release();</p>
+<p><br />
+The doStartTag and doEndTag methods of the Tag interface must be defined. The doStartTag method is invoked when the start tag is encountered. The doEndTag method is invoked when the end tag is encountered</p>
+<p>Java codes are created by extending TagSupport or BodyTagSupport class</p>
+<p>Once your TLD ( tag library descriptor) and tag handlers are created, you can begin accessing the tags in your JSP. You declare that a JSP page will use tags defined in a tag library by including a taglib directive in the page before any custom tag is used. The prefix attribute is a shortcut to referencing the library throughout the page.</p>
+<p><br />
+<b>20. What is MVC model? What does each letter mean? Discuss how it is used in your term project.</b></p>
+<p>Several problems can arise when applications contain a mixture of data access code, business logic code, and presentation code. Such applications are difficult to maintain, because interdependencies between all of the components cause strong ripple effects whenever a change is made anywhere. High coupling makes classes difficult or impossible to reuse because they depend on so many other classes. Adding new data views often requires reimplementing or cutting and pasting business logic code, which then requires maintenance in multiple places. Data access code suffers from the same problem, being cut and pasted among business logic methods.</p>
+<p>The Model-View-Controller design pattern solves these problems by decoupling data access, business logic, and data presentation and user interaction. (<a href="http://java.sun.com/blueprints/patterns/MVC.html" class="external free" title="http://java.sun.com/blueprints/patterns/MVC.html" rel="nofollow">http://java.sun.com/blueprints/patterns/MVC.html</a>)</p>
+<p><b>22. Explain about “Host Security”, “Web Service Security”, “Web Application Security”</b></p>
+<p>Host Security: Host security is about keeping system up-to-date and secure at the local network.Good security practices on hosts should be maintained and host security is important components of overall security design. Host security is about preventing unauthorized access, for example, a data processing department might want to provide different access models for a data entry person and an auditor. Host security is about preventing any potential attacks from the network by using malware control. The goal of good network security and firewalling is to reduce the dependence on host security. Host security is about setting up policy for network users, and host security is also included physical security such as using fingerprint-scanner to gain access to network computer</p>
+<p>Web service-Security. WS-Security provides a security language for Web services. WS-Security describes enhancements to SOAP messaging providing three capabilities: credential exchange, message integrity, and message confidentiality. These three mechanisms can be used independently or in combination to accommodate a wide variety of security models and encryption technologies. WS-Security provides a general-purpose mechanism for associating licenses. Message integrity is provided by leveraging XML Signature and licenses to ensure that messages are transmitted without modifications. Similarly, message confidentiality leverages XML Encrypt and licenses to keep portions of a SOAP message confidential.</p>
+<p>Web Application Security: Measures taken to prevent security flaws in the design, development, and deployment of web-based applications. Web application security involves implementing protective measures against potential threats, malicious or unintentional, that exploit exposed vulnerabilities. Security is best implemented using the defense-in-depth technique by applying protective measures at network, host, and web application levels.</p>
+<hr />
+<p>== Shalin Part: questions 4,5,8,16,19 <b>==</b> I put some in sequence, makes it easy 2 read -- Anu</p>
+<hr />
+<p><br /></p>
+<p><br />
+<b>5. Write comments like in question No.4</b> &lt;%@ page import="com.wrox.projsp.ch05.*" errorPage="error.jsp" %&gt; &lt;html&gt;&lt;title&gt;Process the Order&lt;/title&gt; &lt;body&gt; &lt;% if(session.getValue("user") == null) { response.sendRedirect("showLogin.html"); } // (a) // if session is not set for the user redirect the user to Login page. // // // // User user = (User)session.getValue("user"); // (b) // // get user object from session and assign it to local “User” object. // // String display = "showDetails.jsp"; int mode = (new Integer(request.getParameter("action"))).intValue(); System.out.println("Action" + mode); Order order = null; switch(mode) { /* 0 = add / modify 1 = complete 2 = clear 3 = display</p>
+<ul>
+<li>/</li>
+</ul>
+<p>case(0): case(2): String itemIds[] = request.getParameterValues("itemId"); // (c) // retrieve values of “itemid” variable of request object. // If (itemIds != null &amp;&amp; itemIds.length != 0) { order = new Order(user); order.setItemIds(itemIds); session.setAttribute("anOrder", order); // (d) // save/add the order details in session. // // } else session.removeAttribute("anOrder"); break; case(1): // Complete the order here order = (Order)session.getAttribute("anOrder"); System.out.println("Order: " + order); order.complete((Catalog)pageContext.getAttribute("catalog", pageContext.APPLICATION_SCOPE)); display = "receipt.html"; break; } response.sendRedirect(display); // (e)</p>
+<p>// redirect to “showDetail.jsp” page. // / %&gt; <b>(f) Explain about the scope (page, request, session, application) of java beans in JSP</b> Answer: Page: page scope means that the object is associated with the particular request to this page.</p>
+<pre>
+       Request: request scope means that the object is associated with this particular client request.
+       Session: session scope means that the object will be available during any requests made the same client within the current     session.
+       Application:  application means that the object will be available in any JSP page with in the same web application.
+</pre>
+<p><b>(g) List and explain about the implicit objects (provided without explicit declaration) in JSP.</b> Answer: Request: the request object represents the request that the client sent to server. It is object of HttpServletRequest class, which provides access to the incoming HTTP headers, request type and request parameters among other things. Response: response object is HttpServletResponse instance that represents server’s response to the request. Pagecontext: the pageContext provides a single point of access to many of the page attributes and is convient place to put shared data within the page. Session: The session object represents the session created for the requesting client. Application: The application object represents the servlet context, obtained from the servlet configuration object. Out: the out object is the object that writes into the output stream to the client. Config: the config object is ServletConfig for the JSP page and has page scope. Page: The page object is the instance of the page’s implementation servelt class that is processing the current request.</p>
+<p>(h) Explain directory structure for tomcat web applications – Where is the application home directory placed, where html/jsp, java bean or servlet classes are stored? Answer:</p>
+<p>A web application has four parts: a) A public directory b) A WEB-INF/web.xml file c) A WEB-INF/classes directory d) A WEB-INF/lib directory -&gt;The public area is the root of the application, excluding WEB-INF directory. The application home directory is placed under “wwwroot” directory. -&gt;All html/jsp files are placed under public area or root of the application. -&gt; all java Beans and servlet classes are placed under WEB-INF/classes directory.</p>
+<p>Example:</p>
+<pre>
+myWebApp\
+                     index.html
+</pre>
+<p>login.jsp</p>
+<pre>
+                     summary.jsp
+</pre>
+<p>WEB-INF\ Web.xml Classes\ Login.class Shoppingcart.class</p>
+<pre>
+               Lib\
+                         DbLibrary.jar
+</pre>
+<p>xmlTools.jar</p>
+<p><b>(i) What is war file and used for?</b></p>
+<pre>
+        The various directories and files that make up a web application can be packaged into a “Web Application Archive” (WAR). War files is a simplified way to distribute java class files and other resources. Any JSP server automatically deploy an application packaged as a WAR file.
+</pre>
+<p><br /></p>
+<p><br /></p>
+<p><br /></p>
+<p><br />
+<b>19. Please explain how tag library is deployed. Explain step by step – how it is used in jsp page, what needs to be defined, how actual java codes are created by extending which class, etc. How and where the relation/association between the java class (tag handler class) and the tag names needs to be defined.</b></p>
+<p>(A)</p>
+<pre>
+   The taglib directive allows the page to use tab library, which contains compiled java code defining tags to be used. The engine uses this tag library to find out what to do when it comes across the custom tags in the JSP.
+ &lt;%@ taglib uri=”<a href="http://userwww.sfsu.edu/~shalin”" class="external free" title="http://userwww.sfsu.edu/~shalin”" rel="nofollow">http://userwww.sfsu.edu/~shalin”</a> prefix=”sap” %&gt;
+</pre>
+<p>Procedure to create tag library: 1. create Tag extension class which extends TagSupport class. import javax.servlet.jsp.*; import javax.servlet.jsp.tagext.*; import java.io.*; import java.util.*; import java.text.DateFormat;</p>
+<p>public class SimpleDateTag extends TagSupport</p>
+<p>2. Overwrite TagSupport class methods as needed. Example : doStartTag(), doEndTag() etc.</p>
+<p>public int doStartTag() throws JspException {</p>
+<pre>
+   try
+{
+           JspWriter out = pageContext.getOut();
+           out.print("The current date is " + new Date() + ".");
+    }
+ catch (IOException ioe)
+{
+            System.out.println("SimpleDateTag IOException: " + ioe);
+ }
+        return SKIP_BODY;
+    }
+</pre>
+<p>3. Declare tab in shalin.tld file. &lt;taglib&gt;</p>
+<pre>
+ &lt;tlibversion&gt;1.0&lt;/tlibversion&gt;
+ &lt;jspversion&gt;1.2&lt;/jspversion&gt;
+ &lt;shortname&gt;&lt;/shortname&gt;
+ &lt;info&gt;The tag library for the murach applications&lt;/info&gt;
+</pre>
+<pre>
+ &lt;tag&gt;
+   &lt;name&gt;today&lt;/name&gt;
+   &lt;tagclass&gt;tags.SimpleDateTag&lt;/tagclass&gt;
+   &lt;info&gt;Returns the current date&lt;/info&gt;
+ &lt;/tag&gt;
+</pre>
+<p>&lt;/taglib&gt;</p>
+<p>4. Instiate taglibrary using taglib directive and give prefix to library.</p>
+<pre>
+   &lt;%@ taglib uri="../WEB-INF/tlds/shalin.tld" prefix="mma" %&gt;
+</pre>
+<p>5. Access tags defined in shalin.tld file using assigned prefix “mma”. <span>&lt;mma:today /&gt;</span> This will print current date.</p>
+<p><br />
+ as shown above , the relation/association between the java class (tag handler class) and the tag names are defined in .tld files . &lt;taglib&gt; &lt;tag&gt;</p>
+<pre>
+   &lt;name&gt;today&lt;/name&gt;
+   &lt;tagclass&gt;tags.SimpleDateTag&lt;/tagclass&gt;
+   &lt;info&gt;Returns the current date&lt;/info&gt;
+ &lt;/tag&gt;
+           &lt;/taglib&gt;
+</pre>
+<pre>
+        If you are using multiple tag library in your applications you can define these tag libraries in the  We application descriptor, web.xml.
+ 
+</pre>
+<p>&lt;web-app&gt;</p>
+<pre>
+  &lt;taglib&gt;
+</pre>
+<p>&lt;taglib-uri&gt;<a href="http://userwww.sfsu.edu/~shalin" class="external free" title="http://userwww.sfsu.edu/~shalin" rel="nofollow">http://userwww.sfsu.edu/~shalin</a>&lt;/taglib-uri&gt;</p>
+<pre>
+            &lt;taglib-location&gt;/WEB-INF/tlds/sap.tld&lt;/taglib-location&gt;
+  &lt;/taglib&gt;
+ &lt;taglib&gt;
+</pre>
+<p>&lt;taglib-uri&gt;<a href="http://userwww.sfsu.edu/~abc" class="external free" title="http://userwww.sfsu.edu/~abc" rel="nofollow">http://userwww.sfsu.edu/~abc</a>&lt;/taglib-uri&gt;</p>
+<pre>
+            &lt;taglib-location&gt;/WEB-INF/tlds/def.tld&lt;/taglib-location&gt;
+  &lt;/taglib&gt;
+</pre>
+<p>&lt;/web-app&gt;</p>
+<p><b>23. What is Ajax? What are advantages of using Ajax and What are possible risks?</b></p>
+<p>Ajax, stands for Asynchronous JavaScript and XML. It is a Web development technique for creating interactive web applications.</p>
+<pre>
+Advantages -
+</pre>
+<ol>
+<li>Web pages are made to feel more responsive by exchanging small amounts of data with the server behind the scenes, so that the</li>
+<li>entire web page does not have to be reloaded each time the user makes a change. This is meant to increase the web page's</li>
+<li>interactivity, speed, and usability.</li>
+</ol>
+<pre>
+Risks –
+</pre>
+<ol>
+<li>a) Usability issues:
+<ol>
+<li>1.) The use of Ajax in web applications is that it might easily break the expected behavior of the browser's back button. The ## different expectations between returning to a page which has been modified dynamically versus the return to a previous static</li>
+<li>page might be a subtle one. Users generally expect that clicking the back button in web applications will move to their last</li>
+<li>page loaded, and in Ajax applications this might not be the case.</li>
+</ol>
+</li>
+</ol>
+<p>2.) Dynamic web page updates make it difficult for a user to bookmark a particular state of the application. b) Response Time: Network latency — or the interval between user request and server response — needs to be considered carefully during Ajax development. Without clear feedback to the user, smart preloading of data and proper handling of the XMLHttpRequest object, users might experience delay in the interface of the web application, something which users might not expect or understand. c) JavaScript: While no browser plug-in is required for Ajax, it requires users to have JavaScript enabled in their browsers. This applies to all browsers that support Ajax except for Microsoft Internet Explorer 6 and below which additionally require ActiveX to be enabled, as the XMLHttpRequest object is implemented with ActiveX in this browser. Internet Explorer 7, however, will implement this interface as a native JavaScript object and hence does not need ActiveX to be enabled for Ajax to work. As with DHTML applications, Ajax applications must be tested rigorously to deal with the quirks of different browsers and platforms. A number of programming libraries have become available as Ajax has matured that can help ease this task. Likewise, techniques have been developed to assist in designing applications which degrade gracefully and offer alternative functionality for users without JavaScript enabled.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/y/User_talk%7EAryavrati_a202.html">http://en.wikipedia.org../../../a/r/y/User_talk%7EAryavrati_a202.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       	       ><a href="../../../a/r/y/User%7EAryavrati_6ddc.html">User page</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/r/y/User_talk%7EAryavrati_a202.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User_talk:Aryavrati">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 04:43, 23 May 2006 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) Mulgi, Aryavrati and Khoa0304.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Adaptive Simpson's method,Clenshaw-Curtis quadrature,Composite simpson's rule,Gauss-Kronrod quadrature,Numerical integration,Python (programming language),Quadratic function,Romberg's method,Simpson's rule" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Adaptive Simpson's method - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Adaptive Simpson's method</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>Adaptive Simpson's method</b>, also called <b>adaptive Simpson's rule</b>, is a method of <a href="../../../n/u/m/Numerical_integration.html" title="Numerical integration">numerical integration</a> proposed by William M. McKeeman in 1962.<sup id="_ref-mckeeman_0" class="reference"><a href="#_note-mckeeman" title="">[1]</a></sup>. It is perhaps the first adaptive algorithm for numerical integration to appear in print, although more modern adaptive methods based on <a href="../../../g/a/u/Gauss-Kronrod_quadrature_0c7e.html" title="Gauss-Kronrod quadrature">Gauss-Kronrod quadrature</a> and <a href="../../../c/l/e/Clenshaw-Curtis_quadrature_2184.html" title="Clenshaw-Curtis quadrature">Clenshaw-Curtis quadrature</a> are now generally preferred. Adaptive Simpson's method uses an estimate of the error we get from calculating a definite integral using <a href="../../../s/i/m/Simpson%27s_rule.html" title="Simpson's rule">Simpson's rule</a>. If the error exceeds a user-specified tolerance, the algorithm calls for subdividing the interval of integration in two and applying adaptive Simpson's method to each subinterval in a recursive manner. The technique is usually much more efficient than <a href="../../../c/o/m/Composite_simpson%27s_rule.html" title="Composite simpson's rule">composite Simpson's rule</a> since it uses fewer function evaluations in places where the function is well-approximated by a <a href="../../../q/u/a/Quadratic_function.html" title="Quadratic function">quadratic function</a>.</p>
+<p>The criterion for determining when to stop subdividing an interval is</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/0/a/40a7f9504670cc1cec9bce05554a933d.png" alt="|S(a,c) + S(c,b) - S(a,b)|/15 &lt; \epsilon \," /></dd>
+</dl>
+<p>where <img class='tex' src="../../../math/8/b/5/8b596d04e319e05cadcc7dcf251a9815.png" alt="[a,b]\,\!" /> is an interval with midpoint <img class='tex' src="../../../math/0/7/0/0704911db4e3ec5f12d536fbfd7ed629.png" alt="c\,\!" />, <img class='tex' src="../../../math/f/a/e/fae3fd1a5f1f91027a1779731d9e8d1a.png" alt="S(a,b)\,\!" />, <img class='tex' src="../../../math/e/8/e/e8ea8fe5ac14f31d261fc1e8693c1be8.png" alt="S(a,c)\,\!" />, and <img class='tex' src="../../../math/f/f/7/ff7a3679e326cac3453f11641e49499e.png" alt="S(c,b)\,\!" /> are the estimates given by Simpson's rule on the corresponding intervals and <img class='tex' src="../../../math/2/2/3/223a19789dba17194e2f96e9c37b87d1.png" alt="\epsilon\,\!" /> is the desired tolerance for the interval.<sup id="_ref-kincaid_0" class="reference"><a href="#_note-kincaid" title="">[2]</a></sup></p>
+<p>Simpson's rule is a special case of <a href="../../../r/o/m/Romberg%27s_method.html" title="Romberg's method">Romberg's method</a>. The theory of this method shows that Simpson's rule is exact when the integrand is a polynomial of degree three or lower. According to <a href="../../../r/o/m/Romberg%27s_method.html" title="Romberg's method">Romberg's method</a>, the more accurate Simpson estimate <img class='tex' src="../../../math/0/4/1/04111d6c826628ca7aab26d86636b276.png" alt="S(a,c) + S(c,b)\," /> for six function values is combined with the less accurate estimate <img class='tex' src="../../../math/3/2/b/32b14838cee67b577c7efa7a95a4e048.png" alt="S(a,b)\," /> for three function values by applying the correction <img class='tex' src="../../../math/f/0/0/f00963f0096167afd9d5e7296d474587.png" alt="S(a,c) + S(c,b) - S(a,b)/15 \," />. Here the constant 15 is chosen to ensure that after applying the correction, an estimate is obtained that is exact for polynomials of degree five or less.</p>
+<p>Here is an implementation of adaptive Simpson's method in <a href="../../../p/y/t/Python_%28programming_language%29.html" title="Python (programming language)">Python</a>. Note that this is explanatory code, without regard for efficiency. Every call to recursive_asr entails six function evaluations. For actual use, one will want to modify it so that the minimum of two function evaluations are performed.</p>
+<pre>
+def simpsons_rule(f,a,b):
+    c = (a+b) / 2.0
+    h3 = abs(b-a) / 6.0
+    return h3*(f(a) + 4.0*f(c) + f(b))
+
+def recursive_asr(f,a,b,eps,sum):
+    "Recursive implementation of adaptive Simpson's rule."
+    c = (a+b) / 2.0
+    left = simpsons_rule(f,a,c)
+    right = simpsons_rule(f,c,b)
+    if abs(left + right - sum) &lt;= 15*eps:
+        return left + right + (left + right - sum)/15
+    return recursive_asr(f,a,c,eps/2,left) + recursive_asr(f,c,b,eps/2,right)
+
+def adaptive_simpsons_rule(f,a,b,eps):
+    "Calculate integral of f from a to b with max error of eps."
+    return recursive_asr(f,a,b,eps,simpsons_rule(f,a,b))
+
+from math import sin
+print adaptive_simpsons_rule(sin,0,1,.000000001)
+</pre>
+<p><a name="Bibliography" id="Bibliography"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/a/Adaptive_Simpson%27s_method_3619.html" title="Edit section: Bibliography">edit</a>]</span> <span class="mw-headline">Bibliography</span></h2>
+<ol class="references">
+<li id="_note-mckeeman"><b><a href="#_ref-mckeeman_0" title="">^</a></b> William M. McKeeman: Algorithm 145: Adaptive numerical integration by Simpson's rule. Commun. ACM 5(12): 604 (1962)</li>
+<li id="_note-kincaid"><b><a href="#_ref-kincaid_0" title="">^</a></b> Numerical Analysis. Mathematics of Scientific Computing Third Edition. by David Kincaid and Ward Cheney. Published by Brooks/Cole Third Edition, 2002</li>
+</ol>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/a/Adaptive_Simpson%27s_method_3619.html">http://en.wikipedia.org../../../a/d/a/Adaptive_Simpson%27s_method_3619.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../n/u/m/Category%7ENumerical_integration_8dcc.html" title="Category:Numerical integration">Numerical integration</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/a/Adaptive_Simpson%27s_method_3619.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/d/a/Talk%7EAdaptive_Simpson%27s_method_6eb3.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Adaptive_Simpson%27s_method">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:08, 24 February 2007 by Wikipedia user Vanemden. Based on work by Wikipedia user(s) <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../s/t/e/User%7EStevenj_40e5.html" title="User:Stevenj">Stevenj</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a> and <a href="../../../g/r/u/User%7EGrubbiv_6fd7.html" title="User:Grubbiv">Grubbiv</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

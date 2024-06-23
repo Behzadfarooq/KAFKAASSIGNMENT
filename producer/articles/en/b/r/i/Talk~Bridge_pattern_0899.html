@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Bridge pattern,Singleton pattern,Strategy Pattern,18.24.0.120,Dpser,RoySmith,Vladimir Bosnjak,35.9.26.55,RoySmith,169.231.11.44,Make technical articles accessible" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Bridge pattern - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Bridge pattern</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>Even with the example, this article is impenetrable. Some of the problem may just be bad grammar/phrasing, but since I don't understand what it's trying to say I can't fix it myself. <a href="../../../1/8/2E/User%7E18.24.0.120.html" title="User:18.24.0.120">18.24.0.120</a> 04:23, 4 Dec 2003 (UTC)</p>
+<div class="messagebox cleanup metadata plainlinks">
+<table style="width:100%;background:none">
+<tr>
+<td width="60px"><a href="../../../i/n/f/Image%7EInformation_icon.svg_dac9.html" class="image" title=""><img src="../../../upload/thumb/3/35/Information_icon.svg/40px-Information_icon.svg.png" alt="" width="40" height="40" longdesc="../../../i/n/f/Image%7EInformation_icon.svg_dac9.html" /></a></td>
+<td><b>This article may be too technical for a general audience.</b><br />
+Please help improve this article by providing more context and better explanations of technical details to <a href="../../../m/a/k/Wikipedia%7EMake_technical_articles_accessible_9f90.html" title="Wikipedia:Make technical articles accessible">make it more accessible</a>, without removing technical details. See below for more information.</td>
+</tr>
+</table>
+</div>
+<p>The diagram and the accompaning Java code do not match. According to the code the arrow from Abstraction to Implementor is actually from RefinedAbstraction to Implementor.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#C.2B.2B"><span class="tocnumber">1</span> <span class="toctext">C++</span></a></li>
+<li class="toclevel-1"><a href="#Code_Added_for_C.2B.2B"><span class="tocnumber">2</span> <span class="toctext">Code Added for C++</span></a></li>
+<li class="toclevel-1"><a href="#C.23_Code_now_compiles"><span class="tocnumber">3</span> <span class="toctext">C# Code now compiles</span></a></li>
+<li class="toclevel-1"><a href="#Removed_comment_on_C.2B.2B_implementation"><span class="tocnumber">4</span> <span class="toctext">Removed comment on C++ implementation</span></a></li>
+<li class="toclevel-1"><a href="#What_Needs_To_Be_Done.3F"><span class="tocnumber">5</span> <span class="toctext">What Needs To Be Done?</span></a></li>
+<li class="toclevel-1"><a href="#Does_the_Shape_example_at_all_justify_the_Bridge_Pattern"><span class="tocnumber">6</span> <span class="toctext">Does the Shape example at all justify the Bridge Pattern</span></a></li>
+<li class="toclevel-1"><a href="#why_are_their_a_bunch_of_different_code_examples.3F"><span class="tocnumber">7</span> <span class="toctext">why are their a bunch of different code examples?</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="C.2B.2B" id="C.2B.2B"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/i/Talk%7EBridge_pattern_0899.html" title="Edit section: C++">edit</a>]</span> <span class="mw-headline">C++</span></h4>
+<p>Sample for C++ bridge pattern is missing.</p>
+<p><a name="Code_Added_for_C.2B.2B" id="Code_Added_for_C.2B.2B"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/i/Talk%7EBridge_pattern_0899.html" title="Edit section: Code Added for C++">edit</a>]</span> <span class="mw-headline">Code Added for C++</span></h4>
+<p>Added code for C++ but als also derived another class from the Abstraction to demonstrate the interchangebility - the main purpose of this Design Pattern. For the C++ code, the aggregate from Abstraction to Implementor is correct. The code for C# and Java isn't (July 11th, 2006).</p>
+<p><br /></p>
+<hr />
+<p>[[User:<b>Vladimir Bosnjak</b>|Vladimir Bosnjak]] 10:12, 12 July 2006 (UTC)</p>
+<p><br /></p>
+<p><a name="C.23_Code_now_compiles" id="C.23_Code_now_compiles"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/i/Talk%7EBridge_pattern_0899.html" title="Edit section: C# Code now compiles">edit</a>]</span> <span class="mw-headline">C# Code now compiles</span></h4>
+<p>Made the C# code compilable, aggregate still incorrect.</p>
+<p><a name="Removed_comment_on_C.2B.2B_implementation" id="Removed_comment_on_C.2B.2B_implementation"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/i/Talk%7EBridge_pattern_0899.html" title="Edit section: Removed comment on C++ implementation">edit</a>]</span> <span class="mw-headline">Removed comment on C++ implementation</span></h4>
+<p>Somebody added a line that the C++ code isn't the bridge pattern. It sure is - only more efficiënt implemented. The poster/editor noted that a variable is "pushed up" (whatever that means). Please note that I implemented more abstract abstractions. That's what abstract classes are for! Please, next time, start a tech discussion first before editing the related wiki-page. <a href="../../../v/l/a/User%7EVladimir_Bosnjak_bf97.html" title="User:Vladimir Bosnjak">Vladimir Bosnjak</a> 18:45, 22 September 2006 (UTC)</p>
+<p><a name="What_Needs_To_Be_Done.3F" id="What_Needs_To_Be_Done.3F"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/i/Talk%7EBridge_pattern_0899.html" title="Edit section: What Needs To Be Done?">edit</a>]</span> <span class="mw-headline">What Needs To Be Done?</span></h4>
+<p>This article still seems to be too technical. That might be the case easely indeed for some or many. --&gt;&gt;What exactly needs to be done to make it more accessible? I could add a non-software image to visualize the "car example". I could add even more images, refining the steps. I could do a lot more in general. First of all I'd like to see a quick tutorial on how to add images to a wiki page. If someone is willing, please move to my talk-page and help me out with that part. Currently the "wiki manual" on this subject is overwhelming. My time is limited I'm affraid to read it all. I believe a detailed explanation on the details (e.g. code) is out of place. Yet I do agree that more detailed explanation is required. However, this needs teamwork. More insights on that later. <a href="../../../v/l/a/User%7EVladimir_Bosnjak_bf97.html" title="User:Vladimir Bosnjak">Vladimir Bosnjak</a> 20:15, 22 September 2006 (UTC)<a href="../../../v/l/a/User%7EVladimir_Bosnjak_bf97.html" title="User:Vladimir Bosnjak">Vladimir Bosnjak</a> 20:07, 22 September 2006 (UTC)</p>
+<p><a name="Does_the_Shape_example_at_all_justify_the_Bridge_Pattern" id="Does_the_Shape_example_at_all_justify_the_Bridge_Pattern"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/i/Talk%7EBridge_pattern_0899.html" title="Edit section: Does the Shape example at all justify the Bridge Pattern">edit</a>]</span> <span class="mw-headline">Does the Shape example at all justify the Bridge Pattern</span></h4>
+<p>I find it difficult to see the light when it comes to the Bridge Pattern. The most common example I see is the Shape example which is also used here. I can easily understand the example, but I find the solution using the Bridge Pattern complete silly.</p>
+<p>Using the Bridge Pattern each shape <b>instance</b> is tied to a certain Drawing API. But that seems silly to me; why should shapes be bound to a media at all?</p>
+<p>Many places including here the Bridge Pattern is related to working on several operating systems. But can you imagine that some of the shapes in a single running instance of program is on one operating system while others are on another operating system? I cannot, and therefore it seems strange that each shape should have an individual member signifying the operating system (using a <a href="../../../s/i/n/Singleton_pattern.html" title="Singleton pattern">Singleton pattern</a> containg a strategy (cf. <a href="../../../s/t/r/Strategy_Pattern_44b2.html" title="Strategy Pattern">Strategy Pattern</a>) seems more appropriate in this case).</p>
+<p>If facing the problem of drawing using several different APIs in a single running instance of a program. I would use a different pattern (don't know if it has a name). Instead of tying each shape to a drawing API, I would supply the Drawing API to the draw operation. Using the C++ example the main code would look like this:</p>
+<pre>
+<font color="#008800">//The Client.</font>
+<font color="#008800">// --&gt;&gt; int main() merely demonstrates the interchangebility.</font>
+<font color="#0000FF">int</font> <font color="#0000FF">main</font>()
+{
+  Shape* TheShape[4]; <font color="#008800">//2 shapes x 2 implementations = 4 client-options.</font>
+  DrawingAPI* DA[2]; <font color="#008800">//2 Implementations.</font>
+  DA[0] = <font color="#0000FF">new</font> OpenGL;
+  DA[1] = <font color="#0000FF">new</font> DirectX;
+<br />
+  TheShape[0] = <font color="#0000FF">new</font> Circle(1, 2, 7.5);
+  TheShape[0]-&gt;Draw(DA[0]);  <font color="#008800">//Draw circle with OpenGL</font>
+<br />
+  TheShape[1] = <font color="#0000FF">new</font> Circle(5, 7, 27.5);
+  TheShape[1]-&gt;Draw(DA[1]); <font color="#008800">//Draw circle with DirectX</font>
+<br />
+  TheShape[2] = <font color="#0000FF">new</font> Square(10, 14);
+  TheShape[2]-&gt;Draw(DA[0]);  <font color="#008800">//Draw square with OpenGL</font>
+<br />
+  TheShape[3] = <font color="#0000FF">new</font> Square(2.9, 80);
+  TheShape[3]-&gt;Draw(DA[1]); <font color="#008800">//Draw square with DirectX</font>
+<br />
+  <font color="#008800">//Give back allocated memory.</font>
+  <font color="#0000FF">delete</font> DA[0], DA[1];
+  <font color="#0000FF">delete</font> TheShape[0], TheShape[1], TheShape[2], TheShape[3];
+<br />
+  <font color="#0000FF">return</font> 0;
+}
+</pre>
+<p>Another reason that this makes more sense is that the "Drawing API" in this case could also represent the media, so that you can draw the same shapes in several windows and on a printer, etc.</p>
+<p>While I beleive I understand the Bridge Pattern, I still lack an example that justifies its use.</p>
+<p>Thomas Linder Puls, Prolog Development Center, Denmark</p>
+<dl>
+<dd>One can't say. No real analysis has been provided to start with. But I don't believe the requirement as defined in the article (multiple shapes interchanged with multiple API's) is a good practical example. I agree with you on that. Interchanging shapes with devices (windows, forms, printers etc.) is a much better example.</dd>
+</dl>
+<dl>
+<dd>I think that the one and only strength of this pattern lies in it's ability to demonstrate how multiple objects can be mixed the object oriented way. When I start to think hard, I too have problems finding the right example. If a good (realistic) example has been found, then the next question is: would the less experianced coder understand?</dd>
+<dd><a href="../../../v/l/a/User%7EVladimir_Bosnjak_bf97.html" title="User:Vladimir Bosnjak">Vladimir Bosnjak</a> 22:49, 23 November 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Objects can be mixed the object oriented way very easily: just add pointers and methods (for an example see <a href="http://www.parashift.com/c++-faq-lite/multiple-inheritance.html#faq-25.5" class="external free" title="http://www.parashift.com/c++-faq-lite/multiple-inheritance.html#faq-25.5" rel="nofollow">http://www.parashift.com/c++-faq-lite/multiple-inheritance.html#faq-25.5</a>). Actually the so-called bridge pattern is one case of triviality and basic principles' violation that any newbie will start overexploiting the second month working as a C++ developer. Vladimir, I think the shape example is completely wrong: it violates encapsulation and abstraction and seriously mutilates inheritance. Shape should (really) be pure virtual and Drawcircle(), DrawSquare() and the like should be protected methods in the respective Shape subclasses. And of course data like radius should be private to the relevant classes. What does a square need a radius for? And of course you should have a method to set the drawingAPI pointer, otherwise it makes no sense, it is a huge roundabout just to make a few simple calls and introduce a lot of bugs ;-). Such a system could only draw circles and squares, but if you wanna draw a line you must touch all three classes, while if done correctly you merely need to add a line class. I believe you probably had in mind more complex subclasses of shape, such as "car" for example, which might need a number of calls to basic drawing api's. But again Thomas' way is of course correct and consistent with the sanity of OOP: the desired device context would be fed to the shape instance at run-time, so that it can call the api's functions directly.<a href="../../../d/p/s/User%7EDpser_a265.html" title="User:Dpser">Dpser</a> 13:18, 10 January 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>The both of you are right but I am weary of using a device context in code examples because many students never used a device context before they're taught some basic patterns. However, I'm violating encapsulation and abstraction but I'm not motivated to do my best anymore because some lone ranger deletes C++ code because he thinks Java should be the standard. See my talk page. It takes way too many steps before some kind of justice is done. I may work a few hours on this topic only to see the next day the C++ code has dissapeared here as well... But make no mistake, I agree with both Dpser and Thomas and the C++ code should be corrected (encapsualation and abstraction violations). <a href="../../../v/l/a/User%7EVladimir_Bosnjak_bf97.html" title="User:Vladimir Bosnjak">Le Comte Valmont</a> 20:43, 22 February 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="why_are_their_a_bunch_of_different_code_examples.3F" id="why_are_their_a_bunch_of_different_code_examples.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Talk%7EBridge_pattern_0899.html" title="Edit section: why are their a bunch of different code examples?">edit</a>]</span> <span class="mw-headline">why are their a bunch of different code examples?</span></h2>
+<p>that's just retarded. Give one or two languages and leave it be. <small>—The preceding <a href="../../../s/i/g/Wikipedia%7ESign_your_posts_on_talk_pages_ee53.html" title="Wikipedia:Sign your posts on talk pages">unsigned</a> comment was added by <a href="../../../c/o/n/Special%7EContributions_169.231.11.44_a1d5.html" title="Special:Contributions/169.231.11.44">169.231.11.44</a> (talk) 06:04, 27 February 2007 (UTC).</small></p>
+<ul>
+<li>You might be taken seriously if you gave a reason why there <i>should not</i> be examples in many languages. 35.9.26.55 04:35, 1 March 2007 (UTC)</li>
+</ul>
+<ul>
+<li>There are two problems with the examples. One is that there are two few of them. Why not C++? Why not Python? Why not Java? The other problem is exactly the opposite; there are too many of them. When you try to cover all bases, you end up with the main point of the article getting lost in the noise. I'm with the anonymous post above; just pick one or two representitive languages and let it go at that. Pick langages which are well known and/or easy to read without knowing the syntax details. -- <a href="../../../r/o/y/User%7ERoySmith_da3a.html" title="User:RoySmith">RoySmith</a> <a href="../../../r/o/y/User_talk%7ERoySmith_db67.html" title="User talk:RoySmith">(talk)</a> 14:10, 25 March 2007 (UTC)</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 2576 bytes
+Post-expand include size: 603 bytes
+Template argument size: 69 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/i/Talk%7EBridge_pattern_0899.html">http://en.wikipedia.org../../../b/r/i/Talk%7EBridge_pattern_0899.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../w/i/k/Category%7EWikipedia_articles_that_are_too_technical_8d88.html" title="Category:Wikipedia articles that are too technical">Wikipedia articles that are too technical</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/r/i/Bridge_pattern.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/r/i/Talk%7EBridge_pattern_0899.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Bridge_pattern">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 14:10, 25 March 2007 by Wikipedia user <a href="../../../r/o/y/User%7ERoySmith_da3a.html" title="User:RoySmith">RoySmith</a>. Based on work by Wikipedia user(s) <a href="../../../h/a/g/User%7EHagermanBot_d869.html" title="User:HagermanBot">HagermanBot</a>, <a href="../../../v/l/a/User%7EVladimir_Bosnjak_bf97.html" title="User:Vladimir Bosnjak">Vladimir Bosnjak</a>, <a href="../../../d/p/s/User%7EDpser_a265.html" title="User:Dpser">Dpser</a>, Mcavigelli and <a href="../../../n/i/c/User%7ENickelShoe_2d9b.html" title="User:NickelShoe">NickelShoe</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

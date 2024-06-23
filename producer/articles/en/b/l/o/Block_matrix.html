@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Block matrix,Basis vector,Block LU decomposition,Computational fluid dynamics,Computer science,Determinant,Diagonal,Diagonal matrix,Direct sum,Domain (mathematics),Endomorphism" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Block matrix - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Block matrix</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In the <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematical</a> discipline of <a href="../../../m/a/t/Matrix_theory.html" title="Matrix theory">matrix theory</a>, a <b>block matrix</b> or a <b>partitioned matrix</b> is a partition of a <a href="../../../m/a/t/Matrix_%28mathematics%29.html" title="Matrix (mathematics)">matrix</a> into rectangular smaller matrices called <b>blocks</b>. Looking at it another way, the matrix is written in terms of smaller matrices written side-by-side. A block matrix must conform to a consistent way of splitting up the rows, and the columns: we group the rows into some adjacent 'bunches', and the columns likewise. The partition is into the rectangles described by one bunch of adjacent rows crossing one bunch of adjacent columns. In other words, the matrix is split up by some horizontal and vertical lines that go all the way across.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">1</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Block_diagonal_matrices"><span class="tocnumber">2</span> <span class="toctext">Block diagonal matrices</span></a></li>
+<li class="toclevel-1"><a href="#Block_tridiagonal_matrices"><span class="tocnumber">3</span> <span class="toctext">Block tridiagonal matrices</span></a></li>
+<li class="toclevel-1"><a href="#Direct_sum"><span class="tocnumber">4</span> <span class="toctext">Direct sum</span></a></li>
+<li class="toclevel-1"><a href="#Application"><span class="tocnumber">5</span> <span class="toctext">Application</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/o/Block_matrix.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>The matrix</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/8/7/3879d3845e9e92fe9ede7c197332dd16.png" alt="P = \begin{bmatrix} 1 &amp; 1 &amp; 2 &amp; 2\\ 1 &amp; 1 &amp; 2 &amp; 2\\ 3 &amp; 3 &amp; 4 &amp; 4\\ 3 &amp; 3 &amp; 4 &amp; 4\end{bmatrix}" /></dd>
+</dl>
+<p>can be partitioned into 4 2×2 blocks</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/1/2/112e8ca420d426e8d864cb37c700ebf1.png" alt="P_{11} = \begin{bmatrix} 1 &amp; 1 \\ 1 &amp; 1 \end{bmatrix},   P_{12} = \begin{bmatrix} 2 &amp; 2\\ 2 &amp; 2\end{bmatrix},  P_{21} = \begin{bmatrix} 3 &amp; 3 \\ 3 &amp; 3 \end{bmatrix},   P_{22} = \begin{bmatrix} 4 &amp; 4\\ 4 &amp; 4\end{bmatrix}." /></dd>
+</dl>
+<p>The partitioned matrix can then be written as</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/d/b/5dbcf69ee248f519b9568d3264913c5a.png" alt="P_{\mathrm{partitioned}} = \begin{bmatrix} P_{11} &amp; P_{12}\\ P_{21} &amp; P_{22}\end{bmatrix}." /></dd>
+</dl>
+<p><a name="Block_diagonal_matrices" id="Block_diagonal_matrices"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/o/Block_matrix.html" title="Edit section: Block diagonal matrices">edit</a>]</span> <span class="mw-headline">Block diagonal matrices</span></h2>
+<p>A <b>block diagonal matrix</b> is a block matrix which is a <a href="../../../s/q/u/Square_matrix.html" title="Square matrix">square matrix</a>, and having <a href="../../../m/a/i/Main_diagonal.html" title="Main diagonal">main diagonal</a> blocks square matrices, such that the off-diagonal blocks are zero matrices. A block diagonal matrix <b>A</b> has the form</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/c/4/ac41e55e9072fdd5e99404d04d59bc18.png" alt="\mathbf{A} = \begin{bmatrix}  A_{1} &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; A_{2} &amp; \cdots &amp;  0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; \cdots &amp; A_{n}  \end{bmatrix}" /></dd>
+</dl>
+<p>where <i>A</i><sub><i>k</i></sub> is a square matrix; in other words, it is the <a href="../../../m/a/t/Matrix_addition.html#Direct_sum" title="Matrix addition">direct sum</a> of <i>A</i><sub>1</sub>, …, <i>A</i><sub><i>n</i></sub>. It can also be indicated as <img class='tex' src="../../../math/2/1/8/2183ffd6bb806134c1bd1d4022f5409a.png" alt="A_1\oplus A_2\oplus\ldots\oplus A_n" /> or <img class='tex' src="../../../math/7/a/b/7ab806917198bb8003660260919837b6.png" alt="\mbox{diag}\left(A_1, A_2,\ldots, A_n\right)" /> (the latter being the same formalism used for a <a href="../../../d/i/a/Diagonal_matrix.html" title="Diagonal matrix">diagonal matrix</a>). Any square matrix can trivially be considered a block diagonal matrix with only one block.</p>
+<p>For the <a href="../../../d/e/t/Determinant.html" title="Determinant">determinant</a> and <a href="../../../t/r/a/Trace_%28linear_algebra%29.html" title="Trace (linear algebra)">trace</a>, the following properties hold</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/2/3/4235f56a451e9d398cecbe2c105147c5.png" alt="\operatorname{det} \mathbf{A} = \operatorname{det} A_1 \cdots \operatorname{det} A_n" />,</dd>
+<dd><img class='tex' src="../../../math/2/5/0/250903d258b8292c4fa607b87c23d564.png" alt="\operatorname{trace} \mathbf{A} = \operatorname{trace} A_1 +\cdots +\operatorname{trace} A_n" />.</dd>
+</dl>
+<p><a name="Block_tridiagonal_matrices" id="Block_tridiagonal_matrices"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/o/Block_matrix.html" title="Edit section: Block tridiagonal matrices">edit</a>]</span> <span class="mw-headline">Block tridiagonal matrices</span></h2>
+<p>A <b>block tridiagonal matrix</b> is another special block matrix, which is just like the block diagonal matrix a <a href="../../../s/q/u/Square_matrix.html" title="Square matrix">square matrix</a>, having square matrices (blocks) in the lower diagonal, <a href="../../../m/a/i/Main_diagonal.html" title="Main diagonal">main diagonal</a> and upper diagonal, with all other blocks being zero matrices. It is essentially a <a href="../../../t/r/i/Tridiagonal_matrix.html" title="Tridiagonal matrix">tridiagonal matrix</a> but has submatrices in places of scalars. A block tridiagonal matrix <b>A</b> has the form</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/b/0/ab0fe9f6f053620bf90ac11f91a4ea97.png" alt="\mathbf{A} = \begin{bmatrix} B_{1}  &amp; C_{1}  &amp;         &amp;         &amp; \cdots  &amp;         &amp; 0 \\ A_{2}  &amp; B_{2}  &amp; C_{2}   &amp;         &amp;         &amp;         &amp; \\        &amp; \ddots &amp; \ddots  &amp; \ddots  &amp;         &amp;         &amp; \vdots \\        &amp;        &amp; A_{k}   &amp; B_{k}   &amp; C_{k}   &amp;         &amp; \\ \vdots &amp;        &amp;         &amp; \ddots  &amp; \ddots  &amp; \ddots  &amp; \\        &amp;        &amp;         &amp;         &amp; A_{n-1} &amp; B_{n-1} &amp; C_{n-1}   \\ 0      &amp;        &amp; \cdots  &amp;         &amp;         &amp; A_{n}   &amp; B_{n} \end{bmatrix}" /></dd>
+</dl>
+<p>where <i>A</i><sub><i>k</i></sub>, <i>B</i><sub><i>k</i></sub> and <i>C</i><sub><i>k</i></sub> are square sub-matrices of the lower, main and upper diagonal respectively.</p>
+<p>Block tridiagonal matrices are often encountered in numerical solutions of engineering problems (e.g. <a href="../../../c/o/m/Computational_fluid_dynamics.html" title="Computational fluid dynamics">computational fluid dynamics</a>). Optimized numerical methods for <a href="../../../l/u/_/LU_factorization_f721.html" title="LU factorization">LU factorization</a> are available and hence efficient solution algorithms for equation systems with a block tridiagonal matrix as coefficient matrix. The <a href="../../../t/h/o/Thomas_algorithm.html" title="Thomas algorithm">Thomas algorithm</a>, used for efficient solution of equation systems involving a <a href="../../../t/r/i/Tridiagonal_matrix.html" title="Tridiagonal matrix">tridiagonal matrix</a> can also be applied using matrix operations to block tridiagonal matrices (see also <a href="../../../b/l/o/Block_LU_decomposition_dfa4.html" title="Block LU decomposition">Block LU decomposition</a>).</p>
+<p><a name="Direct_sum" id="Direct_sum"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/o/Block_matrix.html" title="Edit section: Direct sum">edit</a>]</span> <span class="mw-headline">Direct sum</span></h2>
+<p>For any arbitrary matrices <i>A</i> (of size <i>m</i> × <i>n</i>) and <i>B</i> (of size <i>p</i> × <i>q</i>), we have the <b>direct sum</b> of <i>A</i> and <i>B</i>, denoted by <img class='tex' src="../../../math/0/2/1/021a6af6071cb77c364718edc0ca959b.png" alt="A \oplus B" /> and defined as</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/8/a/a8aef01c54207dc71d1918331842b728.png" alt="A \oplus B =   \begin{bmatrix}      a_{11} &amp; \cdots &amp; a_{1n} &amp;      0 &amp; \cdots &amp;      0 \\      \vdots &amp; \cdots &amp; \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\     a_{m 1} &amp; \cdots &amp; a_{mn} &amp;      0 &amp; \cdots &amp;      0 \\           0 &amp; \cdots &amp;      0 &amp; b_{11} &amp; \cdots &amp;  b_{1q} \\      \vdots &amp; \cdots &amp; \vdots &amp; \vdots &amp; \cdots &amp; \vdots \\           0 &amp; \cdots &amp;      0 &amp; b_{p1} &amp; \cdots &amp;  b_{pq}    \end{bmatrix}" /></dd>
+</dl>
+<p>For instance,</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/b/9/db97fa670e52d2f3a53922fb34e8592b.png" alt="\begin{bmatrix}     1 &amp; 3 &amp; 2 \\     2 &amp; 3 &amp; 1   \end{bmatrix} \oplus   \begin{bmatrix}     1 &amp; 6 \\     0 &amp; 1   \end{bmatrix} =   \begin{bmatrix}     1 &amp; 3 &amp; 2 &amp; 0 &amp; 0 \\     2 &amp; 3 &amp; 1 &amp; 0 &amp; 0 \\     0 &amp; 0 &amp; 0 &amp; 1 &amp; 6 \\     0 &amp; 0 &amp; 0 &amp; 0 &amp; 1   \end{bmatrix}" /></dd>
+</dl>
+<p>This operation generalizes naturally to arbitrary dimensioned arrays (provided that A and B have the same number of dimensions).</p>
+<p>Note that any element in the <a href="../../../d/i/r/Direct_sum.html" title="Direct sum">direct sum</a> of two <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector spaces</a> of matrices could be represented as a direct sum of two matrices.</p>
+<p><a name="Application" id="Application"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/o/Block_matrix.html" title="Edit section: Application">edit</a>]</span> <span class="mw-headline">Application</span></h2>
+<p>In <a href="../../../l/i/n/Linear_algebra.html" title="Linear algebra">linear algebra</a> terms, the use of a block matrix corresponds to having a <a href="../../../l/i/n/Linear_mapping.html" title="Linear mapping">linear mapping</a> thought of in terms of corresponding 'bunches' of <a href="../../../b/a/s/Basis_vector.html" title="Basis vector">basis vectors</a>. That again matches the idea of having distinguished <a href="../../../d/i/r/Direct_sum.html" title="Direct sum">direct sum</a> decompositions of the <a href="../../../d/o/m/Domain_%28mathematics%29.html" title="Domain (mathematics)">domain</a> and <a href="../../../r/a/n/Range_%28mathematics%29.html" title="Range (mathematics)">range</a>. It is always particularly significant if a block is the zero matrix; that carries the information that a summand maps into a sub-sum.</p>
+<p>Given the interpretation <i>via</i> linear mappings and direct sums, there is a special type of block matrix that occurs for square matrices (the case <i>m</i> = <i>n</i>). For those we can assume an interpretation as an <a href="../../../e/n/d/Endomorphism.html" title="Endomorphism">endomorphism</a> of an <i>n</i>-dimensional space <i>V</i>; the block structure in which the bunching of rows and columns is the same is of importance because it corresponds to having a single direct sum decomposition on <i>V</i> (rather than two). In that case, for example, the <a href="../../../d/i/a/Diagonal.html" title="Diagonal">diagonal</a> blocks in the obvious sense are all square. This type of structure is required to describe the <a href="../../../j/o/r/Jordan_normal_form.html" title="Jordan normal form">Jordan normal form</a>.</p>
+<p>This technique is used to cut down calculations of matrices, column-row expansions, and many <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a> applications, including <a href="../../../v/l/s/VLSI_f891.html" title="VLSI">VLSI</a> chip design. An example is the <a href="../../../s/t/r/Strassen_algorithm.html" title="Strassen algorithm">Strassen algorithm</a> for fast <a href="../../../m/a/t/Matrix_multiplication.html" title="Matrix multiplication">matrix multiplication</a>.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/l/o/Block_matrix.html">http://en.wikipedia.org../../../b/l/o/Block_matrix.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../m/a/t/Category%7EMatrices_6598.html" title="Category:Matrices">Matrices</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/l/o/Block_matrix.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/l/o/Talk%7EBlock_matrix_a602.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Block_matrix">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../zh/%E5%88%86/%E5%A1%8A/%E7%9F%A9/%E5%88%86%E5%A1%8A%E7%9F%A9%E9%99%A3.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 10:02, 15 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../r/o/b/User%7ERobinh_3ed9.html" title="User:Robinh">Robinh</a>, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../h/a/s/User%7EHaseldon_d9bc.html" title="User:Haseldon">Haseldon</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../r/a/d/User%7ERadagast83_195a.html" title="User:Radagast83">Radagast83</a>, <a href="../../../a/l/p/User%7EAlphachimpbot_48b3.html" title="User:Alphachimpbot">Alphachimpbot</a>, <a href="../../../w/a/l/User%7EWalterMB_820b.html" title="User:WalterMB">WalterMB</a>, <a href="../../../f/r/o/User%7EFropuff_31b9.html" title="User:Fropuff">Fropuff</a>, <a href="../../../s/v/e/User%7ESverdrup_2f1f.html" title="User:Sverdrup">Sverdrup</a>, <a href="../../../t/a/r/User%7ETarquin_cdb6.html" title="User:Tarquin">Tarquin</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../t/b/a/User%7ETbackstr_6d2e.html" title="User:Tbackstr">Tbackstr</a>, <a href="../../../m/a/t/User%7EMathMartin_aca3.html" title="User:MathMartin">MathMartin</a>, <a href="../../../s/t/a/User%7EStan_Shebs_9ea8.html" title="User:Stan Shebs">Stan Shebs</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and <a href="../../../z/o/i/User%7EZoicon5_c684.html" title="User:Zoicon5">Zoicon5</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

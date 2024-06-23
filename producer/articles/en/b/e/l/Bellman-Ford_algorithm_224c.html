@@ -1,0 +1,315 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bellman-Ford algorithm,A* search algorithm,Autonomous system (Internet),Best-first search,Bidirectional search,Breadth-first search,C (programming language),Charles E. Leiserson,Clifford Stein,Depth-first search,Depth-limited search" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bellman-Ford algorithm - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bellman-Ford algorithm</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <table align="right" class="toccolours" style="padding: 0px; width: 170px; margin: 0 0 1em 1em;">
+<tr>
+<th style="background: #ccf;"><a href="../../../g/r/a/Graph_search_algorithm.html" title="Graph search algorithm">Graph search algorithms</a></th>
+</tr>
+<tr>
+<td><b>Search</b>
+<ul>
+<li><a href="../../../a/2A/_/A__search_algorithm_6db8.html" title="A* search algorithm">A*</a></li>
+<li><strong class="selflink">Bellman-Ford algorithm</strong></li>
+<li><a href="../../../b/e/s/Best-first_search.html" title="Best-first search">Best-first search</a></li>
+<li><a href="../../../b/i/d/Bidirectional_search.html" title="Bidirectional search">Bidirectional search</a></li>
+<li><a href="../../../b/r/e/Breadth-first_search.html" title="Breadth-first search">Breadth-first search</a></li>
+<li><a href="../../../d/e/p/Depth-first_search.html" title="Depth-first search">Depth-first search</a></li>
+<li><a href="../../../d/e/p/Depth-limited_search.html" title="Depth-limited search">Depth-limited search</a></li>
+<li><a href="../../../d/i/j/Dijkstra%27s_algorithm.html" title="Dijkstra's algorithm">Dijkstra's algorithm</a></li>
+<li><a href="../../../f/l/o/Floyd-Warshall_algorithm_103d.html" title="Floyd-Warshall algorithm">Floyd-Warshall algorithm</a></li>
+<li><a href="../../../i/t/e/Iterative_deepening_depth-first_search.html" title="Iterative deepening depth-first search">Iterative deepening depth-first search</a></li>
+<li><a href="../../../j/o/h/Johnson%27s_algorithm.html" title="Johnson's algorithm">Johnson's algorithm</a></li>
+<li><a href="../../../u/n/i/Uniform-cost_search.html" title="Uniform-cost search">Uniform-cost search</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p>The <b>Bellman–Ford algorithm</b> computes single-source shortest paths in a <a href="../../../w/e/i/Weighted_digraph.html" title="Weighted digraph">weighted digraph</a> (where some of the <a href="../../../e/d/g/Edge_%28graph_theory%29.html" title="Edge (graph theory)">edge</a> weights may be negative). <a href="../../../d/i/j/Dijkstra%27s_algorithm.html" title="Dijkstra's algorithm">Dijkstra's algorithm</a> accomplishes the same problem with a lower running time, but requires edge weights to be non-negative. Thus, Bellman–Ford is usually used only when there are negative edge weights.</p>
+<p>Bellman–Ford runs in <i>O</i>(<i>V</i>·<i>E</i>) time, where <i>V</i> and <i>E</i> are the number of vertices and edges respectively.</p>
+<pre>
+<b>function</b> BellmanFord(<i>list</i> vertices, <i>list</i> edges, <i>vertex</i> source)
+   <i>// This implementation takes in a graph, represented as lists of vertices</i>
+   <i>// and edges, and modifies the vertices so that their </i>distance<i> and</i>
+   <i>//</i> predecessor <i>attributes store the shortest paths.</i>
+
+   <i>// Step 1: Initialize graph</i>
+   <b>for each</b> vertex v in vertices:
+       <b>if</b> v <b>is</b> source <b>then</b> v.distance := 0
+       <b>else</b> v.distance := <b>infinity</b>
+       v.predecessor := <b>null</b>
+   
+   <i>// Step 2: relax edges repeatedly</i>
+   <b>for</b> i <b>from</b> 1 <b>to</b> size(vertices):       
+       <b>for each</b> edge uv in edges:
+           u := uv.source
+           v := uv.destination             <i>// uv is the edge from u to v</i>
+           <b>if</b> v.distance &gt; u.distance + uv.weight:
+               v.distance := u.distance + uv.weight
+               v.predecessor := u
+
+   <i>// Step 3: check for negative-weight cycles</i>
+   <b>for each</b> edge uv in edges:
+       u := uv.source
+       v := uv.destination
+       <b>if</b> v.distance &gt; u.distance + uv.weight:
+           <b>error</b> "Graph contains a negative-weight cycle"
+</pre>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Proof_of_correctness"><span class="tocnumber">1</span> <span class="toctext">Proof of correctness</span></a></li>
+<li class="toclevel-1"><a href="#Applications_in_routing"><span class="tocnumber">2</span> <span class="toctext">Applications in routing</span></a></li>
+<li class="toclevel-1"><a href="#Implementation"><span class="tocnumber">3</span> <span class="toctext">Implementation</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_link"><span class="tocnumber">5</span> <span class="toctext">External link</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Proof_of_correctness" id="Proof_of_correctness"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Bellman-Ford_algorithm_224c.html" title="Edit section: Proof of correctness">edit</a>]</span> <span class="mw-headline">Proof of correctness</span></h2>
+<p>The correctness of the algorithm can be shown by <a href="../../../m/a/t/Mathematical_induction.html" title="Mathematical induction">induction</a>. The precise statement shown by induction is:</p>
+<p><b>Lemma</b>. After <i>i</i> repetitions of <i>for</i> cycle:</p>
+<ul>
+<li>If Distance(u) is not infinity, it is equal to the length of some path from <i>s</i> to <i>u</i>;</li>
+<li>If there is a path from <i>s</i> to <i>u</i> with at most <i>i</i> edges, then Distance(u) is at most the length of the shortest path from <i>s</i> to <i>u</i> with at most <i>i</i> edges.</li>
+</ul>
+<p><b>Proof</b>. For the base case of induction, consider <code>i=0</code> and the moment before <i>for</i> cycle is executed for the first time. Then, for the source vertex, <code>source.distance = 0</code>, which is correct. For other vertices <i>u</i>, <code>u.distance = <b>infinity</b></code>, which is also correct because there is no path from <i>source</i> to <i>u</i> with 0 edges.</p>
+<p>For the inductive case, we first prove the first part. Consider a moment when a vertex's distance is updated by <code>v.distance&#160;:= u.distance + uv.weight</code>. By inductive assumption, <code>u.distance</code> is the length of some path from <i>source</i> to <i>u</i>. Then <code>u.distance + uv.weight</code> is the length of the path from <i>source</i> to <i>v</i> that follows the path from <i>source</i> to <i>u</i> and then goes to <i>v</i>.</p>
+<p>For the second part, consider the shortest path from <i>source</i> to <i>u</i> with at most <i>i</i> edges. Let <i>v</i> be the last vertex before <i>u</i> on this path. Then, the part of the path from <i>source</i> to <i>v</i> is the shortest path from <i>source</i> to <i>v</i> with at most <i>i-1</i> edges. By inductive assumption, <code>v.distance</code> after <i>i-1</i> cycles is at most the length of this path. Therefore, <code>uv.weight + v.distance</code> is at most the length of the path from <i>s</i> to <i>u</i>. In the <i>i<sup>th</sup></i> cycle, <code>u.distance</code> gets compared with <code>uv.weight + v.distance</code>, and is set equal to it if <code>uv.weight + v.distance</code> was smaller. Therefore, after <i>i</i> cycles, <code>u.distance</code> is at most the length of the shortest path from <i>source</i> to <i>u</i> that uses at most <i>i</i> edges.</p>
+<p>When <i>i</i> equals the number of vertices in the graph, each path will be the shortest path overall, unless there are negative-weight cycles. If a negative-weight cycle exists and is accessible from the source, then given any walk, a shorter one exists, so there is no shortest walk. Otherwise, the shortest walk will not include any cycles (because going around a cycle would make the walk shorter), so each shortest path visits each vertex at most once, and its number of edges is less than the number of vertices in the graph.</p>
+<p><a name="Applications_in_routing" id="Applications_in_routing"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Bellman-Ford_algorithm_224c.html" title="Edit section: Applications in routing">edit</a>]</span> <span class="mw-headline">Applications in routing</span></h2>
+<p>A distributed variant of Bellman–Ford algorithm is used in <a href="../../../d/i/s/Distance-vector_routing_protocol.html" title="Distance-vector routing protocol">distance-vector routing protocols</a>, for example the <a href="../../../r/o/u/Routing_Information_Protocol_c398.html" title="Routing Information Protocol">Routing Information Protocol</a> (RIP). The algorithm is distributed because it involves a number of nodes (routers) within an <a href="../../../a/u/t/Autonomous_system_%28Internet%29_d2c2.html" title="Autonomous system (Internet)">Autonomous system</a>, a collection of IP networks typically owned by an ISP. It consists of the following steps:</p>
+<ol>
+<li>Each node calculates the distances between itself and all other nodes within the AS and stores this information as a table.</li>
+<li>Each node sends its table to all neighbouring nodes.</li>
+<li>When a node receives distance tables from its neighbours, it calculates the shortest routes to all other nodes and updates its own table to reflect any changes.</li>
+</ol>
+<p>The main disadvantages of Bellman–Ford algorithm in this setting are</p>
+<ul>
+<li>Does not scale well</li>
+<li>Changes in <a href="../../../n/e/t/Network_topology.html" title="Network topology">network topology</a> are not reflected quickly since updates are spread node-by-node.</li>
+<li>Counting to <a href="../../../i/n/f/Infinity.html" title="Infinity">infinity</a> (if link or node failures render a node unreachable from some set of other nodes, those nodes may spend forever gradually increasing their estimates of the distance to it, and in the meantime there may be routing loops)</li>
+</ul>
+<p><a name="Implementation" id="Implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Bellman-Ford_algorithm_224c.html" title="Edit section: Implementation">edit</a>]</span> <span class="mw-headline">Implementation</span></h2>
+<p>The following program implements the Bellman–Ford algorithm in <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a>.</p>
+<pre>
+#include &lt;limits.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+/* Let INFINITY be the maximum value for an int */
+#define INFINITY INT_MAX
+
+typedef struct {
+    int source;
+    int dest;
+    int weight;
+} Edge;
+
+void BellmanFord(Edge edges[], int edgecount, int nodecount, int source)
+{
+    int *distance = malloc(nodecount * sizeof (*distance));
+    int i, j;
+    for (i=0; i &lt; nodecount; ++i)
+      distance[i] = INFINITY;
+    distance[source] = 0;
+
+    for (i=0; i &lt; nodecount; ++i) {
+        for (j=0; j &lt; edgecount; ++j) {
+            if (distance[edges[j].source] != INFINITY) {
+                int new_distance = distance[edges[j].source] + edges[j].weight;
+                if (new_distance &lt; distance[edges[j].dest])
+                  distance[edges[j].dest] = new_distance;
+            }
+        }
+    }
+
+    for (i=0; i &lt; edgecount; ++i) {
+        if (distance[edges[i].dest] &gt; distance[edges[i].source] + edges[i].weight) {
+            puts("Negative edge weight cycles detected!");
+            free(distance);
+            return;
+        }
+    }
+
+    for (i=0; i &lt; nodecount; ++i) {
+        printf("The shortest distance between nodes %d and %d is %d\n",
+            source, i, distance[i]);
+    }
+    free(distance);
+    return;
+}
+
+int main(void)
+{
+    /* This test case should produce the distances 2, 4, 7, -2, and 0. */
+    Edge edges[10] = {{0,1, 5}, {0,2, 8}, {0,3, -4}, {1,0, -2},
+                      {2,1, -3}, {2,3, 9}, {3,1, 7}, {3,4, 2},
+                      {4,0, 6}, {4,2, 7}};
+    BellmanFord(edges, 10, 5, 4);
+    return 0;
+}
+</pre>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Bellman-Ford_algorithm_224c.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="../../../r/i/c/Richard_Bellman_6d7c.html" title="Richard Bellman">Richard Bellman</a>: <i>On a Routing Problem</i>, in Quarterly of Applied Mathematics, 16(1), pp.87-90, 1958.</li>
+<li>Lestor R. Ford jr., D. R. Fulkerson: <i>Flows in Networks</i>, Princeton University Press, 1962.</li>
+<li><a href="../../../t/h/o/Thomas_H._Cormen_67e5.html" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="../../../c/h/a/Charles_E._Leiserson_1e0a.html" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="../../../r/o/n/Ronald_L._Rivest_593e.html" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="../../../c/l/i/Clifford_Stein_13fe.html" title="Clifford Stein">Clifford Stein</a>. <i><a href="../../../i/n/t/Introduction_to_Algorithms_bdfd.html" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-262-03293-7</a>. Section 24.1: The Bellman-Ford algorithm, pp.588–592.</li>
+</ul>
+<p><a name="External_link" id="External_link"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Bellman-Ford_algorithm_224c.html" title="Edit section: External link">edit</a>]</span> <span class="mw-headline">External link</span></h2>
+<ul>
+<li><a href="http://hetland.org/python/bellman_ford.py" class="external text" title="http://hetland.org/python/bellman_ford.py" rel="nofollow">A Bellman-Ford implementation</a> in <a href="../../../p/y/t/Python_%28programming_language%29.html" title="Python (programming language)">Python</a>, by Magnus Lie Hetland</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/l/Bellman-Ford_algorithm_224c.html">http://en.wikipedia.org../../../b/e/l/Bellman-Ford_algorithm_224c.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../g/r/a/Category%7EGraph_algorithms_4cf1.html" title="Category:Graph algorithms">Graph algorithms</a></span> | <span dir='ltr'><a href="../../../p/o/l/Category%7EPolynomial-time_problems_3f3d.html" title="Category:Polynomial-time problems">Polynomial-time problems</a></span> | <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_example_C_code_0fd2.html" title="Category:Articles with example C code">Articles with example C code</a></span> | <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_example_pseudocode_710b.html" title="Category:Articles with example pseudocode">Articles with example pseudocode</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/e/l/Bellman-Ford_algorithm_224c.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/e/l/Talk%7EBellman-Ford_algorithm_f33c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bellman-Ford_algorithm">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../cs/b/e/l/Bellman-Ford%C5%AFv_algoritmus_ab71.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/b/e/l/Bellman-Ford-Algorithmus_3e47.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/a/l/g/Algoritmo_de_Bellman-Ford_0b05.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/l/g/Algorithme_de_Ford-Bellman_1153.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EB%B2%A8/%EB%A7%8C/-/%EB%B2%A8%EB%A7%8C-%ED%8F%AC%EB%93%9C_%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%90/%D7%9C/%D7%92/%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9D_%D7%91%D7%9C%D7%9E%D7%9F-%D7%A4%D7%95%D7%A8%D7%93.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/l/g/Algorytm_Bellmana-Forda_efcc.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/a/l/g/Algoritmo_de_Bellman-Ford_0b05.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B0/%D0%BB/%D0%B3/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%91%D0%B5%D0%BB%D0%BB%D0%BC%D0%B0%D0%BD%D0%B0_%E2%80%94%C2%A0%D0%A4%D0%BE%D1%80%D0%B4%D0%B0_f0c8.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/t/h/u/Thu%E1%BA%ADt_to%C3%A1n_Bellman-Ford_801f.html">Tiếng Việt</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/b/e/l/Bellman-Ford%E7%AE%97%E6%B3%95_4011.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 03:15, 15 March 2007 by Wikipedia user <a href="../../../d/h/n/User%7EDHN-bot_8c4a.html" title="User:DHN-bot">DHN-bot</a>. Based on work by Wikipedia user(s) Pjrm, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, <a href="../../../q/u/u/User%7EQuuxplusone_9b50.html" title="User:Quuxplusone">Quuxplusone</a>, <a href="../../../e/n/o/User%7EEnochlau_9436.html" title="User:Enochlau">Enochlau</a>, Jftuga, <a href="../../../j/a/n/User%7EJAnDbot_5c44.html" title="User:JAnDbot">JAnDbot</a>, <a href="../../../b/3/v/User%7EB3virq3b_6f4c.html" title="User:B3virq3b">B3virq3b</a>, <a href="../../../t/o/m/User%7ETomo_c7d2.html" title="User:Tomo">Tomo</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, Josteinaj, Abednigo, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../n/_/s/User%7EN_Shar_b1e6.html" title="User:N Shar">N Shar</a>, <a href="../../../b/l/a/User%7EBlankVerse_b65f.html" title="User:BlankVerse">BlankVerse</a>, <a href="../../../r/s/p/User%7ERspeer_418c.html" title="User:Rspeer">Rspeer</a>, <a href="../../../b/e/n/User%7EBenFrantzDale_c7e5.html" title="User:BenFrantzDale">BenFrantzDale</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../c/i/p/User%7ECiphergoth_5225.html" title="User:Ciphergoth">Ciphergoth</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, Lavv17, <a href="../../../s/o/l/User%7ESolon.KR_0d15.html" title="User:Solon.KR">Solon.KR</a>, <a href="../../../k/o/n/User%7EKonstable_8474.html" title="User:Konstable">Konstable</a>, <a href="../../../o/r/b/User%7EOrbst_ab7c.html" title="User:Orbst">Orbst</a>, <a href="../../../n/i/l/User%7ENils_Grimsmo_4b59.html" title="User:Nils Grimsmo">Nils Grimsmo</a>, Drdevil44, <a href="../../../m/i/k/User%7EMikkalai_a7bb.html" title="User:Mikkalai">Mikkalai</a>, <a href="../../../p/_/b/User%7EP_b1999_a6ad.html" title="User:P b1999">P b1999</a>, Stderr.dk, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../s/t/e/User%7EStern_3613.html" title="User:Stern">Stern</a>, <a href="../../../c/i/a/User%7ECiaPan_e514.html" title="User:CiaPan">CiaPan</a>, <a href="../../../a/g/t/User%7EAgthorr_2136.html" title="User:Agthorr">Agthorr</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../i/t/a/User%7EItai_a5d4.html" title="User:Itai">Itai</a>, <a href="../../../e/c/b/User%7EEcb29_127c.html" title="User:Ecb29">Ecb29</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../p/i/o/User%7EPion_1f6d.html" title="User:Pion">Pion</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../f/v/w/User%7EFvw_ae32.html" title="User:Fvw">Fvw</a>, <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a>, <a href="../../../h/a/s/User%7EHasharBot_fdaa.html" title="User:HasharBot">HasharBot</a>, <a href="../../../b/r/o/User%7EBrona_3ad0.html" title="User:Brona">Brona</a>, Jellyworld, <a href="../../../g/a/d/User%7EGadfium_9104.html" title="User:Gadfium">Gadfium</a>, <a href="../../../j/a/r/User%7EJaredwf_4536.html" title="User:Jaredwf">Jaredwf</a>, <a href="../../../a/n/d/User%7EAndris_6e9c.html" title="User:Andris">Andris</a>, <a href="../../../w/m/a/User%7EWmahan_ede0.html" title="User:Wmahan">Wmahan</a>, <a href="../../../p/o/o/User%7EPoor_Yorick_efc9.html" title="User:Poor Yorick">Poor Yorick</a> and <a href="../../../d/o/c/User%7EDocu_0014.html" title="User:Docu">Docu</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>
