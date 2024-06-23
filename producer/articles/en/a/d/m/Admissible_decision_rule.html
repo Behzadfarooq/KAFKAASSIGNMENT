@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Admissible decision rule,Bayesian,Cumulative distribution function,Decision theory,Dominating decision rule,Expected value,Frequentist,Function (mathematics),Inequality,Loss function,Prior distribution" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Admissible decision rule - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Admissible decision rule</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In classical (<a href="../../../f/r/e/Frequentist.html" title="Frequentist">frequentist</a>) <a href="../../../d/e/c/Decision_theory.html" title="Decision theory">decision theory</a>, an <b>admissible decision rule</b> is a rule for making a decision that is "better" than any other rule that may compete with it, in a specific sense defined below. Generally speaking, in most decision problems the set of admissible rules is large, even infinite, but as will be seen there are good reasons to favor admissible rules.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Definition"><span class="tocnumber">1</span> <span class="toctext">Definition</span></a></li>
+<li class="toclevel-1"><a href="#Bayes_rules"><span class="tocnumber">2</span> <span class="toctext">Bayes rules</span></a></li>
+<li class="toclevel-1"><a href="#Admissible_rules_and_Bayes_rules"><span class="tocnumber">3</span> <span class="toctext">Admissible rules and Bayes rules</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Definition" id="Definition"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/m/Admissible_decision_rule.html" title="Edit section: Definition">edit</a>]</span> <span class="mw-headline">Definition</span></h2>
+<p>Define <a href="../../../s/e/t/Set.html" title="Set">sets</a> <img class='tex' src="../../../math/5/c/7/5c7542339729ce9957b6b2c329abca1c.png" alt="\Theta,\mathcal{X}" /> and <img class='tex' src="../../../math/8/4/c/84cc21a1ecbbe55e01e12e575a52cca2.png" alt="\mathcal{A}" />, where <img class='tex' src="../../../math/8/7/2/8726b826cc8070c5ea7b0efc6a11769d.png" alt="\Theta\,\!" /> are the states of nature, <img class='tex' src="../../../math/5/4/8/548ad3254513a0a221b4b07fd87e5d9a.png" alt="\mathcal{X}" /> the possible observations and <img class='tex' src="../../../math/8/4/c/84cc21a1ecbbe55e01e12e575a52cca2.png" alt="\mathcal{A}" /> the actions that may be taken. A <i>decision rule</i> is a <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">function</a> <img class='tex' src="../../../math/9/f/f/9fff497592f900fdf2f5201fa134ceaa.png" alt="\delta:{\mathcal{X}}\rightarrow {\mathcal{A}}" />, <i>i.e.,</i> upon observing <img class='tex' src="../../../math/6/2/4/624cf12f420fb0f373cda9f7b216b2f3.png" alt="x\in \mathcal{X}" />, we choose to take action <img class='tex' src="../../../math/a/0/5/a05a1055b24fb73f26c15529e29a6c1e.png" alt="\delta(x)\,\!" />.</p>
+<p>In addition, we define a <a href="../../../l/o/s/Loss_function.html" title="Loss function"><i>loss function</i></a> <img class='tex' src="../../../math/4/1/6/416c5b1ca9cc2d172580a3d8e4892f78.png" alt="L: \Theta \times \mathcal{A} \rightarrow \Re" /> which measures the loss we incur by taking action <img class='tex' src="../../../math/8/2/8/82864ad922d483fd1ecfdb44012e9089.png" alt="a \in \mathcal{A}" /> when the true state of nature is <img class='tex' src="../../../math/3/b/7/3b736679c7ca4c4a9b3031869c008e93.png" alt="\theta \in \Theta" />. Usually we will take this action after observing data <img class='tex' src="../../../math/6/2/4/624cf12f420fb0f373cda9f7b216b2f3.png" alt="x \in \mathcal{X}" />, so that the loss will be <img class='tex' src="../../../math/a/6/e/a6e126709c01a933087cef5cb74e5696.png" alt="L(\theta,\delta(x))\,\!" />.</p>
+<p>It is possible to recast the theory in terms of a <a href="../../../u/t/i/Utility_function.html" title="Utility function"><i>utility function</i></a>, the negative of the loss. However, admissibility is usually defined in terms of a loss function, and we shall follow this convention.</p>
+<p>Let <img class='tex' src="../../../math/6/3/7/6373accf16c083723e8abae2f5401af2.png" alt="x\,\!" /> have <a href="../../../c/u/m/Cumulative_distribution_function.html" title="Cumulative distribution function">cumulative distribution function</a> <img class='tex' src="../../../math/e/e/8/ee8a7894b5a2d05965df5832725b2b77.png" alt="F(x|\theta)\,\!" />. Define the <i><a href="../../../r/i/s/Risk_function.html" title="Risk function">risk function</a></i> as the <a href="../../../e/x/p/Expected_value.html" title="Expected value">expectation</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/6/8/8/688c476925a36d16f54ecc779deb41f7.png" alt="R(\theta,\delta)=E^{\mathcal{X}}[{L(\theta,\delta(x))]}.\,\!" /></dd>
+</dl>
+<p>A decision rule <img class='tex' src="../../../math/b/c/5/bc5f3bbe4d5a263ea8eb7be54ae6bb1e.png" alt="\delta^*\,\!" /> <i><a href="../../../d/o/m/Dominating_decision_rule.html" title="Dominating decision rule">dominates</a></i> a decision rule <img class='tex' src="../../../math/8/3/c/83c7d391833a2826ce9f626d5a069b0d.png" alt="\delta\,\!" /> if and only if <img class='tex' src="../../../math/4/1/4/414a867c22e250ebc227b05d001be49b.png" alt="R(\theta,\delta^*)\le R(\theta,\delta)" /> for all <img class='tex' src="../../../math/0/a/5/0a5000fe8b6b5570dd5a1ce00b828ef6.png" alt="\theta\,\!" />, <i>and</i> the inequality is <a href="../../../i/n/e/Inequality.html" title="Inequality">strict</a> for some <img class='tex' src="../../../math/0/a/5/0a5000fe8b6b5570dd5a1ce00b828ef6.png" alt="\theta\,\!" />.</p>
+<p>A decision rule is <i>admissible</i> if and only if no other rule dominates it; otherwise it is <i>inadmissible</i>. An admissible rule should be preferred over an inadmissible rule since for any inadmissible rule there is an admissible rule that performs at least as well for all states of nature and betters it for some.</p>
+<p><a name="Bayes_rules" id="Bayes_rules"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/m/Admissible_decision_rule.html" title="Edit section: Bayes rules">edit</a>]</span> <span class="mw-headline">Bayes rules</span></h2>
+<p>Let <img class='tex' src="../../../math/6/f/a/6faac645ccd3dda29b6e9ad1d3855a95.png" alt="\pi(\theta)\,\!" /> be a probability distribution on the states of nature. From a <a href="../../../b/a/y/Bayesian.html" title="Bayesian">Bayesian</a> point of view, we would regard it as a <a href="../../../p/r/i/Prior_distribution.html" title="Prior distribution"><i>prior distribution</i></a>, that is, it is our believed probability distribution on the states of nature, prior to observing data. For a frequentist, it is merely a function on <img class='tex' src="../../../math/8/7/2/8726b826cc8070c5ea7b0efc6a11769d.png" alt="\Theta\,\!" /> with no such special interpretation. The <i>Bayes risk</i> of the decision rule <img class='tex' src="../../../math/8/3/c/83c7d391833a2826ce9f626d5a069b0d.png" alt="\delta\,\!" /> with respect to <img class='tex' src="../../../math/6/f/a/6faac645ccd3dda29b6e9ad1d3855a95.png" alt="\pi(\theta)\,\!" /> is the expectation</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/1/4/e14f21c1bea9ab9f245c1908f20fd329.png" alt="r(\pi,\delta)=E^\pi[R(\theta,\delta)].\,\!" /></dd>
+</dl>
+<p>If the Bayes risk is finite, we can minimize <img class='tex' src="../../../math/8/f/c/8fc22a248e03a6a3a7c96ffaa9a47d77.png" alt="r(\pi,\delta)\,\!" /> with respect to <img class='tex' src="../../../math/8/3/c/83c7d391833a2826ce9f626d5a069b0d.png" alt="\delta\,\!" /> to obtain <img class='tex' src="../../../math/7/e/2/7e227c71f9808a7377c6ce2f2385a6b9.png" alt="\delta^\pi(x)\,\!" />, a <i>Bayes rule</i> with respect to <img class='tex' src="../../../math/6/f/a/6faac645ccd3dda29b6e9ad1d3855a95.png" alt="\pi(\theta)\,\!" />. There may be more than one Bayes rule. If the Bayes risk is infinite, then no Bayes rule is defined.</p>
+<p><a name="Admissible_rules_and_Bayes_rules" id="Admissible_rules_and_Bayes_rules"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/m/Admissible_decision_rule.html" title="Edit section: Admissible rules and Bayes rules">edit</a>]</span> <span class="mw-headline">Admissible rules and Bayes rules</span></h2>
+<p>In the Bayesian approach to decision theory, <img class='tex' src="../../../math/6/3/7/6373accf16c083723e8abae2f5401af2.png" alt="x\,\!" /> is considered <i>fixed</i>. Instead of averaging over <img class='tex' src="../../../math/2/7/8/27877aac9ec81d206e08a6a4919df445.png" alt="\mathcal{X}\,\!" /> as in the frequentist approach, the Bayesian would average over <img class='tex' src="../../../math/8/7/2/8726b826cc8070c5ea7b0efc6a11769d.png" alt="\Theta\,\!" />. Thus, we would be interested in computing for our observed <img class='tex' src="../../../math/6/3/7/6373accf16c083723e8abae2f5401af2.png" alt="x\,\!" /> the <a href="../../../l/o/s/Loss_function.html#Expected_loss" title="Loss function"><i>expected loss</i></a></p>
+<dl>
+<dd><img class='tex' src="../../../math/0/b/e/0be1a53647f4046b1deb648471347c60.png" alt="\rho(\pi,\delta)=E^{\pi} [ L(\theta,\delta(x)) ]. \,\!" /></dd>
+</dl>
+<p>Since <img class='tex' src="../../../math/6/3/7/6373accf16c083723e8abae2f5401af2.png" alt="x\,\!" /> is considered fixed and known, we can choose <img class='tex' src="../../../math/8/3/c/83c7d391833a2826ce9f626d5a069b0d.png" alt="\delta\,\!" /> to minimize the expected loss for any <img class='tex' src="../../../math/6/3/7/6373accf16c083723e8abae2f5401af2.png" alt="x\,\!" />; by varying <img class='tex' src="../../../math/6/3/7/6373accf16c083723e8abae2f5401af2.png" alt="x\,\!" /> over its range, we can define a function <img class='tex' src="../../../math/7/e/2/7e227c71f9808a7377c6ce2f2385a6b9.png" alt="\delta^\pi(x)\,\!" />, which is known as a <i>generalized Bayes rule</i>. A generalized Bayes rule will be the same as some Bayes rule (relative to <img class='tex' src="../../../math/e/0/6/e06a022b86322d6ee502b6760a0ed4ec.png" alt="\pi\,\!" />), provided that the Bayes risk is finite. Since more than one decision rule may minimize the expected loss, there may not be a unique generalized Bayes rule.</p>
+<p>According to the complete class theorems, under mild conditions every admissible rule is a (generalized) Bayes rule (with respect to some, possibly improper, prior). Thus, in <a href="../../../f/r/e/Frequentist.html" title="Frequentist">frequentist</a> <a href="../../../d/e/c/Decision_theory.html" title="Decision theory">decision theory</a> it is sufficient to consider only (generalized) Bayes rules.</p>
+<p>While Bayes rules with respect to proper priors are virtually always admissible, generalized Bayes rules corresponding to <a href="../../../p/r/i/Prior_probability.html#Improper_priors" title="Prior probability">improper priors</a> need not yield admissible procedures. <a href="../../../s/t/e/Stein%27s_example.html" title="Stein's example">Stein's example</a> is one such famous situation.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/m/Admissible_decision_rule.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>James O. Berger <i>Statistical Decision Theory and Bayesian Analysis</i>. Second Edition. Springer-Verlag, 1980, 1985. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-387-96098-8</a>.</li>
+<li>Morris De Groot <i>Optimal Statistical Decisions</i>. Wiley Classics Library. 2004. (Originally published 1970.) <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-471-68029-X</a>.</li>
+<li>Christian P. Robert <i>The Bayesian Choice</i>. Springer-Verlag 1994. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 3-540-94296-3</a>.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/m/Admissible_decision_rule.html">http://en.wikipedia.org../../../a/d/m/Admissible_decision_rule.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../d/e/c/Category%7EDecision_theory_09f0.html" title="Category:Decision theory">Decision theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/m/Admissible_decision_rule.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/d/m/Talk%7EAdmissible_decision_rule_bf5c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Admissible_decision_rule">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 02:40, 23 March 2007 by Wikipedia user <a href="../../../b/i/l/User%7EBilljefferys_1728.html" title="User:Billjefferys">Billjefferys</a>. Based on work by Wikipedia user(s) <a href="../../../z/v/i/User%7EZvika_5f01.html" title="User:Zvika">Zvika</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../j/h/e/User%7EJheald_bb56.html" title="User:Jheald">Jheald</a> and <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

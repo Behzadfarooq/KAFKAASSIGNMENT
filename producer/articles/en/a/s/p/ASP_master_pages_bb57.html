@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="ASP master pages,ASP.NET,Application software,Code,Computer,Control,HTML,HTML tag,Header file,Inheritance,JavaScript" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>ASP master pages - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">ASP master pages</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>Master Pages</b> are a new feature of <a href="../../../a/s/p/ASP.NET_9e0d.html" title="ASP.NET">ASP.NET</a> 2.0, which allow for <a href="../../../w/e/b/Web_template.html" title="Web template">template</a>-based web programming. A common requirement for web sites is that they provide a consistent look and feel between pages - for example, Wikipedia provides the same navigation system on the left edge of the page and along the top, regardless of what article is displayed. Master Pages give the ASP.NET programmer a new way of achieving this.</p>
+<p>In the past, developers have used a number of methods to work around the lack of templates in ASP.NET. Because the .NET platform is <a href="../../../o/b/j/Object_oriented.html" title="Object oriented">object oriented</a> and allows for <a href="../../../i/n/h/Inheritance.html" title="Inheritance">inheritance</a>, many developers would define a new base class that inherits from System.Web.UI.Page, write methods here that render HTML, and then make the pages in their <a href="../../../a/p/p/Application_software.html" title="Application software">application</a> inherit from this new class. While this allows for common elements to be reused across a site, it adds complexity and mixes <a href="../../../c/o/d/Code.html" title="Code">code</a> with <a href="../../../m/a/r/Markup.html" title="Markup">markup</a>. Furthermore, this method can only be visually tested by running the application - not while designing it. Other developers have used <a href="../../../h/e/a/Header_file.html" title="Header file">include files</a> and other tricks to avoid having to implement the same navigation and other elements in every page.</p>
+<p><a name="Master_Pages_Architecture" id="Master_Pages_Architecture"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/ASP_master_pages_bb57.html" title="Edit section: Master Pages Architecture">edit</a>]</span> <span class="mw-headline">Master Pages Architecture</span></h2>
+<p>A web application can have one or more master pages, in fact they can even be nested. <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> These have special place-holder <a href="../../../c/o/n/Control.html" title="Control">controls</a>, called <i>ContentPlaceHolders</i>, which will be filled in later, as well as <a href="../../../h/t/m/HTML_4c4a.html" title="HTML">HTML</a> and <a href="../../../j/a/v/JavaScript_6861.html" title="JavaScript">JavaScript</a> that will be shared across child pages. ( Using Wikipedia as an example, the text of an article would fill a ContentPlaceHolders. )</p>
+<p>Child pages use ContentPlaceHolder controls, which must be mapped to the place-holder of the master page that the child is populating. The rest of the page is defined by the shared parts of the master page, much like a <a href="../../../m/a/i/Mail_merge.html" title="Mail merge">mail merge</a> in a <a href="../../../w/o/r/Word_processor.html" title="Word processor">word processor</a>. All markup and <a href="../../../s/e/r/Server.html" title="Server">server</a> controls in the child page must be placed within the ContentPlaceHolder control.</p>
+<p>When a request is made for a child page, ASP.NET merges the output of the content page with the output of the master page, resulting in a page that combines the master page layout with the output of the content page.</p>
+<p><a name="Criticism" id="Criticism"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/ASP_master_pages_bb57.html" title="Edit section: Criticism">edit</a>]</span> <span class="mw-headline">Criticism</span></h2>
+<p>One complaint against master pages is that the <b>head</b> <a href="../../../h/t/m/HTML_tag_8a07.html" title="HTML tag">HTML tag</a> is defined in the master page. This element must be shared across all pages that take their layout from the master. Several options are available to work around this issue, including modifying the head content at <a href="../../../r/u/n/Runtime.html" title="Runtime">Runtime</a> using <a href="../../../s/e/r/Server-side.html" title="Server-side">Server-side</a> code. The <b>title</b>, however, is freely editable via the title attribute in the master page file declaration at the top of a content page. It is actually possible to place a ContentPlaceHolder control inside the <b>head</b> section of the master page, although Visual Studio 2005 will generate warnings. Unfortunately, markup placed inside the associated Content control is rendered as a literal. The HtmlHead object contains specialized parsing routines to recognize elements such as <b>link</b> and <b>script</b>. This parsing code is not applied to children of a child ContentPlaceHolder control. However, there is a workaround for this. If each <b>link</b> and <b>script</b> control uses the runat="server" attribute, then they will be parsed by ContentPlaceHolder as individual HtmlGenericControls. Code can then be written to iterate through each HtmlGenericControl and replace it with the appropriate control type (HtmlLink, HtmlMeta, etc.) after performing attribute mapping.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/p/ASP_master_pages_bb57.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="http://msdn2.microsoft.com/en-us/library/wtxbf3hh.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/library/wtxbf3hh.aspx" rel="nofollow">ASP.NET Master Pages Overview (Microsoft Developer Network)</a></li>
+</ol>
+<p><br /></p>
+<div class="boilerplate metadata" id="stub">
+<table cellpadding="0" cellspacing="0" style="background-color: transparent;">
+<tr>
+<td><a href="../../../m/y/-/Image%7EMy-computer.svg_ae68.html" class="image" title=" "><img src="../../../upload/shared/thumb/4/40/My-computer.svg/24px-My-computer.svg.png" alt=" " width="24" height="24" longdesc="../../../m/y/-/Image%7EMy-computer.svg_ae68.html" /></a></td>
+<td><i>&#160;This <a href="../../../c/o/m/Computer.html" title="Computer">computer</a>-related article is a <a href="../../../s/t/u/Wikipedia%7EStub_72af.html#Ideal_stub_article" title="Wikipedia:Stub">stub</a>. You can <a href="../../../s/t/u/Wikipedia%7EStub_72af.html" title="Wikipedia:Stub">help</a> Wikipedia by <a href="http://en.wikipedia.org../../../a/s/p/ASP_master_pages_bb57.html" class="external text" title="http://en.wikipedia.org../../../a/s/p/ASP_master_pages_bb57.html" rel="nofollow">expanding it</a></i>.</td>
+</tr>
+</table>
+</div>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/s/p/ASP_master_pages_bb57.html">http://en.wikipedia.org../../../a/s/p/ASP_master_pages_bb57.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_stubs_2084.html" title="Category:Computer stubs">Computer stubs</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/s/p/ASP_master_pages_bb57.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/s/p/Talk%7EASP_master_pages_8968.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/ASP_master_pages">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:43, 4 April 2007 by Wikipedia user H3llbringer. Based on work by Wikipedia user(s) <a href="../../../g/r/e/User%7EGreenrd_ce6f.html" title="User:Greenrd">Greenrd</a>, <a href="../../../s/q/u/User%7ESquids_and_Chips_bd06.html" title="User:Squids and Chips">Squids and Chips</a>, <a href="../../../j/i/m/User%7EJimmytharpe_155a.html" title="User:Jimmytharpe">Jimmytharpe</a>, <a href="../../../r/i/k/User%7ERiki_4a69.html" title="User:Riki">Riki</a>, <a href="../../../t/h/o/User%7EThomasmallen_15b8.html" title="User:Thomasmallen">Thomasmallen</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, Azndragon1987, <a href="../../../d/i/g/User%7EDigitalEnthusiast_4e7d.html" title="User:DigitalEnthusiast">DigitalEnthusiast</a>, <a href="../../../t/i/m/User%7ETimdew_a1a4.html" title="User:Timdew">Timdew</a>, <a href="../../../a/l/p/User%7EAlphachimpbot_48b3.html" title="User:Alphachimpbot">Alphachimpbot</a>, <a href="../../../o/i/c/User%7EOicumayberight_a327.html" title="User:Oicumayberight">Oicumayberight</a>, <a href="../../../m/a/r/User%7EMarshBot_3d9e.html" title="User:MarshBot">MarshBot</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../p/e/r/User%7EPeripatetic_b918.html" title="User:Peripatetic">Peripatetic</a> and Balaarjunan and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

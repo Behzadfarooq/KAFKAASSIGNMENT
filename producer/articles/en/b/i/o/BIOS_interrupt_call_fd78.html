@@ -1,0 +1,1135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="BIOS interrupt call,BASIC programming language,BIOS,Boot loader,DOS,Floppy disk controller,INT 13,Input/Output Base Address,Interrupt,Non-maskable interrupt,Operating system" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>BIOS interrupt call - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">BIOS interrupt call</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>BIOS Interrupt Calls</b> are a facility that <a href="../../../d/o/s/DOS_a58e.html" title="DOS">DOS</a> programs, and some other software such as <a href="../../../b/o/o/Boot_loader.html" title="Boot loader">boot loaders</a>, use to invoke the <a href="../../../b/i/o/BIOS_8cd7.html" title="BIOS">BIOS</a>'s facilities. Some <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating systems</a> also use the BIOS to probe and initialise hardware resources during their early stages of booting.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Interrupt_Table"><span class="tocnumber">1</span> <span class="toctext">Interrupt Table</span></a></li>
+<li class="toclevel-1"><a href="#INT_13h:_Low_Level_Disk_Services"><span class="tocnumber">2</span> <span class="toctext">INT 13h: Low Level Disk Services</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Drive_Table"><span class="tocnumber">2.1</span> <span class="toctext">Drive Table</span></a></li>
+<li class="toclevel-2"><a href="#Function_Table"><span class="tocnumber">2.2</span> <span class="toctext">Function Table</span></a></li>
+<li class="toclevel-2"><a href="#INT_13h_AH.3D00h:_Reset_Disk_Drives"><span class="tocnumber">2.3</span> <span class="toctext">INT 13h AH=00h: Reset Disk Drives</span></a></li>
+<li class="toclevel-2"><a href="#INT_13h_AH.3D01h:_Check_Drive_Status"><span class="tocnumber">2.4</span> <span class="toctext">INT 13h AH=01h: Check Drive Status</span></a></li>
+<li class="toclevel-2"><a href="#INT_13h_AH.3D02h:_Read_Sectors_From_Drive"><span class="tocnumber">2.5</span> <span class="toctext">INT 13h AH=02h: Read Sectors From Drive</span></a></li>
+<li class="toclevel-2"><a href="#INT_13h_AH.3D08h:_Read_Drive_Parameters"><span class="tocnumber">2.6</span> <span class="toctext">INT 13h AH=08h: Read Drive Parameters</span></a></li>
+<li class="toclevel-2"><a href="#INT_13h_AH.3D0Ah:_Read_Long_Sectors_From_Drive"><span class="tocnumber">2.7</span> <span class="toctext">INT 13h AH=0Ah: Read Long Sectors From Drive</span></a></li>
+<li class="toclevel-2"><a href="#INT_13h_AH.3D41h:_Check_Extensions_Present"><span class="tocnumber">2.8</span> <span class="toctext">INT 13h AH=41h: Check Extensions Present</span></a></li>
+<li class="toclevel-2"><a href="#INT_13h_AH.3D42h:_Extended_Read_Sectors_From_Drive"><span class="tocnumber">2.9</span> <span class="toctext">INT 13h AH=42h: Extended Read Sectors From Drive</span></a></li>
+<li class="toclevel-2"><a href="#INT_13h_AH.3D48h:_Extended_Read_Drive_Parameters"><span class="tocnumber">2.10</span> <span class="toctext">INT 13h AH=48h: Extended Read Drive Parameters</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#INT_18h:_Execute_BASIC"><span class="tocnumber">3</span> <span class="toctext">INT 18h: Execute BASIC</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Interrupt_Table" id="Interrupt_Table"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: Interrupt Table">edit</a>]</span> <span class="mw-headline">Interrupt Table</span></h2>
+<table border="1" cellspacing="0" cellpadding="3" width="95%" align="center">
+<tr>
+<th width="20%">Interrupt</th>
+<th width="80%">Description</th>
+</tr>
+<tr>
+<td>INT 00h</td>
+<td>CPU: Division by Zero</td>
+</tr>
+<tr>
+<td>INT 01h</td>
+<td>CPU: Single Step for debugging</td>
+</tr>
+<tr>
+<td>INT 02h</td>
+<td>CPU: <a href="../../../n/o/n/Non-maskable_interrupt.html" title="Non-maskable interrupt">NMI</a>, used e.g. by <a href="../../../p/o/w/Power-on_self-test.html" title="Power-on self-test">POST</a> for memory errors</td>
+</tr>
+<tr>
+<td>INT 03h</td>
+<td>CPU: Breakpoint for debugging</td>
+</tr>
+<tr>
+<td>INT 04h</td>
+<td>CPU: Numeric Overflow</td>
+</tr>
+<tr>
+<td>INT 05h</td>
+<td>Print Screen</td>
+</tr>
+<tr>
+<td>INT 08h</td>
+<td>IRQ0: Called by system timer 18.2 times per second</td>
+</tr>
+<tr>
+<td>INT 09h</td>
+<td>IRQ1: Called by keyboard</td>
+</tr>
+<tr>
+<td>INT 0Bh</td>
+<td>IRQ3: Called by 2nd serial port COM2</td>
+</tr>
+<tr>
+<td>INT 0Ch</td>
+<td>IRQ4: Called by 1st serial port COM1</td>
+</tr>
+<tr>
+<td>INT 0Dh</td>
+<td>IRQ5: Called by hard disk controller (PC/XT) or 2nd <a href="../../../p/a/r/Parallel_port.html" title="Parallel port">parallel port</a> LPT2 (AT)</td>
+</tr>
+<tr>
+<td>INT 0Eh</td>
+<td>IRQ6: Called by <a href="../../../f/l/o/Floppy_disk_controller.html" title="Floppy disk controller">floppy disk controller</a></td>
+</tr>
+<tr>
+<td>INT 0Fh</td>
+<td>IRQ7: Called by 1st parallel port LPT1 (printer)</td>
+</tr>
+<tr>
+<td>INT 10h</td>
+<td>Video Services
+<table>
+<tr>
+<td>AH=00h</td>
+<td>Set Video Mode</td>
+</tr>
+<tr>
+<td>AH=01h</td>
+<td>Set Cursor Shape</td>
+</tr>
+<tr>
+<td>AH=02h</td>
+<td>Set Cursor Position</td>
+</tr>
+<tr>
+<td>AH=03h</td>
+<td>Get Cursor Position And Shape</td>
+</tr>
+<tr>
+<td>AH=04h</td>
+<td>Get Light Pen Position</td>
+</tr>
+<tr>
+<td>AH=05h</td>
+<td>Set Display Page</td>
+</tr>
+<tr>
+<td>AH=06h</td>
+<td>Clear/Scroll Screen Up</td>
+</tr>
+<tr>
+<td>AH=07h</td>
+<td>Clear/Scroll Screen Down</td>
+</tr>
+<tr>
+<td>AH=08h</td>
+<td>Read Character and Attribute at Cursor</td>
+</tr>
+<tr>
+<td>AH=09h</td>
+<td>Write Character and Attribute at Cursor</td>
+</tr>
+<tr>
+<td>AH=0Ah</td>
+<td>Write Character at Cursor</td>
+</tr>
+<tr>
+<td>AH=0Bh</td>
+<td>Set Border Color</td>
+</tr>
+<tr>
+<td>AH=0Eh</td>
+<td>Write Character in TTY Mode</td>
+</tr>
+<tr>
+<td>AH=0Fh</td>
+<td>Get Video Mode</td>
+</tr>
+<tr>
+<td>AH=13h</td>
+<td>Write String</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>INT 11h</td>
+<td>Equipment Installed</td>
+</tr>
+<tr>
+<td>INT 12h</td>
+<td>Get Conventional Memory Size</td>
+</tr>
+<tr>
+<td>INT 13h</td>
+<td>Low Level Disk Services
+<table>
+<tr>
+<td>AH=00h</td>
+<td>Reset Disk Drives</td>
+</tr>
+<tr>
+<td>AH=01h</td>
+<td>Check Drive Status</td>
+</tr>
+<tr>
+<td>AH=02h</td>
+<td>Read Sectors From Drive</td>
+</tr>
+<tr>
+<td>AH=03h</td>
+<td>Write Sectors To Drive</td>
+</tr>
+<tr>
+<td>AH=04h</td>
+<td>Verifies Sectors On Drive</td>
+</tr>
+<tr>
+<td>AH=05h</td>
+<td>Format Track On Drive</td>
+</tr>
+<tr>
+<td>AH=08h</td>
+<td>Get Drive Parameters</td>
+</tr>
+<tr>
+<td>AH=09h</td>
+<td>Init Fixed Drive Parameters</td>
+</tr>
+<tr>
+<td>AH=0Ch</td>
+<td>Seek To Specified Track</td>
+</tr>
+<tr>
+<td>AH=0Dh</td>
+<td>Reset Fixed Disk Controller</td>
+</tr>
+<tr>
+<td>AH=15h</td>
+<td>Get Drive Type</td>
+</tr>
+<tr>
+<td>AH=16h</td>
+<td>Get Floppy Drive Media Change Status</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>INT 14h</td>
+<td>Serial I/O
+<table>
+<tr>
+<td>AH=00h</td>
+<td>Serial Port Initialization</td>
+</tr>
+<tr>
+<td>AH=01h</td>
+<td>Transmit Character</td>
+</tr>
+<tr>
+<td>AH=02h</td>
+<td>Receive Character</td>
+</tr>
+<tr>
+<td>AH=03h</td>
+<td>Status</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>INT 15h</td>
+<td>Miscellaneous
+<table>
+<tr>
+<td>AH=4FH</td>
+<td>Keyboard Intercept</td>
+</tr>
+<tr>
+<td>AH=83H</td>
+<td>Event Wait</td>
+</tr>
+<tr>
+<td>AH=84H</td>
+<td>Read Joystick</td>
+</tr>
+<tr>
+<td>AH=85H</td>
+<td>Sysreq Key Callout</td>
+</tr>
+<tr>
+<td>AH=86H</td>
+<td>Wait</td>
+</tr>
+<tr>
+<td>AH=87H</td>
+<td>Move Block</td>
+</tr>
+<tr>
+<td>AH=88H</td>
+<td>Get Extended Memory Size</td>
+</tr>
+<tr>
+<td>AH=C0H</td>
+<td>Get System Parameters</td>
+</tr>
+<tr>
+<td>AH=C1H</td>
+<td>Get Extended BIOS Data Area Segment</td>
+</tr>
+<tr>
+<td>AH=C2H</td>
+<td>Pointing Device Functions</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>INT 16h</td>
+<td>Keyboard
+<table>
+<tr>
+<td>AH=00h</td>
+<td>Read Character</td>
+</tr>
+<tr>
+<td>AH=01h</td>
+<td>Read Input Status</td>
+</tr>
+<tr>
+<td>AH=02h</td>
+<td>Read Keyboard Shift Status</td>
+</tr>
+<tr>
+<td>AH=10h</td>
+<td>Read Character Extended</td>
+</tr>
+<tr>
+<td>AH=11h</td>
+<td>Read Input Status Extended</td>
+</tr>
+<tr>
+<td>AH=12h</td>
+<td>Read Keyboard Shift Status Extended</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>INT 17h</td>
+<td>Print Services
+<table>
+<tr>
+<td>AH=00h</td>
+<td>Print Character to Printer</td>
+</tr>
+<tr>
+<td>AH=01h</td>
+<td>Initialize Printer</td>
+</tr>
+<tr>
+<td>AH=02h</td>
+<td>Check Printer Status</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>INT 18h</td>
+<td>This interrupt will be called if INT 19h fails, in early IBM BIOS version then ROM Basic was loaded</td>
+</tr>
+<tr>
+<td>INT 19h</td>
+<td>After POST this interrupt is used by BIOS to load the operating system</td>
+</tr>
+<tr>
+<td>INT 1Ah</td>
+<td>Real Time Clock Services
+<table>
+<tr>
+<td>AH=00h</td>
+<td>Read RTC</td>
+</tr>
+<tr>
+<td>AH=01h</td>
+<td>Set RTC</td>
+</tr>
+<tr>
+<td>AH=02h</td>
+<td>Read RTC Time</td>
+</tr>
+<tr>
+<td>AH=03h</td>
+<td>Set RTC Time</td>
+</tr>
+<tr>
+<td>AH=04h</td>
+<td>Read RTC Date</td>
+</tr>
+<tr>
+<td>AH=05h</td>
+<td>Set RTC Date</td>
+</tr>
+<tr>
+<td>AH=06h</td>
+<td>Set RTC Alarm</td>
+</tr>
+<tr>
+<td>AH=07h</td>
+<td>Reset RTC Alarm</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>INT 1Bh</td>
+<td>Called by Break key</td>
+</tr>
+<tr>
+<td>INT 1Ch</td>
+<td>Software Timer Interrupt, called by INT 08h</td>
+</tr>
+<tr>
+<td>INT 1Dh</td>
+<td>Address pointer: VPT = Video Parameter Table</td>
+</tr>
+<tr>
+<td>INT 1Eh</td>
+<td>Address pointer: DPT = Diskette Parameter Table</td>
+</tr>
+<tr>
+<td>INT 1Fh</td>
+<td>Address pointer: VGCT = Video Graphics Character Table</td>
+</tr>
+<tr>
+<td>INT 41h</td>
+<td>Address pointer: FDPT = Fixed Disk Paramter Table (1st hard drive)</td>
+</tr>
+<tr>
+<td>INT 46h</td>
+<td>Address pointer: FDPT = Fixed Disk Paramter Table (2nd hard drive)</td>
+</tr>
+<tr>
+<td>INT 4Ah</td>
+<td>Called by RTC for alarm</td>
+</tr>
+<tr>
+<td>INT 70h</td>
+<td>IRQ8: Called by RTC</td>
+</tr>
+<tr>
+<td>INT 74h</td>
+<td>IRQ12: Called by mouse</td>
+</tr>
+<tr>
+<td>INT 75h</td>
+<td>IRQ13: Called by math coprocessor</td>
+</tr>
+<tr>
+<td>INT 76h</td>
+<td>IRQ14: Called by primary IDE controller</td>
+</tr>
+<tr>
+<td>INT 77h</td>
+<td>IRQ15: Called by secondary IDE controller</td>
+</tr>
+</table>
+<p><a name="INT_13h:_Low_Level_Disk_Services" id="INT_13h:_Low_Level_Disk_Services"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 13h: Low Level Disk Services">edit</a>]</span> <span class="mw-headline">INT 13h: Low Level Disk Services</span></h2>
+<p><a name="Drive_Table" id="Drive_Table"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: Drive Table">edit</a>]</span> <span class="mw-headline">Drive Table</span></h3>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<td>DL = 00h</td>
+<td>1st floppy disk ( "drive A:" )</td>
+</tr>
+<tr>
+<td>DL = 01h</td>
+<td>2nd floppy disk ( "drive B:" )</td>
+</tr>
+<tr>
+<td>DL = 80h</td>
+<td>1st hard disk</td>
+</tr>
+<tr>
+<td>DL = 81h</td>
+<td>2nd hard disk</td>
+</tr>
+</table>
+<p><a name="Function_Table" id="Function_Table"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: Function Table">edit</a>]</span> <span class="mw-headline">Function Table</span></h3>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<td>AH = 00h</td>
+<td>&#160;</td>
+<td>Reset Disk Drives</td>
+</tr>
+<tr>
+<td>AH = 01h</td>
+<td>&#160;</td>
+<td>Check Drive Status</td>
+</tr>
+<tr>
+<td>AH = 02h</td>
+<td>&#160;</td>
+<td>Read Sectors From Drive</td>
+</tr>
+<tr>
+<td>AH = 03h</td>
+<td>&#160;</td>
+<td>Write Sectors To Drive</td>
+</tr>
+<tr>
+<td>AH = 04h</td>
+<td>&#160;</td>
+<td>Verify Sectors</td>
+</tr>
+<tr>
+<td>AH = 05h</td>
+<td>&#160;</td>
+<td>Format Track</td>
+</tr>
+<tr>
+<td>AH = 08h</td>
+<td>&#160;</td>
+<td>Read Drive Parameters</td>
+</tr>
+<tr>
+<td>AH = 09h</td>
+<td>HD</td>
+<td>Initialize Disk Controller</td>
+</tr>
+<tr>
+<td>AH = 0Ah</td>
+<td>HD</td>
+<td>Read Long Sectors From Drive</td>
+</tr>
+<tr>
+<td>AH = 0Bh</td>
+<td>HD</td>
+<td>Write Long Sectors To Drive</td>
+</tr>
+<tr>
+<td>AH = 0Ch</td>
+<td>HD</td>
+<td>Move Drive Head To Cylinder</td>
+</tr>
+<tr>
+<td>AH = 0Dh</td>
+<td>HD</td>
+<td>Reset Disk Drives</td>
+</tr>
+<tr>
+<td>AH = 0Eh</td>
+<td>PS/2</td>
+<td>Controller Read Test</td>
+</tr>
+<tr>
+<td>AH = 0Fh</td>
+<td>PS/2</td>
+<td>Controller Write Test</td>
+</tr>
+<tr>
+<td>AH = 10h</td>
+<td>HD</td>
+<td>Test Whether Drive Is Ready</td>
+</tr>
+<tr>
+<td>AH = 11h</td>
+<td>HD</td>
+<td>Recalibrate Drive</td>
+</tr>
+<tr>
+<td>AH = 12h</td>
+<td>PS/2</td>
+<td>Controller RAM Test</td>
+</tr>
+<tr>
+<td>AH = 13h</td>
+<td>PS/2</td>
+<td>Drive Test</td>
+</tr>
+<tr>
+<td>AH = 14h</td>
+<td>HD</td>
+<td>Controller Diagnostic</td>
+</tr>
+<tr>
+<td>AH = 15h</td>
+<td>&#160;</td>
+<td>Read Drive Type</td>
+</tr>
+<tr>
+<td>AH = 16h</td>
+<td>FD</td>
+<td>Detect Media Change</td>
+</tr>
+<tr>
+<td>AH = 17h</td>
+<td>FD</td>
+<td>Set Media Type For Format ( used by DOS versions &lt;= 3.1 )</td>
+</tr>
+<tr>
+<td>AH = 18h</td>
+<td>FD</td>
+<td>Set Media Type For Format ( used by DOS versions &gt;= 3.2 )</td>
+</tr>
+<tr>
+<td>AH = 41h</td>
+<td>EXT</td>
+<td>Test Whether Extensions Are Available</td>
+</tr>
+<tr>
+<td>AH = 42h</td>
+<td>EXT</td>
+<td>Read Sectors From Drive</td>
+</tr>
+<tr>
+<td>AH = 43h</td>
+<td>EXT</td>
+<td>Write Sectors To Drive</td>
+</tr>
+<tr>
+<td>AH = 44h</td>
+<td>EXT</td>
+<td>Verify Sectors</td>
+</tr>
+<tr>
+<td>AH = 45h</td>
+<td>EXT</td>
+<td>Lock/Unlock Drive</td>
+</tr>
+<tr>
+<td>AH = 46h</td>
+<td>EXT</td>
+<td>Eject Drive</td>
+</tr>
+<tr>
+<td>AH = 47h</td>
+<td>EXT</td>
+<td>Move Drive Head To Sector</td>
+</tr>
+<tr>
+<td>AH = 48h</td>
+<td>EXT</td>
+<td>Read Drive Parameters</td>
+</tr>
+<tr>
+<td>AH = 49h</td>
+<td>EXT</td>
+<td>Detect Media Change</td>
+</tr>
+</table>
+<p>Second column is empty == function may be used both for floppy and hard disk.<br />
+"FD" == for floppy disk only.<br />
+"HD" == for hard disk only.<br />
+"PS/2" == for hard disk on PS/2 system only.<br />
+"EXT" == part of the Int 13h Extensions which were written in the 1990s to support hard drives with more than 8 GBytes.</p>
+<p><a name="INT_13h_AH.3D00h:_Reset_Disk_Drives" id="INT_13h_AH.3D00h:_Reset_Disk_Drives"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 13h AH=00h: Reset Disk Drives">edit</a>]</span> <span class="mw-headline">INT 13h AH=00h: Reset Disk Drives</span></h3>
+<p><b>Parameters:</b></p>
+<table border="1" cellspacing="0" cellpadding="3" width="95%" align="center">
+<tr>
+<td width="20%">AH</td>
+<td width="80%">00h</td>
+</tr>
+<tr>
+<td width="20%">DL</td>
+<td width="80%">Drive Index</td>
+</tr>
+</table>
+<p><a name="INT_13h_AH.3D01h:_Check_Drive_Status" id="INT_13h_AH.3D01h:_Check_Drive_Status"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 13h AH=01h: Check Drive Status">edit</a>]</span> <span class="mw-headline">INT 13h AH=01h: Check Drive Status</span></h3>
+<p><b>Parameters:</b></p>
+<table border="1" cellspacing="0" cellpadding="3" width="95%" align="center">
+<tr>
+<td width="20%">AH</td>
+<td width="80%">01h</td>
+</tr>
+</table>
+<p><b>Results:</b></p>
+<table border="1" cellspacing="0" cellpadding="3" width="95%" align="center">
+<tr>
+<td width="20%">AL</td>
+<td width="80%">Return Code
+<table>
+<tr>
+<td>00h</td>
+<td>Success</td>
+</tr>
+<tr>
+<td>01h</td>
+<td>Invalid Command</td>
+</tr>
+<tr>
+<td>02h</td>
+<td>Cannot Find Address Mark</td>
+</tr>
+<tr>
+<td>03h</td>
+<td>Attempted Write On Write Protected Disk</td>
+</tr>
+<tr>
+<td>04h</td>
+<td>Sector Not Found</td>
+</tr>
+<tr>
+<td>05h</td>
+<td>Reset Failed</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p><a name="INT_13h_AH.3D02h:_Read_Sectors_From_Drive" id="INT_13h_AH.3D02h:_Read_Sectors_From_Drive"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 13h AH=02h: Read Sectors From Drive">edit</a>]</span> <span class="mw-headline">INT 13h AH=02h: Read Sectors From Drive</span></h3>
+<p><b>Parameters:</b></p>
+<table border="1" cellspacing="0" cellpadding="3" width="95%" align="center">
+<tr>
+<td width="20%">AH</td>
+<td width="80%">02h</td>
+</tr>
+<tr>
+<td width="20%">AL</td>
+<td width="80%">Sectors To Read Count</td>
+</tr>
+<tr>
+<td width="20%">CX</td>
+<td width="80%">Track + Sector / See remark</td>
+</tr>
+<tr>
+<td width="20%">DH</td>
+<td width="80%">Head</td>
+</tr>
+<tr>
+<td width="20%">DL</td>
+<td width="80%">Drive</td>
+</tr>
+<tr>
+<td width="20%">ES:BX</td>
+<td width="80%">Buffer Address Pointer</td>
+</tr>
+</table>
+<p><b>Results:</b></p>
+<table border="1" cellspacing="0" cellpadding="3" width="95%" align="center">
+<tr>
+<td width="20%">CF</td>
+<td width="80%">Set On Error, Clear If No Error</td>
+</tr>
+<tr>
+<td width="20%">AH</td>
+<td width="80%">Return Code</td>
+</tr>
+<tr>
+<td width="20%">AL</td>
+<td width="80%">Actual Sectors Read Count</td>
+</tr>
+</table>
+<p><b>Remarks:</b><br />
+<b>Register CX</b> contains both the cylinder number (10 bits, possible values are 0 to 1023) and the sector number (6 bits, possible values are 1 to 63):</p>
+<pre>
+CX =       ---CH--- ---CL---
+cylinder : 76543210 98
+sector   :            543210
+</pre>
+<p><b>Examples of translation:</b></p>
+<pre>
+Turbo Pascal:
+CX := ( ( cylinder and 255 ) shl 8 ) or ( ( cylinder and 768 ) shr 2 ) or sector;
+cylinder := hi ( CX ) or ( ( lo ( CX ) and 192 ) shl 2 );
+sector := CX and 63;
+</pre>
+<p>Addressing of Buffer should guarantee that the complete buffer is inside the given segment, i.e. ( BX + size_of_buffer ) &lt;= 10000h. Otherwise the interrupt may fail with some BIOS or hardware versions.<br />
+<b>Example:</b> Assume you want to read 16 sectors (= 2000h Bytes) and your buffer starts at memory address 4FF00h. There are different ways to calculate the register values, e.g.:</p>
+<pre>
+ES = segment         = 4F00h
+BX = offset          =  0F00h
+sum = memory address = 4FF00h
+would be a good choice because 0F00h + 2000h = 2F00h &lt;= 10000h
+ES = segment         = 4000h
+BX = offset          =  FF00h
+sum = memory address = 4FF00h
+would be <b>no</b> good choice because FF00h + 2000h = 11F00h &gt; 10000h
+</pre>
+<p>Function 02h of interrupt 13h may only read sectors of the first 16,450,560 sectors of your hard drive, to read sectors beyond the 8 GByte limit you should use function 42h of Int 13h Extensions. Another alternate may be DOS interrupt 25h which reads sectors <i>within</i> a partition.</p>
+<p><a name="INT_13h_AH.3D08h:_Read_Drive_Parameters" id="INT_13h_AH.3D08h:_Read_Drive_Parameters"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 13h AH=08h: Read Drive Parameters">edit</a>]</span> <span class="mw-headline">INT 13h AH=08h: Read Drive Parameters</span></h3>
+<p><b>Parameters:</b></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<th colspan="2">Registers</th>
+</tr>
+<tr>
+<td width="20%">AH</td>
+<td width="80%">08h = function number for read_drive_parameters</td>
+</tr>
+<tr>
+<td width="20%">DL</td>
+<td width="80%">drive index (e.g. 1st HDD = 80h)</td>
+</tr>
+</table>
+<p><br />
+<b>Results:</b></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<td width="20%">CF</td>
+<td width="80%">Set On Error, Clear If No Error</td>
+</tr>
+<tr>
+<td width="20%">AH</td>
+<td width="80%">Return Code</td>
+</tr>
+<tr>
+<td width="20%">DL</td>
+<td width="80%">number of hard disk drives</td>
+</tr>
+<tr>
+<td width="20%">DH</td>
+<td width="80%">logical last index of heads = number_of - 1 (because index starts with 0)</td>
+</tr>
+<tr>
+<td width="20%">CX</td>
+<td width="80%">logical last index of cylinders = number_of - 1 (because index starts with 0)<br />
+<p>logical last index of sectors per track = number_of (because index starts with 1)</p>
+</td>
+</tr>
+</table>
+<p><b>Remarks:</b><br />
+Logical values of function 08h may/should differ from physical CHS values of function 48h.<br />
+Result register CX contains both cylinders and sector/track values, see remark of function 02h.</p>
+<p><a name="INT_13h_AH.3D0Ah:_Read_Long_Sectors_From_Drive" id="INT_13h_AH.3D0Ah:_Read_Long_Sectors_From_Drive"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 13h AH=0Ah: Read Long Sectors From Drive">edit</a>]</span> <span class="mw-headline">INT 13h AH=0Ah: Read Long Sectors From Drive</span></h3>
+<p>The only difference between this function and function 02h (see above) is that function 0Ah reads 516 bytes per sector instead of only 512. The last 4 bytes contains the Error Correction Code ECC, a checksum of sector data.</p>
+<p><a name="INT_13h_AH.3D41h:_Check_Extensions_Present" id="INT_13h_AH.3D41h:_Check_Extensions_Present"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 13h AH=41h: Check Extensions Present">edit</a>]</span> <span class="mw-headline">INT 13h AH=41h: Check Extensions Present</span></h3>
+<p><b>Parameters:</b></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<th colspan="2">Registers</th>
+</tr>
+<tr>
+<td width="20%">AH</td>
+<td width="80%">41h = function number for extensions check</td>
+</tr>
+<tr>
+<td width="20%">DL</td>
+<td width="80%">drive index (e.g. 1st HDD = 80h)</td>
+</tr>
+<tr>
+<td width="20%">BX</td>
+<td width="80%">55AAh</td>
+</tr>
+</table>
+<p><br /></p>
+<p><b>Results:</b></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<td width="20%">CF</td>
+<td width="80%">Set On Not Present, Clear If Present</td>
+</tr>
+<tr>
+<td width="20%">AH</td>
+<td width="80%">Error Code or Major Version Number</td>
+</tr>
+<tr>
+<td width="20%">BX</td>
+<td width="80%">AA55h</td>
+</tr>
+<tr>
+<td width="20%">CX</td>
+<td width="80%">Interface support bitmask:<br />
+<p>1 - Device Access using the packet structure<br />
+2 - Drive Locking and Ejecting<br />
+4 - Enhanced Disk Drive Support (EDD)</p>
+</td>
+</tr>
+</table>
+<p><a name="INT_13h_AH.3D42h:_Extended_Read_Sectors_From_Drive" id="INT_13h_AH.3D42h:_Extended_Read_Sectors_From_Drive"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 13h AH=42h: Extended Read Sectors From Drive">edit</a>]</span> <span class="mw-headline">INT 13h AH=42h: Extended Read Sectors From Drive</span></h3>
+<p><b>Parameters:</b></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<th colspan="2">Registers</th>
+</tr>
+<tr>
+<td width="20%">AH</td>
+<td width="80%">42h = function number for extended read</td>
+</tr>
+<tr>
+<td width="20%">DL</td>
+<td width="80%">drive index (e.g. 1st HDD = 80h)</td>
+</tr>
+<tr>
+<td width="20%">DS:SI</td>
+<td width="80%">segment:offset pointer to the DAP, see below</td>
+</tr>
+</table>
+<p><br /></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<th colspan="3">DAP : Disk Address Packet</th>
+</tr>
+<tr>
+<td width="15%">offset range</td>
+<td width="10%">size</td>
+<td width="75%">description</td>
+</tr>
+<tr>
+<td>00h</td>
+<td>1 byte</td>
+<td>size of DAP = 16 = 10h</td>
+</tr>
+<tr>
+<td>01h</td>
+<td>1 byte</td>
+<td>unused, should be zero</td>
+</tr>
+<tr>
+<td>02h</td>
+<td>1 byte</td>
+<td>number of sectors to be read, 0..127 (= 7Fh)</td>
+</tr>
+<tr>
+<td>03h</td>
+<td>1 byte</td>
+<td>unused, should be zero</td>
+</tr>
+<tr>
+<td>04h..07h</td>
+<td>4 bytes</td>
+<td>segment:offset pointer to the memory buffer to which sectors will be transferred</td>
+</tr>
+<tr>
+<td>08h..0Fh</td>
+<td>8 bytes</td>
+<td>absolute number of the start of the sectors to be read (1st sector of drive has number 0)</td>
+</tr>
+</table>
+<p><b>Results:</b></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<td width="20%">CF</td>
+<td width="80%">Set On Error, Clear If No Error</td>
+</tr>
+<tr>
+<td width="20%">AH</td>
+<td width="80%">Return Code</td>
+</tr>
+</table>
+<p><a name="INT_13h_AH.3D48h:_Extended_Read_Drive_Parameters" id="INT_13h_AH.3D48h:_Extended_Read_Drive_Parameters"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 13h AH=48h: Extended Read Drive Parameters">edit</a>]</span> <span class="mw-headline">INT 13h AH=48h: Extended Read Drive Parameters</span></h3>
+<p><b>Parameters:</b></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<th colspan="2">Registers</th>
+</tr>
+<tr>
+<td width="20%">AH</td>
+<td width="80%">48h = function number for extended_read_drive_parameters</td>
+</tr>
+<tr>
+<td width="20%">DL</td>
+<td width="80%">drive index (e.g. 1st HDD = 80h)</td>
+</tr>
+<tr>
+<td width="20%">DS:SI</td>
+<td width="80%">segment:offset pointer to Result Buffer, see below</td>
+</tr>
+</table>
+<p><br /></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<th colspan="3">Result Buffer</th>
+</tr>
+<tr>
+<td width="15%">offset range</td>
+<td width="10%">size</td>
+<td width="75%">description</td>
+</tr>
+<tr>
+<td>00h..01h</td>
+<td>2 bytes</td>
+<td>size of Result Buffer = 30 = 1Eh</td>
+</tr>
+<tr>
+<td>02h..03h</td>
+<td>2 bytes</td>
+<td>information flags</td>
+</tr>
+<tr>
+<td>04h..07h</td>
+<td>4 bytes</td>
+<td>physical number of cylinders = last index + 1 (because index starts with 0)</td>
+</tr>
+<tr>
+<td>08h..0Bh</td>
+<td>4 bytes</td>
+<td>physical number of heads = last index + 1 (because index starts with 0)</td>
+</tr>
+<tr>
+<td>0Ch..0Fh</td>
+<td>4 bytes</td>
+<td>physical number of sectors per track = last index (because index starts with 1)</td>
+</tr>
+<tr>
+<td>10h..17h</td>
+<td>8 bytes</td>
+<td>absolute number of sectors = last index + 1 (because index starts with 0)</td>
+</tr>
+<tr>
+<td>18h..19h</td>
+<td>2 bytes</td>
+<td>bytes per sector</td>
+</tr>
+<tr>
+<td>1Ah..1Dh</td>
+<td>4 bytes</td>
+<td>optional pointer to Enhanced Disk Drive (EDD) configuration parameters
+<p>which may be used for subsequent interrupt 13h Extension calls (if supported)</p>
+</td>
+</tr>
+</table>
+<p><br />
+<b>Results:</b></p>
+<table align="center" border="1" cellpadding="3" cellspacing="0" width="95%">
+<tr>
+<td width="20%">CF</td>
+<td width="80%">Set On Error, Clear If No Error</td>
+</tr>
+<tr>
+<td width="20%">AH</td>
+<td width="80%">Return Code</td>
+</tr>
+</table>
+<p><b>Remark:</b> Physical CHS values of function 48h may/should differ from logical values of function 08h.</p>
+<p><a name="INT_18h:_Execute_BASIC" id="INT_18h:_Execute_BASIC"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: INT 18h: Execute BASIC">edit</a>]</span> <span class="mw-headline">INT 18h: Execute BASIC</span></h2>
+<p><b>Description:</b></p>
+<p>This interrupt traditionally jumped to an implementation of <a href="../../../b/a/s/BASIC_programming_language_9140.html" title="BASIC programming language">BASIC</a> stored in ROM. This call would typically be invoked if the BIOS was unable to identify any bootable volumes on startup. (At the time the original IBM PC was released in 1981, the BASIC in ROM was a key feature.) As time went on and BASIC was no longer shipped on all PCs, this interrupt would simply display an error message indicating that no bootable volume was found (famously, "No ROM BASIC", or more self-explanatory messages in later BIOS versions); in other BIOS versions it would prompt the user to insert a bootable volume and press a key, and then after the user did so it would loop back to the bootstrap loader to try booting again.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../i/n/t/Interrupt.html" title="Interrupt">Interrupt</a></li>
+<li><a href="../../../i/n/t/INT_13_8749.html" title="INT 13">INT 13</a></li>
+<li><a href="../../../i/n/p/Input_Output_Base_Address_89c9.html" title="Input/Output Base Address">Input/Output Base Address</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/o/BIOS_interrupt_call_fd78.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.embeddedarm.com/Manuals/EBIOS-UM.PDF" class="external text" title="http://www.embeddedarm.com/Manuals/EBIOS-UM.PDF" rel="nofollow">Embedded BIOS User’s Manual</a></li>
+<li><a href="http://www.23cc.com/free-fdisk/specs-edd11.pdf" class="external text" title="http://www.23cc.com/free-fdisk/specs-edd11.pdf" rel="nofollow">Int 13h Extensions</a></li>
+<li><a href="http://www.missl.cs.umd.edu/winint/index1.html" class="external free" title="http://www.missl.cs.umd.edu/winint/index1.html" rel="nofollow">http://www.missl.cs.umd.edu/winint/index1.html</a></li>
+<li><a href="http://hdebruijn.soo.dto.tudelft.nl/newpage/interupt/out-0100.htm" class="external free" title="http://hdebruijn.soo.dto.tudelft.nl/newpage/interupt/out-0100.htm" rel="nofollow">http://hdebruijn.soo.dto.tudelft.nl/newpage/interupt/out-0100.htm</a></li>
+<li><a href="http://home.arcor.de/wzwz.de/wiki/interrupt/i13_en.htm" class="external text" title="http://home.arcor.de/wzwz.de/wiki/interrupt/i13_en.htm" rel="nofollow">Turbo Pascal examples for reading sectors</a></li>
+<li><a href="http://www.ctyme.com/rbrown.htm" class="external text" title="http://www.ctyme.com/rbrown.htm" rel="nofollow">HTML version of Ralf Brown Interrupt List</a></li>
+<li><a href="http://forums.techarena.in/showthread.php?t=389480" class="external text" title="http://forums.techarena.in/showthread.php?t=389480" rel="nofollow">BIOS Beep Codes</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/o/BIOS_interrupt_call_fd78.html">http://en.wikipedia.org../../../b/i/o/BIOS_interrupt_call_fd78.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../b/i/o/Category%7EBIOS_1302.html" title="Category:BIOS">BIOS</a></span> | <span dir='ltr'><a href="../../../i/n/t/Category%7EInterrupts_c345.html" title="Category:Interrupts">Interrupts</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/o/BIOS_interrupt_call_fd78.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/i/o/Talk%7EBIOS_interrupt_call_706c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/BIOS_interrupt_call">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 23:45, 20 February 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../l/i/n/User%7ELinuxPickle_e27a.html" title="User:LinuxPickle">LinuxPickle</a>, <a href="../../../f/r/a/User%7EFrap_bccb.html" title="User:Frap">Frap</a>, <a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a>, <a href="../../../s/a/x/User%7ESaxbryn_294e.html" title="User:Saxbryn">Saxbryn</a>, <a href="../../../o/m/i/User%7EOmicronpersei8_71da.html" title="User:Omicronpersei8">Omicronpersei8</a>, <a href="../../../d/m/i/User%7EDmitryKo_2815.html" title="User:DmitryKo">DmitryKo</a>, <a href="../../../o/p/t/User%7EOptimale_e2f2.html" title="User:Optimale">Optimale</a>, SuperZapper, <a href="../../../g/u/r/User%7EGurch_e84c.html" title="User:Gurch">Gurch</a>, <a href="../../../b/l/e/User%7EBletch_389c.html" title="User:Bletch">Bletch</a>, <a href="../../../w/z/w/User%7EWzwz_ca0b.html" title="User:Wzwz">Wzwz</a>, <a href="../../../z/i/d/User%7EZidane2k1_9661.html" title="User:Zidane2k1">Zidane2k1</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../m/i/r/User%7EMirror_Vax_6652.html" title="User:Mirror Vax">Mirror Vax</a>, <a href="../../../j/s/m/User%7EJsmethers_855e.html" title="User:Jsmethers">Jsmethers</a>, <a href="../../../m/a/r/User%7EMarudubshinki_b9b7.html" title="User:Marudubshinki">Marudubshinki</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../w/o/o/User%7EWoohookitty_27d9.html" title="User:Woohookitty">Woohookitty</a>, <a href="../../../z/o/n/User%7EZondor_d557.html" title="User:Zondor">Zondor</a> and <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

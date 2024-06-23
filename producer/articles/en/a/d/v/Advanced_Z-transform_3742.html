@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Advanced Z-transform,DSP,DSP,Aliasing,Anti-aliasing filter,Applied mathematics,Audio signal processing,Bilinear transform,Control engineering,Detection theory,Digital control" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Advanced Z-transform - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Advanced Z-transform</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a> and <a href="../../../s/i/g/Signal_processing.html" title="Signal processing">signal processing</a>, the <b>advanced Z-transform</b> is an extension of the <a href="../../../z/-/t/Z-transform.html" title="Z-transform">Z-transform</a>, to incorporate ideal delays that are not multiples of the <a href="../../../s/a/m/Sampling_rate.html" title="Sampling rate">sampling time</a>. It takes the form</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/b/0/4b08ab2aea9752bd89daab7a9d282563.png" alt="F(z, m) = \sum_{k=0}^{\infty} f(k T + m)z^{-k}" /></dd>
+</dl>
+<p>where</p>
+<ul>
+<li><i>T</i> is the sampling period</li>
+<li><i>m</i> (the "delay parameter") is a fraction of the sampling period <span class="texhtml">[0,<i>T</i>).</span></li>
+</ul>
+<p>It is also known as the <b>modified Z-transform</b>.</p>
+<p>The advanced Z-transform is widely applied, for example to model accurately processing delays in <a href="../../../d/i/g/Digital_control.html" title="Digital control">digital control</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Properties"><span class="tocnumber">1</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Linearity"><span class="tocnumber">1.1</span> <span class="toctext">Linearity</span></a></li>
+<li class="toclevel-2"><a href="#Time_shift"><span class="tocnumber">1.2</span> <span class="toctext">Time shift</span></a></li>
+<li class="toclevel-2"><a href="#Damping"><span class="tocnumber">1.3</span> <span class="toctext">Damping</span></a></li>
+<li class="toclevel-2"><a href="#Time_multiplication"><span class="tocnumber">1.4</span> <span class="toctext">Time multiplication</span></a></li>
+<li class="toclevel-2"><a href="#Final_value_theorem"><span class="tocnumber">1.5</span> <span class="toctext">Final value theorem</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">2</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Bibliography"><span class="tocnumber">4</span> <span class="toctext">Bibliography</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Properties" id="Properties"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Edit section: Properties">edit</a>]</span> <span class="mw-headline">Properties</span></h2>
+<p>If the delay parameter, <i>m</i>, is considered fixed then all the properties of the Z-transform hold for the advanced Z-transform.</p>
+<p><a name="Linearity" id="Linearity"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Edit section: Linearity">edit</a>]</span> <span class="mw-headline">Linearity</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/0/8/8/08809d3ba36c4f45549e871b4f0c91ce.png" alt="Z \left[ \sum_{k=1}^{m} c_k f_k(t) \right] = \sum_{k=1}^{m} c_k F(z, m)." /></dd>
+</dl>
+<p><a name="Time_shift" id="Time_shift"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Edit section: Time shift">edit</a>]</span> <span class="mw-headline">Time shift</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/5/7/b/57b2dbd0e3797acbc907c85cd84aa004.png" alt="Z \left[ u(t - n T)f(t - n T) \right] = z^{-n} F(z, m)." /></dd>
+</dl>
+<p><a name="Damping" id="Damping"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Edit section: Damping">edit</a>]</span> <span class="mw-headline">Damping</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/e/9/8/e98323e66f3ba24a331dbe58924429e4.png" alt="Z \left[ f(t) e^{-a\, t} \right] = e^{-a\, m} F(e^{a\, T} z, m)." /></dd>
+</dl>
+<p><a name="Time_multiplication" id="Time_multiplication"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Edit section: Time multiplication">edit</a>]</span> <span class="mw-headline">Time multiplication</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/e/0/9/e097db03f2ebed1f08a9a8a07695dbf6.png" alt="Z \left[ t^y f(t) \right] = \left(-T z \frac{d}{dz} + m \right)^y F(z, m)." /></dd>
+</dl>
+<p><a name="Final_value_theorem" id="Final_value_theorem"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Edit section: Final value theorem">edit</a>]</span> <span class="mw-headline">Final value theorem</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/1/5/6/15680944cd1fb777d1d910d765d10344.png" alt="\lim_{k = \infty} f(k T + m) = \lim_{z = 1} (1-z^{-1})F(z, m)." /></dd>
+</dl>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>Consider the following example where <span class="texhtml"><i>f</i>(<i>t</i>) = cos(ω<i>t</i>)</span></p>
+<dl>
+<dd><img class='tex' src="../../../math/a/9/1/a91d892860da01cc9c9d81728c4dc29e.png" alt="F(z, m) = Z \left[\cos \left(\omega \left(k T + m \right) \right) \right]" /></dd>
+<dd><img class='tex' src="../../../math/d/d/f/ddf7f9c2298ea7e2182f5230d869075d.png" alt="F(z, m) = Z \left[\cos (\omega k T) \cos (\omega m) - \sin (\omega k T) \sin (\omega m) \right]" /></dd>
+<dd><img class='tex' src="../../../math/e/c/0/ec065fcd6d868f82b11506303f546922.png" alt="F(z, m) = \cos(\omega m) Z \left[ \cos (\omega k T) \right] - \sin (\omega m) Z \left[ \sin (\omega k T) \right]" /></dd>
+<dd><img class='tex' src="../../../math/2/2/8/2283de7efd9a91433990ab207c80ab21.png" alt="F(z, m) = \cos(\omega m) \frac{z \left(z - \cos (\omega T) \right)}{z^2 - 2z \cos(\omega T) + 1} - \sin(\omega m) \frac{z \sin(\omega T)}{z^2 - 2z \cos(\omega T) + 1}" /></dd>
+<dd><img class='tex' src="../../../math/6/4/e/64efcb646f6bcc377c4d00eea31b6073.png" alt="F(z, m) = \frac{z^2 \cos(\omega m) - z \cos(\omega(T - m))}{z^2 - 2z \cos(\omega T) + 1}." /></dd>
+</dl>
+<p>If <span class="texhtml"><i>m</i> = 0</span> then <span class="texhtml"><i>F</i>(<i>z</i>,<i>m</i>)</span> reduces to the <a href="../../../z/-/t/Z-transform.html" title="Z-transform">Z-transform</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/1/9/f/19fc824cefb612548858590f2f530c95.png" alt="F(z, m) = \frac{z^2 - z \cos(\omega T)}{z^2 - 2z \cos(\omega T) + 1}" /></dd>
+</dl>
+<p>which is clearly just the Z-transform of <span class="texhtml"><i>f</i>(<i>t</i>).</span></p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../z/-/t/Z-transform.html" title="Z-transform">Z-transform</a></li>
+</ul>
+<div class="boilerplate" id="stub"><a href="../../../m/a/t/Image%7EMathapplied-stub_ico.png_f364.html" class="image" title="Image:Mathapplied-stub_ico.png"><img src="../../../upload/b/bf/Mathapplied-stub_ico.png" alt="Image:Mathapplied-stub_ico.png" width="21" height="21" longdesc="../../../m/a/t/Image%7EMathapplied-stub_ico.png_f364.html" /></a> <i>This <a href="../../../a/p/p/Applied_mathematics.html" title="Applied mathematics">applied mathematics</a>-related article is a <a href="../../../s/t/u/Wikipedia%7EStub_72af.html" title="Wikipedia:Stub">stub</a>. You can <a href="../../../f/i/n/Wikipedia%7EFind_or_fix_a_stub_e7c5.html" title="Wikipedia:Find or fix a stub">help</a> Wikipedia by <a href="http://en.wikipedia.org../../../a/d/v/Advanced_Z-transform_3742.html" class="external text" title="http://en.wikipedia.org../../../a/d/v/Advanced_Z-transform_3742.html" rel="nofollow">expanding it</a></i>.</div>
+<p><a name="Bibliography" id="Bibliography"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/v/Advanced_Z-transform_3742.html" title="Edit section: Bibliography">edit</a>]</span> <span class="mw-headline">Bibliography</span></h2>
+<ul>
+<li><a href="../../../e/l/i/Eliahu_Ibraham_Jury_3380.html" title="Eliahu Ibraham Jury">Eliahu Ibraham Jury</a>, <i>Theory and Application of the Z-Transform Method</i>, Krieger Pub Co, 1973. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-88275-122-0</a>.</li>
+</ul>
+<table class="navbox">
+<tr>
+<th><a href="../../../d/i/g/Digital_signal_processing.html" title="Digital signal processing">Digital signal processing</a></th>
+</tr>
+<tr>
+<td><b>Theory</b> — <a href="../../../n/y/q/Nyquist%E2%80%93Shannon_sampling_theorem_fd0a.html" title="Nyquist–Shannon sampling theorem">Nyquist–Shannon sampling theorem</a>, <a href="../../../e/s/t/Estimation_theory.html" title="Estimation theory">estimation theory</a>, <a href="../../../d/e/t/Detection_theory.html" title="Detection theory">detection theory</a></td>
+</tr>
+<tr>
+<td><b>Sub-fields</b> — <a href="../../../a/u/d/Audio_signal_processing.html" title="Audio signal processing">audio signal processing</a> | <a href="../../../c/o/n/Control_engineering.html" title="Control engineering">control engineering</a> | <a href="../../../d/i/g/Digital_image_processing.html" title="Digital image processing">digital image processing</a> | <a href="../../../s/p/e/Speech_processing.html" title="Speech processing">speech processing</a> | <a href="../../../s/t/a/Statistical_signal_processing.html" title="Statistical signal processing">statistical signal processing</a></td>
+</tr>
+<tr>
+<td><b>Techniques</b> — <a href="../../../d/i/s/Discrete_Fourier_transform_3a68.html" title="Discrete Fourier transform">Discrete Fourier transform</a> (DFT) | <a href="../../../d/i/s/Discrete-time_Fourier_transform_9a8f.html" title="Discrete-time Fourier transform">Discrete-time Fourier transform</a> (DTFT) | <a href="../../../b/i/l/Bilinear_transform.html" title="Bilinear transform">bilinear transform</a> | <a href="../../../z/-/t/Z-transform.html" title="Z-transform">Z-transform</a>, <strong class="selflink">advanced Z-transform</strong></td>
+</tr>
+<tr>
+<td><b><a href="../../../s/a/m/Sampling_%28signal_processing%29.html" title="Sampling (signal processing)">Sampling</a></b> — <a href="../../../o/v/e/Oversampling.html" title="Oversampling">oversampling</a> | <a href="../../../u/n/d/Undersampling.html" title="Undersampling">undersampling</a> | <a href="../../../d/o/w/Downsampling.html" title="Downsampling">downsampling</a> | <a href="../../../u/p/s/Upsampling.html" title="Upsampling">upsampling</a> | <a href="../../../a/l/i/Aliasing.html" title="Aliasing">aliasing</a> | <a href="../../../a/n/t/Anti-aliasing_filter.html" title="Anti-aliasing filter">anti-aliasing filter</a> | <a href="../../../s/a/m/Sampling_rate.html" title="Sampling rate">sampling rate</a> | <a href="../../../n/y/q/Nyquist_rate.html" title="Nyquist rate">Nyquist rate</a>/<a href="../../../n/y/q/Nyquist_frequency.html" title="Nyquist frequency">frequency</a></td>
+</tr>
+<tr>
+<td>
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color:#000000; white-space:nowrap;">This box:&#160;<a href="../../../d/s/p/Template%7EDSP_2331.html" title="Template:DSP"><span title="View this template">view</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<span style="color: #002bb8;" title="Discussion about this template">talk</span>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org../../../d/s/p/Template%7EDSP_2331.html" class="external text" title="http://en.wikipedia.org../../../d/s/p/Template%7EDSP_2331.html" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">edit</span></a></div>
+</td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 4808 bytes
+Post-expand include size: 3323 bytes
+Template argument size: 162 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/v/Advanced_Z-transform_3742.html">http://en.wikipedia.org../../../a/d/v/Advanced_Z-transform_3742.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../t/r/a/Category%7ETransforms_dd42.html" title="Category:Transforms">Transforms</a></span> | <span dir='ltr'><a href="../../../a/p/p/Category%7EApplied_mathematics_stubs_8727.html" title="Category:Applied mathematics stubs">Applied mathematics stubs</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/v/Advanced_Z-transform_3742.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/d/v/Talk%7EAdvanced_Z-transform_1678.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Advanced_Z-transform">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../pl/z/m/o/Zmodyfikowana_transformata_Z_5ac7.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%BC/%D0%BE/%D0%B4/%D0%9C%D0%BE%D0%B4%D0%B8%D1%84%D0%B8%D1%86%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%BD%D0%BE%D0%B5_Z-%D0%BF%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5_7235.html">Русский</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 03:41, 2 December 2006 by Wikipedia user <a href="../../../c/b/u/User%7ECburnett_adfd.html" title="User:Cburnett">Cburnett</a>. Based on work by Wikipedia user(s) <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, Mckee, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../j/o/h/User%7EJohn_C_PI_6b3f.html" title="User:John C PI">John C PI</a>, <a href="../../../s/i/l/User%7ESilverfish_f9ee.html" title="User:Silverfish">Silverfish</a> and <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

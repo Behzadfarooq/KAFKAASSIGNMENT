@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Asynchronous Cellular Automaton,Artificial neuron,Asynchronous system,Attractor,Cellular automata,Chaos,Clock signal,Computer network,Discrete time,Finite state machine,Hardware description language" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Asynchronous Cellular Automaton - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Asynchronous Cellular Automaton</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><a href="../../../c/e/l/Cellular_automata.html" title="Cellular automata">Cellular automata</a>, as with other <a href="../../../m/u/l/Multi-agent_system.html" title="Multi-agent system">multi-agent system</a> models, usually treat time as <a href="../../../d/i/s/Discrete_time.html" title="Discrete time">discrete</a> and <a href="../../../f/i/n/Finite_state_machine.html" title="Finite state machine">state</a> updates as occurring <a href="../../../s/y/n/Synchronous_system.html" title="Synchronous system">synchronously</a>. The state of every cell in the model is updated together, before any of the new states influence other cells. In contrast, an <b><a href="../../../a/s/y/Asynchronous_system.html" title="Asynchronous system">asynchronous</a> cellular automaton</b> is able to update individual cells independently, in such as way that the new state of a cell affects the calculation of states in neighbouring cells.</p>
+<p>Synchronous updating can be analysed in two phases. The first, interaction, calculates the new state of each cell based on the neighbourhood and the update rule. State values are held in a temporary store. The second phase updates state values by copying the new states to the cells. In contrast, asynchronous updating does not separate these two phases: changes in state are implemented immediately. We can summarise this difference as follows</p>
+<table class="wikitable">
+<tr>
+<td>Synchronous phase 1 (interaction):</td>
+<td><img class='tex' src="../../../math/0/c/a/0ca7c76810d9031faeb84d96e8ea4069.png" alt="\forall i \in N&#160;: \tau^{(t+1)}_i = f(\sigma^{(t)}_{k \in K_i})" /></td>
+</tr>
+<tr>
+<td>Synchronous phase 2 (update):</td>
+<td><img class='tex' src="../../../math/d/e/2/de223ddc780c2315718063fa503bcffb.png" alt="\hat{\sigma}^{(t+1)} = \hat{\tau}^{(t+1)}" /></td>
+</tr>
+<tr>
+<td>Asynchronous:</td>
+<td><img class='tex' src="../../../math/2/b/e/2beec09f8e7190e78f7fb304db3f2cde.png" alt="\forall i \in N&#160;: \sigma^{(t+1)}_i = f(\sigma^{(t)}_{k \in K_i})" /></td>
+</tr>
+</table>
+<p>where <span class="texhtml">σ<sup>(<i>t</i>)</sup></span> is the vector of states of the elements at time <span class="texhtml"><i>t</i></span>, and <img class='tex' src="../../../math/8/d/a/8da8b2dcc9be2c4aecd0a3c846f4fdb9.png" alt="\hat{\tau}^{(t)}" />is a temporary copy used in the updating, <span class="texhtml"><i>i</i></span> is the index to an individual element, <span class="texhtml"><i>N</i></span> is the total number of elements in the model, and <span class="texhtml"><i>f</i>()</span> is a function that calculates the new state of an element based on the current state of the elements in set <span class="texhtml"><i>K</i><sub><i>i</i></sub></span>, where <img class='tex' src="../../../math/2/2/f/22f5629040e554b8e1cb8828b1e32b88.png" alt="|K_i| \leq N" />.</p>
+<p>The synchonous approach assumes the prescence of a global <a href="../../../c/l/o/Clock_signal.html" title="Clock signal">clock</a> to ensure all cells are updated together. While convenient for preparing <a href="../../../h/a/r/Hardware_description_language.html" title="Hardware description language">computer systems</a>, this is an unrealistic assumption if the model is intended to represent, for example, a living system where there is no evidence of the presence of such a device.</p>
+<p><a name="Update_Schemes" id="Update_Schemes"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_Cellular_Automaton_f240.html" title="Edit section: Update Schemes">edit</a>]</span> <span class="mw-headline">Update Schemes</span></h2>
+<p>Several studies have implemented asynchronous models and found that their behaviour differs from the synchronous ones. Harvey and Bossomaier (1997) pointed out that stochastic updating in random boolean networks results in the expression of point <a href="../../../a/t/t/Attractor.html" title="Attractor">attractors</a> only: there is no repeatable cyclic behaviour, although they introduced the concept of loose cyclic attractors. Kanada (1994) has shown that some one-dimensional CA models that generate non-chaotic patterns when updated synchronously generate edge of <a href="../../../c/h/a/Chaos.html" title="Chaos">chaos</a> patterns when randomised. Orponen (1997) has demonstrated that any synchronously updated network of threshold logic units (see <a href="../../../a/r/t/Artificial_neuron.html" title="Artificial neuron">Artificial neuron</a>) can be simulated by a network that has no constraints on the order of updates. Sipper et al. (1997) investigated the evolution of non-uniform CAs that perform specific computing tasks. These models relax the normal requirement of all nodes having the same update rule. In their models, nodes were organised into blocks. Nodes within a block were updated synchronously, but blocks were updated asynchronously. They experimented with three schemes: (1) at each time step, a block is chosen at random with replacement; (2) at each time step, a block is chosen at random without replacement; (3) at each time step, a block is chosen according to a fixed update order.</p>
+<p>There are different types of asynchronous updating, and different authors have described these in different ways. The schemes shown in the images below are as follows (Cornforth et al. 2005):</p>
+<ul>
+<li>The synchronous scheme - all cells are updated in parallel at each time step. This is the conventional model, stated here for comparison.</li>
+<li>The random independent scheme - at each time step, a cell is chosen at random with replacement, and updated.</li>
+<li>The random order scheme - at each time step, all nodes are updated, but in random order.</li>
+<li>The cyclic scheme - at each time step a node is chosen according to a fixed update order, which was decided at random during initialisation of the model.</li>
+<li>The <a href="../../../c/l/o/Clock_signal.html" title="Clock signal">self-clocked</a> scheme - each cell has an independent timer, initialised to a random period and phase. When the period has expired, the cell is updated and the timer reset. Updating is autonomous and proceeds at different rates for different cells.</li>
+<li>The self-sync scheme - the same as the clocked scheme, but the phase of the timers are affected by local coupling to neighbours, and so are able to achieve local synchrony.</li>
+</ul>
+<p>The time-state diagrams below show the differences that are caused by changing the update scheme of the cellular automata model without changing any other parameters. The rule used, <a href="../../../r/u/l/Rule_30.html" title="Rule 30">rule 30</a>, is the same for each diagram.</p>
+<table class="wikitable">
+<tr>
+<td><a href="../../../r/u/l/Image%7ERule30_sync.png_2afc.html" class="image" title=" thumb"><img src="../../../upload/shared/0/0e/Rule30_sync.png" alt=" thumb" width="399" height="410" longdesc="../../../r/u/l/Image%7ERule30_sync.png_2afc.html" /></a></td>
+<td><a href="../../../r/u/l/Image%7ERule30_RAI.png_f2aa.html" class="image" title=" thumb"><img src="../../../upload/shared/1/13/Rule30_RAI.png" alt=" thumb" width="397" height="409" longdesc="../../../r/u/l/Image%7ERule30_RAI.png_f2aa.html" /></a></td>
+</tr>
+<tr>
+<td>Original rule 30</td>
+<td>Rule 30 updated randomly</td>
+</tr>
+<tr>
+<td><a href="../../../r/u/l/Image%7ERule30_RAO.png_7684.html" class="image" title=" thumb"><img src="../../../upload/shared/b/be/Rule30_RAO.png" alt=" thumb" width="398" height="409" longdesc="../../../r/u/l/Image%7ERule30_RAO.png_7684.html" /></a></td>
+<td><a href="../../../r/u/l/Image%7ERule30_cyclic.png_7a71.html" class="image" title=" thumb"><img src="../../../upload/f/f9/Rule30_cyclic.png" alt=" thumb" width="399" height="409" longdesc="../../../r/u/l/Image%7ERule30_cyclic.png_7a71.html" /></a></td>
+</tr>
+<tr>
+<td>Rule 30 updated in random order</td>
+<td>Rule 30 updated in cyclic order</td>
+</tr>
+<tr>
+<td><a href="../../../r/u/l/Image%7ERule30_clock.png_57ac.html" class="image" title=" thumb"><img src="../../../upload/6/6c/Rule30_clock.png" alt=" thumb" width="397" height="409" longdesc="../../../r/u/l/Image%7ERule30_clock.png_57ac.html" /></a></td>
+<td><a href="../../../r/u/l/Image%7ERule30_self.png_e074.html" class="image" title=" thumb"><img src="../../../upload/shared/a/ae/Rule30_self.png" alt=" thumb" width="398" height="409" longdesc="../../../r/u/l/Image%7ERule30_self.png_e074.html" /></a></td>
+</tr>
+<tr>
+<td>Self-clocked rule 30</td>
+<td>Self-synchronous rule 30</td>
+</tr>
+</table>
+<p><a name="Implications" id="Implications"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_Cellular_Automaton_f240.html" title="Edit section: Implications">edit</a>]</span> <span class="mw-headline">Implications</span></h2>
+<p>Often, <a href="../../../s/i/m/Simulation.html" title="Simulation">models</a> like cellular automata are used to help understanding of processes that work in real life. By building simplified models, new insights can be gleaned. There is always a question of how simple these models should be in order to adequately describe what is being modelled. The use of asynchronous models can allow an extra level of <a href="../../../r/e/a/Realism.html" title="Realism">realism</a> in the model. All of the schemes described above have their part in real life. The random independent scheme could be appropriate for modelling <a href="../../../s/o/c/Social_network.html" title="Social network">social networks</a> or communication in <a href="../../../c/o/m/Computer_network.html" title="Computer network">computer networks</a>. The clocked scheme could be appropriate for modelling insect colonies, while the self-synchronous scheme could be applied to <a href="../../../n/e/u/Neural_tissue.html" title="Neural tissue">neural tissue</a>.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/y/Asynchronous_Cellular_Automaton_f240.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Cornforth, D, Green, D, &amp; Newth, D 2005, Ordered Asynchronous Processes in Multi-Agent Systems, <i>Physica D</i>, vol 204, no. 1-2, pp. 70-82.</li>
+<li>Cornforth, D, Green, DG, Newth D &amp; Kirley M 2002, Do Artificial Ants March in Step? Ordered Asynchronous Processes and Modularity in Biological Systems. In Standish, Bedau, Abbass, <i>Proceedings of the Eighth International Conference on Artificial Life</i>, Sydney, pp. 28-32</li>
+<li>Harvey I., and Bossomaier T.R.J, (1997). Time Out of Joint: Attractors in Asynchronous Boolean Networks. In Husbands and Harvey (eds.), <i>Proceedings of the Fourth European Conference on Artificial Life</i>, 67-75, MIT Press.</li>
+<li>Kanada Y. (1994). The Effects of Randomness in Asynchronous 1D Cellular Automata. <i>Artificial Life IV</i>.</li>
+<li>Orponen, P. (1997). Computing with Truly Asynchronous Threshold Logic Networks. <i>Theoretical Computer Science</i> 174(1-2):123-136.</li>
+<li>Sipper M, Tomassini M. and Capcarrere M.S. (1997). Evolving Asynchronous and Scalable Non-Uniform Cellular Automata. <i>Proc. of Intl. Conf. on Artificial Neural Networks and Genetic Algorithms (ICANNGA97)</i>, Springer-Verlag.</li>
+<li><a href="http://www.complexity.org.au/vlab/" class="external text" title="http://www.complexity.org.au/vlab/" rel="nofollow">Virtual laboratory at Monash University</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/s/y/Asynchronous_Cellular_Automaton_f240.html">http://en.wikipedia.org../../../a/s/y/Asynchronous_Cellular_Automaton_f240.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../c/e/l/Category%7ECellular_automata_91da.html" title="Category:Cellular automata">Cellular automata</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/s/y/Asynchronous_Cellular_Automaton_f240.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/s/y/Talk%7EAsynchronous_Cellular_Automaton_6011.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Asynchronous_Cellular_Automaton">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:48, 9 March 2007 by Wikipedia user <a href="../../../j/e/e/User%7EJeepday_ab54.html" title="User:Jeepday">Jeepday</a>. Based on work by Wikipedia user(s) <a href="../../../j/a/f/User%7EJafet.vixle_0c16.html" title="User:Jafet.vixle">Jafet.vixle</a>, <a href="../../../a/l/a/User%7EAlaibot_de3d.html" title="User:Alaibot">Alaibot</a> and Dcornforth.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

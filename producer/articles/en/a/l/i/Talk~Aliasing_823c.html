@@ -1,0 +1,726 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Aliasing,Aliasing,Aliasing,Analog signal,Analog to digital converter,Anti-aliasing,Astronomical seeing,Cauchy-Schwarz inequality,Computer graphics,Convolution,Deconvolution" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Aliasing - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Aliasing</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Layman.27s_terms.3F"><span class="tocnumber">1</span> <span class="toctext">Layman's terms?</span></a></li>
+<li class="toclevel-1"><a href="#New_Intro"><span class="tocnumber">2</span> <span class="toctext">New Intro</span></a></li>
+<li class="toclevel-1"><a href="#An_example_in_astronomy"><span class="tocnumber">3</span> <span class="toctext">An example in astronomy</span></a></li>
+<li class="toclevel-1"><a href="#.22Filming_a_spoked_wheel.22"><span class="tocnumber">4</span> <span class="toctext">"Filming a spoked wheel"</span></a></li>
+<li class="toclevel-1"><a href="#Notation_and_fonts_.28four_kinds_of_L.3F.29"><span class="tocnumber">5</span> <span class="toctext">Notation and fonts (four kinds of L?)</span></a></li>
+<li class="toclevel-1"><a href="#Aliasing_and_radio_crosstalk"><span class="tocnumber">6</span> <span class="toctext">Aliasing and radio crosstalk</span></a></li>
+<li class="toclevel-1"><a href="#Section_numbering"><span class="tocnumber">7</span> <span class="toctext">Section numbering</span></a></li>
+<li class="toclevel-1"><a href="#Aliasing_in_computer_science"><span class="tocnumber">8</span> <span class="toctext">Aliasing in computer science</span></a></li>
+<li class="toclevel-1"><a href="#Unidentified_request"><span class="tocnumber">9</span> <span class="toctext">Unidentified request</span></a></li>
+<li class="toclevel-1"><a href="#Wikipedia_bug_.28math_in_headers.3F.29"><span class="tocnumber">10</span> <span class="toctext">Wikipedia bug (math in headers?)</span></a></li>
+<li class="toclevel-1"><a href="#Picture_of_aliasing"><span class="tocnumber">11</span> <span class="toctext">Picture of aliasing</span></a></li>
+<li class="toclevel-1"><a href="#Length_of_technical_section"><span class="tocnumber">12</span> <span class="toctext">Length of technical section</span></a></li>
+<li class="toclevel-1"><a href="#Sound_example"><span class="tocnumber">13</span> <span class="toctext">Sound example</span></a></li>
+<li class="toclevel-1"><a href="#The_Nyquist_criterion_is_in_fact_simplistic...see_below"><span class="tocnumber">14</span> <span class="toctext">The Nyquist criterion is in fact simplistic...see below</span></a></li>
+<li class="toclevel-1"><a href="#aliasing_on_TV"><span class="tocnumber">15</span> <span class="toctext">aliasing on TV</span></a></li>
+<li class="toclevel-1"><a href="#digital-to-analog.3F.3F"><span class="tocnumber">16</span> <span class="toctext">digital-to-analog??</span></a></li>
+<li class="toclevel-1"><a href="#Animated_example"><span class="tocnumber">17</span> <span class="toctext">Animated example</span></a></li>
+<li class="toclevel-1"><a href="#Rbj.27s_false_converse_assertions"><span class="tocnumber">18</span> <span class="toctext">Rbj's false converse assertions</span></a></li>
+<li class="toclevel-1"><a href="#merge_from_spatial_aliasing"><span class="tocnumber">19</span> <span class="toctext">merge from spatial aliasing</span></a></li>
+<li class="toclevel-1"><a href="#Ext_link_to_Lavry.27s_.22diatribe.22"><span class="tocnumber">20</span> <span class="toctext">Ext link to Lavry's "diatribe"</span></a></li>
+<li class="toclevel-1"><a href="#Bob_K.27s_rewrite_of_Sampling_a_periodic_signal"><span class="tocnumber">21</span> <span class="toctext">Bob K's rewrite of Sampling a periodic signal</span></a></li>
+<li class="toclevel-1"><a href="#Sections_5.1-5.6_.28Function_approximation_theory.29"><span class="tocnumber">22</span> <span class="toctext">Sections 5.1-5.6 (Function approximation theory)</span></a></li>
+<li class="toclevel-1"><a href="#Historical_usage"><span class="tocnumber">23</span> <span class="toctext">Historical usage</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Layman.27s_terms.3F" id="Layman.27s_terms.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Layman's terms?">edit</a>]</span> <span class="mw-headline">Layman's terms?</span></h2>
+<p>I'm not entirely certain what wiki policy is on this, but I've got to assume that any encyclopaedia article should be at least partially understandable by laymen, especially if it's about a topic that directly effects the general public. The reason I ask is that I've seen so many video game reviews (and now DVD review of South Park) which complain about aliasing, and I wish I knew what they were talking about. You'd think that video game reviewers would better explain how aliasing causes problems, but right now, I honestly don't know what the aliasing problems are in my games. - <a href="../../../d/a/r/User%7EDarkhawk_b946.html" title="User:Darkhawk">Darkhawk</a></p>
+<dl>
+<dd>Good point. A visual illustration of video image aliasing would be useful. For example, the brick patterns at <a href="../../../m/o/i/Moir%C3%A9_pattern.html" title="Moiré pattern">Moiré pattern</a>. Maybe we should incorporate that or something like it. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 20:29, 30 August 2006 (UTC)</dd>
+<dd>We keep commenting that we need an illustration (preferably animated), but it sounds as if the only time anyone put one in here, it was removed as confusing. Does anyone know where we could post a request and someone technically skilled enough to produce the thing might see it? I came to this article for the same reason as Darkhawk did, but am equally in the dark after reading. <a href="../../../l/a/w/User%7ELawikitejana_e1b6.html" title="User:Lawikitejana">Lawikitejana</a> 04:02, 15 October 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>To answer Darkhawk and Lawikitejana, I have added a simple lede that describes in a layman's terms what aliasing is. I would like to move the brick wall picture to the front of the article because it is very good and it is probably the most important image in this article. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 04:43, 1 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>I find your new graphic and paragraph to be entirely unsuitable. The picture is just plain ugly, and the text is not at all encyclopedic. Surely you can do better. There's no need to start with an opinion about what a reader may be familiar with or what is more likely. Stick to the facts. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 05:25, 1 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Please lose the cartoon. Aliasing is something more subtle and much more <u>interesting</u> than that. It is an interaction of two different frequencies, one a characteristic of the observer and the other a characteristic of the observed. The result is the <u>illusion</u> of a different frequency than is actually present. It is caused by loss of resolution, but it is a special case. Defocussing my SLR camera lens causes a blur that looks like a lot of other blurs, but I would never refer to that as "aliasing".</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 12:04, 1 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Well I don't know about the graphic, but I've rephrased the "familiar" passage. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 05:36, 1 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>The cartoon seems to illustrate a combination of lowpass filtering and sampling, in which the signals after filtering are substantially identical and therefore there is probably not much if any aliasing. It certainly doesn't illustrate the concept well. I'm going to pull it (and the text about it) for now. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 16:32, 1 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>Ok. You guys don't actually understand what the article says. The word aliasing describes two different but related phenomena. The first is when two different signals are mapped to the same sampled signals (signal-&gt;sample is not injective). That is what the smileys were about. The second is about when the signal-&gt;sample-&gt;reconstruction gives surprising results. That is what the moire patterns in the brick wall are.<br />
+<a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 22:17, 1 March 2007 (UTC)</p>
+<dl>
+<dd>That is an unnecessarily divisive viewpoint. Your "second" phenomenon is more than just aliasing. It is aliasing and filtering (or whatever you want to call the reconstruction process). The aliasing happened when you sampled the signal, regardless of whether or not you subsequently reconstruct anything. The sampled signal is indistinguishable from the samples of many other signals. Your "first" phenomenon appears to require that at least one of those other signals also be sampled, so we can verify that the samples are indistinguishable. I do not think that distinction is important or helpful. I have also looked around the internet, and I do not find that distinction.</dd>
+<dd>I am sorry if you feel "your" article has been hijacked. I know how that feels, and it's one of the warnings that Wikipedia gives to all contributors. Hopefully, I have convinced you that a single unified view of aliasing is preferrable to the divided one. But I doubt it, based on past experiences here with other contributors. If you still care, and want to make your point, I suggest you write a new article. If it stands up to the editors, a disambiguation page might be the right answer.</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 23:42, 1 March 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I think both views are already represented in this article. That lead already says that aliasing is when several different signals lead to the same set of samples. I didn't know the formal term ("not injective"), but that's not going to help make it understandalbe to a layman anyway. In a practical sense, however, since that kind of aliasing doesn't happen when the signal is bandlimited, the most interesting thing is what happens to signal that are not quite bandlimited, and have aliasing, of the other meaning, i.e. aliasing distortion artifacts. It might be sensible to further distinguish these things, or elaborate the first, in a subsection, but in the lead we need to keep it understandable, and if we illustrate it should do so with something that looks like what people know as aliasing. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 00:33, 2 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Yes, both views are represented. I know. And I am not going to change it. But my opinion is that it is unnecessarily divisive. The two viewpoints need not be different definitions, but rather just different manifestations of the same fundamental thing. The distinction is superficial. A window function applied to a single sinusoid creates new frequency components, but it does not perturb the frequency of the spectral maximum. A window function applied to two sinusoids perturbs their spectral maximums. But when we write an article about windowing or spectral leakage, we don't lead with that sort of information.</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 06:09, 2 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>I wrote probably over half of this article and for a long time I was defending it against non-<a href="../../../e/x/p/Expert.html" title="Expert">experts</a> who only have a rudimentary grasp of what aliasing is, but I'm not so sure I care anymore.</p>
+<p>Defocusing your lens is again not the same as what the smiley faces represented. Defocusing your lens does not make the pixels big. In fact, you can recover a focused image from a defocused image if you know what you're doing (it's called <a href="../../../d/e/c/Deconvolution.html" title="Deconvolution">deconvolution</a>.) However, you can't recover the smileys from the pixelized image I gave. They're aliased.<br />
+<a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 22:17, 1 March 2007 (UTC)</p>
+<p><a name="New_Intro" id="New_Intro"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: New Intro">edit</a>]</span> <span class="mw-headline">New Intro</span></h2>
+<p>In <a href="../../../s/t/a/Statistics.html" title="Statistics">statistics</a>, <a href="../../../s/i/g/Signal_processing.html" title="Signal processing">signal processing</a> (including digital photography), <a href="../../../c/o/m/Computer_graphics.html" title="Computer graphics">computer graphics</a>, and related disciplines, "signals" that are essentially continuous in space or time must be <a href="../../../s/i/g/Signal_sampling.html" title="Signal sampling">sampled</a>, and the set of samples is never unique to the original signal. The other signals that could (or did) produce the same samples are called <b>aliases</b> of the original signal. If a continuous signal is reconstructed from the samples, the result may be one of the aliases, which represents a form of distortion. The term <b>aliasing</b> can refer to both the ambiguity created by sampling and to the subsequent distortion.</p>
+<p>For example, when we view a digital photograph, the reconstruction (interpolation) is performed by our eyes and our brain. If the original image was a lawn, we no longer see the individual blades of grass. Therefore we are seeing an alias. A more interesting example (below) is the <a href="../../../m/o/i/Moir%C3%A9_pattern.html" title="Moiré pattern">Moiré pattern</a> one can observe in a poorly pixelized image of a brick wall. Techniques that avoid such poor pixelizations are called <a href="../../../a/n/t/Anti-aliasing.html" title="Anti-aliasing">anti-aliasing</a>.</p>
+<p>Digital imaging is an example of <a href="../../../a/l/i/Aliasing.html#Spatial_aliasing" title="Aliasing">spatial aliasing</a>. <a href="../../../t/e/m/Temporal_aliasing.html" title="Temporal aliasing">Temporal aliasing</a> is a major concern in the <a href="../../../a/n/a/Analog_to_digital_converter.html" title="Analog to digital converter">analog-to-digital conversion</a> of <a href="../../../v/i/d/Video.html" title="Video">video</a> and <a href="../../../s/o/u/Sound_reproduction.html" title="Sound reproduction">audio</a> signals: improper sampling of the <a href="../../../a/n/a/Analog_signal.html" title="Analog signal">analog signal</a> will cause high-<a href="../../../f/r/e/Frequency.html" title="Frequency">frequency</a> components to be aliased with genuine low-frequency ones, and to be incorrectly <a href="../../../s/i/g/Signal_reconstruction.html" title="Signal reconstruction">reconstructed</a> as such during the subsequent <a href="../../../d/i/g/Digital_to_analog_converter.html" title="Digital to analog converter">digital-to-analog conversion</a>. To prevent this problem, the <a href="../../../s/a/m/Sampling_frequency.html" title="Sampling frequency">sampling frequency</a> must be sufficiently large and the signals must be appropriately <a href="../../../f/i/l/Filter_%28signal_processing%29.html" title="Filter (signal processing)">filtered</a> before sampling.</p>
+<p>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 14:14, 3 March 2007 (UTC)</p>
+<p>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 15:19, 4 March 2007 (UTC) (revision)</p>
+<dl>
+<dd>It's not clear to me what it helps. I think that by focusing on a reconstruction being one of the aliases you may obscure the fact that the aliasing happens at sampling, not at reconstruction. And it's an issue even if reconstruction is not the goal, and even if the reconstruction is NOT one of the aliases. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 19:09, 3 March 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Yeah, that was my objection too. What I've changed is that the first paragraph "defines" aliasing in terms of non-unique samples, period. And there is no subsequent "Aliasing <u>also</u> means ..." paragraph. The first paragraph could stand alone as an introduction. The rest of the intro is just elaboration.</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 03:36, 4 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>I hadn't noticed the removal of aliasing meaning the distortion due to this effect. Seems to me that's a common usage, and leaving it out would be a mistake. That is, the term is commonly used not for its formal meaning, but the folding of frequency components that it typically leads to. I believe I provided refs once for that usage; sometimes they say "aliasing distortion," but more often they define "aliasing" as a distortion. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 05:24, 4 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Good point. It is simply an overloaded/ambiguous word (like so many others), and we have to acknowledge both meanings. Accordingly, I have patched up <a href="../../../a/l/i/Talk%7EAliasing_823c.html#New_Intro" title="Talk:Aliasing">New Intro</a>. Now you may argue that it is not significantly different than the current article. But I think it is a little better. See what you think.</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 15:19, 4 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="An_example_in_astronomy" id="An_example_in_astronomy"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: An example in astronomy">edit</a>]</span> <span class="mw-headline">An example in astronomy</span></h2>
+<p>I added this section as a further example that the conventional wisdom of sinc filters isn't always true. Sinc filtering the measured image <i>g</i>, regardless which sinc filter is used, does not lead to any accurate measurement of the radius of the star.</p>
+<dl>
+<dd>I am concerned about this part -- it looks like a description of <a href="../../../s/p/e/Speckle_imaging.html" title="Speckle imaging">speckle imaging</a> but has some fundamental misunderstandings (see <a href="../../../a/s/t/Astronomical_seeing.html" title="Astronomical seeing">astronomical seeing</a> for how short exposures of a star really look through the atmosphere). Star diameters are commonly measured in astronomy, but never like this. Unless people complain, I will remove this example, and replace it with a description of how star diameters are measured using speckle interferometry.</dd>
+</dl>
+<p><a href="../../../r/n/t/User%7ERnt20_32c8.html" title="User:Rnt20">Rnt20</a> 06:37, 11 April 2006 (UTC)</p>
+<p>The diameter of Betelgeuse was originally measured in this way. You are incorrect when you say this method was never used to measure the diameter of a star.</p>
+<p>Do not remove this example.</p>
+<p><a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 14:45, 11 April 2006 (UTC)</p>
+<p><a name=".22Filming_a_spoked_wheel.22"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: &quot;Filming a spoked wheel&quot;">edit</a>]</span> <span class="mw-headline">"Filming a spoked wheel"</span></h2>
+<p>In my experience, this also happens when <i>watching</i> a spoked wheel. Can someone confirm? (or is this maybe evidence that I'm living in the Matrix... hm, my head hurts now&#160;;-) -- <a href="../../../t/a/r/User%7ETarquin_cdb6.html" title="User:Tarquin">Tarquin</a> 15:26 Dec 20, 2002 (UTC)</p>
+<p>This could be the case if your eye samples the scene - perhaps periferal vision does this. I sometimes get a related effect if I see a TV screen or other flickering source out of the corner of my eye - the flicker frequency appears to be much less than 50Hz. -- Easter 15:32 Dec 20, 2002 (UTC)</p>
+<p>For really freaky effects, try watching a TV screen or CRT monitor while using an electric toothbrush. The image wobbles up and down, it was quite alarming the first time I saw it. -- <a href="../../../t/a/r/User%7ETarquin_cdb6.html" title="User:Tarquin">Tarquin</a></p>
+<p>This is what my colleagues in broadcast engineering call the ginger biscuit effect. Any vibration to the head will do. -- Easter 15:47 Dec 20, 2002 (UTC)</p>
+<p>I think we need an article on this! -- <a href="../../../t/a/r/User%7ETarquin_cdb6.html" title="User:Tarquin">Tarquin</a></p>
+<p>This effect is caused by a failure of <a href="../../../p/e/r/Persistence_of_vision.html" title="Persistence of vision">persistence of vision</a>, although it could also be regarded as a kind of aliasing (with the vibration of your head providing the sampling frequency). I don't believe that the eye normally does any sampling in the time domain, at least not in a periodic way. Devices like CRT monitors rely on your persistence of vision, which is the slow response of your <a href="../../../r/e/t/Retina.html" title="Retina">retina</a> to changing or flickering images. This only works if your eye muscles can produce a stationary image on the retina. When you move your head faster than your eye muscles can track, as happens when you eat crunchy food, the TV image is spread out over your retina and appears fragmented, because parts of your retina see one field of the image and other parts see the next field, or the few milliseconds of darkness between fields. I'm guessing that this effect is more noticeable at the edge of the field of view, because the mechanism that stabilises the eyeball mainly uses data from the centre of the retina. -- <a href="../../../h/e/r/User%7EHeron_606a.html" title="User:Heron">Heron</a> 11:30, 31 Mar 2004 (UTC)</p>
+<p>I agree -- we need an article on this! What to call it? Recently I've heard it called the "Dorito effect", but <a href="http://www.googlefight.com/index.php?lang=en_GB&amp;word1=dorito+effect&amp;word2=frito+effect" class="external text" title="http://www.googlefight.com/index.php?lang=en_GB&amp;word1=dorito+effect&amp;word2=frito+effect" rel="nofollow">Google Fight</a> tells me that "Frito effect" is far more popular. Or is there some other name that would be better for a "serious" (?) encyclopedia article? --<a href="../../../d/a/v/User%7EDavidCary_1a42.html" title="User:DavidCary">DavidCary</a> 07:13, 14 October 2005 (UTC)</p>
+<p><a href="http://comdude.journalspace.com/?dcid=5&amp;entryid=5" class="external text" title="http://comdude.journalspace.com/?dcid=5&amp;entryid=5" rel="nofollow">The Frito Effect</a> <a href="http://dev.origami.com/email/viewmessage.asp?id=161849" class="external text" title="http://dev.origami.com/email/viewmessage.asp?id=161849" rel="nofollow">the Frito Effect</a> <a href="http://www.dsprelated.com/showmessage/22672/4.php" class="external text" title="http://www.dsprelated.com/showmessage/22672/4.php" rel="nofollow">Aliasing - A new perspective</a></p>
+<dl>
+<dd>There's an exhibit at the <a href="../../../e/x/p/Exploratorium.html" title="Exploratorium">Exploratorium</a> that makes use of this phenomenon: <a href="http://www.exploratorium.edu/exhibits/bronx_cheer/Bronx_Cheer.html" class="external text" title="http://www.exploratorium.edu/exhibits/bronx_cheer/Bronx_Cheer.html" rel="nofollow">Bronx Cheer Bulb</a>. - <a href="../../../m/a/k/User%7EMako098765_2591.html" title="User:Mako098765">mak</a><i><a href="../../../m/a/k/User_talk%7EMako098765_ef35.html" title="User talk:Mako098765">o</a></i> 05:02, 15 October 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>With regards to the electric toothbrush and the TV, I've also noticed it happen when using a vibrating neck messenger BUT it also happens when looking at the reflection of the TV/monitor in the vibrating surface.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Notation_and_fonts_.28four_kinds_of_L.3F.29" id="Notation_and_fonts_.28four_kinds_of_L.3F.29"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Notation and fonts (four kinds of L?)">edit</a>]</span> <span class="mw-headline">Notation and fonts (four kinds of L?)</span></h2>
+<p>OK, so far, so mathematical, but the article now uses no fewer than four different kinds of <i>L</i>: can the sampling mappings please be called something different, to avoid confusion?</p>
+<dl>
+<dd>There's <span class="texhtml"><i>L</i></span> and <span class="texhtml"><i>L</i><sup>1</sup></span> and <span class="texhtml"><i>L</i><sup>2</sup></span> and <img class='tex' src="../../../math/a/5/9/a5968d97f5f88f01dd80d099360d7e13.png" alt="\mathcal L" />!</dd>
+</dl>
+<p>That's ok, but I'm not sure that <span class="texhtml"><i>S</i><sub><i>p</i><i>o</i><i>i</i><i>n</i><i>t</i></sub></span> attempt is optimal. Perhaps <span class="texhtml"><i>S</i><sub>0</sub></span> and <img class='tex' src="../../../math/2/8/8/2887e2ec013807aaa21b231028bfc50a.png" alt="\mathcal S" /> or <span class="texhtml"><i>S</i><sub>1</sub></span> would be better. You have to be careful to change all the references to <span class="texhtml"><i>L</i></span> and <img class='tex' src="../../../math/a/5/9/a5968d97f5f88f01dd80d099360d7e13.png" alt="\mathcal L" /> if you do that, they are used consistently throughout the article. I'm going to wait and watch, but if you want me to do it, and have a notation suggestion, just let me know here. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 00:40 Jan 28, 2003 (UTC)</p>
+<dl>
+<dd>I've just reverted my changes: they were worse, not better. I agree, I need to think of something better...</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Yes, I agree, <span class="texhtml"><i>S</i><sub>0</sub></span> and <span class="texhtml"><i>S</i><sub>1</sub></span> would be better. Could you do it, please, I made a mess of my attempts to fix things last time.
+<dl>
+<dd>Thank you, that's much better!</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>You're welcome. For reference purposes, let me add a detail. The standard notation for L^p spaces uses the cursive uppercase L, and it is fairly standard to also use block letter L and <img class='tex' src="../../../math/a/5/9/a5968d97f5f88f01dd80d099360d7e13.png" alt="\mathcal L" /> for linear maps over L^p (although <span class="texhtml">Λ</span> is very popular as well, even if it hints that it is a linear map into the field of scalars.) On the other hand, for a nonspecialist, perhaps using letters and symbol less similar to one another is helpful. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 01:00 Jan 28, 2003 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Aliasing_and_radio_crosstalk" id="Aliasing_and_radio_crosstalk"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Aliasing and radio crosstalk">edit</a>]</span> <span class="mw-headline">Aliasing and radio crosstalk</span></h2>
+<p>I have a question regarding this paragraph:</p>
+<p><i>The term "aliasing" derives from the usage in radio engineering, where a radio signal could be picked up at two different positions on the radio dial in a superheterodyne radio: one where the local oscillator was above the radio frequency, and one where it was below. This is analagous to the frequency-space "wrapround" that is one way of understanding aliasing. However, there is a deeper way of understanding aliasing, based on continuity arguments, which is outlined below as an introduction.</i></p>
+<p>This is very interesting to me. I am not completely certain that this crosstalk between radio stations is covered by the "outlined below as an introduction" portion. Unfortunately, I am not a physicist (or an engineer) so I don't know what's actually going on.</p>
+<p>I think it would be great if someone who understands the long-winded L^2 stuff I wrote could tell me how that relates to the radio waves. I mean, the wrapping around of frequencies I describe depends completely on using a simple sampling scheme (like S_0) and so it's mostly for digital signal processing. In the analog world, I'm not exactly sure what's going on.</p>
+<p>If anyone can give us more details about the underlying physics of the radio wave crosstalk phenomenon described above, perhaps there's a section in the aliasing article that needs to treat the analog aliasing process separately, which might be different from the dsp aliasing stuff <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 01:38 Jan 28, 2003 (UTC)</p>
+<ul>
+<li>Is this origin of the term accurate? Aliasing is usually associated with sampling, rather than AM modulation: namely when a sinusoidal signal is sampled at the wrong rate it becomes identical with (i.e. becomes an "alias" for) a sinusoid of another frequency.</li>
+</ul>
+<ul>
+<li>It's a consequence of the signal mixing in the <a href="../../../s/u/p/Superheterodyne_receiver.html" title="Superheterodyne receiver">heterodyning process</a>, and would hopefully be filtered out in a decent radio design. I'm guessing it's merely due to the modulation: cos(a)*cos(b) = [cos(a+b) + cos(a-b)]/2. As for the terminology, it's conceivable that it had its origin in analog, but I wouldn't know. From what I've encountered in school, "aliasing" is strictly applied to the discrete-time situation. - <a href="../../../m/a/k/User%7EMako098765_2591.html" title="User:Mako098765">mak</a><i><a href="../../../m/a/k/User_talk%7EMako098765_ef35.html" title="User talk:Mako098765">o</a></i> 28 June 2005 20:21 (UTC)</li>
+</ul>
+<p><a name="Section_numbering" id="Section_numbering"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Section numbering">edit</a>]</span> <span class="mw-headline">Section numbering</span></h2>
+<p>The subsection numbers under "technical discussion" serve a purpose: the introduction to "technical discussion" refers to these sections by number. If you want to remove the subsection numbers, you'll have to change the introduction as well. For reference purposes, Encyclopedia Britannica uses numbering for some of its articles (my 1973 copy of World Wars has a complicated numbering system.) <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 18:49 Jan 28, 2003 (UTC)</p>
+<p>I'm referring to this: <i>In engineering, the method introduced in the third section is called sampling, while a method such as that introduced in the fifth section is called filtering. This discussion may be viewed as a theoretical introduction to the ideas of anti-aliasing.</i> <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 18:51 Jan 28, 2003 (UTC)</p>
+<ul>
+<li>I deleted the following outline, since the automatic table-of-contents makes it largely superfluous:<a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a> 13:59, 29 Mar 2004 (UTC)</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>" First we will introduce a formal notion of "continuous signal". Since there are more than one possible choices (depending on the subject at hand), we will give some general outline, but fix our attention on a specific example for the purpose of this article. Second, we will give a notion of <i>similarity</i> of signals. Again, this precise notion depends on the underlying physical problem, but we will provide a common example for the sake of discussion. Third, we will give the most common sampling method as an example, and fourth we will show its failings. Fifth, we will give an improved sampling method that is more in-tune with the similarity notion introduced in the second section.<br />
+&amp;nbsp<br />
+In engineering, the method introduced in the third section is called sampling, while a method such as that introduced in the fifth section is called filtering.<br />
+&amp;nbsp<br />
+This discussion may be viewed as a theoretical introduction to the ideas of <a href="../../../a/n/t/Anti-aliasing.html" title="Anti-aliasing">anti-aliasing</a>."</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Aliasing_in_computer_science" id="Aliasing_in_computer_science"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Aliasing in computer science">edit</a>]</span> <span class="mw-headline">Aliasing in computer science</span></h2>
+<p>An article titled "Bishop", after hundreds of words on concept of "bishop" used in religion, had a one-line comment that a piece in chess is called a "bishop", with an appropriate link. I moved that to the beginning of the article where it would actually be seen be anyone interested. I've done the same thing here with the meaning of "aliasing" in computer science. <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> 19:18 Jan 28, 2003 (UTC)</p>
+<p><a name="Unidentified_request" id="Unidentified_request"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Unidentified request">edit</a>]</span> <span class="mw-headline">Unidentified request</span></h2>
+<p>Hfastedge, don't pollute carefully written articles with your requests. That's what the talk page is for. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 07:29 30 Jun 2003 (UTC)</p>
+<p><a name="Wikipedia_bug_.28math_in_headers.3F.29" id="Wikipedia_bug_.28math_in_headers.3F.29"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Wikipedia bug (math in headers?)">edit</a>]</span> <span class="mw-headline">Wikipedia bug (math in headers?)</span></h2>
+<p>WHAT THE HELL HAPPENED? <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 17:55, 29 Jul 2003 (UTC)</p>
+<dl>
+<dd>If you mean the table of contents, see <a href="../../../s/o/f/Wikipedia%7ESoftware_updates_ebc3.html" title="Wikipedia:Software updates">Wikipedia:Software updates</a>. You can turn it off via your <a href="../../../p/r/e/Special%7EPreferences_a6b2.html" title="Special:Preferences">preferences</a> if you don't like it. If you mean something else, you're going to have to say what. --<a href="../../../c/a/m/User%7ECamembert_9597.html" title="User:Camembert">Camembert</a></dd>
+</dl>
+<p>What's this 4LIQ9nXtiYFPCSfitVwDw7EYwQlL4GeeQ7qSO business? <a href="../../../e/v/e/User%7EEvercat_8d16.html" title="User:Evercat">Evercat</a> 17:59, 29 Jul 2003 (UTC)</p>
+<dl>
+<dd>These are unique hashes generated by Tomasz' math functions to identify the contents of a math element. I don't know why they appear when you just type "&lt;math&gt;" though. Ask <a href="../../../t/a/w/User%7ETaw_8bc0.html" title="User:Taw">User:Taw</a>.<a href="../../../e/l/o/User%7EEloquence_6468.html" title="User:Eloquence">—Eloquence</a> 18:08, 29 Jul 2003 (UTC)</dd>
+</dl>
+<p>Please don't use &lt;math&gt; in headers. Use a proper substitution.<a href="../../../e/l/o/User%7EEloquence_6468.html" title="User:Eloquence">—Eloquence</a> 18:01, 29 Jul 2003 (UTC)</p>
+<p>Can someone fix the mathematic notations in the article?</p>
+<p><a name="Picture_of_aliasing" id="Picture_of_aliasing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Picture of aliasing">edit</a>]</span> <span class="mw-headline">Picture of aliasing</span></h2>
+<p>What we need is ONE simple picture showing a sinusoid being sampled at too high rate and matching a lower-frequency sinusoid. Then we can probably delete some 10,000 words... <a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a> 20:46, 23 Mar 2004 (UTC)</p>
+<dl>
+<dd>Added such a picture.<a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a> 22:16, 23 Mar 2004 (UTC)</dd>
+</dl>
+<p>The picture added is good for understanding the time domain aspect of aliasing. However, the reconstruction distortions are based on frequency domain filtering. I'm going to try to find a good picture for that. Mojodaddy 05:22, 20 December 2006 (UTC)</p>
+<p>I found a good one, it's found here as the lower picture: <a href="http://efunda.com/designstandards/sensors/methods/DSP_Aliasing.cfm?search_string=aliasing" class="external free" title="http://efunda.com/designstandards/sensors/methods/DSP_Aliasing.cfm?search_string=aliasing" rel="nofollow">http://efunda.com/designstandards/sensors/methods/DSP_Aliasing.cfm?search_string=aliasing</a> It's far more insightful than the current discrete frequency picture. If someone could replicate something similar to that, that'd be awesome. 130.85.235.240 22:29, 21 December 2006 (UTC)</p>
+<p><a name="Length_of_technical_section" id="Length_of_technical_section"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Length of technical section">edit</a>]</span> <span class="mw-headline">Length of technical section</span></h2>
+<p>The "Technical description" section was way too long and too heavy on math, it confused more than clarified the concept. Thus I have done some rather radical trimming and replanting.</p>
+<p>Specifically, I moved most details of the "reconstruction" sections to a new page <a href="../../../s/i/g/Signal_reconstruction.html" title="Signal reconstruction">signal reconstruction</a>, keeping only the definition of the "standard" reconstruction <i>R</i>. I also deleted the following paragraph since it was not germane to "aliasing"; it should go to some other page (Fourier analysis?):</p>
+<dl>
+<dd>" We note here that there is an efficient algorithm, known as the <a href="../../../f/a/s/Fast_Fourier_transform_6cfd.html" title="Fast Fourier transform">Fast Fourier transform</a> to convert vectors between the canonical basis of <img class='tex' src="../../../math/9/0/6/906162d343492a23835a8d781865be80.png" alt="\Bbb C^n" /> and the Fourier basis <span class="texhtml">(<i>d</i><sub><i>k</i></sub>)</span>. This algorithm is significantly faster than the matrix multiplication required in the general case of change of basis. On the other hand, wavelets are often defined so that the change of basis matrix is sparse, and so again the change of basis algorithm is efficient. "</dd>
+</dl>
+<p>The following paragraph was deleted too; perhaps it should go to <a href="../../../s/i/g/Signal_processing.html" title="Signal processing">signal processing</a>:</p>
+<dl>
+<dd>"The signal could arise from a variety of physical processes. For instance, one could measure the seismic movement of the ground with a <a href="../../../s/e/i/Seismograph.html" title="Seismograph">seismograph</a>. The output of a seismograph is a strip of paper known as a <a href="../../../s/e/i/Seismogram.html" title="Seismogram">seismogram</a>. This strip of paper can be interpreted as the <a href="../../../g/r/a/Graph_of_a_function.html" title="Graph of a function">graph of a function</a>. This function will be in <i>L</i><sup>2</sup> as defined above, and thus we obtain a mathematical signal from a physical process."</dd>
+</dl>
+<p>The following paragraphs did not seem to make sense: given that "signal" was defined as a *function*, it would seem that <span class="texhtml"><i>S</i><sub>0</sub></span> is always well-defined in that case. Perhaps this text was assuming that a signal could be a *distribution* (such as, e.g., Dirac's)?</p>
+<dl>
+<dd>"The domain of <span class="texhtml"><i>S</i><sub>0</sub></span> includes at least all continuous functions of <span class="texhtml">[0,1]</span>. On the other hand, for technical reasons, it is not clear how to extend <span class="texhtml"><i>S</i><sub>0</sub></span> to all of <span class="texhtml"><i>L</i><sup>2</sup></span>. In particular (and perhaps more telling) is that <span class="texhtml"><i>S</i><sub>0</sub></span> is not continuous as a function on <span class="texhtml"><i>L</i><sup>2</sup></span>.</dd>
+</dl>
+<dl>
+<dd>Indeed, define <span class="texhtml"><i>f</i><sub><i>k</i></sub></span> by</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/0/1/4/0146d331ff9e582ad6b13bc41b2366cc.png" alt="f_k(x)=\left\{\begin{matrix} 1, &amp; \mbox{if }x\mbox{ is in } \left[ 1-{1 \over k},1 \right], \\ 0, &amp; \mbox{otherwise} \end{matrix}\right." /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Then, the norm <span class="texhtml">| | <i>f</i><sub><i>k</i></sub> | |</span> in <span class="texhtml"><i>L</i><sup>2</sup></span> is <img class='tex' src="../../../math/4/7/a/47ac5cd0438beb8cd4fd013b3f937034.png" alt="1/\sqrt k" /> and so <span class="texhtml"><i>f</i><sub><i>k</i></sub></span> converges to zero. However, for any <span class="texhtml"><i>k</i> &gt; <i>n</i></span>, the vector <span class="texhtml"><i>S</i><sub>0</sub><i>f</i><sub><i>k</i></sub></span> is <span class="texhtml">(0,...,0,1)</span> and so <span class="texhtml"><i>S</i><sub>0</sub><i>f</i><sub><i>k</i></sub></span> does not converge to zero. Hence <span class="texhtml"><i>S</i><sub>0</sub></span> is not continuous."</dd>
+</dl>
+<dl>
+<dd>Therefore, the sampling function <span class="texhtml"><i>S</i><sub>0</sub></span> very poorly represents our notion of closeness in our signal space <span class="texhtml"><i>L</i><sup>2</sup></span>.</dd>
+</dl>
+<p>The following section has the same problem, and it also assumes non-trivial concepts of wavelets etc., so it should probably go elsewhere, too:</p>
+<dl>
+<dd>"For instance, it is possible to choose a reconstruction formula based on the Haar basis (see wavelets) in which case <span class="texhtml"><i>S</i><sub>1</sub></span> does not fold any high frequencies into the lower frequencies. However, this reconstruction formula (or the Haar basis) are inappropriate to most problems.</dd>
+</dl>
+<dl>
+<dd>If one is giving a reconstruction formula in terms of Hilbert bases, as is our case, then one can give a "perfect" filter, which does not fold any frequencies at all, in terms of <a href="../../../c/o/n/Convolution.html" title="Convolution">convolutions</a>.</dd>
+</dl>
+<dl>
+<dd>This sampling method, unlike <span class="texhtml"><i>S</i><sub>0</sub></span>, is defined over <i>all</i> of <span class="texhtml"><i>L</i><sup>2</sup></span>. Also, by the <a href="../../../c/a/u/Cauchy-Schwarz_inequality_0bf5.html" title="Cauchy-Schwarz inequality">Cauchy-Schwarz inequality</a> (for instance,) <span class="texhtml"><i>S</i><sub>1</sub></span> is also continuous in the root mean square norm. Hence, signals which alias to the same sampled vector will be related as far as the root mean square norm is concerned.</dd>
+</dl>
+<p>Finally the discussion of the operator <span class="texhtml"><i>S</i><sub>1</sub></span> does not seem to be very useful. The operator does not eliminate aliasing, it only reduces it. On the other hand, when addressing this topic one MUST discuss the sinc filter (which does eliminate aliasing) and the Gaussian filter (which does a pretty good job, and is free from ringing). In any case, this material should be in <a href="../../../a/n/t/Anti-aliasing.html" title="Anti-aliasing">anti-aliasing</a>, not here.</p>
+<dl>
+<dd>
+<dl>
+<dd>No filtering algorithm "eliminates" aliasing. Whatever algorithm you use, you will never be able to recover an unexpectedly complex signal after sampling and filtering. In the classical setting, if you have 1000 samples but the signal is sin(10000x) you will not be able to recognize it. Instead, you will guess that it's some lower frequency signal -- this, regardless of your filtering algorithm. Hence sin(10000x) aliases to something else, regardless of your filtering algorithm. With that in mind, sinc filtering is optimal in the sense I described in the article, which is not always the correct meaning. If you look at my example in the caveats, a normalized linear polynomial over T, you will see that if you apply any of the filters you mention (S_1, Gaussian or sinc) you get a very poor representation of the original function, regardless how many samples you have. In that case, the "optimal" filtering algorithm is to recover z completely using two samples cleverly. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 20:47, 8 Apr 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>"<span class="texhtml"><i>L</i><sup>2</sup></span> is contained in <span class="texhtml"><i>L</i><sup>1</sup>([0,1])</span> (see <a href="../../../l/p/_/Lp_space.html" title="Lp space">Lp spaces</a>.) Hence, we can define a new "interval averaging" sampling method by</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/4/8/0/48064096840760330924dd957fa88fbc.png" alt="S_1 f&#160;:= n \left( \int_0^{1/n}f(t)dt, \int_{1/n}^{2/n}f(t)dt, ..., \int_{1-1/n}^1 f(t)dt \right)" /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>In the case of <span class="texhtml"><i>S</i><sub>1</sub></span>, one can analyze, via <a href="../../../c/o/n/Convolution.html" title="Convolution">convolutions</a>, to which extend the high frequencies are "folded into" the low frequencies. They still are, but to a somewhat lesser extent."</dd>
+</dl>
+<p><a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a> 01:55, 25 Mar 2004 (UTC)</p>
+<ul>
+<li>Jorge, obviously you made many changes without knowing what you were talking about. The paragraphs you mention above as not making any sense are in fact highly relevant. I will therefore undo some of your damage. The sampling function S_0 is in fact ill defined on L^2, which is the space of signals. This need to be mentioned. The remaining text actually said specifically what anti-aliasing was and up to what point it worked. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 06:13, 29 Mar 2004 (UTC)
+<ul>
+<li>I have now fixed much of the damage. While the presentation is probably superior the way it is now, thanks to Jorge, I would request that unless you understand the details of the section marked "caveats", you refrain from further mangling this article. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 06:58, 29 Mar 2004 (UTC)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Loisel, I don't claim to be an expert in math and signal processing, but I don think I am illiterate either. Note that a signal was *defined* in the article to be a *function* from [0,1] to C; that L^2, as defined, is therefore a set of *functions*; and that the S_0 operator merely evaluates f at specific points. Thus S_0 f is *always* well-defined, not only for L^2 signals or continuous signals, but for *any* function f defined on [0,1], even e.g. the is-rational predicate.<br />
+&#160;<br />
+Presumably what you meant is that S_0 is not *continuous*: which is true, and indeed relevant for sampling theory and practice -- but not to explain aliasing, as far as I can see. So perhaps this observation should go to the <a href="../../../s/i/g/Signal_sampling.html" title="Signal sampling">signal sampling</a> page?<br />
+&#160;<br />
+I also don't understand the point of introducing the S_1 operator in this page, since it is neither a mathematically correct way to avoid aliasing, nor what is done in practice (where one typically uses a Gaussian-like sampling kernel, for physical limitations and mathematical reasons). Again, perhaps the S_1 operator should go to the <a href="../../../s/a/m/Sampling_%28signal_processing%29.html" title="Sampling (signal processing)">sampling</a> or <a href="../../../a/n/t/Anti-aliasing.html" title="Anti-aliasing">anti-aliasing</a> page, as a pedagogical example to introduce the concept of general convolution sampling?<a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a> 13:31, 29 Mar 2004 (UTC)
+<ul>
+<li>Or perhaps S_1 could be moved to a later section, titled e.g. "Aliasing under convolution sampling" or some such?<a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a> 14:07, 29 Mar 2004 (UTC)</li>
+</ul>
+</li>
+</ul>
+<p><br /></p>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>L^2 is usually defined as a space of functions. However, for technical reasons, if two functions f and g in L^2 agree everywhere but on a small set (for instance, if they disagree at a single point) then it is not possible to distinguish f and g in L^2. This is because L^2 is in fact the space specified in the article <i>modulo a certain equivalence relation</i>. If f and g in L^2 agree everywhere except on a set E of measure 0, then f and g are indistinguishable in L^2. This is because ||f-g||=0. In order for || || to be a norm, we have to guarantee that ||f||=0 only when f=0. This particular piece of information is useful, but belongs in the Lp spaces article; at best, a reference to the relevant bit of that article should be inserted.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>This nuance is often explained at some point when initially doing L^p spaces, never to be mentioned again (this is for instance how Folland and Rudin do it.) While it may be good to explain this technicality somehow, my opinion is that it belongs in the L^p spaces article, not this one. If you beg to differ, go ahead and make the change; however, you may then have to explain some measure theory so that people understand when functions in L^2 are indistinguishable.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Also worth mentioning, if one wishes to dig into the details, is that the evaluation map x-&gt;f(x), while not defined for all x \in R, is defined for all x \in E where R\E is a set of zero measure and E is called the Lebesgue set of f. Unfortunately, E changes with f, and so the "Lebesgue set of L^2" is empty. Still, the evaluation map, for a fixed x and with f varying in some subspace of V of L^2 whose Lebesgue sets contain x, is not continuous in f \in V.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>The S_1 operator is just another linear map from L^2 to C^n, like S_0. However, it is better than S_0 since it is actually defined on L^2 (this refers to the paragraph I just wrote, which explains why S_0 isn't clearly defined on L^2.) It is also a better filtering method than point sampling (the Fourier transform of the point sampling method fails to decay, but the uniform averaging method has a Fourier transform which decays like sinx/x (or 1/x if you prefer) which is not very good but better than nothing. A gaussian filter has a Fourier transform that decays like a gaussian, which is much better. Of course, a sinc filter has a Fourier transform that looks like a square wave, which is often considered perfect. All the filtering methods I just mentionned <b>do</b> help with anti-aliasing, even S_1. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 06:52, 8 Apr 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Sound_example" id="Sound_example"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Sound example">edit</a>]</span> <span class="mw-headline">Sound example</span></h2>
+<p>The sound example needs more explanation: what is the sampling rate, what exactly is meant by "bandlimited", and what should the listener pay attention to. <a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a> 18:43, 24 Mar 2004 (UTC)</p>
+<ul>
+<li>It is great now! <a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a> 13:53, 29 Mar 2004 (UTC)
+<ul>
+<li>Thanks to your suggestion. Glad you like the updated version. -- <a href="../../../t/l/o/User%7ETlotoxl_1dca.html" title="User:Tlotoxl">Tlotoxl</a> 17:00, 29 Mar 2004 (UTC)</li>
+</ul>
+</li>
+</ul>
+<p><a name="The_Nyquist_criterion_is_in_fact_simplistic...see_below" id="The_Nyquist_criterion_is_in_fact_simplistic...see_below"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: The Nyquist criterion is in fact simplistic...see below">edit</a>]</span> <span class="mw-headline">The Nyquist criterion is in fact simplistic...see below</span></h2>
+<p>Having specifically said that the Nyquist condition is simplistic, I don't think the following theory adequately explains why this is the case. I mean, it may explain it, but it doesn't specifically summarize why it is that the Nyquist criterion is therefore simplistic. I don't think readers should have to dig so much, only to find vague statements under caveats -- <a href="../../../t/l/o/User%7ETlotoxl_1dca.html" title="User:Tlotoxl">Tlotoxl</a> 10:15, 31 Mar 2004 (UTC)</p>
+<dl>
+<dd>I added something at the end. Do you like it? <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 07:24, 8 Apr 2004 (UTC)</dd>
+</dl>
+<p><a name="aliasing_on_TV" id="aliasing_on_TV"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: aliasing on TV">edit</a>]</span> <span class="mw-headline">aliasing on TV</span></h2>
+<p>Shouldn't there be a mention about aliasing in TV broadcast? The reason why moderators don't have certain patterns of dress and so on. Just a thought. 84.42.132.48 11:31, 1 September 2005 (UTC)</p>
+<p><a name="digital-to-analog.3F.3F" id="digital-to-analog.3F.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: digital-to-analog??">edit</a>]</span> <span class="mw-headline">digital-to-analog??</span></h2>
+<p>Right at the start of the article, where it says:</p>
+<dl>
+<dd><i>Aliasing is a major concern in the digital-to-analog conversion of video and audio signals: improper sampling of the analog signal will cause high-frequency components to be aliased with genuine low-frequency ones, and be incorrectly reconstructed as such. To prevent this problem, the signals must be appropriately filtered, before sampling.</i></dd>
+</dl>
+<p>shouldn't that be <i>analog-to-digital</i> not <i>digital-to-analog</i> or am I just confused?</p>
+<p>This paragraph seems to by trying to say that aliasing occurs when you sample analog to digital. It says <i>improper sampling of the analog signal will cause</i>... That seems to imply that analog is the source in this paragraph.</p>
+<p>It seems confusing as written, someone who knows better please help me understand this. <a href="../../../h/i/g/User%7EHighInBC_48ba.html" title="User:HighInBC">HighInBC</a> 18:12, 27 February 2006 (UTC)</p>
+<dl>
+<dd>You're right. I fixed it. --<a href="../../../h/e/r/User%7EHeron_606a.html" title="User:Heron">Heron</a> 19:56, 27 February 2006 (UTC)</dd>
+</dl>
+<p>Thanks. <a href="../../../h/i/g/User%7EHighInBC_48ba.html" title="User:HighInBC">HighInBC</a> 23:58, 27 February 2006 (UTC)</p>
+<p><a name="Animated_example" id="Animated_example"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Animated example">edit</a>]</span> <span class="mw-headline">Animated example</span></h2>
+<p>Can someone explain the new animated example. It seems way too busy and confusing. Do we really need animation for this? Can it be explained with some commentary at least? I'm going to take it out for now. Please comment if you like it, or put it back with commentary, or make a more accessible example. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 02:44, 4 July 2006 (UTC)</p>
+<dl>
+<dd>"A" for effort, but I don't think it's ready for Wikipedia (and vice-versa). Maybe there is an article on animated gif images. If not, better yet... let's start one. --<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 07:36, 4 July 2006 (UTC)</dd>
+</dl>
+<p><a name="Rbj.27s_false_converse_assertions" id="Rbj.27s_false_converse_assertions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Rbj's false converse assertions">edit</a>]</span> <span class="mw-headline">Rbj's false converse assertions</span></h2>
+<p>Apparently I've made no progress getting Rbj to understand the notion of mathematical implication, and the difference between a provably true theorem and its not-always-true converse. He has come over here to spread his joy, having "crapped up" (his words) the <a href="../../../n/y/q/Nyquist%E2%80%93Shannon_sampling_theorem_fd0a.html" title="Nyquist–Shannon sampling theorem">Nyquist–Shannon sampling theorem</a> article in the last day or two. He has a narrow view of aliasing based on baseband reconstruction, which he is also mixing up with the notion of an alias itself. My changes are individually documented to indicate the errors in what he has done. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 15:43, 17 August 2006 (UTC)</p>
+<p><a name="merge_from_spatial_aliasing" id="merge_from_spatial_aliasing"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: merge from spatial aliasing">edit</a>]</span> <span class="mw-headline">merge from spatial aliasing</span></h2>
+<p>I don't thing there's a lot of point having a separate article for this that contains three sentences, all of which are already implied by the content of this article. Any reason not to just redirect it to here and remove the link from this article? <a href="../../../j/u/l/User%7EJulesH_8c63.html" title="User:JulesH">JulesH</a> 09:56, 21 November 2006 (UTC)</p>
+<ul>
+<li><b>Support</b>. Go for it. One wonders exactly what field that stub was written about, since it talks about wave arrival direction. It's actually a time/space thing, like in seismology or ocean waves or something. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 16:16, 21 November 2006 (UTC)</li>
+</ul>
+<dl>
+<dd>Sure enough, top several GBS hits on "spatial aliasing" are in seismology and magnetotellurics books: <a href="http://books.google.com/books?vid=ISBN1593700229&amp;id=Th9f937IF44C&amp;pg=PA57&amp;lpg=PA57&amp;ots=9e9iZ3nxJm&amp;dq=spatial-aliasing&amp;sig=-MmdK2-A2ftUM_SUE_6MBinX820&amp;output=html" class="external autonumber" title="http://books.google.com/books?vid=ISBN1593700229&amp;id=Th9f937IF44C&amp;pg=PA57&amp;lpg=PA57&amp;ots=9e9iZ3nxJm&amp;dq=spatial-aliasing&amp;sig=-MmdK2-A2ftUM_SUE_6MBinX820&amp;output=html" rel="nofollow">[1]</a> <a href="http://books.google.com/books?vid=ISBN3764362103&amp;id=xBISn7xF1skC&amp;pg=PA365&amp;lpg=PA365&amp;ots=bx5HiIMA-U&amp;dq=spatial-aliasing&amp;sig=Z666ldWY-iTg6BdBdRXgCQl7ApQ" class="external autonumber" title="http://books.google.com/books?vid=ISBN3764362103&amp;id=xBISn7xF1skC&amp;pg=PA365&amp;lpg=PA365&amp;ots=bx5HiIMA-U&amp;dq=spatial-aliasing&amp;sig=Z666ldWY-iTg6BdBdRXgCQl7ApQ" rel="nofollow">[2]</a>. <a href="http://books.google.com/books?vid=ISBN0521817277&amp;id=w-_lMvvMc34C&amp;pg=PA47&amp;lpg=PA47&amp;ots=LQN8cCBK5r&amp;dq=spatial-aliasing&amp;sig=jNs4zM2zE2z-GOaU_yhgGSpQYP0" class="external autonumber" title="http://books.google.com/books?vid=ISBN0521817277&amp;id=w-_lMvvMc34C&amp;pg=PA47&amp;lpg=PA47&amp;ots=LQN8cCBK5r&amp;dq=spatial-aliasing&amp;sig=jNs4zM2zE2z-GOaU_yhgGSpQYP0" rel="nofollow">[3]</a> Anyone feel qualified to add a bit about that? <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 20:06, 21 November 2006 (UTC)</dd>
+</dl>
+<ul>
+<li><b>Oppose</b>. See sample images I made and posted to WP some time ago and that I just added to <a href="../../../s/p/a/Spatial_aliasing.html" title="Spatial aliasing">spatial aliasing</a>. The moire pattern is the exhibition of aliasing in a spatial sense instead of a temporal one that is taught with aliasing 99.99999% of the time.&#160;:) I think plenty of material could be yanked out of <a href="../../../n/y/q/Nyquist%E2%80%93Shannon_sampling_theorem_fd0a.html#Application_to_multivariable_signals_and_images" title="Nyquist–Shannon sampling theorem">Nyquist–Shannon sampling theorem#Application to multivariable signals and images</a>. <a href="../../../c/b/u/User%7ECburnett_adfd.html" title="User:Cburnett">Cburnett</a> 03:55, 2 December 2006 (UTC)</li>
+</ul>
+<dl>
+<dd>So are you going to write it? Is there not room in this article for what you want to add? <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 04:22, 2 December 2006 (UTC)</dd>
+</dl>
+<ul>
+<li><b>Support</b>. <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a> 17:37, 4 December 2006 (UTC)</li>
+</ul>
+<p>Done. I hope you're OK with it, CB. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 05:55, 23 January 2007 (UTC)</p>
+<p><a name="Ext_link_to_Lavry.27s_.22diatribe.22" id="Ext_link_to_Lavry.27s_.22diatribe.22"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Ext link to Lavry's &quot;diatribe&quot;">edit</a>]</span> <span class="mw-headline">Ext link to Lavry's "diatribe"</span></h2>
+<p>The POV "ancillary comment" about that linked PDF sounds like something I may have written in my early wikipedia days; if so, it sure lasted a long time, but you're right it sure doesn't belong. Anyway, specific complaints about the <a href="http://www.lavryengineering.com/documents/Sampling_Theory.pdf" class="external text" title="http://www.lavryengineering.com/documents/Sampling_Theory.pdf" rel="nofollow">Lavry PDF</a> include:</p>
+<ul>
+<li>Starts with false statment "Dr. Nyquist discovered the sampling theorem".</li>
+<li>It refers to the sampling theorem as a "theory".</li>
+<li>It's a diatribe in the sense that "the author's motivation is to help dispel the wide spread misconceptions regarding sampling of audio at a rate of 192KHz" and yet in tons of pages he fails to make a convincing case or to support his conclusions that are basically just opinions.</li>
+<li>His topic has only a tangential relationship to the sampling theorem and little relationship to the aliasing article.</li>
+</ul>
+<p>So, now that the disclaimer is gone, I think I'll remove the ext link, too. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 21:38, 22 January 2007 (UTC)</p>
+<p><a name="Bob_K.27s_rewrite_of_Sampling_a_periodic_signal" id="Bob_K.27s_rewrite_of_Sampling_a_periodic_signal"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Bob K's rewrite of Sampling a periodic signal">edit</a>]</span> <span class="mw-headline">Bob K's rewrite of Sampling a periodic signal</span></h2>
+<p>Bob K had updated first paragraph to say:</p>
+<dl>
+<dd>..., the resulting samples will be indistinguishable from those of another sinusoid of frequency <img class='tex' src="../../../math/5/b/c/5bcc72e23bd5ed6f02d7c8db4d66bbf9.png" alt="f_\mathrm{image}(N) = |f - Nf_s|\," /> for any integer <img class='tex' src="../../../math/0/8/5/0850948e22b96b6b94cbd6c6a8de37ae.png" alt="N.\," /> &#160; If (and only if) <img class='tex' src="../../../math/5/b/b/5bb81e848d214978d5a417a0fd35cd80.png" alt="f_s/2 &gt; f\," />, the smallest of these "image frequencies" corresponds to the actual signal frequency<b>:</b> <img class='tex' src="../../../math/7/2/d/72deec0a2ef14347d99d25fbad037eda.png" alt="f_\mathrm{image}(0) = f\,." /></dd>
+</dl>
+<p>Several problems here. It is ALWAYS true that <img class='tex' src="../../../math/b/3/b/b3be3aae63c9a5021311767b3b60496a.png" alt="f_\mathrm{image}(0) = f\," />, the way he defined it, but the text can appear to be saying that <img class='tex' src="../../../math/9/9/9/99921463e6ae05b6530b19a3d3e03894.png" alt="f_\mathrm{image}(0)\," /> is the smallest; it's unclear if this was intended, or is just an incorrect reading of it, but it's confusing.<br />
+<a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 19:15, 28 February 2007 (UTC)</p>
+<dl>
+<dd>Hmmm. You seem to have read it correctly <u>and</u> it was my intention, because it is in fact quite correct. <u>Under the stated condition</u>, i.e. <img class='tex' src="../../../math/4/8/1/481806060ef503ba1e18aab11dc887c9.png" alt="f_s/2 &gt; f,\," /> the minimum value of <img class='tex' src="../../../math/b/b/6/bb693072fd5fd9a1f5f826ffb0b407bf.png" alt="f_\mathrm{image}(N)\," /> is indeed <img class='tex' src="../../../math/9/9/9/99921463e6ae05b6530b19a3d3e03894.png" alt="f_\mathrm{image}(0)\," />. &#160; Please tell us what value of N gives a smaller result.</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 21:54, 28 February 2007 (UTC)</dd>
+</dl>
+<p><br />
+And if this was patched up, the "(and only if)" bit is still incorrect, unless you go to the trouble of separately excluding f at the Nyquist frequency.</p>
+<dl>
+<dd>No actually, we should <u>include</u> <img class='tex' src="../../../math/1/3/4/134eb46940a097524f6aa802e5ebbd54.png" alt="f = f_s/2,\," /> because in that case, <img class='tex' src="../../../math/0/0/d/00dd7e6fb89f7a79899902833cd0723b.png" alt="f_\mathrm{image}(0) = f_\mathrm{image}(1) = f_s/2.\," /></dd>
+<dd><img class='tex' src="../../../math/9/9/9/99921463e6ae05b6530b19a3d3e03894.png" alt="f_\mathrm{image}(0)\," /> is <u>still</u> the minimum. &#160;Another "alias" is equal, but there is nothing smaller.</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 21:54, 28 February 2007 (UTC)</dd>
+</dl>
+<p><br />
+But it seems to me that this change is not well motivated. The way it's stated now makes the "folding" or "mirroring" property of aliasing more explicit. The folded <img class='tex' src="../../../math/3/d/b/3db6faf03634fd0a2a5c3ea6e71cffa2.png" alt="f_s - f\," /> term is the usual main term that you need to care about, and the absolute value obscures more than clarifies, I think.<br />
+<a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 19:15, 28 February 2007 (UTC)</p>
+<dl>
+<dd>Both of your "problems" are not problems afterall. So before I bother to figure out what you are trying to say here, I would like to know where you now stand. I would also point out that <b>192.195.154.123</b> and <b>74.107.64.186</b> and myself were all confused by the <a href="http://en.wikipedia.org/w/index.php?title=Aliasing&amp;oldid=102930899#Sampling_a_periodic_signal" class="external text" title="http://en.wikipedia.org/w/index.php?title=Aliasing&amp;oldid=102930899#Sampling_a_periodic_signal" rel="nofollow">24-Jan version.</a> It is not wrong (except for a nitpik), but it can be simplified and thereby clarified. That is the motivation.</dd>
+</dl>
+<dl>
+<dd>The nitpik (similar to your <i>if and only if</i> "problem") is the statement<b>:</b></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>"If <img class='tex' src="../../../math/0/5/2/05207c8d69c03a9ff7e6339835414b8e.png" alt="f_s &gt; 2f\," />, the <u>lowest</u> of these image frequencies will be the original signal frequency"</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>That is true in my version, but in the 24-Jan version the image frequencies are<b>:</b> &#160; "<img class='tex' src="../../../math/1/e/6/1e6b158bf5ddb3368444b408d77619b8.png" alt="Nf_s-f\," /> and <img class='tex' src="../../../math/e/5/0/e509daf364d5a81e845cfbea794a3bbc.png" alt="Nf_s+f\," />, for <u>any</u> integer <img class='tex' src="../../../math/0/8/5/0850948e22b96b6b94cbd6c6a8de37ae.png" alt="N.\," />" &#160; "Lowest" does not mean "closest to zero", so what about negative values? What about <img class='tex' src="../../../math/6/0/a/60ab992dcd66ed7a0466b2aadbfbe124.png" alt="N = -\infty&#160;?\," /></dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 21:54, 28 February 2007 (UTC)</dd>
+</dl>
+<p><br /></p>
+<dl>
+<dd>The statement that is correct but got you confused anyway can certainly be rephrased. Do you prefer this for instance?<b>:</b></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>..., the resulting samples will be indistinguishable from those of another sinusoid of frequency <img class='tex' src="../../../math/5/b/c/5bcc72e23bd5ed6f02d7c8db4d66bbf9.png" alt="f_\mathrm{image}(N) = |f - Nf_s|\," /> for any integer <img class='tex' src="../../../math/0/8/5/0850948e22b96b6b94cbd6c6a8de37ae.png" alt="N.\," /> &#160; If (and only if) <img class='tex' src="../../../math/f/c/3/fc3cc2b1c1b8d0efb9c61a18ca392690.png" alt="f_s/2 \ge f\," />, the smallest of these "image frequencies" occurs at N=0. &#160; And its value<b>:</b> <img class='tex' src="../../../math/d/d/9/dd988fcd9c34ab5a294c8472a5a3d489.png" alt="f_\mathrm{image}(0) = f,\," /> &#160;is the actual signal frequency.</dd>
+</dl>
+</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 22:23, 28 February 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Yes, that appears to be correct and more acceptable. I'm still not sure what's wrong with the present version, or why this is an improvement, though. I see we do have the same error at Nyquist frequency in the other one, fixable the same way. This fix is however a bit misleading, as it confusing getting the frequency right with avoiding aliasing. Hmmmm... I'll let you change it as you see fit, given that I've had my say. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 01:06, 1 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><br /></p>
+<p><a name="Sections_5.1-5.6_.28Function_approximation_theory.29" id="Sections_5.1-5.6_.28Function_approximation_theory.29"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Sections 5.1-5.6 (Function approximation theory)">edit</a>]</span> <span class="mw-headline">Sections 5.1-5.6 (Function approximation theory)</span></h2>
+<p>In section 5.1, we have<b>:</b></p>
+<dl>
+<dd>For the purposes of this analysis, we define a continuous-time signal as a real or complex valued function whose domain is the interval [0,1].</dd>
+</dl>
+<p>In section 5.6, we conclude with<b>:</b></p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/2/4/b/24b5129e68a829aba5dc5f3d09da3eab.png" alt="S_\mathrm{opt}g=S_0(\mathrm{sinc}*g) \" /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>where <img class='tex' src="../../../math/4/2/0/420971e1bea97a8bd695a5369f575e77.png" alt="\mathrm{sinc}*g \" /> is some sort of <a href="../../../s/i/n/Sinc_filter.html" title="Sinc filter">sinc filter</a> or <a href="../../../s/i/n/Sinc_function.html" title="Sinc function">sinc function</a>.</dd>
+</dl>
+<p>In case it isn't obvious, I think what we are saying is that an anti-aliasing filter (and a rectangular one at that) is a good thing to do before sampling.</p>
+<p>But how do we confine a sinc function to the interval [0,1]? Is that why we need the "some sort of" caveat? And how do we design a "sort of sinc" filter?</p>
+<p>Frankly, these sections don't do much for me. Why "teach" functional analysis here? The relevant points seem to be these:</p>
+<ul>
+<li>A mapping from an higher dimensional space to a lower one loses information that cannot be recovered.</li>
+<li>Filtered sampling is more realistic than instantaneous sampling.</li>
+<li>Filtered sampling is "better" than instantaneous sampling, from the viewpoint of aliasing.
+<ul>
+<li>(assumes the distortion caused by the filter does not count)</li>
+</ul>
+</li>
+<li>An anti-aliasing filter with instantaneous sampling is equivalent to filtered sampling.</li>
+<li>"Some sort of sinc" filter is the optimum anti-aliasing filter.</li>
+</ul>
+<p>Am I missing something? Are these unsurprising (and in some cases vague) points enough to justify section 5?</p>
+<p>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 14:18, 10 March 2007 (UTC)</p>
+<dl>
+<dd>I agree. This essay on filtering and sampling is out of place in this article, and is not very logical constructed. I haven't looked around to see if such material is already covered well in <a href="../../../s/a/m/Sampling.html" title="Sampling">sampling</a> or some such place. I'm OK with cutting it out. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 15:44, 10 March 2007 (UTC)</dd>
+</dl>
+<p><a name="Historical_usage" id="Historical_usage"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/i/Talk%7EAliasing_823c.html" title="Edit section: Historical usage">edit</a>]</span> <span class="mw-headline">Historical usage</span></h2>
+<p>I think this section may be largely incorrect, or at least somewhat wide of the mark. In my recollection, and what few revelant refs I've been able to find, an alias in radio is just am image frequency. Most of the discussion about spectrum reversal seems not quite relevant. The point of aliasing is not so much that you have a choice of high-side or low-side local oscillator, but that after you've chosen you still have to fight the image or alias from the other side. Is there a book that either makes this clear or supports the current text? <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 16:58, 18 March 2007 (UTC)</p>
+<dl>
+<dd>This link discusses the low and high side injection and cites several books<b>:</b> <a href="http://www.maxim-ic.com/appnotes.cfm/appnote_number/1838" class="external autonumber" title="http://www.maxim-ic.com/appnotes.cfm/appnote_number/1838" rel="nofollow">[4]</a></dd>
+<dd>But it does not confirm that as the origin of the term "aliasing" (if that is your concern). I don't know where that idea comes from. I first heard it right <a href="http://en.wikipedia.org/w/index.php?title=Aliasing&amp;oldid=111853464#Origin_of_the_term" class="external text" title="http://en.wikipedia.org/w/index.php?title=Aliasing&amp;oldid=111853464#Origin_of_the_term" rel="nofollow">here</a>, at Wikipedia.</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 18:48, 18 March 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Google book search doesn't find anything old enough, but does find <a href="http://books.google.com/books?vid=ISBN0792372603&amp;id=9TtGWdMKBgUC&amp;pg=PA211&amp;lpg=PA211&amp;ots=Eq6k2UjqsK&amp;dq=alias+intermediate-frequency&amp;sig=aD08_sLwD_Jvyv7l9P14tAvkOu4" class="external text" title="http://books.google.com/books?vid=ISBN0792372603&amp;id=9TtGWdMKBgUC&amp;pg=PA211&amp;lpg=PA211&amp;ots=Eq6k2UjqsK&amp;dq=alias+intermediate-frequency&amp;sig=aD08_sLwD_Jvyv7l9P14tAvkOu4" rel="nofollow">this one</a>. I believe this is more or less representative of what I recall, but I'd look at some old ham radio books, or Terman, or something. Unless we find a source, I'd be inclined to just remove the whole section. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 19:19, 18 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Here is where it first appears: <a href="http://en.wikipedia.org/w/index.php?title=Aliasing&amp;oldid=2901990" class="external free" title="http://en.wikipedia.org/w/index.php?title=Aliasing&amp;oldid=2901990" rel="nofollow">http://en.wikipedia.org/w/index.php?title=Aliasing&amp;oldid=2901990</a></dd>
+<dd>The contributor was Jorge Stolfi.</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 22:38, 18 March 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>Dick, I checked your reference, and it is more consistent with the "modern" meaning of "aliasing" than Jorge's description. That inconsistency is what led me to write the caveat: "Even when the aliases are identical there is still a fundamental difference between the modern and historical meanings. ..."</dd>
+<dd>Your reference is poorly written, but if you stick with it, what it says is that a signal at <img class='tex' src="../../../math/7/4/e/74ef41095731ea41db29aef5ed214238.png" alt="f_{LO}+f_{IF}\," /> and <u>at the same time</u> (same <img class='tex' src="../../../math/3/0/b/30bb19ee5b6f67ba320a38a7e282fe94.png" alt="f_{LO}\," />)a <u>different</u> signal at <img class='tex' src="../../../math/d/8/0/d80b3c88ffb714691fe8fbf927cb3062.png" alt="f_{LO}-f_{IF}\," /> will both end up at <img class='tex' src="../../../math/1/0/0/100678d99a0cd540cd7cd84d355fea44.png" alt="f_{IF}\," />. (Low-side injection for one signal is high-side injection for another.) Two different signals map to the same frequency, just like sampling causes different sinusoids to produce the same samples (before interpolation) or at least the same frequency (after interpolation).</dd>
+</dl>
+<dl>
+<dd>Since that looks like a legitimate use of the word "aliasing", I think we should just fix up the description, rather than delete the whole section. I think it is interesting.</dd>
+<dd>--<a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a> 23:10, 18 March 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I like your fix. I'd still like to see an older ref; I'm not sure this is actually the historical basis of the modern usage of the term. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 10:33, 19 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/i/Talk%7EAliasing_823c.html">http://en.wikipedia.org../../../a/l/i/Talk%7EAliasing_823c.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/l/i/Aliasing.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/l/i/Talk%7EAliasing_823c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Aliasing">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 10:33, 19 March 2007 by Wikipedia user <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a>. Based on work by Wikipedia user(s) <a href="../../../b/o/b/User%7EBob_K_df6a.html" title="User:Bob K">Bob K</a>, <a href="../../../l/o/i/User%7ELoisel_933f.html" title="User:Loisel">Loisel</a>, Mojodaddy, <a href="../../../c/b/u/User%7ECburnett_adfd.html" title="User:Cburnett">Cburnett</a>, <a href="../../../j/u/l/User%7EJulesH_8c63.html" title="User:JulesH">JulesH</a>, <a href="../../../l/a/w/User%7ELawikitejana_e1b6.html" title="User:Lawikitejana">Lawikitejana</a>, <a href="../../../d/a/r/User%7EDarkhawk_b946.html" title="User:Darkhawk">Darkhawk</a>, <a href="../../../r/n/t/User%7ERnt20_32c8.html" title="User:Rnt20">Rnt20</a>, <a href="../../../h/i/g/User%7EHighInBC_48ba.html" title="User:HighInBC">HighInBC</a>, <a href="../../../h/e/r/User%7EHeron_606a.html" title="User:Heron">Heron</a>, <a href="../../../d/a/b/User%7EDabMachine_5d4b.html" title="User:DabMachine">DabMachine</a>, <a href="../../../m/a/k/User%7EMako098765_2591.html" title="User:Mako098765">Mako098765</a>, <a href="../../../d/a/v/User%7EDavidCary_1a42.html" title="User:DavidCary">DavidCary</a>, <a href="../../../r/a/u/User%7ERaul654_54a3.html" title="User:Raul654">Raul654</a>, <a href="../../../s/a/n/User%7ESanders_muc_9c4a.html" title="User:Sanders muc">Sanders muc</a>, <a href="../../../t/l/o/User%7ETlotoxl_1dca.html" title="User:Tlotoxl">Tlotoxl</a>, <a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a>, Lushan, <a href="../../../e/l/o/User%7EEloquence_6468.html" title="User:Eloquence">Eloquence</a>, <a href="../../../e/v/e/User%7EEvercat_8d16.html" title="User:Evercat">Evercat</a>, <a href="../../../c/a/m/User%7ECamembert_9597.html" title="User:Camembert">Camembert</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../t/a/r/User%7ETarquin_cdb6.html" title="User:Tarquin">Tarquin</a> and Easterbrook and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

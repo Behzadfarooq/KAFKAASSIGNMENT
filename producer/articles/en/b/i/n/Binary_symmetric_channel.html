@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Binary symmetric channel,Asymptotic analysis,Binary entropy function,Binary erasure channel,Bit,Channel capacity,Coding theory,Communication theory,Communications channel,Conditional probability,Information theory" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Binary symmetric channel - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Binary symmetric channel</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>A <b>binary symmetric channel</b> (or BSC) is a common <a href="../../../c/o/m/Communications_channel.html" title="Communications channel">communications channel</a> model used in <a href="../../../c/o/d/Coding_theory.html" title="Coding theory">coding theory</a> and <a href="../../../i/n/f/Information_theory.html" title="Information theory">information theory</a>. In this model, a transmitter wishes to send a <a href="../../../b/i/t/Bit.html" title="Bit">bit</a> (a zero or a one), and the receiver receives a bit. It is assumed that the bit is <i>usually</i> transmitted correctly, but that it will be "flipped" with a small probability (the "crossover probablility"). This channel is used frequently in information theory because it is one of the simplest channels to analyze.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Description"><span class="tocnumber">1</span> <span class="toctext">Description</span></a></li>
+<li class="toclevel-1"><a href="#Definition"><span class="tocnumber">2</span> <span class="toctext">Definition</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Capacity_of_the_BSC"><span class="tocnumber">2.1</span> <span class="toctext">Capacity of the BSC</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Description" id="Description"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_symmetric_channel.html" title="Edit section: Description">edit</a>]</span> <span class="mw-headline">Description</span></h2>
+<div class="floatright"><span><a href="../../../b/i/n/Image%7EBinary_symmetric_channel.png_67a2.html" class="image" title=""><img src="../../../upload/thumb/9/91/Binary_symmetric_channel.png/300px-Binary_symmetric_channel.png" alt="" width="300" height="126" longdesc="../../../b/i/n/Image%7EBinary_symmetric_channel.png_67a2.html" /></a></span></div>
+<p>The BSC is a <i>binary channel</i>; that is, it can transmit only one of two symbols (usually called 0 and 1). (A non-binary channel would be capable of transmitting more than 2 symbols, possibly even an infinite number of choices) The transmission is not perfect, and occasionally the receiver gets the wrong bit.</p>
+<p>This channel is often used by theorists because it is one of the simplest <a href="../../../s/i/g/Signal_noise.html" title="Signal noise">noisy</a> channels to analyze. Many problems in <a href="../../../c/o/m/Communication_theory.html" title="Communication theory">communication theory</a> can be <a href="../../../r/e/d/Reduction_%28complexity%29.html" title="Reduction (complexity)">reduced</a> to a BSC. On the other hand, being able to transmit effectively over the BSC can give rise to solutions for more complicated channels.</p>
+<p><a name="Definition" id="Definition"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_symmetric_channel.html" title="Edit section: Definition">edit</a>]</span> <span class="mw-headline">Definition</span></h2>
+<p>A <b>binary symmetric channel with crossover probability <i>p</i></b> is a channel with binary input and binary output and probability of error <i>p</i>; that is, if <i>X</i> is the transmitted <a href="../../../r/a/n/Random_variable.html" title="Random variable">random variable</a> and <i>Y</i> the received variable, then the channel is characterized by the <a href="../../../c/o/n/Conditional_probability.html" title="Conditional probability">conditional probabilities</a></p>
+<dl>
+<dd>Pr( <i>Y</i> = 0 | <i>X</i> = 0) = 1-<i>p</i></dd>
+<dd>Pr( <i>Y</i> = 0 | <i>X</i> = 1) = <i>p</i></dd>
+<dd>Pr( <i>Y</i> = 1 | <i>X</i> = 0 ) = <i>p</i></dd>
+<dd>Pr( <i>Y</i> = 1 | <i>X</i> = 1 ) = 1-<i>p</i></dd>
+</dl>
+<p>It is assumed that 0 ≤ <i>p</i> ≤ 1/2. If <i>p</i>&gt;1/2, then the receiver can swap the output (interpret 1 when it sees 0, and visa versa) and obtain an equivalent channel with crossover probability 1-<i>p</i> ≤ 1/2.</p>
+<p><a name="Capacity_of_the_BSC" id="Capacity_of_the_BSC"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/n/Binary_symmetric_channel.html" title="Edit section: Capacity of the BSC">edit</a>]</span> <span class="mw-headline">Capacity of the BSC</span></h3>
+<p>The <a href="../../../c/h/a/Channel_capacity.html" title="Channel capacity">capacity of the channel</a> is 1 - H(<i>p</i>), where H(<i>p</i>) is the <a href="../../../b/i/n/Binary_entropy_function.html" title="Binary entropy function">binary entropy function</a>.</p>
+<p>The converse can be shown by a <a href="../../../s/p/h/Sphere_packing.html" title="Sphere packing">sphere packing</a> argument. Given a codeword, there are roughly 2 <sup><i>n</i> H(<i>p</i>)</sup> <a href="../../../t/y/p/Typical_set.html" title="Typical set">typical</a> output sequences. There are 2<sup><i>n</i></sup> total possible outputs, and the input chooses from a codebook of size 2<sup><i>nR</i></sup>. Therefore, the receiver would choose to <a href="../../../p/a/r/Partition_of_a_set.html" title="Partition of a set">partition</a> the space into "spheres" with 2<sup><i>n</i></sup> / 2<sup><i>nR</i></sup> = 2<sup><i>n</i>(1-<i>R</i>)</sup> potential outputs each. If <i>R</i>&gt; 1 - H(<i>p</i>), then the spheres will be packed too tightly <a href="../../../a/s/y/Asymptotic_analysis.html" title="Asymptotic analysis">asymptotically</a> and the receiver will not be able to identify the correct codeword with vanishing probability.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_symmetric_channel.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>David J. C. MacKay. <i><a href="http://www.inference.phy.cam.ac.uk/mackay/itila/book.html" class="external text" title="http://www.inference.phy.cam.ac.uk/mackay/itila/book.html" rel="nofollow">Information Theory, Inference, and Learning Algorithms</a></i> Cambridge: Cambridge University Press, 2003. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-521-64298-1</a></li>
+<li>Thomas M. Cover, Joy A. Thomas. <i>Elements of information theory</i>, 1st Edition. New York: Wiley-Interscience, 1991. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-471-06259-6</a>.</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_symmetric_channel.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/i/n/Binary_erasure_channel.html" title="Binary erasure channel">Binary erasure channel</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Binary_symmetric_channel.html">http://en.wikipedia.org../../../b/i/n/Binary_symmetric_channel.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../c/o/d/Category%7ECoding_theory_47e8.html" title="Category:Coding theory">Coding theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/n/Binary_symmetric_channel.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/i/n/Talk%7EBinary_symmetric_channel_3ff7.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Binary_symmetric_channel">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/i/n/Binary_Symmetric_Channel_30d0.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/c/a/n/Canal_binaire_sym%C3%A9trique.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/k/%C3%AA/n/K%C3%AAnh_nh%E1%BB%8B_ph%C3%A2n_%C4%91%E1%BB%91i_x%E1%BB%A9ng.html">Tiếng Việt</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 23:35, 2 March 2007 by Wikipedia user <a href="../../../s/i/g/User%7ESignalhead_f403.html" title="User:Signalhead">Signalhead</a>. Based on work by Wikipedia user(s) <a href="../../../g/r/u/User%7EGrubber_bcf9.html" title="User:Grubber">Grubber</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../k/k/u/User%7EKku_5886.html" title="User:Kku">Kku</a>, <a href="../../../g/e/n/User%7EGene.arboit_5f28.html" title="User:Gene.arboit">Gene.arboit</a>, <a href="../../../m/a/r/User%7EMarSch_3340.html" title="User:MarSch">MarSch</a>, <a href="../../../r/e/e/User%7EReetep_9f11.html" title="User:Reetep">Reetep</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../r/h/o/User%7ERholton_b2db.html" title="User:Rholton">Rholton</a>, <a href="../../../d/e/r/User%7EDerek_Ross_f2d2.html" title="User:Derek Ross">Derek Ross</a>, <a href="../../../e/n/c/User%7EEnchanter_c99f.html" title="User:Enchanter">Enchanter</a> and <a href="../../../r/y/a/User%7ERyangabbard_471d.html" title="User:Ryangabbard">Ryangabbard</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

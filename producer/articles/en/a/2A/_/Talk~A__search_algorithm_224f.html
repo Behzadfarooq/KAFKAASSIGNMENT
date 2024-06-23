@@ -1,0 +1,557 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:A* search algorithm,Artificial Intelligence: A Modern Approach,Bellman-Ford algorithm,Dijkstra's algorithm,Maven (Scrabble),Uniform-cost search,Wikibooks,B-star search algorithm,Abdull,Bart Massey,Falsedef" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:A* search algorithm - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:A* search algorithm</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Article_title"><span class="tocnumber">1</span> <span class="toctext">Article title</span></a></li>
+<li class="toclevel-1"><a href="#Bogus_link"><span class="tocnumber">2</span> <span class="toctext">Bogus link</span></a></li>
+<li class="toclevel-1"><a href="#Admissible_heuristics"><span class="tocnumber">3</span> <span class="toctext">Admissible heuristics</span></a></li>
+<li class="toclevel-1"><a href="#Intuition_on_why_A.2A_is_admissible_and_optimal"><span class="tocnumber">4</span> <span class="toctext">Intuition on why A* is admissible and optimal</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Difficult_to_extend_heuristic"><span class="tocnumber">4.1</span> <span class="toctext">Difficult to extend heuristic</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Missing_details"><span class="tocnumber">5</span> <span class="toctext">Missing details</span></a></li>
+<li class="toclevel-1"><a href="#Monotonicity"><span class="tocnumber">6</span> <span class="toctext">Monotonicity</span></a></li>
+<li class="toclevel-1"><a href="#how_does_it_work"><span class="tocnumber">7</span> <span class="toctext">how does it work</span></a></li>
+<li class="toclevel-1"><a href="#Rewriting_of_article"><span class="tocnumber">8</span> <span class="toctext">Rewriting of article</span></a></li>
+<li class="toclevel-1"><a href="#Relation_to_uniform-cost_search"><span class="tocnumber">9</span> <span class="toctext">Relation to uniform-cost search</span></a></li>
+<li class="toclevel-1"><a href="#Intuition_about_why_A.2A_is_not_computationally_optimal"><span class="tocnumber">10</span> <span class="toctext">Intuition about why A* is not computationally optimal</span></a></li>
+<li class="toclevel-1"><a href="#complexity"><span class="tocnumber">11</span> <span class="toctext">complexity</span></a></li>
+<li class="toclevel-1"><a href="#The_Pseudo-code"><span class="tocnumber">12</span> <span class="toctext">The Pseudo-code</span></a></li>
+<li class="toclevel-1"><a href="#Correctness"><span class="tocnumber">13</span> <span class="toctext">Correctness</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Article_title" id="Article_title"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Article title">edit</a>]</span> <span class="mw-headline">Article title</span></h2>
+<p>Someone moved this from <b>A Star Search algorithm</b>, but it should be located at <b>A Star search algorithm</b> since "Star" is part of the title. It is usually written A*, but pronounced like the title of the article. It is "A Star," not "A star" like "A square" or "A circle." It is a <i>specific</i> algorithm—using lowercase makes it sound like it describes a generic sort of algorithm. Anyone else have any input on this? -<a href="../../../f/r/e/User%7EFrecklefoot_571c.html" title="User:Frecklefoot">Frecklefoot</a></p>
+<dl>
+<dd>I think <b>A-Star search algorithm</b> is about right. Better would be <b>A* search algorithm</b>, but apparently that's not an option?</dd>
+</dl>
+<p><a href="../../../b/a/r/User%7EBart_Massey_07dc.html" title="User:Bart Massey">Bart Massey</a></p>
+<dl>
+<dd>
+<dl>
+<dd><b>A* search algorithm</b> as a topic works fine, as you can see.&#160;:) --<a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a> 21:55, 17 Nov 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<p><a name="Bogus_link" id="Bogus_link"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Bogus link">edit</a>]</span> <span class="mw-headline">Bogus link</span></h2>
+<p>I removed the link to B* search algorithm. I determined it was bogus--it failed the Google test. —<a href="../../../f/r/e/User%7EFrecklefoot_571c.html" title="User:Frecklefoot">Frecklefoot</a> 15:32, 12 Dec 2003 (UTC)</p>
+<dl>
+<dd>Well, it's referenced by the article on <a href="../../../m/a/v/Maven_%28Scrabble%29_0652.html" title="Maven (Scrabble)">Maven (Scrabble)</a>, which supposedly uses that search algorithm. An article on how that algorithm works would be enlightening. <a href="../../../r/s/p/User%7ERspeer_418c.html" title="User:Rspeer">RSpeer</a> 08:06, Dec 25, 2004 (UTC)</dd>
+</dl>
+<dl>
+<dd>B* is mentioned in (the classic) <a href="../../../a/_/m/Artificial_Intelligence%7E_A_Modern_Approach_19ac.html" title="Artificial Intelligence: A Modern Approach">Artificial_Intelligence:_A_Modern_Approach</a>, in the GamePlaying chapter, if I recall as an alternative to MinMax-alpha-beta.</dd>
+</dl>
+<dl>
+<dd>The fact is, you shouldn't use the Google test on AI terms. When you're just doing AI-related stuff, you don't tend to classify exactly what algorithms or ideas you're using using standardized terminology (unless it's a popular buzzword and you want funding); the only place that so much precision is used is in textbooks, which you can't Google. <a href="../../../r/s/p/User%7ERspeer_418c.html" title="User:Rspeer">RSpeer</a> 17:53, Dec 26, 2004 (UTC)</dd>
+</dl>
+<p><a name="Admissible_heuristics" id="Admissible_heuristics"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Admissible heuristics">edit</a>]</span> <span class="mw-headline">Admissible heuristics</span></h2>
+<p>A bit of pervasive misinformation about A* search is that, as long as the heuristic never overestimates the distance <i>to the goal</i>, then the search is admissible. This is wrong.</p>
+<p>As a counterexample: make a graph that you want to search, with a start and goal node, and give it an inadmissible heuristic, one that overestimates the distance somewhere so that A* chooses the wrong path. For the purpose of this counterexample, this heuristic shouldn't have any values over 1000000.</p>
+<p>Now extend this graph by adding a new goal node, connecting it to the old goal node with an edge with a cost of 1000000. Suddenly the heuristic isn't an overestimate anywhere; if you're anywhere but the goal, it will cost at least 1000000 to get to the goal, and the heuristic is lower than that everywhere. So by the commonly-stated requirement for A* search, it should find the right path - but it doesn't. It finds the same path it found before, plus the new edge.</p>
+<p>The requirement is that the heuristic can't overestimate the distance to <i>anywhere</i>; that is, if there's a path from A to B, then h(A) - h(B) is not greater than the shortest-path distance from A to B.</p>
+<p>Course web pages, teaching assistants, and even textbooks leave this part out and make a provably false statement. Should I expand on this more in the article? <a href="../../../r/s/p/User%7ERspeer_418c.html" title="User:Rspeer">RSpeer</a> 08:06, Dec 25, 2004 (UTC)</p>
+<p>Hmm. I've looked up a little more, and found a possible reason why the second condition is often left out; you can use a less efficient version of A* that always finds the correct path without that condition. However, the usually-stated algorithm requires both conditions. <a href="http://www.cs.unm.edu/~terran/classes/cs427-s03/lectures/l05_feb04/notes.pdf" class="external text" title="http://www.cs.unm.edu/~terran/classes/cs427-s03/lectures/l05_feb04/notes.pdf" rel="nofollow">These notes</a> describe both algorithms, and call the second condition "monotonic". <a href="../../../r/s/p/User%7ERspeer_418c.html" title="User:Rspeer">RSpeer</a> 18:04, Dec 26, 2004 (UTC)</p>
+<p>Blah. I screwed up. The page was describing that less-efficient version all along. I moved the thing about monotonic heuristics to its own section. Sorry. <a href="../../../r/s/p/User%7ERspeer_418c.html" title="User:Rspeer">RSpeer</a> 19:23, Dec 27, 2004 (UTC)</p>
+<p><a name="Intuition_on_why_A.2A_is_admissible_and_optimal" id="Intuition_on_why_A.2A_is_admissible_and_optimal"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Intuition on why A* is admissible and optimal">edit</a>]</span> <span class="mw-headline">Intuition on why A* is admissible and optimal</span></h2>
+<p>I added this section because it reflects exactly how I initially recognized that the search algorithm proposed by Nils Nilsson and Bert Raphael was "the best we'll ever find".</p>
+<p>See the original A* paper (which incidentally we had a hard time publishing, leading journals of the day were pleased to reject it as trivial or of no interest):</p>
+<p>Hart, P. E., N. J. Nilsson, and B. Raphael, "A Formal Basis for the Heuristic Determination of Minimum Cost Paths in Graphs," IEEE Trans. on Systems Science and Cybernetics, Vol. SSC-4, No. 2, pp 100-107, (July 1968)</p>
+<p>It seems to me that this intuitive view is still of interest, I hope that it's more than a purely historical curiousity.</p>
+<p><a name="Difficult_to_extend_heuristic" id="Difficult_to_extend_heuristic"></a></p>
+<h3><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Difficult to extend heuristic">edit</a>]</span> <span class="mw-headline">Difficult to extend heuristic</span></h3>
+<p>The intuition section of the article claims that A* does not take into account non-crossing and spatially close nodes, and that such considerations would be difficult or expensive to encode into the heuristic. Why so?! In my latest version distance to the neighbour node is one aspect of the heuristic and spatially close nodes will therefore tend to be prioritised. It was both trivial and cheap to implement. However, the question id if this is <i>preferable</i>, especially in non-symmetric spaces, where one long jump can be cheaper than several short. <a href="../../../m/i/k/User%7EMikademus_7048.html" title="User:Mikademus">Mikademus</a> 07:56, 16 September 2006 (UTC)</p>
+<p><a name="Missing_details" id="Missing_details"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Missing details">edit</a>]</span> <span class="mw-headline">Missing details</span></h2>
+<p>1. Description on path reconstruction from closed priority queue: The article claims that the path can be reconstructed from the closed priority queue, without storing the path so far at each node. The article directs the reader to "see below" for a description of the advertised technique, but that description is nowhere to be found.</p>
+<p>2. Check candidate nodes to see if they're already in Closed AND Open: The article mentions that you must check if a candidate node is already in the closed priority queue. I have read other descriptions such as Amit Patel's which is linked at the bottom of the page which states that you should also check if the candidate node is already in the open priority queue. Experimentally I determined that the algorithm runs at unacceptable speeds unless I perform this additional check.</p>
+<p>Since I am in no position of authority on A* I have not made any edits to the article. Hopefully someone else can address these two issues.</p>
+<p><a name="Monotonicity" id="Monotonicity"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Monotonicity">edit</a>]</span> <span class="mw-headline">Monotonicity</span></h2>
+<dl>
+<dd><i>The "open" and "closed" bookkeeping is not necessary...</i></dd>
+</dl>
+<p>Would someone add an explanation of why this is the case, i.e. how an algorithm might be implemented for a monotonic heuristic? <a href="http://www.cs.unm.edu/~terran/classes/cs427-s03/lectures/l05_feb04/notes.pdf" class="external text" title="http://www.cs.unm.edu/~terran/classes/cs427-s03/lectures/l05_feb04/notes.pdf" rel="nofollow">This document</a> says that there is no need for a closed list, but the article implies that the open list isn't necessary either. It's not obvious how the backtracking would work. Thanks. &#160; — <a href="../../../l/e/e/User%7ELee_J_Haywood_515e.html" title="User:Lee J Haywood">Lee J Haywood</a> 19:13, 28 August 2005 (UTC)</p>
+<p>You don't really backtrack. Every time you reach a node, you have found the shortest path to that node. So, you just want to make sure you don't revisit nodes. I guess it would make sense to consider the mechanism that does that to be an "open list", even though there's no "closed list" to contrast it with. I'll rephrase that. <a href="../../../r/s/p/User%7ERspeer_418c.html" title="User:Rspeer">RSpeer</a> 03:20, August 29, 2005 (UTC)</p>
+<dl>
+<dd><i>Only one list of visited nodes needs to be maintained, so that nodes are not unnecessarily revisited.</i></dd>
+</dl>
+<p>Doesn't this wording seem to imply a closed list rather than an open list? Also, when I said 'backtracking' I was referring to the situation where a search hits a dead-end (where the remaining distance is low but there is no valid path) and the choice has to be made as to which open list entry to expand next... I could really do with an example of a valid, monotonic heuristic in action to understand what's going on. Thanks. &#160; — <a href="../../../l/e/e/User%7ELee_J_Haywood_515e.html" title="User:Lee J Haywood">Lee J Haywood</a> 08:48, 29 August 2005 (UTC)</p>
+<p>Perhaps you are looking for the Djikstra algorighm?</p>
+<p><a name="how_does_it_work" id="how_does_it_work"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: how does it work">edit</a>]</span> <span class="mw-headline">how does it work</span></h2>
+<p>Right now, the article doesn't explain how the algorithm works in detail.</p>
+<p>Also, it'll be great to explain why it's called <b>"A*"</b>. --<a href="../../../a/b/d/User%7EAbdull_b6f2.html" title="User:Abdull">Abdull</a> 15:47, 27 November 2005 (UTC)</p>
+<dl>
+<dd>In response to this question about why it's called A*:</dd>
+</dl>
+<dl>
+<dd>The notation is borrowed from the statistical literature. Statisticians use a hat (also called a circumflex) to indicate an estimate for a quantity, and often use a star to indicate an estimate that's optimal with respect to a stated criterion (like, say, a minimum variance criterion). When I (Peter E. Hart) was developing this algorithm and especially the theory behind it with my colleagues Nils Nilsson and Bertram Raphael, we adopted this traditional notation. We used hats to indicate estimates of heuristic functions, and went on to compare any other algorithm, call it A, with our provably-optimal (by the criterion of number of nodes expanded) A*. Hart 02:16, 7 March 2006 (UTC)</dd>
+</dl>
+<p>I agree. Also it would be nice to know who first developed it. --Kubiak 19:30, 29 November 2005 (UTC)</p>
+<p><br /></p>
+<dl>
+<dd>Hm, I hope the new article is a bit better in this regard&#160;:-) <a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a> 18:59, 15 December 2005 (UTC)</dd>
+</dl>
+<p><a name="Rewriting_of_article" id="Rewriting_of_article"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Rewriting of article">edit</a>]</span> <span class="mw-headline">Rewriting of article</span></h2>
+<p>Hi, I just translated my article for the A* search algorithm I wrote for the german wikipedia (which was once founded on the old version of this article) into english, and uploaded it here. But since my mothertounge is german, I am sure there are not just dozens of typos, but also tons of wordings where native speakers just want to run away screeming&#160;:-) So I would be very pleased if some of you could correct my choice of words&#160;:-) <a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a> 18:58, 15 December 2005 (UTC)</p>
+<dl>
+<dd>I think your translated article is very comprehensive, if a bit overly "textbooky" for Wikipedia. (Have you considered <a href="../../../w/i/k/Wikibooks.html" title="Wikibooks">Wikibooks</a>?) However, it's full of typos, grammatical atrocities, and just generally things that are <i>wrong</i> in English. It's very difficult to get any sense of what A* is or what it does simply by reading the article from start to finish, because nobody who starts reading <i>will</i> finish! So I'm reverting to the old English article — but with an encouraging word for any native English speaker who wants to try to translate <a href="../../../../de/a/2A/-/A_-Algorithmus_a90f.html" class="extiw" title="de:A*-Algorithmus">the German article</a> from scratch. (But please, less wordy!) --<a href="../../../q/u/u/User%7EQuuxplusone_9b50.html" title="User:Quuxplusone">Quuxplusone</a> 02:50, 16 December 2005 (UTC)
+<dl>
+<dd>Hi! Hm, well, in fact I tried to make the article somewhat comprehensive through the big example section and explaining <b>how</b> it works, and I still would say this can help the reader to grasp the idea of "how an A* search works". (Nevertheless, all aspects of the algorithm had been covered in the article) But as I stated in my initial post here: I already assumed that there is (or now was&#160;:-)) a lot of wording that would simply be wrong in english. (I just did not expect it to be that much *g*) Getting to the point: I belive you that your comments and critics are correct, so I will not start yelling and hunting for you for reverting the article. Despite, in case anyone still wants to invest some time "translating" my old article: It will stay being acessible via <a href="../../../r/e/g/User%7ERegnaron_Playground_1785.html" title="User:Regnaron/Playground">my Playground</a> on my userpage <a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a> 08:32, 16 December 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Relation_to_uniform-cost_search" id="Relation_to_uniform-cost_search"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Relation to uniform-cost search">edit</a>]</span> <span class="mw-headline">Relation to uniform-cost search</span></h2>
+<p>"<a href="../../../u/n/i/Uniform-cost_search.html" title="Uniform-cost search">Uniform-cost search</a>, aka <a href="../../../d/i/j/Dijkstra%27s_algorithm.html" title="Dijkstra's algorithm">Dijkstra's algorithm</a>, is a special case of A*..." - even a quick glance at the linked articles shows that "Dijkstra's algorithm" is not the same thing as "uniform-cost search". That said, I'm not knowledgeable enough on this topic to feel comfortable rewriting the sentence. Rizome 20:07, 8 May 2006 (UTC)</p>
+<dl>
+<dd>Hi! Hm, if I have a look at what is written at <a href="../../../u/n/i/Uniform-cost_search.html" title="Uniform-cost search">Uniform-cost search</a> (UCS) it quite fits the description of Dijkstras Algorithm. If you just replace root with source you will get a description of Dijkstras Algorithm. I am not absolutely certain why there are two Pages describing the same algorithm, but at the current state of the UCS article it (in a very simplified way) does describe Dijkstras Algorithm. (Always expand the globally cheapest node) <a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a> 18:48, 22 May 2006 (UTC)</dd>
+</dl>
+<p>Ditto, as far as I can see Dijkstra is the same thing as uniform cost-search. I also have trouble seeing how Dijkstra is a special case of A* considering A* came after Dijkstra published his algorithm, the fact that the earlier can be seen as a derivation of the latter doesn't mean that it is a special case of A*.</p>
+<dl>
+<dd>Dijkstra's is a special case in the mathematical sense, this has nothing to do with historical derivation. <a href="../../../q/w/e/User%7EQwertyus_c4c3.html" title="User:Qwertyus">Qwertyus</a> 14:10, 26 May 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>Well, use A* with the heuristics h(x) = 0 for all x. (meaning using no heuristics at all)</dd>
+<dd>What you will get is just Dijkstras Algorithm. So in this sense Dijkstra is a special case of A* (namely one where the heuristcs is 0 for all nodes) <a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a> 21:14, 26 May 2006 (UTC)</dd>
+</dl>
+<p><a name="Intuition_about_why_A.2A_is_not_computationally_optimal" id="Intuition_about_why_A.2A_is_not_computationally_optimal"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Intuition about why A* is not computationally optimal">edit</a>]</span> <span class="mw-headline">Intuition about why A* is not computationally optimal</span></h2>
+<p>This section points out that A* may not be computationally optimal for non-planar graphs.</p>
+<p>The proof of the optimality of A* relies on the fundamental assumption that the triangle inequality is satisfied for every 3-node subset of the graph being searched. A non-planar graph may violate this assumption.</p>
+<p><br />
+Huw: Actually the way I read this section it states that <span class="texhtml"><i>A</i> *</span> is not computationally optimal for planar graphs because <span class="texhtml"><i>A</i> *</span> does not take advantage of certain features of planar graphs. I claim that this is nonsense. I claim that <span class="texhtml"><i>A</i> *</span> depends for its quality entirely on the heuristic being used. For example, if&#160;:<img class='tex' src="../../../math/e/f/1/ef148334409c4a93e2bd781127c41205.png" alt="h(x) = h*(x)  \forall x" /> then <span class="texhtml"><i>A</i> *</span> will walk straight to the solution regardless of the type of graph being examined. Typically, for planar graphs, <span class="texhtml"><i>h</i>(<i>x</i>)</span> is defined to be the linear planar distance from <span class="texhtml"><i>x</i></span> to the goal. This makes <span class="texhtml"><i>A</i> *</span> take advantage of precisely the planar features that the author claims it does not. This means that <span class="texhtml"><i>A</i> *</span> will be computationally optimal for these graphs.</p>
+<p>Matt: The previous comments are correct. <b>This section needs to be deleted, or at least retitled and heavily edited!</b> The optimality of A* is a fundamental principle of search algorithms. Every A.I. textbook teaches it, and any debate should be left to researchers in the field. Explaining why it doesn't make sense to you should not be posted in the main article, bring it up in discussion and we can clear up any misunderstandings. People get confused because: a) they think 'optimal' means 'fast'. b) they forget that A*'s optimality proof assumes the heuristic is admissable and consistent.</p>
+<dl>
+<dd>I've deleted the section. It should be clear that topology of the graph is something the heuristic should take into consideration, not A*. Here's the <a href="http://portal.acm.org/citation.cfm?id=3830&amp;coll=portal&amp;dl=ACM" class="external text" title="http://portal.acm.org/citation.cfm?id=3830&amp;coll=portal&amp;dl=ACM" rel="nofollow">original proof</a>, which I'm adding as a reference in the article. <a href="../../../f/a/l/User%7EFalsedef_9833.html" title="User:Falsedef">falsedef</a> 07:26, 11 December 2006 (UTC)</dd>
+</dl>
+<p><a name="complexity" id="complexity"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: complexity">edit</a>]</span> <span class="mw-headline">complexity</span></h2>
+<p>polynomial... what polynomial, n^2 is mutch mutch better than n^3</p>
+<dl>
+<dd>I would doubt the correctness of that paragraph as a whole... First of all I do not see any exponential running time of the algorithm. It has to visit each vertex in a graph exactly once, as well as it has to consider every edge once. That is linear in the number of vertices and edges. You get some overhead from maintaining the priority queue, but still nothing exponential. Furthermore: If you have a graph that is a list, you can have the best heuristic, but still will do no better than with no heuristic at all, since you have to go the complete path up to the goal node. E.g. <img class='tex' src="../../../math/4/b/c/4bcedf5c89a53f924101b02b25309d89.png" alt="s \rightarrow a_1 \rightarrow a_2 \rightarrow \dots \rightarrow a_n \rightarrow g" /> where s is the start node and g the goal node. Here you may have a perfect heuristic, but the running time does not change at all since you cannot skip any nodes. <a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a> 17:24, 14 July 2006 (UTC)</dd>
+</dl>
+<p>Huw: I agree. This paragraph is simply not true. I'm not even sure what <span class="texhtml"><i>O</i>(<i>l</i><i>o</i><i>g</i>(<i>h</i> * (<i>x</i>))</span> even means in this context since <span class="texhtml"><i>x</i></span> represents a vertex in a graph and <span class="texhtml"><i>O</i>(<i>f</i>(<i>n</i>))</span> should imply that <span class="texhtml"><i>f</i></span> is the dominant term in the cost of an algorithm when <img class='tex' src="../../../math/e/f/4/ef448529bb0fd823fa4aa6239bbab922.png" alt="n\rightarrow\infty" />.</p>
+<dl>
+<dd><span class="texhtml"><i>O</i>(<i>l</i><i>o</i><i>g</i>(<i>h</i> <sup>*</sup> (<i>x</i>))</span> is the asymptotic growth of the perfect heuristic <span class="texhtml"><i>h</i> <sup>*</sup></span> . I explained this and inserted a reference. Btw., visiting each edge and each node once is only possible for finite graphs. A* can be used for infinite graphs, or at least graphs that do not fit in any computer memory using an "explicit" representation. <a href="../../../q/w/e/User%7EQwertyus_c4c3.html" title="User:Qwertyus">Qwertyus</a> 00:44, 21 July 2006 (UTC)</dd>
+</dl>
+<p><a name="The_Pseudo-code" id="The_Pseudo-code"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: The Pseudo-code">edit</a>]</span> <span class="mw-headline">The Pseudo-code</span></h2>
+<p>I'm not satisfied with the pseduo-code [<a href="http://en.wikipedia.org/w/index.php?title=A%2A_search_algorithm&amp;oldid=66604401as" class="external text" title="http://en.wikipedia.org/w/index.php?title=A%2A_search_algorithm&amp;oldid=66604401as" rel="nofollow">it is atm</a>]; in attempting to stay close to actual programming it is in fact more confusing than helpful. I'd suggest something more talkative and close to natural-language, like my take below. I'd appreciate any opinions or alternative takes, because I think we do need another pseudo-code.</p>
+<pre>
+<code>AStarSearch( <i>start_node</i>, <i>goal_node</i> ) 
+
+  queue <i>open_list</i>
+  queue <i>closed_list</i>
+
+  <b>push</b> <i>start_node</i> on <i>open_list</i>
+
+  <b>while</b> <i>open_list</i> not empty
+
+    <b>let</b> <i>node</i> be RemoveLowestCostFrom( <i>open_list</i> )
+
+    <b>if</b> <i>node</i> is <i>goal_node</i> 
+      <b>then return</b> SUCCESS
+
+    <b>else</b>
+
+      <b>push</b> <i>node</i> on <i>closed_list</i>
+
+      <b>foreach</b> <i>neighbor</i> that is adjancent_to( <i>node</i> )
+        <b>if</b> <i>neighbor</i> is not in <i>open_list</i>
+          <b>then if</b> <i>neighbor</i> is not in <i>closed_list</i>
+            <b>then</b>
+              EstimateCostFor( <i>neighbor</i> )
+              <b>push</b> <i>neighbor</i> on <i>open_list</i>
+
+<b>return</b> FAILURE
+</code>
+</pre>
+<p><a href="../../../m/i/k/User%7EMikademus_7048.html" title="User:Mikademus">Mikademus</a> 08:07, 11 August 2006 (UTC)</p>
+<dl>
+<dd>This version is clearer, but:
+<ul>
+<li>It returns success or failure, rather than a path. In fact, it doesn't remember paths, unless they're stored in nodes, but then the <code><b>if</b> <i>neighbor</i> is not in <i>open_list</i></code> is redundant.</li>
+<li>The function EstimateCostFor should be called implicitly by the push function.</li>
+<li><i>closed_list</i> is not a queue, but a set.</li>
+<li>The goal node need not be explicitly given. A* is used for other things than simple pathfinding (such as natural language parsing), where the goal is not even known beforehand.</li>
+</ul>
+</dd>
+<dd>My suggestion:</dd>
+</dl>
+<pre>
+<b>procedure</b> AStar(<i>start_node</i>)
+
+  <b>var</b> <i>open_list</i>   := empty queue
+  <b>var</b> <i>closed_list</i> := empty set
+
+  <b>var</b> <i>initial_path</i> := a partial path containing only <i>start_node</i>
+
+  push <i>initial_path</i> on <i>open_list</i>
+
+  <b>while</b> <i>open_list</i> is not empty
+
+    <b>let</b> <i>partial_path</i> be RemoveItemWithLowestCost(<i>open_list</i>)
+
+    <b>if</b> <i>partial_path</i> reaches a goal node
+      <b>return</b> <i>partial_path</i>
+
+    <b>else if</b> the last node of <i>partial_node</i> is not in <i>closed_list</i>
+      add this node to <i>closed_list</i>
+
+      <b>foreach</b> <i>neighbor</i> of the last node in <i>partial_path</i>
+        <b>var</b> <i>new_path</i> := <i>partial_path</i> extended with <i>neighbor</i>
+        push <i>new_path</i> on <i>open_list</i>
+
+<b>return</b> FAILURE
+</pre>
+<dl>
+<dd><a href="../../../q/w/e/User%7EQwertyus_c4c3.html" title="User:Qwertyus">Qwertyus</a> 13:00, 11 August 2006 (UTC)</dd>
+</dl>
+<p>I agree with the points you provided above. I based the style of the pseudocode on that in the "AI for Game Developers" book by Bourgh &amp; Seamann, in which their conceptual outline does not complicate the code with creating a path, only showing how to find the goal node. However, it may be even more confusing to omit the creation of the path itself, so my follow-up suggestion, with some improvements(?)</p>
+<ul>
+<li>Conceptually easier to follow path generation</li>
+<li>Providing a goal node for pedagogical reasons</li>
+<li>The bizarre pleasure of beholding an unholy pseudo-language which is consistent and looks like a mixture of Pascal, Python and Visual Basic</li>
+</ul>
+<pre>
+<b>function</b> AStar( Node <i>start_node</i>, Node <i>end_node</i>) <b>returns</b> List <b>of</b> Node
+
+  <b>type</b> Visited_Node := <b>record of</b> 
+    <i>node</i> := Node
+    <i>parent</i> := Node
+  <b>end record</b>
+
+  <b>var</b> <i>open_list</i> := <b>empty</b> Queue <b>of</b> Visited_Node
+  <b>var</b> <i>closed_list</i> := <b>empty</b> Set <b>of</b> Visited_Node
+
+  <b>var</b> node_info := Visited_Node( start_node, <b>empty</b> );
+
+  push( what:<i>node_info</i>, on:<i>open_list</i> )
+
+  <b>while</b> <i>open_list</i> <b>is not empty</b>
+
+    <b>var</b> node_info := remove_first( from:<i>open_list</i> )
+    push( what:<i>node_info</i>. on:<i>closed_list</i> )
+
+    // The goal node was reached. Trace the path using
+    // the saved parent information and return path
+    <b>if</b> <i>node_info</i>.<i>node</i> <b>equals</b> <i>end_node</i>
+      <b>then return</b> trace_path( from:<i>node_info</i>, in:<i>closed_list</i> )
+
+    <b>else</b>
+      <b>foreach</b> <i>neighbor</i> <b>of</b> <i>node_info</i>.<i>node</i>
+
+        <b>if</b> <i>neighbor</i> is not in <i>open_list</i>
+          <b>and if</b> <i>neighbor</i> is not in <i>closed_list</i>
+            <b>then</b>
+              <b>let</b> <i>node_cost</i> := EstimateCostFor( <i>neighbor</i> )
+              <b>var</b> <i>new_node</i> := Visited_Node( <i>neighbor</i>, <i>node_info</i>.<i>node</i> )
+              <b>push</b>( what:<i>new_node</i>, cost:<i>node_cost</i>, on:<i>open_list</i> )
+
+// Pathfinding failed. Return an empty
+// list to indicate this. 
+<b>return empty</b>
+</pre>
+<p><a href="../../../m/i/k/User%7EMikademus_7048.html" title="User:Mikademus">Mikademus</a> 15:41, 11 August 2006 (UTC)</p>
+<dl>
+<dd>I don't like the pseudocode on the main page, because it's too short and too unclear. Of all the suggenstions here I like the above code the most. However, a few points in it could need some more clarity: what does the "remove_first" mean? Is it the front or the back element, or the one with lowest cost? And shouldn't the cost be in the node type? --213.118.83.195 14:32, 1 April 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>I think this is a bit long and specific, especially with regard to the Visited_Node record type. IMHO, the pseudocode is only there for illustration and reference, and the algorithm should be explained in the text.</dd>
+<dd>Your pseudolanguage is very, ehm, interesting, indeed. It's quite consistent, but I don't regard that a major quality in pseudocode: the whole point of it is being able to mix programming and natural languages.</dd>
+<dd>Also, I don't understand why you'd want to check whether neighbors are in <i>open_list</i>. <a href="../../../q/w/e/User%7EQwertyus_c4c3.html" title="User:Qwertyus">Qwertyus</a> 17:44, 11 August 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>Hi! Well, here a third suggestion&#160;:-) (copied over from german wikipedia with quick and dirty translation of the comments)</dd>
+</dl>
+<pre>
+/*
+ * algorithm reconstructing a shortest path
+ * ----------------------------------------
+ * P: computed shortest path
+ * start: starting node
+ * node: goal node
+ */
+<b>reconstruct_shortest_path (n, p)</b>
+{
+   // <i>Check if start node reached</i>
+   <b>while</b> (π(n) != NIL))
+   {
+      // <i>add node to path</i>
+      push(n, p);
+      // <i>do the same for the predecessor</i>
+      n := π(n); 
+   }
+   // <i>return path found</i>
+   <b>return</b> p; 
+}
+</pre>
+<pre>
+/*
+ * Initializing graph
+ * ------------------
+ * G: graph to be initialized
+ * s: start node
+ */
+<b>initialize(G, s)</b>
+{
+   // <i>set distance to all nodes to infinity</i>
+   forall v do
+      d[v] := ∞
+   // <i>set distance to start node to zero</i>
+   d[s] := 0;
+}
+</pre>
+<pre>
+/*
+ * relaxin an edge
+ * ---------------
+ * u: current node being explored
+ * v: currently considered sucessor of u
+ * w: weight function for computing weight of edge
+ * f: combination of distance and heuristic (f[v] = d[v] + h[v])
+ */
+<b>relax(u,v,w,h)</b>
+{
+   // <i>check if going through  u results in shorter path</i>
+   <b>if</b> f[v] &gt; d[u] + w(u,v) + h[v] {
+      // <i>new path is shorter</i>
+      // <i>update estimated path lenght to goal</i>
+      f[v] := d[u] + w(u,v) + h[v];
+      // <i>update predecessor pointer for shortest path</i>
+      π[v] := u;
+   }
+   <b>else</b>
+      ; // <i>no change since already shorter path known</i>
+}
+</pre>
+<pre>
+/*
+ * A*-algorithm
+ * ------------------------------
+ * G: graph to run algorithm on
+ * s: start node
+ * g: goal node
+ * w: weight function for computing weight of edge
+ * f: combination of distance and heuristic (f[v] = d[v] + h[v])
+ * Q: priority Queue for nodes of graph
+ */
+<b>A-Star</b> (s, g, w, h, G) {
+01      initialize(G, s);
+02      Q := V[G]; // <i>add all nodes to priority queue</i>
+03      <b>while</b> <b>not</b> isEmpty(Q) {
+04         // <i>examine node with least distance to start node</i>
+05         u := pop(Q);
+06        <b>if</b> (u == g) <b>then</b>
+07           <b>return</b> reconstructShortestPath(g);
+08        <b>else</b> {
+09            // <i>examine all neighbours of current node u</i>
+10            <b>forall</b> v := sucessors(u) do {
+11               // <i>relax edge between u and its sucessor v</i>
+12               relax(u, v, w);
+13            }
+14         }
+15      }
+15      // <i>no path found</i>
+16      <b>return</b> fail;
+17 }
+</pre>
+<p>So, why this algorithm? Well, first of all I like building extra functions for relax and initialize because it make the algorithm itself cleaner. How the graph is initialized does not have anything to do with how A* works. Furthermore, this makes it *very* similar to Dijkstra, in the way that you just have to adjust the relax function to cope with the heuristic. Furthermore it spares you the question of "should the path generation be in the algorithm or not". It is not directely in the algorithm, but one can find it hidden in the extra relax functionality. The last thing is the part of open/closed lists. If you have a monotone heuristic (which should not be too hard to find in many domains) you do not need to do that extra bit of bookkeeping. So leaving out this part and just assuming a monotone heuristic makes the algorithm smaller. Furthermore I do not know if the algorithm should be too informal, since the code still is code, and maybe should be explained in natural language that accompanies the code. I mean: Regardless how informal you write the code, you still have to expain it. So why not one brief (quite formal) overview and an explanation in natural language english? <a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a> 19:41, 12 August 2006 (UTC)</p>
+<dl>
+<dd>IMHO, this version:
+<ul>
+<li>describes everything it does twice, once in code, once in comments, entirely defeating the purpose of pseudocode;</li>
+<li>doesn't translate easily to applicative programming languages, due to the use of destructive assignment;</li>
+<li>can only be understood properly if one knows Dijkstra, which is unnecessary for explaining A*.</li>
+</ul>
+</dd>
+<dd><a href="../../../q/w/e/User%7EQwertyus_c4c3.html" title="User:Qwertyus">Qwertyus</a> 20:29, 12 August 2006 (UTC)</dd>
+</dl>
+<p><br /></p>
+<dl>
+<dd>
+<dl>
+<dd>Hi!</dd>
+<dd>Hm, ok, if you understand the code, it does describe things twice, right. But unless there is some explanation in the text I think I would not know instantly what for example the line <b>if</b> f[v] &gt; d[u] + w(u,v) + h[v] does. But if there is some prose explaining the code, you are right that one can just get rid of the comments.&#160;:-) The second point is translating into applicative programming languages. Here I do not really understand what you mean by this? For example: Q is a priority queue, and those might have a pop functionality which returns the element on top and removes it from the queue. And this element then is assigned to the variable u. So I think you can quite easily modify this code into java or whatever since it already is more formal. Or did I get you wrong? Third point: I rather think it's the other way round: Dijkstra and A* are (if you let dijkstra stop as soon as it finds a goal) equal. If you expain one of them, you also explained the other one. So if you start from scratch (which an article about an algorithm should IMHO do), explaining dijkstra or explaining A* yields in more or less the same article, simply because (that above mentioned version that just searches for one goal) of dijkstra is nothing more than A* with the heuristic h[n] = 0 for all nodes. <a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a> 08:32, 13 August 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><br />
+Hmm, I'm actually with both you here since there are different purposes of pseudo-code and implementation code: the pseudo-code should provide a bare-bones conceptual overview of the algorithm with all complications peeled away. THe "real" code of course hands out a working implementation. Therefore, I'd suggest that we, similar to the <a href="../../../b/e/l/Bellman-Ford_algorithm_224c.html" title="Bellman-Ford algorithm">Bellman-Ford pathfinding article</a>, show pseudo-code early in the article and insert an "implementation" section with real code, f.i. Reganon's version above, last in the article. <a href="../../../m/i/k/User%7EMikademus_7048.html" title="User:Mikademus">Mikademus</a> 07:41, 13 August 2006 (UTC)</p>
+<dl>
+<dd>But is this Idea of peeling away the complications not already done in that code? To me it reads as follows:</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>Initialize graph. How? -&gt; There is a magic function that does that. What is "initializing a graph"? -&gt; See prose</li>
+<li>Add all nodes to priority Queue (ok, here the notation indeed might be a bit akwards) Once more: How? -&gt; Just do it.</li>
+<li>Take first node of queue</li>
+<li>check if goal found. If yes, return path (again: How? There is a function that does that.)</li>
+<li>Look at all neighbours of current node and relax them. What is relax? -&gt; Has been explained in text</li>
+<li>If no nodes to expand and goal not found =&gt; no path to goal</li>
+</ul>
+</dd>
+</dl>
+<dl>
+<dd>So here the "hard" parts are in extra functions that in principle do not need to be understand or can be explained in a "high level" in prose.</dd>
+<dd>Or do you more aim for something really close to natural language as the above with as few code as possible. Why then not really a list of natural language items that describe the algorithm in english? Like:</dd>
+</dl>
+<dl>
+<dd>
+<ul>
+<li>Initialize graph
+<ul>
+<li>Set distances for all nodes to infinity</li>
+<li>Set all predecessor pointers to NIL</li>
+<li>Set distance of start node to zero</li>
+</ul>
+</li>
+<li>Insert all Vertices of graph into priority queue and queue them by their distances.</li>
+</ul>
+</dd>
+<dd>...</dd>
+</dl>
+<p><a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a> 08:30, 13 August 2006 (UTC)</p>
+<p>The code is somewhat simplified, but as an example, take the pseudocode from the "AI for Game Developers" (Bourg, David &amp; Seemann, Glenn; 2004; O'Reilly Media Inc., Sebastopol) book:</p>
+<pre>
+add the starting node to the open list
+while the open list is not empty
+{
+  current node = node from the open list with the lowest cost
+  if current node = goal node then
+    path complete
+  else
+    move current node to the closed list
+    examine each node adjacent to the current node
+    for each adjacent node
+      if it isn't on the open list
+        and isn't on the closed list
+          and it isn't an obstacle
+            move it to the open list and calculate cost
+}
+</pre>
+<p>(p. 129) It traces out the path<i>finding</i> algorithm only, avoiding any "superfluous" details (like storing the cost or constructing the return path). The bad thing is of course that it isn't directly usable, but the advantage of not immediatly jumping into the gritty implementation details is that it gives the reader the conceptual overview necessary to not be overwhelmed and to gain a structural understanding in which to fit in the discussion and details. Admittably, my two sugestions above fail in this since they lean to much to "functional" implementations. <a href="../../../m/i/k/User%7EMikademus_7048.html" title="User:Mikademus">Mikademus</a> 09:20, 13 August 2006 (UTC)</p>
+<p><a name="Correctness" id="Correctness"></a></p>
+<h2><span class="editsection">[<a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html" title="Edit section: Correctness">edit</a>]</span> <span class="mw-headline">Correctness</span></h2>
+<p>The algorithm psuedo-code proposed in the article (as of now) is incorrect for non-monotonous h(x). A counter-example is available on page 4 of this article: <a href="http://www.autonlab.org/tutorials/astar08.pdf" class="external free" title="http://www.autonlab.org/tutorials/astar08.pdf" rel="nofollow">http://www.autonlab.org/tutorials/astar08.pdf</a>. If x is in closed (line 7), a correct algorithm should check whether the g(x) value entered when x was inserted is larger than the g() for the current path and if so - update it's value. Similarly, it is possible that x is in the priority queue already waiting to be popped; this case should be considered by the algorithm as well. An example demonstrating why this is important is on page 5 of the same article. In addition I think the article should include a proof that A* finds an optimal solution assuming an admissable heuristic. I can write one up if no one else volunteers (I'm a 4th year CS student). <small>—The preceding <a href="../../../s/i/g/Wikipedia%7ESign_your_posts_on_talk_pages_ee53.html" title="Wikipedia:Sign your posts on talk pages">unsigned</a> comment was added by Morph555 (talk • <a href="../../../c/o/n/Special%7EContributions_Morph555_92fe.html" title="Special:Contributions/Morph555">contribs</a>) 16:22, 17 December 2006 (UTC).</small></p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/2A/_/Talk%7EA__search_algorithm_224f.html">http://en.wikipedia.org../../../a/2A/_/Talk%7EA__search_algorithm_224f.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/2A/_/A__search_algorithm_6db8.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/2A/_/Talk%7EA__search_algorithm_224f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:A%2A_search_algorithm">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 14:32, 1 April 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) Morph555, <a href="../../../h/a/g/User%7EHagermanBot_d869.html" title="User:HagermanBot">HagermanBot</a>, <a href="../../../f/a/l/User%7EFalsedef_9833.html" title="User:Falsedef">Falsedef</a>, <a href="../../../m/i/k/User%7EMikademus_7048.html" title="User:Mikademus">Mikademus</a>, <a href="../../../r/e/g/User%7ERegnaron_f5a9.html" title="User:Regnaron">Regnaron</a>, <a href="../../../q/w/e/User%7EQwertyus_c4c3.html" title="User:Qwertyus">Qwertyus</a>, Hart, Rizome, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../q/u/u/User%7EQuuxplusone_9b50.html" title="User:Quuxplusone">Quuxplusone</a>, <a href="../../../a/b/d/User%7EAbdull_b6f2.html" title="User:Abdull">Abdull</a>, <a href="../../../l/e/e/User%7ELee_J_Haywood_515e.html" title="User:Lee J Haywood">Lee J Haywood</a>, <a href="../../../r/s/p/User%7ERspeer_418c.html" title="User:Rspeer">Rspeer</a>, <a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a>, <a href="../../../f/r/e/User%7EFrecklefoot_571c.html" title="User:Frecklefoot">Frecklefoot</a> and <a href="../../../b/a/r/User%7EBart_Massey_07dc.html" title="User:Bart Massey">Bart Massey</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

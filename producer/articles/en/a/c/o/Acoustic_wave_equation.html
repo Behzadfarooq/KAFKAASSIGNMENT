@@ -1,0 +1,253 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Acoustic wave equation,Acoustics,Differential Equations,Fluid Dynamics,Ideal Gas Law,Meter per second,Partial differential equation,Pascal (unit),Physics,Pressure,SI" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Acoustic wave equation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Acoustic wave equation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../p/h/y/Physics.html" title="Physics">physics</a>, the <b>acoustic wave equation</b> governs the propagation of acoustic waves through a material medium. The form of the equation is a second order <a href="../../../p/a/r/Partial_differential_equation.html" title="Partial differential equation">partial differential equation</a>. The equation describes the evolution of pressure <i>p</i> or velocity <b>u</b> as a function of space <b>r</b> and time <i>t</i>. The <a href="../../../s/i/_/SI_ce77.html" title="SI">SI</a> unit of measure for pressure is the <a href="../../../p/a/s/Pascal_%28unit%29.html" title="Pascal (unit)">pascal</a>, and for velocity is the <a href="../../../m/e/t/Meter_per_second.html" title="Meter per second">meter per second</a>.</p>
+<p>A simplified form of the equation describes acoustic waves in only one spatial dimension (position <i>x</i>), while a more sophisticated form describes waves in three dimensions (displacement vector <b>r</b> = (<i>x</i>,<i>y</i>,<i>z</i>)).</p>
+<dl>
+<dd>
+<dl>
+<dd><i>p</i> = <i>p</i>(<b>r</b>,<i>t</i>) = <i>p</i>(<i>x</i>,<i>y</i>,<i>z</i>,<i>t</i>)</dd>
+</dl>
+</dd>
+</dl>
+<p>AND</p>
+<dl>
+<dd>
+<dl>
+<dd><b>u</b> = <b>u</b>(<b>r</b>,<i>t</i>) = <b>u</b>(<i>x</i>,<i>y</i>,<i>z</i>,<i>t</i>)</dd>
+</dl>
+</dd>
+</dl>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Wave_equation"><span class="tocnumber">1</span> <span class="toctext">Wave equation</span></a></li>
+<li class="toclevel-1"><a href="#Acoustic_wave_equation_in_one_dimension"><span class="tocnumber">2</span> <span class="toctext">Acoustic wave equation in one dimension</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Equation"><span class="tocnumber">2.1</span> <span class="toctext">Equation</span></a></li>
+<li class="toclevel-2"><a href="#Solution"><span class="tocnumber">2.2</span> <span class="toctext">Solution</span></a></li>
+<li class="toclevel-2"><a href="#Derivation"><span class="tocnumber">2.3</span> <span class="toctext">Derivation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Acoustic_wave_equation_in_N_dimensions"><span class="tocnumber">3</span> <span class="toctext">Acoustic wave equation in N dimensions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Equation_2"><span class="tocnumber">3.1</span> <span class="toctext">Equation</span></a></li>
+<li class="toclevel-2"><a href="#Solution_2"><span class="tocnumber">3.2</span> <span class="toctext">Solution</span></a></li>
+<li class="toclevel-2"><a href="#Derivation_2"><span class="tocnumber">3.3</span> <span class="toctext">Derivation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Acoustic_wave_equation_in_non-ideal_gas_flow"><span class="tocnumber">4</span> <span class="toctext">Acoustic wave equation in non-ideal gas flow</span></a></li>
+<li class="toclevel-1"><a href="#Acoustic_wave_equation_in_solids"><span class="tocnumber">5</span> <span class="toctext">Acoustic wave equation in solids</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Wave_equation" id="Wave_equation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Wave equation">edit</a>]</span> <span class="mw-headline">Wave equation</span></h2>
+<p><a name="Acoustic_wave_equation_in_one_dimension" id="Acoustic_wave_equation_in_one_dimension"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Acoustic wave equation in one dimension">edit</a>]</span> <span class="mw-headline">Acoustic wave equation in one dimension</span></h2>
+<p><a name="Equation" id="Equation"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Equation">edit</a>]</span> <span class="mw-headline">Equation</span></h3>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/9/5/a/95a947f6714cfb755662b91ac2db18cf.png" alt="{ \partial^2 p  \over  \partial x ^2 }   -  {1 \over c^2} { \partial^2 p  \over  \partial t ^2 }   = 0" /></dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Solution" id="Solution"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Solution">edit</a>]</span> <span class="mw-headline">Solution</span></h3>
+<p><img class='tex' src="../../../math/7/f/b/7fbb6ea86590d829ecdf69c2eedf3c98.png" alt="p=p_0 \sin(\omega t \mp kx)" /></p>
+<p><a name="Derivation" id="Derivation"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Derivation">edit</a>]</span> <span class="mw-headline">Derivation</span></h3>
+<p><br />
+The wave equation can be developed from the linearized one-dimensional continuity equation, the linearized one-dimensional force equation and the equation of state.<br />
+<br />
+The equation of state (ideal gas law)</p>
+<p><span class="texhtml"><i>P</i><i>V</i> = <i>n</i><i>R</i><i>T</i></span></p>
+<p>In an adiabatic process pressure <i>P</i> as a function of density <span class="texhtml">ρ</span> can be linearized to</p>
+<p><img class='tex' src="../../../math/5/c/1/5c1f0037bcd1799c5eb751a8697939f2.png" alt="P = C \rho \," /></p>
+<p>where <i>C</i> is some constant. Breaking the pressure and density into their mean and total components and noting that <img class='tex' src="../../../math/1/a/4/1a4cb46bcd92c1eecbb018d3b6d974d9.png" alt="C=\frac{\partial P}{\partial \rho}" />:</p>
+<p><img class='tex' src="../../../math/e/5/3/e539c5ecaac7a90d297e932cae85aefd.png" alt="P - P_0 = \left(\frac{\partial P}{\partial \rho}\right) (\rho - \rho_0)" />.</p>
+<p>The adiabatic bulk modulus for a fluid is defined as</p>
+<p><img class='tex' src="../../../math/9/6/7/967f1d191ea5bb3f9b81587ef682ebe6.png" alt="B= \rho_0 \left(\frac{\partial P}{\partial \rho}\right)_{adiabatic}" /></p>
+<p>which gives the result</p>
+<p><img class='tex' src="../../../math/2/e/3/2e30989d10cfd65f9eeed2a0f8c1729a.png" alt="P-P_0=B \frac{\rho - \rho_0}{\rho_0}" />.</p>
+<p>Condensation, <i>s</i>, is defined as the change in density for a given ambient fluid density.</p>
+<p><img class='tex' src="../../../math/7/4/2/742d539cc09c9f797d0ff41f4612469d.png" alt="s = \frac{\rho - \rho_0}{\rho_0}" /></p>
+<p>The linearized equation of state becomes</p>
+<p><img class='tex' src="../../../math/e/2/a/e2aa94c47a759680e6f55e5da4c5e07a.png" alt="p = B s\," /> where <i>p</i> is the acoustic pressure.</p>
+<p><br />
+<br />
+The continuity equation (conservation of mass) in one dimension is</p>
+<p><img class='tex' src="../../../math/8/1/8/81840e2ac4cacad13334af8c1a09686e.png" alt="\frac{\partial \rho}{\partial t} +  \frac{\partial }{\partial x} (\rho u) = 0" />.</p>
+<p>Again the equation must be linearized and the variables split into mean and variable components.</p>
+<p><img class='tex' src="../../../math/f/a/0/fa02a3e2686063af7fb036491bfc27e2.png" alt="\frac{\partial}{\partial t} ( \rho_0 + \rho_0 s) +  \frac{\partial }{\partial x}  ((\rho_0 u + \rho_0 s u) = 0" /></p>
+<p>Rearranging and noting that ambient density does not change with time or position and that the condensation multiplied by the velocity is a very small number:</p>
+<p><img class='tex' src="../../../math/3/a/3/3a3311785f44fbf90ad01f2de094e8ca.png" alt="\frac{\partial s}{\partial t}  +  \frac{\partial }{\partial x}  u  = 0" /></p>
+<p><br />
+<br /></p>
+<p>Euler's Force equation (conservation of momentum) is the last needed component. In one dimension the equation is:</p>
+<p><img class='tex' src="../../../math/b/8/7/b879005bba101d5e369921832c3e6062.png" alt="\rho \frac{D u}{D t} + \frac{\partial P}{\partial x} = 0" />.</p>
+<p>Linearizing the variables:</p>
+<p><img class='tex' src="../../../math/f/8/2/f82b92e42a268863cdb697cef0e8feee.png" alt="(\rho_0 +\rho_0 s)\left( \frac{\partial }{\partial t} + u \frac{\partial }{\partial x} \right) u + \frac{\partial }{\partial x} (P_0 + p) = 0" />.</p>
+<p>Rearranging and neglecting small terms, the resultant equation is:</p>
+<p><img class='tex' src="../../../math/a/d/6/ad6b72bcc41198fa5cc18c07846fecd3.png" alt="\rho_0\frac{\partial u}{\partial t} + \frac{\partial p}{\partial x} = 0" />.</p>
+<p><br />
+<br /></p>
+<p>Taking the time derivative of the continuity equation and the spacial derivative of the force equation results in:</p>
+<p><img class='tex' src="../../../math/a/6/3/a6389344ccb255b45862338179cef33b.png" alt="\frac{\partial^2 s}{\partial t^2}  +  \frac{\partial^2 u}{\partial x \partial t} = 0" /></p>
+<p><img class='tex' src="../../../math/a/3/c/a3c0a248858648b09198c14dd344d206.png" alt="\rho_0 \frac{\partial^2 u}{\partial x \partial t} + \frac{\partial^2 p}{\partial x^2} = 0" />.</p>
+<p>Combining and substituting the linearized equation of state,</p>
+<p><img class='tex' src="../../../math/3/d/a/3da2cea82e5c58d2f94d2a640e0a3efe.png" alt="- \frac{\rho_0 }{B} \frac{\partial^2 p}{\partial t^2} + \frac{\partial^2 p}{\partial x^2} = 0" />.</p>
+<p>The final result is</p>
+<p><img class='tex' src="../../../math/9/5/a/95a947f6714cfb755662b91ac2db18cf.png" alt="{ \partial^2 p  \over  \partial x ^2 }   -  {1 \over c^2} { \partial^2 p  \over  \partial t ^2 }   = 0" /></p>
+<p>where <img class='tex' src="../../../math/6/d/f/6df07da607b6a771c0eea6bf1279c254.png" alt="c = \sqrt{ \frac{B}{\rho_0 }}" />.</p>
+<p><a name="Acoustic_wave_equation_in_N_dimensions" id="Acoustic_wave_equation_in_N_dimensions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Acoustic wave equation in N dimensions">edit</a>]</span> <span class="mw-headline">Acoustic wave equation in <i>N</i> dimensions</span></h2>
+<p><a name="Equation_2" id="Equation_2"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Equation">edit</a>]</span> <span class="mw-headline">Equation</span></h3>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/d/4/a/d4a30e93719a93ad3928b3e34b7b74cb.png" alt="\nabla ^2 p - {1 \over c^2} { \partial^2 p  \over  \partial t ^2 } = 0" /></dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Solution_2" id="Solution_2"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Solution">edit</a>]</span> <span class="mw-headline">Solution</span></h3>
+<p><a name="Derivation_2" id="Derivation_2"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Derivation">edit</a>]</span> <span class="mw-headline">Derivation</span></h3>
+<p><a name="Acoustic_wave_equation_in_non-ideal_gas_flow" id="Acoustic_wave_equation_in_non-ideal_gas_flow"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Acoustic wave equation in non-ideal gas flow">edit</a>]</span> <span class="mw-headline">Acoustic wave equation in non-ideal gas flow</span></h2>
+<p><b>heterogeneity, energy loss and flow speed</b></p>
+<ul>
+<li><b>Equation</b></li>
+</ul>
+<ul>
+<li><b>Solution</b></li>
+</ul>
+<ul>
+<li><b>Derivation</b></li>
+</ul>
+<p><a name="Acoustic_wave_equation_in_solids" id="Acoustic_wave_equation_in_solids"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: Acoustic wave equation in solids">edit</a>]</span> <span class="mw-headline">Acoustic wave equation in solids</span></h2>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/o/Acoustic_wave_equation.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/c/o/Acoustics.html" title="Acoustics">Acoustics</a></li>
+<li><a href="../../../w/a/v/Wave_Equation_3fbb.html" title="Wave Equation">Wave Equation</a></li>
+<li><a href="../../../d/i/f/Differential_Equations_7596.html" title="Differential Equations">Differential Equations</a></li>
+<li><a href="../../../t/h/e/Thermodynamics.html" title="Thermodynamics">Thermodynamics</a></li>
+<li><a href="../../../f/l/u/Fluid_Dynamics_2de6.html" title="Fluid Dynamics">Fluid Dynamics</a></li>
+<li><a href="../../../p/r/e/Pressure.html" title="Pressure">Pressure</a></li>
+<li><a href="../../../i/d/e/Ideal_Gas_Law_ff67.html" title="Ideal Gas Law">Ideal Gas Law</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/c/o/Acoustic_wave_equation.html">http://en.wikipedia.org../../../a/c/o/Acoustic_wave_equation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/c/o/Category%7EAcoustics_099c.html" title="Category:Acoustics">Acoustics</a></span> | <span dir='ltr'><a href="../../../p/h/y/Category%7EPhysics_45cd.html" title="Category:Physics">Physics</a></span> | <span dir='ltr'><a href="../../../s/o/u/Category%7ESound_0021.html" title="Category:Sound">Sound</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/c/o/Acoustic_wave_equation.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/c/o/Talk%7EAcoustic_wave_equation_780f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Acoustic_wave_equation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:12, 24 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../n/o/t/User%7ENotJackhorkheimer_b41b.html" title="User:NotJackhorkheimer">NotJackhorkheimer</a>, <a href="../../../s/t/i/User%7EStikonas_53fa.html" title="User:Stikonas">Stikonas</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../e/p/o/User%7EEpolk_d8a6.html" title="User:Epolk">Epolk</a>, NSiDms, <a href="../../../g/t/b/User%7EGTBacchus_0191.html" title="User:GTBacchus">GTBacchus</a>, <a href="../../../g/e/n/User%7EGene_Nygaard_634f.html" title="User:Gene Nygaard">Gene Nygaard</a>, <a href="../../../c/o/n/User%7EConscious_cf76.html" title="User:Conscious">Conscious</a>, <a href="../../../a/l/y/User%7EAlynna_Kasmira_90a9.html" title="User:Alynna Kasmira">Alynna Kasmira</a>, Rdrosson and <a href="../../../w/i/t/User%7EWitger_4eac.html" title="User:Witger">Witger</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

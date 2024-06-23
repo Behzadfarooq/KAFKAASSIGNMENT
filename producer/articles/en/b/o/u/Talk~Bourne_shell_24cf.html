@@ -1,0 +1,140 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Bourne shell,Unix shell,NevilleDNZ,Gwern,Timeline of Bourne shell enhancements &amp; clones" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Bourne shell - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Bourne shell</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>Hi, I can see the same errors on that page as on the one about "Unix shell".</p>
+<p>The Bourne shell is generally no longer located as /bin/sh. It is only the case on some very rare systems (like Solaris cited above). Many systems don't have a Bourne shell at all anymore, and when they have one, it's generally either in a non standard place such as /usr/old/bin or has a different name such as bsh or sh.bourne. The sh code wasn't made free until very recently. That's why no Free Unix system ever had it (exception of early BSDs which was the cause of law suites, BSDs then adopted the Almquist shell which was a free reimplementation of the Bourne shell as it could be found on SysV with some extensions and has now been made POSIX (modern sh) conformant).</p>
+<p>Many scripts are still written in a Bourne compatible syntax, but just because it is the greatest common denominator of the shs of the past and current Unices. sh is often confused with the Bourne shell because sh has been the Bourne shell on many systems for a long period of time.</p>
+<p>So it's no longer a popular default shell either, nor is it the default login shell for root on many operating systems. sh is though.</p>
+<p>And it's wrong to say it's standard on all commercial Unices.</p>
+<p>See my comments on the Unix shell page for details.</p>
+<p>Another error:</p>
+<p>"for loops, in particular the use of $* to loop over arguments". That's incorrect. $* is the concatenation of the positional parameters. It's $@ when double quoted that allows to loop over the positional parameters, not $*. And "for" loops over the positional parameters by default, so there's no need to specify "$@":</p>
+<pre>
+for i do
+  whatever "$i"
+done
+</pre>
+<p>(it's not for do od, but for do done in the Bourne shell)</p>
+<p>I don't know if one can say that the Korn shell was written "much later" than csh. I believe it was started in the early eighties (read 1982 somewhere) so only 3 years after csh (I might be wrong on that one).</p>
+<dl>
+<dd>re: Bourne shell usage.</dd>
+<dd>Dates and version numbers may be hard to find. I suspect there was a also divergence as various vendors quickly patched and enhanced the original shell, without sharing these source changes(?) (sh was an "open system", but not "open source"). I know of one DB vendor actually included their standard shell in their DB distribution so as to avoid any unexpected enhancements from the OS vendors. c.f. <a href="../../../u/n/i/Talk%7EUnix_shell_2326.html#Shells_listed_by_compatibility" title="Talk:Unix shell">Talk:Unix shell#Shells listed by compatibility</a>. Would a Timeline of Bourne shell enhancements &amp; clones be an overkill?</dd>
+<dd>Re: <code>while ~ do ~ od</code></dd>
+<dd>Your comment is clearly correct. As <code>/bin/od</code> would have predated the Bourne shell syntax, and <code>while ~ do ~ done</code> is correct. I can fix this right away. Are there any historical citations on why <code>done</code> as used? The Bourne's original <code>mac.h</code> file uses both, eg.</dd>
+</dl>
+<pre>
+FOR ~ DO ~ OD       # for loop #
+WHILE cond DO ~ OD  # early termination loop #
+REP ~ PER cond DONE # late termination loop #
+LOOP ~ POOL         # infinite loop #
+</pre>
+<dl>
+<dd>Re: <code>$*</code> vs <code>"$@"</code></dd>
+<dd>Makes me wonder if Bourne built in <code>$@</code> originally, or it was added as an enhancement. I see a lot of $* in code even today that should be "$@". Was "$@" apart of the original design, or an enhancement? Need to check the original source tree somehow... I wonder if is still compiles... :-) (BTW IIRC csh used $*:q for "$@") --<a href="../../../n/e/v/User%7ENevilleDNZ_2f48.html" title="User:NevilleDNZ">NevilleDNZ</a> 12:48, 10 September 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I wouldn't say it was over-kill, but it sounds like it would be difficult to research and cite, since most of those changes are by definition closed and binary. -- <a href="../../../g/w/e/User_talk%7EGwern_64b9.html" title="User talk:Gwern">Gwern</a> <a href="../../../c/o/n/Special%7EContributions_Gwern_077f.html" title="Special:Contributions/Gwern">(contribs)</a> 22:47, 10 September 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/u/Talk%7EBourne_shell_24cf.html">http://en.wikipedia.org../../../b/o/u/Talk%7EBourne_shell_24cf.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/o/u/Bourne_shell.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/o/u/Talk%7EBourne_shell_24cf.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Bourne_shell">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:47, 10 September 2006 by Wikipedia user <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>. Based on work by Wikipedia user(s) <a href="../../../n/e/v/User%7ENevilleDNZ_2f48.html" title="User:NevilleDNZ">NevilleDNZ</a> and Stephane Chazelas.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

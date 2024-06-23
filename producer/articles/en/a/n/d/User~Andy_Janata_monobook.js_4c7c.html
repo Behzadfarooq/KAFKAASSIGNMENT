@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Andy Janata/monobook.js,Blocking policy,Bypass your cache,Village pump (technical)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Andy Janata/monobook.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Andy Janata/monobook.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/n/d/User%7EAndy_Janata_0421.html" title="User:Andy Janata">User:Andy Janata</a></span></div>
+	    	    	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</p>
+<div style="color:darkred;background-color:#EEEEEE;border: darkred 2px solid;padding:5px;" id="jswarning"><div style="clear: both;color:darkred;"></div><b><div style="display:block;">If a message on your talk page led you here, please be wary of who left it.  The code below could contain malicious content capable of compromising your account; if your account appears to be compromised, it will be <a href="../../../b/l/o/Wikipedia%7EBlocking_policy_2eb0.html" title="Wikipedia:Blocking policy">blocked</a>.  If you are unsure whether the code is safe, you can ask at the appropriate <a href="../../../v/i/l/Wikipedia%7EVillage_pump_%28technical%29_e812.html" title="Wikipedia:Village pump (technical)">village pump</a>.</b></div></div></span>
+<pre>function addPurgeLink() { // Adds a &quot;Purge page&quot; link to the toolbox
+
+  // remove &quot;action&quot; variable from the URL and insert new one
+
+  myURL = window.location;
+  var myGetVars = myURL.search.substring(1,myURL.search.length).split(&quot;&amp;&quot;);
+  var myCleanGetVars = Array(); 
+  for (i=0;i&lt;myGetVars.length;++i) {
+    if (myGetVars[i] &amp;&amp; myGetVars[i].substr(0,6) != &quot;action&quot;) {
+      myCleanGetVars.push(myGetVars[i]);
+    }
+  }
+  myCleanGetVars.push(&quot;action=purge&quot;);
+  var myNewGetVars = &quot;?&quot; + myCleanGetVars.join(&quot;&amp;&quot;);
+  myURLString = myURL.protocol + &quot;//&quot; + myURL.hostname + myURL.pathname + myNewGetVars + myURL.hash;
+
+  addToToolbox('Purge page', myURLString, 'Purge this page', 't-purge');
+}
+
+function addEditCountLink() { // Add &quot;Count User edits&quot; link to toolbox
+  if (window.location.pathname.indexOf('index.php') &gt; 0) { // GET mode
+    myTrigger = window.location.search;
+  } else { // Path mode
+    myTrigger = window.location.pathname;
+  }
+  if (myTrigger.indexOf('User:') &gt; 0) { // We're in User space
+    myUName = extractUName('User:', myTrigger);
+  } else if (myTrigger.indexOf('User_talk:') &gt; 0) { // We're in User_talk space 
+    myUName = extractUName('User_talk:', myTrigger);
+  } else { // Bail out
+    return false;
+  }
+  myEscapedUName = myUName.replace(/_/, &quot;+&quot;);
+  myClearUName = myUName.replace(/_/, &quot; &quot;);
+  myURLString = 'http://kohl.wikimedia.org/~kate/cgi-bin/count_edits.cgi?user='+ myEscapedUName +'&amp;dbname=enwiki';
+
+  addToToolbox('Count user edits', myURLString, 'Count edits by ' + myClearUName, 't-ucount');
+}
+
+function addCrossWPSearchLink() { // Search article in other WPs link to toolbox
+  if (window.location.pathname.indexOf('index.php') &gt; 0) { // GET mode
+    myTrigger = window.location.search;
+  } else { // Path mode
+    myTrigger = window.location.pathname;
+  }
+  if (
+myTrigger.indexOf('User:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('User_talk:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Wikipedia:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Wikipedia_talk:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Category:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Category_talk:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Template:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Template_talk:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Image:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Image_talk:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Help:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('Help_talk:') &lt; 0 &amp;&amp; 
+myTrigger.indexOf('MediaWiki:') &lt; 0 &amp;&amp;
+myTrigger.indexOf('Special:') &lt; 0 &amp;&amp;
+myTrigger.indexOf('MediaWiki_talk:') &lt; 0 ) { // We're in Article space
+    myArticleName = extractUName('/wiki/', myTrigger);
+  } else if (myTrigger.indexOf('Talk:') &gt; 0) { // We're in Talk space 
+    myArticleName = extractUName('Talk:', myTrigger);
+  } else { // Bail out
+    return false;
+  }
+
+  myURLString = 'http://vs.aka-online.de/cgi-bin/globalwpsearch.pl?timeout=30&amp;minor=1&amp;search='+ myArticleName;
+
+  addToToolbox('Other Wikipedias', myURLString, 'Look up ' + myArticleName + 'in other language Wikipedias', 't-uotherwp');
+}
+
+function StubConvert() {
+
+document.getElementsByName(&quot;wpSummary&quot;)[0].value = &quot;{&quot; + &quot;{Egypt-stub}} =&gt; &quot;{&quot; + &quot;{Ancient-Egypt-stub}} as per [[WP:SFD]]&quot;;
+document.getElementsByName(&quot;wpMinoredit&quot;)[0].checked = &quot;checked&quot;;
+oldArticleText = document.getElementsByName(&quot;wpTextbox1&quot;)[0].value;
+newArticleText = oldArticleText.replace(/\{\{[E|e]gypt-stub\}\}/, &quot;{&quot; + &quot;{Ancient-Egypt-stub}}&quot;);
+document.getElementsByName(&quot;wpTextbox1&quot;)[0].value = newArticleText;
+
+document.editform.submit();
+
+}
+
+function addStubConvLink() {
+  addToToolbox('Ancient Egypt convert', 'javascript:StubConvert();', 'Ancient Egypt convert', 't-AEConv');
+}
+
+function extractUName(namespace, myString) {
+  myCleanedString = myString.substring(myString.indexOf(namespace) + namespace.length,myString.length);
+  if (myCleanedString.indexOf('/') &gt; 0) {
+    mySliceEnd = myCleanedString.indexOf('/');
+  } else {
+    mySliceEnd = myCleanedString.length;
+  }
+  myCleanerString = myCleanedString.substring(0,mySliceEnd);
+  return myCleanerString;
+}
+
+function addToToolbox(label, link, title, id) { // Create new child node of the toolbox object
+
+  var myLinktext = document.createTextNode(label);
+  var myLink = document.createElement(&quot;a&quot;);
+  myLink.href = link;
+  myLink.title = title;
+  myLink.appendChild(myLinktext);
+  var myListItem = document.createElement(&quot;li&quot;);
+  myListItem.id = id;
+  myListItem.appendChild(myLink);
+  document.getElementById('p-tb').getElementsByTagName(&quot;ul&quot;)[0].appendChild(myListItem);
+
+}
+
+function reformatMyPage() { // execute all formatting functions...
+  addPurgeLink();
+  addEditCountLink();
+  addCrossWPSearchLink();
+//  addStubConvLink();
+}
+
+// when the page is loaded
+
+if (window.addEventListener) window.addEventListener(&quot;load&quot;,reformatMyPage,false);
+else if (window.attachEvent) window.attachEvent(&quot;onload&quot;,reformatMyPage);
+
+
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://en.wikipedia.org/w/index.php?title=User:Lupin/popups.js' 
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/d/User%7EAndy_Janata_monobook.js_4c7c.html">http://en.wikipedia.org../../../a/n/d/User%7EAndy_Janata_monobook.js_4c7c.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/n/d/User%7EAndy_Janata_monobook.js_4c7c.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/n/d/User_talk%7EAndy_Janata_monobook.js_8764.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Andy_Janata/monobook.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:41, 13 March 2007 by Wikipedia user <a href="../../../s/h/e/User%7ESherool_fe99.html" title="User:Sherool">Sherool</a>. Based on work by Wikipedia user(s) <a href="../../../a/n/d/User%7EAndy_Janata_0421.html" title="User:Andy Janata">Andy Janata</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

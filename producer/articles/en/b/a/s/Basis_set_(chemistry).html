@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Basis set (chemistry),Ansatz,Atomic orbital,Basis function,Basis set superposition error,Chemistry,Computational chemistry,Gaussian orbital,John Pople,Linear combination of atomic orbitals,Matrix (mathematics)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Basis set (chemistry) - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Basis set (chemistry)</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>A <b>basis set</b> in <a href="../../../c/h/e/Chemistry.html" title="Chemistry">chemistry</a> is a set of functions used to create the <a href="../../../m/o/l/Molecular_orbital.html" title="Molecular orbital">molecular orbitals</a>, which are expanded as a <a href="../../../l/i/n/Linear_combination_of_atomic_orbitals.html" title="Linear combination of atomic orbitals">linear combination</a> of such functions with the weights or coefficients to be determined. Usually these functions are <a href="../../../a/t/o/Atomic_orbital.html" title="Atomic orbital">atomic orbitals</a>, in that they are centered on atoms, but functions centered in bonds or lone pairs have been used as have pairs of functions centered in the two lobes of a p orbital.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Localized_Gaussian_basis_sets"><span class="tocnumber">2</span> <span class="toctext">Localized Gaussian basis sets</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Minimal_basis_sets"><span class="tocnumber">2.1</span> <span class="toctext">Minimal basis sets</span></a></li>
+<li class="toclevel-2"><a href="#Split-valence_basis_sets"><span class="tocnumber">2.2</span> <span class="toctext">Split-valence basis sets</span></a></li>
+<li class="toclevel-2"><a href="#Double.2C_triple.2C_quadruple_zeta_basis_sets"><span class="tocnumber">2.3</span> <span class="toctext">Double, triple, quadruple zeta basis sets</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Plane_wave_basis_sets"><span class="tocnumber">3</span> <span class="toctext">Plane wave basis sets</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Introduction" id="Introduction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_set_%28chemistry%29.html" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline">Introduction</span></h2>
+<p>In modern <a href="../../../c/o/m/Computational_chemistry.html" title="Computational chemistry">computational chemistry</a>, <a href="../../../q/u/a/Quantum_chemistry.html" title="Quantum chemistry">quantum chemical</a> calculations are typically performed within a finite set of <a href="../../../b/a/s/Basis_function.html" title="Basis function">basis functions</a>. In these cases, the <a href="../../../w/a/v/Wavefunction.html" title="Wavefunction">wavefunctions</a> under consideration are all represented as <a href="../../../v/e/c/Vector_%28spatial%29.html" title="Vector (spatial)">vectors</a>, the components of which correspond to coefficients in a linear combination of the basis functions in the basis set used. The <a href="../../../o/p/e/Operator_%28physics%29.html" title="Operator (physics)">operators</a> are then represented as <a href="../../../m/a/t/Matrix_%28mathematics%29.html" title="Matrix (mathematics)">matrices</a>, (rank two <a href="../../../t/e/n/Tensors.html" title="Tensors">tensors</a>), in this finite basis. In this article, <i>basis function</i> and <i>atomic orbital</i> are sometimes used interchangeably, although it should be noted that these basis functions are usually not actually the exact atomic orbitals, even for the corresponding hydrogen-like atoms, due to approximations and simplifications of their analytic formulas.</p>
+<p>When molecular calculations are performed, it is common to use a basis composed of a finite number of <a href="../../../a/t/o/Atomic_orbital.html" title="Atomic orbital">atomic orbitals</a>, centered at each atomic nucleus within the molecule (<a href="../../../l/i/n/Linear_combination_of_atomic_orbitals.html" title="Linear combination of atomic orbitals">linear combination of atomic orbitals</a> <a href="../../../a/n/s/Ansatz.html" title="Ansatz">ansatz</a>). Initially, these atomic orbitals were typically <a href="../../../s/l/a/Slater_orbitals.html" title="Slater orbitals">Slater orbitals</a>, which corresponded to a set of functions which decayed exponentially with distance from the nuclei. Later, it was realized that these Slater-type orbitals could in turn be approximated as linear combinations of <a href="../../../g/a/u/Gaussian_orbital.html" title="Gaussian orbital">Gaussian orbitals</a> instead. Because it is easier to calculate overlap and other integrals with Gaussian basis functions, this led to huge computational savings (see <a href="../../../j/o/h/John_Pople_b842.html" title="John Pople">John Pople</a>).</p>
+<p>Today, there are hundreds of basis sets composed of Gaussian-type orbitals (GTOs). The smallest of these are called <i>minimal basis sets</i>, and they are typically composed of the minimum number of basis functions required to represent all of the electrons on each atom. The largest of these can contain literally dozens to hundreds of basis functions on each atom.</p>
+<p>The most common addition to minimal basis sets is probably the addition of <b>polarization functions</b>, denoted by an asterisk, <i>*</i>. Two asterisks, <i>**</i>, indicate that polarization functions are also added to light atoms (hydrogen and helium). These are auxiliary functions with one additional node. For example, the only basis function located on a hydrogen atom in a minimal basis set would be a function approximating the 1s atomic orbital. When <a href="../../../p/o/l/Polarization.html" title="Polarization">polarization</a> is added to this basis set, a p-function is also added to the basis set. This adds some additional needed flexibility within the basis set, effectively allowing molecular orbitals involving the hydrogen atoms to be more asymmetric about the hydrogen nucleus. This is an important result when considering accurate representations of bonding between atoms, because the very presence of the bonded atom makes the energetic environment of the electrons spherically asymmetric. Similarly, d-type functions can be added to a basis set with valence p orbitals, and f-functions to a basis set with d-type orbitals, and so on. Another, more precise notation indicates exactly which and how many functions are added to the basis set, such as (p, d).</p>
+<p>Another common addition to basis sets is the addition of <b>diffuse functions</b>, denoted by a plus sign, <i>+</i>. Two plus signs indicate that diffuse functions are also added to light atoms (hydrogen and helium). These are very shallow Gaussian basis functions, which more accurately represent the "tail" portion of the atomic orbitals, which are distant from the atomic nuclei. These additional basis functions can be important when considering anions and other large, "soft" molecular systems.</p>
+<p><a name="Localized_Gaussian_basis_sets" id="Localized_Gaussian_basis_sets"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_set_%28chemistry%29.html" title="Edit section: Localized Gaussian basis sets">edit</a>]</span> <span class="mw-headline">Localized Gaussian basis sets</span></h2>
+<p><a name="Minimal_basis_sets" id="Minimal_basis_sets"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Basis_set_%28chemistry%29.html" title="Edit section: Minimal basis sets">edit</a>]</span> <span class="mw-headline">Minimal basis sets</span></h3>
+<p>A common naming convention for minimal basis sets is <i>STO-XG</i>, where X is an integer. This <i>X</i> value represents the number of Gaussian primitive functions comprising a single basis function. In these basis sets, the same number of Gaussian primitives comprise core and valence orbitals. Minimal basis sets typically give rough results that are insufficient for research-quality publication, but are much cheaper than their larger counterparts. Here is a list of commonly used minimal basis sets:</p>
+<ul>
+<li>STO-2G</li>
+<li>STO-3G</li>
+<li>STO-6G</li>
+<li>STO-3G* - Polarized version of STO-3G</li>
+</ul>
+<p><a name="Split-valence_basis_sets" id="Split-valence_basis_sets"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Basis_set_%28chemistry%29.html" title="Edit section: Split-valence basis sets">edit</a>]</span> <span class="mw-headline">Split-valence basis sets</span></h3>
+<p>During most molecular bonding, it is the valence electrons which principally take part in the bonding. In recognition of this fact, it is common to represent valence orbitals by more than one basis function, (each of which can in turn be composed of a fixed linear combination of primitive Gaussian functions). The notation for these <i>split-valence</i> basis sets is typically <i>X-YZg</i>. In this case, <i>X</i> represents the number primitive Gaussians comprising each core atomic orbital basis function. The <i>Y</i> and <i>Z</i> indicate that the valence orbitals are composed of two basis functions each, the first one composed of a linear combination of <i>Y</i> primitive Gaussian functions, the other composed of a linear combination of <i>Z</i> primitive Gaussian functions. In this case, the presence of two numbers after the hyphens implies that this basis set is a <i>split-valence double-zeta</i> basis set. Split-valence triple- and quadruple-zeta basis sets are also used, denoted as <i>X-YZWg</i>, <i>X-YZWVg</i>, etc. Here is a list of commonly used split-valence basis sets:</p>
+<ul>
+<li>3-21g</li>
+<li>3-21g* - Polarized</li>
+<li>3-21+g - Diffuse functions</li>
+<li>3-21+g* - With polarization <i>and</i> diffuse functions</li>
+<li>6-31g</li>
+<li>6-31g*</li>
+<li>6-31+g*</li>
+<li>6-31g(3df, 3pd)</li>
+<li>6-311g</li>
+<li>6-311g*</li>
+<li>6-311+g*</li>
+<li>SV(P)</li>
+<li>SVP</li>
+</ul>
+<p><a name="Double.2C_triple.2C_quadruple_zeta_basis_sets" id="Double.2C_triple.2C_quadruple_zeta_basis_sets"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Basis_set_%28chemistry%29.html" title="Edit section: Double, triple, quadruple zeta basis sets">edit</a>]</span> <span class="mw-headline">Double, triple, quadruple zeta basis sets</span></h3>
+<p>Basis sets in which there are multiple basis functions corresponding to each atomic orbital, including both valence orbitals and core orbitals or just the valence orbitals, are called double, triple, or quadruple-zeta basis sets. Here is a list of commonly used multiple zeta basis sets:</p>
+<ul>
+<li>cc-pVDZ - Double-zeta</li>
+<li>cc-pVTZ - Triple-zeta</li>
+<li>cc-pVQZ - Quadruple-zeta</li>
+<li>cc-pV5Z - Quintuple-zeta, etc.</li>
+<li>aug-cc-pVDZ, etc. - Augmented versions of the preceding basis sets with added diffuse functions</li>
+<li>TZVPP - Triple-zeta</li>
+<li>QZVPP - Quadruple-zeta</li>
+</ul>
+<p>The 'cc-p' at the beginning of some of the above basis sets stands for 'correlation consistent polarized' basis sets. They are double/triple/quadruple/quintuple-zeta for the valence orbitals only {the 'V' stands for valence) and include successively larger shells of polarization (correlating) functions (d, f, g, etc.) that can yield convergence of the electronic energy to the complete basis set limit. These basis sets are the current state of the art for correlated or <a href="../../../p/o/s/Post_Hartree-Fock_92db.html" title="Post Hartree-Fock">post Hartree-Fock</a> calculations.</p>
+<p><a name="Plane_wave_basis_sets" id="Plane_wave_basis_sets"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_set_%28chemistry%29.html" title="Edit section: Plane wave basis sets">edit</a>]</span> <span class="mw-headline">Plane wave basis sets</span></h2>
+<p>In addition to localized basis sets, <a href="../../../p/l/a/Plane_wave.html" title="Plane wave">plane wave</a> basis sets can also be used in quantum chemical simulations. Typically, a finite number of plane wave functions are used, below a specific cutoff energy which is chosen for a certain calculation. These basis sets are popular in calculations involving <a href="../../../p/e/r/Periodic_boundary_conditions.html" title="Periodic boundary conditions">periodic boundary conditions</a>. Certain integrals and operations are much easier to code and carry out with plane wave basis functions, than with their localized counterparts; furthermore, as all functions in the basis are mutually orthogonal, plane wave basis sets do not exhibit <a href="../../../b/a/s/Basis_set_superposition_error.html" title="Basis set superposition error">basis set superposition error</a>. However, they are less well suited to gas-phase calculations.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_set_%28chemistry%29.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/t/o/Atomic_orbital.html" title="Atomic orbital">Atomic orbital</a></li>
+<li><a href="../../../b/a/s/Basis_set_superposition_error.html" title="Basis set superposition error">Basis set superposition error</a></li>
+<li><a href="../../../c/o/m/Computational_chemistry.html" title="Computational chemistry">Computational chemistry</a></li>
+<li><a href="../../../j/o/h/John_Pople_b842.html" title="John Pople">John Pople</a></li>
+<li><a href="../../../m/o/l/Molecular_orbital.html" title="Molecular orbital">Molecular orbital</a></li>
+<li><a href="../../../q/u/a/Quantum_chemistry.html" title="Quantum chemistry">Quantum chemistry</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_set_%28chemistry%29.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.shodor.org/chemviz/basis/index.html" class="external text" title="http://www.shodor.org/chemviz/basis/index.html" rel="nofollow">ChemViz - Basis Sets Lab Activity</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/s/Basis_set_%28chemistry%29.html">http://en.wikipedia.org../../../b/a/s/Basis_set_%28chemistry%29.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../q/u/a/Category%7EQuantum_chemistry_09bb.html" title="Category:Quantum chemistry">Quantum chemistry</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/s/Basis_set_%28chemistry%29.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/a/s/Talk%7EBasis_set_%28chemistry%29_2c4d.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Basis_set_%28chemistry%29">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../zh/%E9%87%8F/%E5%AD%90/%E5%8C%96/%E9%87%8F%E5%AD%90%E5%8C%96%E5%AD%A6%E4%B8%AD%E7%9A%84%E5%9F%BA%E7%BB%84.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 14:53, 3 January 2007 by Wikipedia user <a href="../../../e/d/s/User%7EEdsanville_3a05.html" title="User:Edsanville">Edsanville</a>. Based on work by Wikipedia user(s) <a href="../../../i/t/u/User%7EItub_c2f2.html" title="User:Itub">Itub</a>, <a href="../../../b/d/u/User%7EBduke_8398.html" title="User:Bduke">Bduke</a>, <a href="../../../v/8/r/User%7EV8rik_a2ae.html" title="User:V8rik">V8rik</a>, Chymicus, Oneboy, <a href="../../../k/a/r/User%7EKarol_Langner_26da.html" title="User:Karol Langner">Karol Langner</a>, <a href="../../../l/f/h/User%7ELfh_89ce.html" title="User:Lfh">Lfh</a>, <a href="../../../n/a/t/User%7ENatalya_459d.html" title="User:Natalya">Natalya</a>, <a href="../../../p/a/k/User%7EPak21_529c.html" title="User:Pak21">Pak21</a> and <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="AS2,Authentication,Electronic Data Interchange,Encryption,Hypertext Transfer Protocol,Integrity,Internet,Interoperability,Non-repudiation,OFTP,Reliable" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>AS2 - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">AS2</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>AS2</b> (Applicability Statement 2) is a specification about how to transport data securely and reliably over the <a href="../../../i/n/t/Internet.html" title="Internet">Internet</a>. It is described in detail in <a href="../../../r/e/q/Request_for_comments.html" title="Request for comments">RFC</a> <a href="http://www.ietf.org/rfc/rfc4130.txt" class="external text" title="http://www.ietf.org/rfc/rfc4130.txt" rel="nofollow">4130</a>.</p>
+<p>Data can consist of <a href="../../../e/l/e/Electronic_Data_Interchange_3b13.html" title="Electronic Data Interchange">Electronic Data Interchange</a> (EDI) messages but may be of any other message type. AS2 specifies how to connect, deliver, validate and acknowledge data. AS2 creates an envelope for a message which is then sent securely over the Internet. Security is achieved by using digital certificates and encryption.</p>
+<p>An implementation of AS2 involves two machines, a client and a <a href="../../../s/e/r/Server_%28computing%29.html" title="Server (computing)">server</a>, communicating with each other over the Internet. On the operating system level, the AS2 client may be a server, too, offering its communication services to application software. The client sends data to the server, e.g. a trading partner. On receipt of the message the receiving application sends an acknowledgement or MDN (Message Disposition Notification) back to the sender.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Advantages"><span class="tocnumber">1</span> <span class="toctext">Advantages</span></a></li>
+<li class="toclevel-1"><a href="#Disadvantages"><span class="tocnumber">2</span> <span class="toctext">Disadvantages</span></a></li>
+<li class="toclevel-1"><a href="#AS2_Technical_Overview"><span class="tocnumber">3</span> <span class="toctext">AS2 Technical Overview</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Open_Source_Implementations"><span class="tocnumber">5</span> <span class="toctext">Open Source Implementations</span></a></li>
+<li class="toclevel-1"><a href="#Providers"><span class="tocnumber">6</span> <span class="toctext">Providers</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Advantages" id="Advantages"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/2/AS2_59cd.html" title="Edit section: Advantages">edit</a>]</span> <span class="mw-headline">Advantages</span></h3>
+<ul>
+<li>Elimination or reduction of <a href="../../../v/a/l/Value-added_network.html" title="Value-added network">Value-added network</a> (VAN) costs</li>
+<li>Designed to push data securely and reliably over the Internet</li>
+<li>Fast and <a href="../../../r/e/l/Reliable.html" title="Reliable">reliable</a> connectivity</li>
+<li><a href="../../../e/n/c/Encryption.html" title="Encryption">Encryption</a> ensures that only the sender and receiver can view the data</li>
+<li>Digital signatures ensure <a href="../../../a/u/t/Authentication.html" title="Authentication">authentication</a>: only messages from authorized senders are accepted</li>
+<li>Hash algorithm ensures <a href="../../../i/n/t/Integrity.html" title="Integrity">integrity</a> by detecting whether the document was altered during transmission</li>
+<li>Drummond Certification supports a level of confidence for the <a href="../../../i/n/t/Interoperability.html" title="Interoperability">interoperability</a> of the disparate software tools available for connectivity.</li>
+</ul>
+<p><a name="Disadvantages" id="Disadvantages"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/2/AS2_59cd.html" title="Edit section: Disadvantages">edit</a>]</span> <span class="mw-headline">Disadvantages</span></h3>
+<ul>
+<li>Costs of a static IP address, permanent Internet connection, firewall and relevant expertise</li>
+<li>Cannot pull data</li>
+<li>File restart is optional.</li>
+<li>Costs of AS2 software</li>
+<li>Need to manage the certificates used for secure connections</li>
+<li>Only works over TCP/IP networks</li>
+</ul>
+<p><a name="AS2_Technical_Overview" id="AS2_Technical_Overview"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/2/AS2_59cd.html" title="Edit section: AS2 Technical Overview">edit</a>]</span> <span class="mw-headline">AS2 Technical Overview</span></h3>
+<ul>
+<li>AS2 provides an ‘envelope’ for the data, which is sent over the Internet using standard protocols.</li>
+<li>Data is transmitted using the <a href="../../../h/y/p/Hypertext_Transfer_Protocol_fbc3.html" title="Hypertext Transfer Protocol">HTTP</a> POST request</li>
+<li>Data transmission is over TCP/IP, with or without <a href="../../../t/r/a/Transport_Layer_Security_d877.html" title="Transport Layer Security">SSL</a>, to a static IP address</li>
+<li>Data can be transmitted signed and encrypted</li>
+<li><a href="../../../n/o/n/Non-repudiation.html" title="Non-repudiation">Non-repudiation</a></li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/2/AS2_59cd.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h3>
+<ul>
+<li><a href="../../../o/f/t/OFTP_f64f.html" title="OFTP">OFTP</a> - an alternative protocol for transferring data over the Internet, X.25 and ISDN networks</li>
+</ul>
+<p><a name="Open_Source_Implementations" id="Open_Source_Implementations"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/2/AS2_59cd.html" title="Edit section: Open Source Implementations">edit</a>]</span> <span class="mw-headline">Open Source Implementations</span></h3>
+<ul>
+<li><a href="http://www.freebxml.org/msh.htm" class="external text" title="http://www.freebxml.org/msh.htm" rel="nofollow">Hermes Message Service Handler</a></li>
+<li><a href="http://www.mec-as2.org/" class="external text" title="http://www.mec-as2.org/" rel="nofollow">m-e-c as2</a></li>
+<li><a href="http://sourceforge.net/projects/openas2/" class="external text" title="http://sourceforge.net/projects/openas2/" rel="nofollow">OpenAS2</a></li>
+</ul>
+<p><a name="Providers" id="Providers"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/2/AS2_59cd.html" title="Edit section: Providers">edit</a>]</span> <span class="mw-headline">Providers</span></h3>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/s/2/AS2_59cd.html">http://en.wikipedia.org../../../a/s/2/AS2_59cd.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../i/n/f/Category%7EInformation_technology_management_f339.html" title="Category:Information technology management">Information technology management</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/s/2/AS2_59cd.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/s/2/Talk%7EAS2_6bd8.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/AS2">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/s/2/AS2_59cd.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/s/2/AS2_59cd.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/a/s/2/As2.html">Nederlands</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 14:57, 25 March 2007 by Wikipedia user <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>. Based on work by Wikipedia user(s) <a href="../../../p/a/t/User%7EPat_Payne_b797.html" title="User:Pat Payne">Pat Payne</a>, <a href="../../../w/o/o/User%7EWoodsstock_d58a.html" title="User:Woodsstock">Woodsstock</a>, Mmerz, Ideoplex, SarahLowe, Svbrewer, Mike Cobban, <a href="../../../j/a/y/User%7EJayvdb_61b3.html" title="User:Jayvdb">Jayvdb</a>, <a href="../../../g/b/l/User%7EGbleem_11fe.html" title="User:Gbleem">Gbleem</a>, <a href="../../../s/k/y/User%7ESkysmith_c555.html" title="User:Skysmith">Skysmith</a>, <a href="../../../j/o/n/User%7EJonathan.lampe%40standardnetworks.com_1861.html" title="User:Jonathan.lampe@standardnetworks.com">Jonathan.lampe@standardnetworks.com</a>, Firm shake, <a href="../../../a/n/d/User%7EAndyBQ_aa0b.html" title="User:AndyBQ">AndyBQ</a>, <a href="../../../d/d/d/User%7EDdddcheap_6e73.html" title="User:Ddddcheap">Ddddcheap</a>, <a href="../../../m/i/k/User%7EMikecraig_dd6f.html" title="User:Mikecraig">Mikecraig</a>, MarcusFritzsch, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../c/h/i/User%7EChirags_948c.html" title="User:Chirags">Chirags</a>, Ieuan Friend, <a href="../../../g/a/r/User%7EGardar_Rurak_890e.html" title="User:Gardar Rurak">Gardar Rurak</a>, Aheppenh, <a href="../../../s/r/b/User%7ESrbauer_387e.html" title="User:Srbauer">Srbauer</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a> and <a href="../../../v/o/l/User%7EVolker_8c2d.html" title="User:Volker">Volker</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

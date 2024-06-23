@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Branching (software),Branching,Concurrent Version System,Darcs,Fork (software development),Open source,RPath,Revision control,Software configuration management,Software development,Software release" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Branching (software) - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Branching (software)</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <div class="dablink"><i>For other uses, see <a href="../../../b/r/a/Branching.html" title="Branching">Branching</a>.</i></div>
+<p><b>Branching</b>, in <a href="../../../r/e/v/Revision_control.html" title="Revision control">revision control</a> and <a href="../../../s/o/f/Software_configuration_management.html" title="Software configuration management">software configuration management</a>, is the duplication of an object under revision control (such as a source code file, or a directory tree) in such a way that the newly created object has initially the same contents as the version branched off from, and (more importantly) development (creation of new versions) can happen parallelly along both branches.</p>
+<p>Branching also generally implies <i>merging</i>, which is the process of copying the differences accrued to an object on another branch back to the parent branch (usually called <i><a href="../../../t/r/u/Trunk_%28software%29.html" title="Trunk (software)">trunk</a></i>). A branch not intended to be merged (e.g. because it is for a different platform or attempts to serve a different purpose) is usually called a <i><a href="../../../f/o/r/Fork_%28software_development%29.html" title="Fork (software development)">fork</a></i>.</p>
+<p>Branches are created for various reasons. These are covered in depth in the paper <a href="http://www.cmcrossroads.com/bradapp/acme/branching/references.html" class="external text" title="http://www.cmcrossroads.com/bradapp/acme/branching/references.html" rel="nofollow">"Streamed Lines: Branching Patterns for Parallel Software Development"</a> by Brad Appleton, Stephen Berczuk, Ralph Cabrera, and Robert Orenstein.</p>
+<p>Branches are also known as <i>trees</i>. In some <a href="../../../r/e/v/Revision_control.html#Distributed_version_control" title="Revision control">distributed revision control systems</a>, such as <a href="../../../d/a/r/Darcs.html" title="Darcs">Darcs</a>, there is no distinction made between repositories and branches - so in these systems, fetching a copy of a repository is equivalent to branching.</p>
+<p>The branch that a new branch has been forked from is sometimes called "upstream" - especially if the branches are maintained by different organisations or individuals.</p>
+<p><a name="Development_branch" id="Development_branch"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branching_%28software%29.html" title="Edit section: Development branch">edit</a>]</span> <span class="mw-headline">Development branch</span></h2>
+<p>A <i>development branch</i> or <i>development tree</i> of a piece of software is a version that is under <a href="../../../s/o/f/Software_development.html" title="Software development">development</a>, and has not yet been officially <a href="../../../s/o/f/Software_release.html" title="Software release">released</a>. (In the <a href="../../../o/p/e/Open_source.html" title="Open source">open source</a> community, the notion of release is typically metaphorical, since anyone can usually check out any desired version, whether it be in the development branch or not.) Often, the version that will eventually become the next major version is called <b>the</b> development branch. However, there is often more than one subsequent version of the software under development at a given time.</p>
+<p>Some revision control systems have specific jargon for the main development branch - for example, in <a href="../../../c/o/n/Concurrent_Version_System_3d35.html" title="Concurrent Version System">CVS</a>, it is called the "HEAD". A more generic term is "mainline".</p>
+<p><a name="Shadow" id="Shadow"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Branching_%28software%29.html" title="Edit section: Shadow">edit</a>]</span> <span class="mw-headline">Shadow</span></h2>
+<p>In <b>cvc</b>, a simple open source revision control and package building system produced by <a href="../../../r/p/a/RPath_661a.html" title="RPath">rPath</a>, a <i>shadow</i> is a type of branch which is designed to "shadow" changes made in the upstream branch, to make it easier to maintain small changes.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/a/Branching_%28software%29.html">http://en.wikipedia.org../../../b/r/a/Branching_%28software%29.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../s/o/f/Category%7ESoftware_engineering_d46f.html" title="Category:Software engineering">Software engineering</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/a/Branching_%28software%29.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/r/a/Talk%7EBranching_%28software%29_717c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Branching_%28software%29">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../hu/%C3%A1/g/_/%C3%81g_%28szoftver%29.html">Magyar</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:21, 30 March 2007 by Wikipedia user <a href="../../../g/r/e/User%7EGreenrd_ce6f.html" title="User:Greenrd">Greenrd</a>. Based on work by Wikipedia user(s) <a href="../../../e/y/r/User%7EEyrian_d64b.html" title="User:Eyrian">Eyrian</a>, <a href="../../../s/k/y/User%7ESkyfaller_0cdc.html" title="User:Skyfaller">Skyfaller</a>, <a href="../../../n/e/o/User%7ENeonMerlin_5f2b.html" title="User:NeonMerlin">NeonMerlin</a>, <a href="../../../c/o/h/User%7ECohesion_07b5.html" title="User:Cohesion">Cohesion</a>, Tommyjb and <a href="../../../p/a/b/User%7EPablo-flores_ce81.html" title="User:Pablo-flores">Pablo-flores</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

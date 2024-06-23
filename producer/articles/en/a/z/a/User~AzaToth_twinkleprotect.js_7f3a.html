@@ -1,0 +1,733 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:AzaToth/twinkleprotect.js,Bypass your cache" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:AzaToth/twinkleprotect.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:AzaToth/twinkleprotect.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/z/a/User%7EAzaToth_9bb9.html" title="User:AzaToth">User:AzaToth</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</span>
+</p><pre>// If TwinkleConfig aint exist.
+if( typeof( TwinkleConfig ) == 'undefined' ) {
+	TwinkleConfig = function() {};
+}
+
+/**
+TwinkleConfig.summaryAd (string)
+If ad should be added or not to summary, default [[WP:TWINKLE|TWINKLE]]
+*/
+if( typeof( TwinkleConfig.summaryAd ) == 'undefined' ) {
+	TwinkleConfig.summaryAd = &quot; using [[WP:TWINKLE|TW]]&quot;;
+}
+
+/**
+TwinkleConfig.protectionSummaryAd (string)
+If ad should be added or not to protection summary, default [[WP:TWINKLE|TWINKLE]]
+*/
+if( typeof( TwinkleConfig.protectionSummaryAd ) == 'undefined' ) {
+	TwinkleConfig.protectionSummaryAd = &quot; using [[WP:TWINKLE|TW]]&quot;;
+}
+
+function twinkleProtectButton() {
+	if( wgNamespaceNumber &lt; 0 || wgCurRevisionId == false ) {
+		return;
+	}
+
+	if( userIsInGroup( 'sysop' ) ) {
+		addPortletLink('p-cactions', &quot;javascript:twinkleprotect()&quot;, &quot;pp&quot;, &quot;tw-rpp&quot;, &quot;Protect page&quot;, &quot;&quot;);
+	} else {
+		addPortletLink('p-cactions', &quot;javascript:twinkleprotect()&quot;, &quot;rpp&quot;, &quot;tw-rpp&quot;, &quot;Request page protection&quot;, &quot;&quot;);
+	}
+}
+addOnloadHook(twinkleProtectButton);
+
+function twinkleprotect() {
+	twinkleprotect.Window = new SimpleWindow( 600, 300 );
+	twinkleprotect.Window.setTitle( &quot;Fill what protection is wanted&quot; );
+	function createLabel( data ) {
+		var label = document.createElement( 'label' );
+		label.setAttribute( 'for', data.target );
+		label.appendChild( document.createTextNode( data.label ) );
+		return label;
+	}
+
+	function createOption( data ) {
+		var option = document.createElement( 'option' );
+		option.setAttribute( 'value', data.value );
+		if( data.selected ) {
+			option.setAttribute( 'selected', 'selected' );
+		}
+		option.setAttribute( 'label', data.label );
+		option.appendChild( document.createTextNode( data.label ) );
+
+		return option;
+	}
+	function createOptGroup( label ) {
+		var optgroup = document.createElement( 'optgroup' );
+		optgroup.setAttribute( 'label', label );
+		return optgroup;
+	}
+
+	function createInput( data ) {
+		var div = document.createElement( data.elem || 'span' );
+		var input = document.createElement( 'input' );
+		input.setAttribute( 'value', data.value );
+		input.setAttribute( 'name', data.name );
+		input.setAttribute( 'id', data.id );
+		input.setAttribute( 'type', data.type );
+		if( data.size ) {
+			input.setAttribute( 'size', data.size );
+		}
+		if( data.checked ) {
+			input.setAttribute( 'checked', 'checked' );
+		}
+		if( data.disabled ) {
+			input.setAttribute( 'disabled', 'disabled' );
+		}
+		if( data.event &amp;&amp; data.type == 'button' ){
+			input.addEventListener( 'click', data.event, true );
+		}
+		if( data.type == 'button' || data.type == 'submit' || data.type == 'reset' ) {
+			div.appendChild( input );
+		} else {
+			var label = document.createElement( 'label' );
+			label.setAttribute( 'for', data.id );
+			label.appendChild( document.createTextNode( data.text ) );
+			if( [ 'radio', 'checkbox' ].indexOf( data.type ) != -1 ) {
+				div.appendChild( input );
+				div.appendChild( label );
+			} else {
+				div.appendChild( label );
+				div.appendChild( input );
+			}
+		}
+
+		return div;
+	}
+	twinkleprotect.form = document.createElement( 'form' );
+	twinkleprotect.form.setAttribute( 'action', 'javascript:void(0);');
+	twinkleprotect.form.addEventListener( 'submit',twinkleprotect.evaluate , true );
+
+
+
+	var main_choices = document.createElement( 'select' );
+	main_choices.setAttribute('name', 'main_choices');
+	main_choices.setAttribute('id', 'twProtMainChoices');
+	var full = createOptGroup( 'Full protection' );
+	full.appendChild( createOption( { label: 'Generic', value: 'full_generic' } ) );
+	full.appendChild( createOption( { label: 'Dispute', selected: true, value: 'full_dispute' } ) );
+	full.appendChild( createOption( { label: 'Vandalism', value: 'full_vandalism' } ) );
+	full.appendChild( createOption( { label: 'High visible template', value: 'full_template' } ) );
+	full.appendChild( createOption( { label: 'User talk of banned user', value: 'full_usertalk' } ) );
+	var semi = createOptGroup( 'Semi-protection' );
+	semi.appendChild( createOption( { label: 'Generic', value: 'semi_generic' } ) );
+	semi.appendChild( createOption( { label: 'Vandalism', value: 'semi_vandalism' } ) );
+	semi.appendChild( createOption( { label: 'High visible template', value: 'semi_template' } ) );
+	semi.appendChild( createOption( { label: 'User talk of banned user', value: 'semi_usertalk' } ) );
+	semi.appendChild( createOption( { label: 'Spambot target', value: 'semi_spambot' } ) );
+	var other = createOptGroup( 'Other' );
+	other.appendChild( createOption( { label: 'Move-protection', value: 'move' } ) );
+	other.appendChild( createOption( { label: 'Unprotection', value: 'un' } ) );
+	main_choices.appendChild( full );
+	main_choices.appendChild( semi );
+	main_choices.appendChild( other );
+	main_choices.addEventListener( 'change',twinkleprotect.defaultnoinclude , true );
+
+	var choices = document.createElement( 'fieldset' );
+	var choices_legend = document.createElement( 'legend' );
+	choices_legend.appendChild( document.createTextNode( 'Choice type of action' ) );
+	
+
+	choices.appendChild( choices_legend );
+	choices.appendChild( main_choices );
+	choices.appendChild( document.createElement( 'br' ) );
+	choices.appendChild( createInput( {
+		id:'twProtNoinclude',
+		name:'noinclude',
+		type:'checkbox',
+		text:'Wrap template in &lt;noinclude&gt; tags?',
+		checked:(wgNamespaceNumber==10),
+		disabled:!userIsInGroup( 'sysop' )
+	}) );
+	choices.appendChild( document.createElement( 'br' ) );
+		choices.appendChild( createInput( {
+		id:'twProtSmall',
+		name:'small',
+		type:'checkbox',
+		text:'Show template small?',
+		disabled:!userIsInGroup( 'sysop' )
+	}) );
+
+	choices.appendChild( document.createElement( 'br' ) );
+	choices.appendChild( createInput( {
+		id:'twProtCascade',
+		name:'cascade',
+		type:'checkbox',
+		text:'Enable cascade protection'
+	}) );
+
+	var expiry = document.createElement( 'select' );
+	expiry.setAttribute('name', 'expiry');
+	expiry.setAttribute('id', 'twProtExpiry');
+	expiry.appendChild( createOption( { label: '1 hour', value: '1 hour' } ) );
+	expiry.appendChild( createOption( { label: '2 hours', value: '2 hours' } ) );
+	expiry.appendChild( createOption( { label: '3 hours', value: '3 hours' } ) );
+	expiry.appendChild( createOption( { label: '6 hours', value: '6 hours' } ) );
+	expiry.appendChild( createOption( { label: '12 hours', value: '12 hours' } ) );
+	expiry.appendChild( createOption( { label: '1 day', value: '1 day' } ) );
+	expiry.appendChild( createOption( { label: '2 days', value: '2 days' } ) );
+	expiry.appendChild( createOption( { label: '3 days', value: '3 days' } ) );
+	expiry.appendChild( createOption( { label: '4 days', value: '4 days' } ) );
+	expiry.appendChild( createOption( { label: '5 days', value: '5 days' } ) );
+	expiry.appendChild( createOption( { label: '6 days', value: '6 days' } ) );
+	expiry.appendChild( createOption( { label: '1 week', value: '1 week' } ) );
+	expiry.appendChild( createOption( { label: '2 weeks', value: '2 weeks' } ) );
+	expiry.appendChild( createOption( { label: '1 month', value: '1 month' } ) );
+	expiry.appendChild( createOption( { label: '2 months', value: '2 months' } ) );
+	expiry.appendChild( createOption( { label: '3 months', value: '3 months' } ) );
+	expiry.appendChild( createOption( { label: '6 months', value: '6 months' } ) );
+	expiry.appendChild( createOption( { label: '1 year', value: '1 year' } ) );
+	expiry.appendChild( createOption( { label: 'indefinite', selected: true, value:'indefinite' } ) );
+	choices.appendChild( document.createElement( 'br' ) );
+	choices.appendChild( createLabel( { target:'twProtExpiry', label:'Expiry' } ) );
+	choices.appendChild( expiry );
+
+	twinkleprotect.main_choices = main_choices;
+
+	twinkleprotect.form.appendChild( choices );
+	
+	twinkleprotect.form.appendChild( createInput( {
+		id:'twProtReason',
+		value:'',
+		text:'Reason ',
+		type:'text',
+		name:'rppreason',
+		size:80
+	} ) );
+	twinkleprotect.form.appendChild( createInput( {
+		id:'twProtSubmit',
+		value:(userIsInGroup( 'sysop' ) ? 'Protect page' : 'Submit report'),
+		name:'submit',
+		type:'submit'
+	} ) );
+
+
+
+	twinkleprotect.Window.setContent( twinkleprotect.form );
+	twinkleprotect.Window.display();
+}
+
+twinkleprotect.defaultnoinclude = function(e) {
+	if( twinkleprotect.form.main_choices.value == 'un' ) {
+		twinkleprotect.form.noinclude.disabled = true;
+		twinkleprotect.form.cascade.disabled = true;
+		twinkleprotect.form.expiry.disabled = true;
+		twinkleprotect.form.small.disabled = true;
+	} else {
+		twinkleprotect.form.noinclude.disabled = false;
+		twinkleprotect.form.cascade.disabled = false;
+		twinkleprotect.form.expiry.disabled = false;
+		twinkleprotect.form.small.disabled = false;
+	}
+
+	if( twinkleprotect.form.main_choices.value in {'full_template':'','semi_template':''} ) {
+		twinkleprotect.form.noinclude.checked = true;
+		twinkleprotect.form.expiry.disabled = true;
+	} else {
+		twinkleprotect.form.noinclude.checked = false;
+	}
+
+
+}
+twinkleprotect.evaluate = function(e) {
+
+	twinkleprotect.type = twinkleprotect.form.main_choices.value;
+
+	if( twinkleprotect.type == null ) {
+		Status.error( 'no action given' );
+		return;
+	}
+
+	twinkleprotect.noinclude = twinkleprotect.form.noinclude.checked;
+	twinkleprotect.cascade = twinkleprotect.form.cascade.checked;
+	twinkleprotect.small = twinkleprotect.form.small.checked;
+
+	twinkleprotect.reason = twinkleprotect.form.rppreason.value;
+	twinkleprotect.expiry = twinkleprotect.form.expiry.value;
+
+	Status.init( twinkleprotect.form );
+
+	if( userIsInGroup( 'sysop' ) ) {
+		Status.status( 'Grabbing protection page' );
+		protXML = sajax_init_object();
+		protXML.overrideMimeType('text/xml');
+
+		var query = {
+			'title': wgPageName,
+			'action': 'protect'
+		}
+		protXML.open( 'GET' , wgServer + wgScriptPath + '/index.php?' + QueryString.create( query ), true);
+		protXML.onreadystatechange = twinkleprotect.sysopProtect1;
+		protXML.send( null );
+
+
+	} else {	
+		Status.status( 'Grabbing WP:RFPP' );
+
+		editXML = sajax_init_object();
+		editXML.overrideMimeType('text/xml');
+		var query = {
+			'title': 'Wikipedia:Requests for page protection',
+			'action': 'submit'
+		};
+
+		editXML.open( 'GET' , wgServer + wgScriptPath + '/index.php?' + QueryString.create( query ), true);
+
+		editXML.onreadystatechange = twinkleprotect.callback;
+		editXML.send( null );
+	}
+}
+
+twinkleprotect.sysopProtect1 = function() {
+	if ( protXML.readyState != 4 ){
+		Status.progress('.');		
+		return;
+	} 
+
+	if( protXML.status != 200 ){
+		Status.error('Bad status , bailing out');		
+		return;
+	}
+	var doc = protXML.responseXML;
+	var editToken = doc.getElementsByTagName('form')[0].wpEditToken.value;
+
+	Status.status( 'Protecting page' );
+	var edit, move, tag, reason;
+	switch( twinkleprotect.type ) {
+		case 'full_dispute':
+		edit = 'sysop';
+		move = 'sysop';
+		tag = 'pp-dispute';
+		reason = 'Full protection: Dispute';
+		break;
+		case 'full_vandalism':
+		edit = 'sysop';
+		move = 'sysop';
+		tag = 'pp-vandalism';
+		reason = 'Full protection: Vandalism';
+		break;
+		case 'full_template':
+		edit = 'sysop';
+		move = 'sysop';
+		tag = 'pp-template';
+		reason = 'Full protection: High-visible template';
+		break;
+		case 'full_usertalk':
+		edit = 'sysop';
+		move = 'sysop';
+		tag = 'pp-usertalk';
+		reason = 'Full protection: User talk of banned user';
+		break;
+		case 'full_generic':
+		edit = 'sysop';
+		move = 'sysop';
+		tag = 'pp-protected';
+		if( twinkleprotect.reason ) {
+			tag += '|reason=' + twinkleprotect.reason;
+		}
+		reason = 'Full protection';
+		break;
+		case 'semi_vandalism':
+		edit = 'autoconfirmed';
+		move = 'autoconfirmed';
+		tag = 'pp-semi-vandalism';
+		reason = 'Semi-protection: Vandalism';
+		break;
+		case 'semi_usertalk':
+		edit = 'autoconfirmed';
+		move = 'autoconfirmed';
+		tag = 'pp-semi-usertalk';
+		reason = 'Semi-protection: User talk of banned user';
+		break;
+		case 'semi_template':
+		edit = 'autoconfirmed';
+		move = 'autoconfirmed';
+		tag = 'pp-semi-template';
+		reason = 'Semi-protection: High-visible template';
+		break;
+		case 'semi_spambot':
+		edit = 'autoconfirmed';
+		move = 'autoconfirmed';
+		tag = 'pp-semi-spambot';
+		reason = 'Semi-protection: Spambot target';
+		break;
+		case 'semi_generic':
+		edit = 'autoconfirmed';
+		move = 'autoconfirmed';
+		tag = 'pp-semi-protected';
+		if( twinkleprotect.reason ) {
+			tag += '|reason=' + twinkleprotect.reason;
+		}
+		reason = 'Semi-protection';
+		break;
+		case 'move':
+		edit = '';
+		move = 'sysop';
+		tag = 'pp-move';
+		reason = 'Move-protection';
+		break;
+		case 'un':
+		default:
+		edit = '';
+		move = '';
+		reason = 'Unprotection';
+		break;
+	}
+	twinkleprotect.tag = tag;
+	if( twinkleprotect.reason ) {
+		reason += ', ' + twinkleprotect.reason;
+	}
+	reason += '.';
+
+	twinkleprotect.reason = reason;
+	var postData = {
+		'wpEditToken': editToken,
+		'mwProtect-level-edit': edit,
+		'mwProtect-level-move': move,
+		'mwProtect-reason': reason + TwinkleConfig.protectionSummaryAd
+	};
+
+	if( twinkleprotect.expiry != 'indefinite' &amp;&amp; twinkleprotect.type != 'un') {
+		twinkleprotect.tag += '|expiry={{' + 'subst:#time:F j, Y|+' + twinkleprotect.expiry +'}}';
+		postData['mwProtect-expiry'] = twinkleprotect.expiry;
+	}
+
+	if( twinkleprotect.small &amp;&amp; twinkleprotect.type != 'un') {
+		twinkleprotect.tag += '|small=yes';
+
+	}
+
+	if( twinkleprotect.cascade &amp;&amp; twinkleprotect.type != 'un') {
+		postData['mwProtect-cascade'] = true;
+	}
+
+	var query = {
+		'title': wgPageName,
+		'action': 'protect'
+	}
+
+	protXML = sajax_init_object();
+	protXML.overrideMimeType('text/xml');
+	protXML.open( 'POST' , wgServer + wgScriptPath + '/index.php?' + QueryString.create( query ), true);
+	protXML.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	protXML.send( QueryString.create( postData ) );
+	
+	Status.status( 'Adding appropriate template to protected page' );
+
+	query = {
+		'title': wgPageName,
+		'action': 'submit'
+	}
+
+	editXML = sajax_init_object();
+	editXML.overrideMimeType('text/xml');
+	editXML.open( 'GET' , wgServer + wgScriptPath + '/index.php?' + QueryString.create( query ), false);
+	editXML.send( null );
+
+	var doc = editXML.responseXML;
+
+	var form = doc.getElementById( 'editform' );
+
+	form.style.display = 'none';
+
+	var text = form.wpTextbox1.value;
+	var summary = form.wpSummary.value;
+
+	var checkre = /\s*(?:&lt;noinclude&gt;)?\s*\{\{\s*(pp-[^{}]*?|protected|(?:t|v|s|p-|usertalk-v|usertalk-s|sb|move)protected(?:2)?|protected template|privacy protection)\s*?\}\}\s*(?:&lt;\/noinclude&gt;)?\s*/gi;
+
+	text = text.replace( checkre, '' ); // Remove all old templates
+	if( twinkleprotect.type == 'un' ) {
+		summary = 'removing protection template' + TwinkleConfig.summaryAd;
+	} else {
+		if( twinkleprotect.noinclude ) {
+			text = '&lt;noinclude&gt;{{' + twinkleprotect.tag + '}}&lt;/noinclude&gt;' + text;
+		} else {
+			text = '{{' + twinkleprotect.tag + '}}' + &quot;\n&quot; + text;
+		}
+		summary = 'adding {{' + twinkleprotect.tag + '}}' + TwinkleConfig.summaryAd;
+	}
+
+	var postData = {
+		'wpMinoredit': form.wpMinoredit.checked,
+		'wpWatchthis': form.wpWatchthis.checked,
+		'wpStarttime': form.wpStarttime.value,
+		'wpEdittime': form.wpEdittime.value,
+		'wpAutoSummary': form.wpAutoSummary.value,
+		'wpEditToken': form.wpEditToken.value,
+		'wpSummary': summary,
+		'wpTextbox1': text
+	};
+	editXML = sajax_init_object();
+	editXML.overrideMimeType('text/xml');
+	editXML.open( 'POST' , wgServer + wgScriptPath + '/index.php?' + QueryString.create( query ), false);
+	editXML.setRequestHeader('Content-type','application/x-www-form-urlencoded');
+	editXML.send( QueryString.create( postData ) );
+
+	Status.status('Protection and tagging done.');
+
+	window.location = wgServer + wgScriptPath + '/index.php?' + QueryString.create( {'title':wgPageName,'action':'history'} );
+}
+
+twinkleprotect.callback = function() {
+	if ( editXML.readyState != 4 ){
+		Status.progress('.');		
+		return;
+	} 
+
+	if( editXML.status != 200 ){
+		Status.error('Bad status , bailing out');		
+		return;
+	}
+
+	var doc = editXML.responseXML;
+	var form;
+
+	form = doc.getElementById( 'editform' );
+	form.style.display = 'none';
+
+	var textbox = doc.getElementById( 'wpTextbox1' );
+
+	var text = textbox.value;
+
+	Status.status( 'Checking for tags on the page...' );
+
+	var rppRe = new RegExp( '====.*?' + RegExp.escape( wgPageName, true ) + '.*?====', 'm' );
+	var tag = rppRe.exec( text );
+
+	if( tag ) {
+		Status.warn( [ htmlNode( 'strong', tag[0] ) , &quot; is alread placed on the page.&quot; ] )
+		return false;
+	}
+
+	var ns2tag	=	{
+		'0'	:	'la',
+		'1'	:	'lat',
+		'2'	:	'lu',
+		'3'	:	'lut',
+		'4'	:	'lw',
+		'5'	:	'lwt',
+		'6'	:	'li',
+		'7'	:	'lit',
+		'8'	:	'lm',
+		'9'	:	'lmt',
+		'10':	'lt',
+		'11':	'ltt',
+		'12':	'lh',
+		'13':	'lht',
+		'14':	'lc',
+		'15':	'lct',
+		'100':	'lp',
+		'101':	'lpt'
+	};
+
+	var type = twinkleprotect.type;
+	if( type == null ) {
+		Status.error( 'no type specified, aborting,');
+		return;
+	}
+
+	var typename, reason;
+		switch( type ) {
+		case 'full_generic':
+		case 'full_dispute':
+		case 'full_vandalism':
+		case 'full_template':
+		case 'full_usertalk':
+		typename = 'full protection';
+		break;
+		case 'semi_generic':
+		case 'semi_template':
+		case 'semi_vandalism':
+		case 'semi_usertalk':
+		case 'semi_spambot':
+		typename = 'semi-protection';
+		break;
+		case 'move':
+		typename = 'move-protection';
+		break;
+		case 'un':
+		typename = 'unprotection';
+		break;
+		default:
+		return;
+	}
+	switch( type ) {
+		case 'full_dispute':
+		reason = 'Full protection: Dispute';
+		break;
+		case 'full_vandalism':
+		reason = 'Full protection: Vandalism';
+		break;
+		case 'full_template':
+		reason = 'Full protection: High-visible template';
+		break;
+		case 'full_usertalk':
+		reason = 'Full protection: User talk of banned user';
+		break;
+		case 'full_generic':
+		reason = 'Full protection';
+		break;
+		case 'semi_generic':
+		reason = 'Semi-protection';
+		break;
+		case 'semi_vandalism':
+		reason = 'Semi-protection: Vandalism';
+		break;
+		case 'semi_template':
+		reason = 'Semi-protection: High-visible template';
+		break;
+		case 'semi_usertalk':
+		reason = 'Semi-protection: User talk of banned user';
+		break;
+		case 'semi_spambot':
+		reason = 'Semi-protection: Spambot target';
+		break;
+		case 'move':
+		case 'un':
+		default:
+		reason = false;
+		break;
+	}
+
+	var newtag = (
+		'==== {{' +
+		ns2tag[ wgNamespaceNumber ] +
+		'|' +
+		wgTitle +
+		'}} ====' +
+		&quot;\n'''&quot; +
+		typename +
+		&quot;''' &quot; +
+		( twinkleprotect.cascade ? &quot; '''+cascade''', &quot; : '' ) +
+		( twinkleprotect.expiry ? &quot; '''+expiry &quot; + twinkleprotect.expiry + &quot;''', &quot; : '' ) +
+		( reason ? reason + ', ' : '' ) +
+		twinkleprotect.reason + 
+		' ~~' +
+		'~~'
+	);
+
+	Status.info( newtag );
+
+	if( type == 'un' ) {
+		var str = &quot;==Current requests for unprotection==\n{{Wikipedia:Requests for page protection/URheading}}&quot;;
+		textbox.value = textbox.value.replace( str, str + &quot;\n&quot; + newtag + &quot;\n&quot; );
+	} else {
+		var str = &quot;==Current requests for protection==\n{{Wikipedia:Requests for page protection/PRheading}}&quot;;
+		textbox.value = textbox.value.replace( str, str + &quot;\n&quot; + newtag + &quot;\n&quot; );
+	}
+
+
+	Status.status( 'Submitting form...' );
+
+
+	doc.getElementById( 'wpSummary' ).value = &quot;Requesting &quot; + typename + ' of [[' + wgPageName.replace('_', ' ') + ']].' + TwinkleConfig.summaryAd;	
+	doc.getElementById( 'wpMinoredit' ).checked = true;
+
+	document.getElementById('globalWrapper').appendChild( form );
+	form.submit();	
+
+}
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/z/a/User%7EAzaToth_twinkleprotect.js_7f3a.html">http://en.wikipedia.org../../../a/z/a/User%7EAzaToth_twinkleprotect.js_7f3a.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/z/a/User%7EAzaToth_twinkleprotect.js_7f3a.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/z/a/User_talk%7EAzaToth_twinkleprotect.js_d24d.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:AzaToth/twinkleprotect.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 01:57, 30 March 2007 by Wikipedia user <a href="../../../a/z/a/User%7EAzaToth_9bb9.html" title="User:AzaToth">AzaToth</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

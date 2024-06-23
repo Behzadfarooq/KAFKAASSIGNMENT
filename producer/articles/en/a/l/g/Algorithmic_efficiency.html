@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Algorithmic efficiency,Algorithm,Big O notation,C++,Computational complexity theory,Computer science,Embedded system,Macro substitution,Memory Locality,Optimization (computer science),Run-time type information" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Algorithmic efficiency - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Algorithmic efficiency</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a>, <b>efficiency</b> is used to describe several desirable properties of an <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a> or other construct, besides clean design, functionality, etc. Efficiency is generally contained in two properties: speed (the time it takes for an operation to complete), and space (the memory or non-volatile storage used up by the construct). <a href="../../../o/p/t/Optimization_%28computer_science%29.html" title="Optimization (computer science)">Optimization</a> is the process of making code as efficient as possible, sometimes focusing on space at the cost of speed, or vice versa.</p>
+<p>The speed of an algorithm is measured in various ways. The most common method uses <a href="../../../t/i/m/Time_complexity.html" title="Time complexity">time complexity</a> to determine the <a href="../../../b/i/g/Big_O_notation_de3e.html" title="Big O notation">Big-O</a> of an algorithm: often, it is possible to make an algorithm faster at the expense of space. This is the case whenever you cache the result of an expensive calculation rather than recalculating it on demand. This is a very common method of improving speed, so much so that languages often add special features to support it, such as <a href="../../../c/%2B/%2B/C%2B%2B.html" title="C++">C++</a>'s mutable keyword.</p>
+<p>The space of an algorithm is actually two separate but related things. The first part is the space taken up by the compiled executable on disk (or equivalent, depending on the hardware and language) by the algorithm. This can often be reduced by preferring run-time decision making mechanisms (such as <a href="../../../v/i/r/Virtual_function.html" title="Virtual function">virtual functions</a> and <a href="../../../r/u/n/Run-time_type_information.html" title="Run-time type information">run-time type information</a>) over certain compile-time decision making mechanisms (such as <a href="../../../m/a/c/Macro_substitution.html" title="Macro substitution">macro substitution</a> and <a href="../../../t/e/m/Template_%28programming%29.html" title="Template (programming)">templates</a>). This, however, comes at the cost of speed.</p>
+<p>The other part of algorithm space measurement is the amount of temporary memory taken up during processing. For example, pre-caching results, as mentioned earlier, improves speed at the cost of this attribute.</p>
+<p>Optimization of algorithms frequently depends on the properties of the machine the algorithm will be executed on. For example, one might optimize code for time efficiency in applications for home computers with sizable amounts of memory, while code to be placed in small, memory-tight devices may have to be made to run slower to conserve space.</p>
+<p>One simple way to determine whether an optimization is worthwhile is as follows: Let the original time and space requirements (generally in Big-O notation) of the algorithm be <span class="texhtml"><i>O</i><sub>1</sub></span> and <span class="texhtml"><i>O</i><sub>2</sub></span>. Let the new code require <span class="texhtml"><i>N</i><sub>1</sub></span> and <span class="texhtml"><i>N</i><sub>2</sub></span> time and space respectively. If <span class="texhtml"><i>N</i><sub>1</sub><i>N</i><sub>2</sub> &lt; <i>O</i><sub>1</sub><i>O</i><sub>2</sub></span>, the optimization should be carried out. However, as mentioned above, this may not always be true.</p>
+<p>One must be careful, in the pursuit of good coding style, not to over-emphasize efficiency. Nearly all of the time, a clean and usable design is much more important than a fast, small design. There are exceptions to this rule (such as <a href="../../../e/m/b/Embedded_system.html" title="Embedded system">embedded systems</a>, where space is tight, and processing power minimal) but these are rarer than one might expect.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algorithmic_efficiency.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../m/e/m/Memory_Locality_f65b.html" title="Memory Locality">Memory Locality</a></li>
+<li><a href="../../../c/o/m/Computational_complexity_theory.html" title="Computational complexity theory">Computational complexity theory</a></li>
+</ul>
+<div class="boilerplate metadata" id="stub"><a href="../../../l/a/m/Image%7ELampFlowchart.svg_c131.html" class="image" title="Comp Sci logo"><img src="../../../upload/shared/thumb/9/91/LampFlowchart.svg/20px-LampFlowchart.svg.png" alt="Comp Sci logo" width="20" height="27" longdesc="../../../l/a/m/Image%7ELampFlowchart.svg_c131.html" /></a>&#160;<i>This <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a>-related article is a <a href="../../../p/e/r/Wikipedia%7EPerfect_stub_article_2d8f.html" title="Wikipedia:Perfect stub article">stub</a>. You can <a href="../../../f/i/n/Wikipedia%7EFind_or_fix_a_stub_e7c5.html" title="Wikipedia:Find or fix a stub">help</a> Wikipedia by <a href="http://en.wikipedia.org../../../a/l/g/Algorithmic_efficiency.html" class="external text" title="http://en.wikipedia.org../../../a/l/g/Algorithmic_efficiency.html" rel="nofollow">expanding it</a></i>.</div>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/g/Algorithmic_efficiency.html">http://en.wikipedia.org../../../a/l/g/Algorithmic_efficiency.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_science_stubs_2f32.html" title="Category:Computer science stubs">Computer science stubs</a></span> | <span dir='ltr'><a href="../../../a/l/g/Category%7EAlgorithms_e36c.html" title="Category:Algorithms">Algorithms</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/l/g/Algorithmic_efficiency.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/l/g/Talk%7EAlgorithmic_efficiency_f69f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Algorithmic_efficiency">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../he/%D7%99/%D7%A2/%D7%99/%D7%99%D7%A2%D7%99%D7%9C%D7%95%D7%AA_%D7%90%D7%9C%D7%92%D7%95%D7%A8%D7%99%D7%AA%D7%9E%D7%99%D7%AA.html">עברית</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 05:39, 25 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../o/v/e/User%7EOverlordQ_bd3a.html" title="User:OverlordQ">OverlordQ</a>, <a href="../../../q/w/e/User%7EQwe_0ec5.html" title="User:Qwe">Qwe</a>, <a href="../../../a/m/b/User%7EAmbuj.Saxena_7172.html" title="User:Ambuj.Saxena">Ambuj.Saxena</a>, <a href="../../../j/a/f/User%7EJafet.vixle_0c16.html" title="User:Jafet.vixle">Jafet.vixle</a>, <a href="../../../t/r/i/User%7ETribaal_4859.html" title="User:Tribaal">Tribaal</a>, <a href="../../../b/l/u/User%7EBluemoose_d309.html" title="User:Bluemoose">Bluemoose</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../d/a/v/User%7EDavid_Shay_18ff.html" title="User:David Shay">David Shay</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../d/a/v/User%7EDavid_Levy_9c9c.html" title="User:David Levy">David Levy</a>, <a href="../../../f/u/b/User%7EFubar_Obfusco_9a7a.html" title="User:Fubar Obfusco">Fubar Obfusco</a>, <a href="../../../s/a/u/User%7ESaucepan_785f.html" title="User:Saucepan">Saucepan</a>, <a href="../../../g/t/r/User%7EGtrmp_2ffc.html" title="User:Gtrmp">Gtrmp</a>, <a href="../../../t/b/_/User%7ETb_b6f8.html" title="User:Tb">Tb</a> and <a href="../../../d/e/r/User%7EDerek_Ross_f2d2.html" title="User:Derek Ross">Derek Ross</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

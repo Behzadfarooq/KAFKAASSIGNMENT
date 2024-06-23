@@ -1,0 +1,189 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:A1kmm/WikiFox,Firefox,Free Software,IRC,WP:AWB,WP:B,WP:NOT,Administrator intervention against vandalism" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:A1kmm/WikiFox - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:A1kmm/WikiFox</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/1/k/User%7EA1kmm_995f.html" title="User:A1kmm">User:A1kmm</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>WikiFox</b> is a Firefox 1.5 extension designed to simplify repetitive Wikipedia tasks (in particular, dealing with bad edits, such as newbie or vandal edits). WikiFox is not intended to be a <a href="../../../b/_/_/WP%7EB_5622.html" title="WP:B">bot</a>, because it will not operate without continuous human input (that is, WikiFox does not automatically make editing decisions, but instead asks the user to make those decisions. However, because WikiFox can perform a small number of edits in response to a single human mouse click, it means the human operator can spend more time making decisions, and less time performing repetitive tasks or waiting for pages to load).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#What_WikiFox_does"><span class="tocnumber">1</span> <span class="toctext">What WikiFox does</span></a></li>
+<li class="toclevel-1"><a href="#Technology_used"><span class="tocnumber">2</span> <span class="toctext">Technology used</span></a></li>
+<li class="toclevel-1"><a href="#Availability"><span class="tocnumber">3</span> <span class="toctext">Availability</span></a></li>
+<li class="toclevel-1"><a href="#A_note_on_forced_registration"><span class="tocnumber">4</span> <span class="toctext">A note on forced registration</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="What_WikiFox_does" id="What_WikiFox_does"></a></p>
+<h3><span class="editsection">[<a href="../../../a/1/k/User%7EA1kmm_WikiFox_cfdb.html" title="Edit section: What WikiFox does">edit</a>]</span> <span class="mw-headline">What WikiFox does</span></h3>
+<ul>
+<li>WikiFox has a built in <a href="../../../i/r/c/IRC_b274.html" title="IRC">IRC</a> client. This IRC client connects to a configurable IRC server (usually irc.wikimedia.org:6667), and joins a configurable channel (such as #en.wikipedia). WikiMedia runs a service which sends messages to these channels for every edit to Wikipedia.</li>
+<li>WikiFox parses these messages, and keeps information about the most recent 50 edits (the number 50 is the default, but configurable) in a pool in memory.</li>
+<li>The WikiFox UI uses a tabbed design. Whenever there are less than 5 (again, this is configurable) open tabs, a new tab is open, based on a randomly chosen edit from the RC pool. Once selected for a tab, the RC is removed from the RC pool.</li>
+<li>Each tab in WikiFox has a number of buttons, and two mini-browser areas (similar to IFRAMEs in HTML). The left browser area shows the change diff (as a normal MediaWiki diff page) and the right area shows the history for the same article.</li>
+<li>If the edit appears good, the user can click on the Accept button, causing the tab to close an a new tab to open to replace it.</li>
+<li>If the edit is bad, the user can click on the bad edit button. Clicking this button will ask why the edit is bad, showing the editing user's talk page in the dialog). The user can choose to revert without annotating the user's talk page, or revert and add one of a selected template, such as Template:Test1 and friends. The user can also automatically post a notice about the user on <a href="../../../a/d/m/Wikipedia%7EAdministrator_intervention_against_vandalism_ffcc.html" title="Wikipedia:Administrator intervention against vandalism">Wikipedia:Administrator_intervention_against_vandalism</a> .</li>
+</ul>
+<p><a name="Technology_used" id="Technology_used"></a></p>
+<h3><span class="editsection">[<a href="../../../a/1/k/User%7EA1kmm_WikiFox_cfdb.html" title="Edit section: Technology used">edit</a>]</span> <span class="mw-headline">Technology used</span></h3>
+<ul>
+<li>WikiFox is a <a href="../../../f/i/r/Firefox.html" title="Firefox">Firefox</a> extension. It will work with Firefox 1.5 and Firefox 1.5.0.* initially.</li>
+<li>It is written entirely using XUL and Javascript. It has no platform specific parts, so should run on any platform that Firefox 1.5 can run on.</li>
+</ul>
+<p><a name="Availability" id="Availability"></a></p>
+<h3><span class="editsection">[<a href="../../../a/1/k/User%7EA1kmm_WikiFox_cfdb.html" title="Edit section: Availability">edit</a>]</span> <span class="mw-headline">Availability</span></h3>
+<p>WikiFox is currently under development in a private source repository. However, the author intends to release it in the near future, under the following license...</p>
+<pre>
+THIS SOFTWARE IS SUBJECT TO THE DISCLAIMERS CONTAINED IN ALL LICENSES LISTED
+BELOW, SOME OF WHICH DISCLAIM ALL WARRANTIES.
+
+You may use this software only under one or more of the following licenses:
+  1) The GNU General Public License, version 2 (or at your option, any later
+     version, provided those later versions are in the same spirit as version 2
+     ), or,
+  2) The GNU Lesser General Public License, version 2.1 (or at your option, any
+     later version, provided those later versions are in the same spirit as
+     version 2.1), or,
+  3) The Mozilla Public License, version 1.1 (or at your option, any later
+     versionm provided those later versions are in the same spirit as version
+     1.1), or,
+  4) The WikiFox BSD-style license (as included in this file)
+
+Note:
+* This software may require components which impose further copyright
+  restrictions.
+* If you send me any patch or other contribution to this package, you agree
+  to license the contribution under all four licenses. If you do not agree to
+  this, place a prominent notice together with the patch. If you do this, I
+  will probably not accept your contribution in order to guarantee this license
+  for users.
+* If you want to make WikiFox work with another software package under a
+  license which is incompatible with all of the above, you can e-mail me and
+  I might make a special exception or add a new license to the above list.
+* The author, Andrew Miller, can be contacted at wikifox.57394@amxl.com. The
+  author is user A1kmm on Wikipedia and FreeNode.
+
+( The text of all the licenses follow in the COPYING file )
+</pre>
+<p>When WikiFox is released, it will be available both as a source code tarball, and as an XPI (which actually contains nearly all the source code, but can be installed directly into your Firefox 1.5 browser).</p>
+<p><a name="A_note_on_forced_registration" id="A_note_on_forced_registration"></a></p>
+<h3><span class="editsection">[<a href="../../../a/1/k/User%7EA1kmm_WikiFox_cfdb.html" title="Edit section: A note on forced registration">edit</a>]</span> <span class="mw-headline">A note on forced registration</span></h3>
+<ul>
+<li>Some other software, like AWB, has taken the approach of forcing users to register (see <a href="../../../a/w/b/WP%7EAWB_c695.html#.281.29_Register" title="WP:AWB">WP:AWB#.281.29_Register</a>) in order to use the software.</li>
+<li>The proponents of this approach claim that it helps to prevent vandalism of Wikipedia.</li>
+<li>I don't believe that forced registration is a good idea for several reasons:
+<ul>
+<li>It is against a fundamental principle of computer security, namely that security measures should be verified using resources trusted by those potentially affected by any exposure. However, the security in the AWB approach is verified by the user's own client. A user wanting to use the software for malicious purposes could do simply modify the client to not perform the check. Even if they couldn't do that, they could write their own software even better suited to the purpose without too much effort.</li>
+<li>It is un-wiki. The principle which makes Wikipedia and other wikis so successful is that anyone can come in and start helping. Having to get approval first reminds me of <a href="http://meta.wikimedia.org/wiki/Friends_of_gays_should_not_be_allowed_to_edit_articles" class="extiw" title="meta:Friends_of_gays_should_not_be_allowed_to_edit_articles">this parody</a>. Users wanting to help fight vandalism who already use Firefox should be able to download and install Wikifox into their browser, restart, and fight vandalism straight away, probably within a minute of deciding to do so, and that is a good thing for Wikipedia. Most people are well intentioned, so this should more than compensate for any vandals who may benefit from the software.</li>
+<li>Approval mechanisms are Wikipedia specific, but the software should be usable with other MediaWiki powered wikis.</li>
+<li>Approval mechanisms concentrate authority. While Wikipedia is <a href="../../../n/o/t/WP%7ENOT_5cb5.html" title="WP:NOT">not</a> a democracy, it is not a dictatorship either, and to build a good encyclopaedia, it needs to be built around community consensus, not authority and potential POV-pushers.</li>
+<li>Approval mechanisms go against the spirit of <a href="../../../f/r/e/Free_Software_17ea.html" title="Free Software">Free Software</a>, and the author does not, as a matter of principle, believe that this project should be anything other than Free (as in freedom) software.</li>
+</ul>
+</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/1/k/User%7EA1kmm_WikiFox_cfdb.html">http://en.wikipedia.org../../../a/1/k/User%7EA1kmm_WikiFox_cfdb.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/1/k/User%7EA1kmm_WikiFox_cfdb.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/1/k/User_talk%7EA1kmm_WikiFox_b75b.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:A1kmm/WikiFox">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 01:45, 30 April 2006 by Wikipedia user <a href="../../../a/1/k/User%7EA1kmm_995f.html" title="User:A1kmm">A1kmm</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

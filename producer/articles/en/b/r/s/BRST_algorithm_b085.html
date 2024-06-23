@@ -1,0 +1,138 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="BRST algorithm,Digital object identifier,Global optimum,MCS algorithm,GLOBAL,Clustering method" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>BRST algorithm - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">BRST algorithm</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Boender-Rinnooy-Stougie-Timmer</b> algorithm (BRST) is an optimization algorithm suitable for finding <a href="../../../g/l/o/Global_optimum.html" title="Global optimum">global optimum</a> of black box functions. In their paper Boender <i>et al</i> <sup id="_ref-boender_0" class="reference"><a href="#_note-boender" title="">[1]</a></sup> describe their method as a stochastic method involving a combination of sampling, clustering and local search, terminating with a range of confidence intervals on the value of the global minimum.</p>
+<p>The algorithm of Boender <i>et al</i> has been modified by Timmer <sup id="_ref-timmer_0" class="reference"><a href="#_note-timmer" title="">[2]</a></sup>. Timmer considered several clustering methods. Based on experiments a method named "multi level single linkage" was deemed most accurate.</p>
+<p>Csendes' algorithms <sup id="_ref-csendes_0" class="reference"><a href="#_note-csendes" title="">[3]</a></sup> are implementations of the algorithm of [Boender <i>et al</i>]<sup id="_ref-boender_1" class="reference"><a href="#_note-boender" title="">[1]</a></sup> and originated the public-domain software product GLOBAL. The local algorithms used are a random direction, linear search algorithm also used by Törn, and a quasi--Newton algorithm not using the derivative of the function. The results show the dependence of the result on the auxiliary local algorithm used.</p>
+<p><a name="Background" id="Background"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/s/BRST_algorithm_b085.html" title="Edit section: Background">edit</a>]</span> <span class="mw-headline">Background</span></h2>
+<p>Extending the class of functions to include multimodal functions makes the global optimization problem unsolvable in general. In order to be solvable some smoothness condition on the function in addition to continuity must be known.</p>
+<p>The existence of several local minima and unsolvability in general are important characteristics of global optimization. Unsolvability here means that a solution cannot be guaranteed in a finite number of steps. There are two ways to deal with the unsolvability problem. First, "a priori" conditions on f and A are posed which turns the problem into a solvable one or at least makes it possible to tell for sure that a solution has been found. This restricts the function class that is considered. The second approach which allows a larger class of objective functions to be considered is to give up the solvability requirement and only try to obtain an estimate of the global minimum. In this "probabilistic" approach it would be desirable also to obtain some results on the goodness of an obtained estimate. Some of the solvable problems may fall in this class because the number of steps required for a guaranteed solution might be prohibitively large.</p>
+<p>When relaxing the requirement on solvability it seems rational to require that the probability that a solution is obtained approaches 1 if the procedure is allowed to continue forever. An obvious probabilistic global search procedure is to use a local algorithm starting from several points distributed over the whole optimization region. This procedure is named "Multistart". Multistart is certainly one of the earliest global procedures used. It has even been used in local optimization for increasing the confidence in the obtained solution. One drawback of Multistart is that when many starting points are used the same minimum will eventually be determined several times. In order to improve the efficiency of Multistart this should be avoided.</p>
+<p>Clustering methods are used to avoid this repeated determination of local minima. This is realized in three steps which may be iteratively used. The three steps are:</p>
+<ul>
+<li>(a) Sample points in the region of interest.</li>
+<li>(b) Transform the sample to obtain points grouped around the local minima.</li>
+<li>(c) Use a clustering technique to recognize these groups (i.e. neighbourhoods of the local minima).</li>
+</ul>
+<p>If the procedure employing these steps is successful then starting a single local optimization from each cluster would determine the local minima and thus also the global minimum. The advantage in using this approach is that the work spared by computing each minimum just once can be spent on computations in (a) and (b), which will increase the probability that the global minimum will be found.</p>
+<p>Being a clustering method, their effectiveness is higher for low dimensional problems and become less effective for problems having a few hundred variables.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/s/BRST_algorithm_b085.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-boender">^ <a href="#_ref-boender_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-boender_1" title=""><sup><i><b>b</b></i></sup></a> <cite style="font-style:normal">Boender, C.G.E., A.H.G. Rinnooy Kan, L. Strougie and G.T. Timmer (1982). "A stochastic method for global optimization". <i>Mathematical Programming</i> <b>22</b>: 125–140. <a href="../../../d/i/g/Digital_object_identifier.html" title="Digital object identifier">DOI</a>:<a href="http://dx.doi.org/10.1007/BF01581033" class="external text" title="http://dx.doi.org/10.1007/BF01581033" rel="nofollow">10.1007/BF01581033</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.atitle=A+stochastic+method+for+global+optimization&amp;rft.title=Mathematical+Programming&amp;rft.jtitle=Mathematical+Programming&amp;rft.date=1982&amp;rft.volume=22&amp;rft.au=Boender%2C+C.G.E.%2C+A.H.G.+Rinnooy+Kan%2C+L.+Strougie+and+G.T.+Timmer&amp;rft.pages=125%E2%80%93140">&#160;</span></li>
+<li id="_note-timmer"><b><a href="#_ref-timmer_0" title="">^</a></b>  (1984). "<i>Global optimization: A stochastic approach</i>" (Ph.D. Thesis). Erasmus University Rotterdam.</li>
+<li id="_note-csendes"><b><a href="#_ref-csendes_0" title="">^</a></b> <cite style="font-style:normal">Csendes, T. (1988). "Nonlinear parameter estimation by global optimization—Efficiency and reliability". <i>Acta Cybernetica</i> <b>8</b>: 361–370.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.atitle=Nonlinear+parameter+estimation+by+global+optimization%E2%80%94Efficiency+and+reliability&amp;rft.title=Acta+Cybernetica&amp;rft.jtitle=Acta+Cybernetica&amp;rft.date=1988&amp;rft.volume=8&amp;rft.aulast=Csendes&amp;rft.aufirst=T.&amp;rft.pages=361%E2%80%93370">&#160;</span></li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/s/BRST_algorithm_b085.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.abo.fi/~atorn/Globopt.html" class="external free" title="http://www.abo.fi/~atorn/Globopt.html" rel="nofollow">http://www.abo.fi/~atorn/Globopt.html</a> With the author's permission, text has been verbatim copied.</li>
+<li><a href="http://www.mat.univie.ac.at/~vpk/math/gopt_eng.html" class="external text" title="http://www.mat.univie.ac.at/~vpk/math/gopt_eng.html" rel="nofollow">Janka</a> Compares various global optimization algorithms, of which BRST shows superior performance.</li>
+<li><a href="http://www.mat.univie.ac.at/~vpk/math/dix_sze_eng.html" class="external text" title="http://www.mat.univie.ac.at/~vpk/math/dix_sze_eng.html" rel="nofollow">Janka</a> Presents the number of function-evaluations performed on the testset of Dixon-Szegö. Along with the <a href="../../../m/c/s/MCS_algorithm_8f51.html" title="MCS algorithm">MCS algorithm</a>, the BRST requires the lowest number of evaluations.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 10243 bytes
+Post-expand include size: 3782 bytes
+Template argument size: 2849 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/s/BRST_algorithm_b085.html">http://en.wikipedia.org../../../b/r/s/BRST_algorithm_b085.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../o/p/t/Category%7EOptimization_algorithms_d61b.html" title="Category:Optimization algorithms">Optimization algorithms</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/s/BRST_algorithm_b085.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/r/s/Talk%7EBRST_algorithm_e1a7.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/BRST_algorithm">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 12:54, 23 October 2006 by Wikipedia user <a href="../../../p/h/i/User%7EPhil_Boswell_c574.html" title="User:Phil Boswell">Phil Boswell</a>. Based on work by Wikipedia user(s) <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a> and <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

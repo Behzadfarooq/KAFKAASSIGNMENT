@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Ariadne's thread (logic),Algorithm,Ariadne,Backtracking,Breadth-first search,Chess,Computer chess,Deductive reasoning,Ethical dilemma,Heuristic,Labyrinth" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Ariadne's thread (logic) - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Ariadne's thread (logic)</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>Ariadne's thread</b>, named for the legend of <a href="../../../a/r/i/Ariadne.html" title="Ariadne">Ariadne</a>, is the term used to describe the solving of a problem with multiple apparent means of proceeding - such as a physical <a href="../../../m/a/z/Maze.html" title="Maze">maze</a>, a <a href="../../../l/o/g/Logic_puzzle.html" title="Logic puzzle">logic puzzle</a>, or an <a href="../../../e/t/h/Ethical_dilemma.html" title="Ethical dilemma">ethical dilemma</a> - through an exhaustive application of logic to all available routes. It is the particular method used that is able to follow completely through to trace steps or take point by point a series of found truths in a contingent, ordered search that reaches a desired end position. This process can take the form of a mental record, a physical marking, or even a philosophical debate; it is the process itself that assumes the name.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Implementation"><span class="tocnumber">1</span> <span class="toctext">Implementation</span></a></li>
+<li class="toclevel-1"><a href="#Distinction_from_trial_and_error"><span class="tocnumber">2</span> <span class="toctext">Distinction from trial and error</span></a></li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">3</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Implementation" id="Implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Ariadne%27s_thread_%28logic%29.html" title="Edit section: Implementation">edit</a>]</span> <span class="mw-headline">Implementation</span></h2>
+<p>The key element to applying Ariadne's thread to a problem is the creation and maintenance of a record - physical or otherwise - of the problem's available and exhausted options at all times. This record is referred to as the "thread", regardless of its actual medium. The purpose the record serves is to permit <a href="../../../b/a/c/Backtracking.html" title="Backtracking">backtracking</a> - that is, reversing earlier decisions and trying alternatives. Given the record, applying the <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a> is straightforward:</p>
+<ul>
+<li>At any moment that there is a choice to be made, make one arbitrarily from those not marked as failures, and follow it logically as far as possible.</li>
+<li>If a contradiction results, back up to the last decision made, mark it as a failure, and try another decision at the same point. If no other options exist there, back up to the last place in the record that does, mark the failure at that level, and proceed onward.</li>
+</ul>
+<p>This algorithm will terminate upon either finding a solution or marking all initial choices as failures; in the latter case, there is no solution. If a solution is arrived at, yet thorough examination is desired, one can revert to the previous decision, mark the success, and continue on as if a solution were never found; the algorithm will exhaust all decisions and find all solutions.</p>
+<p><a name="Distinction_from_trial_and_error" id="Distinction_from_trial_and_error"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Ariadne%27s_thread_%28logic%29.html" title="Edit section: Distinction from trial and error">edit</a>]</span> <span class="mw-headline">Distinction from trial and error</span></h2>
+<p>The terms "Ariadne's thread" and "<a href="../../../t/r/i/Trial_and_error.html" title="Trial and error">trial and error</a>" are often used interchangeably, which is not necessarily correct. They have two distinctive differences:</p>
+<ul>
+<li>The term "trial and error" implies that each "trial" yields some particular value to be studied and improved upon, removing "errors" from each iteration to enhance the quality of future trials. Ariadne's thread has no such mechanic, making all decisions arbitrarily. For example, the <a href="../../../s/c/i/Scientific_method.html" title="Scientific method">scientific method</a> is trial and error; puzzle-solving is Ariadne's thread.</li>
+</ul>
+<ul>
+<li>Trial-and-error approaches are rarely concerned with how <i>many</i> solutions may exist to a problem, and indeed often assume only one correct solution exists (as in a scientific formula). Ariadne's thread makes no such assumption, and is capable of locating all possible solutions to a purely logical problem.</li>
+</ul>
+<p>In short, trial and error <i>approaches</i> a desired solution; Ariadne's thread blindly exhausts the search space completely, finding any and all solutions. Each has their appropriate distinct uses. They can be employed in tandem - for example, although the editing of a Wikipedia article is arguably a trial-and-error process (given how in theory it approaches an ideal state), article histories provide the record for which Ariadne's thread may be applied, reverting detrimental edits and restoring the article back to the most recent error-free version, from which other options may be attempted.</p>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Ariadne%27s_thread_%28logic%29.html" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p>Obviously, Ariadne's thread may be applied to the solving of mazes in the same manner as the legend; an actual thread can be used as the record, or chalk or a similar marker can be applied to label passages. If the maze is on paper, the thread may well be a pencil.</p>
+<p>Logic problems of all natures may be resolved via Ariadne's thread, the maze being but an example. Presently, it is most prominently applied to <i><a href="../../../s/u/d/Sudoku.html" title="Sudoku">Sudoku</a></i> puzzles, used to attempt values for as-yet-unsolved cells. The medium of the thread for puzzle-solving can vary widely, from a pencil to numbered chits to a computer program, but all accomplish the same task. Note that as the compilation of Ariadne's thread is an inductive process, and due to its exhaustiveness leaves no room for actual study, it is largely frowned upon as a solving method, to be employed only as a last resort when deductive methods fail.</p>
+<p>Artificial intelligence is heavily dependent upon Ariadne's thread when it comes to game-playing, most notably in programs which play <a href="../../../c/h/e/Chess.html" title="Chess">chess</a>; the possible moves are the decisions, game-winning states the solutions, and game-losing states failures. Due to the massive depth of many games, most algorithms cannot afford to apply Ariadne's thread <i>entirely</i> on every move due to time constraints, and therefore work in tandem with a <a href="../../../h/e/u/Heuristic.html" title="Heuristic">heuristic</a> that evaluates game states and limits a <a href="../../../b/r/e/Breadth-first_search.html" title="Breadth-first search">breadth-first search</a> only to those that are most likely to be beneficial, a trial-and-error process.</p>
+<p>Even circumstances where the concept of "solution" is not so well defined have had Ariadne's thread applied to them, such as navigating the <a href="../../../w/o/r/World_Wide_Web_2386.html" title="World Wide Web">World Wide Web</a>, making sense of patent law, and in philosophy; "Ariadne's Thread" is a popular name for websites of many purposes, but primarily for those that feature philosophical or ethical debate.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Ariadne%27s_thread_%28logic%29.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../l/a/b/Labyrinth.html" title="Labyrinth">Labyrinth</a></li>
+<li><a href="../../../a/r/i/Ariadne.html" title="Ariadne">Ariadne</a></li>
+<li><a href="../../../b/a/c/Backtracking.html" title="Backtracking">Backtracking</a></li>
+<li><a href="../../../d/e/d/Deductive_reasoning.html" title="Deductive reasoning">Deductive reasoning</a></li>
+<li><a href="../../../c/o/m/Computer_chess.html" title="Computer chess">Computer chess</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/i/Ariadne%27s_thread_%28logic%29.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="http://www.sudoku.org.uk/PDF/Solving_Sudoku.pdf" class="external text" title="http://www.sudoku.org.uk/PDF/Solving_Sudoku.pdf" rel="nofollow">Solving Sudoku</a> Step-by-step guide by Michael Mepham; includes history of Ariadne's thread and demonstration of application</li>
+<li><a href="http://www.pdcnet.org/pdf/battistini.pdf" class="external text" title="http://www.pdcnet.org/pdf/battistini.pdf" rel="nofollow">Ariadne and the Minotaur: The Cultural Role of a Philosophy of Rhetoric</a> Article by Andrea Battistini detailing Ariadne's thread as a philosophical metaphor</li>
+<li><a href="http://www.lavigne.dk/labyrinth/e1a_phil.htm" class="external text" title="http://www.lavigne.dk/labyrinth/e1a_phil.htm" rel="nofollow">Philosophy in Labyrinths</a> A study of the logic behind and meaning of labyrinths; includes rather literal interpretations of Ariadne's thread.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/i/Ariadne%27s_thread_%28logic%29.html">http://en.wikipedia.org../../../a/r/i/Ariadne%27s_thread_%28logic%29.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../l/o/g/Category%7ELogic_19a9.html" title="Category:Logic">Logic</a></span> | <span dir='ltr'><a href="../../../o/p/e/Category%7EOperations_research_7309.html" title="Category:Operations research">Operations research</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/r/i/Ariadne%27s_thread_%28logic%29.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/r/i/Talk%7EAriadne%27s_thread_%28logic%29_bb4c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Ariadne%27s_thread_%28logic%29">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 12:34, 24 December 2006 by Wikipedia user <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a>. Based on work by Wikipedia user(s) <a href="../../../d/u/j/User%7EDuja_17a6.html" title="User:Duja">Duja</a>, <a href="../../../g/l/e/User%7EGlengordon01_3627.html" title="User:Glengordon01">Glengordon01</a>, <a href="../../../i/x/f/User%7EIxfd64_14d3.html" title="User:Ixfd64">Ixfd64</a>, <a href="../../../p/m/a/User%7EPmanderson_cb9f.html" title="User:Pmanderson">Pmanderson</a>, <a href="../../../z/o/t/User%7EZotmeister_0d99.html" title="User:Zotmeister">Zotmeister</a>, <a href="../../../j/u/d/User%7EJudgesurreal777_ae43.html" title="User:Judgesurreal777">Judgesurreal777</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../k/i/n/User%7EKing_of_Hearts_dcbc.html" title="User:King of Hearts">King of Hearts</a> and <a href="../../../n/a/g/User%7ENagelfar_fb83.html" title="User:Nagelfar">Nagelfar</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

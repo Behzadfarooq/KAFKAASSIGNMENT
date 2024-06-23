@@ -1,0 +1,366 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Burrows-Wheeler transform,Ambulnick,Antaeus Feldspar,AxelBoldt,Brion VIBBER,Cbogart2,Dcoetzee,Haeleth,LC,Mormegil,P3d0" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Burrows-Wheeler transform - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Burrows-Wheeler transform</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>The text says that EOF is ignored when sorting, but the example seems to suggest that EOF is considered to come after all normal letters. <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> 14:14 Aug 26, 2002 (PDT)</p>
+<p>The dot wasn't an EOF. It was just a dot that was there to make the rotations stand out visually. Hopefully it's clearer now. --<a href="../../../l/c/_/User%7ELC_0e98.html" title="User:LC">LC</a> 08:06 Aug 27, 2002 (PDT)</p>
+<p>Obviously sufficiently many repeats of the transform must eventually restore the original text, and obviously that provides another (usually inefficient?) way of inverting a transform (just store the inputs temporarily, and give back the last input before the text to be inverted turns up again). But one interesting thing is this: since the original is itself the result of a transform on some text, clearly the transform does not necessarily always produce something better suited for compression. It must be something that is statistically likely, based on properties that are common in many inputs. What are these, and what are the odds that a transform won't actually help and might even hurt? If we do get one of these cases, how can we tell (cheaply)? And so on. PML.</p>
+<p>How can repeating the transform restore the original text? The transform is a not a bijection between strings of length n. It is a one-to-one function from strings of length n into the set of ordered pairs of a string of length n and an integer less than n. Thus, different inputs can produce the same output string with a different index. For example .BANANA. and ANA..BAN produce the same output string.</p>
+<hr />
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Bad_example"><span class="tocnumber">1</span> <span class="toctext">Bad example</span></a></li>
+<li class="toclevel-1"><a href="#C_implementation"><span class="tocnumber">2</span> <span class="toctext">C implementation</span></a></li>
+<li class="toclevel-1"><a href="#Collation_issues"><span class="tocnumber">3</span> <span class="toctext">Collation issues</span></a></li>
+<li class="toclevel-1"><a href="#Mistake_in_example.3F"><span class="tocnumber">4</span> <span class="toctext">Mistake in example?</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Bad_example" id="Bad_example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/r/Talk%7EBurrows-Wheeler_transform_76ed.html" title="Edit section: Bad example">edit</a>]</span> <span class="mw-headline">Bad example</span></h2>
+<p>This article gives a <i>really</i> bad example for this algorithm. Take the text:</p>
+<pre>
+SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES
+</pre>
+<p>and replace all repeated substrings (as deflate would detect them) with a special control character which I'll represent as <code>_</code>:</p>
+<pre>
+SIX.M_ED.P_IES._FT_XTY_.DUS_BOX_
+</pre>
+<p>Now take the transformed text:</p>
+<pre>
+TEXYDST.E.XIIXIXXSMPPSS.B...S.EEUSFXDIOIIIIT
+</pre>
+<p>and do the same:</p>
+<pre>
+TEXYDST.E.XII_XXSMPPSS.B.__EEUSFXDIOI_T
+</pre>
+<p>Clearly, the original string compresses better. And indeed gzip and bzip2 confirm this: gzip compresses the above to 67 bytes, bzip2 to 69 bytes. (Both can hardly be called compression: the original was only 44 bytes ...) — <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a> 14:14, 9 Nov 2004 (UTC)</p>
+<p>That is unfortunately the curse of writing about data compression: in a substantial number of cases, it can be almost impossible to find an example small enough to be practical, and clear enough to show the principle involved, but large enough so that the savings achieved with the method can be immediately seen to be significant. Add in a requirement about 'no other method can do this example <i>better'</i> and I am afraid you're asking for the impossible. IMHO, it's much better to use an example that shows the principle clearly and note in the text if needed that 'in this example, the saving from the run-length encoding doesn't overcome the overhead of the encoding; in a larger example which produced longer runs, it would.' After all, generations of textbooks have used recursive Fibonacci algorithms to demonstrate recursion when that's not the most efficient way to calculate Fibonacci numbers.</p>
+<p>By the way, have you noticed that your deflate example is incorrect? Deflate operates on strings of minimum length 3. Even with your simplification of all replaced substrings taking as much space as one literal, here's how it would actually look:</p>
+<pre>
+SIX.MIXED.PIXIES.SIFT._TY_.DUST.BOXES
+</pre>
+<p>vs.</p>
+<pre>
+TEXYDST.E.XII_XXSMPPSS.B.__EEUSFXDIOI_T
+</pre>
+<p>Not a stellar improvement. -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 15:11, 9 Nov 2004 (UTC)</p>
+<dl>
+<dd>It doesn't improve deflate, but I think it does improve RLE. My impression was that the point is to create runs. <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Deco</a> 20:42, 9 Nov 2004 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Timwi's point was that in the example given, deflate outperforms BWT. However, his comparison was flawed because he showed deflate getting LZ77 compression from repetition of two-byte sequences. It doesn't; BWT gets compression from repetition of two-byte sequences, but deflate's implementation of LZ77 compression doesn't work on sequences less than three bytes. -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 02:17, 10 Nov 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>If not deflate, then what does bzip2 apply after the BWT? — <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a> 11:31, 10 Nov 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>To the best of my knowledge, it used to apply RLE and then arithmetic coding, but because of patent problems, it switched to RLE and then Huffman coding. It wouldn't make sense to apply deflate after the BWT, because while deflate can get compression from repeated byte sequences, long runs of the same character, and relative frequency of some characters over others, the BWT is going to remove almost every instance of repeated byte sequences by re-ordering the characters so that they lengthen runs, instead. Deflate would still be able to work on the runs, but it wouldn't do so as effectively as an encoding step that works <i>only</i> on runs.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>It may help to remember that lossless compression can't create compression from nothing; it can only remove redundancy that already exists. The following table shows which compression methods exploit which kind of redundancy. (Remember that Deflate is LZ77 coding followed by Huffman coding.)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<table border="1" cellpadding="2">
+<tr>
+<th></th>
+<th>LZ77</th>
+<th>BWT</th>
+<th>RLE</th>
+<th>Huffman/Arithmetic</th>
+</tr>
+<tr>
+<th>repeated multi-byte sequences</th>
+<td>yes, at cost of two parameters (offset, length)</td>
+<td>converts into single-character runs</td>
+<td>no</td>
+<td>no</td>
+</tr>
+<tr>
+<th>single-character runs</th>
+<td>yes, at cost of two parameters (offset, length)</td>
+<td>no</td>
+<td>yes, at cost of single parameter (length of run)</td>
+<td>no</td>
+</tr>
+<tr>
+<th>non-flat frequency distribution of characters</th>
+<td>no</td>
+<td>no</td>
+<td>no</td>
+<td>yes, exploits optimally</td>
+</tr>
+</table>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>As you see, BWT destroys one of the two kinds of redundancy LZ77 can work on, and converts it to the other kind; LZ77 can still work on it, but at twice the cost of RLE. So it wouldn't make sense to use deflate after BWT instead of RLE and Huffman. -- <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a> 16:55, 10 Nov 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>In the original paper that Burrows and Wheeler wrote, they suggested that their transform be used in conjuction with a Move to Front encoder and an entropy encoder, such as Huffman; they made no reference to RLE. According to the bzip2 website, RLE is used, but the author indicates that it isn't necessary and is only retained because that's how he originally wrote it and he didn't want to create yet another compression format. -- <a href="../../../z/a/w/User%7EZawersh_d0f7.html" title="User:Zawersh">Zawersh</a> 15:05, 14 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>This whole discussing about a bad example is rather pointless and can be easily solved by quoting burrows and wheeler form there original report (to read it yourself =&gt; you can find it at the sources-list in the article) "The size of the input block must be large (a few kilobytes) to achieve good compression." ~ Band B 22:40, 14 February 2007 (UTC)</p>
+<p><a name="C_implementation" id="C_implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/r/Talk%7EBurrows-Wheeler_transform_76ed.html" title="Edit section: C implementation">edit</a>]</span> <span class="mw-headline">C implementation</span></h2>
+<p>Is there any reason that the C implementation given in the Polish Wikipedia shouldn't be included here? --<a href="../../../s/h/u/User%7EShutranm_4e25.html" title="User:Shutranm">Shutranm</a> 21:47, 20 May 2005 (UTC)</p>
+<p><a name="Collation_issues" id="Collation_issues"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/r/Talk%7EBurrows-Wheeler_transform_76ed.html" title="Edit section: Collation issues">edit</a>]</span> <span class="mw-headline">Collation issues</span></h2>
+<p>Nobody reading this page cares about Posix collation. Why don't we pick a sample string with no such issues? --<a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a> 17:45, 16 January 2006 (UTC)</p>
+<dl>
+<dd>How do you get from "I don't care" to "nobody cares"? People reading this page quite clearly do care about POSIX collation, or there wouldn't be a mention of it in the first place. I certainly care, and I'm equally certainly reading this page. The point that BWT is sensitive to collation issues is worth making, IMO. — <a href="../../../h/a/e/User%7EHaeleth_3c01.html" title="User:Haeleth">Haeleth</a> <small><a href="../../../h/a/e/User_talk%7EHaeleth_7220.html" title="User talk:Haeleth">Talk</a></small> 20:19, 22 March 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>BWT isn't sensitive to Posix; the sort will work in whatever way you implement the sort. Practically speaking, it's very unlikely anyone will be doing real BWT with Posix C string sorting functions; I found it to be quite a non-sequitur with little or no apparent relation to the subject at hand. The removed section follows: --<a href="../../../b/r/i/User%7EBrion_VIBBER_bae4.html" title="User:Brion VIBBER">Brion</a> 03:31, 19 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<pre>
+==== Note on sorting convention ====
+
+If you sort with [[Posix]] [[collating]], you get the slightly different string
+ TEXYDST.E.IXIXIXXSSMPPS.B..E.S.EUSFXDIIOIIIT
+instead of
+ TEXYDST.E.XIIXIXXSMPPSS.B...S.EEUSFXDIOIIIIT
+
+[[ISO 8859]] has complex collating rules, but in this case, periods are
+ignored.  Posix collating treats periods as characters.
+</pre>
+<p><a name="Mistake_in_example.3F" id="Mistake_in_example.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/r/Talk%7EBurrows-Wheeler_transform_76ed.html" title="Edit section: Mistake in example?">edit</a>]</span> <span class="mw-headline">Mistake in example?</span></h2>
+<p>Could someone check the example, please? I was trying to verify something and my simple quick implementation of BWT outputs</p>
+<pre>
+TEXYDST.E.IXIXIXXSSMPPS.B..E.S.EUSFXDIIOIIIT
+</pre>
+<p>not</p>
+<pre>
+TEXYDST.E.XIIXIXXSMPPSS.B...S.EEUSFXDIOIIIIT
+</pre>
+<p>as the article writes.</p>
+<p>(And note that I intend to at least replace the black dot with another character, or to remove it altogether. It is not a good style to unnecessarily convey meaning only with a color variation, mind e.g. blind people.)</p>
+<p>--<a href="../../../m/o/r/User%7EMormegil_fe36.html" title="User:Mormegil">Mormegil</a> 18:12, 18 June 2006 (UTC)</p>
+<ul>
+<li>My code gives the same output as Mormegil's, not as the article writes.--<a href="../../../t/h/o/User%7EThorwald_a708.html" title="User:Thorwald">Thorwald</a> 06:05, 3 August 2006 (UTC)</li>
+</ul>
+<ul>
+<li>Just tried this out, and I get exactly the same as Mormegil and Thorwald. If you try doing it, and use something like Microsoft Excel (yes, you can stop spitting now), you get the following table:</li>
+</ul>
+<pre>
+.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST
+.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE
+.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX
+.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY
+.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED
+.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES
+.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT
+BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.
+D.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXE
+DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.
+E.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXI
+ED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIX
+ES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXI
+ESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOX
+FT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SI
+IE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIX
+IES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIX
+IFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.S
+IX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESS
+IXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.M
+IXIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.P
+IXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.P
+IXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.S
+MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.
+OXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.B
+PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.
+PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.
+S.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIE
+SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.
+SIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXES
+SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.
+SSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXE
+ST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DU
+T.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUS
+T.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SIF
+TY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIX
+UST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.D
+X.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSI
+XED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MI
+XESSIX.MIXED.PIXIES.SIFT.SIXTY.PIXIE.DUST.BO
+XIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIXTY.PI
+XIES.SIFT.SIXTY.PIXIE.DUST.BOXESSIX.MIXED.PI
+XTY.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SI
+Y.PIXIE.DUST.BOXESSIX.MIXED.PIXIES.SIFT.SIXT
+</pre>
+<p>Which gives "TEXYDST.E.IXIXIXXSSMPPS.B..E.S.EUSFXDIIOIIIT"</p>
+<p>Which is understandable, as a space is a smaller ASCII value than [A..Z|a..z]</p>
+<p>--<a href="../../../a/m/b/User%7EAmbulnick_cb3c.html" title="User:Ambulnick">Ambulnick</a> 10:17, 27 Sept 2006 (GMT)</p>
+<p><br />
+If you take the C code and run it on ".BANANA" instead of "Polska Wikipedia", you don't get the same answer as the article gives: BNN.AA@A, you get ANNB.AA. That's because "." sorts before capital letters in ascii, not after, as the example shows. Changing "." to "x" makes the example work. If someone else will verify that they see the same problem, I'll fix the example. But it's late at night -- I may just be confusing myself&#160;:-)</p>
+<p><a href="../../../c/b/o/User%7ECbogart2_4c47.html" title="User:Cbogart2">Cbogart2</a> 06:04, 18 December 2006 (UTC)</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/u/r/Talk%7EBurrows-Wheeler_transform_76ed.html">http://en.wikipedia.org../../../b/u/r/Talk%7EBurrows-Wheeler_transform_76ed.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/u/r/Burrows-Wheeler_transform_f43e.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/u/r/Talk%7EBurrows-Wheeler_transform_76ed.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Burrows-Wheeler_transform">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:40, 14 February 2007 by Wikipedia user Band B. Based on work by Wikipedia user(s) <a href="../../../c/b/o/User%7ECbogart2_4c47.html" title="User:Cbogart2">Cbogart2</a>, <a href="../../../a/m/b/User%7EAmbulnick_cb3c.html" title="User:Ambulnick">Ambulnick</a>, <a href="../../../s/i/r/User%7ESir_Nicholas_de_Mimsy-Porpington_81f8.html" title="User:Sir Nicholas de Mimsy-Porpington">Sir Nicholas de Mimsy-Porpington</a>, <a href="../../../t/h/o/User%7EThorwald_a708.html" title="User:Thorwald">Thorwald</a>, <a href="../../../m/o/r/User%7EMormegil_fe36.html" title="User:Mormegil">Mormegil</a>, <a href="../../../b/r/i/User%7EBrion_VIBBER_bae4.html" title="User:Brion VIBBER">Brion VIBBER</a>, <a href="../../../z/a/w/User%7EZawersh_d0f7.html" title="User:Zawersh">Zawersh</a>, <a href="../../../h/a/e/User%7EHaeleth_3c01.html" title="User:Haeleth">Haeleth</a>, <a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a>, <a href="../../../s/h/u/User%7EShutranm_4e25.html" title="User:Shutranm">Shutranm</a>, <a href="../../../a/n/t/User%7EAntaeus_Feldspar_9a66.html" title="User:Antaeus Feldspar">Antaeus Feldspar</a>, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../c/y/b/User%7ECyborgTosser_1c56.html" title="User:CyborgTosser">CyborgTosser</a>, <a href="../../../l/c/_/User%7ELC_0e98.html" title="User:LC">LC</a> and <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

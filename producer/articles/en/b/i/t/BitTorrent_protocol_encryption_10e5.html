@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="BitTorrent protocol encryption,BitTorrent,BitTorrent,2005,2006,2007,ABC (Yet Another BitTorrent Client),Advanced Encryption Standard,AnimeSuki,Anonymity,April 29" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>BitTorrent protocol encryption - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">BitTorrent protocol encryption</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Protocol encryption</b> (<b>PE</b>), <b>Message stream encryption</b> (<b>MSE</b>), or <b>Protocol header encrypt</b> (<b>PHE</b>)<sup id="_ref-name_0" class="reference"><a href="#_note-name" title="">[1]</a></sup> are related features of some <a href="../../../p/e/e/Peer-to-peer.html" title="Peer-to-peer">peer-to-peer</a> <a href="../../../f/i/l/File-sharing.html" title="File-sharing">file-sharing</a> <a href="../../../c/o/m/Comparison_of_file_sharing_applications.html" title="Comparison of file sharing applications">clients</a>, including <a href="../../../b/i/t/BitTorrent_9cbd.html" title="BitTorrent">BitTorrent</a>. They attempt to make traffic harder to identify by third parties including <a href="../../../i/n/t/Internet_service_provider.html" title="Internet service provider">internet service providers</a> (ISPs).</p>
+<p>MSE/PE is implemented in <a href="../../../a/z/u/Azureus.html" title="Azureus">Azureus</a>, <a href="../../../b/i/t/BitComet_d707.html" title="BitComet">BitComet</a>, <a href="../../../b/i/t/BitTornado_26d8.html" title="BitTornado">BitTornado</a>, <a href="../../../k/t/o/KTorrent_7e84.html" title="KTorrent">KTorrent</a>, <a href="../../../b/i/t/BitTorrent_client_a058.html" title="BitTorrent client">Mainline</a> (incoming only), <a href="../../../%CE%BC/t/o/%CE%9CTorrent_fc3b.html" title="ΜTorrent">µTorrent</a>, and <a href="../../../r/t/o/RTorrent_c4a7.html" title="RTorrent">rTorrent</a>. PHE was implemented in old versions of BitComet. Similar protocol <a href="../../../o/b/f/Obfuscation.html" title="Obfuscation">obfuscation</a> is supported in up-to-date versions of some other (non-BitTorrent) systems including <a href="../../../e/m/u/EMule_41ac.html" title="EMule">eMule</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Purpose"><span class="tocnumber">1</span> <span class="toctext">Purpose</span></a></li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">2</span> <span class="toctext">History</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Early_approach"><span class="tocnumber">2.1</span> <span class="toctext">Early approach</span></a></li>
+<li class="toclevel-2"><a href="#Development_of_MSE.2FPE"><span class="tocnumber">2.2</span> <span class="toctext">Development of MSE/PE</span></a></li>
+<li class="toclevel-2"><a href="#MSE.2FPE_in_stable_version_of_clients"><span class="tocnumber">2.3</span> <span class="toctext">MSE/PE in stable version of clients</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Operation"><span class="tocnumber">3</span> <span class="toctext">Operation</span></a></li>
+<li class="toclevel-1"><a href="#Security"><span class="tocnumber">4</span> <span class="toctext">Security</span></a></li>
+<li class="toclevel-1"><a href="#Effectiveness"><span class="tocnumber">5</span> <span class="toctext">Effectiveness</span></a></li>
+<li class="toclevel-1"><a href="#Criticism"><span class="tocnumber">6</span> <span class="toctext">Criticism</span></a></li>
+<li class="toclevel-1"><a href="#BBC_claims"><span class="tocnumber">7</span> <span class="toctext">BBC claims</span></a></li>
+<li class="toclevel-1"><a href="#Notes_and_references"><span class="tocnumber">8</span> <span class="toctext">Notes and references</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Purpose" id="Purpose"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: Purpose">edit</a>]</span> <span class="mw-headline">Purpose</span></h2>
+<p>Peer-to-peer file-sharing traffic makes up a large portion of total internet traffic.<sup class="noprint"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since March 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup> Some ISPs deal with this traffic by increasing their capacity whilst others use specialised systems to throttle (<i>i.e.</i> slow down) BitTorrent traffic. Obfuscation and encryption make traffic harder to detect and therefore harder to throttle. These systems are not designed to provide <a href="../../../a/n/o/Anonymity.html" title="Anonymity">anonymity</a>.</p>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p><a name="Early_approach" id="Early_approach"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: Early approach">edit</a>]</span> <span class="mw-headline">Early approach</span></h3>
+<p>Protocol header encryption (PHE) was conceived by RnySmile and first implemented in <a href="../../../b/i/t/BitComet_d707.html" title="BitComet">BitComet</a> version 0.60 on <a href="../../../s/e/p/September_8.html" title="September 8">8 September</a> <a href="../../../2/0/0/2005.html" title="2005">2005</a>. Some software like IPP2P claims BitComet traffic is detectable even with PHE.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[2]</a></sup> PHE is detectable because only part of the stream is encrypted. Since there are no open specifications to this protocol implementation the only possibility to support it in other clients would have been via <a href="../../../r/e/v/Reverse_engineering.html" title="Reverse engineering">reverse engineering</a>.</p>
+<p><a name="Development_of_MSE.2FPE" id="Development_of_MSE.2FPE"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: Development of MSE/PE">edit</a>]</span> <span class="mw-headline">Development of MSE/PE</span></h3>
+<p>In late January 2006 the <a href="../../../a/z/u/Azureus.html" title="Azureus">Azureus</a> developers decided to design and simultaneously implement a new, open protocol obfuscation method, called message stream encryption (MSE). It was included in Azureus CVS snapshot 2307-B29 on <a href="../../../j/a/n/January_19.html" title="January 19">19 January</a> <a href="../../../2/0/0/2006.html" title="2006">2006</a>.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[3]</a></sup></p>
+<p>This first draft was heavily criticized since it lacked several key features. After negotiations between different BitTorrent developers a new proposal was written and then implemented into the <a href="../../../a/z/u/Azureus.html" title="Azureus">Azureus</a> and <a href="../../../%CE%BC/t/o/%CE%9CTorrent_fc3b.html" title="ΜTorrent">µTorrent</a> betas within days. The developers were <a href="../../../l/u/d/Ludde.html" title="Ludde">ludde</a>, uau, The 8472, <a href="../../../p/a/r/Parg.html" title="Parg">Parg</a> and Nolar. In µTorrent, the new protocol was called protocol encryption (PE).</p>
+<p>Azureus supports the final spec since <a href="../../../j/a/n/January_25.html" title="January 25">25 January</a> <a href="../../../2/0/0/2006.html" title="2006">2006</a> (CVS snapshot 2307-B33)<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[4]</a></sup> and µTorrent followed 4 days later with beta 1.4.1 build 407.<sup id="_ref-3" class="reference"><a href="#_note-3" title="">[5]</a></sup></p>
+<p><a name="MSE.2FPE_in_stable_version_of_clients" id="MSE.2FPE_in_stable_version_of_clients"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: MSE/PE in stable version of clients">edit</a>]</span> <span class="mw-headline">MSE/PE in stable version of clients</span></h3>
+<p>Azureus version 2.4.0.0 was released <a href="../../../f/e/b/February_10.html" title="February 10">10 February</a> <a href="../../../2/0/0/2006.html" title="2006">2006</a>, and was the first stable version of a client to support MSE/PE. However, glitches in Azureus' implementation resulted in improperly encrypted pieces that failed hash checking. The glitches were rectified as of version 2.4.0.2.<sup id="_ref-4" class="reference"><a href="#_note-4" title="">[6]</a></sup></p>
+<p>BitComet version 0.63 was released <a href="../../../m/a/r/March_7.html" title="March 7">7 March</a>, 2006. It removed the old protocol header encryption and implemented the new PE to be compatible with Azureus and µTorrent.<sup id="_ref-5" class="reference"><a href="#_note-5" title="">[7]</a></sup> Later that day µTorrent version 1.5 (build 436) was released; it was the first stable version of µTorrent with PE.</p>
+<p><a href="../../../k/t/o/KTorrent_7e84.html" title="KTorrent">KTorrent</a> implemented PE in SVN version 535386<sup id="_ref-ktorrent_0" class="reference"><a href="#_note-ktorrent" title="">[8]</a></sup> on <a href="../../../a/p/r/April_29.html" title="April 29">April 29</a>, 2006.<sup id="_ref-6" class="reference"><a href="#_note-6" title="">[9]</a></sup></p>
+<p><a href="../../../b/i/t/BitTorrent_client_a058.html" title="BitTorrent client">Mainline</a> supports MSE/PE since version 4.9.2-beta on <a href="../../../m/a/y/May_2.html" title="May 2">May 2</a>, 2006.<sup id="_ref-7" class="reference"><a href="#_note-7" title="">[10]</a></sup></p>
+<p><a href="../../../b/i/t/BitTornado_26d8.html" title="BitTornado">BitTornado</a> supports MSE/PE as of build T-0.3.18. As of <a href="../../../j/a/n/January_5.html" title="January 5">January 5</a>, 2007, this build is still marked "experimental" on the Download page.<sup id="_ref-8" class="reference"><a href="#_note-8" title="">[11]</a></sup></p>
+<p><a name="Operation" id="Operation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: Operation">edit</a>]</span> <span class="mw-headline">Operation</span></h2>
+<p>The BitComet PHE method used in versions 0.60 to 0.62 is not published. Thus it is incompatible with MSE/PE.</p>
+<p>MSE/PE uses a <a href="../../../d/i/f/Diffie-Hellman_key_exchange_28f8.html" title="Diffie-Hellman key exchange">D-H</a> key exchange combined with the infohash of the torrent to establish the key, then it uses <a href="../../../r/c/4/RC4_9953.html" title="RC4">RC4</a> to encrypt the data. The D-H key exchange helps to minimize the risk of passive listeners, and the infohash helps avoid <a href="../../../m/a/n/Man-in-the-middle_attack.html" title="Man-in-the-middle attack">man-in-the-middle attacks</a>. RC4 is chosen for its speed. The first kilobyte of the RC4 output is discarded to prevent a particular <a href="../../../r/c/4/RC4_9953.html#Fluhrer.2C_Mantin_and_Shamir_attack" title="RC4">attack</a>.</p>
+<p>The specification allows the users to choose between encrypting the headers only or the full connection. Encrypting the full connection provides more obfuscation but uses more CPU time. However, only Azureus and µTorrent beta 1.4.1 build 413 or older lets the user choose. All other clients default to full encryption.</p>
+<p>To ensure compatibility with other clients that don't support this specification, users may also choose whether unencrypted incoming or outgoing connections are still allowed.</p>
+<p>All supported clients will enable encryption automatically if they receive an encrypted incoming connection even if outgoing encryption is disabled.</p>
+<p>Supported clients propagate the fact that they have MSE/PE enabled through <a href="../../../p/e/e/Peer_exchange.html" title="Peer exchange">PEX</a> and <a href="../../../d/i/s/Distributed_hash_table.html" title="Distributed hash table">DHT</a>. Other clients will then connect to them with encryption even if outgoing encryption is disabled.</p>
+<p><a name="Security" id="Security"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: Security">edit</a>]</span> <span class="mw-headline">Security</span></h2>
+<p>The estimated strength of the encryption corresponds to about 60–80 bits for common symmetrical ciphers (see <a href="http://tools.ietf.org/html/rfc3526" class="external" title="http://tools.ietf.org/html/rfc3526">RFC 3526</a> chapter 8). This is quite low for today's standards but one has to keep in mind that this protocol wasn't designed as a secure transport protocol but as a fast and efficient obfuscation method. <a href="../../../a/d/v/Advanced_Encryption_Standard_ba2a.html" title="Advanced Encryption Standard">AES</a> was proposed as the encryption method but not adopted because it consumed too much CPU time and the required D-H keys to achieve a security equal to AES would have been much bigger or require <a href="../../../e/l/l/Elliptic_curve_cryptography.html" title="Elliptic curve cryptography">elliptic curve cryptography</a>, making the handshake more expensive in terms of used CPU time.</p>
+<p><a name="Effectiveness" id="Effectiveness"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: Effectiveness">edit</a>]</span> <span class="mw-headline">Effectiveness</span></h2>
+<p>Many ISPs are now using more sophisticated measures (e.g. pattern/timing analysis or categorizing ports based on side-channel data) to detect BitTorrent traffic. This means that even encrypted BitTorrent traffic is now throttled. However, for those using primitive methods to identify and throttle BitTorrent, the current solution remains extremely effective.</p>
+<p><a name="Criticism" id="Criticism"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: Criticism">edit</a>]</span> <span class="mw-headline">Criticism</span></h2>
+<p><a href="../../../b/r/a/Bram_Cohen_08af.html" title="Bram Cohen">Bram Cohen</a>, the inventor of <a href="../../../b/i/t/BitTorrent_9cbd.html" title="BitTorrent">BitTorrent</a>, opposed adding encryption to the BitTorrent protocol. Cohen stated he was worried that encryption could create incompatibility between clients. He also stressed the point that the majority of ISPs don't block the torrent protocol. Cohen wrote "I rather suspect that some developer has gotten rate limited by his ISP, and is more interested in trying to hack around his ISP's limitations than in the performance of the internet as a whole".<sup id="_ref-9" class="reference"><a href="#_note-9" title="">[12]</a></sup> Many BitTorrent community users responded strongly against Cohen's accustations.<sup id="_ref-10" class="reference"><a href="#_note-10" title="">[13]</a></sup> Cohen later added the ability to receive encrypted connections but not send out encrypted data on his <a href="../../../b/i/t/BitTorrent_client_a058.html" title="BitTorrent client">Mainline client</a>.<sup id="_ref-11" class="reference"><a href="#_note-11" title="">[14]</a></sup></p>
+<p><a name="BBC_claims" id="BBC_claims"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: BBC claims">edit</a>]</span> <span class="mw-headline">BBC claims</span></h2>
+<p>In 2006, a <a href="../../../n/e/w/Newsnight.html" title="Newsnight">BBC Newsnight</a> episode claimed that the use of encrypted BitTorrent helps terrorists and paedophiles because any increase in encrypted traffic makes it more difficult for law enforcement to monitor the Internet<sup class="noprint"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since February 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup>. Many BitTorrent users were outraged and complained.<sup id="_ref-12" class="reference"><a href="#_note-12" title="">[15]</a></sup> BBC stood by its claim about paedophiles and terrorists, but it did admit that such references are often used by others as a way to sell copy, and that traditional media like television are under threat from new media like BitTorrent.<sup class="noprint"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since March 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup> BBC apologised for saying that peer to peer file sharing was "theft"<sup id="_ref-13" class="reference"><a href="#_note-13" title="">[16]</a></sup></p>
+<p><a name="Notes_and_references" id="Notes_and_references"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: Notes and references">edit</a>]</span> <span class="mw-headline">Notes and references</span></h2>
+<ol class="references">
+<li id="_note-name"><b><a href="#_ref-name_0" title="">^</a></b> It is usually referred to as the more correct <i>protocol header encryption</i> instead.</li>
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="http://www.ipp2p.org/news_en.html" class="external text" title="http://www.ipp2p.org/news_en.html" rel="nofollow">IPP2P homepage - News</a> (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../j/a/n/January_4.html" title="January 4">01-04</a>).</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <a href="http://sourceforge.net/mailarchive/forum.php?thread_id=9517694&amp;forum_id=40629" class="external text" title="http://sourceforge.net/mailarchive/forum.php?thread_id=9517694&amp;forum_id=40629" rel="nofollow">CVS Snapshot Azureus2307-B29.jar has been released&#160;!</a> (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../j/a/n/January_19.html" title="January 19">01-19</a>).</li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> <a href="http://sourceforge.net/mailarchive/message.php?msg_id=14596518" class="external text" title="http://sourceforge.net/mailarchive/message.php?msg_id=14596518" rel="nofollow">CVS Snapshot Azureus2307-B33.jar has been released&#160;!</a> (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../j/a/n/January_25.html" title="January 25">01-25</a>).</li>
+<li id="_note-3"><b><a href="#_ref-3" title="">^</a></b> <a href="http://forum.utorrent.com/viewtopic.php?id=5384" class="external text" title="http://forum.utorrent.com/viewtopic.php?id=5384" rel="nofollow">µTorrent 1.4.2 beta 435</a> (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../j/a/n/January_29.html" title="January 29">01-29</a>).</li>
+<li id="_note-4"><b><a href="#_ref-4" title="">^</a></b> <a href="http://azureus.sourceforge.net/changelog.php?version=2.4.0.2" class="external text" title="http://azureus.sourceforge.net/changelog.php?version=2.4.0.2" rel="nofollow">Azureus&#160;: Java BitTorrent Client - Changelog</a>.</li>
+<li id="_note-5"><b><a href="#_ref-5" title="">^</a></b> <a href="http://www.bitcomet.com/doc/changelog.htm" class="external text" title="http://www.bitcomet.com/doc/changelog.htm" rel="nofollow">BitComet Client Release Notes</a> (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../m/a/r/March_7.html" title="March 7">03-07</a>).</li>
+<li id="_note-ktorrent"><b><a href="#_ref-ktorrent_0" title="">^</a></b> The <a href="../../../s/u/b/Subversion_%28software%29.html" title="Subversion (software)">SVN</a> server is at svn://anonsvn.kde.org/home/kde/trunk/extragear/network/ktorrent</li>
+<li id="_note-6"><b><a href="#_ref-6" title="">^</a></b> <a href="http://ktorrent.pwsp.net/forum/viewtopic.php?t=432" class="external text" title="http://ktorrent.pwsp.net/forum/viewtopic.php?t=432" rel="nofollow">Encryption has been added&#160;!</a> (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../a/p/r/April_29.html" title="April 29">04-29</a>).</li>
+<li id="_note-7"><b><a href="#_ref-7" title="">^</a></b> <a href="http://www.bittorrent.com/versionnotes.html" class="external text" title="http://www.bittorrent.com/versionnotes.html" rel="nofollow">Version Notes</a>. <i>BitTorrent</i> (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../m/a/y/May_2.html" title="May 2">05-02</a>).</li>
+<li id="_note-8"><b><a href="#_ref-8" title="">^</a></b> <a href="http://forums.degreez.net/viewtopic.php?t=7074" class="external text" title="http://forums.degreez.net/viewtopic.php?t=7074" rel="nofollow">BitTornado T-0.3.18</a> (<a href="../../../2/0/0/2007.html" title="2007">2007</a>-<a href="../../../j/a/n/January_5.html" title="January 5">01-05</a>).</li>
+<li id="_note-9"><b><a href="#_ref-9" title="">^</a></b> <a href="../../../b/r/a/Bram_Cohen_08af.html" title="Bram Cohen">Cohen, Bram</a> (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../j/a/n/January_29.html" title="January 29">01-29</a>). <a href="http://bramcohen.livejournal.com/29886.html" class="external text" title="http://bramcohen.livejournal.com/29886.html" rel="nofollow">Obfuscating BitTorrent</a>.</li>
+<li id="_note-10"><b><a href="#_ref-10" title="">^</a></b> <a href="http://forum.utorrent.com/viewtopic.php?id=5742" class="external text" title="http://forum.utorrent.com/viewtopic.php?id=5742" rel="nofollow">Debate over Protocol Encryption</a>.</li>
+<li id="_note-11"><b><a href="#_ref-11" title="">^</a></b> <a href="http://www.bittorrent.com/versionnotes.html" class="external text" title="http://www.bittorrent.com/versionnotes.html" rel="nofollow">BitTorrent Mainline Version History</a> (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../o/c/t/October_15.html" title="October 15">10-15</a>).</li>
+<li id="_note-12"><b><a href="#_ref-12" title="">^</a></b> <a href="http://news.bbc.co.uk/1/hi/programmes/newsnight/4676926.stm#bittorrent" class="external text" title="http://news.bbc.co.uk/1/hi/programmes/newsnight/4676926.stm#bittorrent" rel="nofollow">Feedback - February 2006 (2)</a>. <a href="../../../b/b/c/BBC_NEWS_a59b.html" title="BBC NEWS">BBC NEWS</a>.</li>
+<li id="_note-13"><b><a href="#_ref-13" title="">^</a></b> Livingstone, Adam (<a href="../../../2/0/0/2006.html" title="2006">2006</a>-<a href="../../../f/e/b/February_28.html" title="February 28">02-28</a>). <a href="http://news.bbc.co.uk/2/hi/programmes/newsnight/4758636.stm" class="external text" title="http://news.bbc.co.uk/2/hi/programmes/newsnight/4758636.stm" rel="nofollow">A bit of BitTorrent bother</a>. <a href="../../../b/b/c/BBC_NEWS_a59b.html" title="BBC NEWS">BBC NEWS</a>.</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://azureus.aelitis.com/wiki/index.php/Message_Stream_Encryption" class="external text" title="http://azureus.aelitis.com/wiki/index.php/Message_Stream_Encryption" rel="nofollow">Description on the official Azureus wiki</a></li>
+<li><a href="http://azureus.aelitis.com/wiki/index.php/Bad_ISPs" class="external text" title="http://azureus.aelitis.com/wiki/index.php/Bad_ISPs" rel="nofollow">ISPs that shape BitTorrent on the official Azureus wiki</a></li>
+<li><a href="http://www.slyck.com/news.php?story=1083" class="external text" title="http://www.slyck.com/news.php?story=1083" rel="nofollow">"BitTorrent End to End Encryption and Bandwidth Throttling - Part I"</a> (Interview with µTorrent developers by <a href="../../../s/l/y/Slyck_News_d873.html" title="Slyck News">Slyck News</a>)</li>
+<li><a href="http://www.slyck.com/news.php?story=1098" class="external text" title="http://www.slyck.com/news.php?story=1098" rel="nofollow">"BitTorrent End to End Encryption and Bandwidth Throttling - Part II"</a> -(Interview with Azureus developers)</li>
+<li><a href="http://yro.slashdot.org/yro/06/02/06/2039241.shtml" class="external text" title="http://yro.slashdot.org/yro/06/02/06/2039241.shtml" rel="nofollow">"BitTorrent and End to End Encryption"</a> -(<a href="../../../s/l/a/Slashdot.html" title="Slashdot">Slashdot</a>)</li>
+</ul>
+<table class="navbox collapsible autocollapse" style="margin: auto; text-align:left;">
+<tr>
+<th colspan="2" style="text-align:center;">
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color:#000000; white-space:nowrap; float:left;width:6em;text-align:left;"><a href="../../../b/i/t/Template%7EBitTorrent_fa07.html" title="Template:BitTorrent"><span title="View this template">v</span></a>&#160;<span style="font-size:80%;">•</span>&#160;<span style="color: #002bb8;" title="Discussion about this template">d</span>&#160;<span style="font-size:80%;">•</span>&#160;<a href="http://en.wikipedia.org../../../b/i/t/Template%7EBitTorrent_fa07.html" class="external text" title="http://en.wikipedia.org../../../b/i/t/Template%7EBitTorrent_fa07.html" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">e</span></a></div>
+<a href="../../../b/i/t/BitTorrent_9cbd.html" title="BitTorrent">BitTorrent</a> <small>(<a href="../../../b/i/t/Category%7EBitTorrent_a80b.html" title="Category:BitTorrent">category</a>)</small></th>
+</tr>
+<tr>
+<th style="white-space:nowrap;">Companies</th>
+<td>&#160; <a href="../../../b/i/t/BitTorrent%2C_Inc._9f73.html" title="BitTorrent, Inc.">BitTorrent, Inc.</a></td>
+</tr>
+<tr>
+<th style="white-space:nowrap;">Prominent individuals</th>
+<td>
+<div style="background-color:#eeeeff">&#160; <a href="../../../b/r/a/Bram_Cohen_08af.html" title="Bram Cohen">Bram Cohen</a>&#160;• <a href="../../../a/s/h/Ashwin_Navin_85b8.html" title="Ashwin Navin">Ashwin Navin</a>&#160;• <a href="../../../l/u/d/Ludvig_Strigeus_cede.html" title="Ludvig Strigeus">Ludvig Strigeus</a></div>
+</td>
+</tr>
+<tr>
+<th style="white-space:nowrap;">Technology</th>
+<td>&#160; <a href="../../../b/i/t/BitTorrent_tracker_67a6.html" title="BitTorrent tracker">Tracker</a>&#160;• <a href="../../../b/i/t/BitTorrent_client_a058.html" title="BitTorrent client">Client</a>&#160;• <a href="../../../s/u/p/Super-seeding.html" title="Super-seeding">Super-seeding</a>&#160;• <a href="../../../p/e/e/Peer_exchange.html" title="Peer exchange">Peer exchange</a>&#160;• <a href="../../../b/r/o/Broadcatching.html" title="Broadcatching">Broadcatching</a> (<a href="../../../l/i/s/List_of_BitTorrent_RSS_feeds_7c1c.html" title="List of BitTorrent RSS feeds">BT RSS List</a>)</td>
+</tr>
+<tr>
+<th style="white-space:nowrap;"><a href="../../../c/o/m/Comparison_of_BitTorrent_software_09df.html" title="Comparison of BitTorrent software">Prominent clients</a> <small>(<a href="../../../b/i/t/Category%7EBitTorrent_clients_0084.html" title="Category:BitTorrent clients">category</a>)</small></th>
+<td>
+<div style="background-color:#eeeeff">&#160; <a href="../../../b/i/t/BitTorrent_%28client%29_5620.html" title="BitTorrent (client)">Official BitTorrent Client</a>&#160;• <a href="../../../a/b/c/ABC_%28Yet_Another_BitTorrent_Client%29_1350.html" title="ABC (Yet Another BitTorrent Client)">ABC</a>&#160;• <a href="../../../a/z/u/Azureus.html" title="Azureus">Azureus</a>&#160;• <a href="../../../b/i/t/BitComet_d707.html" title="BitComet">BitComet</a>&#160;• <a href="../../../b/i/t/BitTornado_26d8.html" title="BitTornado">BitTornado</a>&#160;• <a href="../../../k/t/o/KTorrent_7e84.html" title="KTorrent">KTorrent</a>&#160;• <a href="../../../t/r/a/Transmission_%28BitTorrent%29_b5c8.html" title="Transmission (BitTorrent)">Transmission</a>&#160;• <a href="../../../%CE%BC/t/o/%CE%9CTorrent_fc3b.html" title="ΜTorrent">µTorrent</a>&#160;• <a href="../../../h/a/l/Halite_Client_5e04.html" title="Halite Client">Halite</a></div>
+</td>
+</tr>
+<tr>
+<th style="white-space:nowrap;">Prominent sites <small>(<a href="../../../b/i/t/Category%7EBitTorrent_websites_ee0c.html" title="Category:BitTorrent websites">category</a>)</small></th>
+<td>&#160; <a href="../../../l/o/k/LokiTorrent_caf8.html" title="LokiTorrent">LokiTorrent</a>&#160;• <a href="../../../s/u/p/Suprnova.org.html" title="Suprnova.org">Suprnova.org</a>&#160;• <a href="../../../t/h/e/The_Pirate_Bay_cefb.html" title="The Pirate Bay">The Pirate Bay</a>&#160;• <a href="../../../a/n/i/AnimeSuki_2f37.html" title="AnimeSuki">AnimeSuki</a>&#160;• <a href="../../../d/e/m/Demonoid_%28BitTorrent%29_89c5.html" title="Demonoid (BitTorrent)">Demonoid</a>&#160;• <a href="../../../m/i/n/Mininova.html" title="Mininova">Mininova</a>&#160;• <a href="../../../i/s/o/IsoHunt_1aa2.html" title="IsoHunt">isoHunt</a>&#160;• <a href="../../../t/o/r/TorrentSpy_b9a8.html" title="TorrentSpy">TorrentSpy</a>&#160;• <a href="../../../e/m/p/Empornium.html" title="Empornium">Empornium</a>&#160;• <a href="../../../u/k/n/UKNova_b915.html" title="UKNova">UKNova</a></td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 57212 bytes
+Post-expand include size: 19509 bytes
+Template argument size: 16757 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/t/BitTorrent_protocol_encryption_10e5.html">http://en.wikipedia.org../../../b/i/t/BitTorrent_protocol_encryption_10e5.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_unsourced_statements_since_March_2007_2536.html" title="Category:Articles with unsourced statements since March 2007">Articles with unsourced statements since March 2007</a></span> | <span dir='ltr'><a href="../../../a/l/l/Category%7EAll_articles_with_unsourced_statements_2f67.html" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_unsourced_statements_since_February_2007_f7dc.html" title="Category:Articles with unsourced statements since February 2007">Articles with unsourced statements since February 2007</a></span> | <span dir='ltr'><a href="../../../b/i/t/Category%7EBitTorrent_a80b.html" title="Category:BitTorrent">BitTorrent</a></span> | <span dir='ltr'><a href="../../../c/r/y/Category%7ECryptographic_protocols_d366.html" title="Category:Cryptographic protocols">Cryptographic protocols</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/t/BitTorrent_protocol_encryption_10e5.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/t/Talk%7EBitTorrent_protocol_encryption_2864.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/BitTorrent_protocol_encryption">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 08:28, 25 March 2007 by Wikipedia user <a href="../../../m/a/t/User%7EMatt_Crypto_f5b3.html" title="User:Matt Crypto">Matt Crypto</a>. Based on work by Wikipedia user(s) <a href="../../../i/s/a/User%7EIsaac_Dupree_b6ce.html" title="User:Isaac Dupree">Isaac Dupree</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../k/i/e/User%7EKierant_38a3.html" title="User:Kierant">Kierant</a>, <a href="../../../i/m/j/User%7EImjustmatthew_9344.html" title="User:Imjustmatthew">Imjustmatthew</a>, <a href="../../../s/i/r/User%7ESirGrant_23af.html" title="User:SirGrant">SirGrant</a>, <a href="../../../l/i/n/User%7ELino_Mastrodomenico_5b7a.html" title="User:Lino Mastrodomenico">Lino Mastrodomenico</a>, <a href="../../../t/o/u/User%7EToussaint_381b.html" title="User:Toussaint">Toussaint</a>, Lawrencegold, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../g/u/s/User%7EGuspaz_ad69.html" title="User:Guspaz">Guspaz</a>, <a href="../../../f/u/z/User%7EFuzheado_f8f0.html" title="User:Fuzheado">Fuzheado</a>, <a href="../../../d/o/p/User%7EDopefishJustin_bbf5.html" title="User:DopefishJustin">DopefishJustin</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, Wonderstruck, <a href="../../../b/r/i/User%7EBrighterorange_f618.html" title="User:Brighterorange">Brighterorange</a>, <a href="../../../t/j/j/User%7ETJJFV_7077.html" title="User:TJJFV">TJJFV</a>, LaForge, <a href="../../../w/p/_/User%7EWP_691f.html" title="User:WP">WP</a>, Cp98ak, <a href="../../../l/i/g/User%7ELigulem_20b6.html" title="User:Ligulem">Ligulem</a>, <a href="../../../c/e/s/User%7ECesarB_5f7f.html" title="User:CesarB">CesarB</a>, <a href="../../../c/h/r/User%7EChristopherlin_8676.html" title="User:Christopherlin">Christopherlin</a>, <a href="../../../c/y/n/User%7ECynical_3d57.html" title="User:Cynical">Cynical</a>, <a href="../../../j/o/h/User%7EJohnteslade_69f5.html" title="User:Johnteslade">Johnteslade</a>, <a href="../../../a/m/a/User%7EAmazon10x_f33a.html" title="User:Amazon10x">Amazon10x</a>, <a href="../../../c/i/p/User%7ECiphergoth_5225.html" title="User:Ciphergoth">Ciphergoth</a>, <a href="../../../h/a/l/User%7EHalo_f92c.html" title="User:Halo">Halo</a>, <a href="../../../e/u/p/User%7EEuphrosyne_b0c9.html" title="User:Euphrosyne">Euphrosyne</a> and <a href="../../../q/u/t/User%7EQutezuce_4fd6.html" title="User:Qutezuce">Qutezuce</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

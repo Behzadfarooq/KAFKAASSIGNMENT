@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Alexandrov topology,Adjoint functors,Binary relation,Boolean algebra,Categorical topology,Category of sets,Category of topological spaces,Category theory,Causal sets,Causality,Closure operator" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Alexandrov topology - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Alexandrov topology</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../g/e/n/General_topology.html" title="General topology">general topology</a> the open sets of a <a href="../../../t/o/p/Topological_space.html" title="Topological space">topological space</a> satisfy by definition the conditions:</p>
+<ol>
+<li>The <a href="../../../u/n/i/Union_%28set_theory%29.html" title="Union (set theory)">union</a> of arbitrarily many open sets is open.</li>
+<li>The <a href="../../../i/n/t/Intersection_%28set_theory%29.html" title="Intersection (set theory)">intersection</a> of finitely many open sets is open.</li>
+</ol>
+<p>The obvious asymmetry in these conditions leads one to ask: <i>"What happens when the intersection of arbitrarily many open sets is open?"</i> The answer is, the <b>Alexandrov topology</b>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Characterizations_of_Alexandrov_topologies"><span class="tocnumber">1</span> <span class="toctext">Characterizations of Alexandrov topologies</span></a></li>
+<li class="toclevel-1"><a href="#Duality_with_preordered_sets"><span class="tocnumber">2</span> <span class="toctext">Duality with preordered sets</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_Alexandrov_topology_on_a_preordered_set"><span class="tocnumber">2.1</span> <span class="toctext">The Alexandrov topology on a preordered set</span></a></li>
+<li class="toclevel-2"><a href="#The_specialization_preorder_on_a_topological_space"><span class="tocnumber">2.2</span> <span class="toctext">The specialization preorder on a topological space</span></a></li>
+<li class="toclevel-2"><a href="#Equivalence_between_preorders_and_Alexandrov_topologies"><span class="tocnumber">2.3</span> <span class="toctext">Equivalence between preorders and Alexandrov topologies</span></a></li>
+<li class="toclevel-2"><a href="#Equivalence_between_monotony_and_continuity"><span class="tocnumber">2.4</span> <span class="toctext">Equivalence between monotony and continuity</span></a></li>
+<li class="toclevel-2"><a href="#Category_theoretic_description_of_the_duality"><span class="tocnumber">2.5</span> <span class="toctext">Category theoretic description of the duality</span></a></li>
+<li class="toclevel-2"><a href="#Relationship_to_the_construction_of_modal_algebras_from_modal_frames"><span class="tocnumber">2.6</span> <span class="toctext">Relationship to the construction of modal algebras from modal frames</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Applications_outside_pure_mathematics"><span class="tocnumber">3</span> <span class="toctext">Applications outside pure mathematics</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Computer_science"><span class="tocnumber">3.1</span> <span class="toctext">Computer science</span></a></li>
+<li class="toclevel-2"><a href="#Physics"><span class="tocnumber">3.2</span> <span class="toctext">Physics</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">4</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script></p>
+<p><br /></p>
+<p><a name="Characterizations_of_Alexandrov_topologies" id="Characterizations_of_Alexandrov_topologies"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: Characterizations of Alexandrov topologies">edit</a>]</span> <span class="mw-headline">Characterizations of Alexandrov topologies</span></h2>
+<p>Alexandrov topologies have numerous characterizations:</p>
+<p>Let <i><b>X</b></i> = &lt;<i>X</i>, <i>T</i>&gt; be a topological space. Then the following are equivalent</p>
+<ul>
+<li><b>Open and closed set characterizations:</b>
+<ul>
+<li><b>Open set characterization.</b> An arbitrary intersection of open sets in <i><b>X</b></i> is open.</li>
+<li><b>Closed set characterization.</b> An arbitrary union of closed sets in <i><b>X</b></i> is closed.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><b>Neighbourhood characterizations:</b>
+<ul>
+<li><b>Smallest neighbourhood characterization.</b> Every point of <i><b>X</b></i> has a smallest neighbourhood.</li>
+<li><b>Neighbourhood filter characterization.</b> The neighbourhood filter of every point in <i><b>X</b></i> is closed under arbitrary intersections.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><b><a href="../../../i/n/t/Interior_algebra.html" title="Interior algebra">Interior and closure algebraic</a> characterizations:</b>
+<ul>
+<li><b><a href="../../../i/n/t/Interior_operator.html" title="Interior operator">Interior operator</a> characterization.</b> The <a href="../../../i/n/t/Interior_operator.html" title="Interior operator">interior operator</a> of <i><b>X</b></i> distributes over arbitrary intersections of subsets.</li>
+<li><b><a href="../../../c/l/o/Closure_operator.html" title="Closure operator">Closure operator</a> characterization.</b> The <a href="../../../c/l/o/Closure_operator.html" title="Closure operator">closure operator</a> of <i><b>X</b></i> distributes over arbitrary unions of subsets.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><b><a href="../../../p/r/e/Preorder.html" title="Preorder">Preorder</a> characterizations:</b>
+<ul>
+<li><b><a href="../../../s/p/e/Specialization_preorder.html" title="Specialization preorder">Specialization preorder</a> characterization.</b> <i>T</i> is the finest topology consistent with the <a href="../../../s/p/e/Specialization_%28pre%29order.html" title="Specialization (pre)order">specialization preorder</a> of <i><b>X</b></i> i.e. the finest topology giving the preorder ≤ satisfying <i>x</i> ≤ <i>y</i> if and only if <i>x</i> is in the closure of {<i>y</i>} in <i><b>X</b></i>.</li>
+<li><b>Open up-set characterization.</b> There is a <a href="../../../p/r/e/Preorder.html" title="Preorder">preorder</a> ≤ such that the open sets of <i><b>X</b></i> are precisely those that are upwardly closed i.e if <i>x</i> is in the set and <i>x</i> ≤ <i>y</i> then <i>y</i> is in the set. (This preorder will be precisely the specialization preorder.)</li>
+<li><b>Closed down-set characterization.</b> There is a preorder ≤ such that the closed sets of <i><b>X</b></i> are precisely those that are downwardly closed i.e if <i>x</i> is in the set and <i>y</i> ≤ <i>x</i> then <i>y</i> is in the set. (This preorder will be precisely the specialization preorder.)</li>
+<li><b>Upward interior characterization.</b> A point <i>x</i> lies in the interior of a subset <i>S</i> of <i><b>X</b></i> if and only if there is a point <i>y</i> in <i>S</i> such that <i>y</i> ≤ <i>x</i> where ≤ is the specialization preorder i.e. <i>y</i> lies in the closure of {<i>x</i>}.</li>
+<li><b>Downward closure characterization.</b> A point <i>x</i> lies in the closure of a subset <i>S</i> of <i><b>X</b></i> if and only if there is a point <i>y</i> in <i>S</i> such that <i>x</i> ≤ <i>y</i> where ≤ is the specialization preorder i.e. <i>x</i> lies in the closure of {<i>y</i>}.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><b><a href="../../../f/i/n/Finitely_generated.html" title="Finitely generated">Finite generation</a> and <a href="../../../c/a/t/Category_theory.html" title="Category theory">category theoretic</a> characterizations:</b>
+<ul>
+<li><b>Finite closure characterization.</b> A point <i>x</i> lies within the closure of a subset <i>S</i> of <i><b>X</b></i> if and only if there is a finite subset of <i>F</i> of <i>S</i> such at <i>x</i> lies in the closure of <i>F</i>.</li>
+<li><b>Finite subspace characterization.</b> <i>T</i> is the finest topology consistent with the topologies of the finite subspaces of <i><b>X</b></i>.</li>
+<li><b>Finite inclusion map characterization.</b> The inclusion maps <i>f</i><sub><i>i</i></sub>&#160;: <i><b>X</b></i><sub><i>i</i></sub> → <i><b>X</b></i> of the finite subspaces of <i><b>X</b></i> form a final sink.</li>
+<li><b>Finite generation characterization.</b> <i><b>X</b></i> is <a href="../../../f/i/n/Finitely_generated.html" title="Finitely generated">finitely generated</a> i.e. it is in the final hull of the finite spaces. (This means that there is a final sink <i>f</i><sub><i>i</i></sub>&#160;: <i><b>X</b></i><sub><i>i</i></sub> → <i><b>X</b></i> where each <i><b>X</b></i><sub><i>i</i></sub> is a finite topological space.)</li>
+</ul>
+</li>
+</ul>
+<p>Topological spaces satisfying the above equivalent characterizations are called <b>finitely generated spaces</b> or <b>Alexandrov spaces</b> and their topology <i>T</i> is called the <b>Alexandrov topology</b>, named after the Russian mathematician <a href="../../../p/a/v/Pavel_Alexandrov_b868.html" title="Pavel Alexandrov">Pavel Alexandrov</a> who first investigated them.</p>
+<p><a name="Duality_with_preordered_sets" id="Duality_with_preordered_sets"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: Duality with preordered sets">edit</a>]</span> <span class="mw-headline">Duality with preordered sets</span></h2>
+<p><a name="The_Alexandrov_topology_on_a_preordered_set" id="The_Alexandrov_topology_on_a_preordered_set"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: The Alexandrov topology on a preordered set">edit</a>]</span> <span class="mw-headline">The Alexandrov topology on a <a href="../../../p/r/e/Preorder.html" title="Preorder">preordered set</a></span></h3>
+<p>Given a preordered set <i><b>X</b></i> = &lt;<i>X</i>, ≤&gt; we can define an Alexandrov topology <i>T</i> on <i>X</i> by choosing the open sets to be the <b>up-sets</b>:</p>
+<dl>
+<dd><i>T</i> = { <i>S</i> ⊆ <i>X</i>&#160;: for all <i>x</i>,<i>y</i>&#160;∈&#160;<i>X</i>, <i>x</i>&#160;∈&#160;<i>S</i> and <i>x</i>≤<i>y</i> implies <i>y</i>&#160;∈&#160;<i>S</i> }</dd>
+<dd><img class='tex' src="../../../math/9/9/b/99be58a1c67b7b892ca8f43a5fd1ce05.png" alt="T = \{ x,y \in X / x \in S \and x \le y \Rightarrow y \in S \}" /></dd>
+</dl>
+<p>We thus obtain a topological space <i><b>T</b></i>(<i><b>X</b></i>) = &lt;<i>X</i>, <i>T</i>&gt;. The corresponding closed sets are the <b>down-sets</b>:</p>
+<dl>
+<dd>{ <i>S</i> ⊆ <i>X</i>&#160;: for all <i>x</i>,<i>y</i>&#160;∈&#160;<i>X</i>, <i>x</i>&#160;∈&#160;<i>S</i> and <i>y</i>≤<i>x</i> implies <i>y</i>&#160;∈&#160;<i>S</i> }</dd>
+</dl>
+<p><a name="The_specialization_preorder_on_a_topological_space" id="The_specialization_preorder_on_a_topological_space"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: The specialization preorder on a topological space">edit</a>]</span> <span class="mw-headline">The specialization preorder on a topological space</span></h3>
+<p>Given a topological space <i><b>X</b></i> = &lt;<i>X</i>, <i>T</i>&gt; the specialization preorder on <i>X</i> is defined by:</p>
+<dl>
+<dd><i>x</i>≤<i>y</i> if and only if <i>x</i> is in the closure of {<i>y</i>}.</dd>
+</dl>
+<p>We thus obtain a preordered set <i><b>W</b></i>(<i><b>X</b></i>) = &lt;<i>X</i>, ≤&gt;.</p>
+<p><a name="Equivalence_between_preorders_and_Alexandrov_topologies" id="Equivalence_between_preorders_and_Alexandrov_topologies"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: Equivalence between preorders and Alexandrov topologies">edit</a>]</span> <span class="mw-headline">Equivalence between preorders and Alexandrov topologies</span></h3>
+<p>For every preordered set <i><b>X</b></i> = &lt;<i>X</i>, ≤&gt; we always have <i><b>W</b></i>(<i><b>T</b></i>(<i><b>X</b></i>)) = <i><b>X</b></i>, i.e. the preorder of <i><b>X</b></i> is recovered from the topological space <i><b>T</b></i>(<i><b>X</b></i>) as the specialization preorder. Moreover for every <i>Alexandrov space</i> <i><b>X</b></i>, we have <i><b>T</b></i>(<i><b>W</b></i>(<i><b>X</b></i>)) = <i><b>X</b></i>, i.e. the Alexandrov topology of <i><b>X</b></i> is recovered as the topology induced by the specialization preorder.</p>
+<p>However for a topological space in general we do <b>not</b> have <i><b>T</b></i>(<i><b>W</b></i>(<i><b>X</b></i>)) = <i><b>X</b></i>.</p>
+<p><a name="Equivalence_between_monotony_and_continuity" id="Equivalence_between_monotony_and_continuity"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: Equivalence between monotony and continuity">edit</a>]</span> <span class="mw-headline">Equivalence between <a href="../../../m/o/n/Monotone_function.html" title="Monotone function">monotony</a> and <a href="../../../c/o/n/Continuity_%28topology%29.html" title="Continuity (topology)">continuity</a></span></h3>
+<p>Given a <a href="../../../m/o/n/Monotone_function.html" title="Monotone function">monotone function</a></p>
+<dl>
+<dd><i>f</i>&#160;:&#160;<i><b>X</b></i>→<i><b>Y</b></i></dd>
+</dl>
+<p>between two preordered sets (i.e. a function</p>
+<dl>
+<dd><i>f</i>&#160;:&#160;<i>X</i>→<i>Y</i></dd>
+</dl>
+<p>between the underlying sets such that <i>x</i>≤<i>y</i> in <i><b>X</b></i> implies <i>f</i>(<i>x</i>)≤<i>f</i>(<i>y</i>) in <i><b>Y</b></i>), let</p>
+<dl>
+<dd><i><b>T</b></i>(<i>f</i>)&#160;:&#160;<i><b>T</b></i>(<i><b>X</b></i>)→<i><b>T</b></i>(<i><b>Y</b></i>)</dd>
+</dl>
+<p>be the same map as <i>f</i> considered as a map between the corresponding Alexandrov spaces. Then</p>
+<dl>
+<dd><i><b>T</b></i>(<i>f</i>)&#160;:&#160;<i><b>T</b></i>(<i><b>X</b></i>)→<i><b>T</b></i>(<i><b>Y</b></i>)</dd>
+</dl>
+<p>is a continuous map.</p>
+<p>Conversely given a continuous map</p>
+<dl>
+<dd><i>f</i>&#160;:&#160;<i><b>X</b></i>→<i><b>Y</b></i></dd>
+</dl>
+<p>between two topological spaces, let</p>
+<dl>
+<dd><i><b>W</b></i>(<i>f</i>)&#160;:&#160;<i><b>W</b></i>(<i><b>X</b></i>)→<i><b>W</b></i>(<i><b>Y</b></i>)</dd>
+</dl>
+<p>be the same map as <i>f</i> considered as a map between the corresponding preordered sets. Then</p>
+<dl>
+<dd><i><b>W</b></i>(<i>f</i>)&#160;:&#160;<i><b>W</b></i>(<i><b>X</b></i>)→<i><b>W</b></i>(<i><b>Y</b></i>)</dd>
+</dl>
+<p>is a monotone function.</p>
+<p>Thus a map between two preordered sets is monotone if and only if it is a continuous map between the corresponding Alexandrov spaces. Conversely a map between two Alexandrov spaces is continuous if and only if it is a monotone function between the corresponding preordered sets.</p>
+<p>Notice however that in the case of topologies other than the Alexandrov topology, we can have a map between two topological spaces that is not continuous but which is nevertheless still a monotone function between the corresponding preordered sets. (To see this consider a non-Alexandrov space <i><b>X</b></i> and consider the <a href="../../../i/d/e/Identity_function.html" title="Identity function">identity map</a></p>
+<dl>
+<dd><i>i</i>&#160;:&#160;<i><b>X</b></i>→<i><b>T</b></i>(<i><b>W</b></i>(<i><b>X</b></i>)).)</dd>
+</dl>
+<p><a name="Category_theoretic_description_of_the_duality" id="Category_theoretic_description_of_the_duality"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: Category theoretic description of the duality">edit</a>]</span> <span class="mw-headline"><a href="../../../c/a/t/Category_theory.html" title="Category theory">Category theoretic</a> description of the duality</span></h3>
+<p>Let <b>Set</b> denote the <a href="../../../c/a/t/Category_of_sets.html" title="Category of sets">category of sets</a> and <a href="../../../m/a/p/Map_%28mathematics%29.html" title="Map (mathematics)">maps</a>. Let <b>Top</b> denote the <a href="../../../c/a/t/Category_of_topological_spaces.html" title="Category of topological spaces">category of topological spaces</a> and <a href="../../../c/o/n/Continuity_%28topology%29.html" title="Continuity (topology)">continuous maps</a>; and let <b>Pro</b> denote the category of <a href="../../../p/r/e/Preorder.html" title="Preorder">preordered sets</a> and <a href="../../../m/o/n/Monotone_function.html" title="Monotone function">monotone functions</a>. Then</p>
+<dl>
+<dd><i><b>T</b></i>&#160;:&#160;<b>Pro</b>→<b>Top</b> and</dd>
+</dl>
+<dl>
+<dd><i><b>W</b></i>&#160;:&#160;<b>Top</b>→<b>Pro</b></dd>
+</dl>
+<p>are concrete functors over <b>Set</b> which are <a href="../../../a/d/j/Adjoint_functors.html" title="Adjoint functors">left and right adjoints</a> respectively.</p>
+<p>Let <b>Alx</b> denote the <a href="../../../f/u/l/Full_subcategory.html" title="Full subcategory">full subcategory</a> of <b>Top</b> consisting of the Alexandrov spaces. Then the restrictions</p>
+<dl>
+<dd><i><b>T</b></i>&#160;:&#160;<b>Pro</b>→<b>Alx</b> and</dd>
+</dl>
+<dl>
+<dd><i><b>W</b></i>&#160;:&#160;<b>Alx</b>→<b>Pro</b></dd>
+</dl>
+<p>are inverse concrete isomorphisms over <b>Set</b>.</p>
+<p><b>Alx</b> is in fact a bicoreflective subcategory of <b>Top</b> with bicoreflector <i><b>T</b></i>◦<i><b>W</b></i>&#160;:&#160;<b>Top</b>→<b>Alx</b>. This means that given a topological space <i><b>X</b></i>, the identity map</p>
+<dl>
+<dd><i>i</i>&#160;:&#160;<i><b>T</b></i>(<i><b>W</b></i>(<i><b>X</b></i>))→<i><b>X</b></i></dd>
+</dl>
+<p>is continuous and for every continuous map</p>
+<dl>
+<dd><i>f</i>&#160;:&#160;<i><b>Y</b></i>→<i><b>X</b></i></dd>
+</dl>
+<p>where <i><b>Y</b></i> is an Alexandrov space, the composition</p>
+<dl>
+<dd><i>i</i>&#160;<sup>-1</sup>◦<i>f</i>&#160;:&#160;<i><b>Y</b></i>→<i><b>T</b></i>(<i><b>W</b></i>(<i><b>X</b></i>))</dd>
+</dl>
+<p>is continuous.</p>
+<p><a name="Relationship_to_the_construction_of_modal_algebras_from_modal_frames" id="Relationship_to_the_construction_of_modal_algebras_from_modal_frames"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: Relationship to the construction of modal algebras from modal frames">edit</a>]</span> <span class="mw-headline">Relationship to the construction of modal algebras from modal frames</span></h3>
+<p>Given a preordered set <i><b>X</b></i>, the <a href="../../../i/n/t/Interior_operator.html" title="Interior operator">interior operator</a> and <a href="../../../c/l/o/Closure_operator.html" title="Closure operator">closure operator</a> of <i><b>T</b></i>(<i><b>X</b></i>) are given by:</p>
+<dl>
+<dd><b>Int</b>(<i>S</i>) = { <i>x</i>&#160;∈&#160;X&#160;: there exists a <i>y</i>&#160;∈&#160;S with <i>y</i>≤<i>x</i> } or equivalently { <i>x</i>&#160;∈&#160;X&#160;: for all <i>y</i>&#160;∈&#160;X, <i>x</i>≤<i>y</i> implies <i>y</i>&#160;∈&#160;S }, for all <i>S</i>&#160;⊆&#160;<i>X</i></dd>
+</dl>
+<dl>
+<dd><b>Cl</b>(<i>S</i>) = { <i>x</i>&#160;∈&#160;X&#160;: there exists a <i>y</i>&#160;∈&#160;S with <i>x</i>≤<i>y</i> } for all <i>S</i>&#160;⊆&#160;<i>X</i></dd>
+</dl>
+<p>Considering the interior operator and <a href="../../../c/l/o/Closure_operator.html" title="Closure operator">closure operator</a> to be modal operators on the <a href="../../../p/o/w/Power_set.html" title="Power set">power set</a> <a href="../../../b/o/o/Boolean_algebra.html" title="Boolean algebra">Boolean algebra</a> of <i>X</i>, this construction is a special case of the construction of a modal algebra from a <a href="../../../k/r/i/Kripke_semantics.html" title="Kripke semantics">modal frame</a> i.e. a set with a single <a href="../../../b/i/n/Binary_relation.html" title="Binary relation">binary relation</a>. (The latter construction is itself a special case of a more general construction of a <a href="../../../c/o/m/Complex_algebra.html" title="Complex algebra">complex algebra</a> from a <a href="../../../r/e/l/Relational_structure.html" title="Relational structure">relational structure</a> i.e a set with relations defined on it.) The class of modal algebras that we obtain in the case of a preordered set is the class of <a href="../../../i/n/t/Interior_algebra.html" title="Interior algebra">interior algebras</a> - the algebraic abstractions of topological spaces.</p>
+<p><a name="Applications_outside_pure_mathematics" id="Applications_outside_pure_mathematics"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: Applications outside pure mathematics">edit</a>]</span> <span class="mw-headline">Applications outside pure mathematics</span></h2>
+<p><a name="Computer_science" id="Computer_science"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: Computer science">edit</a>]</span> <span class="mw-headline">Computer science</span></h3>
+<p><a name="Physics" id="Physics"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: Physics">edit</a>]</span> <span class="mw-headline">Physics</span></h3>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>Alexandrov spaces were first introduced in 1937 by <a href="../../../p/2E/_/P._S._Alexandrov_6ed6.html" title="P. S. Alexandrov">P. S. Alexandrov</a> under the name <b>discrete spaces</b> in [Ale37] where he provided the characterizations in terms of sets and neighbourhoods. The name <a href="../../../d/i/s/Discrete_space.html" title="Discrete space">discrete spaces</a> later came to be used for topological spaces in which every subset is open and the original concept lay forgotten. With the advancement of <a href="../../../c/a/t/Categorical_topology.html" title="Categorical topology">categorical topology</a> in the 1980s, Alexandrov spaces were rediscovered when the concept of <a href="../../../f/i/n/Finitely_generated.html" title="Finitely generated">finite generation</a> was applied to general topology and the name <b>finitely generated spaces</b> was adopted for them. Alexandrov spaces were also rediscovered around the same time in the context of topologies resulting from <a href="../../../d/e/n/Denotational_semantics.html" title="Denotational semantics">denotational semantics</a> and <a href="../../../d/o/m/Domain_theory.html" title="Domain theory">domain theory</a> in <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a>.</p>
+<p>In [McC66], M.C. McCord had observed that there was a duality between <a href="../../../p/a/r/Partially_ordered_set.html" title="Partially ordered set">partially ordered sets</a> and spaces which were precisely the <a href="../../../k/o/l/Kolomogorov_space.html" title="Kolomogorov space">T<sub>0</sub></a> versions of the spaces that Alexandrov had introduced. P. Johnstone referred to such topologies as <b>Alexandrov topologies</b> in [Joh82]. In [Are99], F. G. Arenas independently proposed this name for the general version of these topologies.</p>
+<p>It was also a well known result in the field of <a href="../../../m/o/d/Modal_logic.html" title="Modal logic">modal logic</a> that a duality exists between finite topological spaces and preorders on finite sets (the finite <a href="../../../m/o/d/Modal_frame.html" title="Modal frame">modal frames</a> for the modal logic <i>S4</i>). In [Nat91], C. Naturman extended these results to a duality between Alexandrov spaces and preorders in general, providing the preorder characterizations as well as the <a href="../../../i/n/t/Interior_algebra.html" title="Interior algebra">interior and closure algebraic</a> characterizations.</p>
+<p>A systematic investigation of these spaces from the point of view of general topology which had been neglected since the original paper by Alexandrov, was taken up by F.G. Arenas in [Are99].</p>
+<p>Inspired by the use of Alexandrov topologies in computer science, applied mathematicians and physicists in the late 1990s began investigating the Alexandrov topology corresponding to <a href="../../../c/a/u/Causal_sets.html" title="Causal sets">causal sets</a> which arise from a preorder defined on <a href="../../../s/p/a/Spacetime.html" title="Spacetime">spacetime</a> modeling <a href="../../../c/a/u/Causality.html" title="Causality">causality</a>.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/Alexandrov_topology.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>[Ale37] Alexandroff, P., <i>Diskrete Räume</i>, Mat. Sb. (N.S.) 2 (1937), 501-518.</li>
+<li>[Are99] Arenas, F.G., <i>Alexandroff spaces</i>, Acta Math. Univ. Comenianae Vol. LXVIII, 1 (1999), pp. 17-25</li>
+<li>[Joh82] Johnstone, P.T., <i>Stone spaces</i>, Cambridge University Press (1982), 1986 edition</li>
+<li>[McC66] McCord, M. C., <i>Singular homology and homotopy groups of finite topological spaces</i>, Duke Math. Jour, 33 (1966), 465-474.</li>
+<li>[Nat91] Naturman, C.A., <i>Interior Algebras and Topology</i>, Ph.D. thesis, University of Cape Town Department of Mathematics, (1991)</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/e/Alexandrov_topology.html">http://en.wikipedia.org../../../a/l/e/Alexandrov_topology.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../t/o/p/Category%7ETopology_7bf2.html" title="Category:Topology">Topology</a></span> | <span dir='ltr'><a href="../../../o/r/d/Category%7EOrder_theory_2596.html" title="Category:Order theory">Order theory</a></span> | <span dir='ltr'><a href="../../../c/l/o/Category%7EClosure_operators_e50d.html" title="Category:Closure operators">Closure operators</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/l/e/Alexandrov_topology.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/l/e/Talk%7EAlexandrov_topology_ae24.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Alexandrov_topology">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../es/t/o/p/Topolog%C3%ADa_de_Alexandrov_1a26.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/t/o/p/Topologie_d%27Alexandrov_6e28.html">Français</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:34, 24 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../m/e/t/User%7EMetsBot_6c59.html" title="User:MetsBot">MetsBot</a>, <a href="../../../h/y/a/User%7EHyacinth_44fa.html" title="User:Hyacinth">Hyacinth</a>, <a href="../../../w/i/n/User%7EWinBot_3e52.html" title="User:WinBot">WinBot</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../u/n/y/User%7EUnyoyega_ed0f.html" title="User:Unyoyega">Unyoyega</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../k/u/r/User%7EKuratowski%27s_Ghost_768e.html" title="User:Kuratowski's Ghost">Kuratowski's Ghost</a>, <a href="../../../a/v/a/User%7EAvaragado_c759.html" title="User:Avaragado">Avaragado</a>, <a href="../../../c/o/h/User%7ECohesion_07b5.html" title="User:Cohesion">Cohesion</a>, <a href="../../../m/a/x/User%7EMaximus_Rex_f7db.html" title="User:Maximus Rex">Maximus Rex</a>, <a href="../../../d/e/f/User%7EDefLog_1d4c.html" title="User:DefLog">DefLog</a> and <a href="../../../w/m/a/User%7EWmahan_ede0.html" title="User:Wmahan">Wmahan</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

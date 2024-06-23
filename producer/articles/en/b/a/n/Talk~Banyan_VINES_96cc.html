@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Banyan VINES,Department of Defense,Network Operating System,70.125.43.99" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Banyan VINES - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Banyan VINES</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><a name="Banyan_VINES_in_the_Military" id="Banyan_VINES_in_the_Military"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/n/Talk%7EBanyan_VINES_96cc.html" title="Edit section: Banyan VINES in the Military">edit</a>]</span> <span class="mw-headline">Banyan VINES in the Military</span></h2>
+<p>Banyan VINES was THE system used until Windows NT migration in the late 90's early 2000 by the United States <a href="../../../d/e/p/Department_of_Defense_0d6c.html" title="Department of Defense">Department of Defense</a>. I think this should be mentioned in the article, it was an extreme close tie to the company. When the DoD stopped using Banyan Vines version 8.5 (the last version) is what made the company fold the <a href="../../../n/e/t/Network_Operating_System_8c54.html" title="Network Operating System">Network Operating System</a> (NOS). 70.125.43.99 14:01, 26 May 2006 (UTC)</p>
+<p><br /></p>
+<p><br /></p>
+<p>Banyan VINES Background Media Access Network Layer</p>
+<p>VINES Internetwork Protocol Routing Table Protocol Address Resolution Protocol Internet Control Protocol</p>
+<p>Transport Layer Upper-Layer Protocols Summary Review Questions For More Information</p>
+<p><br />
+Chapter Goals</p>
+<p>Introduce the VINES protocol, used primarily by Banyan VINES networks.</p>
+<p><br />
+Describe how VINES uses each layer of the VINES Protocol Stack.</p>
+<p><br />
+Banyan VINES Background Banyan Virtual Integrated Network Service (VINES) implements a distributed network operating system based on a proprietary protocol family derived from the Xerox Corporation's Xerox Network Systems (XNS) protocols. VINES uses a client/server architecture in which clients request certain services, such as file and printer access, from servers. This chapter provides a summary of VINES communications protocols. The VINES protocol stack is illustrated in Figure 36-1.</p>
+<p><br />
+Figure 36-1: The VINES Protocol Stack Consists of Five Separate Levels</p>
+<p>Media Access The lower two layers of the VINES stack are implemented with a variety of well-known media-access mechanisms, including High-Level Data Link Control (HDLC), X.25, Ethernet, and Token Ring.</p>
+<p>Network Layer VINES uses the VINES Internetwork Protocol (VIP) to perform Layer 3 activities (including internetwork routing). VINES also supports its own Address Resolution Protocol (ARP), its own version of the Routing Information Protocol (RIP)—called the Routing Table Protocol (RTP)—and the Internet Control Protocol (ICP), which provides exception handling and special routing cost information. ARP, ICP, and RTP packets are encapsulated in a VIP header.</p>
+<p>VINES Internetwork Protocol VINES network layer addresses are 48-bit entities subdivided into network (32 bits) and subnetwork (16 bits) portions. The network number is better described as a server number because it is derived directly from the server's key (a hardware module that identifies a unique number and the software options for that server). The subnetwork portion of a VINES address is better described as a host number because it is used to identify hosts on VINES networks. Figure 36-2 illustrates the VINES address format.</p>
+<p><br />
+Figure 36-2: A VINES Address Consists of a Network Number and a Subnet Number</p>
+<p>The network number identifies a VINES logical network, which is represented as a two-level tree with the root at a service node. Service nodes, which are usually servers, provide address resolution and routing services to clients, which represent the leaves of the tree. The service node assigns Vines Internetwork Protocol (VIP) addresses to clients.</p>
+<p>When a client is powered on, it broadcasts a request for servers, and all servers that hear the request respond. The client chooses the first response and requests a subnetwork (host) address from that server. The server responds with an address consisting of its own network address (derived from its key) concatenated with a subnetwork (host) address of its own choosing. Client subnetwork addresses typically are assigned sequentially, starting with 8001H. Server subnetwork addresses are always 1. Figure 36-3 illustrates the VINES address-selection process.</p>
+<p><br />
+Figure 36-3: VINES Moves Through Four Steps in Selecting an Address</p>
+<p>Dynamic address assignment is not unique in the industry (AppleTalk also uses this process), but it certainly is not as common as static address assignment. Because addresses are chosen exclusively by a particular server (whose address is unique as a result of the hardware key), very little chance exists for duplicating an address. This is fortunate because duplicate addresses could cause potentially devastating problems for Internet Protocol (IP) and other networks.</p>
+<p>In the VINES network scheme, all servers with multiple interfaces are essentially routers. Clients always choose their own server as a first-hop router, even if another server on the same cable provides a better route to the ultimate destination. Clients can learn about other routers by receiving redirect messages from their own server. Because clients rely on their servers for first-hop routing, VINES servers maintain routing tables to help them find remote nodes.</p>
+<p>VINES routing tables consist of host/cost pairs, where the host corresponds to a network node that can be reached, and cost corresponds to a delay (expressed in milliseconds) to get to that node. RTP helps VINES servers find neighboring clients, servers, and routers.</p>
+<p>Periodically, all clients advertise both their network layer and MAC-layer addresses with the equivalent of a hello packet, which indicates that the client is still operating and network-ready. The servers themselves send routing updates to other servers periodically to alert other routers to changes in node addresses and network topology.</p>
+<p>When a VINES server receives a packet, it checks to see whether the packet is destined for another server or whether it is a broadcast. If the current server is the destination, the server handles the request appropriately. If another server is the destination, the current server either forwards the packet directly (if the server is a neighbor) or routes it to the next server in line. If the packet is a broadcast, the current server checks to see whether the packet came from the least-cost path. If not, the packet is discarded. If so, the packet is forwarded on all interfaces except the one on which it was received. This approach helps diminish the number of broadcast storms, a common problem in other network environments. Figure 36-4 illustrates the VINES routing algorithm.</p>
+<p>Figure 36-5 illustrates the VIP packet format.</p>
+<p>The fields of a VIP packet include information on the checksum, packet length, transport control, protocol type, destination network number, destination subnetwork number, source network number, and source subnetwork number.</p>
+<p>The Checksum field is used to detect packet corruption. The Packet Length field indicates the length of the entire VIP packet.</p>
+<p><br />
+Figure 36-4: The VINES Routing Algorithm Determines the Appropriate Path to a Destination</p>
+<p>Figure 36-5: A VIP Packet Consists of Nine Individual Fields</p>
+<p>The Transport Control field consists of several subfields. If the packet is a broadcast packet, two subfields are provided: Class (bits 1 through 3) and Hop Count (bits 4 through 7). If the packet is not a broadcast packet, four subfields are provided: Error, Metric, Redirect, and Hop Count. The Class subfield specifies the type of node that should receive the broadcast. For this purpose, nodes are broken into various categories according to the type of node and the type of link on which the node is found. By specifying the type of nodes to receive broadcasts, the Class subfield reduces the disruption caused by broadcasts. The Hop Count subfield represents the number of hops (router traversals) the packet has been through. The Error subfield specifies whether the ICP protocol should send an exception-notification packet to the packet's source if a packet turns out to be unroutable. The Metric subfield is set to 1 by a transport entity when it must learn the routing cost of moving packets between a service node and a neighbor. The Redirect subfield specifies whether the router should generate a redirect, when appropriate.</p>
+<p>The Protocol Type field indicates the network layer or transport layer protocol for which the metric or exception-notification packet is destined.</p>
+<p>Finally, the Destination Network Number, Destination Subnetwork Number, Source Network Number, and Source Subnetwork Number fields all provide VIP address information.</p>
+<p>Routing Table Protocol Routing Table Protocol (RTP) distributes network topology information. Routing update packets are broadcast periodically by both client and service nodes. These packets inform neighbors of a node's existence and also indicate whether the node is a client or a service node. In each routing update packet, service nodes include a list of all known networks and the cost factors associated with reaching those networks.</p>
+<p>Two routing tables are maintained: a table of all known networks and a table of neighbors. For service nodes, the table of all known networks contains an entry for each known network except the service node's own network. Each entry contains a network number, a routing metric, and a pointer to the entry for the next hop to the network in the table of neighbors. The table of neighbors contains an entry for each neighbor service node and client node. Entries include a network number, a subnetwork number, the media-access protocol (for example, Ethernet) used to reach that node, a local-area network (LAN) address (if the medium connecting the neighbor is a LAN), and a neighbor metric.</p>
+<p>RTP specifies four packet types: routing update, routing request, routing response, and routing redirect. A routing update is issued periodically to notify neighbors of an entity's existence. Routing requests are exchanged by entities when they must learn the network's topology quickly. Routing responses contain topological information and are used by service nodes to respond to routing-request packets. A routing-redirect packet provides better path information to nodes using inefficient paths.</p>
+<p>RTP packets have a 4-byte header that consists of the following 1-byte fields: Operation Type, which indicates the packet type; Node Type, which indicates whether the packet came from a service node or a nonservice node; Controller Type, which indicates whether the controller in the node transmitting the RTP packet has a multibuffer controller; and Machine Type, which indicates whether the processor in the RTP sender is fast or slow.</p>
+<p>Both the Controller Type and the Machine Type fields are used for pacing.</p>
+<p>Address Resolution Protocol Address Resolution Protocol (ARP) entities are classified as either address-resolution clients or address-resolution services. Address-resolution clients usually are implemented in client nodes, whereas address-resolution services typically are provided by service nodes.</p>
+<p>ARP packets have an 8-byte header that consists of a 2-byte packet type, a 4-byte network number, and a 2-byte subnetwork number. Four packet types exist: a query request, which is a request for an ARP service; a service response, which is a response to a query request; an assignment request, which is sent to an ARP service to request a VINES internetwork address; and an assignment response, which is sent by the ARP service as a response to the assignment request. The Network Number and Subnet Number fields have meaning only in an assignment-response packet.</p>
+<p>ARP clients and services implement the following algorithm when a client starts up. First, the client broadcasts query-request packets. Then, each service that is a neighbor of the client responds with a service-response packet. The client then issues an assignment-request packet to the first service that responded to its query-request packet. The service responds with an assignment-response packet that contains the assigned internetwork address.</p>
+<p>Internet Control Protocol The Internet Control Protocol (ICP) defines exception-notification and metric-notification packets. Exception-notification packets provide information about network layer exceptions; metric-notification packets contain information about the final transmission used to reach a client node.</p>
+<p>Exception notifications are sent when a VIP packet cannot be routed properly, and the Error subfield in the VIP header's Transport Control field is enabled. These packets also contain a field identifying the particular exception by its error code.</p>
+<p>ICP entities in service nodes generate metric-notification messages when the Metric subfield in the VIP header's Transport Control field is enabled, and the destination address in the service node's packet specifies one of the service node's neighbors.</p>
+<p>Transport Layer VINES provides three transport layer services: unreliable datagram service, reliable message service, and data-stream service.</p>
+<p>Unreliable datagram service sends packets that are routed on a best-effort basis but not acknowledged at the destination.</p>
+<p>Reliable message service is a virtual circuit service that provides reliable sequenced and acknowledged delivery of messages between network nodes. A reliable message can be transmitted in a maximum of four VIP packets.</p>
+<p>Data-stream service supports the controlled flow of data between two processes. The data-stream service is an acknowledged virtual circuit service that supports the transmission of messages of unlimited size.</p>
+<p>Upper-Layer Protocols As a distributed network, VINES uses the remote procedure call (RPC) model for communication between clients and servers. RPC is the foundation of distributed-service environments. The NetRPC protocol (Layers 5 and 6) provides a high-level programming language that allows access to remote services in a manner transparent to both the user and the application.</p>
+<p>At Layer 7, VINES offers file-service and print-service applications, as well as StreetTalk, which provides a globally consistent name service for an entire internetwork.</p>
+<p>VINES also provides an integrated applications-development environment under several operating systems, including DOS and UNIX. This development environment enables third parties to develop both clients and services that run in the VINES environment.</p>
+<p>Summary This may be the last book that talks about VINES as a protocol. The user community has almost completely disappeared, the server OS and VINES software are not sold anymore, and migration to TCP/IP is no longer provided.</p>
+<p>Review Questions Q—What does a VINES network number identify?</p>
+<p>A—The network number identifies a VINES logical network, which is represented as a two-level tree with the root at a service node. Service nodes, which are usually servers, provide address resolution and routing services to clients, which represent the leaves of the tree. The service node assigns VIP addresses to clients.</p>
+<p>Q—How does a Banyan Vines station discover servers on the network?</p>
+<p>A—When a client is powered on, it broadcasts a request for servers, and all servers that hear the request respond. The client chooses the first response and requests a subnetwork (host) address from that server.</p>
+<p>Q—Does a VINES client always choose the most efficient network path to remote networks?</p>
+<p>A—No. In the VINES network scheme, all servers with multiple interfaces are essentially routers. Clients always choose their own server as a first-hop router, even if another server on the same cable provides a better route to the ultimate destination.</p>
+<p>Q—What protocol within the VINES suite distributes routing information?</p>
+<p>A—RTP distributes network topology information. Routing-update packets are broadcast periodically by both client and service nodes. These packets inform neighbors of a node's existence and also indicate whether the node is a client or a service node.</p>
+<p>Q—What are the four packet types used by RTP?</p>
+<p>A—RTP specifies four packet types: routing update, routing request, routing response, and routing redirect.</p>
+<p>Q—What is VINES an acronym for?</p>
+<p>A—Virtual Integrated Network Service.</p>
+<p>Q—What are the media access layers of VINES?</p>
+<p>A—The lower two layers of the VINES stack are implemented with a variety of well-known media access mechanisms, including High-Level Data Link Control (HDLC), X.25, Ethernet, and Token Ring.</p>
+<p>Q—What are the two routing tables maintained by RTP?</p>
+<p>A—Two routing tables are maintained: a table of all known networks and a table of neighbors. For service nodes, the table of all known networks contains an entry for each known network except the service node's own network.</p>
+<p>Q—What are the transport layer services provided by VINES?</p>
+<p>A—VINES provides three transport layer services: unreliable datagram service, reliable message service, and data-stream service.</p>
+<p>Q—What are the Layer 7 services provided by VINES?</p>
+<p>A—At Layer 7, VINES offers file-service and print-service applications, as well as StreetTalk, which provides a globally consistent name service for an entire internetwork.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/n/Talk%7EBanyan_VINES_96cc.html">http://en.wikipedia.org../../../b/a/n/Talk%7EBanyan_VINES_96cc.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/a/n/Banyan_VINES_7694.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/a/n/Talk%7EBanyan_VINES_96cc.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Banyan_VINES">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 14:01, 26 May 2006 by Anonymous user(s) of Wikipedia. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

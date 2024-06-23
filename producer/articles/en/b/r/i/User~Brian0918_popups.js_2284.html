@@ -1,0 +1,1369 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Brian0918/popups.js,Bypass your cache" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Brian0918/popups.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Brian0918/popups.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../b/r/i/User%7EBrian0918_0727.html" title="User:Brian0918">User:Brian0918</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</span>
+</p><pre>// CONTENTS
+
+// Utility functions
+
+// Popup stuff
+//   global variables 
+//   html generation 
+//   downloading 
+//   link generation 
+//   manipulation functions 
+//   tests 
+//   actions 
+//   thingies 
+
+// run things
+
+////////////////////////////////////////////////////////////////////
+// Utility functions
+////////////////////////////////////////////////////////////////////
+
+function time() {
+  var d=new Date();
+  return d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() +
+    '.' + (d.getTime() % 1000);
+};
+
+var gMsg='';
+function log(x) { if(gMsg!='')gMsg += '\n'; gMsg+=time() + ' ' + x; };
+
+function myalert(x) { return alert(time()+'\n'+ x); };
+
+
+// eg sourceJS('http://www.bosrup.com/web/overlib/overlib.js');
+
+function sourceJS(url) {
+  var str='&lt;script type=&quot;text/javascript&quot; src=&quot;';
+  str += url;
+  str += '&quot;&gt;&lt;/script&gt;';
+  return document.write(str);
+};
+
+// eg sourceWikipediaJS('en.wikipedia.org', 'User:Lupin/overlib.js');
+
+function sourceWikipediaJS(wiki, name) {
+  var url='http://' + wiki + '/w/index.php?title=';
+  url += name;
+  url += '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s';
+  return sourceJS(url);
+};
+
+// eg sourceLupinJS('overlib');
+
+function sourceLupinJS(name) {
+  return sourceWikipediaJS('en.wikipedia.org', 'User:Lupin/'+name + '.js');
+};
+
+////////////////////////////////////////////////////////////////////
+// Popup stuff
+////////////////////////////////////////////////////////////////////
+
+sourceLupinJS('overlib');
+sourceLupinJS('md5-2.2alpha');
+
+// this shouldn't be needed. maybe my cache needs purging...
+function md5_hex(s) { return rstr2hex(rstr_md5(str2rstr_utf8(s))); };
+
+//////////////////////
+// GLOBAL VARIABLES //
+//////////////////////
+
+// regexes
+
+var exceptions=/((title=|\/)Special:|section=[0-9])/ ;
+var contributions=/(title=|\/)Special:Contributions(&amp;target=|\/|\/User:)(.*)/ ;
+var emailuser=/(title=|\/)Special:Emailuser(&amp;target=|\/|\/User:)(.*)/ ;
+var talk=/Talk:/i ;
+
+var imageRegex= /(^|\[\[)image: *([^|\]]*[^|\] ]) */img ;
+var imageRegexBracketCount = 2;
+
+var categoryRegex= /\[\[category: *([^|\]]*[^|\] ]) */i ;
+var categoryRegexBracketCount = 1;
+
+var stubRegex= /stub[}][}]|This .*-related article is a .*stub/im ;
+var disambigRegex= /[{][{]disambig|is a .*disambiguation.*page/im ;
+
+var re; 
+var splitLoc=window.location.href.split('/');
+var thisWiki=splitLoc[2];
+var protocol=splitLoc[0].split(':')[0];
+var titletail='/w/index.php?title=';
+
+// we're not set up for interwiki stuff yet - only affect en, commons 
+// and wiktionary links
+
+if (thisWiki=='commons.wikimedia.org') {
+ re=/[^:]*:\/\/commons\.wikimedia\.org\/w(iki\/|\/index\.php\?title=)([^&amp;]*)/ ;
+} else if (thisWiki=='en.wiktionary.org') {
+  re= 
+ /[^:]*:\/\/en\.wiktionary\.org\/w(iki\/|\/index\.php\?title=)([^&amp;]*)/ ;
+} else {
+  re=/[^:]*:\/\/en\.wikipedia\.org\/w(iki\/|\/index\.php\?title=)([^&amp;]*)/ ;
+} 
+
+var titlebase=protocol+'://'+thisWiki+titletail;     
+var wikibase=protocol+'://'+thisWiki+'/wiki/';
+
+var imageSources=new Array ();
+imageSources.push(
+   {active: false, wiki: thisWiki, thumb: true,  width: popupImageSize}, 
+   {active: false, wiki: thisWiki, thumb: true,  width: 180}, // default
+   {active: false, wiki: thisWiki, thumb: true,  width: 120}, // gallery
+   {active: false, wiki: thisWiki, thumb: true,  width: 200}, // common?
+   {active: false, wiki: thisWiki, thumb: true,  width: 210},
+   {active: false, wiki: thisWiki, thumb: true,  width: 230},
+   {active: false, wiki: thisWiki, thumb: true,  width: 250}, // common?
+   {active: false, wiki: thisWiki, thumb: true,  width: 300},
+   {active: false, wiki: thisWiki, thumb: false, width: 0} // no comma
+);
+if (thisWiki!='commons.wikimedia.org') {
+  imageSources.push(
+   {active: false, wiki: 'commons.wikimedia.org', 
+     thumb: true,  width: popupImageSize},
+   {active: false, wiki: 'commons.wikimedia.org', 
+     thumb: true,  width: 180},
+   {active: false, wiki: 'commons.wikimedia.org', 
+     thumb: true,  width: 120},
+   {active: false, wiki: 'commons.wikimedia.org', 
+     thumb: false, width: 0} // no trailing comma
+  );
+}
+
+// downloading images are put here
+var imageArray=new Array();
+
+// page caching
+var gCachedPages = new Array ();
+
+// FIXME what is this for?
+var gImage=null; // global for image
+
+// check to see if images are done with this timer
+var popupImageTimer=null;
+
+// misc debug messages
+var popupDebug=null;
+
+// These are for checkImages()
+var counter=0;
+var checkImagesTimer=null;
+var loopcounter=0;
+
+// ids change with each popup: popupImage0, popupImage1 etc
+var popupImageId=0;
+
+var kateBase='http://kohl.wikimedia.org/~kate/cgi-bin/count_edits' 
+             + '?dbname=enwiki&amp;user='
+
+// for myDecodeURI
+var decodeExtras = new Array ();
+decodeExtras.push ( 
+  {from: '%2C', to: ',' },
+  {from: '_',   to: ' ' },
+  {from: '%26',   to: '&amp;' } // no ,
+);
+
+// for setPopupHTML - needed for timers and stuff
+var popupHTMLTimers=new Array();
+var popupHTMLLoopFunctions = new Array();
+
+// FIXME - eliminate this
+var redirCount=0;
+
+
+var popupImagesToggleSize=true;
+var popupImageSize=60;
+
+// user-settable parameters and defaults
+var dpopupDelay=1.5;
+var dpopupFgColor='#CCCCFF';
+var dpopupBgColor='#333399';
+var dremoveTitles=true;
+var dimagePopupsForImages=true;
+
+var popupDelay;
+var popupFgColor;
+var popupBgColor;
+var removeTitles;
+var imagePopupsForImages;
+
+var extraPageInfo = true;
+
+/////////////////////
+// HTML GENERATION //
+/////////////////////
+
+// generate html for popup image
+// &lt;a id=&quot;popupImageLinkn&quot;&gt;&lt;img src=&quot;&quot; .. id=&quot;popupImagen&quot;&gt;
+// where n=popupImageId
+function imageHTML(article) {
+  var imgurl=''; // imageURL(article, 'en');
+  var ret='';
+  if (imgurl != null) {
+    popupImageId++;
+    ret+='&lt;a id=&quot;popupImageLink' + popupImageId + '&quot;&gt;';
+    ret += '&lt;img src=&quot;' + imgurl + 
+      '&quot; width=' + popupImageSize + 
+      ' align=&quot;right&quot; valign=&quot;top&quot; + id=&quot;popupImage' + popupImageId 
+      + '&quot;&gt;&lt;/img&gt;';
+    ret+='&lt;/a&gt;';
+  }
+  return ret;
+};
+
+function articleFromAnchor(a) {
+  var h=a.href;
+
+  var contribs=contributions.exec(h);
+  if (contribs != null) {
+    article='User:'+contribs[3];
+  } else {
+    var m=re.exec(h);
+    if(m===null) return null;
+    article=m[2];
+  }
+
+  var email=emailuser.exec(h);
+  if (email != null) {
+    article='User:'+email[3];
+  } else {
+    var m=re.exec(h);
+    if(m===null) return null;
+    article=m[2];
+  }
+  return article;
+};
+
+// Generate html for whole popup
+// this is ugly
+function popupHTML (a) {
+
+  var c=a.className;
+  // if (c=='new') alert('new!');
+
+  var article = articleFromAnchor(a);
+
+  var hint=a.originalTitle;
+  if (hint == '' || hint == null)
+    hint = myDecodeURI(article);
+
+  var html='';
+ 
+  html +=imageHTML(article);
+
+  html+='&lt;b&gt;';
+  html+=titledWikiLink(article, 'view', myDecodeURI(article), hint);
+  html+='&lt;/b&gt;';
+
+  html+='&lt;span id=&quot;popupImageStatus'+popupImageId+'&quot;&gt;&lt;/span&gt;';
+  // Get rid of anchor now
+  article=removeAnchor(article);
+
+  if (userName(article) != null) {
+    html += ' ' + contribsLink(article, 'contribs');
+    html += ' ' + kateLink(article, 'count');
+    html += ' ' + emailLink(article, 'email');
+  }
+
+  html += '&lt;br&gt;' + wikiLink(article, 'edit', 'edit');
+  html += ' ' + wikiLink(article, 'history', 'history');
+  html += ' ' + wikiLink(article, 'unwatch', 'un') + '|';
+  html += wikiLink(article, 'watch', 'watch');
+  var t=talkPage(article);
+  if (t != null) html += ' ' + wikiLink(t, 'view', 'talk') + 
+                   ' ' + wikiLink(t, 'edit', 'editTalk') +
+                   ' ' + wikiLink(t, 'edit&amp;section=new', 'newTopic');
+  var ta=articleFromTalkPage(article);
+  if (ta != null) html +=' ' + 
+                    wikiLink(article, 'edit&amp;section=new', 'newTopic') +
+                    ' ' + wikiLink(ta, 'view', 'article') + 
+                    ' ' + wikiLink(ta, 'edit', 'editArticle');
+ 
+  html += '&lt;br&gt;' + specialLink(article, 'Whatlinkshere', 'whatLinksHere');
+  html += ' ' + specialLink(article, 'Recentchangeslinked', 'relatedChanges');
+
+  html += '&lt;span id=&quot;popupWarnRedir' + popupImageId + '&quot;&gt;&lt;/span&gt;';
+  html += '&lt;span id=&quot;popupGubbins' + popupImageId + '&quot;&gt;&lt;/span&gt;';
+  return html;
+}; 
+
+/////////////////
+// DOWNLOADING //
+/////////////////
+
+//////////////
+//
+// downloader
+//
+//
+
+function downloader(url) {
+  // Source: http://jibbering.com/2002/4/httprequest.html
+  this.http= false;
+
+  /*@cc_on @*/
+  /*@if (@_jscript_version &gt;= 5)
+  // JScript gives us Conditional compilation, 
+  // we can cope with old IE versions.
+  // and security blocked creation of the objects.
+  try {
+  this.http = new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;);
+  } catch (e) {
+  try {
+  this.http = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+  } catch (E) {
+  // this.http = false;
+  }
+  }
+  @end @*/
+
+  if (! this.http &amp;&amp; typeof XMLHttpRequest!='undefined') {
+    this.http = new XMLHttpRequest();
+  }
+
+  this.url = url;
+  this.id=null;
+  this.callbackFunction = null;
+
+  if (this.http) {
+    // public
+    this.send = this.http.send;
+    this.abort = this.http.abort;
+  }
+  else this.http=false;
+};
+
+new downloader();
+
+downloader.prototype.setCallback = function (f) { 
+  if(!this.http) return;
+  this.http.onreadystatechange = f;
+  this.callbackFunction = f;
+};
+
+downloader.prototype.runCallback = function () {
+  this.callbackFunction(this);
+};
+
+downloader.prototype.getData = function () { 
+  if(!this.http) return;
+  return this.http.responseText;
+};
+
+downloader.prototype.setTarget = function () { 
+  if(!this.http) return;
+  this.http.open(&quot;GET&quot;, this.url, true); 
+};
+
+downloader.prototype.start=function () { 
+  // alert('downloader instance got told to start()');
+  if(!this.http) return;  
+  return this.http.send(null);
+};
+
+downloader.prototype.getReadyState=function () {
+  if(!this.http) return;
+  return this.http.readyState;
+};
+
+function newDownload(url, id, callback) {
+  var d=new downloader(url);
+  d.id=id;
+  d.setTarget();
+  var f = function () {
+    if (d.getReadyState() == 4)
+    { d.data=d.getData(); callback(d);}
+  };
+  d.setCallback(f);
+  return d;//d.start();
+};
+
+function fakeDownload(url,id,callback,data) {
+  var d=newDownload(url,callback);
+  d.id=id;
+  d.data=data;
+  return callback(d);
+};
+
+function startDownload(url, id, callback) {
+  var d=newDownload(url, id, callback);
+  d.start();
+};
+
+//
+//
+// downloader
+//
+//////////////
+
+
+// Schematic for a getWiki call
+//
+//   getWiki-&gt;-getPageWithCaching
+//                    |
+//       false        |          true
+// getPage&lt;-[findPictureInCache]-&gt;-onComplete(a fake download)
+//   \.
+//     (async)-&gt;addPageToCache(download)-&gt;-onComplete(download)
+
+function getWiki(wikipage, onComplete) {
+  log('getWiki, wikipage='+wikipage); 
+  var url = titlebase + removeAnchor(wikipage) + '&amp;action=raw';
+  return getPageWithCaching(url, onComplete);
+};
+
+// check cache to see if page exists
+
+function getPageWithCaching(url, onComplete) {
+  log ('getPageWithCaching, url='+url);
+  var i=findInPageCache(url);
+  if (i &gt; -1) {
+    return fakeDownload(url, popupImageId, onComplete, gCachedPages[i].data);
+  }
+  return getPage(url, onComplete);
+};
+
+function getPage(url, onComplete) {
+  log ('getPage, url='+url);
+
+  var callback= function (d) { 
+    log('callback from getPage activated');
+    addPageToCache(d); onComplete(d) } ;
+  return startDownload(url, popupImageId, callback);
+};
+
+function findInPageCache(url) {
+  for (var i=0; i&lt;gCachedPages.length; ++i) {
+    if (url==gCachedPages[i].url) { 
+      log('found url at index '+i);
+      return i;
+    }
+  }
+  log('did not find url='+url);
+
+  return -1; 
+};
+
+
+function cachedPage (url,data) {
+  this.url=url;
+  this.data=data;
+};
+
+function addPageToCache(download) {
+  log ('addPageToCache, page.url='+download.url);
+  /*
+    log ('addPageToCache now calling findInPageCache');
+    if (findInPageCache(download) &gt; -1) { 
+    log ('not adding - already there'); return; 
+    }
+    log ('new page - adding');
+  */
+  var page = new cachedPage(download.url, download.data);
+  return gCachedPages.push(page);
+};
+
+/*
+  var gCurrentDownload = null;
+
+  function abortCurrentDownload(download) {
+  if (gCurrentDownload) {
+  try { gCurrentDownload.abort(); }
+  catch (anerror) {return 'could not abort download object';}
+  }
+  return true;
+  }
+*/
+
+
+/////////////////////
+// LINK GENERATION //
+/////////////////////
+
+function wikiLink(article, action, text) {
+  var prehint=null;
+
+  switch (action) {
+  case 'edit':             prehint = 'Edit ';                 break;
+  case 'history':          prehint = 'Show history for ';     break;
+  case 'unwatch':          prehint = 'Stop watching ';        break;
+  case 'watch':            prehint = 'Watch ';                break;
+  case 'view':             prehint = 'Go to ';                break;
+  case 'edit&amp;section=new': prehint = 'Start a new topic on '; break;
+  default: true;
+  }
+ 
+  var hint;
+  if (prehint != null) hint=prehint + myDecodeURI(article);
+  else prehint = myDecodeURI(article + '&amp;action=' + action);
+  return titledWikiLink(article, action, text, hint);
+};
+
+function titledWikiLink(article, action, text, title) {
+  var base = titlebase +  article;
+  var url=base;
+  // no need to add action&amp;view, and this confuses anchors
+  if (action != 'view') url = base + '&amp;action=' + action;
+
+  var hint;
+  if (title == null || title == '')
+    hint = ''
+      else 
+        hint = 'title=&quot;' + title + '&quot;'; 
+
+  return '&lt;a href=&quot;' + url + '&quot; ' + hint + '&gt;' + text + '&lt;/a&gt;';
+};
+
+function specialLink(article, specialpage, text) {
+  var base = titlebase +  'Special:'+specialpage;
+  var url = base + '&amp;target=' + article;
+  var prehint=null;
+  switch (specialpage) {
+  case 'Whatlinkshere': 
+    prehint='Show the articles which link to '; break;
+  case 'Recentchangeslinked': 
+    prehint='Show recent changes in articles related to '; break;
+  case 'Contributions': 
+    prehint='Show the contributions made by '; break;
+  case 'Emailuser': 
+    prehint='Email '; break;
+  }
+  var hint;
+  if (prehint != null) hint = prehint + myDecodeURI(article);
+  else hint = myDecodeURI(specialpage+':'+article) ;
+  return '&lt;a href=&quot;' + url + '&quot; title=&quot;' + hint + '&quot;&gt;' + text + '&lt;/a&gt;';
+};
+
+function redirLink(redirMatch) { /* NB redirMatch is in wikiText */
+  log ('making redirLink for page [['+redirMatch+']]');
+  var ret=titledWikiLink(myEncodeURI(redirMatch), 
+                         'view', 
+                         myDecodeURI(redirMatch), 
+                         'Bypass redirect');
+  return ret;
+};
+
+function doNotRedirLink(redirPage, linkText, hintText) { /* NB redirPage is in wikiText */
+  log('making doNotRedirLink for page(?) [['+redirPage+']]');
+  var ret=titledWikiLink(myEncodeURI(redirPage), 
+                         'edit', 
+                         linkText,
+                         hintText);
+  return ret;
+};
+
+
+
+function contribsLink(article, text) {
+  return specialLink(userName(article), 'Contributions', text);
+};
+
+function emailLink(article, text) {
+  return specialLink(userName(article), 'Emailuser', text);
+};
+
+function kateLink(article, text) {
+  var uN=myDecodeURI(userName(article));
+  return '&lt;a href=&quot;' + kateBase + uN + '&quot; title=&quot;'
+    + 'Count the contributions made by ' + uN + '&quot;&gt;' + text + '&lt;/a&gt;';
+};
+
+////////////////////////////
+// MANIPULATION FUNCTIONS //
+////////////////////////////
+
+function upcaseFirst(str) {
+  return str[0].toUpperCase() + str.substring(1);
+};
+
+
+function formatBytes(num) {
+  ret = (num &gt; 949) ? (Math.round(num/100)/10+'kB') :
+    (num +'&amp;nbsp;bytes' ) ;
+  return ret;
+}
+
+function getPageInfo(data) {
+  var numImages = countImages(data);
+  var numLinks = countLinks(data);
+  var numCategories = countCategories(data);
+  var stats='c. ';
+  stats += formatBytes(data.length);
+  stats += ', ';
+  stats +=numLinks + '&amp;nbsp;wikiLink' + ((numLinks!=1)?'s, ':', ');
+  stats +=numImages + '&amp;nbsp;image' + ((numImages!=1)?'s, ':', ');
+  stats +=numCategories + '&amp;nbsp;categor' + ((numCategories!=1)?'ies':'y');
+  var pageInfo=''; 
+  if (isStub(data)) pageInfo+='stub, ';
+  if (isDisambig(data)) pageInfo += 'disambig, ';
+  if (pageInfo != '' ) 
+    pageInfo = upcaseFirst(pageInfo);
+  return pageInfo + stats;
+};     
+
+function getValidImageFromWikiText(wikiText) {
+  var imagePage=null;
+  // nb in imageRegex we're interested in the second bracketed expression 
+  // this may change if the regex changes :-(
+  //var match=imageRegex.exec(wikiText);
+  var matched=null;
+  var match;
+  while ( match = imageRegex.exec(wikiText)) {
+    /* now find a sane image name - exclude templates by seeking { */
+    var m = match[2];
+    log('is '+m+' a valid name for an image?');
+    if ( isValidImageName(m) ) { matched=m; 
+    log('yes!'); 
+    break;}
+    log('no...');
+  } 
+  imageRegex.lastIndex=0;
+  if (!matched) return null;
+  if (matched[0] &gt;= 'a' &amp;&amp; matched[0] &lt;= 'z') {
+    // upcase first character if ascii
+    matched = upcaseFirst(matched);
+  }
+  imagePage='Image:'+matched;
+  return imagePage;
+};
+
+function countLinks(wikiText) { 
+  // this could be improved!
+  return wikiText.split('[[').length - 1;
+};
+
+// if N = # matches, n = # brackets, then
+// String.split(regex) intersperses the N+1 split elements
+// with Nn other elements. So total length is
+// L= N+1 + Nn = N(n+1)+1. So N=(L-1)/(n+1).
+
+function countImages(wikiText) {
+  return (wikiText.split(imageRegex).length - 1) / 
+    (imageRegexBracketCount + 1);
+};
+
+function countCategories(wikiText) {
+  return (wikiText.split(categoryRegex).length - 1) /
+    (categoryRegexBracketCount + 1);
+};
+
+
+function talkPage(article) {
+  if (article.indexOf('Talk:') &gt; -1 || article.indexOf('talk:') &gt; -1 ) 
+    return null;
+
+  var i=article.indexOf(':');
+  if (i == -1) return 'Talk:'+article;
+  else return article.substring(0,i)+'_talk:' + article.substring(i+1);
+};
+
+function articleFromTalkPage(talkpage) {
+  var i=talkpage.indexOf('Talk:');
+  var j=talkpage.indexOf('_talk:');
+  if ( i == -1 &amp;&amp; j  == -1 ) 
+    return null;
+  if ( i &gt; -1 ) return talkpage.substring(i+5);
+  return talkpage.split('_talk:').join(':');
+};
+
+function userName(article) {
+  var i=article.indexOf('User');
+  var j=article.indexOf(':');
+  if  (i != 0 || j &lt; -1) return null;
+  var k=article.indexOf('/');
+  if (k==-1) return article.substring(j+1);
+  else return article.substring(j+1,k);
+};
+
+function stripNamespace(article) {
+  // this isn't very sophisticated 
+  // it just removes everything up to the final :
+  var list = article.split(':');
+  return list[list.length-1];
+};
+
+function imagePathComponent(article) {
+  if (isImage(article)) {
+    var stripped=stripNamespace(article);
+    var forhash=myDecodeURI(stripped).split(' ').join('_');
+    var hash=md5_hex(forhash);
+    var pathcpt=hash.substring(0,1) + '/' + hash.substring(0,2) + '/';
+    return pathcpt;
+  }
+  else return null;
+};
+
+function getImageUrlStart(wiki) { // this returns a trailing slash
+  switch (wiki) {
+    case 'en.wikipedia.org':
+      return 'http://upload.wikimedia.org/wikipedia/en/';
+    case 'commons.wikimedia.org':
+      return 'http://upload.wikimedia.org/wikipedia/commons/';
+    case 'en.wiktionary.org':
+      return 'http://en.wiktionary.org/upload/en/';
+    default: // unsupported - take a guess
+      var lang=wiki.split('.')[0];
+      return 'http://' + wiki + '/upload/' + lang +'/';
+  }
+}
+
+
+
+function imageURL(img, wiki) {
+  if (popupDebug &gt; 10) alert ('imageURL\n\nimg=' + img + '\nwiki='+wiki);
+  var imgurl=null;
+  if (isImage(img)) {
+    var pathcpt = imagePathComponent(img);
+    var stripped=stripNamespace(img);
+    imgurl=getImageUrlStart(wiki) + pathcpt + stripped;
+  }
+  return imgurl;
+};
+
+function imageThumbURL(img, wiki, width) {
+  // 
+  // eg http://upload.wikimedia.org/wikipedia/en/thumb/6/61/ 
+  //           Rubiks_cube_solved.jpg/120px-Rubiks_cube_solved.jpg
+
+  var imgurl=null;
+  if (isImage(img)) {
+    var pathcpt = imagePathComponent(img);
+    var stripped=stripNamespace(img);
+    imgurl=getImageUrlStart(wiki) +  &quot;thumb/&quot;
+      + pathcpt + stripped + '/' + width +&quot;px-&quot; + stripped;
+  }
+  return imgurl;
+};
+
+
+// (a) myDecodeURI (first standard decodeURI, then exceptions)
+// (b) change spaces to underscores
+// (c) encodeURI (just the straight one, no exceptions)
+
+function wikiMarkupToAddressFragment (str) { // for images
+  var ret = myDecodeURI(str);
+  ret = ret.split(' ').join('_');
+  ret = encodeURI(ret);
+  return ret;
+};
+
+
+function addressFragmentToWikiMarkup (str) { 
+  // seemingly, not :( the inverse of wikiMarkupToAddressFragment
+
+  log ('addressFragmentToWikiMarkup\nstr='+str);
+  var ret = myDecodeURI(str);
+  /*   ret = ret.split('_').join(' '); */
+  /*   ret = myEncodeURI(str); */
+  log('addressFragmentToWikiMarkup\nret='+ret);
+  return ret;
+};
+
+
+function myDecodeURI (str) {
+  var ret=decodeURI(str);
+  for (var i=0; i&lt;decodeExtras.length; ++i) {
+    var from=decodeExtras[i].from;
+    var to=decodeExtras[i].to;
+    ret=ret.split(from).join(to);
+  }
+  log ('myDecodeURI: ' +str+ ' to ' +ret);
+  return ret;
+};
+
+function myEncodeURI (str) {
+  log ('myEncodeURI: str='+str);
+  var ret=str;
+  ret=encodeURI(ret);
+  log ('           : after encodeURI, ret=' +ret);
+  for (var i=0; i&lt;decodeExtras.length; ++i) {
+    var from=decodeExtras[i].from;
+    var to=decodeExtras[i].to;
+    ret=ret.split(to).join(from);
+  }
+  log ('           : after decodeExtras, ret='+ret);
+  return ret;
+};
+
+function removeAnchor(article) {
+  // is there a #? if not, we're done
+  var i=article.indexOf('#');
+  if (i == -1) return article;
+
+  // head#tail
+  var head = article.substring(0,i);
+  var tail = article.substring(i+1);
+
+  return head;
+};
+
+///////////
+// TESTS //
+///////////
+
+function isStub(data) { return stubRegex.test(data); }
+function isDisambig(data) { return disambigRegex.test(data); } 
+
+function isValidImageName(str){ // extend as needed...
+  return ( str.split('{').length == 1 );
+};
+
+function isInNamespace(article, namespace) {
+  var i=article.indexOf(namespace+':');
+  var j=article.indexOf(namespace+'_talk:');
+  if  (i == -1 &amp;&amp; j == -1) return false;
+  return true;
+};
+
+function isImage(thing) {
+  return isInNamespace(thing, 'Image');
+};
+
+function isImageOk(img)
+{ 
+  // IE test
+  if (!img.complete)
+    return false;
+
+  // gecko test
+  if (typeof img.naturalWidth != &quot;undefined&quot; &amp;&amp; img.naturalWidth == 0)
+    return false;
+
+  // No other way of checking: assume it's ok.
+  return true;
+};
+
+function anchorContainsImage(a) {
+  // iterate over children of anchor a
+  // see if any are images
+  if (a===null) return false;
+  kids=a.childNodes;
+  for (var i=0; i&lt;kids.length; ++i) {
+    if (kids[i].nodeName=='IMG') return true;
+  }
+  return false;
+};
+
+/////////////
+// ACTIONS //
+/////////////
+
+function loadThisImage (image) {
+  var msg = '';
+  msg += 'loadThisImage; image=' + image;
+  msg += '\nimagePathComponent(image) = ' + imagePathComponent;
+  var stripped=stripNamespace(image);
+  var forhash=myDecodeURI(stripped).split(' ').join('_');
+  var hash=md5_hex(forhash);
+  var pathcpt=hash.substring(0,1) + '/' + hash.substring(0,2) + '/';
+  msg +='\n\nbreakdown:\n stripped==stripNamespace(image)='+stripped;
+  msg +='\nforhash=myDecodeURI(stripped).split(&quot; &quot;).join(&quot;_&quot;)='+forhash;
+  msg +='\nhash=md5_hex(forhash)-' +hash;
+  msg +='\npathcpt='+pathcpt;
+ 
+  if (!isValidImageName(image)) return false;
+
+  if(popupDebug != null)
+    alert(msg);
+ 
+  msg='List of urls:\n';
+  for (var i=0; i&lt;imageSources.length; ++i) {
+
+    var url;
+ 
+    // reset
+    imageSources[i].active=false;
+
+ 
+    if (imageSources[i].thumb) 
+      url=imageThumbURL(image, imageSources[i].wiki, imageSources[i].width);
+    else 
+      url=imageURL(image, imageSources[i].wiki);
+ 
+    msg += '\n'+url; 
+
+    imageArray[i]=new Image();
+    imageArray[i].src=url;
+
+  }
+ 
+  if (popupDebug) alert (msg);
+
+  if (popupImageTimer != null) {
+    clearInterval(popupImageTimer);
+    counter=0;
+  }
+  gImage=image;
+  popupImageTimer=setInterval(&quot;checkImages()&quot;, 250);
+  return;
+};
+
+
+
+function loadImages(article) {
+  if(! isImage(article) ) return;
+  if (popupDebug) alert('loadImages, article='+article);
+  return loadThisImage(article);
+};
+
+function setPopupHTML (str, elementId, popupId) {
+  if (typeof popupId === 'undefined') popupId = popupImageId;
+  var popupElement=
+    document.getElementById(elementId+popupId);
+  var timer;
+
+  if (typeof popupHTMLTimers[elementId] == 'undefined') {
+    timer=null;
+  }
+  else {
+    timer=popupHTMLTimers[elementId];
+  }
+
+  if (popupElement != null) {
+    if(timer) clearInterval(timer);
+    popupHTMLTimers[elementId]=null;
+    popupElement.innerHTML=str;
+    log('setPopupElement found the '+elementId+popupId+ ' element' +
+        '\nstr='+str+
+        '\npopupElement.innerHTML=' + popupElement.innerHTML);
+    return true;
+  } else {
+    log('setPopupElement did not find the '+elementId+popupId+ ' element' +
+        '\nstr='+str);
+    var loopFunction=function() { setPopupHTML(str,elementId,popupId);}
+    popupHTMLLoopFunctions[elementId] = loopFunction;
+    if (!timer) {
+      var doThis = 'popupHTMLLoopFunctions[&quot;'+elementId+'&quot;]()';
+      popupHTMLTimers[elementId] = setInterval(doThis, 600);
+    }
+  }
+};
+
+
+function setImageStatus(str, id) {
+  return setPopupHTML(str, 'popupImageStatus', id);
+};
+
+function setPopupTrailer(str,id) {
+  return setPopupHTML(str, 'popupGubbins', id);}
+
+function checkImages() {
+
+  if (checkImagesTimer!=null) {
+    clearInterval(checkImagesTimer);
+    checkImagesTimer=null;
+    if (loopcounter &gt; 10); {loopcounter=0; return;}
+    loopcounter++;
+  } else counter++;
+
+  var status =  ( counter % 2 ) ? ':' : '.' ;
+  setImageStatus(status);
+
+  if (counter &gt; 100) {counter = 0; clearInterval(popupImageTimer);}
+
+  var popupImage=null;
+  popupImage=document.getElementById(&quot;popupImage&quot;+popupImageId);
+  if (popupImage == null) {
+    // this doesn't seem to happen any more in practise for some reason
+    // still, I'll leave it in
+    checkImagesTimer=setInterval(&quot;checkImages()&quot;,333);
+    return;
+  }
+ 
+  // get the first image to successfully load
+  // and put it in the popupImage
+  for(var i = 0; i &lt; imageArray.length; ++i) {
+    if(isImageOk(imageArray[i])) {
+      // stop all the gubbins, assign the image and return
+
+      clearInterval(popupImageTimer);
+
+      if(isImage(gImage)) {
+        popupImage.src=imageArray[i].src;
+        imageSources[i].active=true;
+        setPopupImageLink(gImage, imageSources[i].wiki);
+        stopImagesDownloading();
+      }
+
+      setImageStatus('');
+
+      // reset evil nonconstant globals
+      var l=imageArray.length;
+      imageArray=null; imageArray=new Array();
+      popupImageTimer=null;
+
+      counter=0;
+      loopcounter=0;
+
+      return popupImage.src; 
+    }
+  }
+};
+
+function stopImagesDownloading() {
+  gImage=null;
+  if (imageArray == null) return null;
+  var i;
+  for (i=0; i&lt;imageArray.length; ++i) {
+    imageArray[i].src='';
+  }
+  return i;
+};
+
+function toggleSize() {
+  var imgContainer=this;
+  if (!imgContainer) { alert('imgContainer is null :/'); return;}
+  img=imgContainer.firstChild;
+  if (!img) { alert('img is null :/'); return;}
+  var msg=''; 
+  for (var i=0; i&lt;imgContainer.childNodes.length; ++i)
+    msg += '\nimgContainer.childNodes['+i+'].width=' + 
+      imgContainer.childNodes[i].width;
+  if (!img.style.width || img.style.width=='')
+    img.style.width='100%'; 
+  else img.style.width=''; // popupImageSize+'px';
+};
+
+function setPopupImageLink (img, wiki) {
+  if( wiki === null || img === null ) return null;
+ 
+  var a=document.getElementById(&quot;popupImageLink&quot;+popupImageId);
+  if (a === null) return null; 
+
+  var linkURL = imageURL(img, wiki); 
+  if (linkURL != null) {
+    if (popupImagesToggleSize) {
+      a.onclick=toggleSize;
+      a.title='Toggle image size';
+    } else {
+      a.href=linkURL;
+      a.title='Open full-size image';
+    }
+  }
+  return linkURL;
+};
+
+function setupTooltips() {
+  var anchors=document.getElementsByTagName('A');
+  // alert(anchors.length + 'anchors');
+  var s='';
+ 
+  if (removeTitles==null) removeTitles=dremoveTitles;
+
+  for (var i=0; i&lt;anchors.length; ++i)
+    {
+      var a=anchors[i];
+      var h=a.href;
+      var contribs=contributions.exec(h);
+      var email=emailuser.exec(h);
+      var exc=exceptions.exec(h);
+      var m=re.exec(h);
+      if (contribs != null || (exc == null &amp;&amp; m != null) ) {
+        a.onmouseover=mouseOverWikiLink;
+        a.onmouseout= mouseOutWikiLink;
+        if (removeTitles) {
+          a.originalTitle=a.title;
+          a.title='';
+        }
+      }
+    }
+};
+
+
+//////////////
+// THINGIES //
+//////////////
+
+
+// How the URLs for images in the popup come about
+
+//   loadPreviewImage 
+//          |                                  
+//       getWiki                                
+//          |&lt;----------------see other schematic for details 
+//    insertPreviewImage      (insertPreviewImage = onComplete)
+//          |
+//          |            insertPreviewImage gets a wikiText fragment from 
+//          |                       the wikiText downloaded by getWiki
+//          |                                   
+//  [wikiMarkupToAddressFragment]         
+//       |                                      
+//       |                     mouseOverWikiLink  (gets an &quot;address fragment&quot;,       
+//       |                            |            no processing needed)
+//       \-&gt;-loadThisImage---&lt;----loadImages    
+//                 |                            
+//           [image(Thumb)URL]--&gt;--hopefully valid image urls
+
+
+function mouseOverWikiLink() {
+  // FIXME: should not generate the HTML until the delay has elapsed,
+  //        and then popup immediately. Can be a CPU hog otherwise.
+ 
+  /* // good idea? dunno
+     if ( typeof o3_showingsticky != &quot;undefined&quot; &amp;&amp; o3_showingsticky != 0 ) {
+     return;
+     }
+  */  
+
+  var a=this;
+  var html = popupHTML(a);
+  var article=articleFromAnchor(a); 
+
+  if (popupImageTimer != null) {
+    clearInterval(popupImageTimer);
+    counter=0;
+  }
+
+  if (popupDelay==null) popupDelay=dpopupDelay;
+  if (popupFgColor==null) popupFgColor=dpopupFgColor;
+  if (popupBgColor==null) popupBgColor=dpopupBgColor;
+
+  log('running overlib now');
+  overlib(html, STICKY, MOUSEOFF, WRAP, CELLPAD, 5, 
+          OFFSETX, 2, OFFSETY, 2, DELAY, popupDelay*1000,
+          FGCOLOR, popupFgColor, BGCOLOR, popupBgColor);
+  
+  if (imagePopupsForImages == null) 
+    imagePopupsForImages = dimagePopupsForImages;
+
+  var previewImage=true;
+
+  gImage=null;
+
+  if ( 
+      isImage(article) &amp;&amp; 
+      ( imagePopupsForImages || ! anchorContainsImage(a) )
+      ) 
+    {
+      loadImages(article);
+    }
+  else if (!isImage(article) &amp;&amp; previewImage) {
+    redirCount=0;
+    loadPreviewImage(article);
+  }
+};
+
+function loadPreviewImage(article) {
+
+  /* var imgStatus; 
+     imgStatus='';
+     for (var i=0; i&lt;redirCount+2; ++i) imgStatus += '.';
+     setImageStatus(imgStatus); */
+  var ret=getWiki(article, insertPreviewImage);
+
+  return ret;
+};
+
+
+function loadPreviewImageFromRedir(redirPage, redirMatch) {
+  /* redirMatch is a regex match */
+  var target = redirMatch[1];
+  var trailingRubbish=redirMatch[2];
+  log ('found a first redirect to ' + target);
+  ++redirCount;
+  var warnRedir='&lt;br&gt;Redirects to ';
+  warnRedir += redirLink(target);
+  if (trailingRubbish.length &gt; 0) {
+    log ('found trailing rubbish: in redirect to\n' 
+         + target + '\n\n' + trailingRubbish);
+    warnRedir += ', '+formatBytes(trailingRubbish.length);
+    warnRedir += '&amp;nbsp;' + 
+      doNotRedirLink(redirPage, 'hidden', 'Show text hidden after #redirect[[...]]');
+  }
+  setPopupHTML(warnRedir, 'popupWarnRedir');
+  return loadPreviewImage(myEncodeURI(target));
+};
+
+function extractChunk(str, header, breakChar) {
+  if (str.indexOf(header) != 0) return null;
+  if (!breakChar) return str.substring(header.length);
+  var findChar=str.indexOf(breakChar);
+  if (findChar==-1) return str.substring(header.length);
+  return str.substring(header.length, findChar);
+}
+
+function urlToWikiPage (url) {
+  log ('urlToWikiPage\nurl='+url);
+  var urlFragment=null;
+
+  if (!urlFragment) urlFragment=extractChunk(url, titlebase, '&amp;');
+  if (!urlFragment) urlFragment=extractChunk(url, wikibase, '?');
+
+  if (!urlFragment) return null;
+  
+  return addressFragmentToWikiMarkup(urlFragment);
+
+}
+
+function insertPreviewImage(download) {
+  log('starting insertPreviewImage');
+  if (download.id != popupImageId) {
+    log('download.id='+download.id
+        +' does not match popupImageId='+popupImageId);
+    return;
+  }
+
+  var wikiText=download.data;
+
+  log ('considering '+wikiText.length+' bytes of data, starting\n'
+       + wikiText.substring(0,50) );
+
+  var redirectRegex= /^[ \n]*[#]redirect[: \n]*\[\[([^\]]*)\]\]\s*(.*)/i ;
+  var redirMatch = redirectRegex.exec(wikiText);
+
+  if (redirMatch &amp;&amp; redirCount==0) { 
+    return loadPreviewImageFromRedir(urlToWikiPage(download.url), redirMatch);
+  } else redirCount=0;
+
+  log('not a redirect');
+
+  // setImageStatus(''); // this seems redundant
+  
+  if (extraPageInfo) {
+    log ('getting extraPageInfo');
+    var pgInfo=getPageInfo(wikiText);
+    log ('got '+pgInfo);
+    setPopupTrailer('&lt;br&gt;' + pgInfo);
+  }
+
+  var imagePage=getValidImageFromWikiText(wikiText);
+  if(imagePage) {
+    log ('found imagePage='+imagePage);
+    // loadThisImage expects an &quot;address fragment&quot;
+    imagePage = wikiMarkupToAddressFragment(imagePage); 
+    loadThisImage(imagePage);
+  }
+  else log('no image found');
+
+  log ('done insertPreviewImage');
+  // myalert(gMsg); gMsg='';
+};
+
+function mouseOutWikiLink () {
+  // o3_showingsticky should be defined in overlib.js
+  if ( typeof o3_showingsticky != &quot;undefined&quot; &amp;&amp; o3_showingsticky == 0 ) {
+    cClick();
+    // abortCurrentDownload();
+    stopImagesDownloading();
+  }
+};
+
+////////////////////////////////////////////////////////////////////
+// Run things
+////////////////////////////////////////////////////////////////////
+
+if (window.addEventListener)
+  window.addEventListener(&quot;load&quot;,setupTooltips,false);
+else if (window.attachEvent) 
+  window.attachEvent(&quot;onload&quot;,setupTooltips);
+else {
+  window._old_ABCD_onload = window.onload;
+  window.onload = function() {
+    window._old_ABCD_onload();
+    setupTooltips();
+  }
+}
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/i/User%7EBrian0918_popups.js_2284.html">http://en.wikipedia.org../../../b/r/i/User%7EBrian0918_popups.js_2284.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../b/r/i/User%7EBrian0918_popups.js_2284.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/r/i/User_talk%7EBrian0918_popups.js_c172.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Brian0918/popups.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 03:22, 7 August 2005 by Wikipedia user <a href="../../../b/r/i/User%7EBrian0918_0727.html" title="User:Brian0918">Brian0918</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

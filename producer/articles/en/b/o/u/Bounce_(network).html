@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bounce (network),Computer network,E-mail,File Transfer Protocol,Gateway (telecommunications),IP address,IRC bot,Internet Relay Chat,Load balancing (computing),Open proxy,Privacy" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bounce (network) - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bounce (network)</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>Bounce</b>, often abbreviated as <b>BNC</b>, is used to relay traffic and connections in <a href="../../../c/o/m/Computer_network.html" title="Computer network">computer networks</a>. Using a bouncer allows a user to hide the original source of the user's connection, providing <a href="../../../p/r/i/Privacy.html" title="Privacy">privacy</a> as well as providing the possibility of routing traffic through a specific location. A bouncer can also be used to hide the true target to which a user connects. This should not be confused with <a href="../../../e/-/m/E-mail.html" title="E-mail">e-mail</a>, which redirects mail or "bounces" it backward to the sender when the recipient's <a href="../../../e/-/m/E-mail.html#Messages_and_mailboxes" title="E-mail">mailbox</a> is full.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#IRC_use"><span class="tocnumber">1</span> <span class="toctext">IRC use</span></a></li>
+<li class="toclevel-1"><a href="#FTP_use"><span class="tocnumber">2</span> <span class="toctext">FTP use</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="IRC_use" id="IRC_use"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/u/Bounce_%28network%29.html" title="Edit section: IRC use">edit</a>]</span> <span class="mw-headline">IRC use</span></h2>
+<p>One common usage is over <a href="../../../i/n/t/Internet_Relay_Chat_c148.html" title="Internet Relay Chat">Internet Relay Chat</a> (IRC) via programs like <a href="../../../p/s/y/PsyBNC_0b5c.html" title="PsyBNC">psyBNC</a> running on remote <a href="../../../s/e/r/Server_%28computing%29.html" title="Server (computing)">servers</a>. In such an environment, where it is very easy to ascertain a user's <a href="../../../i/p/_/IP_address_6ed9.html" title="IP address">IP address</a> a BNC may help to hide the original connection source, as well as providing the opportunity for fun "vhosts" or "virtual hosts". The use of a vhost does not conceal the connection any better, but merely adds an amusing statement as the hostname.</p>
+<p>A bouncer may also remain connected to an IRC server in the event the client should disconnect from the Internet. Often state changes are tracked so that they may be relayed to the client upon reconnection. Some implementations opt to store all messages sent across the network that the client would have normally received, and send them upon the clients reconnection; this is often considered to be much too resource dependent for commercial hosting services to provide. Other logging features and <a href="../../../i/r/c/IRC_bot_1dd6.html" title="IRC bot">bot</a> like functions may be included with various implementations but are not standard.</p>
+<p><b>Example:</b></p>
+<dl>
+<dd><i>User A logs onto IRC directly and appears as</i> <tt>USER!user@127.0.0.1</tt></dd>
+<dd><i>User A logs onto IRC indirectly through a bnc and appears as</i> <tt>USER!user@user.is.the.best.net</tt></dd>
+<dd>Note: user.is.the.best.net is a fictional example, and in this context it would resolve to the IP address, or hostname/vhost of the BNC.</dd>
+</dl>
+<p><a name="FTP_use" id="FTP_use"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/u/Bounce_%28network%29.html" title="Edit section: FTP use">edit</a>]</span> <span class="mw-headline">FTP use</span></h2>
+<p>BNCs are also often used for the <a href="../../../f/i/l/File_Transfer_Protocol_5436.html" title="File Transfer Protocol">FTP</a> protocol, again to either hide the <a href="../../../u/s/e/User_%28computing%29.html" title="User (computing)">user</a> and <a href="../../../s/e/r/Server_%28computing%29.html" title="Server (computing)">server</a> from each other and also to route traffic through a specific location. FTP bouncers can be divided in two different categories, entry and traffic. Entry bouncer acts as a <a href="../../../g/a/t/Gateway_%28telecommunications%29.html" title="Gateway (telecommunications)">gateway</a> to the server, but it doesn't hide the existence of the actual server. Entry bouncers, like cubnc can be used in multi-server setup for easy access to each server and <a href="../../../l/o/a/Load_balancing_%28computing%29.html" title="Load balancing (computing)">load balancing</a>. This removes the need to select which FTP server to login to, when trying to access the <a href="../../../s/e/r/Server_farm.html" title="Server farm">server farm</a>.</p>
+<p>Traffic bouncers relay traffic through the host they are installed on, and when used, it appears as the bouncer is actually the FTP server thus hiding the real location of the server completely. Multiple traffic bouncers can be installed parallel, in order to balance traffic load across different links. Most elaborate bouncers can even bounce secure <a href="../../../t/r/a/Transport_Layer_Security_d877.html" title="Transport Layer Security">SSL/TLS</a> connections.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/u/Bounce_%28network%29.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../p/r/o/Proxy_server.html" title="Proxy server">Proxy</a></li>
+<li><a href="../../../o/p/e/Open_proxy.html" title="Open proxy">Open proxy</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/u/Bounce_%28network%29.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<p><b>IRC Bouncers</b></p>
+<ul>
+<li><a href="http://www.psybnc.at" class="external text" title="http://www.psybnc.at" rel="nofollow">psyBNC</a></li>
+<li><a href="http://www.gotbnc.com/" class="external text" title="http://www.gotbnc.com/" rel="nofollow">BNC</a></li>
+<li><a href="http://www.probnc.com/" class="external text" title="http://www.probnc.com/" rel="nofollow">ProBNC</a> (Windows BNC that allows users to access IRC by bypassing a firewall)</li>
+<li><a href="http://sourceforge.net/projects/sbnc" class="external text" title="http://sourceforge.net/projects/sbnc" rel="nofollow">shroudBNC</a> (a modular IRC bouncer with web-interface, supports <a href="../../../t/c/l/Tcl.html" title="Tcl">Tcl</a> scripting and SSL)</li>
+<li><a href="http://druglord.freelsd.org/ezbounce/" class="external text" title="http://druglord.freelsd.org/ezbounce/" rel="nofollow">ezbounce</a> (another feature-rich IRC bouncer)</li>
+<li><a href="http://muh.sf.net/" class="external text" title="http://muh.sf.net/" rel="nofollow">muh</a> (a popular IRC bouncer)</li>
+<li><a href="http://bip.berlios.de/" class="external text" title="http://bip.berlios.de/" rel="nofollow">bip</a> (a small IRC bouncer with SSL and backlog support)</li>
+<li><a href="http://miau.sourceforge.net/" class="external text" title="http://miau.sourceforge.net/" rel="nofollow">miau</a> (a late-2002 fork of muh, with more features)</li>
+<li><a href="http://jibble.org/jbouncer/" class="external text" title="http://jibble.org/jbouncer/" rel="nofollow">JBouncer</a> A Java IRC Bouncer</li>
+<li><a href="http://www.ircproxy.night-light.net/" class="external text" title="http://www.ircproxy.night-light.net/" rel="nofollow">Night Light</a> IRC Bouncer written in C, run on Windows and Unix</li>
+<li><a href="http://www.flexbouncer.com/" class="external text" title="http://www.flexbouncer.com/" rel="nofollow">FlexBouncer</a>MySQL-based bouncer</li>
+<li><a href="http://jelmer.vernstok.nl/oss/ctrlproxy" class="external text" title="http://jelmer.vernstok.nl/oss/ctrlproxy" rel="nofollow">ctrlproxy</a> A bouncer with many features</li>
+<li><a href="http://wiki.rottenboy.com/index.php/ZNC" class="external text" title="http://wiki.rottenboy.com/index.php/ZNC" rel="nofollow">ZNC</a> A feature-rich bouncer with log replay, web interface, and C++/Perl module support.</li>
+</ul>
+<p><b>FTP Bouncers</b></p>
+<ul>
+<li><a href="http://sourceforge.net/projects/cubnc" class="external text" title="http://sourceforge.net/projects/cubnc" rel="nofollow">cubnc</a> A simple FTP bouncer</li>
+<li><a href="http://www.lundman.net/unix/ssl-lbnc.php" class="external text" title="http://www.lundman.net/unix/ssl-lbnc.php" rel="nofollow">SSL-Lbnc</a> FTP relay program</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/u/Bounce_%28network%29.html">http://en.wikipedia.org../../../b/o/u/Bounce_%28network%29.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../i/n/t/Category%7EInternet_privacy_989e.html" title="Category:Internet privacy">Internet privacy</a></span> | <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_network_security_bc7f.html" title="Category:Computer network security">Computer network security</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/u/Bounce_%28network%29.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/o/u/Talk%7EBounce_%28network%29_e63f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bounce_%28network%29">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B1/%D0%B0/%D1%83/%D0%91%D0%B0%D1%83%D0%BD%D1%81%D0%B5%D1%80.html">Русский</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 11:47, 6 April 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../s/p/u/User%7ESpuriousQ_693d.html" title="User:SpuriousQ">SpuriousQ</a>, Shnout, <a href="../../../t/w/s/User%7ETwsx_4b21.html" title="User:Twsx">Twsx</a>, <a href="../../../j/i/g/User%7EJigsy_c36a.html" title="User:Jigsy">Jigsy</a>, Fa1rch1ld, <a href="../../../c/w/o/User%7ECwolfsheep_0066.html" title="User:Cwolfsheep">Cwolfsheep</a>, <a href="../../../j/h/u/User%7EJHunterJ_08ee.html" title="User:JHunterJ">JHunterJ</a>, <a href="../../../j/o/n/User%7EJonHarder_ef53.html" title="User:JonHarder">JonHarder</a>, <a href="../../../f/r/a/User%7EFrap_bccb.html" title="User:Frap">Frap</a>, <a href="../../../e/w/l/User%7EEwlyahoocom_d1b9.html" title="User:Ewlyahoocom">Ewlyahoocom</a>, <a href="../../../l/i/g/User%7ELightdarkness_f41f.html" title="User:Lightdarkness">Lightdarkness</a>, <a href="../../../a/l/k/User%7EAlkivar_1b76.html" title="User:Alkivar">Alkivar</a>, <a href="../../../g/a/r/User%7EGary_King_7238.html" title="User:Gary King">Gary King</a>, <a href="../../../r/2E/1/User%7ER.123_8916.html" title="User:R.123">R.123</a>, <a href="../../../s/3/3/User%7ES33k3r_83b0.html" title="User:S33k3r">S33k3r</a>, Jerroleth, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../m/a/r/User%7EMartin_Hinks_210f.html" title="User:Martin Hinks">Martin Hinks</a>, <a href="../../../e/v/i/User%7EEvil_Monkey_6b08.html" title="User:Evil Monkey">Evil Monkey</a>, <a href="../../../r/3/m/User%7ER3m0t_5466.html" title="User:R3m0t">R3m0t</a>, <a href="../../../a/e/n/User%7EAenar_beed.html" title="User:Aenar">Aenar</a>, <a href="../../../g/o/d/User%7EGodsmoke_c89c.html" title="User:Godsmoke">Godsmoke</a>, <a href="../../../r/a/d/User%7ERadiojon_da08.html" title="User:Radiojon">Radiojon</a> and <a href="../../../b/o/o/User%7EBooyabazooka_79a9.html" title="User:Booyabazooka">Booyabazooka</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

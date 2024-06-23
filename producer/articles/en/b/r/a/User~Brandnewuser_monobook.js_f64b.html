@@ -1,0 +1,340 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Brandnewuser/monobook.js,Blocking policy,Bypass your cache,Village pump (technical)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Brandnewuser/monobook.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Brandnewuser/monobook.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../b/r/a/User%7EBrandnewuser_6919.html" title="User:Brandnewuser">User:Brandnewuser</a></span></div>
+	    	    	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</p>
+<div style="color:darkred;background-color:#EEEEEE;border: darkred 2px solid;padding:5px;" id="jswarning"><div style="clear: both;color:darkred;"></div><b><div style="display:block;">If a message on your talk page led you here, please be wary of who left it.  The code below could contain malicious content capable of compromising your account; if your account appears to be compromised, it will be <a href="../../../b/l/o/Wikipedia%7EBlocking_policy_2eb0.html" title="Wikipedia:Blocking policy">blocked</a>.  If you are unsure whether the code is safe, you can ask at the appropriate <a href="../../../v/i/l/Wikipedia%7EVillage_pump_%28technical%29_e812.html" title="Wikipedia:Village pump (technical)">village pump</a>.</b></div></div></span>
+<pre> // &lt;pre&gt;
+
+// ACCESKEYS
+ // modify
+ ta['n-recentchanges'] = new Array('s','Recent changes');
+ ta['n-mainpage'] = new Array('p','Visit the Main Page');
+ ta['ca-edit'] = new Array('²','You can edit this page.');
+ ta['ca-watch'] = new Array('','Add this page to your watchlist');
+ ta['pt-logout'] = new Array('','Log out');
+ ta['ca-move'] = new Array('','Move this page');
+ ta['ca-talk'] = new Array('','Discussion about the content page');
+ ta['ca-delete'] = new Array('','Delete this page');
+
+
+// NAVBOX EXPANSION - from Connel
+ // add &quot;favourites&quot; to navigation box
+ function addToNav() {
+  var pagetitle = document.getElementById('p-cactions').getElementsByTagName('ul').item(0).getElementsByTagName('li').item(0).firstChild.href;
+
+  var lastnav = document.getElementById('n-sitesupport');
+  var newnav;
+  var newa;
+
+ 
+ // All pages starting from this page
+ newnav = document.createElement('li');
+ newa = document.createElement('a');
+ newa.href='/wiki/Special:Allpages/' + pagetitle;
+ newa.appendChild(document.createTextNode('SP:All pages'));
+ newnav.appendChild(newa);
+ lastnav.parentNode.appendChild(newnav);
+
+ // Log for this page
+ newnav = document.createElement('li');
+ newa = document.createElement('a');
+ newa.href='/w/index.php?title=Special%3ALog&amp;page=' + pagetitle;
+ newa.appendChild(document.createTextNode('SP:Log'));
+ newnav.appendChild(newa);
+ lastnav.parentNode.appendChild(newnav);
+
+ // Lonely pages
+ newnav = document.createElement('li');
+ newa = document.createElement('a');
+ newa.href='/w/index.php?title=Special:Lonelypages&amp;limit=500';
+ newa.appendChild(document.createTextNode('SP:Lonely pages'));
+ newnav.appendChild(newa);
+ lastnav.parentNode.appendChild(newnav);
+
+ // New pages
+ newnav = document.createElement('li');
+ newa = document.createElement('a');
+ newa.href='/w/index.php?title=Special:Newpages&amp;limit=500';
+ newa.appendChild(document.createTextNode('SP:New pages'));
+ newnav.appendChild(newa);
+ lastnav.parentNode.appendChild(newnav);
+
+ // Wanted pages
+ newnav = document.createElement('li');
+ newa = document.createElement('a');
+ newa.href='/w/index.php?title=Special:Wantedpages&amp;limit=500';
+ newa.appendChild(document.createTextNode('SP:Wanted pages'));
+ newnav.appendChild(newa);
+ lastnav.parentNode.appendChild(newnav);
+
+// w: (French talk)
+ newnav = document.createElement('li');
+ newa = document.createElement('a');
+ newa.href='/wiki/fr:Special:Search/User talk:Wonderfool';
+ newa.appendChild(document.createTextNode('French talk page'));
+ newnav.appendChild(newa);
+ lastnav.parentNode.appendChild(newnav);
+
+ // w: (Wiktionary)
+ newnav = document.createElement('li');
+ newa = document.createElement('a');
+ newa.href='/wiki/wiktionary:Special:Search/User talk:Newnoise';
+ newa.appendChild(document.createTextNode('WIKTIONARY'));
+ newnav.appendChild(newa);
+ lastnav.parentNode.appendChild(newnav);
+
+ // w: (Missing French articles)
+ newnav = document.createElement('li');
+ newa = document.createElement('a');
+ newa.href='/wiki/Wikipedia:WikiProject Missing encyclopedic articles/fr';
+ newa.appendChild(document.createTextNode('Missing fr articles'));
+ newnav.appendChild(newa);
+ lastnav.parentNode.appendChild(newnav);
+
+ // w: (Play page)
+ newnav = document.createElement('li');
+ newa = document.createElement('a');
+ newa.href='/wiki/User:Brandnewuser/Personal subpage for experimenting. Warning: Contains no sand';
+ newa.appendChild(document.createTextNode('Safe place'));
+ newnav.appendChild(newa);
+ lastnav.parentNode.appendChild(newnav);
+
+}
+
+
+// PERSONAL TOOLBAR EXPANSION - from Mike
+ function addTools() {
+  var myprefs = document.getElementById('pt-preferences'); 
+  var newpt;
+  var newa;
+
+  newpt = document.createElement('li');
+  newa = document.createElement('a');
+  newa.href='/wiki/User:Wonderfool/monobook.js' ;
+  newa.appendChild(document.createTextNode('js'));
+  newpt.appendChild(newa);
+  myprefs.parentNode.insertBefore(newpt, myprefs);
+}
+
+ function reformatMyPage() {
+   addToNav() ;
+   addTools();
+ }
+ 
+ var hack = 'failed';
+ var hack_pagetitle ='';
+ 
+ if (window.addEventListener) window.addEventListener(&quot;load&quot;,reformatMyPage,false);
+ else if (window.attachEvent) window.attachEvent(&quot;onload&quot;,reformatMyPage);
+
+
+// EDIT SECTION 0
+ function addEditSection0() {
+  if (!document.getElementById) return;
+  x = document.getElementById('ca-edit');
+  if(!x) return;
+  y = document.createElement('LI');
+  y.id = 'ca-edit-0';
+  if (x.className == 'selected') {
+    if (/&amp;action=edit&amp;section=0$/.test(window.location.href)) {
+      x.className = 'istalk';
+      y.className = 'selected';
+    } else {
+      x.className = 'selected istalk';
+    }
+  } else if (x.className == 'selected istalk') {
+    if (/&amp;action=edit&amp;section=0$/.test(window.location.href)) {
+      x.className = 'istalk';
+      y.className = 'selected istalk';
+    } else {
+      y.className = 'istalk';
+    }
+  } else {
+    y.className = x.className;
+    x.className = 'istalk';
+  }
+  z = document.createElement('A');
+  z2 = document.createElement('A');
+  if (x.children) {
+    z.href = x.children[0].href + '&amp;section=0';
+    z.appendChild(document.createTextNode('0'));
+    y.appendChild(z);
+    document.getElementById('p-cactions').children[1].insertBefore(y,x.nextSibling);
+    z2.href = x.children[0].href + '&amp;section=new';
+    z2.appendChild(document.createTextNode('+'));
+    y.appendChild(z2);
+    document.getElementById('p-cactions').children[1].insertBefore(y,x.nextSibling);
+  } else {
+    z.href = x.childNodes[0].href + '&amp;section=0';
+    z.appendChild(document.createTextNode('0'));
+    y.appendChild(z);
+    z2.href = x.childNodes[0].href + '&amp;section=new';
+    z2.appendChild(document.createTextNode('+'));
+    y.appendChild(z2);
+    document.getElementById('p-cactions').childNodes[3].insertBefore(y,x.nextSibling);
+   }
+ }
+
+ if (document.title.indexOf(&quot;Editing &quot;) == -1) {
+  addOnloadHook(addEditSection0);
+ }
+
+
+// EDITBAR EXPANSION - from Rei-artur@pt.wikipedia
+
+ window.AddMyOwnButton=function(tbar, caption, href, imgsrc) {
+   var ba = document.createElement('a');
+   ba.href = href;
+   var img = document.createElement('img');
+   img.src = imgsrc;
+   img.alt = caption;
+   ba.appendChild(img);
+   tbar.appendChild(ba);
+ }
+
+ window.myOwnEditButtons=function() {
+  var tbdiv=document.getElementById('toolbar');
+  if ( tbdiv ) {
+    tbdiv.appendChild(document.createTextNode(' '));
+
+    // ===,===
+    AddMyOwnButton(tbdiv, 'h3', 'javascript:insertTags(\'\\n===\',\'===\',\'\');', 'http://upload.wikimedia.org/wikipedia/en/e/e9/Button_headline2.png');
+
+    // [[en:,|]] also: http://upload.wikimedia.org/wikipedia/commons/b/bf/WP-icon.png
+    AddMyOwnButton(tbdiv, 'pedia', 'javascript:insertTags(\'[[en:\',\'|]]\',\'\');', 'http://upload.wikimedia.org/wikipedia/commons/7/7f/Button_link_to_English_Wikipedia.png');
+
+    // &lt;small&gt;
+    AddMyOwnButton(tbdiv, '&lt;small&gt;&lt;/small&gt;', 'javascript:insertTags(\'&lt;small&gt;\',\'&lt;/small&gt;\',\'\');', 'http://republico.estv.ipv.pt/~nmct/wikipedia/icons/button_small.png');
+
+    // &lt;strike&gt;
+    AddMyOwnButton(tbdiv, '&lt;s&gt;&lt;/s&gt;', 'javascript:insertTags(\'&lt;s&gt;\',\'&lt;/s&gt;\',\'\');', 'http://upload.wikimedia.org/wikipedia/en/c/c9/Button_strike.png');
+
+    // &lt;tt&gt;
+    AddMyOwnButton(tbdiv, '&lt;tt&gt;&lt;/tt&gt;', 'javascript:insertTags(\'&lt;tt&gt;\',\'&lt;/tt&gt;\',\'\');', 'http://republico.estv.ipv.pt/~nmct/wikipedia/icons/button_tt.png');
+
+    // &lt;includeonly&gt;
+    AddMyOwnButton(tbdiv, '&lt;includeonly&gt;&lt;/includeonly&gt;', 'javascript:insertTags(\'&lt;includeonly&gt;\',\'&lt;/includeonly&gt;\',\'\');', 'http://upload.wikimedia.org/wikipedia/commons/5/59/Button_template.png');
+
+    // &lt;noinclude&gt;
+    AddMyOwnButton(tbdiv, '&lt;noinclude&gt;&lt;/noinclude&gt;', 'javascript:insertTags(\'&lt;noinclude&gt;\',\'&lt;/noinclude&gt;\',\'\');', 'http://upload.wikimedia.org/wikipedia/commons/5/59/Button_template.png');
+
+    // [[Category:,]]
+    AddMyOwnButton(tbdiv, 'category', 'javascript:document.editform.wpSummary.value=\'\+cat\';insertTags(\'[\[Category:\',\']]\',\'\');', 'http://upload.wikimedia.org/wikipedia/commons/1/11/Button_category.png');
+
+    // #redirect [[,]]
+    AddMyOwnButton(tbdiv, 'redirect', 'javascript:document.editform.wpSummary.value=\'redirect\';insertTags(\'#\REDIRECT\[\[\',\']]\',\'\');', 'http://upload.wikimedia.org/wikipedia/en/c/c8/Button_redirect.png');
+
+    // '''{{subst:PAGENAME}}'''
+    AddMyOwnButton(tbdiv, 'pgnm', 'javascript:insertTags(\'\\\'\\\'\\\'{\{subst:PAGENAME}}\\\'\\\'\\\'\',\'\',\'\');', 'http://upload.wikimedia.org/wikipedia/commons/5/59/Button_template.png');
+
+
+  }
+}
+
+window.myAddOnload=function(f) {
+  if (window.addEventListener) window.addEventListener(&quot;load&quot;, f, false);
+  else if (window.attachEvent) window.attachEvent(&quot;onload&quot;,f);
+}
+
+myAddOnload(myOwnEditButtons);
+
+ // &lt;/pre&gt;
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/a/User%7EBrandnewuser_monobook.js_f64b.html">http://en.wikipedia.org../../../b/r/a/User%7EBrandnewuser_monobook.js_f64b.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../b/r/a/User%7EBrandnewuser_monobook.js_f64b.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/r/a/User_talk%7EBrandnewuser_monobook.js_268c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Brandnewuser/monobook.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 12:15, 13 August 2006 by Wikipedia user <a href="../../../b/r/a/User%7EBrandnewuser_6919.html" title="User:Brandnewuser">Brandnewuser</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

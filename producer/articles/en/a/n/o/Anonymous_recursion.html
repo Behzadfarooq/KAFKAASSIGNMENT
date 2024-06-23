@@ -1,0 +1,215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Anonymous recursion,Anonymous function,Church number,Computer science,Fixed point combinator,Lambda calculus,Recursion (computer science)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Anonymous recursion - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Anonymous recursion</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a>, <b>anonymous recursion</b> is a <a href="../../../r/e/c/Recursion_%28computer_science%29.html" title="Recursion (computer science)">recursion</a> technique that uses <a href="../../../a/n/o/Anonymous_function.html" title="Anonymous function">anonymous functions</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Construction"><span class="tocnumber">1</span> <span class="toctext">Construction</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">2</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Relation_to_the_use_of_the_Y_combinator"><span class="tocnumber">3</span> <span class="toctext">Relation to the use of the Y combinator</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">4</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Construction" id="Construction"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/o/Anonymous_recursion.html" title="Edit section: Construction">edit</a>]</span> <span class="mw-headline">Construction</span></h2>
+<p>Suppose that <i>f</i> is an <i>n</i>-argument recursive function defined in terms of itself:</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/b/5/cb52a19bfb01536931797d697ea7f4fa.png" alt="f(x_1, x_2, \dots, x_n)&#160;:= \mbox{expression in terms of } x_1, x_2, \dots, x_n \mbox{ and } f(\dots)." /></dd>
+</dl>
+<p>We want to define an equivalent recursive anonymous function <span class="texhtml"><i>f</i> <sup>*</sup></span> which is not defined in terms of itself. One possible procedure is the following:</p>
+<ol>
+<li>Define a (<i>n</i> + 1)-argument function <i>h</i> like <i>f</i>, except that <i>h</i> takes one extra argument, which is the function <i>f</i> itself. (Function <i>h</i> inherits its first <i>n</i> arguments from <i>f</i>.)</li>
+<li>Change <i>f</i>, the last argument of <i>h</i>, from an <i>n</i>-argument function to an (<i>n</i>&#160;+&#160;1)-argument function by feeding <i>f</i> to itself as <i>f</i>′s last argument for all instances of <i>f</i> within the definition of <i>h</i>. (This puts function <i>h</i> and its last argument <i>f</i> on an equal footing.) The functions <i>f</i> and <i>h</i> are now defined by
+<dl>
+<dd><img class='tex' src="../../../math/0/d/9/0d9f3c26144d87b4e026b6209d1c9b52.png" alt="f(x_1, x_2, \dots, x_n, f)&#160;:= \mbox{expression in terms of } x_1, x_2, \dots, x_n \mbox{ and } f(\dots,f)." /></dd>
+<dd><img class='tex' src="../../../math/8/6/6/866a970c51caf69e78a9b0f20605f12b.png" alt="h(x_1, x_2, \dots, x_n, f)&#160;:= \mbox{expression in terms of } x_1, x_2, \dots, x_n \mbox{ and } f(\dots,f)." /></dd>
+</dl>
+</li>
+<li>Pass on <i>h</i> to itself as <i>h</i>'s own last argument, and let this be the definition of the desired <i>n</i>-argument recursive anonymous function <span class="texhtml"><i>f</i> <sup>*</sup></span> :
+<dl>
+<dd><img class='tex' src="../../../math/f/9/c/f9c10d0f167550ea8b65976c681195e3.png" alt="f^* (x_1, x_2, \dots, x_n)&#160;:= h(x_1, x_2, \dots , x_n, h) \" /></dd>
+</dl>
+</li>
+</ol>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/o/Anonymous_recursion.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>Given</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/0/9/00906d0b98d00665fa5889e4034fd359.png" alt="f(x):= \begin{cases} 1 &amp; \mbox{if} \ x = 0 \\ x \cdot f(x - 1) &amp; \mbox{otherwise} \end{cases}" /></dd>
+</dl>
+<p>The function <i>f</i> is defined in terms of itself: such circular definitions are not allowed in anonymous recursion (because functions are not bound to labels). To start with a solution, define a function <i>h</i>(<i>x</i>,<i>f</i>) in exactly the same way that <i>f</i>(<i>x</i>) was defined above:</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/7/2/c72bfa37f4f42e0efdaaa20dd5cc0959.png" alt="h(x,f)&#160;:= \begin{cases} 1 &amp; \mbox{if} \ x = 0 \\ x \cdot f(x - 1) &amp; \mbox{otherwise} \end{cases}" /></dd>
+</dl>
+<p>Second step: change <span class="texhtml"><i>f</i>(<i>x</i> − 1)</span> in the definition to <span class="texhtml"><i>f</i>(<i>x</i> − 1,<i>f</i>)</span>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/b/8/6b86f7fd85421a3998830f1cdd3fa418.png" alt="h(x,f):=\begin{cases} 1 &amp; \mbox{if} \ x = 0 \\ x \cdot f(x-1, f) &amp; \mbox{otherwise} \end{cases}" /></dd>
+</dl>
+<p>so that the function <i>f</i> passed on to <i>h</i> will have the same number of arguments as <i>h</i> itself.</p>
+<p>Third step: the factorial function <span class="texhtml"><i>f</i> <sup>*</sup></span> of <i>x</i> can now be defined as:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/4/a/a4aff2271c17fbc663fe82cf651fda5c.png" alt="f^*(x)&#160;:= h(x, h). \," /></dd>
+</dl>
+<p><a name="Relation_to_the_use_of_the_Y_combinator" id="Relation_to_the_use_of_the_Y_combinator"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/o/Anonymous_recursion.html" title="Edit section: Relation to the use of the Y combinator">edit</a>]</span> <span class="mw-headline">Relation to the use of the Y combinator</span></h2>
+<p>The above approach to constructing anonymous recursion differs, but is related to, the use of <a href="../../../f/i/x/Fixed_point_combinator.html" title="Fixed point combinator">fixed point combinators</a>. To see how they are related, perform a variation of the above steps. Starting from the recursive definition (using the language of <a href="../../../l/a/m/Lambda_calculus.html" title="Lambda calculus">lambda calculus</a>):</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/1/6/61604dcdc6116142893894f36895546e.png" alt="\bar f&#160;:= (\lambda n. \, \mbox{if}(n = 0, 1, n \cdot \bar f (n - 1)))." /></dd>
+</dl>
+<p>First step,</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/6/4/f6464cd19a3eb182b2210a967f980173.png" alt="\bar h:= (\lambda f. \lambda n. \, \mbox{if} (n = 0, 1, n \cdot f (n - 1)))." /></dd>
+</dl>
+<p>Second step,</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/9/4/594470d801897aad1f8dff8c14c64add.png" alt="\bar g:= (\lambda g. \lambda n. \ \mbox{if} (n = 0, 1, n \cdot g (g) (n-1)))" /></dd>
+</dl>
+<p>where <img class='tex' src="../../../math/9/0/f/90fe28593a50d3b75692732020391992.png" alt="g (g) (n - 1) \equiv g (g, n - 1)" />. Note that the variation consists of defining <img class='tex' src="../../../math/0/1/6/01671f13a71f3a40a0efcc89baa09312.png" alt="\bar g" /> in terms of <span class="texhtml"><i>g</i>(<i>g</i>,<i>n</i> − 1)</span> instead of in terms of <span class="texhtml"><i>g</i>(<i>n</i> − 1,<i>g</i>)</span>.</p>
+<p>Third step: let a "Z combinator" be defined by</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/9/1/29166fbf79919c2df0c16dec384197d6.png" alt="Z:= (\lambda g. \ (g \ g))" /></dd>
+</dl>
+<p>such that</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/b/5/0b5e7eb257a265ada1e528a7ecc32149.png" alt="\bar f^*&#160;:= Z \bar g." /></dd>
+</dl>
+<p>Here, <img class='tex' src="../../../math/0/1/6/01671f13a71f3a40a0efcc89baa09312.png" alt="\bar g" /> is passed to itself right before a number is fed to it, so <img class='tex' src="../../../math/e/7/8/e789db035a325e2d192366f798f18bf9.png" alt="\bar f^* n \equiv n!" /> for any <a href="../../../c/h/u/Church_number.html" title="Church number">Church number</a> <i>n</i>.</p>
+<p>Note that <img class='tex' src="../../../math/5/0/4/5047ded499589c94e8f1602cc5ae970f.png" alt="g \ (g) \ n \equiv (g \ (g)) \ n \equiv (g \ g) \ n" />, i.e. <img class='tex' src="../../../math/9/4/1/9416bf83cbf1004808372e20cdd9c9a1.png" alt="g (g) \equiv (g g)" />.</p>
+<p>Now an extra fourth step: notice that</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/c/c/bccdb1cd8d1ce626bc4127d74064f56f.png" alt="\bar g \equiv (\lambda g. \ \bar h \ (g \ g))" /></dd>
+</dl>
+<p>(see first and second steps) so that</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/2/1/a21f90f57c846a23782b04ef9e13ea75.png" alt="\bar f^* \equiv (\lambda. \, g \ (g \ g)) (\lambda g. \, \bar h\ (g \ g))" /></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/0/6/4/06466d615174a386fe1a7fac4cc1a2e5.png" alt="\equiv (\lambda h. \, (\lambda g.\, (g \ g)) (\lambda g.\, h \ (g \ g))) \ \bar h." /></dd>
+</dl>
+</dd>
+</dl>
+<p>Let the <i>Y</i> combinator be defined by</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/9/3/093b5f846621a84d007c0d1dac30c003.png" alt="Y:= (\lambda h. \, (\lambda g.\, (g \ g)) (\lambda g.\, h \ (g \ g)))" /></dd>
+</dl>
+<p>so that</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/c/2/8c28ba363d8bd549999edb87286a4f56.png" alt="Z \bar g \equiv Y \bar h." /></dd>
+</dl>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/o/Anonymous_recursion.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.cs.brown.edu/courses/cs173/2001/Lectures/2001-10-25.pdf" class="external text" title="http://www.cs.brown.edu/courses/cs173/2001/Lectures/2001-10-25.pdf" rel="nofollow">The Lambda Calculus: notes by Don Blaheta</a> (PDF file). <i>See the section titled "What's left? Recursion", for the genesis of the Y combinator.</i></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/o/Anonymous_recursion.html">http://en.wikipedia.org../../../a/n/o/Anonymous_recursion.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../t/h/e/Category%7ETheory_of_computation_b1d4.html" title="Category:Theory of computation">Theory of computation</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/n/o/Anonymous_recursion.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/n/o/Talk%7EAnonymous_recursion_19d4.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Anonymous_recursion">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:05, 16 September 2006 by Wikipedia user Abednigo. Based on work by Wikipedia user(s) <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../c/m/u/User%7ECMummert_c108.html" title="User:CMummert">CMummert</a>, <a href="../../../s/a/l/User%7ESalix_alba_9f89.html" title="User:Salix alba">Salix alba</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../p/i/n/User%7EPintman_4130.html" title="User:Pintman">Pintman</a>, <a href="../../../a/u/g/User%7EAugPi_061d.html" title="User:AugPi">AugPi</a> and <a href="../../../d/o/n/User%7EDonhalcon_96f2.html" title="User:Donhalcon">Donhalcon</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

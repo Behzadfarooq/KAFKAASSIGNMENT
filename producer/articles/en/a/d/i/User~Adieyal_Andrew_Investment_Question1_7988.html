@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Adieyal/Andrew Investment Question1,Adieyal" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Adieyal/Andrew Investment Question1 - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Adieyal/Andrew Investment Question1</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/d/i/User%7EAdieyal_720d.html" title="User:Adieyal">User:Adieyal</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><a name="--Adieyal_12:58.2C_4_December_2005_.28UTC.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/i/User%7EAdieyal_Andrew_Investment_Question1_7988.html" title="Edit section: --Adieyal 12:58, 4 December 2005 (UTC)">edit</a>]</span> <span class="mw-headline">--<a href="../../../a/d/i/User%7EAdieyal_720d.html" title="User:Adieyal">Adieyal</a> 12:58, 4 December 2005 (UTC)</span></h3>
+<p>What is the unknown quantity, the number of sales? In that case we need to have a model as to the number of expected sales per month. The becomes quite a difficult exercise as we need to get quite a lot of data. What we need to be able to calculate is the probability distribution of the number of sales every month. We can try estimate this from market research and provide estimates for our market share. We might also need to take into account market cycles, future competitors and growth of the market. Say we assume that none of those things matter and that out distribution is stationary, i.e. the probability distribution remains the same from month to month then the present value of 1st month of sales is <img class='tex' src="../../../math/8/e/6/8e65ba32f9c6c014e83fec078c22d30d.png" alt="e^{-r(t+1)}E(P(x)) = e^{-r(t+1)}\sum_{x=0}^{\infty}xP(x)" /></p>
+<p><br />
+where</p>
+<table>
+<tr>
+<td><span class="texhtml"><i>r</i></span></td>
+<td>Interest</td>
+</tr>
+<tr>
+<td><span class="texhtml"><i>t</i></span></td>
+<td>month (in this case 2)</td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/e/4/8/e48dca7e66445b7a95090c3bac64f0b4.png" alt="E(\cdot)" /></td>
+<td>Expected value</td>
+</tr>
+<tr>
+<td><span class="texhtml"><i>P</i>(<i>x</i>)</span></td>
+<td>Probability of selling x widgets in one month</td>
+</tr>
+</table>
+<p>So, in order to calculate the PV of the 1st month, all we need is to figure out what <span class="texhtml"><i>P</i>(<i>x</i>)</span> looks like. We don't know any of this stuff a priori which means that we either have to estimate it from existing market data or we make use of an executive thumb suck. Say we decide that P(x) follows a normal distribution with mean <span class="texhtml">μ</span> and standard deviation <span class="texhtml">σ</span> then we have the following present value</p>
+<p><img class='tex' src="../../../math/3/2/3/323d0b00247f207768dea98e6856ce36.png" alt="e^{-r(t+1)} \int_{x=0}^{\infty}x  \frac{1}{\sigma\sqrt{2\pi}} \, \exp \left( -\frac{(x- \mu)^2}{2\sigma^2} \right)dx" /></p>
+<p>we can also look at the present value of a perpetual income stream, e.g. if we receive <span class="texhtml"><i>P</i></span> at the end of every month, the PV of this perpetual income stream is <img class='tex' src="../../../math/4/4/9/449370471a3e605a3e146f8acb097612.png" alt="\frac{P}{r}" />. In this case our perpetual income stream from selling widgets is</p>
+<p><br />
+<img class='tex' src="../../../math/4/3/4/43418ae8c47fb9ef4cb3beef27cdd593.png" alt="e^{-rt}\frac{1}{r} \int_{x=0}^{\infty}x  \frac{1}{\sigma\sqrt{2\pi}} \, \exp \left( -\frac{(x- \mu)^2}{2\sigma^2} \right)dx" /></p>
+<p>(Note that we are not discounting by two time periods any more, i.e. we are using <span class="texhtml"><i>e</i> <sup>− <i>r</i><i>t</i></sup></span> and not <span class="texhtml"><i>e</i> <sup>− <i>r</i>(<i>t</i> + 1)</sup></span>).</p>
+<p>So given some basic assumptions about our sales forecast the above is the present value of all our cash flows (multiply by the profit on each widget to get a figure in Rands). The assumptions are a bit unrealistic, viz that the distribution is stationery. We could probably add some sort of cyclical modifier as well as a growth function to make the model a little more realistic. Also not that I am integrating and not summing because the normal distribution is continuous. Simply round the resulting number to get a whole number of widgets.</p>
+<p>Just a quick note on estimating the parameters on P(x) - if we have previous sales figures, we can estimate the parameters more accurately but a lot of analysis must be done to try to figure out what the underlying trends are over a long period of time, especially in the very long term we consumer trends change. Instead of calculating the PV value of a perpertual cashflow, would could instead calculate the number of months until the machine pays itself off which might be a better way to go.</p>
+<p>In the above, I haven't looked into the interactions between subsequent purchases. I guess we need a better idea as to what those interactions may be before we start trying to estimate their effects. Depending on our assumption of interactions, we may say that a previous month's sales might affect the sales of the next month. We could possibly use a Hidden Markov Model (although HMMs only use discrete states) or some sort of continuous stochastic process with a markov property (current state is not dependent on any previous states) to model the interactions. From your description, although there could be an interaction, I doubt that it would be strong enough to warrant the additional complexity of the model.</p>
+<p>One final note - the PV above is calculated by using an expectation of profits. This is slightly problematic in that we have a single trial. This means that even though the most likely value is the expectation, it almost certainly be our actual sales. I think that perhaps this is where our risk neutrality comes in. It really depends on the standard deviation of our sales. If the mean is say 100 widgets but with a 95% confidence interval of 50 - 150, that might mean that we want to choose the upperbound if we are risk loving or the lower bound if we're risk conservative. I'm not sure that I'm right on this last point but it seems logical to me.</p>
+<p><a name="Previous_Email_Discussion" id="Previous_Email_Discussion"></a></p>
+<h3><span class="editsection">[<a href="../../../a/d/i/User%7EAdieyal_Andrew_Investment_Question1_7988.html" title="Edit section: Previous Email Discussion">edit</a>]</span> <span class="mw-headline">Previous Email Discussion</span></h3>
+<p>&gt;&gt; I think that some assumptions must be made before going further.</p>
+<p>Okay - let's start with an investment decision for a company: should we or should we not invest in a machine to make widgets at T0, which will be be invoiced at every month end to distributors and paid at the end of the following month (ie ignoring poor payment behaviour, cash flows should be at the end of every period).</p>
+<p><br /></p>
+<p>Adi said:</p>
+<p>&gt;&gt; &gt;&gt; Just to understand the question a little better here are a few scenarios</p>
+<p>...snip...</p>
+<p>&gt;&gt; this project by solving for r.</p>
+<p>Happy with the above.</p>
+<p><br /></p>
+<p>&gt;&gt; So I'm guessing the problem comes in when you have some sort of risk &gt;&gt; associated with the payouts.</p>
+<ul>
+<li>bingo*</li>
+</ul>
+<p>&gt;&gt; In this case the question takes on a couple &gt;&gt; of dimensions which include the following:</p>
+<p><br />
+&gt;&gt; 1. What is the probability distribution associated with the payments, &gt;&gt; i.e. are we assuming that the times of the payments are fixed but the &gt;&gt; value of the payments is variable? Do we know the parameters for this &gt;&gt; probability distribution?</p>
+<p>It's all subject, ex ante modelling, so the parameter would be unknown.</p>
+<p><br />
+&gt;&gt; 2. Is there are relationship between the variables, i.e. if I get a low &gt;&gt; first payment, will I get a high second payment?</p>
+<p>There would be in the above scenario, I'd imagine.</p>
+<p><br />
+&gt;&gt; 3. Is the project tradeable? Can we model it as an option?</p>
+<p>I presume by tradeable you mean separable from the remaining operations of the company. Let's say no. As for valuing it as an option, I suspect that it could be valued as some kind of exotic, but it's not a strike-price based payoff (either Euro/American).</p>
+<p><br />
+&gt;&gt; 4. What is the risk aversion of the investor. Is a project that yields &gt;&gt; R50 with certainty equivalent to a project that yields R100 50% of the &gt;&gt; time and R0 the rest of the time?</p>
+<p>Start with risk-neutral world first.</p>
+<p>I like these questions - they force me to think. No Jedi hand-waving here &#160;:)</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/i/User%7EAdieyal_Andrew_Investment_Question1_7988.html">http://en.wikipedia.org../../../a/d/i/User%7EAdieyal_Andrew_Investment_Question1_7988.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/d/i/User%7EAdieyal_Andrew_Investment_Question1_7988.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/d/i/User_talk%7EAdieyal_Andrew_Investment_Question1_48a3.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Adieyal/Andrew_Investment_Question1">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:47, 4 December 2005 by Wikipedia user <a href="../../../a/d/i/User%7EAdieyal_720d.html" title="User:Adieyal">Adieyal</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Alex Smotrov/ExtEdit,Antivirus software,FireFox,Internet Explorer,MediaWiki,Notepad++,Opera,PSPad,Programmer's Notepad,Scintilla,UTF-8" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Alex Smotrov/ExtEdit - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Alex Smotrov/ExtEdit</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/l/e/User%7EAlex_Smotrov_4ed6.html" title="User:Alex Smotrov">User:Alex Smotrov</a></span></div>
+	    	    	    <!-- start content -->
+	    <div style="float:right; margin-left:20px; margin-bottom:20px">
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#How_it_works"><span class="tocnumber">1</span> <span class="toctext">How it works</span></a></li>
+<li class="toclevel-1"><a href="#Why_use_it"><span class="tocnumber">2</span> <span class="toctext">Why use it</span></a></li>
+<li class="toclevel-1"><a href="#Installation"><span class="tocnumber">3</span> <span class="toctext">Installation</span></a></li>
+<li class="toclevel-1"><a href="#Details"><span class="tocnumber">4</span> <span class="toctext">Details</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Edit_conflicts"><span class="tocnumber">4.1</span> <span class="toctext">Edit conflicts</span></a></li>
+<li class="toclevel-2"><a href="#Preview"><span class="tocnumber">4.2</span> <span class="toctext">Preview</span></a></li>
+<li class="toclevel-2"><a href="#Parameters"><span class="tocnumber">4.3</span> <span class="toctext">Parameters</span></a></li>
+<li class="toclevel-2"><a href="#External_Editor"><span class="tocnumber">4.4</span> <span class="toctext">External Editor</span></a></li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script></div>
+<p><b>ExtEdit.vbs</b> is a <a href="../../../w/s/h/WSH_076e.html" title="WSH">WSH</a> script that greatly simplifies editing Wikipedia pages with <b>external editor</b>.</p>
+<p>It's a <i>helper application</i> as described on <a href="http://meta.wikimedia.org/wiki/Help:External_editors" class="extiw" title="meta:Help:External_editors">meta:Help:External editors</a>.</p>
+<p><br /></p>
+<p><a name="How_it_works" id="How_it_works"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html" title="Edit section: How it works">edit</a>]</span> <span class="mw-headline">How it works</span></h2>
+<p>Next to <span style="border:1px solid gray; margin:0 5px 0 5px; padding:0 4px 0 4px;">edit this page</span> link you have a new <span style="border:1px solid gray; margin:0 5px 0 5px; padding:0 4px 0 4px;">→</span> link.</p>
+<p>You click on it and your browser calls <tt>ExtEdit</tt>, which gets article code from server, puts it into a file on your disk and opens it in your editor.</p>
+<p><br />
+While in editor you press a key to call <tt>ExtEdit</tt>, which submits your text to the server as a <i>preview</i> in your browser.</p>
+<p><br />
+You launch as many previews as needed, when you're finally satisfied you simply press «Save».</p>
+<p><br /></p>
+<p><a name="Why_use_it" id="Why_use_it"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html" title="Edit section: Why use it">edit</a>]</span> <span class="mw-headline">Why use it</span></h2>
+<ul>
+<li>to edit with comfort — in a big editor window with some syntax highlighting</li>
+<li>for some advanced text operations — e.g. a lot of search and replaces</li>
+<li>for offline editing; of course, either the page is rarely edited or you put {{<a href="../../../i/n/u/Template%7EInuse_2e6a.html" title="Template:Inuse">inuse</a>}} first</li>
+<li>for creating new articles</li>
+</ul>
+<p><br /></p>
+<p><a name="Installation" id="Installation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html" title="Edit section: Installation">edit</a>]</span> <span class="mw-headline">Installation</span></h2>
+<p><b>Download</b> <tt>ExtEdit.vbs</tt>:</p>
+<ul>
+<li>directly from my site: <a href="http://g.smotrov.com/mediawiki/ExtEdit/ExtEdit.vbs" class="external text" title="http://g.smotrov.com/mediawiki/ExtEdit/ExtEdit.vbs" rel="nofollow">ExtEdit.vbs</a></li>
+<li>or go to <a href="http://en.wikipedia.org/w/index.php?title=User:Alex_Smotrov/ExtEdit.vbs.css&amp;action=edit" class="external text" title="http://en.wikipedia.org/w/index.php?title=User:Alex_Smotrov/ExtEdit.vbs.css&amp;action=edit" rel="nofollow">this page</a>, copy the code from textarea and create a local file <tt>ExtEdit.vbs</tt> yourself.</li>
+</ul>
+<dl>
+<dd>If you have <a href="../../../a/n/t/Antivirus_software.html" title="Antivirus software">antivirus software</a>, it will give you a warning when you download and/or execute the script, since all WSH scripts are <i>potentially</i> dangerous. Simply instruct your antivirus to «always allow this script». You're welcome to look at the script code to make sure it does only what it's supposed to do.</dd>
+</dl>
+<p><br />
+<b>Associate</b> <tt>.wiki</tt> extension with your external editor software.</p>
+<p><br />
+<b>Configure your browser</b> to call <tt>ExtEdit.vbs</tt> for <i>application/x-external-editor</i> :</p>
+<ul>
+<li>
+<ul>
+<li><a href="../../../f/i/r/FireFox_585c.html" title="FireFox">FireFox</a>: see <a href="http://meta.wikimedia.org/wiki/Help:External_editors" class="extiw" title="meta:Help:External_editors">meta:Help:External editors</a></li>
+<li><a href="../../../i/n/t/Internet_Explorer_6bc1.html" title="Internet Explorer">Internet Explorer</a>: there is probably a <a href="http://msdn.microsoft.com/workshop/networking/moniker/overview/appendix_a.asp" class="external text" title="http://msdn.microsoft.com/workshop/networking/moniker/overview/appendix_a.asp" rel="nofollow">way</a> to do it properly in IE by modifying registry … For now simply run <tt>ExtEdit.vbs</tt>, after your permission it will asscociate itself with <tt>.php</tt> files; it's not a proper way but it works.</li>
+<li><a href="../../../o/p/e/Opera.html" title="Opera">Opera</a>: click the link below, in «Download file» dialog click «Change», then select «Open with other application», click «Choose» and point to <tt>ExtEdit.vbs</tt>. Later you can change this in <tt>Preferences → Advanced → Downloads</tt></li>
+</ul>
+</li>
+</ul>
+<p><br />
+Now click on <a href="http://en.wikipedia.org/w/index.php?title=Wikipedia:Sandbox&amp;action=edit&amp;externaledit=true" class="external text" title="http://en.wikipedia.org/w/index.php?title=Wikipedia:Sandbox&amp;action=edit&amp;externaledit=true" rel="nofollow">Wikipedia:Sandbox&amp;externaledit=true</a> and the code should open in your external editor.</p>
+<p><br />
+<b>Add external edit link</b> to all pages: add to your <a href="../../../m/y/p/Special%7EMyPage_monobook.js_3bd8.html" title="Special:MyPage/monobook.js">monobook.js</a>:</p>
+<pre>
+//add ExtEdit link 
+addOnloadHook(function(){
+  var editTab = document.getElementById('ca-edit');
+  if (!editTab) return;
+  addPortletLink('p-cactions', editTab.firstChild.href + '&amp;externaledit=true',
+  '→', 'ca-exted', 'Edit with External Editor ',, editTab.nextSibling);
+})
+</pre>
+<p><br />
+<b>Set up your external editor</b> to call <tt>ExtEdit.vbs</tt> as an external utility for .wiki files.</p>
+<p><br /></p>
+<p><br /></p>
+<p><a name="Details" id="Details"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html" title="Edit section: Details">edit</a>]</span> <span class="mw-headline">Details</span></h2>
+<p>When the script is called from the browser, it:</p>
+<ul>
+<li>recognizes the <tt>.php</tt> extension of input file</li>
+<li>analyses the control file index.php</li>
+<li>requests the page wiki code from <a href="../../../m/e/d/MediaWiki_8838.html" title="MediaWiki">MediaWiki</a> server</li>
+<li>saves it to local disk as <tt>.wiki</tt> file</li>
+<li>(if the same <tt>.wiki</tt> file already exists, it's moved into <tt>.\backup</tt> subfolder)</li>
+<li>creates additional <tt>.wiki.info</tt> file with the page address and LastModified date</li>
+<li>runs <tt>.wiki</tt> file (which should open it in your associated editor)</li>
+</ul>
+<p><br />
+When the script is called from your editor, it:</p>
+<ul>
+<li>recognizes <tt>.wiki</tt> extension</li>
+<li>reads <tt>.wiki.info</tt> file</li>
+<li>generates a submit form</li>
+<li>sumbits the form to MediaWiki server in your browser</li>
+</ul>
+<p><br />
+If <tt>.wiki.info</tt> does not exists the script assumes the text to be a new article and it's address is extracted from the 1st line of your <tt>.wiki</tt> file in html comments, for example:</p>
+<pre>
+&lt;!--http://en.wikipedia.org/wiki/User:Alex Smotrov/Draft--&gt;
+
+</pre>
+<p><a name="Edit_conflicts" id="Edit_conflicts"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html" title="Edit section: Edit conflicts">edit</a>]</span> <span class="mw-headline">Edit conflicts</span></h3>
+<p>The script saves <tt>wpEdittime</tt> (Last Modified Date) of the article into <tt>.wiki.info</tt> file and then uses it in the preview submit form. So if somebody edited the same article by the time you hit «Save» button, MediaWiki server should warn you about edit conflict.</p>
+<p><br /></p>
+<p><a name="Preview" id="Preview"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html" title="Edit section: Preview">edit</a>]</span> <span class="mw-headline">Preview</span></h3>
+<p>The script has two different methods for generating a preview:</p>
+<ul>
+<li><tt><b>useIEpreview = true</b></tt> (by default):<br /></li>
+</ul>
+<p>use Internet Explorer object, then reuse it for next previews. This method makes subsequent previews much faster.</p>
+<ul>
+<li><tt><b>useIEpreview = false</b></tt>:<br /></li>
+</ul>
+<p>create temporary <tt>.htm</tt> file, then launch it in your default browser.</p>
+<p><br /></p>
+<p><a name="Parameters" id="Parameters"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html" title="Edit section: Parameters">edit</a>]</span> <span class="mw-headline">Parameters</span></h3>
+<p>You can find some other parameters in the beginning of <tt>ExtEdit</tt> code.</p>
+<p><br /></p>
+<p><br /></p>
+<p><a name="External_Editor" id="External_Editor"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html" title="Edit section: External Editor">edit</a>]</span> <span class="mw-headline">External Editor</span></h3>
+<p>Your external editor should support <a href="../../../u/t/f/UTF-8_ae3b.html" title="UTF-8">UTF-8</a>.</p>
+<p>Other possible features:</p>
+<ul>
+<li>wiki syntax highlighting</li>
+<li>easy way to insert some special characters and wiki markup</li>
+</ul>
+<p>Right now I'm using free editor <a href="../../../n/o/t/Notepad%2B%2B.html" title="Notepad++">Notepad++</a>. After some setup it becomes more or less adequate:</p>
+<ul>
+<li><a href="http://g.smotrov.com/mediawiki/ExtEdit/userDefineLang.xml" class="external text" title="http://g.smotrov.com/mediawiki/ExtEdit/userDefineLang.xml" rel="nofollow">userDefineLang.xml</a> — syntax highlight file, put it next to <tt>notepad++.exe</tt> (not perfect but I doubt it can be improved much).</li>
+<li><a href="http://g.smotrov.com/mediawiki/ExtEdit/MediaWiki.api" class="external text" title="http://g.smotrov.com/mediawiki/ExtEdit/MediaWiki.api" rel="nofollow">MediaWiki.api</a> — an example of «quick inserts» list which is called by Ctrl-Enter, put it into <tt>.\plugins\APIs</tt></li>
+<li>Go to menu Run → Run, insert <span style="border:1px solid gray"><tt>your_path\ExtEdit.vbs $(FULL_CURRENT_PATH)</tt></span>, click Save, choose a hot key (for example F12), press Ok.</li>
+</ul>
+<p><br />
+To enter often used special characters you can also edit you keyboard layout (you will be able to use it in your browser too!) with <a href="http://www.microsoft.com/globaldev/tools/msklc.mspx" class="external text" title="http://www.microsoft.com/globaldev/tools/msklc.mspx" rel="nofollow">Microsoft Keyboard Layout Creator</a> (free download afer Windows Validation).</p>
+<p><br />
+Comments about some other text editors:</p>
+<ul>
+<li><a href="../../../p/s/p/PSPad_124f.html" title="PSPad">PSPad</a> — a very good editor, some powerful features, unfortunately user defined syntax highlighting is absolutely not compatible with wiki syntax</li>
+<li><a href="../../../p/r/o/Programmer%27s_Notepad_61d6.html" title="Programmer's Notepad">Programmer's Notepad</a> — uses <a href="../../../s/c/i/Scintilla.html" title="Scintilla">Scintilla</a> component just like Notepad++, good support of user-defined syntax highliting is <a href="http://www.pnotepad.org/developer/" class="external text" title="http://www.pnotepad.org/developer/" rel="nofollow">promised</a> some time in future.</li>
+<li>Maybe some commercial editors would work, like EditPlus, <a href="../../../u/l/t/UltraEdit_cc3c.html" title="UltraEdit">UltraEdit</a> and <a href="http://www.multiedit.com/" class="external text" title="http://www.multiedit.com/" rel="nofollow">Multi-Edit</a></li>
+<li>see <a href="../../../t/e/x/Wikipedia%7EText_editor_support_b721.html" title="Wikipedia:Text editor support">Wikipedia:Text_editor_support</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html">http://en.wikipedia.org../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit_3a7a.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/l/e/User_talk%7EAlex_Smotrov_ExtEdit_2b1b.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Alex_Smotrov/ExtEdit">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 04:26, 17 March 2007 by Wikipedia user <a href="../../../a/l/e/User%7EAlex_Smotrov_4ed6.html" title="User:Alex Smotrov">Alex Smotrov</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bailey-Borwein-Plouffe formula,1995,Apery's constant,Binary exponentiation,Catalan's constant,David H. Bailey,Hexadecimal,Infinity,MathWorld,Modulo,Peter Borwein" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bailey-Borwein-Plouffe formula - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bailey-Borwein-Plouffe formula</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>The <b>Bailey-Borwein-Plouffe formula</b> (<b>BBP formula</b>) permits the computation of the nth binary digit of <b><a href="../../../p/i/_/Pi.html" title="Pi">π</a></b>. It is a <b>π <a href="../../../s/u/m/Summation.html" title="Summation">summation</a> formula</b> discovered in <a href="../../../1/9/9/1995.html" title="1995">1995</a> by <a href="../../../s/i/m/Simon_Plouffe_a98c.html" title="Simon Plouffe">Simon Plouffe</a>. The formula is named after <a href="../../../d/a/v/David_H._Bailey_411d.html" title="David H. Bailey">David H. Bailey</a>, <a href="../../../p/e/t/Peter_Borwein_9a4f.html" title="Peter Borwein">Peter Borwein</a>, and Simon Plouffe.</p>
+<p>The discovery of this formula came as a surprise. For centuries it had been assumed that there was no way to compute the nth digit of π without calculating all of the preceding n-1 digits.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#BBP-type_formulae"><span class="tocnumber">1</span> <span class="toctext">BBP-type formulae</span></a></li>
+<li class="toclevel-1"><a href="#BBP_algorithm"><span class="tocnumber">2</span> <span class="toctext">BBP algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Advantages_of_the_BBP_algorithm"><span class="tocnumber">3</span> <span class="toctext">Advantages of the BBP algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Generalizations"><span class="tocnumber">4</span> <span class="toctext">Generalizations</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="BBP-type_formulae" id="BBP-type_formulae"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/i/Bailey-Borwein-Plouffe_formula_b0ef.html" title="Edit section: BBP-type formulae">edit</a>]</span> <span class="mw-headline">BBP-type formulae</span></h2>
+<p>A great many formulae that sum to other fundamental irrational constants have since been discovered. They are of the form</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/4/e/b4ed284c37186aaabf106540bf3aa403.png" alt="\alpha = \sum_{k = 0}^{\infty} \frac{p(k)}{b^kq(k)}" /></dd>
+</dl>
+<p>where alpha is a constant and <i>p</i> and <i>q</i> are polynomials in integer coefficients and b is an integer numerical base. Formulae in this form are known as <b>BBP-type formulae</b>.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> Certain combinations of specific p, q and b result in well-known constants, but there is no general algorithm for the mapping and the combinations are currently discovered via searches.</p>
+<p>One of the simplest formulas of this type is</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/6/e/d6e66a6d72dbe51a0dbbcf73dcaa3d60.png" alt="\ln (9/10) = - \sum_{k = 1}^{\infty} \frac{1}{10^kk}" /></dd>
+</dl>
+<p>In some cases, <span class="texhtml">α</span> is a scaled version of some well-known constant, such as 2π, rather than π itself.</p>
+<p>The original BBP π summation formula is</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/a/d/6ad437a10d1b3358008e41a92ce337bf.png" alt="\pi = \sum_{k = 0}^{\infty} \frac{1}{16^k} \left( \frac{4}{8k + 1} - \frac{2}{8k + 4} - \frac{1}{8k + 5} - \frac{1}{8k + 6}\right)," /></dd>
+</dl>
+<p>which reduces to this equivalent ratio of two polynomials:</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/e/2/8e236914c0163da92dede8788df429f5.png" alt="\pi = \sum_{k = 0}^{\infty} \frac{1}{16^k} \left(\frac{120k^2 + 151k + 47}{512k^4 + 1024k^3 + 712k^2 + 194k + 15}\right)." /></dd>
+</dl>
+<p><a name="BBP_algorithm" id="BBP_algorithm"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/i/Bailey-Borwein-Plouffe_formula_b0ef.html" title="Edit section: BBP algorithm">edit</a>]</span> <span class="mw-headline">BBP algorithm</span></h2>
+<p>The formula yields an algorithm for extracting <a href="../../../h/e/x/Hexadecimal.html" title="Hexadecimal">hexadecimal</a> digits of π. In order to perform digit extraction first we must rewrite the formula as</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/b/2/cb21a5285ade2db787f73e7bebdd1450.png" alt="\pi = 4 \sum_{k = 0}^{\infty} \frac{1}{(16^k)(8k+1)} - 2 \sum_{k = 0}^{\infty} \frac{1}{(16^k)(8k+4)} - \sum_{k = 0}^{\infty} \frac{1}{(16^k)(8k+5)} - \sum_{k = 0}^{\infty} \frac{1}{(16^k)(8k+6)}." /></dd>
+</dl>
+<p>Now we would like to find <a href="../../../h/e/x/Hexadecimal.html" title="Hexadecimal">hexadecimal</a> digit <i>n</i> of π, so, taking the first sum we split the <a href="../../../s/e/r/Series_%28mathematics%29.html" title="Series (mathematics)">sum</a> to <a href="../../../i/n/f/Infinity.html" title="Infinity">infinity</a> across the <i>n</i>th term</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/d/4/4d47f80c72d4610ad27ed8b412f7b945.png" alt="\sum_{k = 0}^{\infty} \frac{1}{(16^k)(8k+1)} = \sum_{k = 0}^{n} \frac{1}{(16^k)(8k+1)} + \sum_{k = n + 1}^{\infty} \frac{1}{(16^k)(8k+1)}." /></dd>
+</dl>
+<p>We now multiply by <span class="texhtml">16<sup><i>n</i></sup></span> so that the hexadecimal point (the divide between fractional and integer parts of the number) is in the <i>n</i>th place.</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/9/a/09aba966d34d2e7fc91e5f7486010cef.png" alt="\sum_{k = 0}^{\infty} \frac{16^{n-k}}{8k+1} = \sum_{k = 0}^{n} \frac{16^{n-k}}{8k+1} + \sum_{k = n + 1}^{\infty} \frac{16^{n-k}}{8k+1}." /></dd>
+</dl>
+<p>Since we only care about the fractional part of the sum, we look at our two terms and realise that only the first sum is able to produce whole numbers whereas the second sum cannot produce whole numbers since the numerator can never be larger than the denominator for <i>k</i> &gt; <i>n</i>. Therefore we need a trick to remove the whole numbers for the first sum. That trick is <img class='tex' src="../../../math/4/7/6/476966857f32d7030c57c363115eed4b.png" alt="\mod 8k+1" />. Our sum for the first fractional part then becomes:</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/f/0/4f0feb251d1976d70f645ee00caa089e.png" alt="\sum_{k = 0}^{n} \frac{16^{n-k} \mod 8k+1}{8k+1} + \sum_{k = n + 1}^{\infty} \frac{16^{n-k}}{8k+1}." /></dd>
+</dl>
+<p>Notice how the <a href="../../../m/o/d/Modulo.html" title="Modulo">modulo</a> operator always guarantees that only the fractional sum will be kept. To calculate <img class='tex' src="../../../math/7/c/2/7c24519a98bef0316166603b5aa83db6.png" alt="16^{n-k}\mod 8k+1" /> quickly and efficiently, use the <a href="../../../b/i/n/Binary_exponentiation.html" title="Binary exponentiation">binary exponentiation</a> algorithm. When the running product becomes greater than one, take the modulo just as you do for the running total in each sum.</p>
+<p>Now to complete the calculation you must apply this to each of the four sums in turn. Once this is done, taking the four summations and put them back into the sum to π.</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/9/4/79473d13e3a22d95f8b70195b79a4168.png" alt="4 \Sigma_1 - 2 \Sigma_2 - \Sigma_3 - \Sigma_4. \,\!" /></dd>
+</dl>
+<p>Since only the fractional part is accurate, extracting the wanted digit requires that one removes the integer part of the final sum and multiplies by 16 to "skim off" the <a href="../../../h/e/x/Hexadecimal.html" title="Hexadecimal">hexadecimal</a> digit at this position (in theory the next few digits up to the accuracy of the calculations used would also be accurate).</p>
+<p>This process is similar to performing "long multiplication" on some middle columns of numbers in order to compute the numbers for those columns. While there are some "carries" that are not counted, computers usually perform arithmetic for many bits (32 or 64) and they round and we are only interested in the most significant digit(s). There is a vanishingly small possibility that that a particular computation will be akin to failing to add a small number (e.g. 1) to the number 999999999999999 and that the error will propagate to the most significant digit, but being near this situation is obvious in the final value produced.</p>
+<p><a name="Advantages_of_the_BBP_algorithm" id="Advantages_of_the_BBP_algorithm"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/i/Bailey-Borwein-Plouffe_formula_b0ef.html" title="Edit section: Advantages of the BBP algorithm">edit</a>]</span> <span class="mw-headline">Advantages of the BBP algorithm</span></h2>
+<p>This algorithm can be used on computers without creating custom data types with thousands or even millions of digits in order to try to compute π. Because of the method to remove the first <i>n</i>&#160;−&#160;1 digits to get at the <i>n</i>th digit, computers with only small, but efficient, data types can be used. This increase in speed caused by using smaller data types makes the algorithm the fastest way to compute the <i>n</i>th digit (or a few digits in a neighborhood of the <i>n</i>th). Previous π-computing algorithms using the large data types remain faster when the goal is to compute all the digits from 1 to <i>n</i>.</p>
+<p><a name="Generalizations" id="Generalizations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/i/Bailey-Borwein-Plouffe_formula_b0ef.html" title="Edit section: Generalizations">edit</a>]</span> <span class="mw-headline">Generalizations</span></h2>
+<p>D.J. Broadhurst provides a generalization of the BBP algorithm<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup> that may be used to compute a number of other constants in nearly linear time and logarithmic space. Explicit results are given for <a href="../../../c/a/t/Catalan%27s_constant.html" title="Catalan's constant">Catalan's constant</a>, <span class="texhtml">π<sup>3</sup></span>, <span class="texhtml">log<sup>3</sup>2</span>, <a href="../../../a/p/e/Apery%27s_constant.html" title="Apery's constant">Apery's constant</a> <span class="texhtml">ζ(3)</span>, <span class="texhtml">π<sup>4</sup></span>, <span class="texhtml">log<sup>4</sup>2</span>, <span class="texhtml">log<sup>5</sup>2</span>, <span class="texhtml">ζ(5)</span>, and various products of powers of <span class="texhtml">π</span> and <span class="texhtml">log2</span>. These results are obtained primarily by the use of <a href="../../../p/o/l/Polylogarithm_ladder.html" title="Polylogarithm ladder">polylogarithm ladders</a>.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/i/Bailey-Borwein-Plouffe_formula_b0ef.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Eric W. Weisstein, <i><a href="http://mathworld.wolfram.com/BBPFormula.html" class="external text" title="http://mathworld.wolfram.com/BBPFormula.html" rel="nofollow">BBP Formula</a></i> at <a href="../../../m/a/t/MathWorld_3918.html" title="MathWorld">MathWorld</a>.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> D.J. Broadhurst, "<a href="http://arxiv.org/abs/math.CA/9803067" class="external text" title="http://arxiv.org/abs/math.CA/9803067" rel="nofollow">Polylogarithmic ladders, hypergeometric series and the ten millionth digits of ζ(3) and ζ(5)</a>", (1998) <i>arXiv</i> math.CA/9803067</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/i/Bailey-Borwein-Plouffe_formula_b0ef.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://en.literateprograms.org/Pi_with_the_BBP_formula_(Python)" class="external text" title="http://en.literateprograms.org/Pi_with_the_BBP_formula_(Python)" rel="nofollow">Python implementation of the BBP algorithm for π</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/i/Bailey-Borwein-Plouffe_formula_b0ef.html">http://en.wikipedia.org../../../b/a/i/Bailey-Borwein-Plouffe_formula_b0ef.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../p/i/_/Category%7EPi_algorithms_d111.html" title="Category:Pi algorithms">Pi algorithms</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/i/Bailey-Borwein-Plouffe_formula_b0ef.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/a/i/Talk%7EBailey-Borwein-Plouffe_formula_0c94.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bailey-Borwein-Plouffe_formula">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/a/i/Bailey-Borwein-Plouffe-Formel_6a88.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/f/%C3%B3/r/F%C3%B3rmula_de_Bailey-Borwein-Plouffe_4488.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/f/o/r/Formule_BBP_ac5a.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/b/b/p/BBP-formel_74da.html">Svenska</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:19, 27 March 2007 by Wikipedia user <a href="../../../g/e/s/User%7EGesslein_52e1.html" title="User:Gesslein">Gesslein</a>. Based on work by Wikipedia user(s) <a href="../../../b/e/t/User%7EBetacommand_e660.html" title="User:Betacommand">Betacommand</a>, <a href="../../../r/j/w/User%7ERjwilmsi_027f.html" title="User:Rjwilmsi">Rjwilmsi</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, <a href="../../../n/w/b/User%7ENwbeeson_4542.html" title="User:Nwbeeson">Nwbeeson</a>, <a href="../../../r/i/c/User%7ERich_Farmbrough_7642.html" title="User:Rich Farmbrough">Rich Farmbrough</a>, <a href="../../../k/s/m/User%7EKSmrq_61e9.html" title="User:KSmrq">KSmrq</a>, <a href="../../../r/a/i/User%7ERainwarrior_5180.html" title="User:Rainwarrior">Rainwarrior</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../h/a/n/User%7EHannes_Eder_3b19.html" title="User:Hannes Eder">Hannes Eder</a>, <a href="../../../e/r/i/User%7EEric119_9f87.html" title="User:Eric119">Eric119</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../a/n/o/User%7EAnonMoos_66b1.html" title="User:AnonMoos">AnonMoos</a>, <a href="../../../q/u/t/User%7EQutezuce_4fd6.html" title="User:Qutezuce">Qutezuce</a>, <a href="../../../p/t/_/User%7EPt_7ac7.html" title="User:Pt">Pt</a>, <a href="../../../m/a/g/User%7EMagnaMopus_354e.html" title="User:MagnaMopus">MagnaMopus</a>, <a href="../../../m/e/l/User%7EMelchoir_2750.html" title="User:Melchoir">Melchoir</a>, <a href="../../../u/n/y/User%7EUnyoyega_ed0f.html" title="User:Unyoyega">Unyoyega</a>, <a href="../../../k/n/i/User%7EKnightRider_ec3b.html" title="User:KnightRider">KnightRider</a>, <a href="../../../j/n/c/User%7EJnc_c16b.html" title="User:Jnc">Jnc</a>, <a href="../../../w/e/r/User%7EWereon_8361.html" title="User:Wereon">Wereon</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../s/h/a/User%7EShanedidona_a695.html" title="User:Shanedidona">Shanedidona</a>, <a href="../../../m/a/r/User%7EMarc_van_Woerkom_9116.html" title="User:Marc van Woerkom">Marc van Woerkom</a>, <a href="../../../s/v/e/User%7ESverdrup_2f1f.html" title="User:Sverdrup">Sverdrup</a>, <a href="../../../l/i/b/User%7ELiberlogos_df62.html" title="User:Liberlogos">Liberlogos</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a> and Chadernook and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

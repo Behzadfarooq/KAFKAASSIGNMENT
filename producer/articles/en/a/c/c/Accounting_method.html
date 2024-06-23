@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Accounting method,Accountancy,Accounting,Algorithm,Amortized analysis,Big O notation,Charles E. Leiserson,Clifford Stein,Computational complexity theory,Introduction to Algorithms,O" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Accounting method - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Accounting method</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div class="dablink"><i>For accounting methods outside computer science, see <a href="../../../a/c/c/Accountancy.html" title="Accountancy">Accountancy</a>.</i></div>
+<p>In <a href="../../../c/o/m/Computational_complexity_theory.html" title="Computational complexity theory">computational complexity theory</a>, the <b>accounting method</b> is a method of <a href="../../../a/m/o/Amortized_analysis.html" title="Amortized analysis">amortized analysis</a> based on <a href="../../../a/c/c/Accounting.html" title="Accounting">accounting</a>. The accounting method often gives a more intuitive account of the amortized cost of an operation than either aggregate analysis or the <a href="../../../p/o/t/Potential_method.html" title="Potential method">potential method</a>. Note, however, that this does not guarantee such analysis will be immediately obvious; often, choosing the correct parameters for the accounting method requires as much knowledge of the problem and the complexity bounds one is attempting to prove as the other two methods.</p>
+<p>The accounting method is most naturally suited for proving a <a href="../../../b/i/g/Big_O_notation_de3e.html" title="Big O notation">O</a>(1) bound on time. The method as explained here is for proving such a bound.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#The_method"><span class="tocnumber">1</span> <span class="toctext">The method</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Table_expansion"><span class="tocnumber">2.1</span> <span class="toctext">Table expansion</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="The_method" id="The_method"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/c/Accounting_method.html" title="Edit section: The method">edit</a>]</span> <span class="mw-headline">The method</span></h2>
+<p>Preliminarily, we choose a set of elementary operations which will be used in the <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a>, and arbitrarily set their cost to 1. The fact that the costs of these operations may in reality differ presents no difficulty in principle. What is important, is that each elementary operation has a constant cost.</p>
+<p>Each aggregate operation is assigned a "payment". The payment is intended to cover the cost of elementary operations needed to complete this particular operation, with some of the payment left over, placed in a pool to be used later.</p>
+<p>The difficulty with problems that require amortized analysis is that, in general, some of the operations will require greater than constant cost. This means that no constant payment will be enough to cover the worst case cost of an operation, in and of itself. With proper selection of payment, however, this is no longer a difficulty; the expensive operations will only occur when there is sufficient payment in the pool to cover their costs.</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/c/Accounting_method.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>A few examples will help to illustrate the use of the accounting method.</p>
+<p><a name="Table_expansion" id="Table_expansion"></a></p>
+<h3><span class="editsection">[<a href="../../../a/c/c/Accounting_method.html" title="Edit section: Table expansion">edit</a>]</span> <span class="mw-headline">Table expansion</span></h3>
+<p>It is often necessary to create a table before it is known how much space is needed. One possible strategy is to double the size of the table when it is full. Here we will use the accounting method to show that the amortized cost of an insertion operation in such a table is <a href="../../../o/_/_/O.html" title="O">O</a>(1).</p>
+<p>Before looking at the procedure in detail, we need some definitions. Let T be a table, E an element to insert, num(T) the number of elements in T, and size(T) the allocated size of T. We assume the existence of operations create_table(n), which creates an empty table of size n, for now assumed to be free, and elementary_insert(T,E), which inserts element E into a table T that already has space allocated, with a cost of 1.</p>
+<p>The following <a href="../../../p/s/e/Pseudocode.html" title="Pseudocode">pseudocode</a> illustrates the table insertion procedure:</p>
+<pre>
+ <b>function</b> table_insert(T,E)
+     <b>if</b> num(T) = size(T)
+         U := create_table(2 × size(T))
+         <b>for each</b> F <b>in</b> T
+             elementary_insert(U,F)
+         T := U
+     elementary_insert(T,E)
+</pre>
+<p>Without amortized analysis, the best bound we can show for n insert operations is O(n<sup>2</sup>) — this is due to the loop at line 4 that performs num(T) elementary insertions.</p>
+<p>For analysis using the accounting method, we assign a payment of 3 to each table insertion. Although the reason for this is not clear now, it will become clear during the course of the analysis.</p>
+<p>Assume that initially the table is empty with size(T) = m. The first m insertions therefore do not require reallocation and only have cost 1 (for the elementary insert). Therefore, when num(T) = m, the pool has (3 - 1)×m = 2m.</p>
+<p>Inserting element m + 1 requires reallocation of the table. Creating the new table on line 3 is free (for now). The loop on line 4 requires m elementary insertions, for a cost of m. Including the insertion on the last line, the total cost for this operation is m + 1. After this operation, the pool therefore has 2m + 3 - (m + 1) = m + 2.</p>
+<p>Next, we add another m - 1 elements to the table. At this point the pool has m + 2 + 2×(m - 1) = 3m. Inserting element 2m + 1 can be seen to have total cost 2m + 1. After this operation, the pool has 3m + 3 - (2m + 1) = m + 2. Note that this is the same amount as after inserting element m + 1. In fact, we can show that this will be the case for any number of reallocations.</p>
+<p>It can now be made clear why the payment for an insertion is 3. 1 goes to inserting the element the first time it is added to the table, 1 goes to moving it the next time the table is expanded, and 1 goes to moving one of the elements that was already in the table the next time the table is expanded.</p>
+<p>We initially assumed that creating a table was free. In reality, creating a table of size n may be as expensive as O(n). Let us say that the cost of creating a table of size n is n. Does this new cost present a difficulty? Not really; it turns out we use the same method to show the amortized O(1) bounds. All we have to do is change the payment.</p>
+<p>When a new table is created, there is an old table with m entries. The new table will be of size 2m. As long as the entries currently in the table have added enough to the pool to pay for creating the new table, we will be all right.</p>
+<p>We cannot expect the first <img class='tex' src="../../../math/9/3/7/9372fca5b86aa99638e5ebd981d14068.png" alt="\frac{m}{2}" /> entries to help pay for the new table. Those entries already paid for the current table. We must then rely on the last <img class='tex' src="../../../math/9/3/7/9372fca5b86aa99638e5ebd981d14068.png" alt="\frac{m}{2}" /> entries to pay the cost <span class="texhtml">2<i>m</i></span>. This means we must add <img class='tex' src="../../../math/c/2/b/c2bb11cc646ba3af5b2b47967d9dc239.png" alt="\frac{2m}{m/2} = 4" /> to the payment for each entry, for a total payment of 3 + 4 = 7.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/c/c/Accounting_method.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="../../../t/h/o/Thomas_H._Cormen_67e5.html" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="../../../c/h/a/Charles_E._Leiserson_1e0a.html" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="../../../r/o/n/Ronald_L._Rivest_593e.html" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="../../../c/l/i/Clifford_Stein_13fe.html" title="Clifford Stein">Clifford Stein</a>. <i><a href="../../../i/n/t/Introduction_to_Algorithms_bdfd.html" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-262-03293-7</a>. Section 17.2: The accounting method, pp.410–412.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/c/c/Accounting_method.html">http://en.wikipedia.org../../../a/c/c/Accounting_method.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputational_complexity_theory_6470.html" title="Category:Computational complexity theory">Computational complexity theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/c/c/Accounting_method.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/c/c/Talk%7EAccounting_method_a01a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Accounting_method">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/c/c/Account-Methode_4bff.html">Deutsch</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:04, 17 December 2006 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../d/a/m/User%7EDamian_Yerrick_2a18.html" title="User:Damian Yerrick">Damian Yerrick</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../m/e/c/User%7EMechonbarsa_8217.html" title="User:Mechonbarsa">Mechonbarsa</a>, Hoxu, <a href="../../../c/y/b/User%7ECyborgTosser_1c56.html" title="User:CyborgTosser">CyborgTosser</a> and <a href="../../../t/i/m/User%7ETimo_Honkasalo_9467.html" title="User:Timo Honkasalo">Timo Honkasalo</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

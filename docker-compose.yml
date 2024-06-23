@@ -1,0 +1,70 @@
+version: '2'
+services:
+  zookeeper:
+    image: bitnami/zookeeper:latest
+    environment:
+      ALLOW_ANONYMOUS_LOGIN: yes
+    ports:
+      - "2181:2181"
+    platform: linux/arm64
+    restart: always
+
+  kafka:
+    image: wurstmeister/kafka:latest
+    environment:
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_AUTO_CREATE_TOPICS_ENABLE: 'true'
+      KAFKA_CREATE_TOPICS: "word-entity-topic"
+    ports:
+      - "9092:9092"
+    depends_on:
+      - zookeeper
+    platform: linux/arm64
+    restart: always
+
+  mysql:
+    image: mysql
+    container_name: mydb
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: kafka
+    ports:
+      - "3306:3306"
+    platform: linux/arm64
+
+  producer:
+    build:
+      context: ./producer
+      dockerfile: Dockerfile
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      KAFKA_TOPIC: word-entity-topic
+    ports:
+      - "5000:5000"  
+    platform: linux/arm64
+    restart: always
+
+  consumer:
+    build:
+      context: ./consumer
+      dockerfile: Dockerfile
+    depends_on:
+      - producer
+      - mysql
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:9092
+      - MYSQL_HOST=mysql
+      - MYSQL_PASSWORD=root
+      - MYSQL_PORT=3306
+      - MYSQL_DB_NAME=kafka
+      - MYSQL_USER=root
+    ports:
+      - "8080:8080"  
+    platform: linux/arm64
+    restart: always
+

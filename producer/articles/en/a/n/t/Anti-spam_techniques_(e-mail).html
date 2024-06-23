@@ -1,0 +1,560 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Anti-spam techniques (e-mail),Spamming,Spamming,1998,2002,AOL,Acceptable use policy,Address munging,Advance fee fraud,Anti-Spam Research Group,Arms race" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Anti-spam techniques (e-mail) - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Anti-spam techniques (e-mail)</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>To prevent <a href="../../../e/-/m/E-mail_spam.html" title="E-mail spam">e-mail spam</a>, both end users and administrators of e-mail systems use various <b>anti-spam techniques</b>. None of the techniques is a complete solution to the spam problem, and each has trade offs between incorrectly rejecting legitimate e-mail vs. not rejecting all spam, and associated costs in time and effort.</p>
+<p>Anti-spam techniques can be broken into two broad categories: those that require actions by individuals, and those that can be automated.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#End-user_anti-spam_techniques"><span class="tocnumber">1</span> <span class="toctext">End-user anti-spam techniques</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Enable_and_Configure_Automatic_Techniques"><span class="tocnumber">1.1</span> <span class="toctext">Enable and Configure Automatic Techniques</span></a></li>
+<li class="toclevel-2"><a href="#E-mail_Address_Harvesting"><span class="tocnumber">1.2</span> <span class="toctext">E-mail Address Harvesting</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Address_munging"><span class="tocnumber">1.2.1</span> <span class="toctext">Address munging</span></a></li>
+<li class="toclevel-3"><a href="#Contact_Forms"><span class="tocnumber">1.2.2</span> <span class="toctext">Contact Forms</span></a></li>
+<li class="toclevel-3"><a href="#Disposable_e-mail_addresses"><span class="tocnumber">1.2.3</span> <span class="toctext">Disposable e-mail addresses</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Risks_of_HTML_enabled_e-mail"><span class="tocnumber">1.3</span> <span class="toctext">Risks of HTML enabled e-mail</span></a></li>
+<li class="toclevel-2"><a href="#Avoiding_responding_to_spam"><span class="tocnumber">1.4</span> <span class="toctext">Avoiding responding to spam</span></a></li>
+<li class="toclevel-2"><a href="#Responding_to_spam"><span class="tocnumber">1.5</span> <span class="toctext">Responding to spam</span></a></li>
+<li class="toclevel-2"><a href="#Reporting_spam"><span class="tocnumber">1.6</span> <span class="toctext">Reporting spam</span></a></li>
+<li class="toclevel-2"><a href="#Defense_against_email_worms"><span class="tocnumber">1.7</span> <span class="toctext">Defense against email worms</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Automated_anti-spam_techniques_for_e-mail_receivers"><span class="tocnumber">2</span> <span class="toctext">Automated anti-spam techniques for e-mail receivers</span></a>
+<ul>
+<li class="toclevel-2"><a href="#DNSBLs"><span class="tocnumber">2.1</span> <span class="toctext">DNSBLs</span></a></li>
+<li class="toclevel-2"><a href="#Enforcing_RFC_standards"><span class="tocnumber">2.2</span> <span class="toctext">Enforcing RFC standards</span></a>
+<ul>
+<li class="toclevel-3"><a href="#HELO.2FEHLO_checking"><span class="tocnumber">2.2.1</span> <span class="toctext">HELO/EHLO checking</span></a></li>
+<li class="toclevel-3"><a href="#Greylisting"><span class="tocnumber">2.2.2</span> <span class="toctext">Greylisting</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Content-based_filtering"><span class="tocnumber">2.3</span> <span class="toctext">Content-based filtering</span></a></li>
+<li class="toclevel-2"><a href="#Statistical_filtering"><span class="tocnumber">2.4</span> <span class="toctext">Statistical filtering</span></a></li>
+<li class="toclevel-2"><a href="#Heuristic_filtering"><span class="tocnumber">2.5</span> <span class="toctext">Heuristic filtering</span></a></li>
+<li class="toclevel-2"><a href="#Checksum-based_filtering"><span class="tocnumber">2.6</span> <span class="toctext">Checksum-based filtering</span></a></li>
+<li class="toclevel-2"><a href="#Authentication_and_Reputation_.28A.26R.29"><span class="tocnumber">2.7</span> <span class="toctext">Authentication and Reputation (A&amp;R)</span></a></li>
+<li class="toclevel-2"><a href="#SMTP_callback_verification"><span class="tocnumber">2.8</span> <span class="toctext">SMTP callback verification</span></a></li>
+<li class="toclevel-2"><a href="#Sender-supported_whitelists_and_tags"><span class="tocnumber">2.9</span> <span class="toctext">Sender-supported whitelists and tags</span></a></li>
+<li class="toclevel-2"><a href="#Ham_passwords"><span class="tocnumber">2.10</span> <span class="toctext">Ham passwords</span></a></li>
+<li class="toclevel-2"><a href="#Cost-based_systems"><span class="tocnumber">2.11</span> <span class="toctext">Cost-based systems</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Stamps"><span class="tocnumber">2.11.1</span> <span class="toctext">Stamps</span></a></li>
+<li class="toclevel-3"><a href="#Proof-of-work_systems"><span class="tocnumber">2.11.2</span> <span class="toctext">Proof-of-work systems</span></a></li>
+<li class="toclevel-3"><a href="#Bonds_or_Sender-at-risk"><span class="tocnumber">2.11.3</span> <span class="toctext">Bonds or Sender-at-risk</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Tarpits"><span class="tocnumber">2.12</span> <span class="toctext">Tarpits</span></a></li>
+<li class="toclevel-2"><a href="#Greeting_delay"><span class="tocnumber">2.13</span> <span class="toctext">Greeting delay</span></a></li>
+<li class="toclevel-2"><a href="#Honeypots"><span class="tocnumber">2.14</span> <span class="toctext">Honeypots</span></a></li>
+<li class="toclevel-2"><a href="#Challenge.2Fresponse_systems"><span class="tocnumber">2.15</span> <span class="toctext">Challenge/response systems</span></a></li>
+<li class="toclevel-2"><a href="#Transparent_SMTP_proxy"><span class="tocnumber">2.16</span> <span class="toctext">Transparent SMTP proxy</span></a></li>
+<li class="toclevel-2"><a href="#List_poisoning"><span class="tocnumber">2.17</span> <span class="toctext">List poisoning</span></a></li>
+<li class="toclevel-2"><a href="#PTR.2FReverse_DNS_checks"><span class="tocnumber">2.18</span> <span class="toctext">PTR/Reverse DNS checks</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Automated_anti-spam_techniques_for_e-mail_senders"><span class="tocnumber">3</span> <span class="toctext">Automated anti-spam techniques for e-mail senders</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Egress_spam_filtering"><span class="tocnumber">3.1</span> <span class="toctext">Egress spam filtering</span></a></li>
+<li class="toclevel-2"><a href="#Strong_AUP_and_TOS_agreements"><span class="tocnumber">3.2</span> <span class="toctext">Strong AUP and TOS agreements</span></a></li>
+<li class="toclevel-2"><a href="#Background_checks_on_new_users_and_customers"><span class="tocnumber">3.3</span> <span class="toctext">Background checks on new users and customers</span></a></li>
+<li class="toclevel-2"><a href="#Port_25_blocking"><span class="tocnumber">3.4</span> <span class="toctext">Port 25 blocking</span></a></li>
+<li class="toclevel-2"><a href="#Port_25_interception"><span class="tocnumber">3.5</span> <span class="toctext">Port 25 interception</span></a></li>
+<li class="toclevel-2"><a href="#Rate_limiting"><span class="tocnumber">3.6</span> <span class="toctext">Rate limiting</span></a></li>
+<li class="toclevel-2"><a href="#Spam_report_feedback_loops"><span class="tocnumber">3.7</span> <span class="toctext">Spam report feedback loops</span></a></li>
+<li class="toclevel-2"><a href="#Limit_e-mail_backscatter"><span class="tocnumber">3.8</span> <span class="toctext">Limit e-mail backscatter</span></a></li>
+<li class="toclevel-2"><a href="#Confirmed_opt-in_for_mailing_lists"><span class="tocnumber">3.9</span> <span class="toctext">Confirmed opt-in for mailing lists</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Ongoing_research"><span class="tocnumber">4</span> <span class="toctext">Ongoing research</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="End-user_anti-spam_techniques" id="End-user_anti-spam_techniques"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: End-user anti-spam techniques">edit</a>]</span> <span class="mw-headline">End-user anti-spam techniques</span></h2>
+<p>There are a number of techniques that individuals can use to reduce the problems associated with spam.</p>
+<p><a name="Enable_and_Configure_Automatic_Techniques" id="Enable_and_Configure_Automatic_Techniques"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Enable and Configure Automatic Techniques">edit</a>]</span> <span class="mw-headline">Enable and Configure Automatic Techniques</span></h3>
+<p>Many <a href="../../../i/n/t/Internet_service_provider.html" title="Internet service provider">Internet service providers</a> and <a href="../../../e/-/m/E-mail_client.html" title="E-mail client">e-mail clients</a> have automated anti-spam systems installed, or can have optional systems added. Since all anti-spam techniques can cause legitimate e-mail to be incorrectly identified as spam, many anti-spam systems are either not enabled by default or are configured to be very conservative about what will be identified as spam. Automated anti-spam systems are discussed in more detail below.</p>
+<p><a name="E-mail_Address_Harvesting" id="E-mail_Address_Harvesting"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: E-mail Address Harvesting">edit</a>]</span> <span class="mw-headline">E-mail Address Harvesting</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../e/-/m/E-mail_address_harvesting.html" title="E-mail address harvesting">E-mail address harvesting</a></i></div>
+</dd>
+</dl>
+<p>Address harvesting are methods that spammers use to obtain e-mail addresses of real people, and if the spammers can't learn of the address, the address is less likely to be sent spam.</p>
+<p>Most people want new people to be able to contact them via e-mail and many people cannot hide their e-mail addresses. While preventing spammers from obtaining email addresses does not solve the spam problem any more than avoiding the high crime areas of a city solves crime, individuals need to weigh the risks.</p>
+<p>One way that spammers obtain email addresses to target is to trawl the Web and Usenet for strings which look like addresses, using a <a href="../../../s/p/a/Spambot.html" title="Spambot">spambot</a>. Contact forms and <a href="../../../a/d/d/Address_munging.html" title="Address munging">address munging</a> are good ways to prevent email addresses from appearing on these forums.</p>
+<p>There are other ways that spammers can get addresses, such as <a href="../../../d/i/c/Dictionary_attack.html" title="Dictionary attack">dictionary attacks</a> in which the spammer generates a number of likely-to-exist addresses out of names and common words. For instance, if there is someone with the address <tt>adam@example.com</tt>, where 'example.com' is a popular ISP or mail provider, it is likely that he frequently receives spam.</p>
+<p><a name="Address_munging" id="Address_munging"></a></p>
+<h4><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Address munging">edit</a>]</span> <span class="mw-headline">Address munging</span></h4>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../a/d/d/Address_munging.html" title="Address munging">Address munging</a></i></div>
+</dd>
+</dl>
+<p>Posting anonymously, or with a fake name and address, is one way to avoid "address harvesting," but users should ensure that the fake address is not valid. Users who want to receive legitimate email regarding their posts or Web sites can alter their addresses so humans can figure out but spammers cannot. For instance, <tt>joe@example.net</tt> might post as <tt>joeNOS@PAM.example.net.invalid</tt>, or display his email address as an image instead of text. Address munging, however, can cause legitimate replies to be lost. And if it's not the user's valid address, it has to be truly invalid, otherwise someone or some server will still get the spam for it. See <a href="http://www.2kevin.net/munging.html" class="external free" title="http://www.2kevin.net/munging.html" rel="nofollow">http://www.2kevin.net/munging.html</a></p>
+<p><a name="Contact_Forms" id="Contact_Forms"></a></p>
+<h4><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Contact Forms">edit</a>]</span> <span class="mw-headline">Contact Forms</span></h4>
+<p>Contact forms allow users to send email by filling out forms in a web browser. The web server takes the form data, forwarding it to an email address. The user never sees the email address. Contact forms have the drawback that they require a website that supports server side scripts. They are also inconvenient to the message sender as they are not able to use their preferred e-mail client. Finally if the software used to run the contact forms is badly designed they can become spam tools in their own right.</p>
+<p><a name="Disposable_e-mail_addresses" id="Disposable_e-mail_addresses"></a></p>
+<h4><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Disposable e-mail addresses">edit</a>]</span> <span class="mw-headline">Disposable e-mail addresses</span></h4>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../d/i/s/Disposable_e-mail_address.html" title="Disposable e-mail address">Disposable e-mail address</a></i></div>
+</dd>
+</dl>
+<p>Many email users sometimes need to give an address to a site without complete assurance that the site will not send out spam. One way to mitigate the risk is to provide a <i>disposable</i> email address—a temporary address which forwards email to a real account, which the user can disable or abandon. A number of services provide disposable address forwarding. Addresses can be manually disabled, can expire after a given time interval, or can expire after a certain number of messages have been forwarded.</p>
+<p><a name="Risks_of_HTML_enabled_e-mail" id="Risks_of_HTML_enabled_e-mail"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Risks of HTML enabled e-mail">edit</a>]</span> <span class="mw-headline">Risks of HTML enabled e-mail</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../h/t/m/HTML_e-mail_3e39.html" title="HTML e-mail">HTML e-mail</a></i></div>
+</dd>
+</dl>
+<p>Many modern mail programs incorporate <a href="../../../w/e/b/Web_browser.html" title="Web browser">Web browser</a> functionality, such as the display of <a href="../../../h/t/m/HTML_4c4a.html" title="HTML">HTML</a>, URLs, and images. This can easily expose the user to pornographic or otherwise offensive images in spam. In addition, spam written in HTML can contain <a href="../../../w/e/b/Web_bug.html" title="Web bug">web bugs</a> which allows spammers to see that the e-mail address is valid and has not been caught in spam filters. <a href="../../../j/a/v/JavaScript_6861.html" title="JavaScript">JavaScript</a> programs can be used to direct the user's Web browser to an advertised page, or to make the spam message difficult to close or delete. Spam messages have contained attacks upon security vulnerabilities in the HTML renderer, using these holes to install <a href="../../../s/p/y/Spyware.html" title="Spyware">spyware</a>. (Some <a href="../../../c/o/m/Computer_virus.html" title="Computer virus">computer viruses</a> are borne by the same mechanisms.)</p>
+<p>Mail clients which do not automatically download and display HTML, images or attachments, have fewer risks, as do clients have been configured to not display these by default.</p>
+<p><a name="Avoiding_responding_to_spam" id="Avoiding_responding_to_spam"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Avoiding responding to spam">edit</a>]</span> <span class="mw-headline">Avoiding responding to spam</span></h3>
+<p>Spammers may regard responses to their messages—even responses of "Don't spam me"—as confirmation that an email address is valid. Likewise, many spam messages contain Web links or addresses which the user is directed to follow to be removed from the spammer's mailing list. In several cases, spam-fighters have tested these links, confirming they do not lead to the recipient address's removal—if anything, they lead to more spam.</p>
+<p>It must be noted that sender addresses are often forged in spam messages, so that responding to spam may result in failed deliveries or may reach innocent e-mail users whose addresses have been abused. In many countries providing a false identity in that way is a criminal offense. <i>Criminal</i> spammers sometimes send their messages from purposely compromised computers in order to hide their real identity. <i>Benign</i> spammers reveal their identity, allowing recipients to respond.</p>
+<p>In late 2003, the USA <a href="../../../f/e/d/Federal_Trade_Commission_eba7.html" title="Federal Trade Commission">FTC</a> launched a public relations campaign to encourage email users to simply <i>never respond to a spam email—ever</i>.<sup class="noprint"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since February 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup> This campaign stemmed from the tendency of casual email users to reply to spam, in order to complain and request the spammer to cease sending spam.</p>
+<p>In <a href="../../../u/s/e/Usenet.html" title="Usenet">Usenet</a>, it is widely considered even more important to avoid responding to spam. Many ISPs have software that seek and destroy duplicate messages. Someone may see a spam and respond to it before it is cancelled by their server, which can have the effect of reposting the spam for them; since it is not a duplicate, the reposted copy will last longer.</p>
+<p>See also the <b><a href="../../../b/o/u/Boulder_Pledge_2c75.html" title="Boulder Pledge">Boulder Pledge</a></b>.</p>
+<p><a name="Responding_to_spam" id="Responding_to_spam"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Responding to spam">edit</a>]</span> <span class="mw-headline">Responding to spam</span></h3>
+<p>Some people advocate responding aggressively to spam—in other words, "spamming the spammer". The basic idea is to make spamming less attractive to the spammer, by increasing the spammer's overhead. Spamming is attractive because of its low cost (actually, the cost is shifted to the user). There are several ways to reach a spammer, but besides the caveats <a href="#Responding_to_spam" title="">above</a>, it may lead to retaliations by the spammer.</p>
+<p><b>1. Replying directly to the spammer's email address.</b> <a href="http://pcworld.about.com/news/Apr162004id115702.htm" class="external autonumber" title="http://pcworld.about.com/news/Apr162004id115702.htm" rel="nofollow">[1]</a> Just clicking "reply" will not work in most cases, since the great majority of the sender addresses are spoofed. In some cases, however, spammers do provide valid addresses, as in the case of <a href="../../../a/d/v/Advance_fee_fraud.html" title="Advance fee fraud">Nigerian scams</a>. <a href="http://www.419eater.com/" class="external autonumber" title="http://www.419eater.com/" rel="nofollow">[2]</a></p>
+<p><b>2. Targeting the computers used to send out spam.</b> In 2005, IBM announced a service to bounce spam directly to the computers that send out spam. <a href="http://money.cnn.com/2005/03/22/technology/ibm_spam/index.htm" class="external autonumber" title="http://money.cnn.com/2005/03/22/technology/ibm_spam/index.htm" rel="nofollow">[3]</a> Because the IP addresses are identified in the headers of every message, it would be possible to target those computers directly, sidestepping the problem of forged email addresses. In most cases, however, those computers do not belong to the real spammer, but to unsuspected users with unsecured or outdated systems, hijacked through <a href="../../../m/a/l/Malware.html" title="Malware">malware</a> and <a href="../../../z/o/m/Zombie_computer.html" title="Zombie computer">controlled</a> at distance by the spammer.</p>
+<p><b>3. Leaving messages on the spamvertised site.</b> People selling their wares need a tangible point of contact so that customers can reach them. Sometimes it is a telephone number, but most often is a web site containing <a href="../../../f/o/r/Form_%28web%29.html" title="Form (web)">web forms</a> through which customers can fill out orders or inquiries, or even "unsubscribe" requests. Since positive response to spam is probably much less than 1/10,000, if just a tiny percentage of users visit spam sites just to leave negative messages, the negative messages could easily outnumber positive ones, incurring costs for spammers to sort them out, not mentioning the cost in bandwidth. This was the approach used by the now-defunct <a href="../../../b/l/u/Blue_Security_1b7b.html" title="Blue Security">Blue Security</a>'s <a href="../../../b/l/u/Blue_Frog_a4a7.html" title="Blue Frog">Blue Frog</a> service: it looked for web forms on those sites and filled one form on behalf of the subscriber for each spam received, thus overwhelming spammer sites (Blue Frog service had up to a half million users). Ironically, it was Blue Frog's effectiveness that brought it down, by attracting a massive, retaliatory <a href="../../../d/e/n/Denial-of-service.html" title="Denial-of-service">denial-of-service</a> attack from a spammer who refused to fold. After the demise of Blue Frog, other services have been trying to replicate its ideas, while avoiding its shortcomings.</p>
+<p><a name="Reporting_spam" id="Reporting_spam"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Reporting spam">edit</a>]</span> <span class="mw-headline">Reporting spam</span></h3>
+<p>Tracking down a spammer's ISP and reporting the offense often leads to the spammer's service being terminated. Unfortunately, it can be difficult to track down the spammer—and while there are some online tools to assist, they are not always accurate. Occasionally, spammers employ their own netblocks. In this case, the abuse contact for the netblock can be the spammer itself and can confirm your address.</p>
+<p>Examples of these online tools are <a href="../../../s/p/a/SpamCop_4f7e.html" title="SpamCop">SpamCop</a> and <a href="../../../n/e/t/Network_Abuse_Clearinghouse_5a91.html" title="Network Abuse Clearinghouse">Network Abuse Clearinghouse</a>. They provide automated or semi-automated means to report spam to ISPs. Some spam-fighters regard them as inaccurate compared to what an expert in the email system can do; however, most email users are not experts.</p>
+<p>Consumers may also forward "unwanted or deceptive spam" to an email address (<tt><a href="http://www.ftc.gov/opa/2004/07/newspamemail.htm" class="external text" title="http://www.ftc.gov/opa/2004/07/newspamemail.htm" rel="nofollow">spam@uce.gov</a></tt>) maintained by the FTC. The database collected is used to prosecute perpetrators of scam or deceptive advertising.</p>
+<p><a name="Defense_against_email_worms" id="Defense_against_email_worms"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Defense against email worms">edit</a>]</span> <span class="mw-headline">Defense against email worms</span></h3>
+<p><a href="../../../c/o/m/Computer_worm.html" title="Computer worm">Computer worm</a> programs can use e-mail as a conduit for infection. The worm program transmits itself in an e-mail, usually as a <a href="../../../m/i/m/MIME_1903.html" title="MIME">MIME</a> attachment. In order to infect a computer, the executable worm attachment often must be opened or the user must be tricked into actually taking other steps to bypass security in order for the worm to run. The worm also requires a software environment compatible with its programming.</p>
+<p><a name="Automated_anti-spam_techniques_for_e-mail_receivers" id="Automated_anti-spam_techniques_for_e-mail_receivers"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Automated anti-spam techniques for e-mail receivers">edit</a>]</span> <span class="mw-headline">Automated anti-spam techniques for e-mail receivers</span></h2>
+<p>There are a number of services and software systems that mail sites and users can use to reduce the load of spam on their systems and mailboxes. Some of these depend upon rejecting email from Internet sites known or likely to send spam. Others rely on automatically analyzing the content of email messages and weeding out those which resemble spam. These two approaches are sometimes termed <i>blocking</i> and <i>filtering.</i></p>
+<p>Blocking and filtering both reduce the amount of spam delivered to mailboxes, but blocking does more to alleviate the <a href="../../../b/a/n/Bandwidth.html" title="Bandwidth">bandwidth</a> cost of spam, since spam can be rejected before the message is sent. Filtering tends to be more thorough, since it examines the details of a message.</p>
+<p>There is an increasing trend of <a href="../../../i/n/t/Integration_of_anti-spam_techniques_into_MTAs_cf9b.html" title="Integration of anti-spam techniques into MTAs">integration of anti-spam techniques into MTAs</a> whereby the mail systems themselves also perform various measures that are generally referred to as filtering, ultimately resulting in spams being rejected before delivery (or <i>blocked</i>).</p>
+<p>Many modern spam filtering systems take advantage of <a href="../../../m/a/c/Machine_learning.html" title="Machine learning">machine learning</a> techniques, which improve their accuracy over manual methods. However, some people find filtering intrusive to privacy, and many mail administrators prefer blocking to deny access to their systems from sites tolerant of spammers.</p>
+<p><a name="DNSBLs" id="DNSBLs"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: DNSBLs">edit</a>]</span> <span class="mw-headline">DNSBLs</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../d/n/s/DNSBL_6327.html" title="DNSBL">DNSBL</a></i></div>
+</dd>
+</dl>
+<p>DNS-based Blackhole Lists, or <a href="../../../d/n/s/DNSBL_6327.html" title="DNSBL">DNSBLs</a>, are used for <a href="#Heuristic_filtering" title="">heuristic filtering</a> and blocking. A site publishes lists (typically of IP addresses) via the <a href="../../../d/o/m/Domain_Name_System_3b6e.html" title="Domain Name System">DNS</a>, in such a way that mail servers can easily be set to reject mail from those sources. There are literally scores of DNSBLs, each of which reflects different policies: some list sites known to emit spam; others list <a href="../../../o/p/e/Open_mail_relay.html" title="Open mail relay">open mail relays</a> or proxies; others list ISPs known to support spam. Other DNS-based anti-spam systems list known good ("white") or bad ("black") IPs domains or URLs, including RHSBLs and URIBLs. For history, details, and examples of DNSBLs, see <a href="../../../d/n/s/DNSBL_6327.html" title="DNSBL">DNSBL</a>.</p>
+<p><a name="Enforcing_RFC_standards" id="Enforcing_RFC_standards"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Enforcing RFC standards">edit</a>]</span> <span class="mw-headline">Enforcing RFC standards</span></h3>
+<dl>
+<dd><i>Further information: <a href="../../../s/i/m/Simple_Mail_Transfer_Protocol_4419.html#Related_Requests_For_Comments_.28RFCs.29" title="Simple Mail Transfer Protocol">SMTP RFC standards</a></i></dd>
+</dl>
+<p>Enforcing technical requirements of the <a href="../../../s/i/m/Simple_Mail_Transfer_Protocol_4419.html" title="Simple Mail Transfer Protocol">Simple Mail Transfer Protocol</a> (SMTP) can be used to block mail coming from systems that do not comply with the RFC standards. A lot of spammers use poorly written software or are unable to comply with the standards because they do not have legitimate control of the computer sending spam (<a href="../../../z/o/m/Zombie_computer.html" title="Zombie computer">zombie computer</a>). By setting restrictions on the <a href="../../../m/a/i/Mail_transfer_agent.html" title="Mail transfer agent">MTA</a> a mail administrator can reduce spam significantly.</p>
+<p><a name="HELO.2FEHLO_checking" id="HELO.2FEHLO_checking"></a></p>
+<h4><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: HELO/EHLO checking">edit</a>]</span> <span class="mw-headline">HELO/EHLO checking</span></h4>
+<p>For example, spam can be greatly reduced by a number of simple checks that, unfortunately, few MTA vendors bother to implement.</p>
+<p>In many situations, simply requiring a valid <a href="../../../f/q/d/FQDN_d36e.html" title="FQDN">FQDN</a> in the SMTP EHLO statement is enough to block 25% of incoming spam.</p>
+<ul>
+<li>Refusing connections from hosts that begin transmission prior to presentation of the receiving host's HELO banner</li>
+<li>Refusing connections from hosts that give an invalid HELO - for example, a HELO that is not an <a href="../../../f/q/d/FQDN_d36e.html" title="FQDN">FQDN</a> or is an IP address not surrounded by square brackets</li>
+</ul>
+<pre>
+<i><b>Invalid</b></i> HELO localhost
+<i><b>Invalid</b></i> HELO 127.0.0.1
+<i><b>Invalid</b></i> HELO domain.tld
+<b>Valid</b> HELO [127.0.0.1]  
+</pre>
+<ul>
+<li>Refusing connections from hosts that give an obviously fraudulent HELO - for example, issuing a HELO using the FQDN or an IP address that doesn't match the IP address of the connecting host</li>
+</ul>
+<pre>
+<i><b>Fraudulent</b></i> HELO friend
+<i><b>Fraudulent</b></i> HELO -232975332
+</pre>
+<ul>
+<li>Refusing to accept email claiming to be from a hosted domain when the sending host has not authenticated</li>
+<li>Refusing to accept email whose HELO/EHLO argument does not resolve in DNS. Unfortunately, some email system administrators ignore section 3.6 of RFC2821 and administer the MTA to use a nonresolvable argument to the HELO/EHLO command.</li>
+</ul>
+<p>All of the examples above are fairly simple checks, all conform to existing standards and RFCs, and all are missing from most commercial <a href="../../../m/a/i/Mail_Transfer_Agent_71ee.html" title="Mail Transfer Agent">MTA</a> implementations available today.</p>
+<p><a name="Greylisting" id="Greylisting"></a></p>
+<h4><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Greylisting">edit</a>]</span> <span class="mw-headline">Greylisting</span></h4>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../g/r/e/Greylisting.html" title="Greylisting">Greylisting</a></i></div>
+</dd>
+</dl>
+<p>Greylisting temporarily rejects messages from unknown sender mail servers. A temporary rejection is designated with a 4xx error code that is recognized by all normal MTAs, which then proceed to retry delivery later.</p>
+<p>Greylisting is based on the premise that spammers will usually not re-send their messages, mainly due to the inherent cost incurred by maintaining a retry strategy.</p>
+<p><a name="Content-based_filtering" id="Content-based_filtering"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Content-based filtering">edit</a>]</span> <span class="mw-headline">Content-based filtering</span></h3>
+<dl>
+<dd><i>Further information: <a href="../../../e/-/m/E-mail_filtering.html" title="E-mail filtering">E-mail filtering</a></i></dd>
+</dl>
+<p>Until recently, content filtering techniques relied on mail administrators specifying lists of words or <a href="../../../r/e/g/Regular_expression.html" title="Regular expression">regular expressions</a> disallowed in mail messages. Thus, if a site receives spam advertising "herbal Viagra", the administrator might place these words in the filter configuration. The mail server would thence reject any message containing the phrase.</p>
+<p>Content based filtering can also filter based on content other than the words and phrases that make up the body of the message. Primarily, this means looking at the header of the email, the part of the message that contains information about the message, and not the body text of the message. Spammers will often <a href="../../../s/p/o/Spoofing_attack.html" title="Spoofing attack">spoof</a> fields in the header in order to hide their identities, or to try to make the email look more legitimate than it is; many of these spoofing methods can be detected. Also, spam sending software often produces a header that violates the <a href="http://tools.ietf.org/html/rfc2822" class="external" title="http://tools.ietf.org/html/rfc2822">RFC 2822</a> standard on how the email header is supposed to be formed.</p>
+<p>Disadvantages of this static filtering are threefold: First, it is time-consuming to maintain. Second, it is prone to false positives. Third, these false positives are not equally distributed: manual content filtering is prone to reject legitimate messages on topics related to products advertised in spam. A system administrator who attempts to reject spam messages which advertise mortgage refinancing may easily inadvertently block legitimate mail on the same subject.</p>
+<p>Finally, spammers can change the phrases and spellings they use, or employ methods to try to trip up phrase detectors. This means more work for the administrator. However, it also has some advantages for the spam fighter. If the spammer starts spelling "Viagra" as "V1agra" (see <a href="../../../l/e/e/Leet.html" title="Leet">leet</a>) or "Via_gra", it makes it harder for the spammer's intended audience to read their messages. If they try to trip up the phrase detector, by, for example, inserting an invisible-to-the-user HTML <a href="../../../c/o/m/Comment_%28computing%29.html" title="Comment (computing)">comment</a> in the middle of a word ("Via&lt;!----&gt;gra"), this sleight of hand is itself easily detectable, and is a good indication that the message is spam. And if they send spam that consists entirely of images, so that anti-spam software can't analyze the words and phrases in the message, the fact that there <i>is</i> no readable text in the body can be detected.</p>
+<p>However, content filtering can also be implemented by examining the <a href="../../../u/r/l/URL_e6b3.html" title="URL">URLs</a> present (i.e. <a href="../../../s/p/a/Spamvertising.html" title="Spamvertising">spamvertising</a>) in an email message. This form of content filtering is much harder to disguise as the URLs must resolve to a valid domain name. Extracting a list of such links and comparing them to published sources of spamvertised domains is a simple and reliable way to eliminate a large percentage of spam via content analysis.</p>
+<p><a name="Statistical_filtering" id="Statistical_filtering"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Statistical filtering">edit</a>]</span> <span class="mw-headline">Statistical filtering</span></h3>
+<p><i>Statistical filtering</i> was first proposed in <a href="../../../1/9/9/1998.html" title="1998">1998</a> by Mehran Sahami <i>et al.</i>, at the AAAI-98 Workshop on Learning for Text Categorization. A statistical filter is a kind of <a href="../../../d/o/c/Document_classification.html" title="Document classification">document classification</a> system, and a number of <a href="../../../m/a/c/Machine_learning.html" title="Machine learning">machine learning</a> researchers have turned their attention to the problem. Statistical filtering was popularized by <a href="../../../p/a/u/Paul_Graham_1672.html" title="Paul Graham">Paul Graham</a>'s influential <a href="../../../2/0/0/2002.html" title="2002">2002</a> article <i><a href="http://www.paulgraham.com/antispam.html" class="external text" title="http://www.paulgraham.com/antispam.html" rel="nofollow">A Plan for Spam</a></i>, which proposed the use of <a href="../../../n/a/i/Naive_Bayes_classifier_acb3.html" title="Naive Bayes classifier">naive Bayes classifiers</a> to predict whether messages are spam or not – based on collections of spam and nonspam ("ham") email submitted by users. <a href="http://research.microsoft.com/~horvitz/junkfilter.htm" class="external autonumber" title="http://research.microsoft.com/~horvitz/junkfilter.htm" rel="nofollow">[4]</a></p>
+<p>Statistical filtering, once set up, requires no maintenance per se: instead, users mark messages as spam or nonspam and the filtering software learns from these judgements. Thus, a statistical filter does not reflect the software author's or administrator's biases as to content, but it <i>does</i> reflect the <i>user's</i> biases as to content; a biochemist who is researching Viagra won't have messages containing the word "Viagra" flagged as spam, because "Viagra" will show up often in his or her legitimate messages. Spam emails containing the word "Viagra", however, do get filtered because of their unique content compared to legitimate messages. A statistical filter can also respond quickly to changes in spam content, without administrative intervention. Statistical filters should also look at message headers <a href="http://www.paulgraham.com/better.html" class="external autonumber" title="http://www.paulgraham.com/better.html" rel="nofollow">[5]</a>, thereby considering not just the content but also peculiarities of the transport mechanism of the email.</p>
+<p>Spammers have attempted to fight statistical filtering by inserting many random but valid "noise" words or sentences into their messages while attempting to hide them from view, making it more likely that the filter will classify the message as neutral. (See <a href="../../../w/o/r/Word_salad_%28computer_science%29.html" title="Word salad (computer science)">Word salad (computer science)</a>.) Attempts to hide the noise words include setting them in tiny <a href="../../../t/y/p/Typeface.html" title="Typeface">font</a> or the same colour as the background. However, these noise countermeasures seem to have been largely ineffective.<sup class="noprint"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since February 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup></p>
+<p>Software programs that implement statistical filtering include <a href="../../../b/o/g/Bogofilter.html" title="Bogofilter">Bogofilter</a>, <a href="../../../d/s/p/DSPAM_fbcd.html" title="DSPAM">DSPAM</a>, <a href="http://spambayes.sourceforge.net" class="external text" title="http://spambayes.sourceforge.net" rel="nofollow">SpamBayes</a> the e-mail programs <a href="../../../m/o/z/Mozilla.html" title="Mozilla">Mozilla</a> and <a href="../../../m/o/z/Mozilla_Thunderbird_a0c6.html" title="Mozilla Thunderbird">Mozilla Thunderbird</a>, <a href="../../../m/a/i/Mailwasher.html" title="Mailwasher">Mailwasher</a>, and later revisions of <a href="../../../s/p/a/SpamAssassin_f1a3.html" title="SpamAssassin">SpamAssassin</a>. Another interesting project is <a href="../../../c/r/m/CRM114_dd11.html" title="CRM114">CRM114</a> which hashes phrases and does bayesian classification on the phrases.</p>
+<p>There is also the free mail filter <a href="../../../p/o/p/POPFile_c544.html" title="POPFile">POPFile</a> <a href="http://popfile.sourceforge.net" class="external autonumber" title="http://popfile.sourceforge.net" rel="nofollow">[6]</a> which sorts mail in as many categories as you want (family, friends, co-worker, spam, whatever) with bayesian filtering.</p>
+<p><a name="Heuristic_filtering" id="Heuristic_filtering"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Heuristic filtering">edit</a>]</span> <span class="mw-headline">Heuristic filtering</span></h3>
+<p><i>Heuristic filtering</i>, such as is implemented in the programs <a href="../../../s/p/a/SpamAssassin_f1a3.html" title="SpamAssassin">SpamAssassin</a> and <a href="../../../p/o/l/Policyd-weight.html" title="Policyd-weight">Policyd-weight</a>, uses some or all of the various tests for spam mentioned above, and assigns a numerical score to each test. Each message is scanned for these patterns, and the applicable scores tallied up. If the total is above a fixed value, the message is rejected or flagged as spam. By ensuring that no single spam test by itself can flag a message as spam, the false positive rate can be greatly reduced. <a href="http://www.spamassassin.org/" class="external autonumber" title="http://www.spamassassin.org/" rel="nofollow">[7]</a></p>
+<p><a name="Checksum-based_filtering" id="Checksum-based_filtering"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Checksum-based filtering">edit</a>]</span> <span class="mw-headline">Checksum-based filtering</span></h3>
+<p><i>Checksum-based filter</i> takes advantage of the fact that often, for any individual spammer, all of the messages he or she sends out will be mostly identical, the only differences being <a href="../../../w/e/b/Web_bug.html" title="Web bug">web bugs</a>, and when the text of the message contains the recipient's name or email address. Checksum-based filters strip out everything that might vary between messages, reduce what remains to a <a href="../../../c/h/e/Checksum.html" title="Checksum">checksum</a>, and look that checksum up in a database which collects the checksums of messages that email recipients consider to be spam (some people have a button on their email client which they can click to nominate a message as being spam); if the checksum is in the database, the message is likely to be spam.</p>
+<p>The advantage of this type of filtering is that it lets ordinary users help identify spam, and not just administrators, thus vastly increasing the pool of spam fighters. The disadvantage is that spammers can insert unique invisible gibberish—known as <i><a href="../../../h/a/s/Hashbusters.html" title="Hashbusters">hashbusters</a></i>—into the middle of each of their messages, thus making each message unique and having a different checksum. This leads to an <a href="../../../a/r/m/Arms_race.html" title="Arms race">arms race</a> between the developers of the checksum software and the developers of the spam-generating software.</p>
+<p>Checksum based filtering methods include:</p>
+<ul>
+<li><a href="../../../d/i/s/Distributed_Checksum_Clearinghouse_a43f.html" title="Distributed Checksum Clearinghouse">Distributed Checksum Clearinghouse</a></li>
+<li><a href="../../../v/i/p/Vipul%27s_Razor_721b.html" title="Vipul's Razor">Vipul's Razor</a></li>
+</ul>
+<p><a name="Authentication_and_Reputation_.28A.26R.29" id="Authentication_and_Reputation_.28A.26R.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Authentication and Reputation (A&amp;R)">edit</a>]</span> <span class="mw-headline">Authentication and Reputation (A&amp;R)</span></h3>
+<dl>
+<dd><i>Further information: <a href="../../../e/-/m/E-mail_authentication.html" title="E-mail authentication">E-mail authentication</a>, <a href="../../../d/o/m/DomainKeys_fda3.html" title="DomainKeys">DomainKeys</a>, and <a href="../../../s/e/n/Sender_Policy_Framework_a3f4.html" title="Sender Policy Framework">SPF</a></i></dd>
+</dl>
+<p>A number of systems have been proposed to allow acceptance of email from servers which have authenticated in some fashion as senders of only legitimate email. Many of these systems use the DNS, as do DNSBLs; but rather than being used to list nonconformant sites, the DNS is used to list sites authorized to send email, and (sometimes) to determine the reputation of those sites. Other methods of identifying ham and spam are still used. The A&amp;R allows much ham to be more reliably identified, which allows spam detectors to be made more sensitive without causing more false positive results. The increased sensitivity allows more spam to be identified as such. Also, A&amp;R methods tend to be less resource-intensive than other filtering methods, which can be skipped for messages identified by A&amp;R as ham.</p>
+<p><a name="SMTP_callback_verification" id="SMTP_callback_verification"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: SMTP callback verification">edit</a>]</span> <span class="mw-headline">SMTP callback verification</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../c/a/l/Callback_verification.html" title="Callback verification">callback verification</a></i></div>
+</dd>
+</dl>
+<p>Since a large percentage of spam has forged and invalid sender ("from") addresses, some spam can be detected by checking that this "from" address is valid. A mail server can try to verify the sender address by making an SMTP connection back to the mail exchanger for the address, as if it was creating a bounce, but stopping just before any e-mail is sent.</p>
+<p>Callback verification is compliant with SMTP RFCs, but it has various drawbacks, mainly that it relies on external mail servers whose responses are not reliable, as well as the fact that it's using other people's resources to combat spam. At the same time, there will be numerous false negatives (spammers abusing real addresses) and some false positives (legitimate e-mail with undeliverable sender address).</p>
+<p><a name="Sender-supported_whitelists_and_tags" id="Sender-supported_whitelists_and_tags"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Sender-supported whitelists and tags">edit</a>]</span> <span class="mw-headline">Sender-supported whitelists and tags</span></h3>
+<p>There are a small number of organizations which offer IP whitelisting and/or licensed tags that can be placed in email (for a fee) to assure recipients' systems that the messages thus tagged are not spam. This system relies on legal enforcement of the tag. The intent is for email administrators to whitelist messages bearing the licensed tag.</p>
+<ul>
+<li>Habeas Safelist</li>
+<li>Bonded Sender.</li>
+</ul>
+<p>A potential difficulty with such systems is that the licensing organization makes its money by licensing more senders to use the tag—not by strictly enforcing the rules upon licensees. A concern exists that senders whose messages are more likely to be considered spam who would accrue a greater benefit by using such a tag. The concern is that these factors form a <a href="../../../p/e/r/Perverse_incentive.html" title="Perverse incentive">perverse incentive</a> for licensing organizations to be lenient with licensees who have offended. However, the value of a license would drop if it was not strictly enforced, and financial gains due to enforcement of a license itself can provide an additional incentive for strict enforcement. The Habeas mail classing system attempts to further address this issue by classing email according to origin, purpose, and permission. The purpose is to describe why the email is not likely spam, but permission based email.</p>
+<p><a name="Ham_passwords" id="Ham_passwords"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Ham passwords">edit</a>]</span> <span class="mw-headline">Ham passwords</span></h3>
+<p>Another approach for countering spam is to use a "ham password". Systems that use ham passwords ask unrecognised senders to include in their email a password that demonstrates that the email message is a "ham" (not spam) message. Typically the email address and ham password would be described on a web page, and the ham password would be included in the "subject" line of an email address. Ham passwords are often combined with filtering systems, to counter the risk that a filtering system will accidentally identify a ham message as a spam message.</p>
+<p>The <a href="../../../e/m/a/Email_address.html#plus_addressing" title="Email address">"plus addressing"</a> technique appends a password to the "username" part of the email address.</p>
+<p><a name="Cost-based_systems" id="Cost-based_systems"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Cost-based systems">edit</a>]</span> <span class="mw-headline">Cost-based systems</span></h3>
+<p>Since spam occurs primarily because it is so cheap to send, a proposed set of solutions require that senders pay some cost in order to send spam, making it prohibitively expensive for spammers.</p>
+<p><a name="Stamps" id="Stamps"></a></p>
+<h5><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Stamps">edit</a>]</span> <span class="mw-headline">Stamps</span></h5>
+<dl>
+<dd><i>Further information: <a href="../../../c/e/r/Certified_e-mail.html" title="Certified e-mail">Certified e-mail</a></i></dd>
+</dl>
+<p>Some gatekeeper would sell electronic stamps and keep the proceeds. Or a <a href="../../../m/i/c/Micropayment.html" title="Micropayment">micropayment</a>, such as <a href="../../../e/l/e/Electronic_money.html" title="Electronic money">electronic money</a> would be paid by the sender to the recipient or their ISP, or some other gatekeeper.</p>
+<p><a name="Proof-of-work_systems" id="Proof-of-work_systems"></a></p>
+<h5><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Proof-of-work systems">edit</a>]</span> <span class="mw-headline">Proof-of-work systems</span></h5>
+<p><a href="../../../p/r/o/Proof-of-work_system.html" title="Proof-of-work system">Proof-of-work systems</a> such as <a href="../../../h/a/s/Hashcash.html" title="Hashcash">hashcash</a> require that a sender pay a computational cost by performing a calculation that the receiver can later verify. Verification must be much faster than performing the calculation, so that the computation slows down a sender but does not significantly impact a receiver. The point is to slow down machines that send most of spam—often millions and millions of them. While every user that wants to send email to a moderate number of recipients suffers just a few seconds' delay, sending millions of emails would take an unaffordable amount of time.</p>
+<p><a name="Bonds_or_Sender-at-risk" id="Bonds_or_Sender-at-risk"></a></p>
+<h5><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Bonds or Sender-at-risk">edit</a>]</span> <span class="mw-headline">Bonds or Sender-at-risk</span></h5>
+<p>As a refinement to stamp systems was the idea of requiring that the micropayment only be retained if the recipient considered the email to be abusive. This addressed the principal objection to stamp systems: popular free legitimate mailing list hosts would be unable to continue to provide their services if they had to pay postage for every message they sent out.</p>
+<p><a href="../../../b/i/l/Bill_Gates_65fa.html" title="Bill Gates">Bill Gates</a> has announced that <a href="../../../m/i/c/Microsoft.html" title="Microsoft">Microsoft</a> is working on a “ magic solution” to the spam problem that requires that so-called “unknown senders”, i.e. senders not on the Accepted List of the recipient, post “the electronic equivalent of a” stamp whose value would be lost to the sender only if the recipient disapproves of the email <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>. Gates said that Microsoft favors other solutions in the short-term, but would rely on the contingent payment solution to solve the spam problem over the longer run. Microsoft, <a href="../../../a/o/l/AOL_c152.html" title="AOL">AOL</a> as well as <a href="../../../y/a/h/Yahoo%21.html" title="Yahoo!">Yahoo!</a> have recently introduced systems that allow commercial senders to avoid filters if they obtain a certificate or certification, which is lost to the sender if recipients complain.</p>
+<p>The intent of such "sender-at-risk" solutions, which impose a significant cost to the sender only if the recipient rejects the message subsequent to receiving the email, is to deter spam by making it economically prohibitive to send unwanted email messages, while allowing legitimate emailers to send messages at little or no expense.</p>
+<p><a href="../../../s/h/r/SHRED_acbd.html" title="SHRED">SHRED</a> is a recent proposal for a sender-at-risk protocol that aims to avoid some of the defects of earlier reputation and postage-based systems.</p>
+<p><a name="Tarpits" id="Tarpits"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Tarpits">edit</a>]</span> <span class="mw-headline">Tarpits</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../t/a/r/Tarpit_%28networking%29.html" title="Tarpit (networking)">Tarpit (networking)</a></i></div>
+</dd>
+</dl>
+<p>A <i>tarpit</i> is any server software which intentionally responds pathologically slowly to client commands. By running a tarpit which treats acceptable mail normally and known spam slowly or which appears to be an open mail relay, a site can slow down the rate at which spammers can inject messages into the mail facility. Many systems will simply disconnect if the server doesn't respond quickly, which will eliminate the spam. However, a few legitimate e-mail systems will also not deal correctly with these delays.</p>
+<p><a name="Greeting_delay" id="Greeting_delay"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Greeting delay">edit</a>]</span> <span class="mw-headline">Greeting delay</span></h3>
+<p>A greeting delay is a deliberate pause introduced by an SMTP server before it sends the SMTP greeting banner to the client. The client is supposed to wait until it has received this banner before it sends any data to the server. (per <a href="http://rfc.net/rfc2821.html#s3.1" class="external text" title="http://rfc.net/rfc2821.html#s3.1" rel="nofollow">RFC2821 3.1</a>). Many spam-sending applications do not wait to receive this banner, and instead start sending data once the TCP connection is complete. The server can detect this, and drop the connection.</p>
+<p>There are some legitimate sites that play "fast and loose" with the SMTP specifications, and may be caught by this mechanism. It also has a tendency to interact badly with sites that perform Callback Verification, as common callback verification systems have timeouts that are much shorter than those mandated by <a href="http://rfc.net/rfc2821.html#s4.5.3.2" class="external text" title="http://rfc.net/rfc2821.html#s4.5.3.2" rel="nofollow">RFC2821 4.5.3.2</a>.</p>
+<p><a name="Honeypots" id="Honeypots"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Honeypots">edit</a>]</span> <span class="mw-headline">Honeypots</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../h/o/n/Honeypot_%28computing%29.html" title="Honeypot (computing)">Honeypot (computing)</a></i></div>
+</dd>
+</dl>
+<p>Another approach is simply an imitation MTA which gives the appearance of being an open mail relay, or an imitation TCP/IP proxy server which gives the appearance of being an open proxy. Spammers who probe systems for open relays/proxies will find such a host and attempt to send mail through it, wasting their time and potentially revealing information about themselves and the source of spam to the unexpected alert entity (in comparison to the anticipated careless or unskilled operator typically in charge of open relay MTA systems) that operates the honeypot. Such a system may simply discard the spam attempts, submit them to <a href="../../../d/n/s/DNSBL_6327.html" title="DNSBL">DNSBLs</a>, or store them for analysis.</p>
+<p><a name="Challenge.2Fresponse_systems" id="Challenge.2Fresponse_systems"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Challenge/response systems">edit</a>]</span> <span class="mw-headline">Challenge/response systems</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../c/h/a/Challenge-response_spam_filtering.html" title="Challenge-response spam filtering">Challenge-response spam filtering</a></i></div>
+</dd>
+</dl>
+<p>Another method which may be used by internet service providers (or by specialized services) to combat spam is to require unknown senders to pass various tests before their messages are delivered. These strategies are termed <b>challenge/response systems</b> or <b>C/R</b>, are currently controversial among email programmers and system administrators, with many viewing their use as being as bad as spam, and places the burden of spam fighting on legitimate email senders.</p>
+<p><a name="Transparent_SMTP_proxy" id="Transparent_SMTP_proxy"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Transparent SMTP proxy">edit</a>]</span> <span class="mw-headline">Transparent SMTP proxy</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../t/r/a/Transparent_SMTP_proxy_5a8f.html" title="Transparent SMTP proxy">Transparent SMTP proxy</a></i></div>
+</dd>
+</dl>
+<p>Transparent SMTP proxies allow combating spam in real time, combining sender's behavior controls, providing legitimate users immediate feedback, eliminating a need for quarantine.</p>
+<p><a name="List_poisoning" id="List_poisoning"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: List poisoning">edit</a>]</span> <span class="mw-headline">List poisoning</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../l/i/s/List_poisoning.html" title="List poisoning">List poisoning</a></i></div>
+</dd>
+</dl>
+<p>Poisoning a spammer's mailing list with <a href="../../../s/p/a/Spamtrap.html" title="Spamtrap">spamtraps</a> or invalid email addresses has been a method employed in attempts to thwart spammers.</p>
+<p><a name="PTR.2FReverse_DNS_checks" id="PTR.2FReverse_DNS_checks"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: PTR/Reverse DNS checks">edit</a>]</span> <span class="mw-headline">PTR/Reverse DNS checks</span></h3>
+<dl>
+<dd><i>Further information: <a href="../../../r/e/v/Reverse_DNS_lookup_05b6.html" title="Reverse DNS lookup">Reverse DNS lookup</a> and <a href="../../../f/o/r/Forward_Confirmed_reverse_DNS_48e6.html" title="Forward Confirmed reverse DNS">Forward Confirmed reverse DNS</a></i></dd>
+</dl>
+<p>The PTR DNS records in the reverse DNS can be used for a number of things, including:</p>
+<ul>
+<li>Most e-mail <a href="../../../m/a/i/Mail_Transfer_Agent_71ee.html" title="Mail Transfer Agent">Mail Transfer Agents</a> (server software) use a FCrDNS verification and if there is a valid domain name, put it into the "Received:" trace header field.</li>
+</ul>
+<ul>
+<li>Some e-mail <a href="../../../m/a/i/Mail_Transfer_Agent_71ee.html" title="Mail Transfer Agent">Mail Transfer Agents</a> will perform FCrDNS verification on the domain name given on the SMTP HELO and EHLO commands. This can violate <a href="http://tools.ietf.org/html/rfc2821" class="external" title="http://tools.ietf.org/html/rfc2821">RFC 2821</a> and so e-mail is usually not rejected by default.</li>
+</ul>
+<ul>
+<li>To check the domain names in the rDNS to see if they are likely from dial-up users, dynamically assigned addresses, or home-based broadband customers. Since the vast majority, but by no means all, of e-mail that originates from these computers is spam, many mail servers also refuse e-mail with missing or "generic" rDNS names. <a href="http://www.spamhaus.org/faq/answers.lasso?section=ISP%20Spam%20Issues#131" class="external autonumber" title="http://www.spamhaus.org/faq/answers.lasso?section=ISP%20Spam%20Issues#131" rel="nofollow">[8]</a> <a href="http://postmaster.aol.com/info/rdns.html" class="external autonumber" title="http://postmaster.aol.com/info/rdns.html" rel="nofollow">[9]</a></li>
+</ul>
+<ul>
+<li>A <a href="../../../f/o/r/Forward_Confirmed_reverse_DNS_48e6.html" title="Forward Confirmed reverse DNS">Forward Confirmed reverse DNS</a> (FCrDNS) verification can create a weak form of authentication that there is a valid relationship between the owner of a domain name and the owner of the network that has been given an IP address. While weak, this authentication is strong enough that it can be used for <a href="../../../w/h/i/Whitelist.html" title="Whitelist">whitelisting</a> purposes because <a href="../../../s/p/a/Spam_%28electronic%29.html" title="Spam (electronic)">spammers</a> and <a href="../../../p/h/i/Phishing.html" title="Phishing">phishers</a> cannot usually bypass this verification when they use <a href="../../../z/o/m/Zombie_computer.html" title="Zombie computer">zombie computers</a> to forge the domains.</li>
+</ul>
+<p><a name="Automated_anti-spam_techniques_for_e-mail_senders" id="Automated_anti-spam_techniques_for_e-mail_senders"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Automated anti-spam techniques for e-mail senders">edit</a>]</span> <span class="mw-headline">Automated anti-spam techniques for e-mail senders</span></h2>
+<p>There are a variety of techniques that e-mail senders use to try to make sure that they do not send spam. Failure to control the amount of spam sent, as judge by e-mail receivers, can often cause even legitimate email to be blocked and for the sender to be put on <a href="../../../d/n/s/DNSBL_6327.html" title="DNSBL">DNSBLs</a>.</p>
+<p><a name="Egress_spam_filtering" id="Egress_spam_filtering"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Egress spam filtering">edit</a>]</span> <span class="mw-headline">Egress spam filtering</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../e/g/r/Egress_filtering.html" title="Egress filtering">Egress filtering</a></i></div>
+</dd>
+</dl>
+<p>E-mail senders can do the same type of anti-spam checks e-mail coming from their users and customers as can be done for e-mail coming from the rest of the Internet.</p>
+<p><a name="Strong_AUP_and_TOS_agreements" id="Strong_AUP_and_TOS_agreements"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Strong AUP and TOS agreements">edit</a>]</span> <span class="mw-headline">Strong AUP and TOS agreements</span></h3>
+<p>Most ISPs and <a href="../../../w/e/b/Web_e-mail.html" title="Web e-mail">web e-mail</a> providers have either an <a href="../../../a/c/c/Acceptable_use_policy.html" title="Acceptable use policy">Acceptable use policy</a> (AUP) or a <a href="../../../t/e/r/Terms_of_Service_ee4a.html" title="Terms of Service">Terms of Service</a> (TOS) agreement that discourages spammers from using their system and allows the spammer to be terminated quickly.</p>
+<p><a name="Background_checks_on_new_users_and_customers" id="Background_checks_on_new_users_and_customers"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Background checks on new users and customers">edit</a>]</span> <span class="mw-headline">Background checks on new users and customers</span></h3>
+<p>Since spammers are frequently kicked off the network, they are constantly trying to create new accounts. Many spammers are able to make even a few hours profitable for them and can cause many days of damage to reputation of the services they abused. As a result, many ISPs and web -email providers use <a href="../../../c/a/p/CAPTCHA_291d.html" title="CAPTCHA">CAPTCHAs</a> on new accounts and try to verify the credit cards are not stolen before accepting new customers, check <a href="../../../t/h/e/The_Spamhaus_Project_b999.html" title="The Spamhaus Project">the Spamhaus Project</a> ROKSO list and do other background checks.</p>
+<p><a name="Port_25_blocking" id="Port_25_blocking"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Port 25 blocking">edit</a>]</span> <span class="mw-headline">Port 25 blocking</span></h3>
+<p><a href="../../../f/i/r/Firewall_%28networking%29.html" title="Firewall (networking)">Firewalls</a> and <a href="../../../r/o/u/Router.html" title="Router">routers</a> can be programmed to not allow <a href="../../../s/m/t/SMTP_c223.html" title="SMTP">SMTP</a> traffic (TCP port 25) from machines that are not supposed to run <a href="../../../m/a/i/Mail_Transfer_Agent_71ee.html" title="Mail Transfer Agent">Mail Transfer Agents</a> or send e-mail.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup> This practice is somewhat controversial when ISPs block home users, especially if the ISPs do not allow the blocking to be turned off upon request. E-mail can still be sent from these computers to designated <a href="../../../s/m/a/Smart_host.html" title="Smart host">smart hosts</a> via port 25 and to other smart hosts via the e-mail submission port 587.</p>
+<p><a name="Port_25_interception" id="Port_25_interception"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Port 25 interception">edit</a>]</span> <span class="mw-headline">Port 25 interception</span></h3>
+<p><a href="../../../n/e/t/Network_address_translation.html" title="Network address translation">Network address translation</a> can be used intercept all port 25 (SMTP) traffic and direct it to a mail server that enforces rate limiting and egress spam filtering. This is commonly done in hotels<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[3]</a></sup>, but it can cause <a href="../../../e/-/m/E-mail_privacy.html" title="E-mail privacy">e-mail privacy</a> problems, as well making it impossible to use <a href="../../../e/x/t/Extended_SMTP_0d6d.html" title="Extended SMTP">STARTTLS</a> and <a href="../../../s/m/t/SMTP-AUTH_c448.html" title="SMTP-AUTH">SMTP-AUTH</a> if the port 587 submission port isn't used.</p>
+<p><a name="Rate_limiting" id="Rate_limiting"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Rate limiting">edit</a>]</span> <span class="mw-headline">Rate limiting</span></h3>
+<p>Machines that suddenly start sending lots of e-mail may well have become <a href="../../../z/o/m/Zombie_computer.html" title="Zombie computer">zombie computers</a>. By limiting the rate that e-mail can be sent around what is typical for the computer in question, legitimate e-mail can still be sent, but large spam runs can be slowed down until manual investigation can be done.<sup id="_ref-3" class="reference"><a href="#_note-3" title="">[4]</a></sup></p>
+<p><a name="Spam_report_feedback_loops" id="Spam_report_feedback_loops"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Spam report feedback loops">edit</a>]</span> <span class="mw-headline">Spam report feedback loops</span></h3>
+<p>By monitoring spam reports from places such as <a href="../../../s/p/a/Spamcop.html" title="Spamcop">spamcop</a>, <a href="../../../a/o/l/AOL_c152.html" title="AOL">AOL</a>'s feedback loop, and <a href="../../../n/e/t/Network_Abuse_Clearinghouse_5a91.html" title="Network Abuse Clearinghouse">Network Abuse Clearinghouse</a>, the domains abuse@ mailbox, etc., ISPs can often learn of problems before they seriously damage the ISP's reputation and have their mail servers blacklisted.</p>
+<p><a name="Limit_e-mail_backscatter" id="Limit_e-mail_backscatter"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Limit e-mail backscatter">edit</a>]</span> <span class="mw-headline">Limit e-mail backscatter</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../b/a/c/Backscatter.html#Backscatter_of_email_spam" title="Backscatter">Backscatter#Backscatter of email spam</a></i></div>
+</dd>
+</dl>
+<p>If any sort of <a href="../../../b/o/u/Bounce_message.html" title="Bounce message">bounce message</a> or anti-virus warning gets sent to a forged email address, the result will be <a href="../../../b/a/c/Backscatter.html#Backscatter_of_email_spam" title="Backscatter">e-mail backscatter</a>.</p>
+<p>Problems with sending challenges to forged e-mail addresses can be greatly reduced by not creating a new message that contains the challenge. Instead, the challenge can be placed in the <a href="../../../b/o/u/Bounce_message.html" title="Bounce message">Bounce message</a> when the receiving mail system gives a rejection-code during the <a href="../../../s/m/t/SMTP_c223.html" title="SMTP">SMTP</a> session. When the receiving mail system rejects an e-mail this way, it is the sending system that actually creates the bounce message. As a result, the bounce message will almost always be sent to the real sender, and it will be in a format and language that the sender will usually recognize.</p>
+<p><a name="Confirmed_opt-in_for_mailing_lists" id="Confirmed_opt-in_for_mailing_lists"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Confirmed opt-in for mailing lists">edit</a>]</span> <span class="mw-headline">Confirmed opt-in for mailing lists</span></h3>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../o/p/t/Opt_in_e-mail.html" title="Opt in e-mail">Opt in e-mail</a></i></div>
+</dd>
+</dl>
+<p>One difficulty occurs in implementing opt-in mailing lists: many means of gathering user e-mail addresses remain susceptible to forgery. For instance, if a company puts up a Web form to allow users to subscribe to a mailing list about its products, a malicious person can enter other people's e-mail addresses — to harass them, or to make the company appear to be spamming. (To most anti-spammers, if the company sends e-mail to these forgery victims, it <i>is</i> spamming, albeit inadvertently.)</p>
+<p>To prevent this abuse, MAPS and other anti-spam organizations encourage that all mailing lists use <b>confirmed opt-in</b> (also known as <i>verified opt-in</i> and (by spammers themselves) as <i>double opt-in</i>). That is, whenever an address is presented for subscription to the list, the list software should send a confirmation message to that address. The confirmation message contains no advertising content, so it is not construed to be spam itself — and the address is not added to the list unless the recipient responds to the confirmation message. See also the <a href="../../../t/h/e/The_Spamhaus_Project_b999.html" title="The Spamhaus Project">Spamhaus</a> <a href="http://www.spamhaus.org/mailinglists.html" class="external text" title="http://www.spamhaus.org/mailinglists.html" rel="nofollow">Mailing Lists vs. Spam Lists</a> page.</p>
+<p>All modern mailing list management programs (such as <a href="../../../g/n/u/GNU_Mailman_cc9a.html" title="GNU Mailman">GNU Mailman</a>, <a href="../../../m/a/j/Majordomo.html" title="Majordomo">Majordomo</a>, and <a href="../../../q/m/a/Qmail.html" title="Qmail">qmail</a>'s ezmlm) support confirmed opt-in by default.</p>
+<p><a name="Ongoing_research" id="Ongoing_research"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: Ongoing research">edit</a>]</span> <span class="mw-headline">Ongoing research</span></h2>
+<p>There are a number of proposals for sideband protocols that will assist SMTP operation. The <a href="../../../a/n/t/Anti-Spam_Research_Group_96d3.html" title="Anti-Spam Research Group">Anti-Spam Research Group</a> (ASRG) of the <a href="../../../i/n/t/Internet_Research_Task_Force_0f07.html" title="Internet Research Task Force">Internet Research Task Force</a> (IRTF) is working on a number of <a href="../../../e/-/m/E-mail_authentication.html" title="E-mail authentication">E-mail authentication</a> and other proposals for providing simple source authentication that is flexible, lightweight, and scalable. Recent <a href="../../../i/n/t/Internet_Engineering_Task_Force_2a75.html" title="Internet Engineering Task Force">Internet Engineering Task Force</a> (IETF) activities include <a href="../../../m/a/r/MARID_6df8.html" title="MARID">MARID</a> (2004) leading to two approved IETF experiments in 2005, and <a href="../../../d/o/m/DomainKeys_Identified_Mail_7ee8.html" title="DomainKeys Identified Mail">DomainKeys Identified Mail</a> in 2006.</p>
+<p>Spam is the subject of at least two research conferences, including <a href="../../../t/e/x/Text_Retrieval_Conference_7d22.html" title="Text Retrieval Conference">TREC</a> (via the TREC spam track<sup id="_ref-4" class="reference"><a href="#_note-4" title="">[5]</a></sup> and CEAS 2006<sup id="_ref-5" class="reference"><a href="#_note-5" title="">[6]</a></sup>)</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> Jo Best (2004-01-26). <a href="http://news.com.com/Gates+reveals+his+magic+solution+to+spam/2100-1028_3-5147491.html" class="external text" title="http://news.com.com/Gates+reveals+his+magic+solution+to+spam/2100-1028_3-5147491.html" rel="nofollow">Gates reveals his magic solution to spam</a>. <a href="../../../c/n/e/CNET_5df9.html" title="CNET">CNET</a>.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <a href="http://www.eweek.com/article2/0,1895,1784276,00.asp" class="external text" title="http://www.eweek.com/article2/0,1895,1784276,00.asp" rel="nofollow">Shutting Down the Highway to Internet Hell</a> eWeek</li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> <a href="http://ask-leo.com/why_cant_i_send_mail_from_my_hotel_room.html" class="external text" title="http://ask-leo.com/why_cant_i_send_mail_from_my_hotel_room.html" rel="nofollow">Why can't I send mail from my hotel room?</a> AskLeo!</li>
+<li id="_note-3"><b><a href="#_ref-3" title="">^</a></b> <a href="http://www.eweek.com/article2/0,1895,1615494,00.asp" class="external text" title="http://www.eweek.com/article2/0,1895,1615494,00.asp" rel="nofollow">Rate Limiting as an Anti-Spam Tool</a> eWeek</li>
+<li id="_note-4"><b><a href="#_ref-4" title="">^</a></b> <a href="http://plg.uwaterloo.ca/~gvcormac/spam/" class="external text" title="http://plg.uwaterloo.ca/~gvcormac/spam/" rel="nofollow">TREC 2006 Spam (and Email) Track</a></li>
+<li id="_note-5"><b><a href="#_ref-5" title="">^</a></b> <a href="http://www.ceas.cc/" class="external text" title="http://www.ceas.cc/" rel="nofollow">Conference on Email and Anti-Spam</a></li>
+</ol>
+</div>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.spamlaws.com/" class="external text" title="http://www.spamlaws.com/" rel="nofollow">Spam Laws</a> United States, European Union, and other countries' laws and pending legislation regarding unsolicited commercial email.</li>
+<li><a href="http://adi.kousz.ch/artikel/adr-prot/index.html" class="external text" title="http://adi.kousz.ch/artikel/adr-prot/index.html" rel="nofollow">E-mail address protection</a> Safely publish an e-mail address on a website</li>
+</ul>
+<table class="navbox collapsible autocollapse" style="margin: auto; width:50em;">
+<tr>
+<th colspan="2" style="text-align:center;">
+<div style="float:left; text-align:left; width:6em;">
+<div class="noprint plainlinksneverexpand" style="background-color:transparent; padding:0; font-weight:normal; font-size:xx-small; color:#000000; white-space:nowrap;"><a href="../../../s/p/a/Template%7ESpamming_0009.html" title="Template:Spamming"><span title="View this template">v</span></a> <span style="font-size:80%;">•</span> <a href="../../../s/p/a/Template_talk%7ESpamming_a65d.html" title="Template talk:Spamming"><span title="Discussion about this template">d</span></a> <span style="font-size:80%;">•</span> <a href="http://en.wikipedia.org../../../s/p/a/Template%7ESpamming_0009.html" class="external text" title="http://en.wikipedia.org../../../s/p/a/Template%7ESpamming_0009.html" rel="nofollow"><span style="color: #002bb8;" title="You can edit this template. Please use the preview button before saving.">e</span></a></div>
+</div>
+This article is part of the <b><a href="../../../s/p/a/Spam_%28electronic%29.html" title="Spam (electronic)">Spamming</a> series.</b></th>
+</tr>
+<tr>
+<th style=""><a href="../../../e/-/m/E-mail_spam.html" title="E-mail spam">E-mail spam</a></th>
+<td style="" colspan="1"><a href="../../../d/n/s/DNSBL_6327.html" title="DNSBL">DNSBL</a> • <a href="../../../t/h/e/The_Spamhaus_Project_b999.html" title="The Spamhaus Project">Spamhaus</a> • <strong class="selflink">Anti-spam techniques</strong> • <a href="../../../s/p/a/Spambot.html" title="Spambot">Spambot</a> • <a href="../../../a/d/d/Address_munging.html" title="Address munging">Address munging</a><br />
+<a href="../../../e/-/m/E-mail_authentication.html" title="E-mail authentication">E-mail authentication</a> • <a href="../../../d/i/r/Directory_Harvest_Attack_fa43.html" title="Directory Harvest Attack">Directory Harvest Attack</a> • <a href="../../../s/p/a/SpamCop_4f7e.html" title="SpamCop">SpamCop</a> • <a href="../../../d/i/c/Dictionary_spamming.html" title="Dictionary spamming">Dictionary spamming</a></td>
+</tr>
+<tr>
+<th style=""><a href="../../../s/p/a/Spamdexing.html" title="Spamdexing">Spamdexing</a></th>
+<td style="background:#eeeeff;" colspan="1"><a href="../../../g/o/o/Google_bomb.html" title="Google bomb">Google bomb</a> • <a href="../../../k/e/y/Keyword_stuffing.html" title="Keyword stuffing">Keyword stuffing</a> • <a href="../../../c/l/o/Cloaking.html" title="Cloaking">Cloaking</a> • <a href="../../../l/i/n/Link_farm.html" title="Link farm">Link farm</a> • <a href="../../../w/e/b/Web_ring.html" title="Web ring">Web ring</a><br />
+<a href="../../../r/e/f/Referer_spam.html" title="Referer spam">Referer spam</a> • <a href="../../../s/p/a/Spam_in_blogs.html" title="Spam in blogs">Blog spam</a> • <a href="../../../s/p/a/Spam_blog.html" title="Spam blog">Spam blogs</a></td>
+</tr>
+<tr>
+<th style=""><a href="../../../t/e/l/Telemarketing.html" title="Telemarketing">Telemarketing</a></th>
+<td style="" colspan="1"><a href="../../../a/u/t/Autodialer.html" title="Autodialer">Autodialer</a> • <a href="../../../m/o/b/Mobile_phone_spam.html" title="Mobile phone spam">Mobile phone spam</a> • <a href="../../../v/o/i/VoIP_spam_bcef.html" title="VoIP spam">VoIP spam</a></td>
+</tr>
+<tr>
+<th style="">Scams</th>
+<td style="background:#eeeeff;" colspan="1"><a href="../../../p/h/i/Phishing.html" title="Phishing">Phishing</a> • <a href="../../../a/d/v/Advance_fee_fraud.html" title="Advance fee fraud">Advance fee fraud</a> • <a href="../../../l/o/t/Lottery_scam.html" title="Lottery scam">Lottery scam</a> • <a href="../../../m/a/k/Make_money_fast.html" title="Make money fast">Make money fast</a> • <a href="../../../p/u/m/Pump_and_dump.html" title="Pump and dump">Pump and dump</a></td>
+</tr>
+<tr>
+<th style="">Misc.</th>
+<td style="" colspan="1"><a href="../../../m/e/s/Messaging_spam.html" title="Messaging spam">Messaging spam</a> • <a href="../../../n/e/w/Newsgroup_spam.html" title="Newsgroup spam">Newsgroup spam</a> • <a href="../../../f/l/y/Flyposting.html" title="Flyposting">Flyposting</a><br />
+<a href="../../../h/i/s/History_of_spamming.html" title="History of spamming">History of spamming</a> • <a href="../../../n/e/t/Network_Abuse_Clearinghouse_5a91.html" title="Network Abuse Clearinghouse">Network Abuse Clearinghouse</a></td>
+</tr>
+</table>
+
+<!-- 
+Pre-expand include size: 33527 bytes
+Post-expand include size: 12435 bytes
+Template argument size: 8676 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html">http://en.wikipedia.org../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_unsourced_statements_since_February_2007_f7dc.html" title="Category:Articles with unsourced statements since February 2007">Articles with unsourced statements since February 2007</a></span> | <span dir='ltr'><a href="../../../a/l/l/Category%7EAll_articles_with_unsourced_statements_2f67.html" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="../../../s/p/a/Category%7ESpamming_9a93.html" title="Category:Spamming">Spamming</a></span> | <span dir='ltr'><a href="../../../s/p/a/Category%7ESpam_filtering_375b.html" title="Category:Spam filtering">Spam filtering</a></span> | <span dir='ltr'><a href="../../../a/n/t/Category%7EAnti-spam_cc06.html" title="Category:Anti-spam">Anti-spam</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/n/t/Anti-spam_techniques_%28e-mail%29.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/n/t/Talk%7EAnti-spam_techniques_%28e-mail%29_fdcc.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Anti-spam_techniques_%28e-mail%29">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../fr/a/n/t/Anti-spam.html">Français</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 02:32, 27 March 2007 by Wikipedia user <a href="../../../p/i/o/User%7EPious7_ac66.html" title="User:Pious7">Pious7</a>. Based on work by Wikipedia user(s) SpamGuru, <a href="../../../e/v/e/User%7EEveryking_5c9e.html" title="User:Everyking">Everyking</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../r/c/h/User%7ERchandra_c06e.html" title="User:Rchandra">Rchandra</a>, <a href="../../../d/s/e/User%7EDsergeant_3069.html" title="User:Dsergeant">Dsergeant</a>, <a href="../../../t/a/i/User%7ETaintain_3f76.html" title="User:Taintain">Taintain</a>, Rrose Selavy, Fcjohn, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../j/o/y/User%7EJoy_7c18.html" title="User:Joy">Joy</a>, <a href="../../../b/a/r/User%7EBarrylb_eb29.html" title="User:Barrylb">Barrylb</a>, <a href="../../../z/z/y/User%7EZZyXx_7492.html" title="User:ZZyXx">ZZyXx</a>, <a href="../../../w/r/s/User%7EWrs1864_30eb.html" title="User:Wrs1864">Wrs1864</a>, <a href="../../../g/e/n/User%7EGennaro_Prota_b0f2.html" title="User:Gennaro Prota">Gennaro Prota</a>, <a href="../../../j/h/5/User%7EJh51681_85eb.html" title="User:Jh51681">Jh51681</a>, <a href="../../../c/o/l/User%7EColorfulharp233_3624.html" title="User:Colorfulharp233">Colorfulharp233</a>, <a href="../../../i/n/t/User%7EInt3gr4te_7231.html" title="User:Int3gr4te">Int3gr4te</a>, <a href="../../../s/a/n/User%7ESandstein_7344.html" title="User:Sandstein">Sandstein</a>, <a href="../../../d/t/c/User%7EDtcdthingy_8e94.html" title="User:Dtcdthingy">Dtcdthingy</a>, FactChecker6197, <a href="../../../g/y/r/User%7EGyrosymp_a7da.html" title="User:Gyrosymp">Gyrosymp</a>, <a href="../../../f/l/u/User%7EFluxbot_9a79.html" title="User:Fluxbot">Fluxbot</a>, <a href="../../../e/s/p/User%7EEspoo_d646.html" title="User:Espoo">Espoo</a>, Getweb, <a href="../../../d/i/n/User%7EDina_fad9.html" title="User:Dina">Dina</a>, <a href="../../../a/n/t/User%7EAntiVandalBot_aa84.html" title="User:AntiVandalBot">AntiVandalBot</a>, <a href="../../../j/_/d/User%7EJ_Di_b918.html" title="User:J Di">J Di</a>, ConditionalZenith, <a href="../../../m/a/x/User%7EMaxamegalon2000_b578.html" title="User:Maxamegalon2000">Maxamegalon2000</a>, <a href="../../../s/h/a/User%7EShantavira_6f6b.html" title="User:Shantavira">Shantavira</a>, Minasbeede, <a href="../../../h/o/w/User%7EHowdoesthiswo_23b7.html" title="User:Howdoesthiswo">Howdoesthiswo</a>, <a href="../../../f/u/b/User%7EFubar_Obfusco_9a7a.html" title="User:Fubar Obfusco">Fubar Obfusco</a>, <a href="../../../u/r/o/User%7EUrod_afcd.html" title="User:Urod">Urod</a>, <a href="../../../s/y/s/User%7ESysy_d18f.html" title="User:Sysy">Sysy</a>, <a href="../../../o/w/n/User%7EOwnlyanangel_bfd2.html" title="User:Ownlyanangel">Ownlyanangel</a>, <a href="../../../k/i/l/User%7EKilo-Lima_bc04.html" title="User:Kilo-Lima">Kilo-Lima</a>, <a href="../../../s/b/l/User%7ESbluen_0bef.html" title="User:Sbluen">Sbluen</a>, Bitserve, Shuvalov, Downwards, <a href="../../../m/o/d/User%7EModemac_38eb.html" title="User:Modemac">Modemac</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, ClinicallyProven, MacsBug, <a href="../../../m/e/g/User%7EMegacz_0cf2.html" title="User:Megacz">Megacz</a>, <a href="../../../u/n/f/User%7EUnforgettableid_1fd8.html" title="User:Unforgettableid">Unforgettableid</a>, <a href="../../../c/j/b/User%7ECJBot_a4ff.html" title="User:CJBot">CJBot</a>, <a href="../../../l/i/n/User%7ELinkspamremover_b617.html" title="User:Linkspamremover">Linkspamremover</a>, <a href="../../../m/u/t/User%7EMuthuKutty_8202.html" title="User:MuthuKutty">MuthuKutty</a>, <a href="../../../k/u/s/User%7EKusma_9d59.html" title="User:Kusma">Kusma</a>, Jkoebel, <a href="../../../b/l/o/User%7EBloodshedder_b5da.html" title="User:Bloodshedder">Bloodshedder</a>, <a href="../../../o/m/n/User%7EOmniplex_327d.html" title="User:Omniplex">Omniplex</a>, <a href="../../../s/c/h/User%7ESchuminweb_da4b.html" title="User:Schuminweb">Schuminweb</a>, <a href="../../../s/i/m/User%7ESimetrical_0dc0.html" title="User:Simetrical">Simetrical</a>, <a href="../../../c/h/a/User%7EChaTo_669c.html" title="User:ChaTo">ChaTo</a>, <a href="../../../e/l/v/User%7EElvey_cfd8.html" title="User:Elvey">Elvey</a>, <a href="../../../h/y/c/User%7EHYC_fbb2.html" title="User:HYC">HYC</a>, <a href="../../../b/a/r/User%7EBarefootguru_514d.html" title="User:Barefootguru">Barefootguru</a>, <a href="../../../d/a/v/User%7EDave-ros_0552.html" title="User:Dave-ros">Dave-ros</a>, Dlmetcalf, <a href="../../../m/i/s/User%7EMisza13_4392.html" title="User:Misza13">Misza13</a>, <a href="../../../n/o/r/User%7ENorthgrove_5a5c.html" title="User:Northgrove">Northgrove</a>, <a href="../../../e/i/l/User%7EEiler7_942b.html" title="User:Eiler7">Eiler7</a>, <a href="../../../b/o/g/User%7EBogsat_ef55.html" title="User:Bogsat">Bogsat</a>, Ed McMan, <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a>, Pete Booth, <a href="../../../d/a/v/User%7EDavidCary_1a42.html" title="User:DavidCary">DavidCary</a>, <a href="../../../w/h/i/User%7EWhisperToMe_201b.html" title="User:WhisperToMe">WhisperToMe</a>, <a href="../../../g/e/r/User%7EGerritholl_bdca.html" title="User:Gerritholl">Gerritholl</a>, <a href="../../../a/d/a/User%7EAdashiel_6d8c.html" title="User:Adashiel">Adashiel</a>, <a href="../../../p/s/y/User%7EPsychonaut_e6a0.html" title="User:Psychonaut">Psychonaut</a>, <a href="../../../f/i/r/User%7EFirewall-guy_b899.html" title="User:Firewall-guy">Firewall-guy</a>, <a href="../../../s/a/l/User%7ESalix_alba_9f89.html" title="User:Salix alba">Salix alba</a>, <a href="../../../f/a/f/User%7EFafner_f8ab.html" title="User:Fafner">Fafner</a>, <a href="../../../p/e/t/User%7EPeter_S._9efb.html" title="User:Peter S.">Peter S.</a>, <a href="../../../r/a/n/User%7ERandolf_Richardson_f7e9.html" title="User:Randolf Richardson">Randolf Richardson</a>, <a href="../../../b/r/i/User%7EBrian0918_0727.html" title="User:Brian0918">Brian0918</a>, <a href="../../../t/o/m/User%7ETompagenet_9d27.html" title="User:Tompagenet">Tompagenet</a>, <a href="../../../r/a/m/User%7ERamprasad.ap_0b0e.html" title="User:Ramprasad.ap">Ramprasad.ap</a>, <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a>, <a href="../../../d/a/n/User%7EDaniel_Quinlan_49be.html" title="User:Daniel Quinlan">Daniel Quinlan</a>, <a href="../../../g/r/e/User%7EGreatWhiteNortherner_ca92.html" title="User:GreatWhiteNortherner">GreatWhiteNortherner</a>, ChrisWasik, Homerjay, <a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>, <a href="../../../w/i/l/User%7EWile_E._Heresiarch_9879.html" title="User:Wile E. Heresiarch">Wile E. Heresiarch</a>, <a href="../../../s/i/e/User%7ESietse_Snel_e2d7.html" title="User:Sietse Snel">Sietse Snel</a>, <a href="../../../k/e/l/User%7EKellyCoinGuy_f516.html" title="User:KellyCoinGuy">KellyCoinGuy</a>, Drangon, <a href="../../../e/l/b/User%7EElBenevolente_e171.html" title="User:ElBenevolente">ElBenevolente</a>, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, <a href="../../../k/a/r/User%7EKarada_595b.html" title="User:Karada">Karada</a>, <a href="../../../d/w/h/User%7EDwheeler_7975.html" title="User:Dwheeler">Dwheeler</a>, <a href="../../../e/e/q/User%7EEequor_b13d.html" title="User:Eequor">Eequor</a>, <a href="../../../h/a/r/User%7EHarvester_5656.html" title="User:Harvester">Harvester</a>, <a href="../../../g/a/d/User%7EGadfium_9104.html" title="User:Gadfium">Gadfium</a>, <a href="../../../s/c/h/User%7ESchmiddy_e427.html" title="User:Schmiddy">Schmiddy</a>, Tim Bell, <a href="../../../j/a/m/User%7EJamesday_85fa.html" title="User:Jamesday">Jamesday</a>, <a href="../../../n/o/h/User%7ENohat_6670.html" title="User:Nohat">Nohat</a>, <a href="../../../g/u/a/User%7EGuaka_3e6a.html" title="User:Guaka">Guaka</a>, <a href="../../../k/o/w/User%7EKowey_bc5a.html" title="User:Kowey">Kowey</a>, <a href="../../../l/e/e/User%7ELee_J_Haywood_515e.html" title="User:Lee J Haywood">Lee J Haywood</a>, <a href="../../../m/o/t/User%7EMotor_c62e.html" title="User:Motor">Motor</a>, Azmodan, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../k/h/y/User%7EKhym_Chanur_d0a4.html" title="User:Khym Chanur">Khym Chanur</a>, (, <a href="../../../v/e/r/User%7EVeryVerily_bb8a.html" title="User:VeryVerily">VeryVerily</a>, <a href="../../../z/a/c/User%7EZack_882a.html" title="User:Zack">Zack</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../j/n/c/User%7EJnc_c16b.html" title="User:Jnc">Jnc</a> and <a href="../../../l/i/t/User%7ELittleDan_7151.html" title="User:LittleDan">LittleDan</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

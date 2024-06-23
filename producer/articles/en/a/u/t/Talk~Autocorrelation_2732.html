@@ -1,0 +1,670 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Autocorrelation,Autocovariance,Complex Modulus,Correlation,Discrete Fourier transform,LTI system theory,AppleJuggler,Canking,Dicklyon,Nova77,Omegatron" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Autocorrelation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Autocorrelation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <dl>
+<dd><i>Please add new talk topics at the bottom.</i></dd>
+</dl>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Old_stuff_not_previously_in_a_section"><span class="tocnumber">1</span> <span class="toctext">Old stuff not previously in a section</span></a></li>
+<li class="toclevel-1"><a href="#avoiding_autocorrelation"><span class="tocnumber">2</span> <span class="toctext">avoiding autocorrelation</span></a></li>
+<li class="toclevel-1"><a href="#Which_autocorrelation_are_we_talking_about.3F"><span class="tocnumber">3</span> <span class="toctext">Which autocorrelation are we talking about?</span></a></li>
+<li class="toclevel-1"><a href="#Reducing_the_complexity_using_the_DFT"><span class="tocnumber">4</span> <span class="toctext">Reducing the complexity using the DFT</span></a></li>
+<li class="toclevel-1"><a href="#Error.3F"><span class="tocnumber">5</span> <span class="toctext">Error?</span></a></li>
+<li class="toclevel-1"><a href="#Re-editing_this_article_to_make_it_more_coherent"><span class="tocnumber">6</span> <span class="toctext">Re-editing this article to make it more coherent</span></a></li>
+<li class="toclevel-1"><a href="#Proposed_conventions"><span class="tocnumber">7</span> <span class="toctext">Proposed conventions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#For_two_stochastic_variables_X_and_Y"><span class="tocnumber">7.1</span> <span class="toctext">For two stochastic variables X and Y</span></a></li>
+<li class="toclevel-2"><a href="#For_a_stochastic_continuous_process_X.28t.29"><span class="tocnumber">7.2</span> <span class="toctext">For a stochastic continuous process X(t)</span></a>
+<ul>
+<li class="toclevel-3"><a href="#If_the_process_is_second-order_stationary"><span class="tocnumber">7.2.1</span> <span class="toctext">If the process is second-order stationary</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#A_response"><span class="tocnumber">7.3</span> <span class="toctext">A response</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Autocorrelation_of_a_periodic_function"><span class="tocnumber">8</span> <span class="toctext">Autocorrelation of a periodic function</span></a></li>
+<li class="toclevel-1"><a href="#Time_series"><span class="tocnumber">9</span> <span class="toctext">Time series</span></a></li>
+<li class="toclevel-1"><a href="#Partial_Autocorrelation"><span class="tocnumber">10</span> <span class="toctext">Partial Autocorrelation</span></a></li>
+<li class="toclevel-1"><a href="#Not_user-friendly"><span class="tocnumber">11</span> <span class="toctext">Not user-friendly</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Old_stuff_not_previously_in_a_section" id="Old_stuff_not_previously_in_a_section"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Old stuff not previously in a section">edit</a>]</span> <span class="mw-headline">Old stuff not previously in a section</span></h2>
+<p>There needs to be a laymans definition of this, with a real world, applicable example.</p>
+<hr />
+<p>I have been a little hesitant to edit these articles partially because there are so many different notations, and i don't know which to use.</p>
+<p>The autocorrelation function can be written as:</p>
+<p><img class='tex' src="../../../math/c/a/6/ca6729f13d891c57f6def06960623551.png" alt="R(\tau) \ R_f(t) \ \rho_f(t) \ R_{ff}(\tau)" /></p>
+<p><img class='tex' src="../../../math/8/8/0/8801b89af7d14fffc602199772c2fcd9.png" alt="\hat r_x(l) \ R_{xx}(k) \ \rho_k" /></p>
+<p>and time series can be written:</p>
+<p><img class='tex' src="../../../math/a/1/2/a12d3da1ce56ef708c22f7fda8bc23a4.png" alt="x_n \ x[n] \ x(n) \" /></p>
+<p>Does Wikipedia have any standards for this?</p>
+<p>I think in general, using more specific, accurate notation tends to muddle the understanding for someone first being introduced to a subject, which is also the type of person probably reading Wikipedia.</p>
+<p>In other words,</p>
+<p><img class='tex' src="../../../math/9/2/2/922907ba9838e8a39ef38b0dbfc51255.png" alt="R(\tau) = \int f(t)f(t+\tau) \, dt" /></p>
+<p>is preferable to</p>
+<p><img class='tex' src="../../../math/8/a/e/8ae6f2c364611604936d2a7ad0d7c675.png" alt="R_f(\tau) = \lim_{T \to \infty} {1 \over 2T} \int_{-T}^T f^* (t)f(t+\tau) \, dt" /></p>
+<p>How much detail should we use? Should we use the simplified version to introduce the topic, and then show the more detailed versions?</p>
+<p>Also, this article started out in the world of probability, and I have converted it to signal processing. The two should both be included in the same article. - <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 16:56, May 25, 2004 (UTC)</p>
+<p><br /></p>
+<hr />
+<p>From the article:</p>
+<dl>
+<dd>The autocorrelation definition then becomes</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<table>
+<tr align='center'>
+<td><i>R</i>(<i>j</i>) =</td>
+<td><font size='+2'>∑</font></td>
+<td><i>x</i><sub><i>n</i></sub><i>x</i><sub><i>n</i> − <i>j</i></sub></td>
+</tr>
+<tr align='center' valign='top'>
+<td></td>
+<td><i>n</i></td>
+<td></td>
+</tr>
+</table>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>which is the definition of <a href="../../../a/u/t/Autocovariance.html" title="Autocovariance">autocovariance</a>.</dd>
+</dl>
+<p>I have some doubts about this claim. The autocorrelation is a function (of <i>j</i>) while the autocovariance is a number. I think what is true is that in this case the autocorrelation at <i>j</i> = 0 is the autocovariance.</p>
+<p>Secondly, I have not seen definitions of the autocorrelation where the mean is substracted. Can someone confirm whether this is a common practice? -- <a href="../../../p/g/a/User%7EPgabolde_08d1.html" title="User:Pgabolde">Pgabolde</a> 16:29, 17 Dec 2004 (UTC)</p>
+<p><br /></p>
+<dl>
+<dd>The web and the autocovariance article both seem to think that autocovariance is a function.</dd>
+</dl>
+<dl>
+<dd>I believe there are many variations on the autocorrelation formula, with different weightings, normalizations, etc. and they are all still called autocorrelation. This (kind of a "vertical offset"?) seems to be just another variation. - <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 18:54, Dec 17, 2004 (UTC)</dd>
+</dl>
+<p>I can confirm that this is common practice in a wide variety of fields. To a mathematician the autocorrelation with the mean subtracted and divided by the variance is the standard definition (it has the useful property of being in the range [-1,1]. See, for example Priestley's classic "Spectral Analysis and Time Series" (1982) London New York Academic Press.</p>
+<p>Autocovariance is a function not a number -- I do not know where the idea that is is a single number has come from. I can think of no field where that would be the case.</p>
+<p>--<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 14:46, 6 Feb 2005 (UTC)</p>
+<hr />
+<p>This is rather tricky --- to me, what you have defined is autocovariance not autocorrelation although I'm aware these are sometimes used interchangably and many people use the formula given on this page. Also, should we not formally define the autocorrelation in terms of expectation? For a process X<sub>t</sub> (either discrete or continuous) then</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/c/0/f/c0f1f38565c4ebf6dae6dbd71df5f0c3.png" alt="R(k) = \frac{E [(X_t - \mu)(X_{t+k} - \mu)]}{\sigma^2}" /></dd>
+</dl>
+</dd>
+</dl>
+<p>where μ is the mean E[X] and σ<sup>2</sup> is the variance. This is nicer mathematically since it is normalised to the range [-1,1]. It should also be noted that the autocovariance (indeed the mean and variance) are not necessarily defined unless the process is weakly stationary. Another reason for such an edit would be to bring this page into line with the definition for <a href="../../../c/o/r/Correlation.html" title="Correlation">correlation</a>.</p>
+<p><a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a></p>
+<p>I have tried to reconcile the differing definitions of autocorrelation in different disciplines. I hope nobody thinks it is arrogant of me to put the mathematical definition first.</p>
+<p><a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a></p>
+<dl>
+<dd>Is o a common symbol for convolution? I've never seen it before... - <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 14:45, Feb 6, 2005 (UTC)</dd>
+<dd>Maybe you meant a circle?</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/4/0/b/40bfa3dff51f7f12102b5c555d169de9.png" alt="R_f(\tau) = f^*(-\tau) \circ f(\tau) = \int_{-\infty}^{\infty} f(t+\tau)f^*(t)\, dt" /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Not that I have seen that before, either... - <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 14:51, Feb 6, 2005 (UTC)</dd>
+</dl>
+<p>I did mean the circle but wasn't sure how to get that in the non math environment -- would be grateful if you could change it (thanks). It is relatively commonly used -- although not as commonly as the * but the * was already used in the equation to designate complex conjugate hence, I hoped to avoid confusion.</p>
+<p>--<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 14:57, 6 Feb 2005 (UTC)</p>
+<dl>
+<dd>yeah, i figured. added. -<a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 15:43, Feb 6, 2005 (UTC)</dd>
+</dl>
+<p><a name="avoiding_autocorrelation" id="avoiding_autocorrelation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: avoiding autocorrelation">edit</a>]</span> <span class="mw-headline">avoiding autocorrelation</span></h2>
+<p>Generalized Least Squares-regression can be applied on data in order to avoid violation OLS-assumption of non-autocorrelation.</p>
+<p><a name="Which_autocorrelation_are_we_talking_about.3F" id="Which_autocorrelation_are_we_talking_about.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Which autocorrelation are we talking about?">edit</a>]</span> <span class="mw-headline">Which autocorrelation are we talking about?</span></h2>
+<p>The article has two sections that talk about "autocorrelation" without specifying whether they refer to the statistics definition or the signal processing definition. --<a href="../../../s/m/a/User%7ESmack_b8c7.html" title="User:Smack">Smack</a> (<a href="../../../s/m/a/User_talk%7ESmack_cdf9.html" title="User talk:Smack">talk</a>) 22:35, 27 May 2005 (UTC)</p>
+<dl>
+<dd>Are they not the same thing? - <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a> 23:29, May 27, 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>What bothers me is the use of the two different signal processing definitions without specifying which is which. Several of the "properties" , for example the autocorrelation of white noise and the Wiener-Khinchin theorem, hold only for the second definition (the limit as T tends to infinity of 1 over T of the integral). I find this confusing. --Assemblany 07:17, 28 March 2007 (UTC)
+<dl>
+<dd>Can you be more specific about what problems you see, in what sections? Smack's remarks from 2 years ago don't have much relation to the current article. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 16:28, 28 March 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Reducing_the_complexity_using_the_DFT" id="Reducing_the_complexity_using_the_DFT"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Reducing the complexity using the DFT">edit</a>]</span> <span class="mw-headline">Reducing the complexity using the DFT</span></h2>
+<p>It is possible to reduce the complexity of the Autocorrelation from <span class="texhtml"><i>O</i>(<i>n</i><sup>2</sup>)</span> to <span class="texhtml"><i>O</i>(<i>n</i><i>l</i><i>o</i><i>g</i><i>n</i>)</span> using the Wiener-Khinchin theorem. This theorem is mentioned in the article but this interesting property is not.</p>
+<p>I was thinking about adding this sentence right after the description of the Wiener-Khinchin theorem:</p>
+<dl>
+<dd>which allows to compute the discrete autocorrelation for zero-centered signals using a <a href="../../../d/i/s/Discrete_Fourier_transform_3a68.html" title="Discrete Fourier transform">discrete Fourier transform</a>, and hence reducing the complexity from <span class="texhtml"><i>O</i>(<i>n</i><sup>2</sup>)</span> to <span class="texhtml"><i>O</i>(<i>n</i><i>l</i><i>o</i><i>g</i><i>n</i>)</span>:</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/c/b/a/cba7ab7b94a3f782d005cc1dff9e3e56.png" alt="R = \mathcal{F}^{-1}(|\mathcal{F}(x)|).\," /></dd>
+</dl>
+</dd>
+<dd>where <img class='tex' src="../../../math/9/b/5/9b5e8925c0c6b405d6fa87dccb529af0.png" alt="\mathcal{F}^{-1}" /> is the inverse discrete fourier transform, <img class='tex' src="../../../math/2/6/a/26afd73f8c17f310707120691ccc4a35.png" alt="\mathcal{F}" /> is the discrete fourier transform and || is the <a href="../../../c/o/m/Complex_Modulus_85e1.html" title="Complex Modulus">Complex Modulus</a>.</dd>
+</dl>
+<p>But I don't like very much the style. Anyone has a suggestion? --<a href="../../../n/o/v/User%7ENova77_f477.html" title="User:Nova77">Nova77</a> 01:49, 17 December 2005 (UTC)</p>
+<p><br /></p>
+<p><a name="Error.3F" id="Error.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Error?">edit</a>]</span> <span class="mw-headline">Error?</span></h2>
+<p>Shouldn't text below first image of "The Blue Danube" say Fourier transformation or something similar? It is not "original signal" for sure.</p>
+<dl>
+<dd>What makes you certain it's not the original signal? I'm not an audio engineer but my first guess would be that it is the original signal -- it's the right length. I just ask because I have no particular reason to believe it's not the original signal. It's certainly not the fourier transform -- it's in the time domain not the frequency domain for a start. --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 10:27, 31 May 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>That autocorrelation function also makes no sense, which I why I removed the whole thing. If there's a relationship between those two figures, or between either figure and the Blue Danube music, it's certainly not apparent. Neither looks like what it says it is. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 16:11, 1 June 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Re-editing_this_article_to_make_it_more_coherent" id="Re-editing_this_article_to_make_it_more_coherent"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Re-editing this article to make it more coherent">edit</a>]</span> <span class="mw-headline">Re-editing this article to make it more coherent</span></h2>
+<p>I think this article has got a bit "wooly" due to it being edited by people from different backgrounds. I know that a lot of different definitions of autocorrelation are used and different fields have different ideas about it but I think we're missing the commonality here and hence the article is very confusing. Does anyone have any suggestions as to how to make this more coherent? --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 09:48, 1 June 2006 (UTC)</p>
+<dl>
+<dd>I agree. I worked around to it when trying to make <a href="../../../l/t/i/LTI_system_theory_51b3.html" title="LTI system theory">LTI system theory</a> correct; lots of things got touched. I'm still trying to sort out what the various definitions of autocorrelation and autocovariance are in different fields. The article was originally written with the expectation based approach, which seems to be most common, but the formulas for computing an ACF from a given signal, or estimating the ACF of a process from a sample, are more of the integral or sum form; the statistician would say those are estimators, not definitions. Sorry for the wool. I hope someone can help with a rewrite that takes correctness into account better than the old one did. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 16:07, 1 June 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Thanks. I think you have helped the article. Perhaps I should try to write something which goes between the expectation based formula and the commonly used estimators. The problem is I would do that from a stats perspective which is not necessarily helpful. I imagine a lot of people who want to use the ACF are in engineering or science. --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 09:58, 2 June 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Proposed_conventions" id="Proposed_conventions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Proposed conventions">edit</a>]</span> <span class="mw-headline">Proposed conventions</span></h2>
+<p>I propose the following conventions to help to distinguish various definitions. I have to say that these conventions are a summary of what I've seen in engineering (optical) and signal processing field, but I think would be good also for the "mathematician's world". The reason I'm posting here to stimulate constructive discussion, to finally reach a common agreement.</p>
+<p><a name="For_two_stochastic_variables_X_and_Y" id="For_two_stochastic_variables_X_and_Y"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: For two stochastic variables X and Y">edit</a>]</span> <span class="mw-headline">For two stochastic variables X and Y</span></h3>
+<p>Correlation:</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/f/2/bf24ee498145fa6965fc25b5c14ee4ed.png" alt="R(X,Y) = E (X Y)\," /></dd>
+</dl>
+<p>Covariance:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/5/c/a5c0f6b0b526427bfc4254d755a520c0.png" alt="\mathrm{cov}(X,Y) = E((X-\mu_{X})(Y-\mu_{Y})) = E(X Y) - \mu_{X} \mu_{Y}\," /></dd>
+</dl>
+<p>Correlation coefficient</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/1/1/5115731eb7c5765ee3fa85f24f0896d1.png" alt="\rho_{X,Y} = \frac{\mathrm{cov}(X,Y)}{\sigma_{X} \sigma_{Y}} = \frac{E(XY)-E(X)E(Y)}{\sqrt{E(X^2)-E^2(X)}~\sqrt{E(Y^2)-E^2(Y)}}" /></dd>
+<dd><i>look <a href="../../../c/o/r/Correlation.html" title="Correlation">Correlation</a></i></dd>
+</dl>
+<p><a name="For_a_stochastic_continuous_process_X.28t.29" id="For_a_stochastic_continuous_process_X.28t.29"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: For a stochastic continuous process X(t)">edit</a>]</span> <span class="mw-headline">For a stochastic continuous process X(t)</span></h3>
+<p>Auto-correlation:</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/f/8/2f8f6769301dea1dc31d29abb5d48067.png" alt="R_X(t_1,t_2) = R(X(t_1), X(t_2)) = E( X(t_1) X(t_2) )\," /></dd>
+</dl>
+<p>Auto-covariance:</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/3/6/7360e505ef7f434cb4394f7a47d19ab1.png" alt="C_X(t_1,t_2) = \mathrm{cov}(X(t_1), X(t_2)) = E( (X(t_1)-\mu_{X}(t_1)) \cdot (X(t_2)-\mu_{X}(t_2)) ) \," /></dd>
+</dl>
+<p>Degree of correlation (also know in optics as "degree of coherence"):</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/d/1/3d1332e22e6f13f01cfdaf9e3bfe3a75.png" alt="\rho_{X}(t_1,t_2) = \frac{\mathrm{cov}(X(t_1),X(t_2))}{\sigma_{X}(t_1) \sigma_{X}(t_2)} =  \frac{ E(X(t_1)X(t_2)) - E(X(t_1)) \cdot E(X(t_2)) }  { \sqrt{E(X^2(t_1)) - E^2(X(t_1))} ~ \sqrt{ E(X^2(t_2)) - E^2(X(t_2) } }" /></dd>
+</dl>
+<p><a name="If_the_process_is_second-order_stationary" id="If_the_process_is_second-order_stationary"></a></p>
+<h4><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: If the process is second-order stationary">edit</a>]</span> <span class="mw-headline">If the process is second-order stationary</span></h4>
+<p>Auto-correlation:</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/e/9/2e991b6341be4ba56d4c25eccfafdee6.png" alt="R_X(\tau) = R_{X}(t, t - \tau) = E( X(t) X(t -\tau) )\," /></dd>
+</dl>
+<p>Auto-covariance:</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/f/e/efe4c1e7bf33d4e5ca0f57b1f94ffbd3.png" alt="C_X(\tau) = \mathrm{cov}(X(t), X(t-\tau)) = R_{X}(\tau) - \mu_{X}^2\," /></dd>
+</dl>
+<p>Degree of correlation (also know in optics as "degree of coherence"):</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/b/3/9b36f1c917f4e9d3fdd6df6c730a9b13.png" alt="\rho_{X}(\tau) = \frac{\mathrm{cov}(X(t),X(t-\tau))}{\sigma_{X}^2} =  \frac{ R_{X}(\tau) - \mu_{X}^2 } { \sigma_{X}^2 }" /></dd>
+</dl>
+<p>All the above are directly extensible to the discrete case.</p>
+<p>I add also a consideration. Expressing the formulas in terms of the mean E() gives the advatage that one can see the logical correspondence with the determinisc signal for which all the above quantities can be defined, but the mean operation is done directly in the temporal doman without using the probability density function.</p>
+<dl>
+<dd>~ TheNoise</dd>
+</dl>
+<p><a name="A_response" id="A_response"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: A response">edit</a>]</span> <span class="mw-headline">A response</span></h3>
+<p>That looks like a fine coherent set of terminology. But lets look at exactly where the article stands and what you are proposing the change.</p>
+<p>First, in the statistics section, the definitions are discrete-time and they differ in terms of what name goes with removal or means or not. I'm no expert on that field, but if those are how they use the terms and symbols, then we shouldn't prescribe something diffferent for the sake of consistency with engineering; rather we should just describe in terms of the terms that the field uses, while pointing out the differences to avoid confusion. Otherwise, a stat guy will come along and change it all back to his way.</p>
+<p>Second, in engineering, I've usually seen, and always preferred, the double-subscript notation to make the "auto-" and "cross-" symbologies mutually consistent. If you drop back to a single-subscript, it is no longer recognizable as a special case of the same definition. But we are only weakly linked (in the lead and one other place) to cross-corrrelation, which should be played up and made consistent if possible.</p>
+<p>I checked some books and found the "Cov" is usually capitalized (in my small sample), and it and "E" are set in roman type (in \mathrm{}).</p>
+<p>I would be in favor of keeping equations as simple as possible, but not leaving out anything important. For example, define the mean and standard deviation in the context of the Expectation notation, and don't use the expanded form of the definitions here (and put more words around them to say what the equations say):</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/e/b/3eb7b7c3b75123824dc3671a3a05c827.png" alt="\mu_{X} = \mathrm{E}(x)\," /></dd>
+<dd><img class='tex' src="../../../math/4/9/1/491cb2a74ba524c237bb45a2a460fdc0.png" alt="\mathrm{Cov}(X,Y) = \mathrm{E}((X-\mu_{X})(Y-\mu_{Y})) \," /></dd>
+<dd><img class='tex' src="../../../math/4/4/5/445278aa41a6d55588b881715f5e07b0.png" alt="\sigma_X = \sqrt{\mathrm{Cov}(X, X)}" /></dd>
+<dd><img class='tex' src="../../../math/b/e/2/be2dd80eb0534185c26e39043b6f6b9b.png" alt="\rho_{X,Y} = \frac{\mathrm{Cov}(X,Y)}{\sigma_{X} \sigma_{Y}}" /></dd>
+</dl>
+<p><br /></p>
+<dl>
+<dd>
+<dl>
+<dd>The problem we have here is that there is no consensus in the literature. To me an article about "autocorrelation" *must* be about what autocorrelation means in the real world. Unfortunately, it is used inconsistently and this article has to reflect that. If we were writing a paper, thesis or article, we would be free to simply write our definitions and use them consistently. Here, I think we have by necessity to do something different and to explain what is likely to be meant by autocorrelation when someone sees it in the literature. This means we must acknowledge that the word has a number of meanings. For what it is worth I have seen cov and Cov but never COV. I have seen E in roman type, in italics and in \mathbb (the latter being my preference when I write papers).</dd>
+<dd>While I have sympathy with the idea of trying to make a consistent set of definitions, I think we must by necessity do something different. --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 18:21, 9 September 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>I think I sort of half agree. Certainly we must reflect what the real world terminology is. But we can do that best by adopting one or a few internally consistent sets of notation that we think are most common, and then mentioning the differences. The biggest differences are the definitional differences between the stat and eng fields, and those sections need to each be made compatible with their fields; internally, though, they should be consistent. As to cov, Cov, E, etc., we just need to pick a style. The one I mentioned was based on a quick check of a few books, but I'm flexible if someone shows that some other conventions are more common (not just personally preferred). <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 19:24, 9 September 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>I agree with Dycklon here. Even if there are multiple real world conventions we should keep one and then mention the differences that can be encountered. There is one problem of definitions: the auto-covariance is sometimes defined as as the degree of correlation (using the terminology of the proposed convention). But if we define both <span class="texhtml"><i>R</i><sub><i>x</i></sub></span> and <span class="texhtml">ρ<sub><i>X</i></sub></span> we can distinguish the two entities say also that sometime <span class="texhtml"><i>R</i><sub><i>x</i></sub></span> is defined as <span class="texhtml">ρ<sub><i>X</i></sub></span>. It's more clear IMHO than define <span class="texhtml"><i>R</i><sub><i>x</i></sub></span> in two different manner and also say that one of the two is also known as degree of correlation. Moreover, it seems to me that the big ambiguity is more verbal that symbolical. In fact the coefficient of correlation (usually indicate with <span class="texhtml">ρ</span>) is also called correlation (thus causing ambiguity), while when one refers to the "raw" un-normalized correlation he calls it with <span class="texhtml"><i>R</i></span>. We can at least agree with this convention of symbols and then explain with the words that these entities are called in different manners. Regarding the typographical convention we should simply keep try to be coherent among some related articles. For example I prefer to use the {} for the <img class='tex' src="../../../math/3/8/f/38f2ae0d30ea095cd01ec2f8bd431f42.png" alt="E\{\cdot\}\," /> operator. This would render the formulas a bit more difficult to edit (we should write \{ and \}) but it'll increase the readability, IMHO. For the <img class='tex' src="../../../math/4/b/8/4b88f47f80273fd5788e1e20aa81c38a.png" alt="E\," /> itself, it is indifferent to me to use the roman character <img class='tex' src="../../../math/b/1/8/b18a9468a2aa50b8766b2f749b7da5c1.png" alt="\mathrm{E}\," /> or the bold one <img class='tex' src="../../../math/a/6/8/a68c9880810305144a7581781651ce91.png" alt="\mathbf{E}\," />, but also this formatting would require more editing. For the covariance (cov) I used simply the convention used in the <a href="../../../c/o/r/Correlation.html" title="Correlation">correlation</a> page (although I forgot to put it in roman font). ~ TheNoise 14:12, 10 September 2006 (UTC)</dd>
+</dl>
+<p><a name="Autocorrelation_of_a_periodic_function" id="Autocorrelation_of_a_periodic_function"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Autocorrelation of a periodic function">edit</a>]</span> <span class="mw-headline">Autocorrelation of a periodic function</span></h2>
+<p>There's a statement on the page that the autocorrelation of a periodic function with itself is again periodic with the same period. That can't be correct. The integral doesn't converge.</p>
+<dl>
+<dd>This is a problem with the variety of different definitions on this page. Using the definition in the statistics section it is an invalid question since the periodic function is not second-order stationary so you must use the two parameter ACF. The signal processing definition assumes the signal has an integral which converges so that most (all) periodic signals would not be so integrable. In spirit though, the assertion is correct. --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 17:36, 5 October 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I think you got that a bit wrong. The statistics definition works fine, as the expected value of a finite product. The integral definition is problematic, can it too can be OK if you allow interpretation of the integral in terms of delta functions. Bottom line, if the autocorrelation exists, it is periodic. You might prefer conditions that say it doesn't exist when the definitions don't lead to finite values though. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 17:47, 5 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I see what you mean about stationarity, though. In some case the expectation will be OK, like if the phase is random and the process is ergodic. The integral method, however, averages over phases, so doesn't care about stationarity so strictly; but it lead to delta functions. Isn't math wonderfully nasty? <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 17:52, 5 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>The statistics definition with one parameter is only valid for a second order stationary process. If the process is not second order stationary then E[X(t)X(t+T)] will be a function of t as well as T. I'm not sure what you mean by "if the phase is random" in the case of the autocorrelation of a periodic function. --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 22:00, 5 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>What I mean is that if the phase is a random variable, and each sample function from the process has a different phase, with a uniform distribution over all phases, then the periodic process is second-order stationary. That is, the expected value of the product of two points with a certain time difference includes an averaging over all phases, so doesn't depend on the two points, just their difference. Right? <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 22:33, 5 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Hmm... I can see your point. It would be "in the spirit" of ACF but would lead to some strange quirks in the mathematics. I'm happier saying "undefined" but it seems like there are enough definitions of ACF out there that one will fit. --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 23:18, 5 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Yes, and another one that would work is the limit as T goes to infinity of 1/T times the integral of the (expected) product of a segment of length T times a shift of itself. For an ergodic stationary process it will give the same result, and for the periodic signal it has no difficulty. Since the process is ergodic you can do it on one sample function instead of relying on an expected value. I haven't seen that as a definition per se, but maybe it is, somewhere. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 00:56, 6 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Here's a good page that explains what I was just talking about, the <i>ergodic hypothesis</i> applied to ACF: <a href="http://books.google.com/books?vid=ISBN0471495492&amp;id=ffIyrlCyf5cC&amp;pg=PA25&amp;lpg=PA25&amp;dq=ergodic+%22autocorrelation+function%22&amp;sig=atLwKdj8yNOgqFRf_uSo7bYSLEk" class="external autonumber" title="http://books.google.com/books?vid=ISBN0471495492&amp;id=ffIyrlCyf5cC&amp;pg=PA25&amp;lpg=PA25&amp;dq=ergodic+%22autocorrelation+function%22&amp;sig=atLwKdj8yNOgqFRf_uSo7bYSLEk" rel="nofollow">[1]</a> <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 01:00, 6 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>And here's one that <b>defines</b> the ACF of an ergodic process in the way I described above: <a href="http://books.google.com/books?vid=ISBN0072825383&amp;id=P04FwEWJ7Q8C&amp;pg=PA353&amp;lpg=PA353&amp;dq=ergodic+%22autocorrelation+function%22&amp;sig=GPr9wfPn3ETtSS9JNliKwMPimh8" class="external autonumber" title="http://books.google.com/books?vid=ISBN0072825383&amp;id=P04FwEWJ7Q8C&amp;pg=PA353&amp;lpg=PA353&amp;dq=ergodic+%22autocorrelation+function%22&amp;sig=GPr9wfPn3ETtSS9JNliKwMPimh8" rel="nofollow">[2]</a> <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 01:02, 6 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>But you were talking about a non-stationary and hence non-ergodic process.--<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 01:21, 6 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>A periodic process can be stationary and ergodic, or not, depending on whether its phase is uniformly distributed over its period. But even if that's not the case, the limit of the integral will converge to something that corresponds to what is usually meant by the ACF of such a function. That is, sin(t) is not stationary, but sin(t+phi) for an appropriately distributed random variable phi, which is a constant in any given sample function from the process, is stationary and ergodic, if I understand this stuff right; I took a course on ergodic processes from Bob Gray about 30 years ago, but it went in one ear and out both. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 02:12, 6 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Ah... got you. So it is periodic but you are unsure at what point in its phase it begins. Clever, that case had not occurred to me. Such a process could be both stationary and ergodic, you are absolutely correct. I hadn't appreciated what you meant about phase even though you raised it early on. Hmm... I wonder if we could include the sin(t+phi) as an illustrative example somehow? --<a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Richard Clegg</a> 08:13, 6 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>I think it opens a can of worms that I'm not so sure about. Let's don't do it unless we can find a text with such a treatment, so that whatever we say is verifiable. Instead, I put the limit definition that works, even if it's not random phase. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 15:02, 6 October 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Time_series" id="Time_series"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Time series">edit</a>]</span> <span class="mw-headline">Time series</span></h2>
+<p>According to <a href="http://www.stats.gla.ac.uk/steps/glossary/time_series.html" class="external text" title="http://www.stats.gla.ac.uk/steps/glossary/time_series.html" rel="nofollow">this page</a>,</p>
+<dl>
+<dd>A time series is a sequence of observations which are ordered in time (or space). ... There are two kinds of time series data:</dd>
+<dd>1. Continuous, where we have an observation at every instant of time, e.g. lie detectors, electrocardiograms. We denote this using observation X at time t, X(t).</dd>
+<dd>2. Discrete, where we have an observation at (usually regularly) spaced intervals. We denote this as Xt.</dd>
+</dl>
+<p>If I interpret this correctly, the statistical definition in our article does not apply to time series, since a sequence of observations is a set of definite data, not a random process, even if it is assumed to have been produced by a random process. So the expectation operator does not apply. Furthermore, we had "discrete time series and processes" which seems like an inappropriate and non-parallel way to divide things up. So I changed these things. Please react, preferably with citations that clear up exactly how this issue is usually treated in statistics. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 15:51, 18 October 2006 (UTC)</p>
+<p><a name="Partial_Autocorrelation" id="Partial_Autocorrelation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Partial Autocorrelation">edit</a>]</span> <span class="mw-headline">Partial Autocorrelation</span></h2>
+<p>I believe this should be a section within this page. <a href="../../../c/a/n/User%7ECanking_bca5.html" title="User:Canking">Canking</a> 18:33, 25 November 2006 (UTC)</p>
+<dl>
+<dd>I just looked up what that is, and I think it rates a separate article. <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 05:02, 26 November 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Unfortunately I don't have the expertise to write the article, sorry. Perhaps somebody else will write it <a href="../../../c/a/n/User%7ECanking_bca5.html" title="User:Canking">Canking</a> 10:55, 8 December 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Not_user-friendly" id="Not_user-friendly"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html" title="Edit section: Not user-friendly">edit</a>]</span> <span class="mw-headline">Not user-friendly</span></h2>
+<p>Definitions not user friendly (not very accessible to the layman, in particular); it seems geared more for the intermediate to advanced mathematical student. <a href="../../../a/p/p/User%7EAppleJuggler_4dc6.html" title="User:AppleJuggler">AppleJuggler</a> 03:17, 23 January 2007 (UTC)</p>
+<dl>
+<dd>What would a non-mathematical layman do with a definition of autocorrelation? If we produced a simpler definition that he could understand, but which was not actually correct, would that be an improvement? <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a> 06:24, 23 January 2007 (UTC)</dd>
+</dl>
+<p>Good point. <a href="../../../a/p/p/User%7EAppleJuggler_4dc6.html" title="User:AppleJuggler">AppleJuggler</a> 07:06, 6 February 2007 (UTC)</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/t/Talk%7EAutocorrelation_2732.html">http://en.wikipedia.org../../../a/u/t/Talk%7EAutocorrelation_2732.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/u/t/Autocorrelation.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Autocorrelation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:28, 28 March 2007 by Wikipedia user <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a>. Based on work by Wikipedia user(s) Assemblany, <a href="../../../a/p/p/User%7EAppleJuggler_4dc6.html" title="User:AppleJuggler">AppleJuggler</a>, <a href="../../../c/a/n/User%7ECanking_bca5.html" title="User:Canking">Canking</a>, <a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Rgclegg</a>, Brad osgood, TheNoise, <a href="../../../n/o/v/User%7ENova77_f477.html" title="User:Nova77">Nova77</a>, <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a>, <a href="../../../s/m/a/User%7ESmack_b8c7.html" title="User:Smack">Smack</a>, JPV and <a href="../../../p/g/a/User%7EPgabolde_08d1.html" title="User:Pgabolde">Pgabolde</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

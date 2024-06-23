@@ -1,0 +1,381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Basis (linear algebra),Aleph number,Axiom of choice,Banach space,Cardinal number,Column vector,Complex number,Coordinate space,Crystal structure,Determinant,Dimension (vector space)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Basis (linear algebra) - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Basis (linear algebra)</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <dl>
+<dd><i>Basis vector redirects here. For basis vector in the context of crystals, see <a href="../../../c/r/y/Crystal_structure.html" title="Crystal structure">crystal structure</a>.</i></dd>
+</dl>
+<p>In <a href="../../../l/i/n/Linear_algebra.html" title="Linear algebra">linear algebra</a>, a <b>basis</b> is a set of vectors that, in a linear combination, can represent every vector in a given <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector space</a>, and such that no element of the set can be represented as a linear combination of the others. In other words, a basis is a linearly independent spanning set.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Definition"><span class="tocnumber">1</span> <span class="toctext">Definition</span></a></li>
+<li class="toclevel-1"><a href="#Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">3</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#Basis_extension"><span class="tocnumber">4</span> <span class="toctext">Basis extension</span></a></li>
+<li class="toclevel-1"><a href="#Proving_that_a_set_is_a_basis"><span class="tocnumber">5</span> <span class="toctext">Proving that a set is a basis</span></a></li>
+<li class="toclevel-1"><a href="#Example_of_alternative_proofs"><span class="tocnumber">6</span> <span class="toctext">Example of alternative proofs</span></a>
+<ul>
+<li class="toclevel-2"><a href="#From_the_definition_of_basis"><span class="tocnumber">6.1</span> <span class="toctext">From the definition of basis</span></a></li>
+<li class="toclevel-2"><a href="#By_the_dimension_theorem"><span class="tocnumber">6.2</span> <span class="toctext">By the dimension theorem</span></a></li>
+<li class="toclevel-2"><a href="#By_the_invertible_matrix_theorem"><span class="tocnumber">6.3</span> <span class="toctext">By the invertible matrix theorem</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Ordered_bases_and_coordinates"><span class="tocnumber">7</span> <span class="toctext">Ordered bases and coordinates</span></a></li>
+<li class="toclevel-1"><a href="#Related_notions"><span class="tocnumber">8</span> <span class="toctext">Related notions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Example"><span class="tocnumber">8.1</span> <span class="toctext">Example</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Definition" id="Definition"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: Definition">edit</a>]</span> <span class="mw-headline">Definition</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../b/a/s/Image%7EBasis_graph.png_9758.html" class="internal" title="This picture illustrates the standard basis in R2. The red and blue vectors are the elements of the basis"><img src="../../../upload/thumb/8/89/Basis_graph.png/180px-Basis_graph.png" alt="This picture illustrates the standard basis in R2. The red and blue vectors are the elements of the basis" width="180" height="156" longdesc="../../../b/a/s/Image%7EBasis_graph.png_9758.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/a/s/Image%7EBasis_graph.png_9758.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+This picture illustrates the standard basis in <i><b>R</b><sup>2</sup></i>. The red and blue vectors are the elements of the basis</div>
+</div>
+</div>
+<p>A <b>basis</b> <i>B</i> of a <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector space</a> <i>V</i> is a <a href="../../../l/i/n/Linear_independence.html" title="Linear independence">linearly independent</a> subset of <i>V</i> that <a href="../../../l/i/n/Linear_span.html" title="Linear span">spans</a> (or <a href="../../../g/e/n/Generator_%28mathematics%29.html" title="Generator (mathematics)">generates</a>) <i>V</i>.</p>
+<p>In more detail, suppose that <i>B</i> = { <i>v</i><sub>1</sub>, …, <i>v</i><sub><i>n</i></sub> } is a finite subset of a vector space <i>V</i> over a <a href="../../../f/i/e/Field_%28mathematics%29.html" title="Field (mathematics)">field</a> <b>F</b> (such as the <a href="../../../r/e/a/Real_numbers.html" title="Real numbers">real</a> or <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex numbers</a> <b>R</b> or <b>C</b>). Then <i>B</i> is a basis if it satisfies the following conditions:</p>
+<ul>
+<li>the <i>linear independence</i> property,</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>for all <i>a</i><sub>1</sub>, …, <i>a</i><sub><i>n</i></sub> ∈ <b>F</b>, if <i>a</i><sub>1</sub><i>v</i><sub>1</sub> + … + <i>a</i><sub><i>n</i></sub><i>v</i><sub><i>n</i></sub> = 0, then necessarily <i>a</i><sub>1</sub> = … = <i>a</i><sub><i>n</i></sub> = 0; and</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>the <i>spanning</i> property,</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>for every <i>x</i> in <i>V</i> it is possible to choose <i>a</i><sub>1</sub>, …, <i>a</i><sub><i>n</i></sub> ∈ <b>F</b> such that <i>x</i> = <i>a</i><sub>1</sub><i>v</i><sub>1</sub> + … + <i>a</i><sub><i>n</i></sub><i>v</i><sub><i>n</i></sub>.</dd>
+</dl>
+</dd>
+</dl>
+<p>A vector space that admits a <a href="../../../f/i/n/Finite_set.html" title="Finite set">finite</a> basis is called <a href="../../../f/i/n/Finite-dimensional.html" title="Finite-dimensional">finite-dimensional</a>. To deal with infinite dimensional spaces, we must generalize the above definition to include infinite basis sets. We therefore say that a set (finite or infinite) <i>B</i> ⊂ <i>V</i> is a basis, if</p>
+<ul>
+<li>every finite subset <i>B</i><sub>0</sub> ⊆ <i>B</i> obeys the independence property shown above; and</li>
+<li>for every <i>x</i> in <i>V</i> it is possible to choose <i>a</i><sub>1</sub>, …, <i>a</i><sub><i>n</i></sub> ∈ <b>F</b> and <i>v</i><sub>1</sub>, …, <i>v</i><sub><i>n</i></sub> ∈ <i>B</i> such that <i>x</i> = <i>a</i><sub>1</sub><i>v</i><sub>1</sub> + … + <i>a</i><sub><i>n</i></sub><i>v</i><sub><i>n</i></sub>.</li>
+</ul>
+<p>The axioms of a <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector space</a> do not permit us to meaningfully speak about an <a href="../../../i/n/f/Infinite_sum.html" title="Infinite sum">infinite sum</a> of vectors. That is why the sums in the above definition are all finite. Settings that permit infinite linear combinations allow alternative definitions of the basis concept: see <i><a href="#Related_notions" title="">Related notions</a> below.</i></p>
+<p>It is often convenient to list the basis vectors in a specific <i>order</i>, for example, when considering the <a href="../../../t/r/a/Transformation_matrix.html" title="Transformation matrix">transformation matrix</a> of a <a href="../../../l/i/n/Linear_map.html" title="Linear map">linear map</a> with respect to a basis. We then speak of an <b>ordered basis</b>, which we define to be a <a href="../../../s/e/q/Sequence.html" title="Sequence">sequence</a> (rather than a <a href="../../../s/e/t/Set.html" title="Set">set</a>) of linearly independent vectors that span <i>V</i>: see <i><a href="#Ordered_bases_and_coordinates" title="">Ordered bases and coordinates</a></i> below.</p>
+<p><a name="Properties" id="Properties"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: Properties">edit</a>]</span> <span class="mw-headline">Properties</span></h2>
+<p>Again, <i>B</i> denotes a subset of a vector space <i>V</i>. Then, <i>B</i> is a basis <a href="../../../i/f/_/If_and_only_if.html" title="If and only if">if and only if</a> any of the following equivalent conditions are met:</p>
+<ul>
+<li><i>B</i> is a minimal generating set of <i>V</i>, i.e., it is a generating set but no <a href="../../../s/u/b/Subset.html" title="Subset">proper subset</a> of <i>B</i> is.</li>
+<li><i>B</i> is a maximal set of linearly independent vectors, i.e., it is a linearly independent set but no other linearly independent set contains it as a proper subset.</li>
+<li>Every vector in <i>V</i> can be expressed as a linear combination of vectors in <i>B</i> in a unique way. If the basis is ordered (see <i><a href="#Ordered_bases_and_coordinates" title="">Ordered bases and coordinates</a></i> below) then the coefficients in this linear combination provide <i>coordinates</i> of the vector relative to the basis.</li>
+</ul>
+<p>The theorem that every vector space has a basis is implied by the <a href="../../../w/e/l/Well-ordering_theorem.html" title="Well-ordering theorem">well-ordering theorem</a>, or any other equivalent of the <a href="../../../a/x/i/Axiom_of_choice.html" title="Axiom of choice">axiom of choice</a>. (Proof: Well-order the elements of the vector space. Create the subset of all elements not linearly dependent on their predecessors. This is easily shown to be a basis). The converse is <a href="../../../a/x/i/Axiom_of_choice.html#Results_requiring_AC_.28or_weaker_forms.29" title="Axiom of choice">also true</a>. All bases of a vector space have the same <a href="../../../c/a/r/Cardinal_number.html" title="Cardinal number">cardinality</a> (number of elements), called the <a href="../../../d/i/m/Dimension_%28vector_space%29.html" title="Dimension (vector space)">dimension</a> of the vector space. The latter result is known as the <a href="../../../d/i/m/Dimension_theorem_for_vector_spaces.html" title="Dimension theorem for vector spaces">dimension theorem</a>, and requires the <a href="../../../u/l/t/Ultrafilter_lemma.html" title="Ultrafilter lemma">ultrafilter lemma</a>, a strictly weaker form of the axiom of choice.</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<ul>
+<li>Consider <b>R</b><sup>2</sup>, the vector space of all co-ordinates (<i>a</i>, <i>b</i>) where both <i>a</i> and <i>b</i> are real numbers. Then a very natural and simple basis is simply the vectors <b>e</b><sub>1</sub> = (1,0) and <b>e</b><sub>2</sub> = (0,1): suppose that <i>v</i> = (<i>a</i>, <i>b</i>) is a vector in <b>R</b><sup>2</sup>, then <i>v</i> = <i>a</i> (1,0) + <i>b</i> (0,1). But any two linearly independent vectors, like (1,1) and (−1,2), will also form a basis of <b>R</b><sup>2</sup> (see the section <i><a href="#Proving_that_a_set_is_a_basis" title="">Proving that a set is a basis</a></i> further down).</li>
+</ul>
+<ul>
+<li>More generally, the vectors <b>e</b><sub>1</sub>, <b>e</b><sub>2</sub>, ..., <b>e</b><sub><i>n</i></sub> are linearly independent and generate <b>R</b><sup><i>n</i></sup>. Therefore, they form a basis for <b>R</b><sup><i>n</i></sup> and the dimension of <b>R</b><sup><i>n</i></sup> is <i>n</i>. This basis is called the <i><a href="../../../s/t/a/Standard_basis.html" title="Standard basis">standard basis</a></i>.</li>
+</ul>
+<ul>
+<li>Let <i>V</i> be the <a href="../../../r/e/a/Real_number.html" title="Real number">real</a> vector space generated by the functions <i>e</i><sup><i>t</i></sup> and <i>e</i><sup>2<i>t</i></sup>. These two functions are linearly independent, so they form a basis for <i>V</i>.</li>
+</ul>
+<ul>
+<li>Let <b>R</b>[x] denote the vector space of real <a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomials</a>; then (1, x, x<sup>2</sup>, ...) is a basis of <b>R</b>[x]. The dimension of <b>R</b>[x] is therefore equal to <a href="../../../a/l/e/Aleph_number.html" title="Aleph number">aleph-0</a>.</li>
+</ul>
+<p><a name="Basis_extension" id="Basis_extension"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: Basis extension">edit</a>]</span> <span class="mw-headline">Basis extension</span></h2>
+<p>Between any linearly independent set and any generating set there is a basis. More formally: if <i>L</i> is a linearly independent set in the vector space <i>V</i> and <i>G</i> is a generating set of <i>V</i> containing <i>L</i>, then there exists a basis of <i>V</i> that contains <i>L</i> and is contained in <i>G</i>. In particular (taking <i>G</i> = <i>V</i>), any linearly independent set <i>L</i> can be "extended" to form a basis of <i>V</i>. These extensions are not unique.</p>
+<p><a name="Proving_that_a_set_is_a_basis" id="Proving_that_a_set_is_a_basis"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: Proving that a set is a basis">edit</a>]</span> <span class="mw-headline">Proving that a set is a basis</span></h2>
+<p>To prove that a set <i>B</i> is a basis for a (finite-dimensional) vector space <i>V</i>, it is sufficient to show that the number of elements in <i>B</i> equals the dimension of <i>V</i>, and one of the following:</p>
+<ul>
+<li><i>B</i> is linearly independent, or</li>
+<li>span(<i>B</i>) = <i>V</i>.</li>
+</ul>
+<p><a name="Example_of_alternative_proofs" id="Example_of_alternative_proofs"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: Example of alternative proofs">edit</a>]</span> <span class="mw-headline">Example of alternative proofs</span></h2>
+<p>Often, a mathematical result can be proven in more than one way. Here, using three different proofs, we show that the vectors (1,1) and (-1,2) form a basis for <b>R</b><sup>2</sup>.</p>
+<p><a name="From_the_definition_of_basis" id="From_the_definition_of_basis"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: From the definition of basis">edit</a>]</span> <span class="mw-headline">From the definition of <i>basis</i></span></h3>
+<p>We have to prove that these two vectors are linearly independent and that they generate <b>R</b><sup>2</sup>.</p>
+<p>Part I: To prove that they are linearly independent, suppose that there are numbers a,b such that:</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/4/3/84308a1af028c935ad35ee07374525a5.png" alt="a(1,1)+b(-1,2)=(0,0). \," /></dd>
+</dl>
+<p>Then:<br /></p>
+<dl>
+<dd>
+<div style="vertical-align: 10%;display:inline;"><img class='tex' src="../../../math/4/1/c/41c6fe886a15ed9d271236675dea8c6b.png" alt="(a-b,a+2b)=(0,0) \," /></div>
+&#160; and &#160;
+<div style="vertical-align: 10%;display:inline;"><img class='tex' src="../../../math/0/b/3/0b3f849bff9c60e528da285c23d99bcd.png" alt="a-b=0 \;" /></div>
+&#160; and &#160;
+<div style="vertical-align: 10%;display:inline;"><img class='tex' src="../../../math/8/4/2/842722b9f592c20d50d760098d55722b.png" alt="a+2b=0. \," /></div>
+</dd>
+</dl>
+<p>Subtracting the first equation from the second, we obtain:<br /></p>
+<dl>
+<dd>
+<div style="vertical-align: 10%;display:inline;"><img class='tex' src="../../../math/9/2/6/926072d874024ccf66128a884740ef11.png" alt="3b=0 \;" /></div>
+&#160; so &#160;
+<div style="vertical-align: 10%;display:inline;"><img class='tex' src="../../../math/4/9/7/497bad1cd642514059f6618afc0826c5.png" alt="b=0. \," /></div>
+</dd>
+</dl>
+<p>And from the first equation then:<br /></p>
+<dl>
+<dd><img class='tex' src="../../../math/2/0/3/203a81775a5573f0c2c084a9784681d3.png" alt="a=0. \," /></dd>
+</dl>
+<p>Part II: To prove that these two vectors generate <b>R</b><sup>2</sup>, we have to let (a,b) be an arbitrary element of <b>R<sup>2</sup></b>, and show that there exist numbers x,y such that:<br /></p>
+<dl>
+<dd><img class='tex' src="../../../math/2/a/8/2a84eb2fe6ef3a75cf26c2975fcff2e5.png" alt="x(1,1)+y(-1,2)=(a,b). \," /></dd>
+</dl>
+<p>Then we have to solve the equations:<br /></p>
+<dl>
+<dd><img class='tex' src="../../../math/d/7/0/d704f8edaca1461e2a0e47def2cf02fb.png" alt="x-y=a \," /></dd>
+<dd><img class='tex' src="../../../math/4/6/7/467be7eefd401d089677116b1e234a5e.png" alt="x+2y=b. \," /></dd>
+</dl>
+<p>Subtracting the first equation from the second, we get:<br /></p>
+<dl>
+<dd>
+<div style="vertical-align: 10%;display:inline;"><img class='tex' src="../../../math/3/8/2/38231e7110ec410e1af7c939e8bad47d.png" alt="3y=b-a, \," /></div>
+&#160; &#160; &#160; &#160; &#160; and then</dd>
+<dd>
+<div style="vertical-align: 10%;display:inline;"><img class='tex' src="../../../math/5/7/b/57b2890a22dc67781ac91c63a5c5d5ef.png" alt="y=(b-a)/3, \," /></div>
+&#160; &#160; &#160; &#160; and finally</dd>
+<dd><img class='tex' src="../../../math/5/7/f/57f5317572d6a409a0fed54465ac05eb.png" alt="x=y+a=((b-a)/3)+a=(b+2a)/3. \," /></dd>
+</dl>
+<p><a name="By_the_dimension_theorem" id="By_the_dimension_theorem"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: By the dimension theorem">edit</a>]</span> <span class="mw-headline">By the dimension theorem</span></h3>
+<p>Since (-1,2) is clearly not a multiple of (1,1) and since (1,1) is not the <a href="../../../n/u/l/Null_vector_%28vector_space%29.html" title="Null vector (vector space)">zero vector</a>, these two vectors are linearly independent. Since the dimension of <b>R</b><sup>2</sup> is 2, the two vectors already form a basis of <b>R</b><sup>2</sup> without needing any extension.</p>
+<p><a name="By_the_invertible_matrix_theorem" id="By_the_invertible_matrix_theorem"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: By the invertible matrix theorem">edit</a>]</span> <span class="mw-headline">By the invertible matrix theorem</span></h3>
+<p>Simply compute the <a href="../../../d/e/t/Determinant.html" title="Determinant">determinant</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/0/b/2/0b27a73e20301e9119e06ba636890724.png" alt="\det\begin{bmatrix}1&amp;-1\\1&amp;2\end{bmatrix}=3\neq0." /></dd>
+</dl>
+<p>Since the above matrix has a nonzero determinant, its <a href="../../../c/o/l/Column_vector.html" title="Column vector">columns</a> form a basis of <b>R</b><sup>2</sup>. See: <a href="../../../i/n/v/Invertible_matrix.html" title="Invertible matrix">invertible matrix</a>.</p>
+<p><a name="Ordered_bases_and_coordinates" id="Ordered_bases_and_coordinates"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: Ordered bases and coordinates">edit</a>]</span> <span class="mw-headline">Ordered bases and coordinates</span></h2>
+<p>A basis is just a <i>set</i> of vectors with no given ordering. For many purposes it is convenient to work with an <b>ordered basis</b>. For example, when working with a coordinate representation of a vector it is customary to speak of the "first" or "second" coordinate, which makes sense only if an ordering is specified for the basis. For finite-dimensional vector spaces one typically <a href="../../../i/n/d/Index_set.html" title="Index set">indexes</a> a basis {<i>v</i><sub><i>i</i></sub>} by the first <i>n</i> integers. An ordered basis is also called a <b>frame</b>.</p>
+<p>Suppose <i>V</i> is an <i>n</i>-dimensional vector space over a <a href="../../../f/i/e/Field_%28mathematics%29.html" title="Field (mathematics)">field</a> <b>F</b>. A choice of an ordered basis for <i>V</i> is equivalent to a choice of a <a href="../../../l/i/n/Linear_isomorphism.html" title="Linear isomorphism">linear isomorphism</a> <i>φ</i> from the <a href="../../../c/o/o/Coordinate_space.html" title="Coordinate space">coordinate space</a> <b>F</b><sup><i>n</i></sup> to <i>V</i>.</p>
+<p><i>Proof</i>. The proof makes use of the fact that the <a href="../../../s/t/a/Standard_basis.html" title="Standard basis">standard basis</a> of <b>F</b><sup><i>n</i></sup> is an ordered basis.</p>
+<p>Suppose first that</p>
+<dl>
+<dd><i>φ</i>&#160;: <b>F</b><sup><i>n</i></sup> → <i>V</i></dd>
+</dl>
+<p>is a linear isomorphism. Define an ordered basis {<i>v</i><sub><i>i</i></sub>} for <i>V</i> by</p>
+<dl>
+<dd><i>v</i><sub><i>i</i></sub> = <i>φ</i>(<b>e</b><sub><i>i</i></sub>) for 1 ≤ <i>i</i> ≤ <i>n</i></dd>
+</dl>
+<p>where {<b>e</b><sub><i>i</i></sub>} is the standard basis for <b>F</b><sup><i>n</i></sup>.</p>
+<p>Conversely, given an ordered basis, consider the map defined by</p>
+<dl>
+<dd><i>φ</i>(<i>x</i>) = <i>x</i><sub>1</sub><i>v</i><sub>1</sub> + <i>x</i><sub>2</sub><i>v</i><sub>2</sub> + ... + <i>x</i><sub><i>n</i></sub><i>v</i><sub><i>n</i>,</sub></dd>
+</dl>
+<p><sub>where <i>x</i> = <i>x</i><sub>1</sub><b>e</b><sub>1</sub> + <i>x</i><sub>2</sub><b>e</b><sub>2</sub> + ... + <i>x</i><sub><i>n</i></sub><b>e</b><sub><i>n</i></sub> is an element of <b>F</b><sup><i>n</i></sup>. It is not hard to check that <i>φ</i> is a linear isomorphism.</sub></p>
+<p>These two constructions are clearly inverse to each other. Thus ordered bases for <i>V</i> are in 1-1 correspondence with linear isomorphisms <b>F</b><sup><i>n</i></sup> → <i>V</i>.</p>
+<p>The inverse of the linear isomorphism <i>φ</i> determined by an ordered basis {<i>v</i><sub><i>i</i></sub>} equips <i>V</i> with <i>coordinates</i>: if, for a vector <i>v</i> ∈ <i>V</i>, <i>φ</i><sup>-1<sup>(<i>v</i>) = (<i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>,...,<i>a</i><sub><i>n</i></sub>) ∈ <b>F</b><sup><i>n</i></sup>, then the components <i>a</i><sub><i>j</i></sub> = <i>a</i><sub><i>j</i></sub>(<i>v</i>) are the coordinates of <i>v</i> in the sense that <i>v</i> = <i>a</i><sub>1</sub>(<i>v</i>) <i>v</i><sub>1</sub> + <i>a</i><sub>2</sub>(<i>v</i>) <i>v</i><sub>2</sub> + ... + <i>a</i><sub><i>n</i></sub>(<i>v</i>) <i>v</i><sub><i>n</i></sub>.</sup></sup></p>
+<p>The maps sending a vector <i>v</i> to the components <i>a</i><sub><i>j</i></sub>(<i>v</i>) are linear maps from <i>V</i> to <b>F</b>, because of <i>φ</i><sup>-1</sup> is linear. Hence they are <a href="../../../l/i/n/Linear_functional.html" title="Linear functional">linear functionals</a>. They form a basis for the <b><a href="../../../d/u/a/Dual_space.html" title="Dual space">dual space</a></b> of <i>V</i>, called the <b>dual basis</b>.</p>
+<p><a name="Related_notions" id="Related_notions"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: Related notions">edit</a>]</span> <span class="mw-headline">Related notions</span></h2>
+<p>The phrase <i><b>Hamel basis</b></i> (or <i><b>algebraic basis</b></i>) is sometimes used to refer to a basis as defined in this article, where the number of terms in the linear combination <i>a</i><sub>1</sub><i>v</i><sub>1</sub> + … + <i>a</i><sub><i>n</i></sub><i>v</i><sub><i>n</i></sub> is always finite.</p>
+<p>In <a href="../../../h/i/l/Hilbert_space.html" title="Hilbert space">Hilbert spaces</a> and other <a href="../../../b/a/n/Banach_space.html" title="Banach space">Banach spaces</a>, there is a need to work with linear combinations of infinitely many vectors. In an infinite-dimensional Hilbert space, a set of vectors orthogonal to each other can never span the whole space via their finite linear combinations. What is called an <a href="../../../o/r/t/Orthonormal_basis.html" title="Orthonormal basis">orthonormal basis</a> is a set of mutually orthogonal unit vectors that "span" the space via sometimes-infinite linear combinations. Except in the finite-dimensional case, this concept is not purely algebraic, and is distinct from a Hamel basis; it is also more generally useful. <i>An orthonormal basis of an infinite-dimensional Hilbert space is therefore not a Hamel basis.</i></p>
+<p>In <a href="../../../t/o/p/Topological_vector_space.html" title="Topological vector space">topological vector spaces</a>, quite generally, one may define <i>infinite sums</i> (<a href="../../../i/n/f/Infinite_series.html" title="Infinite series">infinite series</a>) and express elements of the space as certain <i>infinite linear combinations</i> of other elements. To keep clear the distinction of bases using finite and infinite combination, the former ones are called <i>Hamel bases</i> and the latter ones <i><a href="../../../s/c/h/Schauder_basis.html" title="Schauder basis">Schauder bases</a>,</i> if the context requires it. The corresponding dimensions are also known as <i><b>Hamel dimension</b></i> and <i>Schauder dimension.</i></p>
+<p><a name="Example" id="Example"></a></p>
+<h3><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h3>
+<p>In the study of <a href="../../../f/o/u/Fourier_series.html" title="Fourier series">Fourier series</a>, one learns that the functions {1} ∪ { sin(<i>nx</i>), cos(<i>nx</i>)&#160;: <i>n</i> = 1, 2, 3, ... } are an "orthonormal basis" of the (real or complex) vector space of all (real or complex valued) functions on the interval [0, 2π] that are square-integrable on this interval, i.e., functions <i>f</i> satisfying</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/0/9/a0919be1cceec71b0cc34cad393c7581.png" alt="\int_0^{2\pi} \left|f(x)\right|^2\,dx&lt;\infty." /></dd>
+</dl>
+<p>The functions {1} ∪ { sin(<i>nx</i>), cos(<i>nx</i>)&#160;: <i>n</i> = 1, 2, 3, ... } are linearly independent, and every function <i>f</i> that is square-integrable on [0, 2π] is an "infinite linear combination" of them, in the sense that</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/7/5/375a370349ccf210d179ef85b9f3c28a.png" alt="\lim_{n\rightarrow\infty}\int_0^{2\pi}\biggl|a_0+\sum_{k=1}^n \bigl(a_k\cos(kx)+b_k\sin(kx)\bigr)-f(x)\biggr|^2\,dx=0" /></dd>
+</dl>
+<p>for suitable (real or complex) coefficients <i>a</i><sub><i>k</i></sub>, <i>b</i><sub><i>k</i></sub>. But most square-integrable functions cannot be represented as <i>finite</i> linear combinations of these basis functions, which therefore <i>do not</i> comprise a Hamel basis. Every Hamel basis of this space is much bigger than this merely countably infinite set of functions. Hamel bases of spaces of this kind are of little (if any) interest, whereas orthonormal bases of these spaces are essential in Fourier analysis.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../l/i/n/Linear_algebra.html" title="Linear algebra">Linear algebra</a></li>
+<li><a href="../../../l/i/n/Linear_combination.html" title="Linear combination">Linear combination</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/s/Basis_%28linear_algebra%29.html">http://en.wikipedia.org../../../b/a/s/Basis_%28linear_algebra%29.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../l/i/n/Category%7ELinear_algebra_5c7d.html" title="Category:Linear algebra">Linear algebra</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/s/Basis_%28linear_algebra%29.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/a/s/Talk%7EBasis_%28linear_algebra%29_75a0.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Basis_%28linear_algebra%29">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../cs/b/%C3%A1/z/B%C3%A1ze_%28algebra%29.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/b/a/s/Basis_%28Vektorraum%29_c16c.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/b/a/s/Base_%28%C3%A1lgebra%29.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/b/a/s/Base_%28alg%C3%A8bre_lin%C3%A9aire%29.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/b/a/s/Base_%28algebra_lineare%29.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%91/%D7%A1/%D7%99/%D7%91%D7%A1%D7%99%D7%A1_%28%D7%90%D7%9C%D7%92%D7%91%D7%A8%D7%94%29.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hu/b/%C3%A1/z/B%C3%A1zis_%28matematika%29.html">Magyar</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/b/a/s/Basis_%28lineaire_algebra%29.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/b/a/z/Baza_%28przestrze%C5%84_liniowa%29.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/b/a/s/Base_%28%C3%A1lgebra_linear%29.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ro/b/a/z/Baz%C4%83_%28spa%C5%A3iu_vectorial%29.html">Română</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B1/%D0%B0/%D0%B7/%D0%91%D0%B0%D0%B7%D0%B8%D1%81.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../simple/b/a/s/Basis_%28linear_algebra%29.html">Simple English</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sl/b/a/z/Baza_%28linearna_algebra%29.html">Slovenščina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/k/a/n/Kanta_%28lineaarialgebra%29.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/b/a/s/Basvektor.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/c/%C6%A1/_/C%C6%A1_s%E1%BB%9F_%28%C4%91%E1%BA%A1i_s%E1%BB%91_tuy%E1%BA%BFn_t%C3%ADnh%29.html">Tiếng Việt</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ur/%D8%A8/%D9%86/%DB%8C/%D8%A8%D9%86%DB%8C%D8%A7%D8%AF_%D8%B3%D9%85%D8%AA%DB%8C%DB%81.html">اردو</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E5%9F%BA/_/%28/%E5%9F%BA_%28%E4%BB%A3%E6%95%B8%29.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 18:09, 6 April 2007 by Wikipedia user <a href="../../../d/o/r/User%7EDorganBot_b7c4.html" title="User:DorganBot">DorganBot</a>. Based on work by Wikipedia user(s) <a href="../../../j/e/r/User%7EJersey_Devil_9d25.html" title="User:Jersey Devil">Jersey Devil</a>, Jfraser, <a href="../../../g/e/o/User%7EGeometry_guy_a9f1.html" title="User:Geometry guy">Geometry guy</a>, <a href="../../../y/l/e/User%7EYlebru_2849.html" title="User:Ylebru">Ylebru</a>, <a href="../../../r/m/i/User%7ERmilson_1e2a.html" title="User:Rmilson">Rmilson</a>, <a href="../../../k/p/r/User%7EKprateek88_60d0.html" title="User:Kprateek88">Kprateek88</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../d/h/n/User%7EDHN-bot_8c4a.html" title="User:DHN-bot">DHN-bot</a>, <a href="../../../i/g/n/User%7EIgnacioerrico_df96.html" title="User:Ignacioerrico">Ignacioerrico</a>, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, <a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../w/r/p/User%7EWrp103_3edd.html" title="User:Wrp103">Wrp103</a>, <a href="../../../j/t/i/User%7EJtir_03f8.html" title="User:Jtir">Jtir</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../k/y/n/User%7EKYN_0594.html" title="User:KYN">KYN</a>, <a href="../../../l/e/t/User%7ELethe_ae09.html" title="User:Lethe">Lethe</a>, <a href="../../../p/a/k/User%7EPako_a31f.html" title="User:Pako">Pako</a>, <a href="../../../r/e/x/User%7ERexNL_e4e0.html" title="User:RexNL">RexNL</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../s/p/i/User%7ESpindled_fd21.html" title="User:Spindled">Spindled</a>, <a href="../../../t/h/e/User%7ETherearenospoons_8fef.html" title="User:Therearenospoons">Therearenospoons</a>, <a href="../../../e/l/r/User%7EElroch_ff10.html" title="User:Elroch">Elroch</a>, <a href="../../../g/a/i/User%7EGaius_Cornelius_c35a.html" title="User:Gaius Cornelius">Gaius Cornelius</a>, <a href="../../../t/o/s/User%7ETosha_2812.html" title="User:Tosha">Tosha</a>, Fantomdrives, <a href="../../../p/a/u/User%7EPaul_Murray_43d8.html" title="User:Paul Murray">Paul Murray</a>, <a href="../../../v/i/n/User%7EVina-iwbot_07b6.html" title="User:Vina-iwbot">Vina-iwbot</a>, <a href="../../../b/e/l/User%7EBeland_b814.html" title="User:Beland">Beland</a>, <a href="../../../m/e/l/User%7EMelchoir_2750.html" title="User:Melchoir">Melchoir</a>, <a href="../../../b/e/n/User%7EBenFrantzDale_c7e5.html" title="User:BenFrantzDale">BenFrantzDale</a>, <a href="../../../h/i/l/User%7EHillman_ce0e.html" title="User:Hillman">Hillman</a>, <a href="../../../d/a/n/User%7EDan_Granahan_4f00.html" title="User:Dan Granahan">Dan Granahan</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../t/a/k/User%7ETakuyaMurata_085a.html" title="User:TakuyaMurata">TakuyaMurata</a>, <a href="../../../f/r/o/User%7EFropuff_31b9.html" title="User:Fropuff">Fropuff</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../e/l/l/User%7EEllywa_5dd2.html" title="User:Ellywa">Ellywa</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../b/o/b/User%7EBob.v.R_ebca.html" title="User:Bob.v.R">Bob.v.R</a>, <a href="../../../w/s/h/User%7EWshun_5beb.html" title="User:Wshun">Wshun</a>, <a href="../../../b/o/u/User%7EBoud_7cef.html" title="User:Boud">Boud</a>, <a href="../../../r/o/m/User%7ERomanm_5283.html" title="User:Romanm">Romanm</a>, <a href="../../../s/t/e/User%7EStevertigo_b55d.html" title="User:Stevertigo">Stevertigo</a>, <a href="../../../k/a/r/User%7EKarl-Henner_67f3.html" title="User:Karl-Henner">Karl-Henner</a>, <a href="../../../w/w/o/User%7EWwoods_7169.html" title="User:Wwoods">Wwoods</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../d/o/m/User%7EDominus_070e.html" title="User:Dominus">Dominus</a>, <a href="../../../s/r/e/User%7ESreyan_5e48.html" title="User:Sreyan">Sreyan</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, <a href="../../../s/i/m/User%7ESimon_Lacoste-Julien_82af.html" title="User:Simon Lacoste-Julien">Simon Lacoste-Julien</a>, <a href="../../../s/i/r/User%7ESirJective_5f84.html" title="User:SirJective">SirJective</a>, <a href="../../../p/f/o/User%7EPfortuny_f17f.html" title="User:Pfortuny">Pfortuny</a> and <a href="../../../d/a/m/User%7EDamian_Yerrick_2a18.html" title="User:Damian Yerrick">Damian Yerrick</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

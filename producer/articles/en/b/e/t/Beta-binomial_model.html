@@ -1,0 +1,387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Beta-binomial model,Beta distribution,Binomial distribution,Conjugate prior,Empirical Bayes methods,Expected value,James-Stein estimator,Likelihood function,Posterior distribution" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Beta-binomial model - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Beta-binomial model</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../e/m/p/Empirical_Bayes_methods_de09.html" title="Empirical Bayes methods">empirical Bayes methods</a>, the <b>Beta-binomial model</b> is an analytic model where the <a href="../../../l/i/k/Likelihood_function.html" title="Likelihood function">likelihood function</a> <span class="texhtml"><i>L</i>(<i>x</i> | θ)</span> is specifed by a <a href="../../../b/i/n/Binomial_distribution.html" title="Binomial distribution">binomial distribution</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/3/5/a/35ad179566f3d83ea153a2d01a10e2ee.png" alt="L(x|\theta) = \operatorname{Bin}(x,\theta)\," /></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/4/5/f/45f3b823725f250e8f806e975727f7c1.png" alt="= {n\choose x}\theta^x(1-\theta)^{n-x}\," /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>and the <a href="../../../c/o/n/Conjugate_prior.html" title="Conjugate prior">conjugate prior</a> <span class="texhtml">π(θ | α,β)</span> is a <a href="../../../b/e/t/Beta_distribution.html" title="Beta distribution">Beta distribution</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/1/4/6/14664d6c27c4572f7a42e708cda20e76.png" alt="\pi(\theta|\alpha,\beta) = \mathrm{Beta}(\alpha,\beta)\," /></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/9/a/9/9a98b2212bcf54b20a48ff67f9884cfc.png" alt="= \frac{1}{\mathrm{B}(\alpha,\beta)} \theta^{\alpha-1}(1-\theta)^{\beta-1}." /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Derivation_of_the_posterior_and_the_marginal"><span class="tocnumber">1</span> <span class="toctext">Derivation of the posterior and the marginal</span></a></li>
+<li class="toclevel-1"><a href="#Moment_estimates"><span class="tocnumber">2</span> <span class="toctext">Moment estimates</span></a></li>
+<li class="toclevel-1"><a href="#Shrinkage_factors"><span class="tocnumber">3</span> <span class="toctext">Shrinkage factors</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">4</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Maximum_likelihood_estimation"><span class="tocnumber">5</span> <span class="toctext">Maximum likelihood estimation</span></a></li>
+<li class="toclevel-1"><a href="#Improved_estimates:_James-Stein_estimator"><span class="tocnumber">6</span> <span class="toctext">Improved estimates: James-Stein estimator</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Derivation_of_the_posterior_and_the_marginal" id="Derivation_of_the_posterior_and_the_marginal"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/t/Beta-binomial_model.html" title="Edit section: Derivation of the posterior and the marginal">edit</a>]</span> <span class="mw-headline">Derivation of the posterior and the marginal</span></h3>
+<p>It is convenient to reparameterize the distributions so that the expected mean of the prior is a single parameter: Let</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/f/2/5f25bfcd3a2c739d4cd95b9729af4833.png" alt="\pi(\theta|\mu,M) = Beta(\mu,M)\," /></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/5/5/8/5588a05ed8d701516550f7576c56907c.png" alt="= \frac{\Gamma (M)}{\Gamma(\mu M)\Gamma(M(1-\mu))} \theta^{M\mu-1}(1-\theta)^{M(1-\mu)-1}" /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>where</p>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/c/5/3/c532c8125ad24df9fc75a3ef89e626ce.png" alt="\mu = \frac{\alpha}{\alpha+\beta}\," /> and <img class='tex' src="../../../math/d/e/e/deeddbf339c3813a8ec054defe40349c.png" alt="M = \alpha+\beta\," /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>so that</p>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/0/4/2/04262020b151505cca8542d016342fc4.png" alt="E(\theta|\mu,M) = \mu\," /></dd>
+<dd><img class='tex' src="../../../math/9/c/a/9cad0fb2f3b261f51680c2df24f6a41b.png" alt="Var(\theta|\mu,M) = \frac{\mu(1-\mu)}{M+1}" /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>The <a href="../../../p/o/s/Posterior_distribution.html" title="Posterior distribution">posterior distribution</a> <span class="texhtml">ρ(θ | <i>x</i>)</span> is also a beta distribution</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/b/5/5b5e8c84e74462bda686269a84f602cd.png" alt="\rho(\theta|x) \propto l(x|\theta)\pi(\theta|\mu,M)" /></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/a/9/c/a9c7b77e00415bdb6ce033f74d1fa2d4.png" alt="= Beta(x+M \mu , n-x+M(1- \mu) ) \," /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/f/0/c/f0c780cd849d0783e902a4fea4041e81.png" alt="=  \frac{\Gamma (M) }{\Gamma(M\mu)\Gamma(M(1-\mu))}{n\choose x}\theta^{x+M\mu-1}(1-\theta)^{n-x+M(1-\mu)-1}\," /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>while the marginal distribution <span class="texhtml"><i>m</i>(<i>x</i> | μ,<i>M</i>)</span> is given by</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/5/6/65670a5abe124285e67437aa46f6a45d.png" alt="m(x|\mu,M) = \int_{0}^{1} \rho(\theta|x) d\theta" /></dd>
+</dl>
+<p><br /></p>
+<dl>
+<dd>
+<dl>
+<dd>= <img class='tex' src="../../../math/0/5/6/0568c60e08070307d5ba66fd06450172.png" alt="\frac{\Gamma (M) }{\Gamma(M\mu)\Gamma(M(1-\mu))}{n\choose x} \int_{0}^{1} \theta^{x+M\mu-1}(1-\theta)^{n-x+M(1-\mu)-1} d\theta" /></dd>
+</dl>
+</dd>
+</dl>
+<p><br /></p>
+<dl>
+<dd>
+<dl>
+<dd>= <img class='tex' src="../../../math/6/6/7/667f673e147ac1f7232d17f6d04de1d3.png" alt="\frac{\Gamma (M) }{\Gamma(M\mu)\Gamma(M(1-\mu))}{n\choose x}   \frac{\Gamma (x+M\mu)\Gamma(n-x+M(1-\mu)) }{\Gamma(n+M)}" /></dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Moment_estimates" id="Moment_estimates"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/t/Beta-binomial_model.html" title="Edit section: Moment estimates">edit</a>]</span> <span class="mw-headline">Moment estimates</span></h3>
+<p>Because the marginal is a complex, non-linear function of Gamma and Digamma functions, it is quite difficult to obtain a marginal maximum likelihood estimate (MMLE) for the mean and variance. Instead, we use the method of iterated expectations to find the <a href="../../../e/x/p/Expected_value.html" title="Expected value">expected value</a> of the marginal moments.</p>
+<p>Let us write our model as a two-stage compund sampling model (for each event <i>i</i> out of <i>n<sub>i</sub></i> possible events):</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/f/1/4/f140c2996940b2b9371031092437f1b6.png" alt="X_{i}|\theta_{i} \sim \mathrm{Bin}(n_{i}, \theta_{i})\," /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/b/4/7/b4798de08f24f0a644c63f9681272f58.png" alt="\theta_{i} \sim \mathrm{Beta}|(\mu,M), i.i.d\," /></dd>
+</dl>
+</dd>
+</dl>
+<p>We can find iterated moment estimates for the mean and variance using the moments for the distributions in the two-stage model:</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/3/f/e/3fe1c638c64717c5c992e16b81e20fca.png" alt="E\left(\frac{X}{n}\right) = E\left[E\left(\frac{X}{n}|\theta\right)\right] = E(\theta) = \mu" /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/1/5/a/15af53715fbd9ed9008344ca048ad0d4.png" alt="\mathrm{var}\left(\frac{X}{n}\right) = E\left[\mathrm{var}\left(\frac{X}{n}|\theta\right)\right] + \mathrm{var}\left[E\left(\frac{X}{n}|\theta\right)\right]" /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/1/a/6/1a6b0d54eeac243f88f673b2922576a9.png" alt="= E\left[\left(\frac{1}{n}\right)\theta(1-\theta)|\mu,M\right] + \mathrm{var}\left(\theta|\mu,M\right)" /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/5/b/e/5be09417c723a0de38deb97483e5331d.png" alt="= \frac{1}{n}\left(\mu(1-\mu)\right)+ \frac{n_{i}-1}{n_{i}}\frac{(\mu(1-\mu))}{M+1}" /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/5/9/e/59e275b6345f149511afa8b4492b0375.png" alt="= \frac{\mu(1-\mu)}{n}\left(1+\frac{n-1}{M+1}\right)." /></dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p>We now seek a point estimate <img class='tex' src="../../../math/4/e/9/4e929c8c7fe55cb408382dfd61e3a6ab.png" alt="\tilde{\theta}" /> as a weighted average of the sample estimate <img class='tex' src="../../../math/1/2/1/1212a5f6c9563b8f680638fcf3584cab.png" alt="\hat{\theta_{i}}" /> and an estimate for <img class='tex' src="../../../math/4/8/1/481c36f223dc0f06b5075a736f9410fc.png" alt="\hat{\mu}" />. The sample estimate <img class='tex' src="../../../math/1/2/1/1212a5f6c9563b8f680638fcf3584cab.png" alt="\hat{\theta_{i}}" /> is given by</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/4/3/a/43a8d02976b8b0502c49cbf40c252397.png" alt="\hat{\theta_{i}} = \frac{x_{i}}{n_{i}}\," /></dd>
+</dl>
+</dd>
+</dl>
+<p>Therefore we need point estimates for <span class="texhtml">μ</span> and <span class="texhtml"><i>M</i></span>. The estimated mean <img class='tex' src="../../../math/4/8/1/481c36f223dc0f06b5075a736f9410fc.png" alt="\hat{\mu}" /> is given as a weighted average</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/6/5/d/65db76246ae6da7085acfca4fae156c7.png" alt="\hat{\mu} = \frac{\sum_{i=1}^{N} n_{i} \hat{\theta_{i}} }{\sum_{i=1}^{N} n_{i} } = \frac{\sum_{i=1}^{N} x_{i} }{\sum_{i=1}^{N} n_{i} }" /></dd>
+</dl>
+</dd>
+</dl>
+<p>The hyperparameter <span class="texhtml"><i>M</i></span> is obtained using the moment estimates for the variance of the two-stage model:</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/a/f/c/afcdd66ded8063f28d1b007f5b4834a5.png" alt="s^{2} = \frac{1}{N} \sum_{i=1}^{N} \mathrm{var}\left(\frac{x_{i}}{n_{i}}\right) = \frac{1}{N} \sum_{i=1}^{N} \frac{\hat{\mu}(1-\hat{\mu})}{n_{i}} \left[1+\frac{n_{i}-1}{\hat{M}+1}\right]=" /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/5/b/4/5b41134dfdea2f0be5a13ec94bb118d5.png" alt="s^{2} = \frac{N \sum_{i=1}^{N} n_{i} (\hat{\theta_{i}} - \hat{\mu_{i}}) }{(N-1)\sum_{i=1}^{N} n_{i} }" /></dd>
+</dl>
+</dd>
+</dl>
+<p>We can now solve for <img class='tex' src="../../../math/b/9/3/b93ed66394d0f410426655cf87c615ac.png" alt="\hat{M}" />:</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/1/4/0/1407afda2ab4e1282bf67a73b5f533b7.png" alt="\hat{M} = \frac{\hat{\mu}(1-\hat{\mu}) - s^{2}}{s^{2} - \frac{\hat{\mu}(1 - \hat{\mu})}{N}\sum_{i=1}^{N} n_{i} }." /></dd>
+</dl>
+</dd>
+</dl>
+<p>Given our point estimates for the prior, we may now plug in these values to find a point estimate for the posterior</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/7/0/b7019b88235dc5f35464ac75b85e3aea.png" alt="\tilde{\theta_{i}} = E(\Theta|\hat{\mu},\hat{M}) = \frac{\frac{x_{i}}{n_{i}} + \hat{M}\hat{\mu}}{n_{i}+\hat{M}} = \frac{\hat{M}}{n_{i}+\hat{M_{i}}}\hat{\mu} + \frac{n_{i}}{n_{i}+\hat{M_{i}}}\frac{x_{i}}{n_{i}}" /></dd>
+</dl>
+<p><a name="Shrinkage_factors" id="Shrinkage_factors"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/t/Beta-binomial_model.html" title="Edit section: Shrinkage factors">edit</a>]</span> <span class="mw-headline">Shrinkage factors</span></h3>
+<p>We may write the posterior estimate as a weighted average:</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/f/a/6/fa631053ddfb8927825071fd0bd094d7.png" alt="\tilde{\theta_{i}} = \hat{B_{i}}\hat{\mu} + (1-\hat{B_{i}})\hat{\theta_{i}}" /></dd>
+</dl>
+</dd>
+</dl>
+<p>where <img class='tex' src="../../../math/c/b/4/cb474bd2a30270ad11bf9df293ccc8d8.png" alt="\hat{B_{i}}" /> is called the <i>Shrinkage Factor</i>.</p>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/7/0/8/708ffcbc73aa3ccafb78dc5d0d19ade2.png" alt="\hat{B_{i}} = \frac{\hat{M_{i}}}{\hat{M_{i}}+n_{i}}" /></dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Example" id="Example"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/t/Beta-binomial_model.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h3>
+<p><a name="Maximum_likelihood_estimation" id="Maximum_likelihood_estimation"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/t/Beta-binomial_model.html" title="Edit section: Maximum likelihood estimation">edit</a>]</span> <span class="mw-headline">Maximum likelihood estimation</span></h3>
+<p><a name="Improved_estimates:_James-Stein_estimator" id="Improved_estimates:_James-Stein_estimator"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/t/Beta-binomial_model.html" title="Edit section: Improved estimates: James-Stein estimator">edit</a>]</span> <span class="mw-headline">Improved estimates: <a href="../../../j/a/m/James-Stein_estimator_bcbb.html" title="James-Stein estimator">James-Stein estimator</a></span></h3>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/t/Beta-binomial_model.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.cs.ubc.ca/~murphyk/Teaching/Stat406-Spring07/reading/ebHandout.pdf" class="external text" title="http://www.cs.ubc.ca/~murphyk/Teaching/Stat406-Spring07/reading/ebHandout.pdf" rel="nofollow">Empirical Bayes for Beta-Binomial model</a></li>
+</ul>
+<ul>
+<li><a href="http://it.stlawu.edu/~msch/biometrics/papers.htm" class="external text" title="http://it.stlawu.edu/~msch/biometrics/papers.htm" rel="nofollow">Using the Beta-binomial distribution to assess performance of a biometric identification device</a></li>
+</ul>
+<ul>
+<li><a href="http://www.emse.fr/g2i/publications/rapports/RR_2005-500-012.pdf" class="external text" title="http://www.emse.fr/g2i/publications/rapports/RR_2005-500-012.pdf" rel="nofollow">Extended Beta-Binomial Model for Demand Forecasting of Multiple Slow-Moving Items with Low Consumption and Short Request History</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/t/Beta-binomial_model.html">http://en.wikipedia.org../../../b/e/t/Beta-binomial_model.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../b/a/y/Category%7EBayesian_statistics_6ca7.html" title="Category:Bayesian statistics">Bayesian statistics</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/e/t/Beta-binomial_model.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/e/t/Talk%7EBeta-binomial_model_51b6.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Beta-binomial_model">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 06:34, 29 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and Charlesmartin14.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

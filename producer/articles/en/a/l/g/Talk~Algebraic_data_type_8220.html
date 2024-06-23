@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Algebraic data type,Currying,Haskell programming language,OCaml,Pattern matching,Polymorphism (computer science),Recursive type,SML,System F,Tagged union,Type inference" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Algebraic data type - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Algebraic data type</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><a name="Tagged_union" id="Tagged_union"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Talk%7EAlgebraic_data_type_8220.html" title="Edit section: Tagged union">edit</a>]</span> <span class="mw-headline">Tagged union</span></h2>
+<p>I believe this page and <a href="../../../t/a/g/Tagged_union.html" title="Tagged union">tagged union</a> refer to more or less the same concept, but they could be merged usefully. Does anyone disagree with this?</p>
+<p><a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Derrick Coetzee</a> 16:37, 4 Apr 2004 (UTC)</p>
+<p>I think that would be a bad idea. A tagged union is different from an algebraic data type, but they can be used to implement algebraic data types, though this article probably needs more generalization. <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a> 22:05, 4 Apr 2004 (UTC)</p>
+<p>Yes, I agree that these deserve different articles. I plan to clean this one up. <a href="../../../b/r/i/User%7EBrighterorange_f618.html" title="User:Brighterorange">Brighterorange</a> 04:40, 13 May 2005 (UTC)</p>
+<p><a name="Languages" id="Languages"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Talk%7EAlgebraic_data_type_8220.html" title="Edit section: Languages">edit</a>]</span> <span class="mw-headline">Languages</span></h2>
+<p>Which languages support algebraic data types? Using <i>What links here</i>, I only see Haskell, ML, Nemerle, Hope, Pizza.</p>
+<p>So Haskell uses <code>:</code> for list constructor operator and ML uses <code>::</code> and they use the other for type annotations. I suppose it's ok to give both alternatives then. But do we need to give Nil and Cons without capital letters as that makes them look like functions? I know Lisp has nil and cons but then again Lisp doesn't have algebraic data types and constructors. If it's meant to be mathematical notation, I must say I'm not a fan of it either in programming-related articles.</p>
+<p>My proposal would be to revert Nil and Cons to have capital letters. --<a href="../../../t/u/u/User%7ETuukkaH_5df3.html" title="User:TuukkaH">TuukkaH</a> 15:51, 15 February 2006 (UTC)</p>
+<p><a name="Misleading_.22Variations.22_section" id="Misleading_.22Variations.22_section"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Talk%7EAlgebraic_data_type_8220.html" title="Edit section: Misleading &quot;Variations&quot; section">edit</a>]</span> <span class="mw-headline">Misleading "Variations" section</span></h2>
+<p>I just removed the following discussion from the article. See below for why.</p>
+<dl>
+<dd>Languages with type systems based upon <a href="../../../s/y/s/System_F_40dc.html" title="System F">System-F</a>, such as <a href="../../../o/c/a/OCaml_1d16.html" title="OCaml">OCaml</a> or <a href="../../../s/m/l/SML_7511.html" title="SML">SML</a>, may not use constructors directly in substitution of normal functions within a given expression. Languages with more expressive type systems based upon something similar to <a href="../../../s/y/s/System_F_40dc.html" title="System F">System-Fω</a> (i.e., systems that use kinds, where a kind serves as a "type of a type"), such as <a href="../../../h/a/s/Haskell_programming_language.html" title="Haskell programming language">Haskell</a>, may however use constructors directly in substitution of a normal function. The latter case also implies then that constructors in these more expressive languages may be partially applied (i.e., <a href="../../../c/u/r/Currying.html" title="Currying">curried</a>), whereas the same is not true for languages in the former case.</dd>
+</dl>
+<dl>
+<dd>For example, the following is completely acceptable in Haskell (System-Fω-based):</dd>
+</dl>
+<pre>
+map :: (a -&gt; b) -&gt; [a] -&gt; [b]
+map Leaf [0 .. 9]
+</pre>
+<dl>
+<dd>But in OCaml (System-F-based), this approach yields:</dd>
+</dl>
+<pre>
+List.map : ('a -&gt; 'b) -&gt; 'a list -&gt; 'b list
+List.map Leaf [0;1;2;3;4;5;6;7;8;9];;
+   The constructor Leaf expects 1 argument(s),
+   but is here applied to 0 argument(s)
+</pre>
+<dl>
+<dd>And so, in OCaml (System-F-based), one must wrap the Leaf constructor in a lambda abstraction, since it cannot be substituted for a normal function, such as List.map expects. To make it acceptable then, it must be modified like so:</dd>
+</dl>
+<pre>
+List.map (fun x -&gt; Leaf x) [0;1;2;3;4;5;6;7;8;9]
+</pre>
+<p>The problem is that <code>map Leaf [0,1,2,3,4]</code> <i>is</i> legal <a href="../../../s/m/l/SML_7511.html" title="SML">SML</a>, even if it is not legal <a href="../../../o/c/a/OCaml_1d16.html" title="OCaml">OCaml</a> (I wouldn't know about the latter). It follows that the reason for its being illegal in OCaml has nothing to do with predicativity or the restriction to prenex polymorphism, which is what the above seems to mean by being "System-F-based" -- that in itself, of course, is somewhere between misleading and false. Is there, in fact, a "reason" why OCaml cannot treat datatype constructors as values of function type, or is that just the way the language happened to be designed? -- <a href="../../../c/j/o/User%7ECjoev_9d6c.html" title="User:Cjoev">Cjoev</a> 17:22, 28 March 2006 (UTC)</p>
+<dl>
+<dd>Let me add here what the article had before this confusion was brought about:</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Here, Empty, Leaf and Node are the constructors. They are used much like functions in that they can be (partially) applied to arguments of the appropriate type. For instance, Leaf has the functional type Int -&gt; Tree meaning that giving an integer as an argument to Leaf produces a value of the type Tree. As Node takes two arguments of the type Tree itself, the datatype is <a href="../../../r/e/c/Recursive_type.html" title="Recursive type">recursive</a>.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>A constructor application cannot be reduced (evaluated) like a function application though since it is already in normal form (there is no function definition for it). Operations on algebraic data types can be defined by using <a href="../../../p/a/t/Pattern_matching.html" title="Pattern matching">pattern matching</a> to retrieve the arguments, for example, consider a function to find the depth of a Tree:</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>At least it was clear even if it turns out it wasn't factually completely accurate. --<a href="../../../t/u/u/User%7ETuukkaH_5df3.html" title="User:TuukkaH">TuukkaH</a> 18:26, 28 March 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>I tried to pick a simple example, but it appears the example I picked was too simple to illustrate the issue I was raising.</dd>
+</dl>
+<dl>
+<dd>I suspect that what is happening in the case of SML is that the compiler is simply wrapping the constructor in a lambda abstraction in much the same way I did manually for the O'Caml example. But this still does not imply that constructors are treated the same in SML and O'Caml as are functions, and this is directly due to issues with the type system.</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>What do you mean, "treated the same"? In one sense, of course they are not, because constructors can appear in patterns but functions can't (duh). In every other sense, SML "treats" a constructor <i>exactly</i> as if it were a function of the appropriate type. The question of what function types can be inhabited by constructors is not the same as how such a value is "treated" once it exists. <a href="../../../c/j/o/User%7ECjoev_9d6c.html" title="User:Cjoev">Cjoev</a> 19:27, 31 March 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>Here is a much more complex example that should not be possible in SML without many additional lambda abstractions, because of this issue:</dd>
+</dl>
+<pre>
+data Triple a b c
+    = MkTriple a b c
+      deriving Show
+
+zipWith :: (a -&gt; b -&gt; c) -&gt; [a] -&gt; [b] -&gt; [c]
+
+foo = zipWith (\f x -&gt; f x) (zipWith MkTriple [0..4] "abcd") ["foo","bar","baz","qux"]
+
+... =&gt;[MkTriple 0 'a' "foo",MkTriple 1 'b' "bar",MkTriple 2 'c' "baz",MkTriple 3 'd' "qux"]
+
+bar = let f    =     MkTriple
+          f'   = f   0
+          f''  = f'  'a'
+          f''' = f'' "foo"
+      in f'''
+
+... =&gt; MkTriple 0 'a' "foo"
+
+baz = let f    =     MkTriple
+          f'   = f   f
+          f''  = f'  f
+          f''' = f'' f
+      in case f''' of
+           (MkTriple g h i) -&gt; let g' = g 0 'a' "foo"
+                                   h' = h 1 'b' "bar"
+                                   i' = i 2 'c' "baz"
+                               in f g' h' i'
+
+... =&gt; MkTriple (MkTriple 0 'a' "foo") (MkTriple 1 'b' "bar") (MkTriple 2 'c' "baz")
+
+</pre>
+<dl>
+<dd>Haskell can do this because it treats constructors the same as functions -- (i.e., constructors can be curried, and they can have an arity &gt; 1, whereas in OCaml and SML, arity is always only 0 or 1, and multiple parameters must be expressed via tuples, which means constructors here are not as general as true functions). Again, this is related to the type system.</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Well, yes, this is related to the type system in the sense that it is a feature of the language. I disagree that it is the result of some deep difference (e.g. <span class="texhtml"><i>F</i></span> versus <span class="texhtml"><i>F</i>ω</span>) between the type systems as the section I removed from the article contended. <a href="../../../c/j/o/User%7ECjoev_9d6c.html" title="User:Cjoev">Cjoev</a> 19:27, 31 March 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>The selection of text I replaced was wrong because it implied that constructors can be partially applied, but this is not universally true -- it is not true in the case of OCaml (which was given as one example of using ADT's). Secondly, the bit about constructors not reducing to functions, because of having no function definitions, etc., is also incorrect -- it again depends upon the type system, which is what I tried to clarify.</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>OK, so constructors in OCaml must be fully applied (taking your word for it -- I don't use OCaml myself). But the part about constructors "reducing" to functions or not makes no sense either to affirm or deny. In SML, a constructor <i>is</i> a function (except when it appears in a pattern), and it's a value so it doesn't have to reduce. In OCaml something slightly different is the case. I don't see how either the original example or your new code clarifies this. <a href="../../../c/j/o/User%7ECjoev_9d6c.html" title="User:Cjoev">Cjoev</a> 19:27, 31 March 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>So, in short, I do not think my addition was wrong, but the example I chose was too simple to fully illustrate the issue, and in the case of SML, it appeared misleading because of the fact that the compiler most likely handles these very simple cases automatically.70.36.30.117 17:36, 31 March 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>The following is legal SML code approximating the third part of your new example:</dd>
+</dl>
+</dd>
+</dl>
+<pre>
+datatype ('a,'b,'c) triple = Triple of 'a * 'b * 'c
+
+fun mktriple a b c = Triple(a,b,c)
+
+val baz = 
+    let 
+      val f    =     mktriple
+      val f'   = f   f
+      val f''  = f'  f
+      val f''' = f'' f
+    in case f''' of
+         (Triple (g, h, i)) =&gt; let val g' = g 0 #"a" "foo"
+                             val h' = h 1 #"b" "bar"
+                             val i' = i 2 #"c" "baz"
+                           in f g' h' i'
+                           end
+    end
+</pre>
+<dl>
+<dd>
+<dl>
+<dd>Yes, it's true that constructors in SML cannot be curried, but all you need to do is write the curried function yourself and you can use it wherever you like. The only obstacle is the value restriction, which is legitimately different between ML and Haskell but has nothing to do with constructors (does it?).</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>If I understand you correctly, the issues you raise are: (1) <i>partial</i> application of constructors is only possible if they are curried, which does not occur in either variant of ML; and (2) the parenthetical "there is no function definition for it" from the earlier version is meaningless and certainly does not explain "why" a constructor application is considered a normal form. Both of these are true, but I contend they have nothing to do with the presence or absence of kinds, with F-versus-F-omega, or with restrictions to predicative prenex polymorphism. <a href="../../../c/j/o/User%7ECjoev_9d6c.html" title="User:Cjoev">Cjoev</a> 19:27, 31 March 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>What I am saying is that, due to the fact that Haskell uses System-Fω, constructors are treated quite differently than in SML and OCaml. The way that they are treated in Haskell makes them appear much more like ordinary functions, without the restrictions that are placed upon them in SML and OCaml. The original text made some claims that were incorrect with regards to the relationship between constructors and functions, and I attempted to clarify it. But the example I chose was admittedly misleading.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>In something like System-Fω, where one has kinds, a "type" is not actually a type unless it is of kind <code>*</code>. Example:</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<pre>
+data Triple a b c = MkTriple a b c  -- not a type, but kind: * -&gt; * -&gt; * -&gt; *
+type F            =     Triple      -- ...             kind: * -&gt; * -&gt; * -&gt; *
+type F'           = F   Int         -- ...             kind: * -&gt; * -&gt; *
+type F''          = F'  Char        -- ...             kind: * -&gt; *
+type F'''         = F'' String      -- now a type,     kind: *
+
+f :: Int -&gt; Char -&gt; String -&gt; F'''
+f = MkTriple
+</pre>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>When one adds kinds, they modify the term language itself to allow for abstraction over constructors with *any* kind, not just kind *, or "type". This allows one to use constructors in essentially the same way as functions (incl. currying). This is because, via kinds, there is now a notion of what it actually means for a constructor to be partially applied (i.e., its "type" is still of some kind * -&gt; ... -&gt; *, rather than *). Can one "fake" treating constructors as functions by wrapping them in lambda abstractions? Sort of, yes. But it's not the same thing at a fundamental level. Furthermore, without something like System-Fω, you don't get application at the type level, as I showed above. 70.36.30.117 23:22, 31 March 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Ah, now I see that part of our failure to communicate is the overloading of the word "constructor". There are <i>type constructors</i>, or what SML/NJ's error messages call <i>tycons</i>, such as <code>Triple</code>, and then there are <i>value constructors</i> such as <code>MkTriple</code>. The former has kind <code>* -&gt; * -&gt; * -&gt; *</code>; the latter is a term-level construct that (in Haskell) has type <code>a -&gt; b -&gt; c -&gt; Triple a b c</code> (which has kind <code>*</code>). This type is universally quantified, but all the variables have kind * and so I maintain that it is not significantly different from the SML type <code>'a -&gt; 'b -&gt; 'c -&gt; ('a,'b,'c) triple</code>, which is the type of <code>mktriple</code> in my translation of your earlier example.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Partial application of type constructors is possible in SML, but you have to write it in a stupid way that looks like you've η-expanded everything (and combined with ML's postfix application for tycons ends up being mighty confusing):</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<pre>
+type ('b,'c) F' = (int,'b,'c) triple
+type 'c F'' = (char,'c) F'
+type F''' = string F''
+val f : int -&gt; char -&gt; string -&gt; F''' = mktriple
+</pre>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>As you point out, the real difference between ML and Haskell is the ability to write terms that <i>quantify</i> over kinds other than * (I'm taking your word that Haskell can do this), which appears to be lacking in ML (but see my next paragraph). However, I claim that (1) you still have not produced an example that does this (but you don't have to because I readily concede such examples exist), and (2) more importantly, since it's an issue of <i>type constructors</i> rather than <i>value constructors</i> it has nothing to do with algebraic datatypes per se and does not belong in this article. Maybe it belongs in <a href="../../../p/o/l/Polymorphism_%28computer_science%29.html" title="Polymorphism (computer science)">Polymorphism (computer science)</a>.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Finally, I've been putting off saying this, but if you count the module system, then SML <i>is</i> Fω-based. (Think about the fact that a functor argument can have a parameterized type in it.) This is made very explicit in a number of papers by Bob Harper and others (I can provide references if you like) and will likely become even more evident in future versions of the language if proposals for extensions to SML with higher-order and/or recursive and/or first-class modules are ever adopted. The distinction between SML and Haskell is not F versus Fω, it's artificially-restricted-Fω versus full Fω. The restrictions are there for historical reasons to do with <a href="../../../t/y/p/Type_inference.html" title="Type inference">type inference</a>; Haskell has since done away with them, but ML has not. <a href="../../../c/j/o/User%7ECjoev_9d6c.html" title="User:Cjoev">Cjoev</a> 01:09, 1 April 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/g/Talk%7EAlgebraic_data_type_8220.html">http://en.wikipedia.org../../../a/l/g/Talk%7EAlgebraic_data_type_8220.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/l/g/Algebraic_data_type.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/l/g/Talk%7EAlgebraic_data_type_8220.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Algebraic_data_type">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 01:09, 1 April 2006 by Wikipedia user <a href="../../../c/j/o/User%7ECjoev_9d6c.html" title="User:Cjoev">Cjoev</a>. Based on work by Wikipedia user(s) <a href="../../../t/u/u/User%7ETuukkaH_5df3.html" title="User:TuukkaH">TuukkaH</a>, <a href="../../../b/r/i/User%7EBrighterorange_f618.html" title="User:Brighterorange">Brighterorange</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a> and <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

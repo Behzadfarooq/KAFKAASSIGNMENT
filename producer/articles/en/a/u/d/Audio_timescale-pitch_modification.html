@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Audio timescale-pitch modification,Adobe Audition,Alvin and the Chipmunks,Amplitude modulation,Analog signal,Audio signal processing,Autocorrelation,Beats per minute,Cepstrum,Crossfade,Digital signal" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Audio timescale-pitch modification - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Audio timescale-pitch modification</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Time stretching</b> is the process of changing the speed or duration of an <a href="../../../a/u/d/Audio_signal_processing.html" title="Audio signal processing">audio signal</a> without affecting its <a href="../../../p/i/t/Pitch_%28music%29.html" title="Pitch (music)">pitch</a>. <b>Pitch scaling</b> or <b>pitch shifting</b> is the reverse: the process of changing the pitch without affecting the speed. There are also more advanced methods used to change speed, pitch, or both at once, as a function of time.</p>
+<p>These processes are used, for instance, to match the pitches and tempos of two pre-recorded clips for mixing when the clips cannot be reperformed or resampled. (A drum track could be moderately resampled for tempo without adverse effects, but a pitched track could not). They are also used to create effects such as increasing the range of an instrument (like pitch shifting a guitar down an octave).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Resampling"><span class="tocnumber">1</span> <span class="toctext">Resampling</span></a></li>
+<li class="toclevel-1"><a href="#Phase_vocoder"><span class="tocnumber">2</span> <span class="toctext">Phase vocoder</span></a></li>
+<li class="toclevel-1"><a href="#Time_domain"><span class="tocnumber">3</span> <span class="toctext">Time domain</span></a></li>
+<li class="toclevel-1"><a href="#Pitch_scaling"><span class="tocnumber">4</span> <span class="toctext">Pitch scaling</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Resampling" id="Resampling"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/d/Audio_timescale-pitch_modification.html" title="Edit section: Resampling">edit</a>]</span> <span class="mw-headline">Resampling</span></h2>
+<p>The simplest way to change the duration or pitch of a <a href="../../../d/i/g/Digital_signal.html" title="Digital signal">digital</a> audio clip is to <a href="../../../r/e/s/Resampling.html" title="Resampling">resample</a> it. This is a mathematical operation that effectively rebuilds a continuous waveform from its samples and then samples that waveform again at a different rate. When the new samples are played at the original sampling frequency, the audio clip sounds faster or slower. Unfortunately, the frequencies in the sample are always scaled at the same rate as the speed. In other words, slowing down the recording lowers the pitch, speeding it up raises the pitch, and the two effects cannot be separated. This is analogous to speeding up or slowing down an <a href="../../../a/n/a/Analog_signal.html" title="Analog signal">analog</a> recording, like a <a href="../../../p/h/o/Phonograph_record.html" title="Phonograph record">phonograph record</a> or <a href="../../../s/o/u/Sound_recording.html#Magnetic_Recording" title="Sound recording">tape</a>, creating <a href="../../../t/h/e/The_Chipmunks_04dd.html#Recording_technique" title="The Chipmunks">the chipmunk effect</a>.</p>
+<p><a name="Phase_vocoder" id="Phase_vocoder"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/d/Audio_timescale-pitch_modification.html" title="Edit section: Phase vocoder">edit</a>]</span> <span class="mw-headline">Phase vocoder</span></h2>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../p/h/a/Phase_vocoder.html" title="Phase vocoder">Phase vocoder</a></i></div>
+</dd>
+</dl>
+<p>One way of stretching the length of a signal without affecting the pitch is to build a <a href="../../../p/h/a/Phase_vocoder.html" title="Phase vocoder">phase vocoder</a> after Flanagan, Golden, and Portnoff.</p>
+<p>Basic steps:</p>
+<ol>
+<li>compute the instantaneous frequency/amplitude relationship of the signal using the <a href="../../../s/h/o/Short-time_Fourier_transform_ebb5.html" title="Short-time Fourier transform">STFT</a>, which is the <a href="../../../d/i/s/Discrete_Fourier_transform_3a68.html" title="Discrete Fourier transform">discrete Fourier transform</a> of a short, overlapping and smoothly windowed block of samples;</li>
+<li>apply some processing to the Fourier transform magnitudes and phases (like resampling the FFT blocks); and</li>
+<li>perform an inverse STFT by taking the inverse Fourier transform on each chunk and adding the resulting waveform chunks.</li>
+</ol>
+<p>The phase vocoder handles <a href="../../../s/i/n/Sinusoid.html" title="Sinusoid">sinusoid</a> components well, but early implementations introduced considerable smearing on transient ("beat") waveforms at all non-integer compression/expansion rates, which renders the results phasey and diffuse. Recent improvements allow better quality results at all compression/expansion ratios but a residual <a href="../../../s/m/e/Smearing.html" title="Smearing">smearing</a> effect still remains.</p>
+<p>The phase vocoder technique can also be used to perform pitch shifting, chorusing, timbre manipulation, harmonizing, and other unusual modifications, all of which can be changed as a function of time.</p>
+<p><a name="Time_domain" id="Time_domain"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/d/Audio_timescale-pitch_modification.html" title="Edit section: Time domain">edit</a>]</span> <span class="mw-headline">Time domain</span></h2>
+<p><a href="../../../r/a/b/Rabiner.html" title="Rabiner">Rabiner</a> and Schafer in 1978 put forth an alternate solution that works in the <a href="../../../t/i/m/Time_domain.html" title="Time domain">time domain</a>: attempt to find the <a href="../../../p/e/r/Periodic_signal.html" title="Periodic signal">period</a> (or equivalently the <a href="../../../f/u/n/Fundamental_frequency.html" title="Fundamental frequency">fundamental frequency</a>) of a given section of the wave using some <a href="../../../p/i/t/Pitch_detection_algorithm.html" title="Pitch detection algorithm">pitch detection algorithm</a> (commonly the peak of the signal's <a href="../../../a/u/t/Autocorrelation.html" title="Autocorrelation">autocorrelation</a>, or sometimes <a href="../../../c/e/p/Cepstrum.html" title="Cepstrum">cepstral</a> processing), and <a href="../../../c/r/o/Crossfade.html" title="Crossfade">crossfade</a> one period into another. This is called time domain harmonic scaling or the synchronized overlap-add method and performs somewhat faster than the phase vocoder on slower machines but fails when the autocorrelation mis-estimates the period of a signal with complicated harmonics (such as <a href="../../../o/r/c/Orchestra.html" title="Orchestra">orchestral</a> pieces). <a href="../../../a/d/o/Adobe_Audition_54ab.html" title="Adobe Audition">Adobe Audition</a> (formerly Cool Edit Pro) seems to solve this by looking for the period closest to a center period that the user specifies, which should be an integer multiple of the tempo, and between 30 <a href="../../../h/e/r/Hertz.html" title="Hertz">Hz</a> and the lowest bass frequency. For a 120 <a href="../../../b/e/a/Beats_per_minute.html" title="Beats per minute">bpm</a> tune, use 48 Hz because 48 Hz = 2,880 cycles/minute = 24 cycles/beat * 120 bpm.<sup class="noprint Template-Fact"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since February 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup></p>
+<p>This is much more limited in scope than the phase vocoder based processing, but can be made much less processor intensive, for real-time applications. It provides the most coherent results for single-pitched sounds like voice or musically monophonic instrument recordings.</p>
+<p>High-end commercial audio processing packages either combine the two techniques (for example by separating the signal into sinusoid and transient waveforms), or use other techniques based on the <a href="../../../w/a/v/Wavelet.html" title="Wavelet">wavelet</a> transform, or artificial neural network processing, producing the highest-quality time stretching.</p>
+<p><a name="Pitch_scaling" id="Pitch_scaling"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/d/Audio_timescale-pitch_modification.html" title="Edit section: Pitch scaling">edit</a>]</span> <span class="mw-headline">Pitch scaling</span></h2>
+<p>These techniques can also be used to <a href="../../../t/r/a/Transposition_%28music%29.html" title="Transposition (music)">transpose</a> an audio sample while holding speed or duration constant.</p>
+<p>Transposing can be called <b><a href="../../../p/i/t/Pitch_%28music%29.html" title="Pitch (music)">pitch</a> scaling</b> or <b><a href="../../../p/i/t/Pitch_shifting.html" title="Pitch shifting">pitch shifting</a></b>, depending on perspective.</p>
+<p>For example, one could move the frequency of every note up by a perfect fifth, keeping the tempo the same. One can view this transposition as "pitch shifting", "shifting" each note up 7 keys on a piano keyboard, or adding a fixed amount on the <a href="../../../m/e/l/Mel_scale.html" title="Mel scale">Mel scale</a>, or adding a fixed amount in linear <a href="../../../p/i/t/Pitch_space.html" title="Pitch space">pitch space</a>. One can view the same transposition as "pitch scaling", "scaling" (multiplying) the frequency of every note by 3/2.</p>
+<p>Musical transposition preserve the ratios of the <a href="../../../h/a/r/Harmonic.html" title="Harmonic">harmonic</a> frequencies that determine the sound's <a href="../../../t/i/m/Timbre.html" title="Timbre">timbre</a>, unlike the <i>frequency shift</i> performed by <a href="../../../a/m/p/Amplitude_modulation.html" title="Amplitude modulation">amplitude modulation</a>, which adds a fixed frequency offset to the frequency of every note. (In theory one could perform a literal <i>pitch scaling</i> in which the musical pitch space location is scaled (a higher note would be shifted at a greater interval in linear pitch space than a lower note), but that is highly unusual, and not musical).</p>
+<p>Time domain processing works much better here, as smearing is less noticeable, but scaling vocal samples distorts the <a href="../../../f/o/r/Formant.html" title="Formant">formants</a> into a sort of <a href="../../../a/l/v/Alvin_and_the_Chipmunks_850a.html" title="Alvin and the Chipmunks">Alvin and the Chipmunks</a>-like effect, which may be desirable or undesirable. A process that preserves the formants and character of a voice involves analyzing the signal with a <a href="../../../v/o/c/Vocoder.html" title="Vocoder">channel vocoder</a> or <a href="../../../l/i/n/Linear_predictive_coding.html" title="Linear predictive coding">LPC</a> vocoder plus any of several pitch detection algorithms and then resynthesizing it at a different fundamental frequency.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/d/Audio_timescale-pitch_modification.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/u/d/Audio_signal_processing.html" title="Audio signal processing">Audio signal processing</a></li>
+<li><a href="../../../p/i/t/Pitch_control.html" title="Pitch control">Pitch control</a></li>
+<li><a href="../../../s/o/u/Sound_effect.html" title="Sound effect">Sound effects</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/d/Audio_timescale-pitch_modification.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.dspdimension.com/html/timepitch.html" class="external text" title="http://www.dspdimension.com/html/timepitch.html" rel="nofollow">Time Stretching and Pitch Shifting Overview</a> A comprehensive overview of current time and pitch modification techniques by Stephan Bernsee</li>
+<li><a href="http://www.dspdimension.com/html/pshiftstft.html" class="external text" title="http://www.dspdimension.com/html/pshiftstft.html" rel="nofollow">Stephan Bernsee's smbPitchShift C source code</a> C source code for doing frequency domain pitch manipulation</li>
+<li><a href="http://www.panix.com/~jens/pvoc-dolson.par" class="external text" title="http://www.panix.com/~jens/pvoc-dolson.par" rel="nofollow">The Phase Vocoder: A Tutorial</a> - A good description of the phase vocoder</li>
+<li><a href="http://www.ee.columbia.edu/~dpwe/papers/LaroD99-pvoc.pdf" class="external text" title="http://www.ee.columbia.edu/~dpwe/papers/LaroD99-pvoc.pdf" rel="nofollow">New Phase-Vocoder Techniques for Pitch-Shifting, Harmonizing and Other Exotic Effects</a></li>
+<li><a href="http://www.ircam.fr/equipes/analyse-synthese/roebel/paper/dafx2003.pdf" class="external text" title="http://www.ircam.fr/equipes/analyse-synthese/roebel/paper/dafx2003.pdf" rel="nofollow">A new Approach to Transient Processing in the Phase Vocoder</a></li>
+<li><a href="http://www.fon.hum.uva.nl/praat/manual/PSOLA.html" class="external text" title="http://www.fon.hum.uva.nl/praat/manual/PSOLA.html" rel="nofollow">PSOLA Synthesis</a>, <a href="http://www.ee.columbia.edu/~dpwe/papers/HejMus91-solafs.pdf" class="external text" title="http://www.ee.columbia.edu/~dpwe/papers/HejMus91-solafs.pdf" rel="nofollow">SOLAFS Synthesis</a> - Two specific methods of time domain TDHS or SOLA processing.</li>
+<li><a href="http://www.aes.org/" class="external text" title="http://www.aes.org/" rel="nofollow">Audio Engineering Society</a></li>
+<li>Original E2 article (<a href="http://everything2.com/index.pl?node_id=1074923" class="external free" title="http://everything2.com/index.pl?node_id=1074923" rel="nofollow">http://everything2.com/index.pl?node_id=1074923</a>)</li>
+<li><a href="http://www.dspdimension.com/data/html/dirac.html" class="external text" title="http://www.dspdimension.com/data/html/dirac.html" rel="nofollow">DSPdimension: DIRAC library</a></li>
+<li><a href="http://www.zplane.de/showPage.php?SPRACHE=UK&amp;PAGE=products11" class="external text" title="http://www.zplane.de/showPage.php?SPRACHE=UK&amp;PAGE=products11" rel="nofollow">zplane.development: élastique SDKs</a></li>
+<li><a href="http://www.bdti.com/faq/dsp_faq.htm" class="external free" title="http://www.bdti.com/faq/dsp_faq.htm" rel="nofollow">http://www.bdti.com/faq/dsp_faq.htm</a> - comp.dsp FAQ</li>
+<li><a href="http://www.surina.net/soundtouch" class="external text" title="http://www.surina.net/soundtouch" rel="nofollow">SoundTouch library</a> - An open-source implementation of time/pitch scaling algorithms.</li>
+<li><a href="http://keizai.yokkaichi-u.ac.jp/~ikeda/research/picola.html" class="external text" title="http://keizai.yokkaichi-u.ac.jp/~ikeda/research/picola.html" rel="nofollow">PICOLA and TDHS</a></li>
+<li><a href="http://sourceforge.net/projects/wavmasher" class="external text" title="http://sourceforge.net/projects/wavmasher" rel="nofollow">wavMasher</a> - Time and pitch scaling software</li>
+<li><a href="http://hypermammut.sourceforge.net/paulstretch/" class="external text" title="http://hypermammut.sourceforge.net/paulstretch/" rel="nofollow">PaulStretch</a> A program that works for extreme time stretching (like 50x), only</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1820 bytes
+Post-expand include size: 731 bytes
+Template argument size: 285 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/d/Audio_timescale-pitch_modification.html">http://en.wikipedia.org../../../a/u/d/Audio_timescale-pitch_modification.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_unsourced_statements_since_February_2007_f7dc.html" title="Category:Articles with unsourced statements since February 2007">Articles with unsourced statements since February 2007</a></span> | <span dir='ltr'><a href="../../../a/l/l/Category%7EAll_articles_with_unsourced_statements_2f67.html" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="../../../a/u/d/Category%7EAudio_engineering_b119.html" title="Category:Audio engineering">Audio engineering</a></span> | <span dir='ltr'><a href="../../../d/i/g/Category%7EDigital_signal_processing_a269.html" title="Category:Digital signal processing">Digital signal processing</a></span> | <span dir='ltr'><a href="../../../s/o/u/Category%7ESound_effects_4971.html" title="Category:Sound effects">Sound effects</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/u/d/Audio_timescale-pitch_modification.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/u/d/Talk%7EAudio_timescale-pitch_modification_1ea4.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Audio_timescale-pitch_modification">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/p/i/t/Pitch_shifter.html">Deutsch</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:37, 7 February 2007 by Wikipedia user <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>. Based on work by Wikipedia user(s) <a href="../../../d/a/m/User%7EDamian_Yerrick_2a18.html" title="User:Damian Yerrick">Damian Yerrick</a>, <a href="../../../j/2E/s/User%7EJ.sweeton%40wnri.com_fe56.html" title="User:J.sweeton@wnri.com">J.sweeton@wnri.com</a>, <a href="../../../d/l/o/User%7EDlohcierekim_440b.html" title="User:Dlohcierekim">Dlohcierekim</a>, Manonoc, <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a>, <a href="../../../r/o/o/User%7ERootless_7fdd.html" title="User:Rootless">Rootless</a>, <a href="../../../s/i/m/User%7ESimishag_daa2.html" title="User:Simishag">Simishag</a>, <a href="../../../c/e/y/User%7ECeyockey_fb55.html" title="User:Ceyockey">Ceyockey</a>, Neuronaut, <a href="../../../w/a/l/User%7EWalden_6142.html" title="User:Walden">Walden</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../s/t/e/User%7EStevenj_40e5.html" title="User:Stevenj">Stevenj</a>, <a href="../../../m/i/n/User%7EMinesweeper_5696.html" title="User:Minesweeper">Minesweeper</a>, <a href="../../../c/a/t/User%7ECatherineMunro_0200.html" title="User:CatherineMunro">CatherineMunro</a>, <a href="../../../a/n/d/User%7EAndre_Engels_23d0.html" title="User:Andre Engels">Andre Engels</a> and <a href="../../../t/b/a/User%7ETbackstr_6d2e.html" title="User:Tbackstr">Tbackstr</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

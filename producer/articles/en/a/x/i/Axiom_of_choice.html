@@ -1,0 +1,467 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Axiom of choice,A. K. Dewdney,Additive group,Adjoint functors,Algebra,Algebraic closure,April Fools' Day,Axiom,Axiom of Choice (band),Axiom of constructibility,Axiom of countable choice" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Axiom of choice - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Axiom of choice</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <div class="dablink"><i>This article is about a mathematical concept. For the band named after it, see <a href="../../../a/x/i/Axiom_of_Choice_%28band%29_9233.html" title="Axiom of Choice (band)">Axiom of Choice (band)</a>.</i></div>
+<p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, the <b>axiom of choice</b>, or <b>AC</b>, is an <a href="../../../a/x/i/Axiom.html" title="Axiom">axiom</a> of <a href="../../../s/e/t/Set_theory.html" title="Set theory">set theory</a>. Intuitively speaking, AC says that given a collection of bins each containing at least one object, exactly one object from each bin can be picked and gathered in another bin—even if there are <a href="../../../i/n/f/Infinite_set.html" title="Infinite set">infinitely</a> many bins and there is no "rule" for which object to pick from each. AC is not required if the number of bins is finite or if such a selection "rule" is available.</p>
+<p>It was formulated in 1904 by <a href="../../../e/r/n/Ernst_Zermelo_6d7d.html" title="Ernst Zermelo">Ernst Zermelo</a>.<sup id="_ref-Zermelo.2C_1904_0" class="reference"><a href="#_note-Zermelo.2C_1904" title="">[1]</a></sup> While it was originally controversial, it is now used without reservation by most mathematicians. However, there are schools of mathematical thought, primarily within set theory, that either reject the axiom of choice or investigate consequences of axioms inconsistent with AC.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Statement"><span class="tocnumber">1</span> <span class="toctext">Statement</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Variants"><span class="tocnumber">1.1</span> <span class="toctext">Variants</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">2</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#Independence"><span class="tocnumber">3</span> <span class="toctext">Independence</span></a></li>
+<li class="toclevel-1"><a href="#Stronger_axioms"><span class="tocnumber">4</span> <span class="toctext">Stronger axioms</span></a></li>
+<li class="toclevel-1"><a href="#Equivalents"><span class="tocnumber">5</span> <span class="toctext">Equivalents</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Category_theory"><span class="tocnumber">5.1</span> <span class="toctext">Category theory</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Weaker_forms"><span class="tocnumber">6</span> <span class="toctext">Weaker forms</span></a></li>
+<li class="toclevel-1"><a href="#Results_requiring_AC_.28or_weaker_forms.29_but_weaker_than_it"><span class="tocnumber">7</span> <span class="toctext">Results requiring AC (or weaker forms) but weaker than it</span></a></li>
+<li class="toclevel-1"><a href="#Stronger_forms_of_.C2.ACAC"><span class="tocnumber">8</span> <span class="toctext">Stronger forms of ¬AC</span></a></li>
+<li class="toclevel-1"><a href="#Results_requiring_.C2.ACAC"><span class="tocnumber">9</span> <span class="toctext">Results requiring ¬AC</span></a></li>
+<li class="toclevel-1"><a href="#Law_of_the_excluded_middle"><span class="tocnumber">10</span> <span class="toctext">Law of the excluded middle</span></a></li>
+<li class="toclevel-1"><a href="#Quotes"><span class="tocnumber">11</span> <span class="toctext">Quotes</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">12</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">13</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Statement" id="Statement"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Statement">edit</a>]</span> <span class="mw-headline">Statement</span></h2>
+<p>The axiom of choice states:</p>
+<dl>
+<dd>Let <i>X</i> be a <a href="../../../s/e/t/Set.html" title="Set">set</a> of <a href="../../../n/o/n/Non-empty_set.html" title="Non-empty set">non-empty sets</a>. Then we can choose a single member from each set in <i>X</i>.</dd>
+</dl>
+<p>A <a href="../../../c/h/o/Choice_function.html" title="Choice function">choice function</a> is a function <i>f</i> on a collection of sets <i>X</i> such that for every set <i>s</i> in <i>X</i>, <i>f</i>(<i>s</i>) is an element of <i>s</i>. With this concept, the axiom can be stated:</p>
+<dl>
+<dd>For any set of non-empty sets, <i>X</i>, there exists a choice function <i>f</i> defined on <i>X</i>.</dd>
+</dl>
+<p>Or alternatively:</p>
+<dl>
+<dd>An arbitrary <a href="../../../c/a/r/Cartesian_product.html" title="Cartesian product">Cartesian product</a> of non-empty sets is non-empty.</dd>
+</dl>
+<p>Or most compactly:</p>
+<dl>
+<dd>Every set of nonempty sets has a choice function.</dd>
+</dl>
+<p>This immediately permits a compact formulation of the negation of the axiom of choice:</p>
+<dl>
+<dd>There exists a set of nonempty sets which has no choice function.</dd>
+</dl>
+<p><a name="Variants" id="Variants"></a></p>
+<h3><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Variants">edit</a>]</span> <span class="mw-headline">Variants</span></h3>
+<p>A second version of the axiom of choice states:</p>
+<dl>
+<dd>Given any set of <a href="../../../p/a/i/Pairwise_disjoint.html" title="Pairwise disjoint">pairwise disjoint</a> non-empty sets, there exists at least one set that contains exactly one element in common with each of the non-empty sets.</dd>
+</dl>
+<p>Some authors use a third version which effectively says:</p>
+<dl>
+<dd>For any set A, the <a href="../../../p/o/w/Powerset.html" title="Powerset">powerset</a> of A (minus the empty set) has a choice function.</dd>
+</dl>
+<p>Authors who use this formulation often speak of the <i>choice function on A</i>, but be advised that this is a slightly different notion of choice function. Its domain is the powerset of <i>A</i> (minus the empty set), and so makes sense for any set <i>A</i>, whereas with the definition used elsewhere in this article, the domain of a choice function on a <i>collection of sets</i> is that collection, and so only makes sense for sets of sets. With this alternate notion of choice function, the axiom of choice can be compactly stated as</p>
+<dl>
+<dd>Every set has a choice function.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[2]</a></sup></dd>
+</dl>
+<p>which is equivalent to</p>
+<dl>
+<dd>For any set A there is a function f such that for any non-empty subset B of A, <img class='tex' src="../../../math/2/7/1/2718d00be76bbeb83545796fda3cfb96.png" alt="f(B)\in B" /></dd>
+</dl>
+<p>and the negation of the axiom of choice is expressed thus:</p>
+<dl>
+<dd>There is a set A such that for all functions f (on the set of non-empty subsets of A), there is a B such that <img class='tex' src="../../../math/2/7/f/27fead3839c3a16e300949e91057e5de.png" alt="f(B) \notin B" />.</dd>
+</dl>
+<p><a name="Usage" id="Usage"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Usage">edit</a>]</span> <span class="mw-headline">Usage</span></h2>
+<p>Until the late 19th century, the axiom of choice was often used implicitly. For example, after having established that the set <i>X</i> contains only non-empty sets, a mathematician might have said "let <i>F(s)</i> be one of the members of <i>s</i> for all <i>s</i> in <i>X</i>." In general, it is impossible to prove that <i>F</i> exists without the axiom of choice, but this seems to have gone unnoticed until Zermelo.</p>
+<p>Not every situation requires the axiom of choice. For finite sets <i>X</i>, the axiom of choice follows from the other axioms of set theory. In that case it is equivalent to saying that if we have several (a finite number of) boxes, each containing at least one item, then we can choose exactly one item from each box. Clearly we can do this: We start at the first box, choose an item; go to the second box, choose an item; and so on. There are only finitely many boxes, so eventually our choice procedure comes to an end. The result is an explicit choice function: a function that takes the first box to the first element we chose, the second box to the second element we chose, and so on. (A formal proof for all finite sets would use the principle of <a href="../../../m/a/t/Mathematical_induction.html" title="Mathematical induction">mathematical induction</a>.)</p>
+<p>For certain <a href="../../../i/n/f/Infinite_set.html" title="Infinite set">infinite sets</a> <i>X</i>, it is also possible to avoid the axiom of choice. For example, suppose that the elements of <i>X</i> are sets of natural numbers. Every nonempty set of natural numbers has a smallest element, so to specify our choice function we can simply say that it takes each set to the least element of that set. This gives us a definite choice of an element from each set and we can write down an explicit expression that tells us what value our choice function takes. Any time it is possible to specify such an explicit choice, the axiom of choice is unnecessary.</p>
+<p>The difficulty appears when there is no natural choice of elements from each set. If we cannot make explicit choices, how do we know that our set exists? For example, suppose that <i>X</i> is the set of all non-empty subsets of the <a href="../../../r/e/a/Real_number.html" title="Real number">real numbers</a>. First we might try to proceed as if <i>X</i> were finite. If we try to choose an element from each set, then, because <i>X</i> is infinite, our choice procedure will never come to an end, and consequently, we will never be able to produce a choice function for all of <i>X</i>. So that won't work. Next we might try the trick of specifying the least element from each set. But some subsets of the real numbers don't have least elements. For example, the open interval (0,1) does not have a least element: If <i>x</i> is in (0,1), then so is <i>x</i>/2, and <i>x</i>/2 is always strictly smaller than <i>x</i>. So taking least elements doesn't work, either.</p>
+<p>The reason that we are able to choose least elements from subsets of the natural numbers is the fact that the natural numbers come pre-equipped with a <a href="../../../w/e/l/Well-order.html" title="Well-order">well-ordering</a>: Every subset of the natural numbers has a unique least element under the natural ordering. Perhaps if we were clever we might say, "Even though the usual ordering of the real numbers does not work, it may be possible to find a different ordering of the real numbers which is a well-ordering. Then our choice function can choose the least element of every set under our unusual ordering." The problem then becomes that of constructing a well-ordering, which turns out to require the axiom of choice for its existence; every set can be well-ordered if and only if the axiom of choice is true.</p>
+<p>A proof requiring the axiom of choice is always <a href="../../../n/o/n/Nonconstructive_proof.html" title="Nonconstructive proof">nonconstructive</a>: even if the proof produces an object then it is impossible to say exactly what that object is. Consequently, while the axiom of choice asserts that there is a well-ordering of the real numbers, it does not give us an example of one. Yet the reason why we chose above to well-order the real numbers was so that for each set in <i>X</i> we could explicitly choose an element of that set. If we cannot write down the well-ordering we are using, then our choice is not very explicit. This is one of the reasons why some mathematicians dislike the axiom of choice. For example, <a href="../../../c/o/n/Constructivism_%28mathematics%29.html" title="Constructivism (mathematics)">constructivists</a> posit that all existence proofs should be totally explicit; it should be possible to construct anything that exists. They reject the axiom of choice because it asserts the existence of an object without telling what it is. On the other hand, the mere fact that one has used the axiom of choice to prove the existence of a set does not mean that it cannot be constructed by another method.</p>
+<p><a name="Independence" id="Independence"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Independence">edit</a>]</span> <span class="mw-headline">Independence</span></h2>
+<p>By work of <a href="../../../k/u/r/Kurt_G%C3%B6del_20cb.html" title="Kurt Gödel">Kurt Gödel</a> and <a href="../../../p/a/u/Paul_Cohen_%28mathematician%29_1fd8.html" title="Paul Cohen (mathematician)">Paul Cohen</a>, the axiom of choice is <a href="../../../l/o/g/Logically_independent.html" title="Logically independent">logically independent</a> of the other axioms of <a href="../../../z/e/r/Zermelo-Fraenkel_set_theory_3cdc.html" title="Zermelo-Fraenkel set theory">Zermelo-Fraenkel set theory</a> (ZF). This means that neither it nor its negation can be proven to be true in ZF. Consequently, assuming the axiom of choice, or its negation, will never lead to a contradiction that could not be obtained without that assumption.</p>
+<p>So the decision whether or not it is appropriate to make use of the axiom of choice in a proof cannot be made by appeal to other axioms of set theory. The decision must be made on other grounds.</p>
+<p>One argument given in favor of using the axiom of choice is that it is convenient to use it: using it cannot hurt (cannot result in contradiction) and makes it possible to prove some propositions that otherwise could not be proved.</p>
+<p>The axiom of choice is not the only significant statement which is independent of ZF. For example, the <a href="../../../g/e/n/Generalized_continuum_hypothesis.html" title="Generalized continuum hypothesis">generalized continuum hypothesis</a> (GCH) is not only independent of ZF, but also independent of ZF plus the axiom of choice (ZFC). However, ZF plus GCH implies AC, making GCH a strictly stronger claim than AC, even though they are both independent of ZF.</p>
+<p>One reason that some mathematicians dislike the axiom of choice is that it implies the existence of some bizarre counter-intuitive objects. An example of this is the <a href="../../../b/a/n/Banach%E2%80%93Tarski_paradox_78ec.html" title="Banach–Tarski paradox">Banach–Tarski paradox</a> which says in effect that it is possible to "carve up" the 3-dimensional solid unit ball into finitely many pieces and, using only rotation and translation, reassemble the pieces into two balls each with the same volume as the original. Note that the proof, like all proofs involving the axiom of choice, is an existence proof only: it does not tell us how to carve up the unit sphere to make this happen, it simply tells us that it can be done.</p>
+<p>On the other hand, the <a href="../../../n/e/g/Negation.html" title="Negation">negation</a> of the axiom of choice is also bizarre. For example, the statement that for any two sets <i>S</i> and <i>T</i>, the <a href="../../../c/a/r/Cardinality.html" title="Cardinality">cardinality</a> of <i>S</i> is less than or equal to the cardinality of <i>T</i> or the cardinality of <i>T</i> is less than or equal to the cardinality of <i>S</i> is equivalent to the axiom of choice. Put differently, if the axiom of choice is false, then there are sets <i>S</i> and <i>T</i> of incomparable size: neither can be mapped in a one-to-one fashion onto a subset of the other.</p>
+<p>A third possibility is to prove theorems using neither the axiom of choice nor its negation, a tactic preferred in constructive mathematics. Such statements will be true in any <a href="../../../m/o/d/Model_theory.html" title="Model theory">model</a> of Zermelo–Fraenkel set theory, regardless of the truth or falsity of the axiom of choice in that particular model. This renders any claim that relies on either the axiom of choice or its negation undecidable. For example, under such an assumption, the Banach–Tarski paradox is neither true nor false: It is impossible to construct a decomposition of the unit ball which can be reassembled into two unit balls, and it is also impossible to prove that it can't be done. However, the Banach–Tarski paradox can be rephrased as a statement about models of ZF by saying, "In any model of ZF in which AC is true, the Banach–Tarski paradox is true." Similarly, all the statements listed below which require choice or some weaker version thereof for their proof are undecidable in ZF, but since each is provable in any model of ZFC, there are models of ZF in which each statement is true.</p>
+<p><a name="Stronger_axioms" id="Stronger_axioms"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Stronger axioms">edit</a>]</span> <span class="mw-headline">Stronger axioms</span></h2>
+<p>The <a href="../../../a/x/i/Axiom_of_constructibility.html" title="Axiom of constructibility">axiom of constructibility</a> and the <a href="../../../g/e/n/Generalized_continuum_hypothesis.html" title="Generalized continuum hypothesis">generalized continuum hypothesis</a> both imply the axiom of choice, but are strictly stronger than it.</p>
+<p>In class theories such as <a href="../../../v/o/n/Von_Neumann%E2%80%93Bernays%E2%80%93G%C3%B6del_set_theory_ce2d.html" title="Von Neumann–Bernays–Gödel set theory">Von Neumann–Bernays–Gödel set theory</a> and <a href="../../../m/o/r/Morse%E2%80%93Kelley_set_theory_07ab.html" title="Morse–Kelley set theory">Morse–Kelley set theory</a>, there is a possible axiom called the <a href="../../../a/x/i/Axiom_of_global_choice.html" title="Axiom of global choice">axiom of global choice</a> which is stronger than the axiom of choice for sets because it also applies to proper classes. And the axiom of global choice follows from the <a href="../../../a/x/i/Axiom_of_limitation_of_size.html" title="Axiom of limitation of size">axiom of limitation of size</a>.</p>
+<p><a name="Equivalents" id="Equivalents"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Equivalents">edit</a>]</span> <span class="mw-headline">Equivalents</span></h2>
+<p>There are a remarkable number of important statements that, assuming the axioms of <a href="../../../z/e/r/Zermelo-Fraenkel_set_theory_3cdc.html" title="Zermelo-Fraenkel set theory">ZF</a> but neither AC nor ¬AC, are equivalent to the axiom of choice. The most important among them are <a href="../../../z/o/r/Zorn%27s_lemma.html" title="Zorn's lemma">Zorn's lemma</a> and the <a href="../../../w/e/l/Well-ordering_theorem.html" title="Well-ordering theorem">well-ordering theorem</a>. In fact, Zermelo initially introduced the axiom of choice in order to formalize his proof of the well-ordering principle.</p>
+<ul>
+<li><a href="../../../s/e/t/Set_theory.html" title="Set theory">Set theory</a>
+<ul>
+<li><a href="../../../w/e/l/Well-ordering_theorem.html" title="Well-ordering theorem">Well-ordering theorem</a>: Every set can be well-ordered. Consequently, every cardinal has an <a href="../../../i/n/i/Initial_ordinal.html" title="Initial ordinal">initial ordinal</a>.</li>
+<li>If the set <i>A</i> is infinite, then <i>A</i> and <i>A</i>×<i>A</i> have the same <a href="../../../c/a/r/Cardinality.html" title="Cardinality">cardinality</a>.</li>
+<li><a href="../../../t/r/i/Trichotomy.html" title="Trichotomy">Trichotomy</a>: If two sets are given, then either they have the same cardinality, or one has a smaller cardinality than the other.</li>
+<li>The <a href="../../../c/a/r/Cartesian_product.html" title="Cartesian product">Cartesian product</a> of any nonempty family of nonempty sets is nonempty.</li>
+<li><a href="../../../k/%C3%B6/n/K%C3%B6nig%27s_theorem_%28set_theory%29.html" title="König's theorem (set theory)">König's theorem</a>: Colloquially, the sum of a sequence of cardinals is strictly less than the product of a sequence of larger cardinals. (The reason for the term "colloquially", is that the sum or product of a "sequence" of cardinals cannot be defined without some aspect of the axiom of choice.)</li>
+<li>Every <a href="../../../s/u/r/Surjective_function.html" title="Surjective function">surjective function</a> has a right-inverse.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="../../../o/r/d/Order_theory.html" title="Order theory">Order theory</a>
+<ul>
+<li><a href="../../../z/o/r/Zorn%27s_lemma.html" title="Zorn's lemma">Zorn's lemma</a>: Every non-empty partially ordered set in which every chain (i.e. totally ordered subset) has an upper bound contains at least one maximal element.</li>
+<li><a href="../../../h/a/u/Hausdorff_maximal_principle.html" title="Hausdorff maximal principle">Hausdorff maximal principle</a>: In any partially ordered set, every totally ordered subset is contained in a maximal totally ordered subset.</li>
+<li>Restricted <a href="../../../h/a/u/Hausdorff_maximal_principle.html" title="Hausdorff maximal principle">Hausdorff maximal principle</a>: In any partially ordered set there exists a maximal totally ordered subset.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="../../../a/l/g/Algebra.html" title="Algebra">Algebra</a>
+<ul>
+<li>Every <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector space</a> has a <a href="../../../b/a/s/Basis_%28linear_algebra%29.html" title="Basis (linear algebra)">basis</a>.</li>
+<li>Every unital <a href="../../../r/i/n/Ring_%28mathematics%29.html" title="Ring (mathematics)">ring</a> other than the trivial ring contains a <a href="../../../m/a/x/Maximal_ideal.html" title="Maximal ideal">maximal ideal</a>.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="../../../g/e/n/General_topology.html" title="General topology">General topology</a>
+<ul>
+<li><a href="../../../t/y/c/Tychonoff%27s_theorem.html" title="Tychonoff's theorem">Tychonoff's theorem</a> stating that every <a href="../../../p/r/o/Product_topology.html" title="Product topology">product</a> of <a href="../../../c/o/m/Compact_space.html" title="Compact space">compact</a> <a href="../../../t/o/p/Topological_space.html" title="Topological space">topological spaces</a> is compact.</li>
+<li>In the product topology, the <a href="../../../c/l/o/Closure_%28topology%29.html" title="Closure (topology)">closure</a> of a product of subsets is equal to the product of the closures.</li>
+<li>Any product of <a href="../../../c/o/m/Complete_space.html" title="Complete space">complete</a> <a href="../../../u/n/i/Uniform_space.html" title="Uniform space">uniform spaces</a> is complete.</li>
+</ul>
+</li>
+</ul>
+<p><a name="Category_theory" id="Category_theory"></a></p>
+<h3><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Category theory">edit</a>]</span> <span class="mw-headline">Category theory</span></h3>
+<p>There are several results in <a href="../../../c/a/t/Category_theory.html" title="Category theory">category theory</a> which invoke the axiom of choice for their proof. These results might be weaker than, equivalent to, or stronger than the axiom of choice, depending on the strength of the technical foundations. For example, if one defines categories in terms of sets, that is, as sets of objects and morphisms (usually called a <a href="../../../s/m/a/Small_category.html" title="Small category">small category</a>), or even locally small categories, whose hom-objects are sets, then there are sets which are not contained in the <a href="../../../c/a/t/Category_of_sets.html" title="Category of sets">category of sets</a>, and so it is difficult for a category-theoretic formulation to apply to all sets. On the other hand, other foundational descriptions of category theory are considerably stronger, and an identical category-theoretic statement of choice may be stronger than the standard formulation, à la class theory, mentioned above.</p>
+<p>Examples of category-theoretic statements which require choice include:</p>
+<ul>
+<li>Every small <a href="../../../c/a/t/Category_%28category_theory%29.html" title="Category (category theory)">category</a> has a <a href="../../../s/k/e/Skeleton_%28category_theory%29.html" title="Skeleton (category theory)">skeleton</a>.</li>
+<li>If two small categories are weakly equivalent, then they are <a href="../../../e/q/u/Equivalence_of_categories.html" title="Equivalence of categories">equivalent</a>.</li>
+<li>Every continuous functor on a small-complete category which satisfies the appropriate solution set condition has a <a href="../../../a/d/j/Adjoint_functors.html" title="Adjoint functors">left-adjoint</a> (the Freyd adjoint functor theorem).</li>
+</ul>
+<p><a name="Weaker_forms" id="Weaker_forms"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Weaker forms">edit</a>]</span> <span class="mw-headline">Weaker forms</span></h2>
+<p>There are several weaker statements which are not equivalent to the axiom of choice, but which are closely related. A simple one is the <a href="../../../a/x/i/Axiom_of_countable_choice.html" title="Axiom of countable choice">axiom of countable choice</a> (AC<sub>ω</sub> or CC), which states that a choice function exists for any countable set <i>X</i>. This usually suffices when trying to make statements about the real numbers, for example, because the rational numbers, which are countable, form a <a href="../../../d/e/n/Dense_set.html" title="Dense set">dense</a> subset of the reals. See also the <a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Boolean prime ideal theorem">Boolean prime ideal theorem</a>, the <a href="../../../a/x/i/Axiom_of_dependent_choice.html" title="Axiom of dependent choice">axiom of dependent choice</a> (DC), and the <a href="../../../u/n/i/Uniformization_%28set_theory%29.html" title="Uniformization (set theory)">axiom of uniformization</a>.</p>
+<p><a name="Results_requiring_AC_.28or_weaker_forms.29_but_weaker_than_it" id="Results_requiring_AC_.28or_weaker_forms.29_but_weaker_than_it"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Results requiring AC (or weaker forms) but weaker than it">edit</a>]</span> <span class="mw-headline">Results requiring AC (or weaker forms) but weaker than it</span></h2>
+<p>One of the most interesting aspects of the axiom of choice is the large number of places in mathematics that it shows up. Here are some statements that require the axiom of choice in the sense that they are not provable from ZF but are provable from ZFC (ZF plus AC). Equivalently, these statements are true in all models of ZFC but false in some models of ZF.</p>
+<ul>
+<li><a href="../../../s/e/t/Set_theory.html" title="Set theory">Set theory</a>
+<ul>
+<li>Any <a href="../../../u/n/i/Union_%28set_theory%29.html" title="Union (set theory)">union</a> of <a href="../../../c/o/u/Countable.html" title="Countable">countably many</a> countable sets is itself countable.</li>
+<li>If the set <i>A</i> is <a href="../../../i/n/f/Infinite.html" title="Infinite">infinite</a>, then there exists an <a href="../../../i/n/j/Injective_function.html" title="Injective function">injection</a> from the <a href="../../../n/a/t/Natural_number.html" title="Natural number">natural numbers</a> <b>N</b> to <i>A</i> (see <a href="../../../d/e/d/Dedekind_infinite.html" title="Dedekind infinite">Dedekind infinite</a>).</li>
+<li>Every infinite <a href="../../../d/e/t/Determinacy.html#Basic_notions" title="Determinacy">game</a> <span class="texhtml"><i>G</i><sub><i>S</i></sub></span> in which <span class="texhtml"><i>S</i></span> is a <a href="../../../b/o/r/Borel_set.html" title="Borel set">Borel</a> subset of <a href="../../../b/a/i/Baire_space_%28set_theory%29.html" title="Baire space (set theory)">Baire space</a> is <a href="../../../d/e/t/Determinacy.html#Basic_notions" title="Determinacy">determined</a>.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="../../../m/e/a/Measure_theory.html" title="Measure theory">Measure theory</a>
+<ul>
+<li>The <a href="../../../v/i/t/Vitali_set.html" title="Vitali set">Vitali theorem</a> on the existence of <a href="../../../n/o/n/Non-measurable_set.html" title="Non-measurable set">non-measurable sets</a> which states that there is a subset of the <a href="../../../r/e/a/Real_numbers.html" title="Real numbers">real numbers</a> that is not <a href="../../../l/e/b/Lebesgue_measurable.html" title="Lebesgue measurable">Lebesgue measurable</a>.</li>
+<li>The <a href="../../../h/a/u/Hausdorff_paradox.html" title="Hausdorff paradox">Hausdorff paradox</a>.</li>
+<li>The <a href="../../../b/a/n/Banach%E2%80%93Tarski_paradox_78ec.html" title="Banach–Tarski paradox">Banach–Tarski paradox</a>.</li>
+<li>The <a href="../../../l/e/b/Lebesgue_measure.html" title="Lebesgue measure">Lebesgue measure</a> of a countable <a href="../../../d/i/s/Disjoint_union.html" title="Disjoint union">disjoint union</a> of measurable sets is equal to the sum of the measures of the individual sets.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="../../../a/l/g/Algebra.html" title="Algebra">Algebra</a>
+<ul>
+<li>Every <a href="../../../f/i/e/Field_%28mathematics%29.html" title="Field (mathematics)">field</a> has an <a href="../../../a/l/g/Algebraic_closure.html" title="Algebraic closure">algebraic closure</a>.</li>
+<li>Every <a href="../../../f/i/e/Field_extension.html" title="Field extension">field extension</a> has a <a href="../../../t/r/a/Transcendence_basis.html" title="Transcendence basis">transcendence basis</a>.</li>
+<li><a href="../../../s/t/o/Stone%27s_representation_theorem_for_Boolean_algebras_58f8.html" title="Stone's representation theorem for Boolean algebras">Stone's representation theorem for Boolean algebras</a> needs the <a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Boolean prime ideal theorem">Boolean prime ideal theorem</a>.</li>
+<li>The <a href="../../../n/i/e/Nielsen-Schreier_theorem_d544.html" title="Nielsen-Schreier theorem">Nielsen-Schreier theorem</a>, that every subgroup of a free group is free.</li>
+<li>The <a href="../../../a/d/d/Additive_group.html" title="Additive group">additive groups</a> of <b><a href="../../../r/e/a/Real_numbers.html" title="Real numbers">R</a></b> and <b><a href="../../../c/o/m/Complex_numbers.html" title="Complex numbers">C</a></b> are isomorphic. <a href="http://www.cs.nyu.edu/pipermail/fom/2006-February/009959.html" class="external autonumber" title="http://www.cs.nyu.edu/pipermail/fom/2006-February/009959.html" rel="nofollow">[1]</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="../../../f/u/n/Functional_analysis.html" title="Functional analysis">Functional analysis</a>
+<ul>
+<li>The <a href="../../../h/a/h/Hahn-Banach_theorem_5059.html" title="Hahn-Banach theorem">Hahn-Banach theorem</a> in <a href="../../../f/u/n/Functional_analysis.html" title="Functional analysis">functional analysis</a>, allowing the extension of <a href="../../../l/i/n/Linear_map.html" title="Linear map">linear functionals</a></li>
+<li>The theorem that every <a href="../../../h/i/l/Hilbert_space.html" title="Hilbert space">Hilbert space</a> has an orthonormal basis.</li>
+<li>The <a href="../../../b/a/n/Banach-Alaoglu_theorem_8b96.html" title="Banach-Alaoglu theorem">Banach-Alaoglu theorem</a> about <a href="../../../c/o/m/Compactness.html" title="Compactness">compactness</a> of sets of functionals.</li>
+<li>The <a href="../../../b/a/i/Baire_category_theorem.html" title="Baire category theorem">Baire category theorem</a> about <a href="../../../c/o/m/Complete_space.html" title="Complete space">complete</a> <a href="../../../m/e/t/Metric_space.html" title="Metric space">metric spaces</a>, and its consequences, such as the <a href="../../../o/p/e/Open_mapping_theorem.html" title="Open mapping theorem">open mapping theorem</a> and the <a href="../../../c/l/o/Closed_graph_theorem.html" title="Closed graph theorem">closed graph theorem</a>.</li>
+<li>On every infinite-dimensional topological vector space there is a <a href="../../../d/i/s/Discontinuous_linear_map.html" title="Discontinuous linear map">discontinuous linear map</a>.</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><a href="../../../g/e/n/General_topology.html" title="General topology">General topology</a>
+<ul>
+<li>A uniform space is compact if and only if it is complete and totally bounded.</li>
+<li>Every <a href="../../../t/y/c/Tychonoff_space.html" title="Tychonoff space">Tychonoff space</a> has a <a href="../../../s/t/o/Stone%E2%80%93%C4%8Cech_compactification_5537.html" title="Stone–Čech compactification">Stone–Čech compactification</a>.</li>
+</ul>
+</li>
+</ul>
+<p><a name="Stronger_forms_of_.C2.ACAC" id="Stronger_forms_of_.C2.ACAC"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Stronger forms of ¬AC">edit</a>]</span> <span class="mw-headline">Stronger forms of ¬AC</span></h2>
+<p>Now, consider stronger forms of the negation of AC. For example, if we abbreviate by BP the claim that every set of real numbers has the <a href="../../../p/r/o/Property_of_Baire_a113.html" title="Property of Baire">property of Baire</a>, then BP is stronger than ¬AC, which asserts the nonexistence of any choice function on perhaps only a single set of nonempty sets. Note that strengthened negations may be compatible with weakened forms of AC. For example, ZF + DC + BP is consistent, if ZF is.</p>
+<p>It is also consistent with ZF + DC that every set of reals is <a href="../../../l/e/b/Lebesgue_measurable.html" title="Lebesgue measurable">Lebesgue measurable</a>; however, this consistency result, due to <a href="../../../r/o/b/Robert_M._Solovay_84b3.html" title="Robert M. Solovay">Robert M. Solovay</a>, cannot be proved in ZFC itself, but requires a mild <a href="../../../l/a/r/Large_cardinal.html" title="Large cardinal">large cardinal</a> assumption (the existence of an <a href="../../../i/n/a/Inaccessible_cardinal.html" title="Inaccessible cardinal">inaccessible cardinal</a>). The much stronger <a href="../../../a/x/i/Axiom_of_determinacy.html" title="Axiom of determinacy">axiom of determinacy</a>, or AD, implies that every set of reals is Lebesgue measurable, has the property of Baire, and has the <a href="../../../p/e/r/Perfect_set_property.html" title="Perfect set property">perfect set property</a> (all three of these results are refuted by AC itself). ZF + DC + AD is consistent provided that a sufficiently strong large cardinal axiom is consistent (the existence of infinitely many <a href="../../../w/o/o/Woodin_cardinal.html" title="Woodin cardinal">Woodin cardinals</a>).</p>
+<p><a name="Results_requiring_.C2.ACAC" id="Results_requiring_.C2.ACAC"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Results requiring ¬AC">edit</a>]</span> <span class="mw-headline">Results requiring ¬AC</span></h2>
+<p>There are models of Zermelo-Fraenkel set theory in which the axiom of choice is false. We will abbreviate "Zermelo-Fraenkel set theory plus the negation of the axiom of choice" by ZF¬C. For certain models of ZF¬C, it is possible to prove the negation of some standard facts. Note that any model of ZF¬C is also a model of ZF, so for each of the following statements, there exists a model of ZF in which that statement is true.</p>
+<ul>
+<li>There exists a model of ZF¬C in which there is a function <i>f</i> from the real numbers to the real numbers such that <i>f</i> is not continuous at <i>a</i>, but for any sequence {<i>x<sub>n</sub></i>} converging to <i>a</i>, lim<sub><i>n</i></sub> f(<i>x<sub>n</sub></i>)=f(a).</li>
+<li>There exists a model of ZF¬C in which real numbers are a countable union of countable sets.</li>
+<li>There exists a model of ZF¬C in which there is a field with no algebraic closure.</li>
+<li>In all models of ZF¬C there is a vector space with no basis.</li>
+<li>There exists a model of ZF¬C in which there is a vector space with two bases of different cardinalities.</li>
+</ul>
+<p>For proofs, see Thomas Jech, <i>The Axiom of Choice</i>, American Elsevier Pub. Co., New York, 1973.</p>
+<ul>
+<li>There exists a model of ZF¬C in which every set in R<sup><i>n</i></sup> is <a href="../../../m/e/a/Measurable.html" title="Measurable">measurable</a>. Thus it is possible to exclude counterintuitive results like the <a href="../../../b/a/n/Banach%E2%80%93Tarski_paradox_78ec.html" title="Banach–Tarski paradox">Banach–Tarski paradox</a> which are provable in ZFC. Furthermore, this is possible whilst assuming the <a href="../../../a/x/i/Axiom_of_dependent_choice.html" title="Axiom of dependent choice">Axiom of dependent choice</a>, which is weaker than AC but sufficient to develop most of <a href="../../../r/e/a/Real_analysis.html" title="Real analysis">real analysis</a>.</li>
+<li>In all models of ZF¬C, the <a href="../../../c/o/n/Continuum_hypothesis.html" title="Continuum hypothesis">generalized continuum hypothesis</a> does not hold.</li>
+</ul>
+<p><a name="Law_of_the_excluded_middle" id="Law_of_the_excluded_middle"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Law of the excluded middle">edit</a>]</span> <span class="mw-headline">Law of the excluded middle</span></h2>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../l/a/w/Law_of_the_excluded_middle.html" title="Law of the excluded middle">Law of the excluded middle</a></i></div>
+</dd>
+</dl>
+<p>The assumption of the axiom of choice is also sufficient to derive the law of the excluded middle in some <a href="../../../c/o/n/Constructivism_%28mathematics%29.html" title="Constructivism (mathematics)">constructive</a> systems (where the law is not assumed). For any proposition <img class='tex' src="../../../math/8/a/1/8a140337171d690f8dd0eebd94448bf0.png" alt="P\," />, we can <a href="../../../s/e/t/Set-builder_notation.html" title="Set-builder notation">build the sets</a></p>
+<p><img class='tex' src="../../../math/2/d/b/2dbe73dd464c562eb9369275cf8f1a88.png" alt="U = \{x \in \{0, 1\}&#160;: (x = 0) \vee P\}, V = \{x \in \{0, 1\}&#160;: (x = 1) \vee P\}." /></p>
+<p>These are sets, using the <a href="../../../a/x/i/Axiom_of_separation.html" title="Axiom of separation">axiom of separation</a>. In classical set theory this would be equivalent to</p>
+<p><img class='tex' src="../../../math/8/3/a/83a36644c52beacdfc728eb7a512a612.png" alt="U = \begin{cases} \{0,1\}, &amp; \mbox{if } P \\ \{0\}, &amp; \mbox{if } \neg P\end{cases}" /></p>
+<p>and similarly for <img class='tex' src="../../../math/c/3/f/c3f97a4420c67227501e8aa037c1c616.png" alt="V\," />. However, without the law of the excluded middle, these equivalences can't be proven; in fact the two sets aren't even provably <a href="../../../f/i/n/Finite_set.html" title="Finite set">finite</a> (in the usual sense of being in <a href="../../../b/i/j/Bijection.html" title="Bijection">bijection</a> with a <a href="../../../n/a/t/Natural_number.html" title="Natural number">natural number</a>, though they would be in the <a href="../../../d/e/d/Dedekind-infinite.html" title="Dedekind-infinite">Dedekind</a> sense).</p>
+<p>By the axiom of choice, there will exist a choice function <img class='tex' src="../../../math/1/8/f/18f63800376271ee4b0efe1545744cd6.png" alt="f\," /> for the set <img class='tex' src="../../../math/3/d/0/3d0f35bcad95bc46ee2e48cf195d48de.png" alt="\{U, V\}\," />; that is, a function <img class='tex' src="../../../math/1/8/f/18f63800376271ee4b0efe1545744cd6.png" alt="f\," /> such that</p>
+<p><img class='tex' src="../../../math/7/3/5/73560df6397f72db3e4da41be6b16643.png" alt="f(U) \in U \wedge f(V) \in V\," />.</p>
+<p>By the definition of the two sets, this means that</p>
+<p><img class='tex' src="../../../math/9/7/8/97837965dba4c4cb7c00b8c1fe72a0b2.png" alt="[(f(U) = 0) \vee P] \wedge [(f(V) = 1) \vee P]\," />,</p>
+<p>which implies <img class='tex' src="../../../math/4/7/d/47d9dc1b809953b759ab2c1cf0808fad.png" alt="f(U) \neq f(V) \vee P" />.</p>
+<p>But since <img class='tex' src="../../../math/8/4/0/8402038e784d3242c4366caa646d7179.png" alt="P \to (U = V)," /> (by the <a href="../../../a/x/i/Axiom_of_extensionality.html" title="Axiom of extensionality">axiom of extensionality</a>),</p>
+<p>therefore <img class='tex' src="../../../math/9/e/e/9ee4729f030e2d24a7c7f40c85509519.png" alt="P \to (f(U) = f(V))\," />,</p>
+<p>so <img class='tex' src="../../../math/c/0/3/c03ee847ae894bbdece645b83590abd7.png" alt="(f(U) \neq f(V)) \to \neg P" />.</p>
+<p>Thus <img class='tex' src="../../../math/5/c/c/5ccf03a9dc551a6a53e09dd330818347.png" alt="\neg P \vee P" />.</p>
+<p>As this could be done for any proposition, this completes the proof that the axiom of choice implies the law of the excluded middle. Forms of the axiom of separation are available in many constructive set theories. In the <a href="../../../i/n/t/Intuitionistic_type_theory.html" title="Intuitionistic type theory">intuitionistic type theory</a> of <a href="../../../p/e/r/Per_Martin-L%C3%B6f_2896.html" title="Per Martin-Löf">Per Martin-Löf</a>, on the other hand, subsets of a type have different treatments. A form of the axiom of choice is a theorem, yet excluded middle is not.</p>
+<p><a name="Quotes" id="Quotes"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: Quotes">edit</a>]</span> <span class="mw-headline">Quotes</span></h2>
+<dl>
+<dd><i>"The Axiom of Choice is obviously true, the <a href="../../../w/e/l/Well-ordering_theorem.html" title="Well-ordering theorem">well-ordering principle</a> obviously false, and who can tell about <a href="../../../z/o/r/Zorn%27s_lemma.html" title="Zorn's lemma">Zorn's lemma</a>?"</i>
+<dl>
+<dd>—&#160;Jerry Bona -(This is a joke: although the axiom of choice, the well-ordering principle, and Zorn's lemma are all mathematically equivalent, most mathematicians find the axiom of choice to be intuitive, the well-ordering principle to be counterintuitive, and Zorn's lemma to be too complex for any intuition.)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><i>"The Axiom of Choice is necessary to select a set from an infinite number of socks, but not an infinite number of shoes.</i>"
+<dl>
+<dd>—&#160;<a href="../../../b/e/r/Bertrand_Russell_85bc.html" title="Bertrand Russell">Bertrand Russell</a> -(The observation here is that one can define a function to select from an infinite number of pairs of shoes by stating for example, to choose the left shoe. Without the axiom of choice, one cannot assert that such a function exists for pairs of socks, because left and right socks are (presumably) indistinguishable from each other.)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd><i>"The axiom gets its name not because mathematicians prefer it to other axioms."</i>
+<dl>
+<dd>—&#160;<a href="../../../a/2E/_/A._K._Dewdney_4de7.html" title="A. K. Dewdney">A. K. Dewdney</a> -( This quote comes from the famous <a href="../../../a/p/r/April_Fools%27_Day_4e24.html" title="April Fools' Day">April Fools' Day</a> article in the <i>computer recreations</i> column of the <i><a href="../../../s/c/i/Scientific_American_3498.html" title="Scientific American">Scientific American</a></i>, April 1989.)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-Zermelo.2C_1904"><b><a href="#_ref-Zermelo.2C_1904_0" title="">^</a></b> <cite style="font-style:normal">Zermelo, Ernst (1904). "Beweis, dass jede Menge wohlgeordnet werden kann". <i>Mathematische Annalen</i> <b>59</b>: 514-16.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.atitle=Beweis%2C+dass+jede+Menge+wohlgeordnet+werden+kann&amp;rft.title=Mathematische+Annalen&amp;rft.jtitle=Mathematische+Annalen&amp;rft.date=1904&amp;rft.volume=59&amp;rft.aulast=Zermelo&amp;rft.aufirst=Ernst&amp;rft.pages=514-16">&#160;</span></li>
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="../../../p/a/t/Patrick_Suppes_0d04.html" title="Patrick Suppes">Patrick Suppes</a>, "Axiomatic Set Theory", Dover, 1972 (1960), <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-486-61630-4</a>, p. 240</li>
+</ol>
+<ul>
+<li>Ernst Zermelo, "Untersuchungen über die Grundlagen der Mengenlehre I," <i>Mathematische Annalen 65</i>: (1908) pp. 261-81. <a href="http://www.digizeitschriften.de/no_cache/home/jkdigitools/loader/?tx_jkDigiTools_pi1%5BIDDOC%5D=361762" class="external text" title="http://www.digizeitschriften.de/no_cache/home/jkdigitools/loader/?tx_jkDigiTools_pi1%5BIDDOC%5D=361762" rel="nofollow">PDF download via digizeitschriften.de</a></li>
+</ul>
+<dl>
+<dd>Translated in: <a href="../../../j/e/a/Jean_van_Heijenoort_aa9d.html" title="Jean van Heijenoort">Jean van Heijenoort</a>, 2002. <i>From Frege to Godel: A Source Book in Mathematical Logic, 1879-1931</i>. New edition. Harvard Univ. Press. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-674-32449-8</a>
+<ul>
+<li>1904. "Proof that every set can be well-ordered," 139-41.</li>
+<li>1908. "Investigations in the foundations of set theory I," 199-215.</li>
+</ul>
+</dd>
+</dl>
+<ul>
+<li>Gregory H Moore, "Zermelo's axiom of choice, Its origins, development and influence", Springer; 1982. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-387-90670-3</a></li>
+<li>Paul Howard and Jean Rubin, "Consequences of the Axiom of Choice". Mathematical Surveys and Monographs 59; American Mathematical Society; 1998.</li>
+<li>Herrlich, Horst, <i>Axiom of Choice</i>, Springer Lecture Notes in Mathematics 1876, Springer Verlag Berlin Heidelberg (2006). <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 3-540-30989-6</a>.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/x/i/Axiom_of_choice.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.apronus.com/provenmath/choice.htm" class="external text" title="http://www.apronus.com/provenmath/choice.htm" rel="nofollow">Axiom of Choice and Its Equivalents at ProvenMath</a> includes formal statement of the Axiom of Choice, Hausdorff's Maximal Principle, Zorn's Lemma and formal proofs of their equivalence down to the finest detail.</li>
+<li>There are many people still doing work on the axiom of choice and its consequences. If you are interested in more, look up <a href="http://www.emunix.emich.edu/~phoward/" class="external text" title="http://www.emunix.emich.edu/~phoward/" rel="nofollow">Paul Howard at EMU</a>.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 6251 bytes
+Post-expand include size: 1921 bytes
+Template argument size: 1389 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/x/i/Axiom_of_choice.html">http://en.wikipedia.org../../../a/x/i/Axiom_of_choice.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/x/i/Category%7EAxiom_of_choice_7206.html" title="Category:Axiom of choice">Axiom of choice</a></span> | <span dir='ltr'><a href="../../../m/o/d/Category%7EModel_theory_457e.html" title="Category:Model theory">Model theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/x/i/Axiom_of_choice.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/x/i/Talk%7EAxiom_of_choice_3169.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Axiom_of_choice">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ca/a/x/i/Axioma_d%27elecci%C3%B3.html">Català</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../cs/a/x/i/Axiom_v%C3%BDb%C4%9Bru.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../da/u/d/v/Udvalgsaksiomet.html">Dansk</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/u/s/Auswahlaxiom.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/a/x/i/Axioma_de_elecci%C3%B3n.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/x/i/Axiome_du_choix.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EC%84%A0/%ED%83%9D/_/%EC%84%A0%ED%83%9D_%EA%B3%B5%EB%A6%AC.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/a/s/s/Assioma_della_scelta.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%90/%D7%A7/%D7%A1/%D7%90%D7%A7%D7%A1%D7%99%D7%95%D7%9E%D7%AA_%D7%94%D7%91%D7%97%D7%99%D7%A8%D7%94.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hu/k/i/v/Kiv%C3%A1laszt%C3%A1si_axi%C3%B3ma.html">Magyar</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/k/e/u/Keuzeaxioma.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E9%81%B8/%E6%8A%9E/%E5%85%AC/%E9%81%B8%E6%8A%9E%E5%85%AC%E7%90%86.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/k/s/Aksjomat_wyboru.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/a/x/i/Axioma_da_escolha.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B0/%D0%BA/%D1%81/%D0%90%D0%BA%D1%81%D0%B8%D0%BE%D0%BC%D0%B0_%D0%B2%D1%8B%D0%B1%D0%BE%D1%80%D0%B0.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/u/r/v/Urvalsaxiomet.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E9%80%89/%E6%8B%A9/%E5%85%AC/%E9%80%89%E6%8B%A9%E5%85%AC%E7%90%86.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 04:26, 29 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../b/e/n/User%7EBen_Standeven_9e0a.html" title="User:Ben Standeven">Ben Standeven</a>, <a href="../../../c/r/g/User%7ECRGreathouse_d93e.html" title="User:CRGreathouse">CRGreathouse</a>, <a href="../../../c/m/u/User%7ECMummert_c108.html" title="User:CMummert">CMummert</a>, <a href="../../../j/r/s/User%7EJRSpriggs_58fa.html" title="User:JRSpriggs">JRSpriggs</a>, <a href="../../../f/i/b/User%7EFibonacci_80f7.html" title="User:Fibonacci">Fibonacci</a>, <a href="../../../a/r/t/User%7EArthur_Rubin_34a7.html" title="User:Arthur Rubin">Arthur Rubin</a>, <a href="../../../m/i/c/User%7EMichaelCPrice_72e7.html" title="User:MichaelCPrice">MichaelCPrice</a>, <a href="../../../t/r/o/User%7ETrovatore_c393.html" title="User:Trovatore">Trovatore</a>, <a href="../../../r/c/o/User%7ERcog_cfea.html" title="User:Rcog">Rcog</a>, <a href="../../../j/o/r/User%7EJorend_77bf.html" title="User:Jorend">Jorend</a>, <a href="../../../f/r/a/User%7EFractalchez_a051.html" title="User:Fractalchez">Fractalchez</a>, <a href="../../../p/a/u/User%7EPaul_August_2fe5.html" title="User:Paul August">Paul August</a>, <a href="../../../p/a/u/User%7EPaul_G_94e7.html" title="User:Paul G">Paul G</a>, <a href="../../../s/h/i/User%7EShirahadasha_34b9.html" title="User:Shirahadasha">Shirahadasha</a>, <a href="../../../b/a/n/User%7EBanno_733d.html" title="User:Banno">Banno</a>, <a href="../../../e/d/j/User%7EEdJohnston_759e.html" title="User:EdJohnston">EdJohnston</a>, <a href="../../../w/i/s/User%7EWissahickon_Creek_f812.html" title="User:Wissahickon Creek">Wissahickon Creek</a>, <a href="../../../g/r/a/User%7EGrasyop_2f87.html" title="User:Grasyop">Grasyop</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, LaForge, <a href="../../../s/t/i/User%7EStifle_6acd.html" title="User:Stifle">Stifle</a>, <a href="../../../l/e/t/User%7ELethe_ae09.html" title="User:Lethe">Lethe</a>, <a href="../../../e/r/i/User%7EEric119_9f87.html" title="User:Eric119">Eric119</a>, <a href="../../../c/h/i/User%7EChinju_e6fd.html" title="User:Chinju">Chinju</a>, <a href="../../../s/a/x/User%7ESaxTeacher_1639.html" title="User:SaxTeacher">SaxTeacher</a>, <a href="../../../q/w/e/User%7EQwertyus_c4c3.html" title="User:Qwertyus">Qwertyus</a>, <a href="../../../b/r/y/User%7EBryanD_2c3a.html" title="User:BryanD">BryanD</a>, <a href="../../../l/a/m/User%7ELambiam_e5bb.html" title="User:Lambiam">Lambiam</a>, <a href="../../../m/a/r/User%7EMarudubshinki_b9b7.html" title="User:Marudubshinki">Marudubshinki</a>, <a href="../../../g/i/f/User%7EGiftlite_9506.html" title="User:Giftlite">Giftlite</a>, <a href="../../../x/t/v/User%7EXtv_0283.html" title="User:Xtv">Xtv</a>, <a href="../../../a/l/e/User%7EAleph4_0f7d.html" title="User:Aleph4">Aleph4</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../d/r/e/User%7EDreadlocke_8280.html" title="User:Dreadlocke">Dreadlocke</a>, <a href="../../../r/a/n/User%7ERandomP_ea0d.html" title="User:RandomP">RandomP</a>, <a href="../../../g/e/n/User%7EGene_Ward_Smith_f812.html" title="User:Gene Ward Smith">Gene Ward Smith</a>, <a href="../../../b/a/l/User%7EBalthCat_3c87.html" title="User:BalthCat">BalthCat</a>, <a href="../../../k/u/s/User%7EKusma_9d59.html" title="User:Kusma">Kusma</a>, <a href="../../../l/u/q/User%7ELuqui_90ea.html" title="User:Luqui">Luqui</a>, <a href="../../../b/r/y/User%7EBryan_Derksen_3ce8.html" title="User:Bryan Derksen">Bryan Derksen</a>, JohnnyNyquist, <a href="../../../e/l/r/User%7EElroch_ff10.html" title="User:Elroch">Elroch</a>, <a href="../../../m/h/s/User%7EMhss_en_0b75.html" title="User:Mhss en">Mhss en</a>, <a href="../../../s/i/k/User%7ESikon_a19b.html" title="User:Sikon">Sikon</a>, <a href="../../../s/c/h/User%7ESchneelocke_ee99.html" title="User:Schneelocke">Schneelocke</a>, <a href="../../../g/r/a/User%7EGrafZahl_441f.html" title="User:GrafZahl">GrafZahl</a>, <a href="../../../s/p/l/User%7ESplash_a61b.html" title="User:Splash">Splash</a>, <a href="../../../s/e/m/User%7ESemprini_53b0.html" title="User:Semprini">Semprini</a>, <a href="../../../p/a/k/User%7EPakaran_a4a0.html" title="User:Pakaran">Pakaran</a>, <a href="../../../t/o/s/User%7ETosha_2812.html" title="User:Tosha">Tosha</a>, <a href="../../../a/b/c/User%7EABCD_d6a3.html" title="User:ABCD">ABCD</a>, Golbeck, <a href="../../../r/e/a/User%7EReadams_2c19.html" title="User:Readams">Readams</a>, <a href="../../../b/e/n/User%7EBenandorsqueaks_0ba5.html" title="User:Benandorsqueaks">Benandorsqueaks</a>, CarlHewitt, Jarvik, Mirabella $€, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../p/a/n/User%7EPandemias_021a.html" title="User:Pandemias">Pandemias</a>, <a href="../../../x/r/c/User%7EXrchz_b25d.html" title="User:Xrchz">Xrchz</a>, <a href="../../../j/o/s/User%7EJosh_Cherry_99df.html" title="User:Josh Cherry">Josh Cherry</a>, <a href="../../../o/b/e/User%7EObey_365f.html" title="User:Obey">Obey</a>, <a href="../../../s/e/a/User%7ESean_Kelly_ce0f.html" title="User:Sean Kelly">Sean Kelly</a>, <a href="../../../g/r/i/User%7EGrinBot_48c7.html" title="User:GrinBot">GrinBot</a>, <a href="../../../m/a/t/User%7EMathMartin_aca3.html" title="User:MathMartin">MathMartin</a>, Chad.netzer, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, IvanDurak, SDaniel, <a href="../../../r/u/m/User%7ERuM_95e5.html" title="User:RuM">RuM</a>, <a href="../../../c/h/r/User%7EChristian_3dad.html" title="User:Christian">Christian</a>, <a href="../../../r/e/v/User%7ERevolver_5a6c.html" title="User:Revolver">Revolver</a>, <a href="../../../h/e/a/User%7EHeathcliff_1655.html" title="User:Heathcliff">Heathcliff</a>, <a href="../../../m/a/r/User%7EMarSch_3340.html" title="User:MarSch">MarSch</a>, <a href="../../../b/o/o/User%7EBookandcoffee_bb60.html" title="User:Bookandcoffee">Bookandcoffee</a>, <a href="../../../r/e/e/User%7EReedbeta_a68c.html" title="User:Reedbeta">Reedbeta</a>, <a href="../../../b/r/i/User%7EBrianjd_bb34.html" title="User:Brianjd">Brianjd</a>, <a href="../../../b/u/b/User%7EBubba73_9231.html" title="User:Bubba73">Bubba73</a>, <a href="../../../m/o/h/User%7EMohan_ravichandran_f985.html" title="User:Mohan ravichandran">Mohan ravichandran</a>, <a href="../../../b/c/r/User%7EBcrowell_f3ce.html" title="User:Bcrowell">Bcrowell</a>, Ralfipedia, <a href="../../../t/b/s/User%7ETbsmith_9e40.html" title="User:Tbsmith">Tbsmith</a>, <a href="../../../r/i/c/User%7ERictus_6a30.html" title="User:Rictus">Rictus</a>, <a href="../../../r/o/a/User%7ERoadrunner_b57c.html" title="User:Roadrunner">Roadrunner</a>, <a href="../../../d/b/e/User%7EDbenbenn_44bf.html" title="User:Dbenbenn">Dbenbenn</a>, <a href="../../../c/a/e/User%7ECaesura_ad40.html" title="User:Caesura">Caesura</a>, <a href="../../../k/a/r/User%7EKarada_595b.html" title="User:Karada">Karada</a>, <a href="../../../l/y/s/User%7ELysdexia_bda0.html" title="User:Lysdexia">Lysdexia</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../d/r/e/User%7EDreish_f3bf.html" title="User:Dreish">Dreish</a>, <a href="../../../g/a/d/User%7EGadykozma_c7d7.html" title="User:Gadykozma">Gadykozma</a>, <a href="../../../p/o/n/User%7EPonder_9df9.html" title="User:Ponder">Ponder</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, <a href="../../../m/a/r/User%7EMarkus_Kr%C3%B6tzsch_72f1.html" title="User:Markus Krötzsch">Markus Krötzsch</a>, <a href="../../../m/s/h/User%7EMshonle_09cf.html" title="User:Mshonle">Mshonle</a>, <a href="../../../m/a/x/User%7EMaximus_Rex_f7db.html" title="User:Maximus Rex">Maximus Rex</a>, <a href="../../../j/o/h/User%7EJohn_Cross_2779.html" title="User:John Cross">John Cross</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../o/n/e/User%7EOnebyone_4a94.html" title="User:Onebyone">Onebyone</a>, <a href="../../../e/v/i/User%7EEvil_saltine_d8c0.html" title="User:Evil saltine">Evil saltine</a>, <a href="../../../n/i/x/User%7ENixdorf_8d7c.html" title="User:Nixdorf">Nixdorf</a>, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, <a href="../../../e/l/l/User%7EEllywa_5dd2.html" title="User:Ellywa">Ellywa</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../y/o/u/User%7EYouandme_58a9.html" title="User:Youandme">Youandme</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../v/i/c/User%7EVictor_Gijsbers_4719.html" title="User:Victor Gijsbers">Victor Gijsbers</a>, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../t/o/b/User%7EToby_Bartels_e090.html" title="User:Toby Bartels">Toby Bartels</a>, <a href="../../../o/l/i/User%7EOlivier_5e7f.html" title="User:Olivier">Olivier</a>, <a href="../../../b/4/h/User%7EB4hand_8888.html" title="User:B4hand">B4hand</a>, <a href="../../../d/e/r/User%7EDerek_Ross_f2d2.html" title="User:Derek Ross">Derek Ross</a>, <a href="../../../v/i/c/User%7EVicki_Rosenzweig_719b.html" title="User:Vicki Rosenzweig">Vicki Rosenzweig</a>, <a href="../../../m/a/t/User%7EMatthew_Woodcraft_0030.html" title="User:Matthew Woodcraft">Matthew Woodcraft</a> and <a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

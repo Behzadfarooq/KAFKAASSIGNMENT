@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:AviSynth,AVISynth,AviSynth,Avisynth,Turing completeness,VLC media player,EatMyShortz,HighInBC,Yipdw,131.155.54.18" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:AviSynth - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:AviSynth</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>Could you guys merge <a href="http://en.wikipedia.org/wiki/Avisynth" class="external free" title="http://en.wikipedia.org/wiki/Avisynth" rel="nofollow">http://en.wikipedia.org/wiki/Avisynth</a> and <a href="http://en.wikipedia.org/wiki/AVISynth" class="external free" title="http://en.wikipedia.org/wiki/AVISynth" rel="nofollow">http://en.wikipedia.org/wiki/AVISynth</a> . Since the official name is Avisynth, i prefer you move the contents from the second link to the first one.</p>
+<p>Thanks, Wilbert Dijkhof (AviSynth doc writer) 131.155.54.18 12:53, 15 September 2005 (UTC)</p>
+<dl>
+<dd>Merge in progress. -<a href="../../../y/i/p/User%7EYipdw_1ac9.html" title="User:Yipdw">Yipdw</a> 19:51, 16 September 2005 (UTC)</dd>
+<dd>Eep... this is not good. I will try and help with that later too. —<a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a> 15:25, 5 October 2005 (UTC)</dd>
+<dd>Actually, it seems the most common way to write it on the website is <a href="../../../a/v/i/AviSynth_04c8.html" title="AviSynth">AviSynth</a>. Therefore I suggest MOVING the <a href="../../../a/v/i/AVISynth_7a35.html" title="AVISynth">AVISynth</a> page (the most built-up one) to <a href="../../../a/v/i/AviSynth_04c8.html" title="AviSynth">AviSynth</a> and then merging <a href="../../../a/v/i/Avisynth.html" title="Avisynth">Avisynth</a> into that. —<a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a> 15:18, 13 October 2005 (UTC)</dd>
+<dd>Merge complete. I think I've been very fair in including all the possible info from both pages. It is all there - there may now be "too much" info, so feel free to edit it down. The most important thing is I haven't just hacked out one of the articles. —<a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a> 15:18, 13 October 2005 (UTC)</dd>
+</dl>
+<p><a name="Loops_and_subroutines_in_AVISynth" id="Loops_and_subroutines_in_AVISynth"></a></p>
+<h2><span class="editsection">[<a href="../../../a/v/i/Talk%7EAviSynth_b51a.html" title="Edit section: Loops and subroutines in AVISynth">edit</a>]</span> <span class="mw-headline">Loops and subroutines in AVISynth</span></h2>
+<p>It is possible to construct a loop via recursion, and subroutines are also possible via the <code>function</code> syntax.</p>
+<p>Here's an example:</p>
+<pre>
+function multiblur(clip clipin, int "numberofblurs") { 
+   numberofblurs&lt;=0 ? clipin : multiblur(clipin.Blur(1.5), numberofblurs - 1)
+}
+</pre>
+<p>This works because AVISynth isn't passing the clip by value (thank goodness :) )</p>
+<p>I've removed the comment re: Turing completeness because I'd like to see a proof of that before we mark it as such. (I haven't done one myself due to lack of time, but if one exists, I'd have no problem with going through it.) -<a href="../../../y/i/p/User%7EYipdw_1ac9.html" title="User:Yipdw">Yipdw</a> 07:52, 2 October 2005 (UTC)</p>
+<dl>
+<dd>Ah! Did not know that. Thanks. Also... sorry about the Turing completeness, I assumed it wasnt since there's no loops. But given that there is recursion, I suspect it would be TC. —<a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a> 15:25, 5 October 2005 (UTC)</dd>
+</dl>
+<p><a name="Turing_Completeness" id="Turing_Completeness"></a></p>
+<h2><span class="editsection">[<a href="../../../a/v/i/Talk%7EAviSynth_b51a.html" title="Edit section: Turing Completeness">edit</a>]</span> <span class="mw-headline">Turing Completeness</span></h2>
+<p>I want to have a discussion about this so we can write on the page "THIS IS TURING-COMPLETE" or "THIS IS NOT". I'm not entirely sure what classifies as TC - I'm learning about it currently at uni. So hopefully I'll be able to contribute better soon. But, from the wiki article <a href="../../../t/u/r/Turing_completeness.html" title="Turing completeness">Turing completeness</a>, here are the language features I understand you need to be turing complete:</p>
+<ul>
+<li>Some sort of looping - iteration or recursion or both. (As we discussed above, AVS has recursive functions so its OK for this criteria).</li>
+<li>An infinitely expandable set of memory cells - ie. the language must support either arrays, lists, stacks, raw access to memory, or something like that. Unfortunately (as far as I can see) AVS has none of these features. Which *almost* makes me discredit TC except that I figured it supports arbitrarily-long strings! So although it's quite stupid to do so, it seems feasible to implement an array or stack/queue using string concatenation and substring reading.
+<ul>
+<li>I know there's no char data type, or (from what I've seen) any way to write binary/ASCII data to a string, but it's still possible to implement an array in a really dodgy way by first converting bytes or other numbers to decimal notation and writing that to the string.</li>
+</ul>
+</li>
+<li>Ability to accept an arbitrarily-long input stream. This one has me the most "worried" that it isn't TC. Unlike most general-purpose languages, AVS has no "standard" input at all. The only input is from videos which doesn't really count (simply because you have to open files from the hard disk and that doesn't really fit with the "turing machine"). So, I'm not sure if this is actually a barrier to its TCness. Does anybody know?</li>
+<li>Summary: It seems that although AVS can "solve" any problem that a turing machine can solve, the parameters have to be built into the program and can't be supplied by an input stream, which may make it non-TC. Any thoughts?</li>
+</ul>
+<p>—<a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a> 05:37, 14 October 2005 (UTC)</p>
+<p><a name="Not_all_programs_that_handle_AVIs_work_with_avisynth" id="Not_all_programs_that_handle_AVIs_work_with_avisynth"></a></p>
+<h2><span class="editsection">[<a href="../../../a/v/i/Talk%7EAviSynth_b51a.html" title="Edit section: Not all programs that handle AVIs work with avisynth">edit</a>]</span> <span class="mw-headline">Not all programs that handle AVIs work with avisynth</span></h2>
+<p>AviSynth uses the windows VFW system to interface with the media software. Any program that uses the VFW codec system will work with avisynth, assuming it allows file without an extension '.avi'.</p>
+<p>Programs such as <a href="../../../v/l/c/VLC_media_player_1cfa.html" title="VLC media player">VLC Player</a> handle avi's with their own routines and do not use the vfw system, you cannot use avisynth with such a player.</p>
+<p>I have made a small change to reflect this. <a href="../../../h/i/g/User%7EHighInBC_48ba.html" title="User:HighInBC">HighInBC</a> 19:39, 22 February 2006 (UTC)</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/v/i/Talk%7EAviSynth_b51a.html">http://en.wikipedia.org../../../a/v/i/Talk%7EAviSynth_b51a.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/v/i/AviSynth_04c8.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/v/i/Talk%7EAviSynth_b51a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:AviSynth">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:39, 22 February 2006 by Wikipedia user <a href="../../../h/i/g/User%7EHighInBC_48ba.html" title="User:HighInBC">HighInBC</a>. Based on work by Wikipedia user(s) <a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a> and <a href="../../../y/i/p/User%7EYipdw_1ac9.html" title="User:Yipdw">Yipdw</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

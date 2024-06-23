@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Blittable types,.NET Framework,.NET framework,Array,CLR,Component Object Model,Data types,Interface (computer science),Interoperability,Managed code,Memory management" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Blittable types - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Blittable types</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><b>Blittable types</b> are <a href="../../../d/a/t/Data_types.html" title="Data types">data types</a> in software applications which have a unique characteristic. Data are often represented in memory differently in <a href="../../../m/a/n/Managed_code.html" title="Managed code">managed</a> and unmanaged code in the Microsoft <a href="../../../2E/n/e/.NET_framework_f07f.html" title=".NET framework">.NET framework</a>. However, blittable types are defined as having an identical presentation in memory for both environments, and can be directly shared. Understanding the difference between blittable and non-blittable types can aid in using COM Interop or <a href="../../../p/l/a/Platform_Invocation_Services_a7a3.html" title="Platform Invocation Services">P/Invoke</a>, two techniques for <a href="../../../i/n/t/Interoperability.html" title="Interoperability">interoperability</a> in .NET applications.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Interoperability_overview"><span class="tocnumber">1</span> <span class="toctext">Interoperability overview</span></a></li>
+<li class="toclevel-1"><a href="#Blittable_types_defined"><span class="tocnumber">2</span> <span class="toctext">Blittable types defined</span></a></li>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">3</span> <span class="toctext">Usage</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Interoperability_overview" id="Interoperability_overview"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/i/Blittable_types.html" title="Edit section: Interoperability overview">edit</a>]</span> <span class="mw-headline">Interoperability overview</span></h2>
+<p>Interoperability can be bidirectional sharing of data and methods between unmanaged code and managed .NET code. .NET provides two ways of interoperating between the two: COM Interop and P/Invoke. Though the methodology is different, in both cases <a href="../../../p/l/a/Platform_Invocation_Services_a7a3.html" title="Platform Invocation Services">marshaling</a> (conversion between representations of data, formats for calling functions and formats for returning values) must take place. COM Interop deals with this conversion between managed code and <a href="../../../c/o/m/Component_Object_Model_7987.html" title="Component Object Model">COM objects</a>, whereas P/Invoke handles interactions between managed code and <a href="../../../w/i/n/Win32.html" title="Win32">Win32</a> code. The concept of blittable and non-blittable data types applies to both — specifically to the problem of converting data between managed and unmanaged memory. This marshaling is performed by the interop marshaler, which is invoked automatically by the <a href="../../../c/l/r/CLR_d22b.html" title="CLR">CLR</a> when needed.</p>
+<p><a name="Blittable_types_defined" id="Blittable_types_defined"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/i/Blittable_types.html" title="Edit section: Blittable types defined">edit</a>]</span> <span class="mw-headline">Blittable types defined</span></h2>
+<p>A blittable type is a data type that does not require special attention from the interop marshaler because by default it has a common representation in managed and unmanaged memory. By <a href="../../../o/b/j/Object_pinning.html" title="Object pinning">pinning the data</a> in memory, the garbage collector will be prevented from moving it, allowing it to be shared in-place with the unmanaged application.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> This means that both managed and unmanaged code will alter the memory locations of these types in a consistent manner, and much less effort is required by the marshaler to maintain data integrity. The following are some examples of blittable types available in the .NET framework:<sup id="_ref-bnb_0" class="reference"><a href="#_note-bnb" title="">[2]</a></sup></p>
+<ul>
+<li><code>System.Byte</code></li>
+<li><code>System.SByte</code></li>
+<li><code>System.Int16</code></li>
+<li><code>System.UInt16</code></li>
+<li><code>System.Int32</code></li>
+<li><code>System.UInt32</code></li>
+<li><code>System.Int64</code></li>
+<li><code>System.IntPtr</code></li>
+<li><code>System.UIntPtr</code></li>
+</ul>
+<p>Additionally, one-dimensional <a href="../../../a/r/r/Array.html" title="Array">arrays</a> of these types as well as complex types containing only fields of these types are blittable.</p>
+<p>If a type is not one of the blittable types, then it is classified as non-blittable. The reason a type is considered non-blittable is that for one representation in managed memory, it may have several potential representations in unmanaged memory or vice-versa. Alternatively, there may be exactly one representation for the type in both managed and unmanaged memory. It is also often the case that there simply is no representation on one side or the other. The following are some commonly-used non-blittable types in the .NET framework:<sup id="_ref-bnb_1" class="reference"><a href="#_note-bnb" title="">[2]</a></sup></p>
+<ul>
+<li><code>System.Boolean</code></li>
+<li><code>System.Char</code></li>
+<li><code>System.Object</code></li>
+<li><code>System.String</code></li>
+</ul>
+<p>There are many more blittable and non-blittable types, and user-defined types may fit in either category depending on how they are defined (MSDN).</p>
+<p><a name="Usage" id="Usage"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/i/Blittable_types.html" title="Edit section: Usage">edit</a>]</span> <span class="mw-headline">Usage</span></h2>
+<p>This very restrictive notion of blittable types appears to limit the usefulness of the interoperability services provided by .NET, but this is not so. While blittable types allow a straightforward definition of interoperable types, various ways exist to explicitly define how a non-blittable type should be converted by the interop marshaler.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[3]</a></sup><sup id="_ref-2" class="reference"><a href="#_note-2" title="">[4]</a></sup> For example, in the .NET languages there are many attributes which can be applied to fields in types, to types themselves and to method parameters to indicate to the marshaler how to handle those particular data. These attributes have various purposes, such as detailing the packing or alignment of a type, specifying offsets of fields in a type, specifying array or string representations, controlling <a href="../../../p/a/r/Parameter_%28computer_science%29.html" title="Parameter (computer science)">parameter-passing</a> style for function calls, specifying <a href="../../../m/e/m/Memory_management.html" title="Memory management">memory management</a> techniques, and more. If none of the attributes or other tools that are provided in the framework are adequate, fine-grained control is provided by the ability to implement the <code>ICustomMarshaler</code> <a href="../../../i/n/t/Interface_%28computer_science%29.html" title="Interface (computer science)">interface</a> and manually perform the conversion of data in both directions. Complete coverage of interoperation between managed and unmanaged code is out of the scope of this discussion, so please refer to the <a href="#See_also" title="">See Also</a> section for more information. However, understanding what constitutes a blittable type allows a developer to identify situations where intervention is and is not required for a type to be correctly marshaled. In this way, less time is wasted on over-specification of types or function calls.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/i/Blittable_types.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../p/l/a/Platform_Invocation_Services_a7a3.html" title="Platform Invocation Services">Platform Invocation Services</a></li>
+<li><a href="../../../2E/n/e/.NET_Framework_cb4a.html" title=".NET Framework">.NET Framework</a></li>
+<li><a href="../../../m/i/c/Microsoft_.NET_Languages_6dc9.html" title="Microsoft .NET Languages">Microsoft .NET Languages</a></li>
+<li><a href="../../../c/o/m/Component_Object_Model_7987.html" title="Component Object Model">COM</a></li>
+<li><a href="../../../i/n/t/Interoperability.html" title="Interoperability">Interoperability</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/i/Blittable_types.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="http://msdn.microsoft.com/msdnmag/issues/04/10/NET/" class="external text" title="http://msdn.microsoft.com/msdnmag/issues/04/10/NET/" rel="nofollow">MSDN Magazine - P/Invoke Revisited</a></li>
+<li id="_note-bnb">^ <a href="#_ref-bnb_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-bnb_1" title=""><sup><i><b>b</b></i></sup></a> <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconblittablenon-blittabletypes.asp" class="external text" title="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpconblittablenon-blittabletypes.asp" rel="nofollow">MSDN - Blittable and Non-Blittable Types</a></li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <a href="http://msdn.microsoft.com/library/en-us/cpguide/html/cpconinteropmarshaling.asp" class="external text" title="http://msdn.microsoft.com/library/en-us/cpguide/html/cpconinteropmarshaling.asp" rel="nofollow">MSDN - Interop Marshaling Overview</a></li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> <a href="http://msdn2.microsoft.com/en-us/netframework/aa497271.aspx" class="external text" title="http://msdn2.microsoft.com/en-us/netframework/aa497271.aspx" rel="nofollow">MSDN - .NET Interoperability</a></li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/l/i/Blittable_types.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/csref/html/vcwlkPlatformInvokeTutorial.asp" class="external text" title="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/csref/html/vcwlkPlatformInvokeTutorial.asp" rel="nofollow">P/Invoke Tutorial</a></li>
+<li><a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/csref/html/vcwlkcominteroppart1cclienttutorial.asp" class="external text" title="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/csref/html/vcwlkcominteroppart1cclienttutorial.asp" rel="nofollow">COM Interop Tutorial</a></li>
+<li><a href="http://pinvoke.net" class="external text" title="http://pinvoke.net" rel="nofollow">Pinvoke.net</a></li>
+<li><a href="http://www.gotdotnet.com/team/clr/bcl/TechArticles/TechArticles/PInvokeHelp/FAQ.aspx" class="external text" title="http://www.gotdotnet.com/team/clr/bcl/TechArticles/TechArticles/PInvokeHelp/FAQ.aspx" rel="nofollow">P/Invoke Cheat Sheet at GotDotNet.com</a></li>
+<li><a href="http://msdn.microsoft.com/msdnmag/issues/03/07/NET/" class="external text" title="http://msdn.microsoft.com/msdnmag/issues/03/07/NET/" rel="nofollow">MSDN Magazine - Calling Win32 DLLs in C# with P/Invoke</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/l/i/Blittable_types.html">http://en.wikipedia.org../../../b/l/i/Blittable_types.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../2E/n/e/Category%7E.NET_framework_fa17.html" title="Category:.NET framework">.NET framework</a></span> | <span dir='ltr'><a href="../../../c/o/m/Category%7EComputing_terminology_4d82.html" title="Category:Computing terminology">Computing terminology</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/l/i/Blittable_types.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/l/i/Talk%7EBlittable_types_c6e8.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Blittable_types">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:59, 29 March 2007 by Wikipedia user Masojus. Based on work by Wikipedia user(s) <a href="../../../b/e/l/User%7EBeland_b814.html" title="User:Beland">Beland</a>, <a href="../../../c/h/i/User%7EChip_Zero_04fa.html" title="User:Chip Zero">Chip Zero</a>, <a href="../../../f/u/r/User%7EFurrykef_4620.html" title="User:Furrykef">Furrykef</a> and <a href="../../../a/l/a/User%7EAlaibot_de3d.html" title="User:Alaibot">Alaibot</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

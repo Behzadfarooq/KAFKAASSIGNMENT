@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Angel problem,Axiom of determinacy,Béla Bollobás,Chessboard,Elwyn Berlekamp,Game theory,Imre Leader,Infinite,John Horton Conway,King (chess),Lattice (group)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Angel problem - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Angel problem</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div class="thumb tright">
+<div class="thumbinner" style="width:202px;"><a href="../../../a/n/g/Image%7EAngel_problem.png_05b7.html" class="internal" title="The blue dotted region shows where an angel of power 3 could reach"><img src="../../../upload/thumb/1/1e/Angel_problem.png/200px-Angel_problem.png" alt="The blue dotted region shows where an angel of power 3 could reach" width="200" height="197" longdesc="../../../a/n/g/Image%7EAngel_problem.png_05b7.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../a/n/g/Image%7EAngel_problem.png_05b7.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+The blue dotted region shows where an angel of power 3 could reach</div>
+</div>
+</div>
+<p><b>The Angel problem</b> is a question in <a href="../../../g/a/m/Game_theory.html" title="Game theory">game theory</a> proposed by <a href="../../../j/o/h/John_Horton_Conway_42ec.html" title="John Horton Conway">John Horton Conway</a>. The game is commonly referred to as the <b>Angels and Devils</b> game. The game is played by two <a href="../../../p/l/a/Player_%28game%29.html" title="Player (game)">players</a> called the angel and the devil. It is played on an <a href="../../../i/n/f/Infinite.html" title="Infinite">infinite</a> <a href="../../../c/h/e/Chessboard.html" title="Chessboard">chessboard</a> (or equivalently the points of a 2D <a href="../../../l/a/t/Lattice_%28group%29.html" title="Lattice (group)">lattice</a>). The angel moves like a <a href="../../../k/i/n/King_%28chess%29.html" title="King (chess)">chess king</a>, but depending on each game may have a different power <span class="texhtml"><i>k</i></span> (a natural number 1 or greater). The board starts empty with the angel at the origin. On each turn, the angel jumps to a different empty square at most <span class="texhtml"><i>k</i></span> squares away, that is, a square which could be reached by at most <span class="texhtml"><i>k</i></span> moves of a chess king. (The distance from the starting square is at most <span class="texhtml"><i>k</i></span> in the <a href="../../../n/o/r/Norm_%28mathematics%29.html#Infinity_norm_or_maximum_norm" title="Norm (mathematics)">infinity norm</a>.) The devil, on his turn, may add a block on any square not containing the angel. The angel may leap over blocked squares, but cannot land on them. The devil wins if the angel is unable to move. The angel wins by surviving indefinitely.</p>
+<blockquote>
+<p><i>The Angel problem is</i>: Can an angel with high enough power win?</p>
+</blockquote>
+<p>The answer is unknown, and Conway has offered a reward for a general solution to this problem ($100 for a winning strategy for an angel of sufficiently high power, and $1000 for a proof that the devil can win irrespective of the angel's power). Progress, however, has been made in higher dimensions, with some <a href="../../../m/a/t/Mathematical_beauty.html" title="Mathematical beauty">beautiful</a> <a href="../../../m/a/t/Mathematical_proof.html" title="Mathematical proof">proofs</a>.</p>
+<p>There must exist a winning strategy for one of the players. If the devil can force a win then he can do so in a finite number of moves. If the devil cannot force a win then there is always an action that the angel can take to avoid losing and a winning strategy for her is always to pick such a move. More abstractly, the "pay-off set" (i.e., the set of all plays in which the angel wins) is a closed set (in the natural <a href="../../../t/o/p/Topology.html" title="Topology">topology</a> on the set of all plays), and it is known that such games are <a href="../../../a/x/i/Axiom_of_determinacy.html#Types_of_game_that_are_determined" title="Axiom of determinacy">determined</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Progress_made_towards_solving_this_problem"><span class="tocnumber">1</span> <span class="toctext">Progress made towards solving this problem</span></a></li>
+<li class="toclevel-1"><a href="#Further_unsolved_questions"><span class="tocnumber">2</span> <span class="toctext">Further unsolved questions</span></a></li>
+<li class="toclevel-1"><a href="#Sketch_proof_that_in_3D_a_high_powered_angel_has_a_winning_strategy"><span class="tocnumber">3</span> <span class="toctext">Sketch proof that in 3D a high powered angel has a winning strategy</span></a></li>
+<li class="toclevel-1"><a href="#Sketch_of_the_Bowditch_claimed_proof"><span class="tocnumber">4</span> <span class="toctext">Sketch of the Bowditch claimed proof</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Progress_made_towards_solving_this_problem" id="Progress_made_towards_solving_this_problem"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/g/Angel_problem.html" title="Edit section: Progress made towards solving this problem">edit</a>]</span> <span class="mw-headline">Progress made towards solving this problem</span></h2>
+<p>In two dimensions, it is known that:</p>
+<ul>
+<li>If the angel has power 1, the devil has a <a href="../../../w/i/n/Winning_strategy.html" title="Winning strategy">winning strategy</a> (Conway, 1982). (According to Conway, this result is actually due to Berlekamp.)</li>
+<li>If the angel never decreases its y coordinate, then the devil has a winning strategy (Conway, 1982).</li>
+<li>If the angel always increases its distance from the origin, then the devil has a winning strategy (Conway, 1996).</li>
+</ul>
+<p>Recently, four independent proofs have appeared that claim a winning strategy for the angel. Brian Bowditch's proof <a href="http://www.maths.soton.ac.uk/staff/Bowditch/papers/bhb-angel.pdf" class="external autonumber" title="http://www.maths.soton.ac.uk/staff/Bowditch/papers/bhb-angel.pdf" rel="nofollow">[1]</a> works for the 4-angel, while Oddvar Kloster's proof <a href="http://home.broadpark.no/~oddvark/angel/Angel.pdf" class="external autonumber" title="http://home.broadpark.no/~oddvark/angel/Angel.pdf" rel="nofollow">[2]</a> and Andras Mathe's proof <a href="http://amathe.dyn.elte.hu/letolt.php?angel-mathe.pdf" class="external autonumber" title="http://amathe.dyn.elte.hu/letolt.php?angel-mathe.pdf" rel="nofollow">[3]</a> works for the 2-angel. Peter Gacs's proof <a href="http://www.cs.bu.edu/~gacs/papers/angel.pdf" class="external autonumber" title="http://www.cs.bu.edu/~gacs/papers/angel.pdf" rel="nofollow">[4]</a>, works only for a much larger constant.</p>
+<p>In three dimensions, it is known that:</p>
+<ul>
+<li>If the angel always increases its y coordinate, and the devil can only play in one plane, then the angel has a winning strategy.</li>
+<li>If the angel always increases its y coordinate, and the devil can only play in two planes, then the angel has a winning strategy.</li>
+<li>The angel has a winning strategy if she has power 13 or more</li>
+<li>If we have an infinite number of devils each playing at distances <img class='tex' src="../../../math/2/d/8/2d8a6bd222a1c73ec6b53a0a3833fd33.png" alt="d_1 &lt; d_2 &lt; d_3 &lt; \dots" /> then the angel can still win if she is of high enough power. (By "playing at distance <span class="texhtml"><i>d</i></span>" we mean the devil is not allowed to play within this distance of the origin)</li>
+</ul>
+<p><a name="Further_unsolved_questions" id="Further_unsolved_questions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/g/Angel_problem.html" title="Edit section: Further unsolved questions">edit</a>]</span> <span class="mw-headline">Further unsolved questions</span></h2>
+<p>In 3D:</p>
+<ul>
+<li>Given that the angel always increases its y coordinate, and that the devil is limited to 3 planes, it is unknown whether the devil has a winning strategy.</li>
+</ul>
+<p><a name="Sketch_proof_that_in_3D_a_high_powered_angel_has_a_winning_strategy" id="Sketch_proof_that_in_3D_a_high_powered_angel_has_a_winning_strategy"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/g/Angel_problem.html" title="Edit section: Sketch proof that in 3D a high powered angel has a winning strategy">edit</a>]</span> <span class="mw-headline">Sketch proof that in 3D a high powered angel has a winning strategy</span></h2>
+<p>The proof of this makes use of guardians. For each cube of any size there is a guardian that watches over that cube. The guardians decide at each move whether the cube they're watching over is unsafe, safe or almost safe. This decision is based purely on the density of blocked points in that cube and the size of that cube.</p>
+<p>If the angel is given no orders then it just moves up. If some cubes that the angel is living in cease to be safe then the guardian of the biggest of these cubes is instructed to arrange for the angel to leave through one of the borders of that cube.</p>
+<p>If a guardian is instructed to escort the angel out of her cube to a particular face this guardian does this by plotting a path of subcubes that are all safe. The guardians in these cubes are then instructed to escort the angel through their respective subcubes.</p>
+<p>The proof works because the time it takes the devil to convert a safe cube in the angel's path to an unsafe cube is longer than the time it takes the angel to get to that cube.</p>
+<p>The definitions of safe and almost safe need to be chosen to ensure this works.</p>
+<p>Note: The angel's path in a given subcube is not determined until the angel arrives at that cube. Even then the path is only determined roughly. This ensures the devil cannot just choose a place on the path sufficiently far along it and block it.</p>
+<p>This proof is due to <a href="../../../i/m/r/Imre_Leader_e8ab.html" title="Imre Leader">Imre Leader</a> and <a href="../../../b/%C3%A9/l/B%C3%A9la_Bollob%C3%A1s_6589.html" title="Béla Bollobás">Béla Bollobás</a>. A proof that is substantially similar has been published by Martin Kutz.</p>
+<p><a name="Sketch_of_the_Bowditch_claimed_proof" id="Sketch_of_the_Bowditch_claimed_proof"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/g/Angel_problem.html" title="Edit section: Sketch of the Bowditch claimed proof">edit</a>]</span> <span class="mw-headline">Sketch of the Bowditch claimed proof</span></h2>
+<p>Bowditch defines a variant (game 2) of the original game with the following rule changes:</p>
+<ol>
+<li>The angel can return to any square it has already been to even if the devil subsequently tried to block it.</li>
+<li>A k-devil must visit a square k times before it is blocked.</li>
+<li>The angel moves either up, down, left or right by one square (a duke move).</li>
+<li>To win the angel must trace out a circuitous path (defined below).</li>
+</ol>
+<p>A circuitous path is a path <img class='tex' src="../../../math/5/b/e/5be1e154e072f7c6e3813fdb7181bdce.png" alt="\pi = \cup^{\infty}_{i=1} (\sigma_i \cup \gamma_i)" /> where <img class='tex' src="../../../math/1/0/7/1078f7ff249e63b1e5110f560c8e7746.png" alt="\sigma = \cup^{\infty}_{i=1} \sigma_i" /> is a semi-infinite arc (a non self-intersecting path with a starting point but no ending point) and <span class="texhtml">γ<sub><i>i</i></sub></span> are pairwise disjoint loops with the following property:</p>
+<ul>
+<li><img class='tex' src="../../../math/6/d/3/6d33123698949987c9c10c2d812b7f01.png" alt="\forall i: |\gamma_i|\leq i" /> where <span class="texhtml">| γ<sub><i>i</i></sub> |</span> is the length of the ith loop.</li>
+</ul>
+<p>(Note that to be well defined <span class="texhtml">γ<sub><i>i</i></sub></span> must begin and end at the end point of <span class="texhtml">σ<sub><i>i</i></sub></span> and <span class="texhtml">σ<sub><i>i</i></sub></span> must end at the starting point of <span class="texhtml">σ<sub><i>i</i> + 1</sub></span>)</p>
+<p>Bowditch considers a variant (game 1) of the game with the changes 2 and 3 with a 5 devil. He then shows that a winning strategy in this game will yield a winning strategy in our original game for a 4-angel. He then goes on to show that an angel playing a 5 devil (game 2) can achieve a win using a fairly simple algorithm.</p>
+<p>Bowditch claims that a 4-angel can win the original version of the game by imagining a phantom angel playing a 5 devil in the game 2.</p>
+<p>The angel follows the path the phantom would take but avoiding the loops. Hence as the path <span class="texhtml">σ</span> is a semi-infinite arc the angel does not return to any square it has previously been to and so the path is a winning path even in the original game.</p>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/g/Angel_problem.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.msri.org/publications/books/Book29/files/conway.pdf" class="external text" title="http://www.msri.org/publications/books/Book29/files/conway.pdf" rel="nofollow">The Angel problem by John H Conway</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/g/Angel_problem.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="../../../e/l/w/Elwyn_Berlekamp_32dd.html" title="Elwyn Berlekamp">Elwyn R. Berlekamp</a>, John H. Conway, and Richard K. Guy, <i>Winning Ways for your mathematical plays, volume 2: Games in Particular</i>, Academic Press, 1982.</li>
+<li>John H. Conway, <i>The angel problem</i>, in: Richard Nowakowski (editor) <i>Games of no chance</i>, volume 29 of MSRI Publications, pages 3–12, 1996.</li>
+<li>Martin Kutz, <i>Conway's Angel in three dimensions</i>, Theoretical Computer Science, 349(3):443–451, Elsevier, 2005.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/g/Angel_problem.html">http://en.wikipedia.org../../../a/n/g/Angel_problem.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7ECombinatorial_game_theory_c8e3.html" title="Category:Combinatorial game theory">Combinatorial game theory</a></span> | <span dir='ltr'><a href="../../../u/n/s/Category%7EUnsolved_problems_in_mathematics_a9c7.html" title="Category:Unsolved problems in mathematics">Unsolved problems in mathematics</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/n/g/Angel_problem.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/n/g/Talk%7EAngel_problem_bfb1.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Angel_problem">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../fr/p/r/o/Probl%C3%A8me_de_l%27ange.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/o/_/p/O_problema_do_anjo.html">Português</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 23:14, 21 February 2007 by Wikipedia user <a href="../../../b/e/n/User%7EBencherlite_72d5.html" title="User:Bencherlite">Bencherlite</a>. Based on work by Wikipedia user(s) <a href="../../../a/n/d/User%7EAndy_M._Wang_0ba2.html" title="User:Andy M. Wang">Andy M. Wang</a>, <a href="../../../b/r/i/User%7EBrighterorange_f618.html" title="User:Brighterorange">Brighterorange</a>, <a href="../../../g/r/e/User%7EGregorB_c220.html" title="User:GregorB">GregorB</a>, <a href="../../../d/a/v/User%7EDavid_Eppstein_0880.html" title="User:David Eppstein">David Eppstein</a>, <a href="../../../b/a/r/User%7EBarnaby_dawson_0c30.html" title="User:Barnaby dawson">Barnaby dawson</a>, Petergacs, Amathe, Okloster, <a href="../../../c/h/a/User%7EChan-Ho_Suh_fb4b.html" title="User:Chan-Ho Suh">Chan-Ho Suh</a>, <a href="../../../a/r/i/User%7EArichnad_d429.html" title="User:Arichnad">Arichnad</a>, <a href="../../../w/i/n/User%7EWinBot_3e52.html" title="User:WinBot">WinBot</a>, <a href="../../../k/e/r/User%7EKershner_cf22.html" title="User:Kershner">Kershner</a>, <a href="../../../m/c/c/User%7EMccready_a493.html" title="User:Mccready">Mccready</a>, <a href="../../../k/z/o/User%7EKzollman_a660.html" title="User:Kzollman">Kzollman</a>, <a href="../../../t/e/l/User%7ETelso_ce03.html" title="User:Telso">Telso</a>, AgentM, <a href="../../../m/y/s/User%7EMysid_64a6.html" title="User:Mysid">Mysid</a>, <a href="../../../w/i/k/User%7EWikinick_8aa8.html" title="User:Wikinick">Wikinick</a>, <a href="../../../j/y/o/User%7EJYOuyang_0db2.html" title="User:JYOuyang">JYOuyang</a>, <a href="../../../g/a/i/User%7EGaius_Cornelius_c35a.html" title="User:Gaius Cornelius">Gaius Cornelius</a>, <a href="../../../m/i/k/User%7EMike_Segal_2510.html" title="User:Mike Segal">Mike Segal</a>, <a href="../../../g/r/i/User%7EGrika_fdff.html" title="User:Grika">Grika</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../m/u/r/User%7EMurtasa_c965.html" title="User:Murtasa">Murtasa</a>, <a href="../../../w/i/l/User%7EWill.i.am_6529.html" title="User:Will.i.am">Will.i.am</a>, <a href="../../../a/l/e/User%7EAleph4_0f7d.html" title="User:Aleph4">Aleph4</a>, <a href="../../../d/b/e/User%7EDbenbenn_44bf.html" title="User:Dbenbenn">Dbenbenn</a>, Martin S Taylor, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../s/c/h/User%7ESchneelocke_ee99.html" title="User:Schneelocke">Schneelocke</a> and <a href="../../../m/e/e/User%7EMeelar_6424.html" title="User:Meelar">Meelar</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

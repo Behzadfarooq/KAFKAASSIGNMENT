@@ -1,0 +1,337 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Wikipedia:Brion Vibber Interviews/MySQL Conference April 26th 2006" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Wikipedia:Brion Vibber Interviews/MySQL Conference April 26th 2006 - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-4">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Wikipedia:Brion Vibber Interviews/MySQL Conference April 26th 2006</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_8d9e.html" title="Wikipedia:Brion Vibber Interviews">Wikipedia:Brion Vibber Interviews</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>This transcript is still far from complete. If you want to help, the video is available at <a href="http://video.google.com/videoplay?docid=560035009827482562&amp;q=wikimedia" class="external text" title="http://video.google.com/videoplay?docid=560035009827482562&amp;q=wikimedia" rel="nofollow">Google Video</a></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#A_look_inside_WIKIPEDIA_with_Brion_Vibber.2C_CTO.2C_Wikimedia"><span class="tocnumber">1</span> <span class="toctext">A look inside WIKIPEDIA with Brion Vibber, CTO, Wikimedia</span></a></li>
+<li class="toclevel-1"><a href="#About_Mediawiki"><span class="tocnumber">2</span> <span class="toctext">About Mediawiki</span></a></li>
+<li class="toclevel-1"><a href="#What_is_Wikipedia"><span class="tocnumber">3</span> <span class="toctext">What is Wikipedia</span></a></li>
+<li class="toclevel-1"><a href="#Lessons_learn_on_the_latest_controversions"><span class="tocnumber">4</span> <span class="toctext">Lessons learn on the latest controversions</span></a></li>
+<li class="toclevel-1"><a href="#Who_checks_for_accuracy_of_information.3F"><span class="tocnumber">5</span> <span class="toctext">Who checks for accuracy of information?</span></a></li>
+<li class="toclevel-1"><a href="#Whats_the_benefits_for_volunteers.3F"><span class="tocnumber">6</span> <span class="toctext">Whats the benefits for volunteers?</span></a></li>
+<li class="toclevel-1"><a href="#Is_Wikipedia_at_risk.3F"><span class="tocnumber">7</span> <span class="toctext">Is Wikipedia at risk?</span></a></li>
+<li class="toclevel-1"><a href="#What_is_a_Wiki.3F"><span class="tocnumber">8</span> <span class="toctext">What is a Wiki?</span></a></li>
+<li class="toclevel-1"><a href="#Wikis_and_other_collaboration_tools.3F"><span class="tocnumber">9</span> <span class="toctext">Wikis and other collaboration tools?</span></a></li>
+<li class="toclevel-1"><a href="#About_supporting_other_types_of_media"><span class="tocnumber">10</span> <span class="toctext">About supporting other types of media</span></a></li>
+<li class="toclevel-1"><a href="#What.C2.B4s_Comming.3F"><span class="tocnumber">11</span> <span class="toctext">What´s Comming?</span></a></li>
+<li class="toclevel-1"><a href="#Merci.21"><span class="tocnumber">12</span> <span class="toctext">Merci!</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="A_look_inside_WIKIPEDIA_with_Brion_Vibber.2C_CTO.2C_Wikimedia" id="A_look_inside_WIKIPEDIA_with_Brion_Vibber.2C_CTO.2C_Wikimedia"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: A look inside WIKIPEDIA with Brion Vibber, CTO, Wikimedia">edit</a>]</span> <span class="mw-headline">A look inside WIKIPEDIA with Brion Vibber, CTO, Wikimedia</span></h2>
+<p>My name is Brion Vibber and I am the chief technical officer for wikimedia foundation</p>
+<p>working on the software</p>
+<p>about last four years</p>
+<p>volunteer working on things</p>
+<p>software open source open model work full time on that doing that eversince</p>
+<p>wikimedia foundation is a nonproffit</p>
+<p>organization based on florida</p>
+<p>theres about</p>
+<p>comes in half time towork on the</p>
+<p>servers</p>
+<p>officces</p>
+<p>phones</p>
+<p>complaints and thing that nature</p>
+<p>thats about employers most of our income comes from</p>
+<p>donations fundraising</p>
+<p>enough to keep the site running adding more servers because increasing</p>
+<p>web traffic keeps compare it to the</p>
+<p>website graphs</p>
+<p>sistem where you can compare anysite to anyother site</p>
+<p>cnn is you know lot of traffic</p>
+<p>and our traffic</p>
+<p>is kindof scary</p>
+<p>keep up with traffic</p>
+<p>hardware to maintain that</p>
+<p>have about hundred application server</p>
+<p>database server</p>
+<p>several offsite proxy cache in netherland and korea wich speed up</p>
+<p>wikipedia and several of its sister</p>
+<p>sites wikitionary dictionary wikimedia commons</p>
+<p>wikimedia repository</p>
+<p>creaticve commons public domains</p>
+<p>those are used on wikipedia and other</p>
+<p>sites wiki quotes exactly</p>
+<p>we have split english language larger site</p>
+<p>totally transparent from the outside</p>
+<p>lotsw of data</p>
+<p>we also have 4 asian wikis which we actualy host separatly</p>
+<p>korean</p>
+<p>our servers in korea</p>
+<p>particulary an experiment on beeing able to maintain the second</p>
+<p>data base</p>
+<p>keeps things working</p>
+<p><a name="About_Mediawiki" id="About_Mediawiki"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: About Mediawiki">edit</a>]</span> <span class="mw-headline">About Mediawiki</span></h2>
+<p>wiki software which runs wikipedia is</p>
+<p>called mediawiki GPL license</p>
+<p>available for free anyone can use it</p>
+<p>if you go around diverse companies</p>
+<p>here and ask them about it</p>
+<p>they are using mediawiki lots of companies</p>
+<p>different wikis</p>
+<p>different programs for this</p>
+<p>some are more commercial</p>
+<p>primarily noncommercila but we do get</p>
+<p>used in companies</p>
+<p>how we can help to serve them as well</p>
+<p>consulting and support for that</p>
+<p><a name="What_is_Wikipedia" id="What_is_Wikipedia"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: What is Wikipedia">edit</a>]</span> <span class="mw-headline">What is Wikipedia</span></h2>
+<p>wp is a ahn idea of it is to... be</p>
+<p>very open to accepting contribuion to</p>
+<p>point that alot of material can be put togheter when something current events we have an article on it</p>
+<p>traditional encyclopedias</p>
+<p>next year</p>
+<p>standard version for years an years but off course so very easy to contribute something its also very easy</p>
+<p>so there is to have other peaople</p>
+<p>some reviewing how do you make sure...</p>
+<p><a name="Lessons_learn_on_the_latest_controversions" id="Lessons_learn_on_the_latest_controversions"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: Lessons learn on the latest controversions">edit</a>]</span> <span class="mw-headline">Lessons learn on the latest controversions</span></h2>
+<p>at the moment primarily</p>
+<p>because we have a lot of other</p>
+<p>people</p>
+<p>and as</p>
+<p>maybe not totally accurate maybe not totally sourced</p>
+<p>sometimes takes a few months identify problematic allarticles guarantee</p>
+<p>biography</p>
+<p>quite possibly accurate</p>
+<p>information maybe takes a few months this article is problematic</p>
+<p>particular time</p>
+<p>george w bush</p>
+<p>very closely whatched lot of people working on that so far</p>
+<p>new users</p>
+<p>sign up</p>
+<p>then wait a few days before they can make topics</p>
+<p>not as regular process</p>
+<p>closely whatched</p>
+<p>this page has been reviewed</p>
+<p>pretty good</p>
+<p>latest changes are in this page</p>
+<p>letest events</p>
+<p>and then other pages</p>
+<p>marker that says</p>
+<p>this page is pobably ok but</p>
+<p>brand new article</p>
+<p>most problematic thing</p>
+<p><br />
+maybe people get upset</p>
+<p>not accurate or sourced</p>
+<p>be quite explicit disclaim this not been reviewed if theres problem with it more explicit process</p>
+<p>--- first thing better then most people think</p>
+<p>second lesson</p>
+<p>when it didnt work people get upset but as we more popular resource</p>
+<p>you to say ahn... yes! certain level of quality</p>
+<p>this page is good this page is work in progress</p>
+<p>people get involved not just in</p>
+<p>writing article</p>
+<p>i assassinated kennedy hey this is wrong</p>
+<p>fix it</p>
+<p>thats a good question</p>
+<p>knowing that some went wrong and the second part is having someone to fix it</p>
+<p>if you are partuclary upset you can</p>
+<p>callup the office or send an email to the user address but thats not everyone to that level so having some middle path is something that is important</p>
+<p><a name="Who_checks_for_accuracy_of_information.3F" id="Who_checks_for_accuracy_of_information.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: Who checks for accuracy of information?">edit</a>]</span> <span class="mw-headline">Who checks for accuracy of information?</span></h2>
+<p>we have a large number of voluntary contributors including several hundreds of voluntary adminitrators who have&#160;???, who work on cleaning up problem pages, vandalism, copyright issues, things like that.</p>
+<p>central office</p>
+<p>this article is really bad that</p>
+<p>somebody need to take a look</p>
+<p>administrers</p>
+<p>going in</p>
+<p>take a look at that</p>
+<p>just fix it all</p>
+<p><a name="Whats_the_benefits_for_volunteers.3F" id="Whats_the_benefits_for_volunteers.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: Whats the benefits for volunteers?">edit</a>]</span> <span class="mw-headline">Whats the benefits for volunteers?</span></h2>
+<p>for a lot of people this is just</p>
+<p>hobby ahn... its a more productive way to</p>
+<p>spendyour time than playing everquest</p>
+<p>a lot of people like to do something</p>
+<p>that is productive</p>
+<p>people like to write, they like to share their knowledge they may like to make proof reads fixing all the pontuaction errors</p>
+<p>so it depends on people who have</p>
+<p>interests in some area of knowledge</p>
+<p>film or wahatver because they do have a</p>
+<p>topics because they do have a far domain knowledge exercising that by writing things, by reading other things</p>
+<p>oh! im not sure if this is really</p>
+<p>accurate</p>
+<p>fix</p>
+<p>something by yourself</p>
+<p><a name="Is_Wikipedia_at_risk.3F" id="Is_Wikipedia_at_risk.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: Is Wikipedia at risk?">edit</a>]</span> <span class="mw-headline">Is Wikipedia at risk?</span></h2>
+<p>but I think it does require a little</p>
+<p>bit of discipline one of the things</p>
+<p>trying to biographies of living persons</p>
+<p>the biggest issue</p>
+<p>when we have such a biography how you write and how you source information</p>
+<p>be different from somebody who died uhundered years ago and have fifty books having better reporting tools for</p>
+<p>people seen whats been added and what sorts of pages are going to be problematic quickly go</p>
+<p>find those and treat them differently pretty well</p>
+<p><a name="What_is_a_Wiki.3F" id="What_is_a_Wiki.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: What is a Wiki?">edit</a>]</span> <span class="mw-headline">What is a Wiki?</span></h2>
+<p>a wiki is a website that multiple</p>
+<p>people can change the contents on it</p>
+<p>the differences between a wiki and a</p>
+<p>blog are 2 things two things how things are organized in a blog you basically have a post</p>
+<p>on after the other add a comment on top of a post</p>
+<p>in a wiki you have space over the</p>
+<p>time</p>
+<p>so you have a page and another page and all these pages can be updated</p>
+<p>continuously subject</p>
+<p>because they can always be changed</p>
+<p>comment in the end tothe document ityself</p>
+<p>living document</p>
+<p>if you go to a blog post from 3 years</p>
+<p>ago there might be this changes</p>
+<p>but if its a wiki page you can directly change</p>
+<p>always alive and always current</p>
+<p>and ahn... sort of more live up to date environment.</p>
+<p><a name="Wikis_and_other_collaboration_tools.3F" id="Wikis_and_other_collaboration_tools.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: Wikis and other collaboration tools?">edit</a>]</span> <span class="mw-headline">Wikis and other collaboration tools?</span></h2>
+<p>something like its thereis very accessible</p>
+<p>open by definition if you first of all commercial system you have to have the special clients sort of hacky web interface onto that whereas wikis are very much adapted to the web itself. They are accessible from anywhere. You dont need additional software to</p>
+<p>consult like any website</p>
+<p>immediatly changes.</p>
+<p><a name="About_supporting_other_types_of_media" id="About_supporting_other_types_of_media"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: About supporting other types of media">edit</a>]</span> <span class="mw-headline">About supporting other types of media</span></h2>
+<p>certainy wikipedia makes extensive use of</p>
+<p>photographs You can upload image files</p>
+<p>audio vide0 partly just because those are harder for user to contribute and are harder to distribute it in a compatible way. Video encoding is</p>
+<p>getting it right</p>
+<p>very active work on this things these days</p>
+<p>google video and youtube all do that</p>
+<p>something that we´re gonna see more</p>
+<p>on our wikisites in the future</p>
+<p><a name="What.C2.B4s_Comming.3F" id="What.C2.B4s_Comming.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: What´s Comming?">edit</a>]</span> <span class="mw-headline">What´s Comming?</span></h2>
+<p>one of the couple next few months unifying our own logging system wikipedia sites will use the same</p>
+<p>logins</p>
+<p>separate</p>
+<p>because</p>
+<p>french wikipedia</p>
+<p>you have to create</p>
+<p><br />
+really cool things like using distributed authentication</p>
+<p>systems like open ID the differences are if you have an account on a live journal come to wikipedia article ] your comment there can be make a comment</p>
+<p>live journal so your not just</p>
+<p>have some consistent</p>
+<p>crosssites if you have a wp identification then you go to their live journal or whatever blog that post can identified with your wiki pedia</p>
+<p>account not just</p>
+<p>you really are such an such wikipedia sort of goes beyond all kind of blogs</p>
+<p>an d wikis</p>
+<p>as far as being able to provide a sistemwhere a person as far as been able to</p>
+<p>way</p>
+<p><a name="Merci.21" id="Merci.21"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html" title="Edit section: Merci!">edit</a>]</span> <span class="mw-headline">Merci!</span></h2>
+<p>Sure!</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html">http://en.wikipedia.org../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-project"
+	       class="selected"	       ><a href="../../../b/r/i/Wikipedia%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_9c95.html">Project page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/r/i/Wikipedia_talk%7EBrion_Vibber_Interviews_MySQL_Conference_April_26th_2006_4ee3.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Wikipedia:Brion_Vibber_Interviews/MySQL_Conference_April_26th_2006">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 21:49, 5 August 2006 by Wikipedia user Felipe.sanches. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

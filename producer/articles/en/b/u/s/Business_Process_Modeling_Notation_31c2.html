@@ -1,0 +1,359 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Business Process Modeling Notation,BPEL,Boundary,Business Process Management,Business Process Management Initiative,Business Process Modeling,Business process,Business process modeling,Data flow diagram,Interactions,Object Management Group" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Business Process Modeling Notation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Business Process Modeling Notation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>The <b>Business Process Modeling Notation</b> (<b>BPMN</b>) is a standardized graphical notation for drawing <a href="../../../b/u/s/Business_process.html" title="Business process">business processes</a> in a <a href="../../../w/o/r/Workflow.html" title="Workflow">workflow</a>. BPMN was developed by <a href="../../../b/u/s/Business_Process_Management_Initiative_462c.html" title="Business Process Management Initiative">Business Process Management Initiative</a> (BPMI), and is now being maintained by the <a href="../../../o/b/j/Object_Management_Group_7215.html" title="Object Management Group">Object Management Group</a> since the two organizations merged 2005.</p>
+<p>The primary goal of BPMN is to provide a standard notation that is readily understandable by all business stakeholders. These business stakeholders include the business analysts who create and refine the processes, the technical developers responsible for implementing the processes, and the business managers who monitor and manage the processes. Consequently BPMN is intended to serve as common language to bridge the communication gap that frequently occurs between business process design and implementation.</p>
+<p>Currently, there are scores of <a href="../../../b/u/s/Business_process_modeling.html" title="Business process modeling">business process modeling</a> languages, tools and methodologies. The adoption of BPMN standard notation will help unify the expression of basic business process concepts (e.g., public and private processes, choreographies) as well as advanced modeling concepts (e.g., exception handling, transaction compensation).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#BPMN_scope"><span class="tocnumber">1</span> <span class="toctext">BPMN scope</span></a></li>
+<li class="toclevel-1"><a href="#Uses_of_BPMN"><span class="tocnumber">2</span> <span class="toctext">Uses of BPMN</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Private_.28internal.29_business_processes"><span class="tocnumber">2.1</span> <span class="toctext">Private (internal) business processes</span></a></li>
+<li class="toclevel-2"><a href="#Abstract_.28public.29_processes"><span class="tocnumber">2.2</span> <span class="toctext">Abstract (public) processes</span></a></li>
+<li class="toclevel-2"><a href="#Collaboration_.28global.29_processes"><span class="tocnumber">2.3</span> <span class="toctext">Collaboration (global) processes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Types_of_BPD_diagrams"><span class="tocnumber">3</span> <span class="toctext">Types of BPD diagrams</span></a></li>
+<li class="toclevel-1"><a href="#Elements"><span class="tocnumber">4</span> <span class="toctext">Elements</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Flow_objects"><span class="tocnumber">4.1</span> <span class="toctext">Flow objects</span></a></li>
+<li class="toclevel-2"><a href="#Connecting_objects"><span class="tocnumber">4.2</span> <span class="toctext">Connecting objects</span></a></li>
+<li class="toclevel-2"><a href="#Swimlanes"><span class="tocnumber">4.3</span> <span class="toctext">Swimlanes</span></a></li>
+<li class="toclevel-2"><a href="#Artifacts"><span class="tocnumber">4.4</span> <span class="toctext">Artifacts</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">7</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="BPMN_scope" id="BPMN_scope"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: BPMN scope">edit</a>]</span> <span class="mw-headline"><b>BPMN scope</b></span></h2>
+<p>BPMN will be constrained to support only the concepts of modeling that are applicable to business processes. This means that other types of modeling done by organizations for non-business purposes will be out of scope for BPMN. For example, the modeling of the following will not be a part of BPMN:</p>
+<ul>
+<li>Organizational structures</li>
+<li>Functional breakdowns</li>
+<li>Data models</li>
+</ul>
+<p>In addition, while BPMN will show the flow of data (messages), and the association of data artifacts to activities, it is not a <a href="../../../d/a/t/Data_flow_diagram.html" title="Data flow diagram">data flow diagram</a>..</p>
+<p><a name="Uses_of_BPMN" id="Uses_of_BPMN"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Uses of BPMN">edit</a>]</span> <span class="mw-headline">Uses of BPMN</span></h2>
+<p>Business process modeling is used to communicate a wide variety of information to a wide variety of audiences. BPMN is designed to cover this wide range of usage and allows modeling of end-to-end business processes to allow the viewer of the Diagram to be able to easily differentiate between sections of a BPMN Diagram.</p>
+<p>There are three basic types of sub-models within an end-to-end BPMN model:</p>
+<ul>
+<li>Private (internal) business processes</li>
+<li>Abstract (public) processes</li>
+<li>Collaboration (global) processes</li>
+</ul>
+<p><a name="Private_.28internal.29_business_processes" id="Private_.28internal.29_business_processes"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Private (internal) business processes">edit</a>]</span> <span class="mw-headline">Private (internal) business processes</span></h3>
+<p>Private business processes are those internal to a specific organization and are the type of processes that have been generally called workflow or BPM processes. If swim lanes are used then a private business process will be contained within a single Pool. The Sequence Flow of the Process is therefore contained within the Pool and cannot cross the boundaries of the Pool. Message Flow can cross the Pool <a href="../../../b/o/u/Boundary.html" title="Boundary">boundary</a> to show the <a href="../../../i/n/t/Interactions.html" title="Interactions">interactions</a> that exist between separate private business processes.'</p>
+<p><a name="Abstract_.28public.29_processes" id="Abstract_.28public.29_processes"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Abstract (public) processes">edit</a>]</span> <span class="mw-headline">Abstract (public) processes</span></h3>
+<p>This represents the interactions between a private business process and another process or participant. Only those activities that are used to communicate outside the private business process are included in the abstract process. All other “internal” activities of the private business process are not shown in the abstract process. Thus, the abstract process shows to the outside world the sequence of messages that are required to interact with that business process. Abstract processes are contained within a Pool and can be modeled separately or within a larger BPMN Diagram to show the Message Flow between the abstract process activities and other entities. If the abstract process is in the same Diagram as its corresponding private business process, then the activities that are common to both processes can be associated.</p>
+<p><a name="Collaboration_.28global.29_processes" id="Collaboration_.28global.29_processes"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Collaboration (global) processes">edit</a>]</span> <span class="mw-headline">Collaboration (global) processes</span></h3>
+<p>A collaboration process depicts the interactions between two or more business entities. These interactions are defined as a sequence of activities that represent the message exchange patterns between the entities involved. Collaboration processes may be contained within a Pool and the different participant business interactions are shown as Lanes within the Pool. In this situation, each Lane would represent two participants and a direction of travel between them. They may also be shown as two or more Abstract Processes interacting through Message Flow (as described in the previous section). These processes can be modeled separately or within a larger BPMN Diagram to show the Associations between the collaboration process activities and other entities. If the collaboration process is in the same Diagram as one of its corresponding private business process, then the activities that are common to both processes can be associated.</p>
+<p><a name="Types_of_BPD_diagrams" id="Types_of_BPD_diagrams"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Types of BPD diagrams">edit</a>]</span> <span class="mw-headline">Types of BPD diagrams</span></h2>
+<p>Within and between these three BPMN sub-models, many types of Diagrams can be created. The following are the types of business processes that can be modeled with BPMN (those with asterisks may not map to an executable language):</p>
+<ul>
+<li>High-level private process activities (not functional breakdown)*</li>
+<li>Detailed private business process</li>
+<li>As-is or old business process*</li>
+<li>To-be or new business process</li>
+<li>Detailed private business process with interactions to one or more external entities (or “Black Box” processes)</li>
+<li>Two or more detailed private business processes interacting</li>
+<li>Detailed private business process relationship to Abstract Process</li>
+<li>Detailed private business process relationship to Collaboration Process</li>
+<li>Two or more Abstract Processes*</li>
+<li>Abstract Process relationship to Collaboration Process*</li>
+<li>Collaboration Process only (e.g., ebXML BPSS or RosettaNet)*</li>
+<li>Two or more detailed private business processes interacting through their Abstract Processes</li>
+<li>Two or more detailed private business processes interacting through a Collaboration Process</li>
+<li>Two or more detailed private business processes interacting through their Abstract Processes and a Collaboration Process</li>
+</ul>
+<p>BPMN is designed to allow all the above types of Diagrams. However, it should be cautioned that if too many types of sub-models are combined, such as three or more private processes with message flow between each of them, then the Diagram may become too hard for someone to understand. Thus, we recommend that the modeler pick a focused purpose for the BPD, such as a private process, or a collaboration process.</p>
+<p><a name="Elements" id="Elements"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Elements">edit</a>]</span> <span class="mw-headline">Elements</span></h2>
+<p>The modelling in BPMN is made by simple diagrams with a small set of graphical elements. It should make it easy for business user as well as developers to understand the flow and the process. The four basic categories of elements are:</p>
+<ul>
+<li>Flow Objects
+<ul>
+<li>Events</li>
+<li>Activities</li>
+<li>Gateways</li>
+</ul>
+</li>
+<li>Connecting Objects
+<ul>
+<li>Sequence flow</li>
+<li>Message Flow</li>
+<li>Association</li>
+</ul>
+</li>
+<li>Swimlanes
+<ul>
+<li>Pool</li>
+<li>Lane</li>
+</ul>
+</li>
+<li>Artifacts
+<ul>
+<li>Data Objects</li>
+<li>Group</li>
+<li>Annotation</li>
+</ul>
+</li>
+</ul>
+<p>These four categories of elements give us the opportunity to make a simple diagram (BPD). It is also allowed in BPD to make your own type of a Flow Object or an Artifact to make the diagram more understandable.</p>
+<p><a name="Flow_objects" id="Flow_objects"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Flow objects">edit</a>]</span> <span class="mw-headline">Flow objects</span></h3>
+<p>Flow Objects consist of only three core elements. The three Flow Objects are:</p>
+<ul>
+<li>Event: An Event is represented with a circle and is something that happens. It could be Start, Intermediate or End. This element is a trigger or a result.</li>
+</ul>
+<p><a href="../../../b/p/m/Image%7EBPMN-Event.JPG_2e25.html" class="image" title="Image:BPMN-Event.JPG"><img src="../../../upload/f/f3/BPMN-Event.JPG" alt="Image:BPMN-Event.JPG" width="192" height="52" longdesc="../../../b/p/m/Image%7EBPMN-Event.JPG_2e25.html" /></a></p>
+<ul>
+<li>Activity: An Activity is represented with a rounded-corner rectangle and shows us the kind of work which must be done. It could be a task or a sub-process. A sub-process also has a plus sign in the bottom line of the rectangle.</li>
+</ul>
+<p><a href="../../../b/p/m/Image%7EBPMN-Activity.JPG_56a5.html" class="image" title="Image:BPMN-Activity.JPG"><img src="../../../upload/0/09/BPMN-Activity.JPG" alt="Image:BPMN-Activity.JPG" width="196" height="56" longdesc="../../../b/p/m/Image%7EBPMN-Activity.JPG_56a5.html" /></a></p>
+<ul>
+<li>Gateway: A Gateway is represented with a diamond shape and will determine different decisions. It will also determine forking, merging and joining of paths.</li>
+</ul>
+<p><a href="../../../b/p/m/Image%7EBPMN-Gateway.jpg_6e96.html" class="image" title="Image:BPMN-Gateway.jpg"><img src="../../../upload/2/2f/BPMN-Gateway.jpg" alt="Image:BPMN-Gateway.jpg" width="293" height="68" longdesc="../../../b/p/m/Image%7EBPMN-Gateway.jpg_6e96.html" /></a></p>
+<p><a name="Connecting_objects" id="Connecting_objects"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Connecting objects">edit</a>]</span> <span class="mw-headline">Connecting objects</span></h3>
+<p>The Flow Objects are connected to each other with Connecting Objects. There are three different Connecting Objects:</p>
+<ul>
+<li>Sequence Flow: A Sequence Flow is represented with a solid line and arrowhead and shows in which order the activities will be performed. A diagonal slash across the line close to the origin indicates a default choice of a decision.</li>
+<li>Message Flow: A Message Flow is represented with a dashed line and an open arrowhead. It tells us what messages flow between two process participants.</li>
+<li>Association: An Association is represented with a dotted line and a line arrowhead. It is used to associate an Artifact, data or text to a Flow Object.</li>
+</ul>
+<p><a href="../../../b/p/m/Image%7EBPMN-Connecting.JPG_b521.html" class="image" title="Image:BPMN-Connecting.JPG"><img src="../../../upload/d/d5/BPMN-Connecting.JPG" alt="Image:BPMN-Connecting.JPG" width="149" height="145" longdesc="../../../b/p/m/Image%7EBPMN-Connecting.JPG_b521.html" /></a></p>
+<p><a name="Swimlanes" id="Swimlanes"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Swimlanes">edit</a>]</span> <span class="mw-headline">Swimlanes</span></h3>
+<p>A Swimlane is a visual mechanism of organizing different activities into categories of the same functionality. There are two different swimlanes, and they are:</p>
+<ul>
+<li>Pool: A Pool is represented with a big rectangle which contains many Flow Objects, Connecting Objects and Artifacts.</li>
+<li>Lane: A Lane is represented as a sub-part of the pool. The lanes are used to organize the Flow Objects, Connecting Objects and Artifacts more precisely.</li>
+</ul>
+<p><a href="../../../b/p/m/Image%7EBPMN-Swimlanes.JPG_fea5.html" class="image" title="Image:BPMN-Swimlanes.JPG"><img src="../../../upload/d/d7/BPMN-Swimlanes.JPG" alt="Image:BPMN-Swimlanes.JPG" width="166" height="146" longdesc="../../../b/p/m/Image%7EBPMN-Swimlanes.JPG_fea5.html" /></a></p>
+<p><a name="Artifacts" id="Artifacts"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Artifacts">edit</a>]</span> <span class="mw-headline">Artifacts</span></h3>
+<p>Artifacts allow developers to bring some more information into the model/diagram. In this way the model/diagram becomes more readable. There are three pre-defined Artifacts and they are:</p>
+<ul>
+<li>Data Objects: Data Objects are used to show the reader which data is required or produced in an activity.</li>
+</ul>
+<p><a href="../../../b/p/m/Image%7EBPMN-Data.JPG_3d94.html" class="image" title="Image:BPMN-Data.JPG"><img src="../../../upload/f/f6/BPMN-Data.JPG" alt="Image:BPMN-Data.JPG" width="56" height="78" longdesc="../../../b/p/m/Image%7EBPMN-Data.JPG_3d94.html" /></a></p>
+<ul>
+<li>Group: A Group is represented with a rounded-corner rectangle and dashed lines. The Group is used to group different activities but does not affect the flow in the diagram.</li>
+</ul>
+<p><a href="../../../b/p/m/Image%7EBPMN-Group.JPG_14d0.html" class="image" title="Image:BPMN-Group.JPG"><img src="../../../upload/1/14/BPMN-Group.JPG" alt="Image:BPMN-Group.JPG" width="96" height="76" longdesc="../../../b/p/m/Image%7EBPMN-Group.JPG_14d0.html" /></a></p>
+<ul>
+<li>Annotation: An Annotation is used to give the reader of the model/diagram an understandable impression.</li>
+</ul>
+<p><a href="../../../b/p/m/Image%7EBPMN-Annotation.JPG_0520.html" class="image" title="Image:BPMN-Annotation.JPG"><img src="../../../upload/5/56/BPMN-Annotation.JPG" alt="Image:BPMN-Annotation.JPG" width="123" height="83" longdesc="../../../b/p/m/Image%7EBPMN-Annotation.JPG_0520.html" /></a></p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<table class="gallery" cellspacing="0" cellpadding="0">
+<caption>Click on small images for full-size version</caption>
+<tr>
+<td>
+<div class="gallerybox" style="width: 150px;">
+<div class="thumb" style="padding: 40px 0; width: 150px;"><a href="../../../b/p/m/Image%7EBPMN-AProcesswithNormalFlow.jpg_6e1e.html" title="Image:BPMN-AProcesswithNormalFlow.jpg"><img src="../../../upload/thumb/3/36/BPMN-AProcesswithNormalFlow.jpg/120px-BPMN-AProcesswithNormalFlow.jpg" width="120" height="66" alt="" /></a></div>
+<div class="gallerytext">
+<p>A Process with Normal Flow</p>
+<p><br /></p>
+</div>
+</div>
+</td>
+<td>
+<div class="gallerybox" style="width: 150px;">
+<div class="thumb" style="padding: 41px 0; width: 150px;"><a href="../../../b/p/m/Image%7EBPMN-DiscussionCycle.jpg_7e33.html" title="Image:BPMN-DiscussionCycle.jpg"><img src="../../../upload/thumb/c/c0/BPMN-DiscussionCycle.jpg/120px-BPMN-DiscussionCycle.jpg" width="120" height="64" alt="" /></a></div>
+<div class="gallerytext">
+<p>Discussion Cycle</p>
+<p><br /></p>
+</div>
+</div>
+</td>
+<td>
+<div class="gallerybox" style="width: 150px;">
+<div class="thumb" style="padding: 21px 0; width: 150px;"><a href="../../../b/p/m/Image%7EBPMN-E-MailVotingProcess.jpg_ac03.html" title="Image:BPMN-E-MailVotingProcess.jpg"><img src="../../../upload/thumb/9/96/BPMN-E-MailVotingProcess.jpg/120px-BPMN-E-MailVotingProcess.jpg" width="120" height="103" alt="" /></a></div>
+<div class="gallerytext">
+<p>E-Mail Voting Process</p>
+<p><br /></p>
+</div>
+</div>
+</td>
+<td>
+<div class="gallerybox" style="width: 150px;">
+<div class="thumb" style="padding: 15px 0; width: 150px;"><a href="../../../b/p/m/Image%7EBPMN-CollectVotes.jpg_ce7e.html" title="Image:BPMN-CollectVotes.jpg"><img src="../../../upload/thumb/7/78/BPMN-CollectVotes.jpg/120px-BPMN-CollectVotes.jpg" width="120" height="115" alt="" /></a></div>
+<div class="gallerytext">
+<p>Collect Votes</p>
+<p><br /></p>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../w/o/r/Workflow.html" title="Workflow">Workflow</a></li>
+<li><a href="../../../b/u/s/Business_Process_Modeling_6fd9.html" title="Business Process Modeling">Business Process Modeling</a></li>
+<li><a href="../../../b/u/s/Business_Process_Management_ccc9.html" title="Business Process Management">Business Process Management</a></li>
+<li><a href="../../../b/p/e/BPEL_bf2c.html" title="BPEL">BPEL</a></li>
+<li><a href="../../../y/a/w/YAWL_f6a0.html" title="YAWL">YAWL</a></li>
+<li><a href="../../../x/p/d/XPDL_83ef.html" title="XPDL">XPDL</a></li>
+<li><a href="../../../w/o/r/Workflow_patterns.html" title="Workflow patterns">Workflow patterns</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://bpmnpop.sourceforge.net/BPMNposter/BPMNposter.htm" class="external text" title="http://bpmnpop.sourceforge.net/BPMNposter/BPMNposter.htm" rel="nofollow">BPMN Poster</a> A2, A3, A4 Poster - includes all elements, examples and process anti-patterns (BPMN quick reference, BPMN cheat sheet)</li>
+<li><a href="http://bmi.omg.org" class="external text" title="http://bmi.omg.org" rel="nofollow">Business Modeling &amp; Integration Domain Task Force (BMI DTF)</a></li>
+<li><a href="http://www.bpmn.org" class="external text" title="http://www.bpmn.org" rel="nofollow">Business Process Modeling Notation (BPMN)</a></li>
+<li><a href="http://www.eclipse.org/stp/bpmn" class="external text" title="http://www.eclipse.org/stp/bpmn" rel="nofollow">Eclipse STP BPMN subproject</a></li>
+<li><a href="http://www.BusinessModelingForum.com" class="external text" title="http://www.BusinessModelingForum.com" rel="nofollow">Business Modeling Forum</a> Business modeling community web that includes information about business process modeling specifications, tools, and publications.</li>
+<li><a href="http://www.workflow-research.de/Downloads/BPMN" class="external text" title="http://www.workflow-research.de/Downloads/BPMN" rel="nofollow">Visio BPMN Templates</a></li>
+<li><a href="http://www.bureau-botticelli.org/bpmn4xfig" class="external text" title="http://www.bureau-botticelli.org/bpmn4xfig" rel="nofollow">Xfig BPMN Library</a></li>
+<li><a href="http://www.visual-paradigm.com/documentation/bpmnspec.jsp?format=html" class="external text" title="http://www.visual-paradigm.com/documentation/bpmnspec.jsp?format=html" rel="nofollow">BPMN Specification in HTML format (Downloadable)</a></li>
+<li><a href="http://www.bpm.fit.qut.edu.au/projects/babel/tools/" class="external text" title="http://www.bpm.fit.qut.edu.au/projects/babel/tools/" rel="nofollow">BPMN2BPEL</a> An open-source tool for translating BPMN models into BPEL code templates</li>
+<li><a href="http://is.tm.tue.nl/staff/rdijkman/cbd.html" class="external text" title="http://is.tm.tue.nl/staff/rdijkman/cbd.html" rel="nofollow">BPMN to Petri Net Transformer</a> A tool that translates from an XML serialization of BPMN into the Petri Net Markup Language (PNML). The generated PNML code can be imported into analysis tools such as the <a href="http://sourceforge.net/projects/prom" class="external text" title="http://sourceforge.net/projects/prom" rel="nofollow">ProM Framework</a></li>
+<li><a href="http://BPMcenter.org/reports/2006/BPM-06-17.pdf" class="external text" title="http://BPMcenter.org/reports/2006/BPM-06-17.pdf" rel="nofollow">Pattern-based Analysis of BPMN</a></li>
+<li><a href="http://www.bpmn.org/Documents/Notations%20and%20Workflow%20Patterns.pdf" class="external text" title="http://www.bpmn.org/Documents/Notations%20and%20Workflow%20Patterns.pdf" rel="nofollow">Workflow Patterns with BPMN and UML</a></li>
+<li><a href="http://arxiv.org/abs/cs.SE/0607044/" class="external text" title="http://arxiv.org/abs/cs.SE/0607044/" rel="nofollow">UML Activity Diagram to BPMN Model Transformation</a></li>
+<li><a href="http://www.intalio.org" class="external text" title="http://www.intalio.org" rel="nofollow">The Open Source BPMS</a></li>
+<li><a href="http://www.visual-paradigm.com/product/bpva/" class="external text" title="http://www.visual-paradigm.com/product/bpva/" rel="nofollow">Business Process Visual ARCHITECT - Business Process Modeling Tool supporting latest BPMN standard</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/u/s/Business_Process_Modeling_Notation_31c2.html">http://en.wikipedia.org../../../b/u/s/Business_Process_Modeling_Notation_31c2.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../d/i/a/Category%7EDiagrams_d20a.html" title="Category:Diagrams">Diagrams</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/u/s/Business_Process_Modeling_Notation_31c2.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/u/s/Talk%7EBusiness_Process_Modeling_Notation_679d.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Business_Process_Modeling_Notation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../da/b/p/m/BPMN_e3d6.html">Dansk</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/b/u/s/Business_Process_Modeling_Notation_31c2.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/b/u/s/Business_Process_Modeling_Notation_31c2.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/b/p/m/BPMN_e3d6.html">Polski</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:39, 7 April 2007 by Wikipedia user <a href="../../../r/e/q/User%7ERequestion_f172.html" title="User:Requestion">Requestion</a>. Based on work by Wikipedia user(s) Grepol, <a href="../../../p/h/i/User%7EPhil_Boswell_c574.html" title="User:Phil Boswell">Phil Boswell</a>, <a href="../../../d/i/d/User%7EDidier_Willame_aa4f.html" title="User:Didier Willame">Didier Willame</a>, Perter Nokia, MME, <a href="../../../a/r/n/User%7EArnauldvm_a42e.html" title="User:Arnauldvm">Arnauldvm</a>, <a href="../../../u/p/i/User%7EUpi_24f6.html" title="User:Upi">Upi</a>, <a href="../../../g/o/f/User%7EGoflow6206_aff5.html" title="User:Goflow6206">Goflow6206</a>, Marlon.dumas, <a href="../../../r/e/n/User%7ERenesis_2e6a.html" title="User:Renesis">Renesis</a>, KetanPadegaonkar, <a href="../../../m/u/r/User%7EMurkyMurk_b1be.html" title="User:MurkyMurk">MurkyMurk</a>, <a href="../../../a/n/c/User%7EAnca_6ceb.html" title="User:Anca">Anca</a>, PNMsoft, <a href="../../../e/d/g/User%7EEdGl_582c.html" title="User:EdGl">EdGl</a>, <a href="../../../p/e/a/User%7EPeashy_b91c.html" title="User:Peashy">Peashy</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../s/f/d/User%7ESfdan_f912.html" title="User:Sfdan">Sfdan</a>, <a href="../../../k/k/u/User%7EKku_5886.html" title="User:Kku">Kku</a>, <a href="../../../w/k/n/User%7EWknight94_8d60.html" title="User:Wknight94">Wknight94</a>, Tttt1234, <a href="../../../m/o/n/User%7EMONGO_8e88.html" title="User:MONGO">MONGO</a>, <a href="../../../d/o/u/User%7EDoug_Bell_8398.html" title="User:Doug Bell">Doug Bell</a>, <a href="../../../o/r/p/User%7EOrphanBot_88cf.html" title="User:OrphanBot">OrphanBot</a>, <a href="../../../m/k/a/User%7EMkamensek_f039.html" title="User:Mkamensek">Mkamensek</a>, <a href="../../../f/o/l/User%7EFolajimi_dee8.html" title="User:Folajimi">Folajimi</a>, Michaeljp, Bspisak, Lblockhus@igrafx.com, <a href="../../../h/e/d/User%7EHede2000_86f6.html" title="User:Hede2000">Hede2000</a>, <a href="../../../z/a/k/User%7EZak.l_716d.html" title="User:Zak.l">Zak.l</a>, HenryYu, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, VBevort, <a href="../../../h/h/i/User%7EHhielscher_5e47.html" title="User:Hhielscher">Hhielscher</a>, <a href="../../../p/a/u/User%7EPaulHanson_59b8.html" title="User:PaulHanson">PaulHanson</a>, <a href="../../../m/e/l/User%7EMelesse_4e60.html" title="User:Melesse">Melesse</a>, <a href="../../../s/s/d/User%7ESsd_e9c6.html" title="User:Ssd">Ssd</a> and <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

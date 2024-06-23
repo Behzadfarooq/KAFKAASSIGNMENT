@@ -1,0 +1,426 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bernoulli polynomials,1851,Appell sequence,Bernoulli number,Derivative,Dirichlet series,Euler number,Falling factorial,Faulhaber's formula,Formal power series,Forward difference" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bernoulli polynomials - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bernoulli polynomials</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, the <b>Bernoulli polynomials</b> occur in the study of many <a href="../../../s/p/e/Special_functions.html" title="Special functions">special functions</a> and in particular the <a href="../../../r/i/e/Riemann_zeta_function.html" title="Riemann zeta function">Riemann zeta function</a> and the <a href="../../../h/u/r/Hurwitz_zeta_function.html" title="Hurwitz zeta function">Hurwitz zeta function</a>. This is in large part due to the fact that they are an <a href="../../../a/p/p/Appell_sequence.html" title="Appell sequence">Appell sequence</a>, i.e. a <a href="../../../s/h/e/Sheffer_sequence.html" title="Sheffer sequence">Sheffer sequence</a> for the ordinary <a href="../../../d/e/r/Derivative.html" title="Derivative">derivative</a> operator. Unlike <a href="../../../o/r/t/Orthogonal_polynomials.html" title="Orthogonal polynomials">orthogonal polynomials</a>, the Bernoulli polynomials are remarkable in that the number of crossings of the <i>x</i>-axis in the <a href="../../../u/n/i/Unit_interval.html" title="Unit interval">unit interval</a> does not go up as the degree of the polynomials goes up. In the limit of large degree, the Bernoulli polynomials, appropriately scaled, approach the <a href="../../../t/r/i/Trigonometric_function.html" title="Trigonometric function">sine and cosine functions</a>.</p>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../b/e/r/Image%7EBernoulli_polynomials.svg_7afd.html" class="internal" title="Bernoulli polynomials"><img src="../../../upload/thumb/6/67/Bernoulli_polynomials.svg/180px-Bernoulli_polynomials.svg.png" alt="Bernoulli polynomials" width="180" height="144" longdesc="../../../b/e/r/Image%7EBernoulli_polynomials.svg_7afd.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/e/r/Image%7EBernoulli_polynomials.svg_7afd.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Bernoulli polynomials</div>
+</div>
+</div>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Representations"><span class="tocnumber">1</span> <span class="toctext">Representations</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Explicit_formula"><span class="tocnumber">1.1</span> <span class="toctext">Explicit formula</span></a></li>
+<li class="toclevel-2"><a href="#Generating_functions"><span class="tocnumber">1.2</span> <span class="toctext">Generating functions</span></a></li>
+<li class="toclevel-2"><a href="#Representation_by_a_differential_operator"><span class="tocnumber">1.3</span> <span class="toctext">Representation by a differential operator</span></a></li>
+<li class="toclevel-2"><a href="#Representation_by_an_integral_operator"><span class="tocnumber">1.4</span> <span class="toctext">Representation by an integral operator</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Another_explicit_formula"><span class="tocnumber">2</span> <span class="toctext">Another explicit formula</span></a></li>
+<li class="toclevel-1"><a href="#Sums_of_pth_powers"><span class="tocnumber">3</span> <span class="toctext">Sums of pth powers</span></a></li>
+<li class="toclevel-1"><a href="#The_Bernoulli_and_Euler_numbers"><span class="tocnumber">4</span> <span class="toctext">The Bernoulli and Euler numbers</span></a></li>
+<li class="toclevel-1"><a href="#Explicit_expressions_for_low_degrees"><span class="tocnumber">5</span> <span class="toctext">Explicit expressions for low degrees</span></a></li>
+<li class="toclevel-1"><a href="#Differences_and_derivatives"><span class="tocnumber">6</span> <span class="toctext">Differences and derivatives</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Translations"><span class="tocnumber">6.1</span> <span class="toctext">Translations</span></a></li>
+<li class="toclevel-2"><a href="#Symmetries"><span class="tocnumber">6.2</span> <span class="toctext">Symmetries</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Fourier_series"><span class="tocnumber">7</span> <span class="toctext">Fourier series</span></a></li>
+<li class="toclevel-1"><a href="#Inversion"><span class="tocnumber">8</span> <span class="toctext">Inversion</span></a></li>
+<li class="toclevel-1"><a href="#Relation_to_falling_factorial"><span class="tocnumber">9</span> <span class="toctext">Relation to falling factorial</span></a></li>
+<li class="toclevel-1"><a href="#Multiplication_theorems"><span class="tocnumber">10</span> <span class="toctext">Multiplication theorems</span></a></li>
+<li class="toclevel-1"><a href="#Integrals"><span class="tocnumber">11</span> <span class="toctext">Integrals</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">12</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Representations" id="Representations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Representations">edit</a>]</span> <span class="mw-headline">Representations</span></h2>
+<p>The Bernoulli polynomials <i>B</i><sub><i>n</i></sub> admit a variety of different <a href="../../../r/e/p/Representation_%28mathematics%29.html" title="Representation (mathematics)">representations</a>. Which among them should be taken to be the definition may depend on one's purposes.</p>
+<p><a name="Explicit_formula" id="Explicit_formula"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Explicit formula">edit</a>]</span> <span class="mw-headline">Explicit formula</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/4/0/7/407da3a468b0bef8354749d21b9fa035.png" alt="B_n(x) = \sum_{k=0}^n {n \choose k} b_k x^{n-k}," /></dd>
+</dl>
+<p>for <i>n</i> ≥ 0, where <i>b</i><sub><i>k</i></sub> are the <a href="../../../b/e/r/Bernoulli_number.html" title="Bernoulli number">Bernoulli numbers</a>.</p>
+<p><a name="Generating_functions" id="Generating_functions"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Generating functions">edit</a>]</span> <span class="mw-headline">Generating functions</span></h3>
+<p>The <a href="../../../g/e/n/Generating_function.html" title="Generating function">generating function</a> for the Bernoulli polynomials is</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/9/6/696d7ec5477e90244bb971032ee594e6.png" alt="\frac{t e^{xt}}{e^t-1}= \sum_{n=0}^\infty B_n(x) \frac{t^n}{n!}." /></dd>
+</dl>
+<p>The generating function for the Euler polynomials is</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/1/5/015e3d4e5f6b1916c3480643aad6a4c4.png" alt="\frac{2 e^{xt}}{e^t+1}= \sum_{n=0}^\infty E_n(x) \frac{t^n}{n!}." /></dd>
+</dl>
+<p><a name="Representation_by_a_differential_operator" id="Representation_by_a_differential_operator"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Representation by a differential operator">edit</a>]</span> <span class="mw-headline">Representation by a differential operator</span></h3>
+<p>The Bernoulli polynomials are also given by</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/1/9/4197020c41264bce6ea574fe56a7cfdb.png" alt="B_n(x)={D \over e^D -1} x^n" /></dd>
+</dl>
+<p>where <i>D</i> = <i>d</i>/<i>dx</i> is differentiation with respect to <i>x</i> and the fraction is expanded as a <a href="../../../f/o/r/Formal_power_series.html" title="Formal power series">formal power series</a>.</p>
+<p><a name="Representation_by_an_integral_operator" id="Representation_by_an_integral_operator"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Representation by an integral operator">edit</a>]</span> <span class="mw-headline">Representation by an integral operator</span></h3>
+<p>The Bernoulli polynomials are the unique polynomials determined by</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/8/4/3847b771b4d59fc2624cbc82778c1566.png" alt="\int_x^{x+1} B_n(u)\,du = x^n." /></dd>
+</dl>
+<p>The integral operator</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/0/0/500a12632428f23716236a16656d8d76.png" alt="(Tf)(x) = \int_x^{x+1} f(u)\,du" /></dd>
+</dl>
+<p>on polynomials <i>f</i>, is the same as</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/9/a/59a1c53e037e63ca289216a9d5515994.png" alt="(Tf)(x) = {e^D - 1 \over D}f(x) = \sum_{n=0}^\infty {D^n \over (n+1)!}f(x)  = f(x) + {f'(x) \over 2} + {f''(x) \over 6} + {f'''(x) \over 24} + \cdots." /></dd>
+</dl>
+<p><a name="Another_explicit_formula" id="Another_explicit_formula"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Another explicit formula">edit</a>]</span> <span class="mw-headline">Another explicit formula</span></h2>
+<p>An explicit formula for the Bernoulli polynomials is given by</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/6/4/564ba3b93fa76b79e1dba0a0c4686a19.png" alt="B_m(x)=  \sum_{n=0}^m \frac{1}{n+1} \sum_{k=0}^n (-1)^k {n \choose k} (x+k)^m." /></dd>
+</dl>
+<p>Note the remarkable similarity to the globally convergent series expression for the <a href="../../../h/u/r/Hurwitz_zeta_function.html" title="Hurwitz zeta function">Hurwitz zeta function</a>. Indeed, one has</p>
+<dl>
+<dd><span class="texhtml"><i>B</i><sub><i>n</i></sub>(<i>x</i>) = − <i>n</i>ζ(1 − <i>n</i>,<i>x</i>)</span></dd>
+</dl>
+<p>where <span class="texhtml">ζ(<i>s</i>,<i>q</i>)</span> is the Hurwitz zeta; this, in a certain sense, the Hurwitz zeta generalizes the Bernoulli polynomials to non-integer values of <i>n</i>.</p>
+<p>The inner sum may be understood to be the <i>n</i>th <a href="../../../f/o/r/Forward_difference.html" title="Forward difference">forward difference</a> of <span class="texhtml"><i>x</i><sup><i>m</i></sup></span>; that is,</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/b/8/fb82ff0decb4840dbb143278e0ebea7a.png" alt="\Delta^n x^m = \sum_{k=0}^n (-1)^{n-k} {n \choose k} (x+k)^m" /></dd>
+</dl>
+<p>where Δ is the <a href="../../../f/o/r/Forward_difference_operator.html" title="Forward difference operator">forward difference operator</a>. Thus, one may write</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/7/9/d792621f956b39cdb43dfcca3086befe.png" alt="B_m(x)= \sum_{n=0}^m \frac{(-1)^n}{n+1} \Delta^n x^m." /></dd>
+</dl>
+<p>This formula may be derived from an identity appearing above as follows: since the forward difference operator Δ is equal to</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/1/6/0167709a279535fe5aadbd67aa48bff1.png" alt="\Delta = e^D - 1\," /></dd>
+</dl>
+<p>where <i>D</i> is differentiation with respect to <i>x</i>, we have</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/8/7/d8758ecaab5cba634c9a39ec43737a26.png" alt="{D \over e^D - 1} = {\log(\Delta + 1) \over \Delta} = \sum_{n=0}^\infty {(-\Delta)^n \over n+1}." /></dd>
+</dl>
+<p>As long as this operates on an <i>m</i>th-degree polynomial such as <i>x</i><sup><i>m</i></sup>, one may let <i>n</i> go from 0 only up to <i>m</i>.</p>
+<p>An integral representation for the Bernoulli polynomials is given by the <a href="../../../n/%C3%B6/r/N%C3%B6rlund-Rice_integral_e2d6.html" title="Nörlund-Rice integral">Nörlund-Rice integral</a>, which follows from the expression as a finite difference.</p>
+<p>An explicit formula for the Euler polynomials is given by</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/c/1/9c1b794032455206d282c0f83e58c570.png" alt="E_m(x)=  \sum_{n=0}^m \frac{1}{2^n} \sum_{k=0}^n (-1)^k {n \choose k} (x+k)^m." /></dd>
+</dl>
+<p>This may also be written in terms of the <a href="../../../e/u/l/Euler_number.html" title="Euler number">Euler numbers</a> <span class="texhtml"><i>E</i><sub><i>k</i></sub></span> as</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/1/8/c188d8802d5255c6ecb1721f9b65bc26.png" alt="E_m(x)=  \sum_{k=0}^m {m \choose k} \left(\frac{1}{2}\right)^k \left(x-\frac{1}{2}\right)^{m-k} E_k\,." /></dd>
+</dl>
+<p><a name="Sums_of_pth_powers" id="Sums_of_pth_powers"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Sums of pth powers">edit</a>]</span> <span class="mw-headline">Sums of <i>p</i>th powers</span></h2>
+<p>We have</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/3/1/8316be66557807f7ddbdb6a2771039a7.png" alt="\sum_{k=0}^{x} k^p = \frac{B_{p+1}(x+1)-B_{p+1}(0)}{p+1}." /></dd>
+</dl>
+<p>See <a href="../../../f/a/u/Faulhaber%27s_formula.html" title="Faulhaber's formula">Faulhaber's formula</a> for more on this.</p>
+<p><a name="The_Bernoulli_and_Euler_numbers" id="The_Bernoulli_and_Euler_numbers"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: The Bernoulli and Euler numbers">edit</a>]</span> <span class="mw-headline">The Bernoulli and Euler numbers</span></h2>
+<p>The <a href="../../../b/e/r/Bernoulli_number.html" title="Bernoulli number">Bernoulli numbers</a> are given by <span class="texhtml"><i>B</i><sub><i>n</i></sub> = <i>B</i><sub><i>n</i></sub>(0).</span></p>
+<p>The <a href="../../../e/u/l/Euler_number.html" title="Euler number">Euler numbers</a> are given by <span class="texhtml"><i>E</i><sub><i>n</i></sub> = 2<sup><i>n</i></sup><i>E</i><sub><i>n</i></sub>(1 / 2).</span></p>
+<p><a name="Explicit_expressions_for_low_degrees" id="Explicit_expressions_for_low_degrees"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Explicit expressions for low degrees">edit</a>]</span> <span class="mw-headline">Explicit expressions for low degrees</span></h2>
+<p>The first few Bernoulli polynomials are:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/4/e/a4e3c0f3bc1e6707f1e885999a22b618.png" alt="B_0(x)=1\," /></dd>
+<dd><img class='tex' src="../../../math/f/2/6/f261fb52004f2f61cd285743a718c086.png" alt="B_1(x)=x-1/2\," /></dd>
+<dd><img class='tex' src="../../../math/f/b/0/fb026d82c2bd72a6060105dea85e2705.png" alt="B_2(x)=x^2-x+1/6\," /></dd>
+<dd><img class='tex' src="../../../math/0/0/8/0083cd5562c2b4c8908a840d118b16f5.png" alt="B_3(x)=x^3-\frac{3}{2}x^2+\frac{1}{2}x\," /></dd>
+<dd><img class='tex' src="../../../math/c/c/2/cc2f697a5dc1033610aee4bf23bb8d5f.png" alt="B_4(x)=x^4-2x^3+x^2-\frac{1}{30}\," /></dd>
+<dd><img class='tex' src="../../../math/0/1/4/0143efeedadbf7acaa5fde8420be9c01.png" alt="B_5(x)=x^5-\frac{5}{2}x^4+\frac{5}{3}x^3-\frac{1}{6}x\," /></dd>
+<dd><img class='tex' src="../../../math/e/c/5/ec5611af88845bc665018329d604d4a1.png" alt="B_6(x)=x^6-3x^5+\frac{5}{2}x^4-\frac{1}{2}x^2+\frac{1}{42}.\," /></dd>
+</dl>
+<p>The first few Euler polynomials are</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/c/6/4c6efd024142f9775a7fe7261f411c68.png" alt="E_0(x)=1\," /></dd>
+<dd><img class='tex' src="../../../math/2/d/3/2d338dc93b7d4b264cb39d73fe45639b.png" alt="E_1(x)=x-1/2\," /></dd>
+<dd><img class='tex' src="../../../math/9/0/8/908ef7ec05d0f579b7e319f8e020aee9.png" alt="E_2(x)=x^2-x\," /></dd>
+<dd><img class='tex' src="../../../math/6/f/a/6fa5c06be0a4a74ad8d877678ec11695.png" alt="E_3(x)=x^3-\frac{3}{2}x^2+\frac{1}{4}\," /></dd>
+<dd><img class='tex' src="../../../math/e/c/b/ecb580f000981cbd0fdbeb37aa34fa55.png" alt="E_4(x)=x^4-2x^3+x\," /></dd>
+<dd><img class='tex' src="../../../math/8/a/3/8a377297f48c81df1e9d32a3b6d52948.png" alt="E_5(x)=x^5-\frac{5}{2}x^4+\frac{5}{2}x^2-\frac{1}{2}\," /></dd>
+<dd><img class='tex' src="../../../math/d/c/5/dc516b703f66b48bff28d68f689201f4.png" alt="E_6(x)=x^6-3x^5+5x^3-3x.\," /></dd>
+</dl>
+<p><a name="Differences_and_derivatives" id="Differences_and_derivatives"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Differences and derivatives">edit</a>]</span> <span class="mw-headline">Differences and derivatives</span></h2>
+<p>The Bernoulli and Euler polynomials obey many relations from <a href="../../../u/m/b/Umbral_calculus.html" title="Umbral calculus">umbral calculus</a>:</p>
+<dl>
+<dd><span class="texhtml">Δ<i>B</i><sub><i>n</i></sub>(<i>x</i>) = <i>B</i><sub><i>n</i></sub>(<i>x</i> + 1) − <i>B</i><sub><i>n</i></sub>(<i>x</i>) = <i>n</i><i>x</i><sup><i>n</i> − 1</sup>,</span></dd>
+</dl>
+<dl>
+<dd><span class="texhtml">Δ<i>E</i><sub><i>n</i></sub>(<i>x</i>) = <i>E</i><sub><i>n</i></sub>(<i>x</i> + 1) + <i>E</i><sub><i>n</i></sub>(<i>x</i>) = 2<i>x</i><sup><i>n</i></sup>.</span></dd>
+</dl>
+<p>(Δ is the <a href="../../../f/o/r/Forward_difference_operator.html" title="Forward difference operator">forward difference operator</a>).</p>
+<p>These <a href="../../../p/o/l/Polynomial_sequence.html" title="Polynomial sequence">polynomial sequences</a> are <a href="../../../a/p/p/Appell_sequence.html" title="Appell sequence">Appell sequences</a>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/5/1/251c2159a7bb6ebd6db1920621f7180b.png" alt="B_n'(x)=nB_{n-1}(x),\," /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/f/9/2/f9206ed9cc6984b71c0c8f5ec9f5fc20.png" alt="E_n'(x)=nE_{n-1}(x).\," /></dd>
+</dl>
+<p><a name="Translations" id="Translations"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Translations">edit</a>]</span> <span class="mw-headline">Translations</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/a/b/2/ab27ae37b860026f9eba86f369547592.png" alt="B_n(x+y)=\sum_{k=0}^n {n \choose k} B_k(x) y^{n-k}" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/c/1/8/c187ee57aca24ffe3efadeb793b13869.png" alt="E_n(x+y)=\sum_{k=0}^n {n \choose k} E_k(x) y^{n-k}" /></dd>
+</dl>
+<p>These identities are also equivalent to saying that these polynomial sequences are <a href="../../../a/p/p/Appell_sequence.html" title="Appell sequence">Appell sequences</a>. (<a href="../../../h/e/r/Hermite_polynomials.html" title="Hermite polynomials">Hermite polynomials</a> are another example.)</p>
+<p><a name="Symmetries" id="Symmetries"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Symmetries">edit</a>]</span> <span class="mw-headline">Symmetries</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/7/4/d/74d2f98fa1014445e806f0e4e14fae34.png" alt="B_n(1-x)=(-1)^n B_n(x)\," /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/a/b/f/abf2370058ee799c403de61e50d9c3dd.png" alt="E_n(1-x)=(-1)^n E_n(x)\," /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/6/c/5/6c5a4bdd30037935694be2841ac3b6b7.png" alt="(-1)^n B_n(-x) = B_n(x) + nx^{n-1}\," /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/b/0/9/b09aae4ad4725f79139500bfc8ac169d.png" alt="(-1)^n E_n(-x) = -E_n(x) + 2x^n\," /></dd>
+</dl>
+<p><a href="../../../z/h/i/Zhi-Wei_Sun_29f4.html" title="Zhi-Wei Sun">Zhi-Wei Sun</a> and Hao Pan <a href="http://arxiv.org/PS_cache/math/pdf/0409/0409035.pdf" class="external autonumber" title="http://arxiv.org/PS_cache/math/pdf/0409/0409035.pdf" rel="nofollow">[1]</a> established the following surprising symmetric relation: If <span class="texhtml"><i>r</i> + <i>s</i> + <i>t</i> = <i>n</i></span> and <span class="texhtml"><i>x</i> + <i>y</i> + <i>z</i> = 1</span>, then</p>
+<dl>
+<dd><span class="texhtml"><i>r</i>[<i>s</i>,<i>t</i>;<i>x</i>,<i>y</i>]<sub><i>n</i></sub> + <i>s</i>[<i>t</i>,<i>r</i>;<i>y</i>,<i>z</i>]<sub><i>n</i></sub> + <i>t</i>[<i>r</i>,<i>s</i>;<i>z</i>,<i>x</i>]<sub><i>n</i></sub> = 0,</span></dd>
+</dl>
+<p>where</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/d/f/4df16f477372fcad33f8d60371b612bd.png" alt="[s,t;x,y]_n=\sum_{k=0}^n(-1)^k{s \choose k}{t\choose {n-k}} B_{n-k}(x)B_k(y)." /></dd>
+</dl>
+<p><a name="Fourier_series" id="Fourier_series"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Fourier series">edit</a>]</span> <span class="mw-headline">Fourier series</span></h2>
+<p>The <a href="../../../f/o/u/Fourier_series.html" title="Fourier series">Fourier series</a> of the Bernoulli polynomials is also a <a href="../../../d/i/r/Dirichlet_series.html" title="Dirichlet series">Dirichlet series</a> and is a special case of the <a href="../../../h/u/r/Hurwitz_zeta_function.html" title="Hurwitz zeta function">Hurwitz zeta function</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/f/6/b/f6ba696eb62c592d6c84d35267823057.png" alt="B_n(x) = -\Gamma(n+1) \sum_{k=1}^\infty  \frac{ \exp (2\pi ikx) + (-1)^n \exp (2\pi ik(1-x)) } { (2\pi ik)^n }." /></dd>
+</dl>
+<p>This expansion is valid only for <img class='tex' src="../../../math/9/e/1/9e15ca6b7a451c239aae679fbdd7f97a.png" alt="0\leq x\leq 1" /> when <img class='tex' src="../../../math/5/d/5/5d5f448f1528508f27683f57c3c34111.png" alt="n \geq 2" /> and is valid for <span class="texhtml">0 &lt; <i>x</i> &lt; 1</span> when <span class="texhtml"><i>n</i> = 1</span>.</p>
+<p>Defining the functions</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/6/a/66ac5c0c7173878db058ffd9e7ec135a.png" alt="C_\nu(x) = \sum_{k=0}^\infty  \frac {\cos((2k+1)\pi x)} {(2k+1)^\nu}" /></dd>
+</dl>
+<p>and</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/7/a/97aced4b8804caac5f6c0b5b3b1cedab.png" alt="S_\nu(x) = \sum_{k=0}^\infty  \frac {\sin((2k+1)\pi x)} {(2k+1)^\nu}" /></dd>
+</dl>
+<p>for <span class="texhtml">ν &gt; 1</span>, the Euler polynomial has the Fourier series</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/c/b/4cbdac0df8c2b38a4b878978a29e989f.png" alt="C_{2n}(x) = \frac{(-1)^n}{4(2n-1)!}  \pi^{2n} E_{2n-1} (x)" /></dd>
+</dl>
+<p>and</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/b/b/abb7a77338836b95bfde490c517fc732.png" alt="S_{2n+1}(x) = \frac{(-1)^n}{4(2n)!}  \pi^{2n+1} E_{2n} (x)" /></dd>
+</dl>
+<p>Note that the <span class="texhtml"><i>C</i><sub>ν</sub></span> and <span class="texhtml"><i>S</i><sub>ν</sub></span> are odd and even, respectively:</p>
+<dl>
+<dd><span class="texhtml"><i>C</i><sub>ν</sub>(<i>x</i>) = − <i>C</i><sub>ν</sub>(1 − <i>x</i>)</span></dd>
+</dl>
+<p>and</p>
+<dl>
+<dd><span class="texhtml"><i>S</i><sub>ν</sub>(<i>x</i>) = <i>S</i><sub>ν</sub>(1 − <i>x</i>)</span></dd>
+</dl>
+<p>They are related to the <a href="../../../l/e/g/Legendre_chi_function.html" title="Legendre chi function">Legendre chi function</a> <span class="texhtml">χ<sub>ν</sub></span> as</p>
+<dl>
+<dd><span class="texhtml"><i>C</i><sub>ν</sub>(<i>x</i>) = Reχ<sub>ν</sub>(<i>e</i><sup><i>i</i><i>x</i></sup>)</span></dd>
+</dl>
+<p>and</p>
+<dl>
+<dd><span class="texhtml"><i>S</i><sub>ν</sub>(<i>x</i>) = Imχ<sub>ν</sub>(<i>e</i><sup><i>i</i><i>x</i></sup>)</span></dd>
+</dl>
+<p><a name="Inversion" id="Inversion"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Inversion">edit</a>]</span> <span class="mw-headline">Inversion</span></h2>
+<p>The Bernoulli polynomials may be inverted to express the <a href="../../../m/o/n/Monomial.html" title="Monomial">monomial</a> in terms of the polynomials. Specifically, one has</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/b/7/0b7bf91dd4b56c24e2cafabfbe34da20.png" alt="x^n = \frac {1}{n+1}  \sum_{k=0}^n {n+1 \choose k} B_k (x)." /></dd>
+</dl>
+<p><a name="Relation_to_falling_factorial" id="Relation_to_falling_factorial"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Relation to falling factorial">edit</a>]</span> <span class="mw-headline">Relation to falling factorial</span></h2>
+<p>The Bernoulli polynomials may be expanded in terms of the <a href="../../../f/a/l/Falling_factorial.html" title="Falling factorial">falling factorial</a> <span class="texhtml">(<i>x</i>)<sub><i>k</i></sub></span> as</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/8/0/580430806a0fb853724ecbd12ed98bdf.png" alt="B_{n+1}(x) =  B_{n+1} + \sum_{k=0}^n \frac{n+1}{k+1} \left\{ \begin{matrix} n \\ k \end{matrix} \right\} (x)_{k+1}" /></dd>
+</dl>
+<p>where <span class="texhtml"><i>B</i><sub><i>n</i></sub> = <i>B</i><sub><i>n</i></sub>(0)</span> and</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/5/d/a5dafefb587c6b211e299879c0b25cf2.png" alt="\left\{ \begin{matrix} n \\ k \end{matrix} \right\} = S(n,k)" /></dd>
+</dl>
+<p>denotes the <a href="../../../s/t/i/Stirling_number_of_the_second_kind.html" title="Stirling number of the second kind">Stirling number of the second kind</a>. The above may be inverted to express the falling factorial in terms of the Bernoulli polynomials:</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/6/1/d61ba51dc90488ca411bc4adc31b248f.png" alt="(x)_{n+1} = \sum_{k=0}^n  \frac{n+1}{k+1} \left[ \begin{matrix} n \\ k \end{matrix} \right] \left(B_{k+1}(x) - B_{k+1} \right)" /></dd>
+</dl>
+<p>where</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/8/3/283bfe964f7100bb222df00df8bd52b6.png" alt="\left[ \begin{matrix} n \\ k \end{matrix} \right] = s(n,k)" /></dd>
+</dl>
+<p>denotes the <a href="../../../s/t/i/Stirling_number_of_the_first_kind.html" title="Stirling number of the first kind">Stirling number of the first kind</a>.</p>
+<p><a name="Multiplication_theorems" id="Multiplication_theorems"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Multiplication theorems">edit</a>]</span> <span class="mw-headline">Multiplication theorems</span></h2>
+<p>The <a href="../../../m/u/l/Multiplication_theorem.html" title="Multiplication theorem">multiplication theorems</a> were given by Joeseph Ludwig Raabe in <a href="../../../1/8/5/1851.html" title="1851">1851</a>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/a/7/7a70336e9b1e55780995d2169807fc6e.png" alt="B_n(mx)= m^{n-1} \sum_{k=0}^{m-1} B_n \left(x+\frac{k}{m}\right)" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/d/e/b/deb9b38db0ce2d9ed78fc58cc86c810b.png" alt="E_n(mx)= m^n \sum_{k=0}^{m-1}  (-1)^k E_n \left(x+\frac{k}{m}\right) \quad \mbox{ for } m=1,3,\dots" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/d/5/e/d5ec31a72115b6b506695425e7955538.png" alt="E_n(mx)= \frac{-2}{n+1} m^n \sum_{k=0}^{m-1}  (-1)^k B_{n+1} \left(x+\frac{k}{m}\right) \quad \mbox{ for } m=2,4,\dots" /></dd>
+</dl>
+<p><a name="Integrals" id="Integrals"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: Integrals">edit</a>]</span> <span class="mw-headline">Integrals</span></h2>
+<p>Indefinite integrals</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/c/4/fc43219c3304267299bad27fd0daa786.png" alt="\int_a^x B_n(t)\,dt =  \frac{B_{n+1}(x)-B_{n+1}(a)}{n+1}" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/d/9/8/d982a17bd2be16b66dd42573e76f1e6e.png" alt="\int_a^x E_n(t)\,dt =  \frac{E_{n+1}(x)-E_{n+1}(a)}{n+1}" /></dd>
+</dl>
+<p>Definite integrals</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/d/5/9d511e945383334167eb397477188e80.png" alt="\int_0^1 B_n(t) B_m(t)\,dt =  (-1)^{n-1} \frac{m! n!}{(m+n)!} B_{n+m} \quad \mbox { for } m,n \ge 1" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/b/d/c/bdc4721a48a639ea3a8a6a81b4c5edb0.png" alt="\int_0^1 E_n(t) E_m(t)\,dt =  (-1)^{n} 4 (2^{m+n+2}-1)\frac{m! n!}{(m+n+2)!} B_{n+m+2}" /></dd>
+</dl>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_polynomials.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Milton Abramowitz and Irene A. Stegun, eds. <i><a href="../../../h/a/n/Handbook_of_Mathematical_Functions_129d.html" title="Handbook of Mathematical Functions">Handbook of Mathematical Functions</a> with Formulas, Graphs, and Mathematical Tables</i>, (1972) Dover, New York. <i>(See <a href="http://www.math.sfu.ca/~cbm/aands/page_804.htm" class="external text" title="http://www.math.sfu.ca/~cbm/aands/page_804.htm" rel="nofollow">Chapter 23</a>)</i></li>
+</ul>
+<ul>
+<li>Tom M. Apostol <i>Introduction to Analytic Number Theory</i>, (1976) Springer-Verlag, New York. <i>(See Chapter 12.11)</i></li>
+</ul>
+<ul>
+<li>Djurdje Cvijović and Jacek Klinowski, "New formulae for the Bernoulli and Euler polynomials at rational arguments", Proceedings of the American Mathematical Society'<i><b>123</b> (1995), 1527-1535.</i></li>
+</ul>
+<ul>
+<li>Jesus Guillera and Jonathan Sondow, <i><a href="http://arxiv.org/abs/math.NT/0506319" class="external text" title="http://arxiv.org/abs/math.NT/0506319" rel="nofollow">Double integrals and infinite products for some classical constants via analytic continuations of Lerch's transcendent</a></i> (2005) <i>(Reviews relationship to the Hurwitz zeta function and Lerch transcendent.)</i></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/r/Bernoulli_polynomials.html">http://en.wikipedia.org../../../b/e/r/Bernoulli_polynomials.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../s/p/e/Category%7ESpecial_functions_43da.html" title="Category:Special functions">Special functions</a></span> | <span dir='ltr'><a href="../../../n/u/m/Category%7ENumber_theory_ef8a.html" title="Category:Number theory">Number theory</a></span> | <span dir='ltr'><a href="../../../p/o/l/Category%7EPolynomials_9fc7.html" title="Category:Polynomials">Polynomials</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/e/r/Bernoulli_polynomials.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/e/r/Talk%7EBernoulli_polynomials_4011.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bernoulli_polynomials">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../fr/p/o/l/Polyn%C3%B4me_de_Bernoulli_e1e6.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/p/o/l/Polinomio_di_Bernoulli_df7a.html">Italiano</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 02:33, 28 January 2007 by Wikipedia user Francos. Based on work by Wikipedia user(s) <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, Xeno onex, <a href="../../../l/e/m/User%7ELemontea_cfef.html" title="User:Lemontea">Lemontea</a>, <a href="../../../w/i/l/User%7EWilliam_Ackerman_4e78.html" title="User:William Ackerman">William Ackerman</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../d/o/m/User%7EDominus_070e.html" title="User:Dominus">Dominus</a>, <a href="../../../e/s/k/User%7EEskimbot_5fb5.html" title="User:Eskimbot">Eskimbot</a>, <a href="../../../a/l/b/User%7EAlberto_da_Calvairate_cef9.html" title="User:Alberto da Calvairate">Alberto da Calvairate</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a> and <a href="../../../m/o/i/User%7EMoink_dc9f.html" title="User:Moink">Moink</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

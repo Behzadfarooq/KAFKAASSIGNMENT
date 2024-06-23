@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bayesian information criterion,Akaike information criterion,Bayesian model comparison,Deviance information criterion,F test,Jensen-Shannon divergence,Kullback-Leibler divergence,Likelihood,Likelihood ratio test,Linear regression,Model selection" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bayesian information criterion - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bayesian information criterion</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <div class="dablink"><i>“<b>Schwarz criterion</b>” redirects here. For the term in <a href="../../../v/o/t/Voting_theory.html" title="Voting theory">voting theory</a>, see <a href="../../../s/c/h/Schwartz_criterion.html" title="Schwartz criterion">Schwartz criterion</a>.</i></div>
+<p>In <a href="../../../s/t/a/Statistics.html" title="Statistics">statistics</a>, the <b>Bayesian information criterion</b> <b>(BIC)</b> is a statistical criterion for <a href="../../../m/o/d/Model_selection.html" title="Model selection">model selection</a>. The BIC is sometimes also named the <b>Schwarz criterion</b>, or <b>Schwarz information criterion</b> <b>(SIC)</b>. It is so named because Schwarz (1978) gave a Bayesian argument for adopting it.</p>
+<p>Let:</p>
+<ul>
+<li><i>n</i> = the number of <a href="../../../o/b/s/Observation.html" title="Observation">observations</a>, equivalently, the sample size;</li>
+<li><i>k</i> = the number of free <a href="../../../p/a/r/Parameter.html" title="Parameter">parameters</a> to be estimated. If the estimated model is a <a href="../../../l/i/n/Linear_regression.html" title="Linear regression">linear regression</a>, <i>k</i> is the number of <a href="../../../r/e/g/Regressor.html" title="Regressor">regressors</a>, including the constant;</li>
+<li><i>RSS</i> = the <a href="../../../r/e/s/Residual_sum_of_squares.html" title="Residual sum of squares">residual sum of squares</a> from the estimated model;</li>
+<li><i>L</i> = the maximized value of the <a href="../../../l/i/k/Likelihood.html" title="Likelihood">likelihood</a> function for the estimated model.</li>
+</ul>
+<p>The formula for the BIC is:</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/d/d/2dd97fc183c8d520cec64d258a3deca7.png" alt="\mathrm{BIC} = -2 \cdot \ln{L} + k \ln(n). \" /></dd>
+</dl>
+<p>Under the assumption that the model errors or disturbances are <a href="../../../n/o/r/Normal_distribution.html" title="Normal distribution">normally distributed</a>, this becomes:</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/8/2/28206a8c8d942d14dca2d7010a82f407.png" alt="\mathrm{BIC} = n\ln\left({\mathrm{RSS} \over n}\right) + k \ln(n). \" /></dd>
+</dl>
+<p>Given any two estimated models, the model with the lower value of BIC is the one to be preferred. The BIC is a decreasing function of <i>RSS</i>, the goodness of fit, and an increasing function of <i>k</i>. The BIC penalizes free parameters more strongly than does the <a href="../../../a/k/a/Akaike_information_criterion.html" title="Akaike information criterion">Akaike information criterion</a>.</p>
+<p>It is important to keep in mind that the BIC can be used to compare estimated models only when the numerical values of the dependent variable are identical for all estimates being compared. The models being compared need not be nested, unlike the case when models are being compared using an <a href="../../../f/_/t/F_test.html" title="F test">F</a> or <a href="../../../l/i/k/Likelihood_ratio_test.html" title="Likelihood ratio test">likelihood ratio test</a>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_information_criterion.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/k/a/Akaike_information_criterion.html" title="Akaike information criterion">Akaike information criterion</a></li>
+<li><a href="../../../b/a/y/Bayesian_model_comparison.html" title="Bayesian model comparison">Bayesian model comparison</a></li>
+<li><a href="../../../d/e/v/Deviance_information_criterion.html" title="Deviance information criterion">Deviance information criterion</a></li>
+<li><a href="../../../j/e/n/Jensen-Shannon_divergence_fbe5.html" title="Jensen-Shannon divergence">Jensen-Shannon divergence</a></li>
+<li><a href="../../../k/u/l/Kullback-Leibler_divergence_d6e9.html" title="Kullback-Leibler divergence">Kullback-Leibler divergence</a></li>
+<li><a href="../../../m/o/d/Model_selection.html" title="Model selection">Model selection</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_information_criterion.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>McQuarrie, A. D. R., and Tsai, C.-L., 1998. <i>Regression and Time Series Model Selection</i>. World Scientific.</li>
+</ul>
+<ul>
+<li>Schwarz, Gideon, 1978. "Estimating the dimension of a model". <i>Annals of Statistics</i> 6(2):461-464.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/y/Bayesian_information_criterion.html">http://en.wikipedia.org../../../b/a/y/Bayesian_information_criterion.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../r/e/g/Category%7ERegression_analysis_604d.html" title="Category:Regression analysis">Regression analysis</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/y/Bayesian_information_criterion.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/a/y/Talk%7EBayesian_information_criterion_1c0d.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bayesian_information_criterion">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/i/n/f/Informationskriterium.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%83%99/%E3%82%A4/%E3%82%BA/%E3%83%99%E3%82%A4%E3%82%BA%E6%83%85%E5%A0%B1%E9%87%8F%E8%A6%8F%E6%BA%96.html">日本語</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:21, 19 February 2007 by Wikipedia user <a href="../../../c/l/a/User%7EClassical_geographer_d866.html" title="User:Classical geographer">Classical geographer</a>. Based on work by Wikipedia user(s) <a href="../../../y/o/d/User%7EYoderj_8148.html" title="User:Yoderj">Yoderj</a>, <a href="../../../j/h/e/User%7EJheald_bb56.html" title="User:Jheald">Jheald</a>, <a href="../../../j/a/y/User%7EJayvdb_61b3.html" title="User:Jayvdb">Jayvdb</a>, <a href="../../../m/o/t/User%7EMottzo_6d38.html" title="User:Mottzo">Mottzo</a>, <a href="../../../f/r/a/User%7EFrank1101_69bb.html" title="User:Frank1101">Frank1101</a>, <a href="../../../a/v/r/User%7EAvraham_9604.html" title="User:Avraham">Avraham</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, Jrvz, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../e/x/c/User%7EExcavator_8611.html" title="User:Excavator">Excavator</a>, <a href="../../../b/t/y/User%7EBtyner_9437.html" title="User:Btyner">Btyner</a>, <a href="../../../h/y/n/User%7EHynca-Hooley_f85e.html" title="User:Hynca-Hooley">Hynca-Hooley</a> and <a href="../../../d/i/r/User%7EDirknachbar_662a.html" title="User:Dirknachbar">Dirknachbar</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Binary decision diagram,Binary Moment Diagrams,Boolean algebra,Boolean satisfiability problem,C Programming Language,Carnegie Mellon University,Child node,Data structure,Decision tree,EUROMICRO,Factoring" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Binary decision diagram - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Binary decision diagram</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>A <b>binary decision diagram (BDD)</b>, like a <a href="../../../n/e/g/Negation_normal_form.html" title="Negation normal form">negation normal form</a> (NNF) or a <a href="../../../p/r/o/Propositional_directed_acyclic_graph.html" title="Propositional directed acyclic graph">propositional directed acyclic graph</a> (PDAG), is a <a href="../../../d/a/t/Data_structure.html" title="Data structure">data structure</a> that is used to represent a <a href="../../../b/o/o/Boolean_algebra.html" title="Boolean algebra">Boolean function</a>. A Boolean function can be represented as a rooted, directed, acyclic <a href="../../../g/r/a/Graph_theory.html" title="Graph theory">graph</a>, which consists of decision nodes and two terminal nodes called 0-terminal and 1-terminal. Each decision node is labeled by a Boolean variable and has two <a href="../../../c/h/i/Child_node.html" title="Child node">child nodes</a> called low child and high child. The edge from a node to a low (high) child represents an assignment of the variable to 0 (1). Such a <b>BDD</b> is called 'ordered' if different variables appear in the same order on all paths from the root. It is called 'reduced' if the graph is reduced according to two rules:</p>
+<ul>
+<li>Merge any isomorphic subgraphs.</li>
+<li>Eliminate any node whose two children are isomorphic.</li>
+</ul>
+<p><br />
+In popular usage, the term <b>BDD</b> almost always refers to <i>Reduced Ordered Binary Decision Diagram</i> (ROBDD in the literature, used when the ordering and reduction aspects need to be emphasized). The advantage of an ROBDD is that it is canonical(unique) for a particular functionality. This property makes it useful in functional equivalence checking and other operations like functional technology mapping.</p>
+<p>A path from the root node to the 1-terminal represents a (possibly partial) variable assignment for which the represented Boolean function is true. As the path descends to a low child (high child) from a node, then that node's variable is assigned to 0 (1).</p>
+<p>BDDs are extensively used in CAD (Computer Aided Design) software to synthesize circuits (logic synthesis) and in formal verification.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">1</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">2</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#Variable_ordering"><span class="tocnumber">3</span> <span class="toctext">Variable ordering</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Implementation"><span class="tocnumber">5</span> <span class="toctext">Implementation</span></a></li>
+<li class="toclevel-1"><a href="#Available_Packages"><span class="tocnumber">6</span> <span class="toctext">Available Packages</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_decision_diagram.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>The left figure below shows a binary <a href="../../../d/e/c/Decision_tree.html" title="Decision tree">decision <i>tree</i></a> (the reduction rules are not applied), and a <a href="../../../t/r/u/Truth_table.html" title="Truth table">truth table</a>, each representing the function f (x1, x2, x3). In the tree on the left, the value of the function can be determined for a given variable assignment by following a path down the graph to a terminal. In the figures below, a dotted (solid) line represents an edge to a low (high) child. Therefore, to find (x1=0, x2=1, x3=1), begin at x1, traverse down the dotted line to x2 (since x1 has an assignment to 0), then down two solid lines (since x2 and x3 each have an assignment to one). This leads to the terminal 1, which is the value of f (x1=0, x2=1, x3=1).</p>
+<p>The binary decision <i>tree</i> of the left figure can be transformed into a binary decision <i>diagram</i> by maximally reducing it according to the two reduction rules. The resulting <b>BDD</b> is shown in the right figure.</p>
+<table align="center">
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:548px;"><a href="../../../b/d/d/Image%7EBDD.png_23ef.html" class="internal" title="Binary decision tree and truth table for the function f(x1, x2, x3) = -x1 * -x2 * -x3  +  x1 * x2  +  x2 * x3"><img src="../../../upload/thumb/9/91/BDD.png/546px-BDD.png" alt="Binary decision tree and truth table for the function f(x1, x2, x3) = -x1 * -x2 * -x3  +  x1 * x2  +  x2 * x3" width="546" height="241" longdesc="../../../b/d/d/Image%7EBDD.png_23ef.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/d/d/Image%7EBDD.png_23ef.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Binary decision tree and truth table for the function f(x1, x2, x3) = -x1 * -x2 * -x3 + x1 * x2 + x2 * x3</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:191px;"><a href="../../../b/d/d/Image%7EBDD_simple.svg_b51f.html" class="internal" title="BDD for the function f"><img src="../../../upload/shared/thumb/1/14/BDD_simple.svg/189px-BDD_simple.svg.png" alt="BDD for the function f" width="189" height="241" longdesc="../../../b/d/d/Image%7EBDD_simple.svg_b51f.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/d/d/Image%7EBDD_simple.svg_b51f.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+BDD for the function f</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_decision_diagram.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>The basic idea from which the data structure was created is the <a href="../../../s/h/a/Shannon_expansion.html" title="Shannon expansion">Shannon expansion</a>. A switching function is split into two sub-functions (cofactors) by assigning one variable (cf. <i>if-then-else normal form</i>). If such a sub-function is considered as sub-tree, it can be represented by a <i>binary decision tree</i>. Binary decision diagrams (BDD) were introduced by Lee (Lee 1959), and further studied and made known by Akers (Akers 1978) and Boute (Boute 1976).</p>
+<p>The full potential for efficient algorithms based on the data structure was investigated by <a href="../../../r/a/n/Randal_Bryant_df8d.html" title="Randal Bryant">Bryant</a> at <a href="../../../c/a/r/Carnegie_Mellon_University_d56e.html" title="Carnegie Mellon University">Carnegie Mellon University</a>: his key extensions were to use a fixed variable ordering (for canonical representation) and shared sub-graphs (for compression). Applying these two concepts results in an efficient data structure and algorithms for the representation of sets and relations (Bryant 1986, Bryant 1992). By extending the sharing to several BDDs, i.e. one sub-graph is used by several BDDs, the data structure <i>Shared Reduced Ordered Binary Decision Diagram</i> is defined (Brace, Rudell, Bryant 1990). The notion of a BDD is now generally used to refer to that particular data structure.</p>
+<p>On a more abstract level, BDDs can be considered as a compressed representation of sets or relations. In difference to other compressions, the actual operations are performed on that compressed representation, without decompression.</p>
+<p><a name="Variable_ordering" id="Variable_ordering"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_decision_diagram.html" title="Edit section: Variable ordering">edit</a>]</span> <span class="mw-headline">Variable ordering</span></h2>
+<p>The size of the BDD is determined both by the function being represented and the chosen ordering of the variables. For some functions, the size of a BDD may vary between a linear to an exponential range depending upon the ordering of the variables. Simply put, if we have a boolean function <img class='tex' src="../../../math/7/a/7/7a7d557dae4e7f9e34c98015d8ac96e9.png" alt="f(x_1,\ldots, x_{n})" /> then depending upon the ordering of the variables we would end up getting a graph whose number of nodes would be linear at the best and exponential at the worst case. Let us consider the Boolean function <img class='tex' src="../../../math/5/a/0/5a0f63eebedf929e2b70503488ac3ce5.png" alt="f(x_1,\ldots, x_{2n}) = x_1x_2 + x_3x_4 + \dots + x_{2n-1}x_{2n}" />. Using the variable ordering <img class='tex' src="../../../math/9/1/6/916ca9e44d9cd2abf12d360569799f8a.png" alt="x_1 &lt; x_3 &lt; \dots &lt; x_{2n-1} &lt; x_2 &lt; x_4 &lt; \dots &lt; x_{2n}" />, the BDD needs <img class='tex' src="../../../math/3/a/2/3a24201b8ee51b399e63344ee68f1c09.png" alt="2^{n+1}\," /> nodes to represent the function. Using the ordering <img class='tex' src="../../../math/1/3/a/13aea8604685424a64e6cd8060431580.png" alt="x_1 &lt; x_2 &lt; x_3 &lt; x_4 &lt; \dots &lt; x_{2n-1} &lt; x_{2n}" />, the BDD consists of <span class="texhtml">2<i>n</i></span> nodes.</p>
+<table align="center">
+<tr>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:640px;"><a href="../../../b/d/d/Image%7EBDD_Variable_Ordering_Bad.svg_3404.html" class="internal" title="BDD for the function f(x1, ..., x8) = x1x2 + x3x4 + x5x6 + x7x8 using bad variable ordering"><img src="../../../upload/shared/thumb/2/28/BDD_Variable_Ordering_Bad.svg/638px-BDD_Variable_Ordering_Bad.svg.png" alt="BDD for the function f(x1, ..., x8) = x1x2 + x3x4 + x5x6 + x7x8 using bad variable ordering" width="638" height="435" longdesc="../../../b/d/d/Image%7EBDD_Variable_Ordering_Bad.svg_3404.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/d/d/Image%7EBDD_Variable_Ordering_Bad.svg_3404.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+BDD for the function f(x1, ..., x8) = x1x2 + x3x4 + x5x6 + x7x8 using bad variable ordering</div>
+</div>
+</div>
+</td>
+<td>
+<div class="thumb tright">
+<div class="thumbinner" style="width:158px;"><a href="../../../b/d/d/Image%7EBDD_Variable_Ordering_Good.svg_37e6.html" class="internal" title="Good variable ordering"><img src="../../../upload/shared/thumb/4/4b/BDD_Variable_Ordering_Good.svg/156px-BDD_Variable_Ordering_Good.svg.png" alt="Good variable ordering" width="156" height="435" longdesc="../../../b/d/d/Image%7EBDD_Variable_Ordering_Good.svg_37e6.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/d/d/Image%7EBDD_Variable_Ordering_Good.svg_37e6.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Good variable ordering</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+<p>It is of crucial importance to care about variable ordering when applying this data structure in practice. The problem of finding the best variable ordering is NP-hard [Bollig and Wegener 1996]. For any constant c&gt;1 it is even NP-hard to compute a variable ordering resulting in an OBDD with a size that is at most c times larger than an optimal one [Sieling 2002]. However there exist efficient heuristics to tackle the problem.</p>
+<p>There are functions for which the graph size is always exponential — independent of variable ordering. This holds e. g. for the multiplication function (an indication<sup class="noprint Template-Fact"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since March 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup> as to the apparent complexity of <a href="../../../f/a/c/Factoring.html" title="Factoring">factoring</a> ). Researchers have of late suggested refinements on the BDD data structure giving way to a number of related graphs: BMD (<a href="../../../b/i/n/Binary_Moment_Diagrams_9232.html" title="Binary Moment Diagrams">Binary Moment Diagrams</a>), ZDD (<a href="../../../z/e/r/Zero_Suppressed_Decision_Diagram_0f92.html" title="Zero Suppressed Decision Diagram">Zero Suppressed Decision Diagram</a>) etc.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_decision_diagram.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/o/o/Boolean_satisfiability_problem.html" title="Boolean satisfiability problem">Boolean satisfiability problem</a></li>
+<li><a href="../../../d/a/t/Data_structure.html" title="Data structure">Data structure</a></li>
+<li><a href="../../../m/o/d/Model_checking.html" title="Model checking">Model checking</a></li>
+<li><a href="../../../n/e/g/Negational_normal_form.html" title="Negational normal form">Negational normal form</a> (NNF)</li>
+<li><a href="../../../p/r/o/Propositional_directed_acyclic_graph.html" title="Propositional directed acyclic graph">Propositional directed acyclic graph</a> (PDAG)</li>
+<li><a href="../../../r/a/d/Radix_tree.html" title="Radix tree">Radix tree</a></li>
+</ul>
+<p><br /></p>
+<p><a name="Implementation" id="Implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_decision_diagram.html" title="Edit section: Implementation">edit</a>]</span> <span class="mw-headline">Implementation</span></h2>
+<p>This is a crude way to build a BDD in <a href="../../../c/_/p/C_Programming_Language_5432.html" title="C Programming Language">C</a>. Declare the data structure as follows and then proceed accordingly.</p>
+<p><br /></p>
+<pre>
+/* The basic data structure */     
+struct vertex
+{
+   char *φ;
+   struct vertex *hi, *lo;
+   ..
+}
+
+/* The interface to the Unique Table */
+struct vertex *old_or_new(char *φ, struct vertex *hi, *lo)
+{
+   if(“a vertex  v = (φ, hi, lo) exists”)
+       return  v;
+   else {
+       v &lt;- “new vertex pointing at (φ, hi, lo);
+       return  v;
+   }
+}
+</pre>
+<p><br />
+Data Structure for Building the ROBDD</p>
+<pre>
+struct vertex *robdd_build(struct expr <span class="texhtml"><i>f</i></span>, int i)
+{
+   struct vertex *hi, *lo;
+   struct char *φ;
+
+   if(equal(f, '0'))
+      return  v0;
+   else if (equal(f, '1'))
+      return  v1;
+   else{
+      φ ← п(i);
+      hi ← robdd_build( <span class="texhtml"><i>f</i>(<i>x</i><i>i</i> = 1)</span>, i+1);
+      lo ← robdd_build( <span class="texhtml"><i>f</i>(<i>x</i><i>i</i> = 0)</span>, i+1);
+ 
+      if(lo == hi) 
+         return lo;
+      else
+         return old_or_new(φ, hi, lo);
+   }
+}
+</pre>
+<p><a name="Available_Packages" id="Available_Packages"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_decision_diagram.html" title="Edit section: Available Packages">edit</a>]</span> <span class="mw-headline">Available Packages</span></h2>
+<ul>
+<li><a href="http://fmv.jku.at/abcd/" class="external text" title="http://fmv.jku.at/abcd/" rel="nofollow">ABCD</a>: The ABCD package by Armin Biere.</li>
+<li><a href="http://sourceforge.net/projects/buddy/" class="external text" title="http://sourceforge.net/projects/buddy/" rel="nofollow">BuDDy</a>: A BDD Package by Jørn Lind-Nielsen.</li>
+<li><a href="http://www-2.cs.cmu.edu/~modelcheck/bdd.html" class="external text" title="http://www-2.cs.cmu.edu/~modelcheck/bdd.html" rel="nofollow">CMU BDD</a>, BDD package, Carnegie Mellon University, Pittsburgh</li>
+<li><a href="http://vlsi.colorado.edu/~fabio/CUDD/" class="external text" title="http://vlsi.colorado.edu/~fabio/CUDD/" rel="nofollow">CUDD</a>: BDD package, University of Colorado, Boulder</li>
+<li><a href="http://javabdd.sourceforge.net" class="external text" title="http://javabdd.sourceforge.net" rel="nofollow">JavaBDD</a>, a Java port of BuDDy that also interfaces to CUDD, CAL, and JDD.</li>
+<li>The Berkeley <a href="http://embedded.eecs.berkeley.edu/Research/cal_bdd/" class="external text" title="http://embedded.eecs.berkeley.edu/Research/cal_bdd/" rel="nofollow">CAL</a> package which does breadth-first manipulation.</li>
+<li><a href="http://www.rs.e-technik.tu-darmstadt.de/~sth" class="external text" title="http://www.rs.e-technik.tu-darmstadt.de/~sth" rel="nofollow">TUD BDD</a>: A BDD Package and a World-Level package by Stefan Höreth.</li>
+<li>Vahidi's <a href="http://javaddlib.sourceforge.net/jdd/" class="external text" title="http://javaddlib.sourceforge.net/jdd/" rel="nofollow">JDD</a>, a java library that supports common BDD and ZBDD operations.</li>
+<li>Vahidi's <a href="http://javaddlib.sourceforge.net/jbdd/" class="external text" title="http://javaddlib.sourceforge.net/jbdd/" rel="nofollow">JBDD</a>, a Java interface to BuDDy and CUDD packages.</li>
+<li>Maiki &amp; Boaz <a href="http://www.bdd-project.com" class="external text" title="http://www.bdd-project.com" rel="nofollow">BDD-PROJECT</a>, a Web Application for BDD reduction and visualization.</li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_decision_diagram.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>C. Y. Lee. "Representation of Switching Circuits by Binary-Decision Programs". Bell Systems Technical Journal, 38:985–999, 1959.</li>
+<li>Sheldon B. Akers. "Binary Decision Diagrams". IEEE Transactions on Computers, C-27(6):509–516, June 1978.</li>
+<li>Raymond T. Boute, "The Binary Decision Machine as a programmable controller". <a href="../../../e/u/r/EUROMICRO_e5dc.html" title="EUROMICRO">EUROMICRO</a> Newsletter, Vol. 1(2):16–22, January 1976.</li>
+<li>Beate Bollig, Ingo Wegener. "Improving the Variable Ordering of OBDDs Is NP-Complete". IEEE Transactions on Computers, 45(9):993––1002, September 1996.</li>
+<li>Detlef Sieling. "The nonapproximability of OBDD minimization." Information and Computation 172, 103–138. 2002.</li>
+<li>Randal E. Bryant. "<a href="http://www.cs.cmu.edu/~bryant/pubdir/ieeetc86.ps" class="external text" title="http://www.cs.cmu.edu/~bryant/pubdir/ieeetc86.ps" rel="nofollow">Graph-Based Algorithms for Boolean Function Manipulation</a>". IEEE Transactions on Computers, C-35(8):677–691, 1986.</li>
+<li>R. E. Bryant, "<a href="http://www.cs.cmu.edu/~bryant/pubdir/acmcs92.ps" class="external text" title="http://www.cs.cmu.edu/~bryant/pubdir/acmcs92.ps" rel="nofollow">Symbolic Boolean Manipulation with Ordered Binary Decision Diagrams"</a>, ACM Computing Surveys, Vol. 24, No. 3 (September, 1992), pp. 293–318.</li>
+<li>Karl S. Brace, Richard L. Rudell and Randal E. Bryant. "<a href="http://portal.acm.org/citation.cfm?id=123222&amp;coll=portal&amp;dl=ACM" class="external text" title="http://portal.acm.org/citation.cfm?id=123222&amp;coll=portal&amp;dl=ACM" rel="nofollow">Efficient Implementation of a BDD Package"</a>. In Proceedings of the 27th ACM/IEEE Design Automation Conference (DAC 1990), pages 40–45. IEEE Computer Society Press, 1990.</li>
+<li>Ch. Meinel, T. Theobald, "<a href="http://www.informatik.uni-trier.de/~meinel/books/obddbook.html" class="external text" title="http://www.informatik.uni-trier.de/~meinel/books/obddbook.html" rel="nofollow">Algorithms and Data Structures in VLSI-Design: OBDD - Foundations and Applications"</a>, Springer-Verlag, Berlin, Heidelberg, New York, 1998.</li>
+<li>R. Ubar, "Test Generation for Digital Circuits Using Alternative Graphs (in Russian)", in Proc. Tallinn Technical University, 1976, No.409, Tallinn Technical University, Tallinn, Estonia, pp.75–81.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/n/Binary_decision_diagram.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li>H. Andersen "<a href="http://www.itu.dk/people/hra/bdd97.ps" class="external text" title="http://www.itu.dk/people/hra/bdd97.ps" rel="nofollow">An Introduction to Binary Decision Diagrams</a>," Lecture Notes, <a href="http://www.itu.dk/people/hra/bdd97-abstract.html" class="external free" title="http://www.itu.dk/people/hra/bdd97-abstract.html" rel="nofollow">http://www.itu.dk/people/hra/bdd97-abstract.html</a>, October 1997.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/n/Binary_decision_diagram.html">http://en.wikipedia.org../../../b/i/n/Binary_decision_diagram.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_unsourced_statements_since_March_2007_2536.html" title="Category:Articles with unsourced statements since March 2007">Articles with unsourced statements since March 2007</a></span> | <span dir='ltr'><a href="../../../a/l/l/Category%7EAll_articles_with_unsourced_statements_2f67.html" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="../../../d/a/t/Category%7EData_structures_6946.html" title="Category:Data structures">Data structures</a></span> | <span dir='ltr'><a href="../../../t/r/e/Category%7ETrees_%28structure%29_77fb.html" title="Category:Trees (structure)">Trees (structure)</a></span> | <span dir='ltr'><a href="../../../d/i/a/Category%7EDiagrams_d20a.html" title="Category:Diagrams">Diagrams</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/n/Binary_decision_diagram.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/n/Talk%7EBinary_decision_diagram_9f5a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Binary_decision_diagram">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/i/n/Bin%C3%A4res_Entscheidungsdiagramm_2048.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E4%BA%8C/%E5%88%86/%E6%B1%BA/%E4%BA%8C%E5%88%86%E6%B1%BA%E5%AE%9A%E5%9B%B3.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/d/i/a/Diagramme_de_d%C3%A9cision_binaire.html">Français</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 09:54, 4 April 2007 by Wikipedia user <a href="../../../j/a/y/User%7EJayant_speaks_6ef8.html" title="User:Jayant speaks">Jayant speaks</a>. Based on work by Wikipedia user(s) Karlbrace, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../b/r/i/User%7EBrighterorange_f618.html" title="User:Brighterorange">Brighterorange</a>, Rohit.nadig, Uli, Boute, Hitanshu D, Ajo Mama, <a href="../../../k/a/r/User%7EKarsten_Strehl_ee3a.html" title="User:Karsten Strehl">Karsten Strehl</a>, Nouiz, Bobke, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../m/i/c/User%7EMichael_Snow_0396.html" title="User:Michael Snow">Michael Snow</a>, Pce3@ij.net, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../t/a/w/User%7ETaw_8bc0.html" title="User:Taw">Taw</a>, Kakesson, <a href="../../../k/s/c/User%7EKSchutte_6790.html" title="User:KSchutte">KSchutte</a>, <a href="../../../b/l/u/User%7EBluemoose_d309.html" title="User:Bluemoose">Bluemoose</a>, <a href="../../../d/i/r/User%7EDirk_Beyer_ac1a.html" title="User:Dirk Beyer">Dirk Beyer</a>, <a href="../../../m/e/g/User%7EMegacz_0cf2.html" title="User:Megacz">Megacz</a>, <a href="../../../m/c/c/User%7EMcCart42_fb5b.html" title="User:McCart42">McCart42</a>, <a href="../../../g/t/r/User%7EGtrmp_2ffc.html" title="User:Gtrmp">Gtrmp</a>, <a href="../../../m/a/t/User%7EMatumio_18ba.html" title="User:Matumio">Matumio</a>, <a href="../../../i/m/e/User%7EIMeowbot_a66d.html" title="User:IMeowbot">IMeowbot</a>, <a href="../../../s/a/m/User%7ESam_Hocevar_dccf.html" title="User:Sam Hocevar">Sam Hocevar</a>, <a href="../../../o/v/e/User%7EOven_Fresh_99a0.html" title="User:Oven Fresh">Oven Fresh</a>, <a href="../../../l/a/u/User%7ELaudaka_0045.html" title="User:Laudaka">Laudaka</a>, Ryan Clark, <a href="../../../h/e/r/User%7EHeron_606a.html" title="User:Heron">Heron</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a> and <a href="../../../a/n/d/User%7EAndris_6e9c.html" title="User:Andris">Andris</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

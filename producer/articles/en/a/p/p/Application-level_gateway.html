@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Application-level gateway,B2BUA,Back-to-back connection,Binding (computer science),Computer networking,Deep packet inspection,Ephemeral port,File Transfer Protocol,Firewall (networking),Gateway (telecommunications),Iptables" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Application-level gateway - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Application-level gateway</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In the context of <a href="../../../c/o/m/Computer_networking.html" title="Computer networking">computer networking</a>, an <b>application-level gateway</b> <sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> (also known as ALG or <b>application layer gateway</b>) consists of a security component that augments a <a href="../../../f/i/r/Firewall_%28networking%29.html" title="Firewall (networking)">firewall</a> or <a href="../../../n/e/t/Network_address_translation.html" title="Network address translation">NAT</a> employed in a computer network. It allows legitimate application data to pass through the security checks of the firewall that would have otherwise restricted the traffic for not meeting its limited filter criteria.</p>
+<p>An ALG may offer the following functions:</p>
+<ul>
+<li>allowing client applications to use dynamic <a href="../../../e/p/h/Ephemeral_port.html" title="Ephemeral port">ephemeral</a> TCP/ UDP ports to communicate with the known ports used by the server applications, even though a firewall-configuration may allow only a limited number of known ports. In the absence of an ALG, either the ports would get blocked or the network administrator would need to explicitly open up a large number of ports in the firewall — rendering the network vulnerable to attacks on those ports.</li>
+<li>converting the <a href="../../../n/e/t/Network_layer.html" title="Network layer">network layer</a> address information found inside an application payload between the addresses acceptable by the hosts on either side of the firewall/NAT. This aspect introduces the term <a href="../../../g/a/t/Gateway_%28telecommunications%29.html" title="Gateway (telecommunications)">'gateway'</a> for an ALG.</li>
+<li>recognizing application-specific commands and offering granular security controls over them</li>
+<li>synchronizing between multiple streams/sessions of data between two hosts exchanging data. For example, an <a href="../../../f/i/l/File_Transfer_Protocol_5436.html" title="File Transfer Protocol">FTP</a> application may use separate connections for passing control commands and for exchanging data between the client and a remote server. During large file transfers, the control connection may remain idle. An ALG can prevent the control connection getting timed out by network devices before the lengthy file transfer completes. <sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup></li>
+</ul>
+<p><a href="../../../d/e/e/Deep_packet_inspection.html" title="Deep packet inspection">Deep packet-inspection</a> of all the packets handled by ALGs over a given network makes this functionality possible. An ALG understands the protocol used by the specific applications that it supports.</p>
+<p>For instance, <a href="../../../s/e/s/Session_Initiation_Protocol_82b5.html" title="Session Initiation Protocol">Session Initiation Protocol</a> (SIP) <a href="../../../b/a/c/Back-to-back_connection.html" title="Back-to-back connection">Back-to-Back</a> <a href="../../../u/s/e/User_agent.html" title="User agent">User agent</a> (<a href="../../../b/2/b/B2BUA_ba4c.html" title="B2BUA">B2BUA</a>). An ALG can allow firewall traversal with SIP. If the firewall has its SIP traffic terminated on an ALG then the responsibility for permitting <a href="../../../s/e/s/Session_Initiation_Protocol_82b5.html" title="Session Initiation Protocol">SIP</a> sessions passes to the ALG instead of the firewall. An ALG can solve another major <a href="../../../s/e/s/Session_Initiation_Protocol_82b5.html" title="Session Initiation Protocol">SIP</a> headache: <a href="../../../n/a/t/NAT_traversal_5d3e.html" title="NAT traversal">NAT traversal</a>. Basically a NAT with inbuilt ALG can re-write information within the <a href="../../../s/e/s/Session_Initiation_Protocol_82b5.html" title="Session Initiation Protocol">SIP</a> messages and can hold address-<a href="../../../b/i/n/Binding_%28computer_science%29.html" title="Binding (computer science)">bindings</a> until the session terminates. <sup id="_ref-2" class="reference"><a href="#_note-2" title="">[3]</a></sup></p>
+<p>An ALG is very similar to a <a href="../../../p/r/o/Proxy_Server_62ff.html" title="Proxy Server">Proxy Server</a>, as it sits between the client and real server, facilitating the exchange. There seems to be an industry convention that an ALG does it's job without the application being configured to use it, by intercepting the messages. A proxy, on the other hand, usually needs to be configured in the client application. The client is then explicitly aware of the proxy and connects to it, rather than the real server.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Application-level_gateway.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<p><a href="../../../s/e/s/Session_Border_Controller_3cc7.html" title="Session Border Controller">Session Border Controller</a></p>
+<p><a href="../../../p/r/o/Proxy_Server_62ff.html" title="Proxy Server">Proxy Server</a></p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Application-level_gateway.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="http://tools.ietf.org/html/rfc2663" class="external" title="http://tools.ietf.org/html/rfc2663">RFC 2663</a> - ALG: official definition (refer section 2.9)</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <i><a href="http://www.ncftp.com/ncftpd/doc/misc/ftp_and_firewalls.html" class="external text" title="http://www.ncftp.com/ncftpd/doc/misc/ftp_and_firewalls.html" rel="nofollow">The File Transfer Protocol (FTP) and Your Firewall</a> / Network Address Translation (NAT) Router / Load-Balancing Router.</i></li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> <a href="http://sitsotd.org/" class="external text" title="http://sitsotd.org/" rel="nofollow">SIP gateway</a> built with libipt/<a href="../../../i/p/t/Iptables.html" title="Iptables">iptables</a></li>
+</ol>
+</div>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/p/p/Application-level_gateway.html">http://en.wikipedia.org../../../a/p/p/Application-level_gateway.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_network_security_bc7f.html" title="Category:Computer network security">Computer network security</a></span> | <span dir='ltr'><a href="../../../n/e/t/Category%7ENetwork-related_software_b81c.html" title="Category:Network-related software">Network-related software</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/p/p/Application-level_gateway.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/p/p/Talk%7EApplication-level_gateway_56fd.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Application-level_gateway">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 10:24, 15 February 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../q/x/z/User%7EQxz_3066.html" title="User:Qxz">Qxz</a>, <a href="../../../w/r/s/User%7EWrs1864_30eb.html" title="User:Wrs1864">Wrs1864</a>, <a href="../../../r/a/a/User%7ERaanoo_8c0f.html" title="User:Raanoo">Raanoo</a> and <a href="../../../p/e/d/User%7EPedant17_032b.html" title="User:Pedant17">Pedant17</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

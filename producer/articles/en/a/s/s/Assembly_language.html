@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Assembly language,Assembly language,1-to-1,1950s,AMD64,As (Unix),BIOS,Binary arithmetic,Boot loader,Borland Pascal,C++" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Assembly language - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Assembly language</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>An <b>assembly language</b> is a <a href="../../../l/o/w/Low-level_language.html" title="Low-level language">low-level language</a> used in the writing of <a href="../../../c/o/m/Computer_program.html" title="Computer program">computer programs</a>. Assembly language uses <a href="../../../m/n/e/Mnemonic.html#Assembly_mnemonics" title="Mnemonic">mnemonics</a>, abbreviations or words that make it easier to remember a complex instruction and make programming in assembly an easier task. The goal of using mnemonics in the writing of assembly language programs is to replace the more error prone, and time consuming, effort of directly programming in a target computer's numeric <a href="../../../m/a/c/Machine_code.html" title="Machine code">machine code</a> that had been used with the very first computers. An assembly language program is translated into the target computer's machine code by a <a href="../../../u/t/i/Utility_program.html" title="Utility program">utility program</a> called an <b>assembler</b>. (An assembler is distinct from a <a href="../../../c/o/m/Compiler.html" title="Compiler">compiler</a>, in that it generally performs one-to-one (<a href="../../../i/s/o/Isomorphic.html" title="Isomorphic">isomorphic</a>) translations from mnemonic statements into machine instructions.) Translators that take an entire program and translate it as a body are called compilers. Translators that take one line at a time are called <a href="../../../i/n/t/Interpreters.html" title="Interpreters">interpreters</a>. Translators that translate assembly language programs into machine language are called assemblers.</p>
+<p>Assembly language programs are tightly coupled with (and specific to) a target computer architecture – as opposed to higher-level programming languages, which are generally platform-independent. More sophisticated assemblers extend the basic translation of program instructions with mechanisms to facilitate program development, control the assembly process, and aid <a href="../../../d/e/b/Debugging.html" title="Debugging">debugging</a>.</p>
+<p>Assembly language was once widely used for all aspects of programming, but today it tends to be used more narrowly, primarily when direct hardware manipulation or unusual performance issues are involved. Typical uses are <a href="../../../d/e/v/Device_drivers.html" title="Device drivers">device drivers</a>, low-level embedded systems, and <a href="../../../r/e/a/Real-time_computing.html" title="Real-time computing">real-time</a> systems. These applications benefit from the increased speed of processing assembly program instructions.</p>
+<p>See the <a href="../../../a/s/s/Assembly_language.html#Related_terminology" title="Assembly language">terminology</a> section, below, regarding inconsistent use of the terms <i>assembly</i> and <i>assembler.</i></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Key_concepts"><span class="tocnumber">1</span> <span class="toctext">Key concepts</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Assembler"><span class="tocnumber">1.1</span> <span class="toctext">Assembler</span></a></li>
+<li class="toclevel-2"><a href="#Assembly_language"><span class="tocnumber">1.2</span> <span class="toctext">Assembly language</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Language_design"><span class="tocnumber">2</span> <span class="toctext">Language design</span></a></li>
+<li class="toclevel-1"><a href="#Use_of_assembly_language"><span class="tocnumber">3</span> <span class="toctext">Use of assembly language</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Historical_perspective"><span class="tocnumber">3.1</span> <span class="toctext">Historical perspective</span></a></li>
+<li class="toclevel-2"><a href="#Current_usage"><span class="tocnumber">3.2</span> <span class="toctext">Current usage</span></a></li>
+<li class="toclevel-2"><a href="#Typical_applications"><span class="tocnumber">3.3</span> <span class="toctext">Typical applications</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Related_terminology"><span class="tocnumber">4</span> <span class="toctext">Related terminology</span></a></li>
+<li class="toclevel-1"><a href="#Further_details"><span class="tocnumber">5</span> <span class="toctext">Further details</span></a></li>
+<li class="toclevel-1"><a href="#Example_listing_of_assembly_language_source_code"><span class="tocnumber">6</span> <span class="toctext">Example listing of assembly language source code</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">7</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#Books"><span class="tocnumber">9</span> <span class="toctext">Books</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">10</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Key_concepts" id="Key_concepts"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Key concepts">edit</a>]</span> <span class="mw-headline">Key concepts</span></h2>
+<p><a name="Assembler" id="Assembler"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Assembler">edit</a>]</span> <span class="mw-headline">Assembler</span></h3>
+<p>Typically a modern <b>assembler</b> creates <a href="../../../o/b/j/Object_code.html" title="Object code">object code</a> by translating assembly instruction mnemonics into <a href="../../../o/p/c/Opcode.html" title="Opcode">opcodes</a>, and by resolving symbolic names for memory locations and other entities.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> The use of symbolic references is a key feature of assemblers, saving tedious calculations and manual address updates after program modifications. Most assemblers also include <a href="../../../m/a/c/Macro.html" title="Macro">macro</a> facilities for performing textual substitution — e.g., to generate common short sequences of instructions to run <a href="../../../i/n/l/Inline_expansion.html" title="Inline expansion">inline</a>, instead of in a <a href="../../../s/u/b/Subroutine.html" title="Subroutine">subroutine</a>.</p>
+<p>Assemblers are generally simpler to write than <a href="../../../c/o/m/Compiler.html" title="Compiler">compilers</a> for <a href="../../../h/i/g/High-level_language.html" title="High-level language">high-level languages</a>, and have been available since the <a href="../../../1/9/5/1950s.html" title="1950s">1950s</a>. Modern assemblers, especially for <a href="../../../r/i/s/RISC_0a73.html" title="RISC">RISC</a> based architectures, such as <a href="../../../m/i/p/MIPS_architecture_ccf5.html" title="MIPS architecture">MIPS</a>, Sun <a href="../../../s/p/a/SPARC_a940.html" title="SPARC">SPARC</a> and HP <a href="../../../p/a/-/PA-RISC_ae29.html" title="PA-RISC">PA-RISC</a>, optimize <a href="../../../i/n/s/Instruction_scheduling.html" title="Instruction scheduling">instruction scheduling</a> to exploit the <a href="../../../c/p/u/CPU_pipeline_a428.html" title="CPU pipeline">CPU pipeline</a> efficiently.</p>
+<p>More sophisticated <a href="../../../h/i/g/High-level_assembler.html" title="High-level assembler">high-level assemblers</a> provide language abstractions such as:</p>
+<ul>
+<li>Advanced control structures</li>
+<li>High-level procedure/function declarations and invocations</li>
+<li>High-level abstract data types, including structures/records, unions, classes, and sets</li>
+<li>Sophisticated macro processing</li>
+<li>Important Concept</li>
+</ul>
+<p>See <a href="#Language_design" title="">Language design</a> below for more details.</p>
+<p>Note that, in normal professional usage, the term <b>assembler</b> is often used ambiguously: It is frequently used to refer to an assembly language itself, rather than to the assembler utility. Thus: "CP/CMS was written in <a href="../../../s/2F/3/S_360_ad01.html" title="S/360">S/360</a> assembler" as opposed to "ASM-H was a widely-used <a href="../../../s/2F/3/S_370_223c.html" title="S/370">S/370</a> assembler."</p>
+<p><a name="Assembly_language" id="Assembly_language"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Assembly language">edit</a>]</span> <span class="mw-headline">Assembly language</span></h3>
+<p>A program written in assembly language consists of a series of <i>instructions</i> mnemonics that correspond to a stream of executable instructions, when translated by an <a href="../../../a/s/s/Assembly_language.html#Assembler" title="Assembly language">assembler</a>, that can be loaded into memory and executed.</p>
+<p>For example, an <a href="../../../x/8/6/X86.html" title="X86">x86</a>/<a href="../../../i/a/-/IA-32_c9a0.html" title="IA-32">IA-32</a> processor can execute the following binary instruction as expressed in <a href="../../../m/a/c/Machine_language.html" title="Machine language">machine language</a>:</p>
+<ul>
+<li>Binary: 10110000 01100001 (Hexadecimal: 0xb061)</li>
+</ul>
+<p>The equivalent assembly language representation is easier to remember (more <i><a href="../../../m/n/e/Mnemonic.html" title="Mnemonic">mnemonic</a></i>):</p>
+<ul>
+<li>mov al, 061h</li>
+</ul>
+<p>This instruction means:</p>
+<ul>
+<li>Move the <a href="../../../h/e/x/Hexadecimal.html" title="Hexadecimal">hexadecimal</a> value 61 (97 <a href="../../../d/e/c/Decimal.html" title="Decimal">decimal</a>) into the <a href="../../../p/r/o/Processor_register.html" title="Processor register">processor register</a> named "al".</li>
+</ul>
+<p>The mnemonic "mov" is an <i>operation code</i> or <i>opcode</i>, and was chosen by the instruction set designer to abbreviate "move." A comma-separated list of arguments or parameters follows the opcode; this is a typical assembly language statement.</p>
+<p>Transforming assembly into machine language is accomplished by an <a href="../../../a/s/s/Assembly_language.html#Assembler" title="Assembly language">assembler</a>, and the reverse by a <a href="../../../d/i/s/Disassembler.html" title="Disassembler">disassembler</a>. Unlike in <a href="../../../h/i/g/High-level_language.html" title="High-level language">high-level languages</a>, there is usually a <a href="../../../1/-/t/1-to-1.html" title="1-to-1">1-to-1</a> correspondence between simple assembly statements and machine language instructions. However, in some cases, an assembler may provide <i>pseudoinstructions</i> which expand into several machine language instructions to provide commonly needed functionality. For example, for a machine that lacks a "branch if greater or equal" instruction, an assembler may provide a pseudoinstruction that expands to the machine's "set if less than" and "branch if zero (on the result of the set instruction)". Most full-featured assemblers also provide a rich <a href="../../../m/a/c/Macro.html" title="Macro">macro</a> language (discussed below) which is used by vendors and programmers to generate more complex code and data sequences.</p>
+<p>Every <a href="../../../c/o/m/Computer_architecture.html" title="Computer architecture">computer architecture</a> has its own machine language. On this level, each instruction is simple enough to be executed using a relatively few number of electronic circuits. Computers differ by the number and type of operations they support. For example a new 64-bit machine would have different circuitry than a 32-bit machine. They may also have different sizes and numbers of registers, and different representations of data types in storage. While most general-purpose computers are able to carry out essentially the same functionality, the ways they do so differ; the corresponding assembly languages reflect these differences.</p>
+<p>Multiple sets of <a href="../../../m/n/e/Mnemonic.html" title="Mnemonic">mnemonics</a> or assembly-language syntax may exist for a single instruction set, typically instantiated in different assembler programs. In these cases, the most popular one is usually that supplied by the manufacturer and used in its documentation.</p>
+<p><a name="Language_design" id="Language_design"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Language design">edit</a>]</span> <span class="mw-headline">Language design</span></h2>
+<p>Instructions (statements) in assembly language are generally very simple, unlike in a <a href="../../../h/i/g/High-level_programming_language.html" title="High-level programming language">high-level language</a>. Each instruction typically consists of an <i>operation</i> or <i>opcode</i> (or, simply, <i>instruction</i>) plus zero or more <i><a href="../../../o/p/e/Operands.html" title="Operands">operands</a></i>. Most instructions refer to a single value, or pair of values. An instruction coded in the language usually corresponds directly to a single executable machine language instruction.</p>
+<p><b>The following consists of elements common to assembler programs:</b></p>
+<ul>
+<li><b>Data definitions.</b> Additional directives let the programmer reserve storage areas for reference by machine language statements. Storage can typically be initialized with literal numbers, strings, and other primitive data types.</li>
+<li><b>Labels.</b> Data definitions are referenced using names (<i>labels</i> or <i>symbols</i>) assigned by the programmer, and typically reference constants, variables, or structure elements. Labels can also be assigned to code locations, i.e. subroutine entry points or <a href="../../../g/o/t/GOTO_4b8b.html" title="GOTO">GOTO</a> destinations. Most assemblers provide flexible symbol management, letting programmers manage different <a href="../../../n/a/m/Namespace_%28computer_science%29.html" title="Namespace (computer science)">namespaces</a>, automatically calculate offsets within <a href="../../../d/a/t/Data_structures.html" title="Data structures">data structures</a>, and assign labels that refer to literal values or the result of simple computations performed by the assembler.</li>
+<li><b>Comments.</b> Like most other computer languages, comments can be added to assembly <a href="../../../s/o/u/Source_code.html" title="Source code">source code</a> that are ignored by the assembler.</li>
+<li><b>Macros.</b> A macro is a label that stands for some sequence of text lines. This sequence of text lines may include a sequence of instructions. Upon finding the macro label in a source code file when executing the program, it expands the macro by replacing the macro label with the text lines that the macro label represents. The name of the macro requires a small amount of typing to input, and is then replaced by several lines of code which are assembled just as though they had appeared in the source code file all along (Duntemann). Macros are also supplied by a vendor or manufacturer to encapsulate a particular operation.</li>
+</ul>
+<p>Such capabilities are borrowed from higher-level language designs. They can greatly simplify the problems of coding and maintaining low-level code. Raw assembly source code as generated by compilers or disassemblers – i.e. without comments, meaningful symbols, or data definitions – is quite difficult to read.</p>
+<p><b>Although there might be some unusual exceptions, most assembly languages share the above basic characteristics:</b></p>
+<ul>
+<li>Some assemblers include quite <b>sophisticated macro languages</b>, incorporating such high-level language elements as symbolic variables, conditionals, string manipulation, and arithmetic operations, all usable during the execution of a given macro, and allowing macros to save context or exchange information. Thus a macro might emit a large number of assembly language instructions or data definitions, based on the macro arguments. This could be used to generate record-style data structures or "unrolled" loops, for example, or could generate entire algorithms based on complex parameters. An organization using assembly language that has been heavily extended using such a macro suite may arguably be considered to be working in a (slightly) higher-level language – such programmers are not working with a computer's lowest-level conceptual elements.</li>
+<li>Some assemblers have incorporated <a href="../../../s/t/r/Structured_programming.html" title="Structured programming">structured programming</a> elements to encode execution flow. The earliest example of this approach was in the Concept-14 macro set developed by Marvin Zloof at IBM's <a href="../../../t/h/o/Thomas_Watson_Research_Center_6e26.html" title="Thomas Watson Research Center">Thomas Watson Research Center</a>, which extended the S/370 macro assembler with IF/ELSE/ENDIF and similar control flow blocks. This was a way to reduce or eliminate the use of <a href="../../../g/o/t/GOTO_4b8b.html" title="GOTO">GOTO</a> operations in assembly code, one of the main factors causing <a href="../../../s/p/a/Spaghetti_code.html" title="Spaghetti code">spaghetti code</a> in assembly language. This approach was widely accepted in the early 80s (the latter days of large-scale assembly language use).</li>
+<li>A curious design was A-natural, a "stream-oriented" assembler for 8080/Z80 processors from Whitesmiths Ltd. (developers of the <a href="../../../u/n/i/Unix.html" title="Unix">Unix</a>-like <a href="../../../i/d/r/Idris_%28operating_system%29.html" title="Idris (operating system)">Idris</a> and what was reported to be the first commercial <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> <a href="../../../c/o/m/Compiler.html" title="Compiler">compiler</a>). The language was classified as an assembler, because it worked with raw machine elements such as opcodes, registers, and memory references; but it incorporated an expression syntax to indicate execution order. Parentheses and other special symbols, along with block-oriented structured programming constructs, controlled the sequence of the generated instructions. A-natural was built as the object language of a C compiler, rather than for hand-coding, but its logical syntax won some fans.</li>
+</ul>
+<p>There has been little apparent demand for more sophisticated assemblers since the decline of large-scale assembly language development.</p>
+<p><a name="Use_of_assembly_language" id="Use_of_assembly_language"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Use of assembly language">edit</a>]</span> <span class="mw-headline">Use of assembly language</span></h2>
+<p><a name="Historical_perspective" id="Historical_perspective"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Historical perspective">edit</a>]</span> <span class="mw-headline">Historical perspective</span></h3>
+<p>Historically, a large number of programs have been written entirely in assembly language. Operating systems were almost exclusively written in assembly language until the widespread acceptance of <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> in the 1970s and early 1980s. Many commercial applications were written in assembly language as well, including a large amount of the IBM mainframe software written by large corporations. <a href="../../../c/o/b/COBOL_14eb.html" title="COBOL">COBOL</a> and <a href="../../../f/o/r/FORTRAN_36b2.html" title="FORTRAN">FORTRAN</a> eventually displaced much of this work, although a number of large organizations retained assembly-language application infrastructures well into the 80s.</p>
+<p>Most early microcomputers relied on hand-coded assembly language, including most operating systems and large applications. This was because these systems had severe resource constraints, imposed idiosyncratic memory and display architectures, and provided limited, buggy system services. Perhaps more important was the lack of first-class high-level language compilers suitable for microcomputer use. A psychological factor may have also played a role: the first generation of microcomputer programmers retained a hobbyist, "wires and pliers" attitude. Typical examples of large assembly language programs from this time is the <a href="../../../m/s/-/MS-DOS_bae8.html" title="MS-DOS">MS-DOS</a> operating system, the early IBM PC <a href="../../../s/p/r/Spreadsheet.html" title="Spreadsheet">spreadsheet</a> program <a href="../../../l/o/t/Lotus_1-2-3.html" title="Lotus 1-2-3">Lotus 1-2-3</a>, and almost all popular games for the Commodore 64. Even into the 1990s, most console video games were written in assembly, including most games for the <a href="../../../s/e/g/Sega_Mega_Drive_0377.html" title="Sega Mega Drive">Mega Drive/Genesis</a> and the <a href="../../../s/u/p/Super_Nintendo_Entertainment_System_5602.html" title="Super Nintendo Entertainment System">Super Nintendo Entertainment System</a><sup class="noprint Template-Fact"><a href="../../../c/i/t/Wikipedia%7ECiting_sources_8ba4.html" title="Wikipedia:Citing sources"><span title="This claim needs references to reliable sources since February 2007" style="white-space: nowrap;">[<i>citation needed</i>]</span></a></sup>. The popular arcade game <a href="../../../n/b/a/NBA_Jam_8e83.html" title="NBA Jam">NBA Jam</a> (1993) is another example.</p>
+<p><a name="Current_usage" id="Current_usage"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Current usage">edit</a>]</span> <span class="mw-headline">Current usage</span></h3>
+<p>There has always been debate over the usefulness and performance of assembly language relative to high-level languages, though this gets less attention today. Assembly language has specific niche uses where it is important; see below. But in general, modern optimizing compilers are claimed to render high-level languages into code that runs at least as fast as hand-written assembly, despite some counter-examples that can be created. The complexity of modern processors makes effective hand-optimization increasingly difficult. Moreover, and to the dismay of efficiency lovers, increasing processor performance has meant that most CPUs sit idle most of the time, with delays caused by predictable bottlenecks such as I/O operations and paging. This has made raw code execution speed a non-issue for most programmers (hence the increasing use of <a href="../../../i/n/t/Interpreted_language.html" title="Interpreted language">interpreted languages</a> without apparent performance impact).</p>
+<p>There are really only a handful of situations where today's expert practitioners would choose assembly language:</p>
+<ul>
+<li>When a stand-alone binary executable is required, i.e. one that must execute without recourse to the run-time components or libraries associated with a high-level language; this is perhaps the most common situation. These are embedded programs that store only a small amount of memory and the device is intended to do single purpose tasks. Such examples consist of telephones, automobile fuel and ignition systems, air-conditioning control systems, security systems, and sensors.</li>
+<li>When interacting directly with the hardware, e.g., in a device driver. Examples consist of sound and video cards, hard drives, modems, and printers. For example printer manufacturers create a different driver for each model that they sell that correlates with a specific operating system.</li>
+<li>When using processor-specific instructions not exploited by or available to the compiler. A common example is the <a href="../../../c/i/r/Circular_shift.html" title="Circular shift">bitwise rotation</a> instruction at the core of many encryption algorithms.</li>
+<li>When extreme optimization is required, e.g., in an inner loop in a processor-intensive algorithm. Game programmers are experts at writing code that takes advantage of the capabilities of hardware features in systems enabling the games to run faster.</li>
+<li>When a system with severe resource constraints (e.g., an <a href="../../../e/m/b/Embedded_system.html" title="Embedded system">embedded system</a>) must be hand-coded to maximize the use of limited resources; but this is becoming less common as processor price/performance improves</li>
+<li>When no high-level language exists, e.g., on a new or specialized processor</li>
+<li><a href="../../../r/e/a/Real-time_computing.html" title="Real-time computing">Real-time</a> programs that need precise timing and responses, such as simulations, flight navigation systems, and hospital equipment to monitor patients. For example, if a human heart behaves irregularly, the machine must be notified quickly and the proper response needs to be initialized quickly so the patient does not die. Assembly is still faster than code that must be translated to allow fast response.</li>
+</ul>
+<p>Few programmers today need to use assembly language on a daily basis. For most applications, a higher-level language like <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a>, <a href="../../../c/%2B/%2B/C%2B%2B.html" title="C++">C++</a> is generally chosen.</p>
+<p>Nevertheless, assembly language is still taught in most Computer Science and Electronic Engineering programs. Although few programmers today regularly work with assembly language as a tool, the underlying concepts remain very important. Such fundamental topics as <a href="../../../b/i/n/Binary_arithmetic.html" title="Binary arithmetic">binary arithmetic</a>, <a href="../../../m/e/m/Memory_allocation.html" title="Memory allocation">memory allocation</a>, <a href="../../../s/t/a/Stack_%28data_structure%29.html" title="Stack (data structure)">stack processing</a>, <a href="../../../c/h/a/Character_set.html" title="Character set">character set</a> encoding, <a href="../../../i/n/t/Interrupt.html" title="Interrupt">interrupt</a> processing, and <a href="../../../c/o/m/Compiler.html" title="Compiler">compiler</a> design would be hard to study in detail without a grasp of how a computer operates at the hardware level. Since a computer's behavior is fundamentally defined by its instruction set, the logical way to learn such concepts is to study an assembly language. Most modern computers have similar instruction sets. Therefore, studying a single assembly language is sufficient to learn: i) The basic concepts; ii) To recognize situations where the use of assembly language might be appropriate; and iii) To see how efficient executable code can be created from high-level languages.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup></p>
+<p><a name="Typical_applications" id="Typical_applications"></a></p>
+<h3><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Typical applications">edit</a>]</span> <span class="mw-headline">Typical applications</span></h3>
+<p>Hand-coded assembly language is typically used in a system's <a href="../../../b/i/o/BIOS_8cd7.html" title="BIOS">BIOS</a>. This low-level code is used, among other things, to initialize and test the system hardware prior to booting the OS, and is stored in <a href="../../../r/e/a/Read-only_memory.html" title="Read-only memory">ROM</a>. Once a certain level of hardware initialization has taken place, execution transfers to other code, typically written in higher level languages; but the code running immediately after power is applied is usually written in assembly language. The same is true of most <a href="../../../b/o/o/Boot_loader.html" title="Boot loader">boot loaders</a>.</p>
+<p>Many compilers render high-level languages into assembly first before fully compiling, allowing the assembly code to be viewed for debugging and optimization purposes. Relatively low-level languages, such as <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a>, often provide special syntax to embed assembly language directly in the source code. Programs using such facilities, such as the <a href="../../../l/i/n/Linux_kernel.html" title="Linux kernel">Linux kernel</a>, can then construct abstractions utilizing different assembly language on each hardware platform. The system's portable code can then utilize these processor-specific components through a uniform interface.</p>
+<p>Assembly language is also valuable in <a href="../../../r/e/v/Reverse_engineering.html" title="Reverse engineering">reverse engineering</a>, since many programs are distributed only in machine code form, and machine code is usually easy to translate into assembly language and carefully examine in this form, but very difficult to translate into a higher-level language. Tools such as the <a href="../../../i/n/t/Interactive_Disassembler_a709.html" title="Interactive Disassembler">Interactive Disassembler</a> make extensive use of disassembly for such a purpose.</p>
+<p><a name="Related_terminology" id="Related_terminology"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Related terminology">edit</a>]</span> <span class="mw-headline">Related terminology</span></h2>
+<ul>
+<li><b>Assembly language</b> or <b>assembler language</b> is commonly called <b>assembly</b>, <b>assembler</b>, <b>ASM</b>, or <b>symbolic machine code</b>. A generation of IBM mainframe programmers called it <b>BAL</b> for <i>Basic Assembly Language</i>.</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd>Note: Calling the language <b>assembler</b> is of course potentially confusing and ambiguous, since this is also the name of the utility program that translates assembly language statements into machine code. Some may regard this as imprecision or error. However, this usage has been common among professionals and in the literature for decades.<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[3]</a></sup> Similarly, some early computers called their <i>assembler</i> its <b>assembly program</b>.<sup id="_ref-3" class="reference"><a href="#_note-3" title="">[4]</a></sup>)</dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>The computational step where an assembler is run, including all macro processing, is known as <b>assembly time</b>.</li>
+</ul>
+<ul>
+<li>The use of the word <b>assembly</b> dates from the early years of computers (<i>cf.</i> <a href="../../../s/h/o/Short_Code_%28Computer_language%29_fed8.html" title="Short Code (Computer language)">short code</a>, speed code/"speedcoding").</li>
+</ul>
+<ul>
+<li>A <b>cross assembler</b> (see <a href="../../../c/r/o/Cross_compiler.html" title="Cross compiler">cross compiler</a>) produces code for one type of processor, but runs on another. This technology is particularly important when developing software for new processors.</li>
+</ul>
+<p><a name="Further_details" id="Further_details"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Further details">edit</a>]</span> <span class="mw-headline">Further details</span></h2>
+<p>For any given personal computer, mainframe, embedded system, and game console, both past and present, at least one--possibly dozens--of assemblers have been written. For some examples, see the <a href="../../../l/i/s/List_of_assemblers.html" title="List of assemblers">list of assemblers</a>.</p>
+<p>On <a href="../../../u/n/i/Unix.html" title="Unix">Unix</a> systems, the assembler is traditionally called <a href="../../../a/s/_/As_%28Unix%29_81e6.html" title="As (Unix)">as</a>, although it is not a single body of code, being typically written anew for each port. A number of Unix variants use <a href="../../../g/n/u/GNU_Assembler_d23f.html" title="GNU Assembler">GAS</a>.</p>
+<p>Within processor groups, each assembler has its own dialect. Sometimes, some assemblers can read another assembler's dialect, for example, TASM can read old MASM code, but not the reverse. FASM and NASM have similar syntax, but each support different macros that could make them difficult to translate to each other. The basics are all the same, but the advanced features will differ.</p>
+<p>Also, assembly can sometimes be portable across different operating systems on the same type of <a href="../../../c/p/u/CPU_2b55.html" title="CPU">CPU</a>. <a href="../../../c/a/l/Calling_convention.html" title="Calling convention">Calling conventions</a> between operating systems often differ slightly or not at all, and with care it is possible to gain some portability in assembly language, usually by linking with a <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> library that does not change between operating systems. However, it is not possible to link portably with C libraries that require the caller to use preprocessor macros that may change between operating systems.</p>
+<p>For example, many things in <a href="../../../l/i/b/Libc.html" title="Libc">libc</a> depend on the preprocessor to do OS-specific, C-specific things to the program before compiling. In fact, some functions and symbols are not even guaranteed to exist outside of the preprocessor. Worse, the size and field order of structs, as well as the size of certain <a href="../../../t/y/p/Typedef.html" title="Typedef">typedefs</a> such as off_t, are entirely unavailable in assembly language, and differ even between versions of <a href="../../../l/i/n/Linux.html" title="Linux">Linux</a>, making it impossible to portably call functions in libc other than ones that only take simple integers and pointers as parameters.</p>
+<p>Some higher level computer languages, such as <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a>, support <a href="../../../i/n/l/Inline_assembler.html" title="Inline assembler">inline assembly</a> where relatively brief sections of assembly code can be embedded into the high level language code. <a href="../../../b/o/r/Borland_Pascal_82d7.html" title="Borland Pascal">Borland Pascal</a> also had an assembler <a href="../../../c/o/m/Compiler.html" title="Compiler">compiler</a>, which was initialized with a keyword "asm". It was mainly used to create <a href="../../../m/o/u/Mouse.html" title="Mouse">mouse</a> and COM-port <a href="../../../d/r/i/Drivers.html" title="Drivers">drivers</a>. The <a href="../../../f/o/r/Forth_programming_language.html" title="Forth programming language">Forth programming language</a> commonly contains an assembler used in CODE words.</p>
+<p>Many people use an <a href="../../../e/m/u/Emulator.html" title="Emulator">emulator</a> to debug assembly-language programs.</p>
+<p><a name="Example_listing_of_assembly_language_source_code" id="Example_listing_of_assembly_language_source_code"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Example listing of assembly language source code">edit</a>]</span> <span class="mw-headline">Example listing of assembly language source code</span></h2>
+<table class="wikitable">
+<tr>
+<th>Addr</th>
+<th>Label</th>
+<th>Instruction</th>
+<th>Object code<sup id="_ref-Murdocca_0" class="reference"><a href="#_note-Murdocca" title="">[5]</a></sup></th>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><tt>.begin</tt></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><tt>.org 2048</tt></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><tt>a_start</tt></td>
+<td><tt>.equ 3000</tt></td>
+<td></td>
+</tr>
+<tr>
+<td><tt>2048</tt></td>
+<td></td>
+<td><tt>ld <a href="../../../l/e/n/Length.html" title="Length">length</a>,%</tt></td>
+</tr>
+<tr>
+<td><tt>2064</tt></td>
+<td></td>
+<td><tt>be done</tt></td>
+<td><tt>00000010 10000000 00000000 00000110</tt></td>
+</tr>
+<tr>
+<td><tt>2068</tt></td>
+<td></td>
+<td><tt>addcc %r1,-4,%r1</tt></td>
+<td><tt>10000010 10000000 01111111 11111100</tt></td>
+</tr>
+<tr>
+<td><tt>2072</tt></td>
+<td></td>
+<td><tt>addcc %r1,%r2,%r4</tt></td>
+<td><tt>10001000 10000000 01000000 00000010</tt></td>
+</tr>
+<tr>
+<td><tt>2076</tt></td>
+<td></td>
+<td><tt>ld %r4,%r5</tt></td>
+<td><tt>11001010 00000001 00000000 00000000</tt></td>
+</tr>
+<tr>
+<td><tt>2080</tt></td>
+<td></td>
+<td><tt>ba loop</tt></td>
+<td><tt>00010000 10111111 11111111 11111011</tt></td>
+</tr>
+<tr>
+<td><tt>2084</tt></td>
+<td></td>
+<td><tt>addcc %r3,%r5,%r3</tt></td>
+<td><tt>10000110 10000000 11000000 00000101</tt></td>
+</tr>
+<tr>
+<td><tt>2088</tt></td>
+<td><tt>done:</tt></td>
+<td><tt>jmpl %r15+4,%r0</tt></td>
+<td><tt>10000001 11000011 11100000 00000100</tt></td>
+</tr>
+<tr>
+<td><tt>2092</tt></td>
+<td><tt>length:</tt></td>
+<td><tt>20</tt></td>
+<td><tt>00000000 00000000 00000000 00010100</tt></td>
+</tr>
+<tr>
+<td><tt>2096</tt></td>
+<td><tt>address:</tt></td>
+<td><tt>a_start</tt></td>
+<td><tt>00000000 00000000 00001011 10111000</tt></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td><tt>.org a_start</tt></td>
+<td></td>
+</tr>
+<tr>
+<td><tt>3000</tt></td>
+<td><tt>a:</tt></td>
+</tr>
+</table>
+<p>Example of a selection of instructions (for a <a href="../../../u/n/i/Universal_Virtual_Computer_8496.html" title="Universal Virtual Computer">virtual computer</a><sup id="_ref-wwwPOCA_0" class="reference"><a href="#_note-wwwPOCA" title="">[6]</a></sup>) with the corresponding <a href="../../../m/e/m/Memory_address.html" title="Memory address">address</a> in memory where each instruction will be placed. These addresses are not static, see <a href="../../../m/e/m/Memory_management.html" title="Memory management">memory management</a>. Accompanying each instruction is the generated (by the assembler) <a href="../../../o/b/j/Object_file.html" title="Object file">object code</a> that coincides with the virtual computer's architecture (or <a href="../../../i/n/s/Instruction_set.html" title="Instruction set">ISA</a>).</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../l/i/t/Little_man_computer.html" title="Little man computer">Little man computer</a> - an educational computer model with a base-10 assembly language</li>
+<li><a href="../../../x/8/6/X86_assembly_language.html" title="X86 assembly language">x86 assembly language</a> - the assembly language for common Intel 80<a href="../../../x/8/6/X86.html" title="X86">x86</a> microprocessors</li>
+<li><a href="../../../c/o/m/Compiler.html" title="Compiler">Compiler</a></li>
+<li><a href="../../../d/i/s/Disassembler.html" title="Disassembler">Disassembler</a></li>
+<li><a href="../../../l/i/s/List_of_assemblers.html" title="List of assemblers">List of assemblers</a></li>
+<li><a href="../../../i/n/s/Instruction_set.html" title="Instruction set">Instruction set</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> David Salomon, <i>Assemblers and Loaders</i>. 1993 <a href="http://www.davidsalomon.name/assem.advertis/asl.pdf" class="external autonumber" title="http://www.davidsalomon.name/assem.advertis/asl.pdf" rel="nofollow">[1]</a></li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> Hyde, <i>op. cit.</i>, Foreword ("Why would anyone learn this stuff?")</li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> Stroustrup, Bjarne, <i>The C++ Programming Language</i>, Addison-Wesley, 1986, <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-201-12078-X</a>: <i>"C++ was primarily designed so that the author and his friends would not have to program in assembler, C, or various modern high-level languages.</i> [use of the term <i>assembler</i> to mean <i>assembly language</i>]"</li>
+<li id="_note-3"><b><a href="#_ref-3" title="">^</a></b> Saxon, James, and Plette, William, <i>Programming the IBM 1401</i>, Prentice-Hall, 1962, LoC 62-20615. [use of the term <i>assembly program</i>]</li>
+<li id="_note-Murdocca"><b><a href="#_ref-Murdocca_0" title="">^</a></b> <cite class="book" style="font-style:normal" id="Reference-Murdocca-2000">Murdocca, Miles J.; Vincent P. Heuring (2000). <i>Principles of Computer Architecture</i>. Prentice-Hall. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-201-43664-7</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Principles+of+Computer+Architecture&amp;rft.title=Principles+of+Computer+Architecture&amp;rft.aulast=Murdocca&amp;rft.aufirst=Miles+J.&amp;rft.date=2000&amp;rft.pub=Prentice-Hall">&#160;</span></li>
+<li id="_note-wwwPOCA"><b><a href="#_ref-wwwPOCA_0" title="">^</a></b> <a href="http://iiusatech.com/~murdocca/POCA" class="external text" title="http://iiusatech.com/~murdocca/POCA" rel="nofollow">Principles of Computer Architecture</a> (POCA) – ARCTools virtual computer available for download to execute referenced code, accessed August 24, 2005</li>
+</ol>
+<p><a name="Books" id="Books"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: Books">edit</a>]</span> <span class="mw-headline">Books</span></h2>
+<ul>
+<li><a href="http://programminggroundup.blogspot.com/" class="external text" title="http://programminggroundup.blogspot.com/" rel="nofollow">Programming from the Ground Up</a> Online version of the introductory assembly programming book.</li>
+<li><a href="http://cs.smith.edu/~thiebaut/ArtOfAssembly/artofasm.html" class="external text" title="http://cs.smith.edu/~thiebaut/ArtOfAssembly/artofasm.html" rel="nofollow">The Art of Assembly Language Programming</a>, <a href="http://www.arl.wustl.edu/~lockwood/class/cs306/books/artofasm/toc.html" class="external autonumber" title="http://www.arl.wustl.edu/~lockwood/class/cs306/books/artofasm/toc.html" rel="nofollow">[2]</a> by <a href="../../../r/a/n/Randall_Hyde_6c92.html" title="Randall Hyde">Randall Hyde</a></li>
+<li><a href="http://www.computer-books.us/assembler.php" class="external text" title="http://www.computer-books.us/assembler.php" rel="nofollow">Computer-Books.us</a>, Online Assembly Language Books</li>
+<li><a href="http://www.drpaulcarter.com/pcasm/redir.php?file=pcasm-book-pdf.zip" class="external text" title="http://www.drpaulcarter.com/pcasm/redir.php?file=pcasm-book-pdf.zip" rel="nofollow">PC Assembly Language</a> by Dr Paul Carter; *<a href="http://drpaulcarter.com/pcasm/" class="external text" title="http://drpaulcarter.com/pcasm/" rel="nofollow">PC Assembly Tutorial using NASM and GCC</a> by Paul Carter</li>
+<li><a href="http://savannah.nongnu.org/projects/pgubook/" class="external text" title="http://savannah.nongnu.org/projects/pgubook/" rel="nofollow">Programming from the Ground Up</a> by Jonathan Bartlett</li>
+<li><a href="http://www.asmcommunity.net/x86book/" class="external text" title="http://www.asmcommunity.net/x86book/" rel="nofollow">The x86 ASM Book</a> by the <a href="http://www.asmcommunity.net" class="external text" title="http://www.asmcommunity.net" rel="nofollow">ASM Community</a></li>
+<li>Dominic Sweetman: <b>See MIPS Run</b>. Morgan Kaufmann Publishers. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 1-55860-410-3</a></li>
+<li>Robert Britton: <b>MIPS Assembly Language Programming</b>. Prentice Hall. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-13-142044-5</a></li>
+<li>John Waldron: <b>Introduction to RISC Assembly Language Programming</b>. Addison Wesley. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-201-39828-1</a></li>
+<li>Jeff Duntemann <a href="http://duntemann.com/assembly.htm" class="external text" title="http://duntemann.com/assembly.htm" rel="nofollow">Assembly Language Step-by-Step</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/s/s/Assembly_language.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="../../../w/i/k/Image%7EWiktionary-logo-en.png_23eb.html" class="image" title=""><img src="../../../upload/shared/thumb/b/b4/Wiktionary-logo-en.png/50px-Wiktionary-logo-en.png" alt="" width="50" height="54" longdesc="../../../w/i/k/Image%7EWiktionary-logo-en.png_23eb.html" /></a></span></div>
+</div>
+<div style="margin-left: 60px;">Look up <i><b><a href="http://en.wiktionary.org/wiki/assembly_language" class="extiw" title="wiktionary:assembly_language">assembly language</a></b></i> in <a href="../../../w/i/k/Wiktionary.html" title="Wiktionary">Wiktionary</a>, the free dictionary.</div>
+</div>
+<div class="infobox sisterproject">
+<div style="float: left;">
+<div class="floatnone"><span><a href="../../../w/i/k/Image%7EWikibooks-logo-en.svg_f0fc.html" class="image" title="Wikibooks"><img src="../../../upload/shared/thumb/7/7c/Wikibooks-logo-en.svg/50px-Wikibooks-logo-en.svg.png" alt="Wikibooks" width="50" height="57" longdesc="../../../w/i/k/Image%7EWikibooks-logo-en.svg_f0fc.html" /></a></span></div>
+</div>
+<div style="margin-left: 60px;"><a href="http://en.wikibooks.org/wiki/" class="extiw" title="wikibooks:">Wikibooks</a> has more about this subject:
+<div style="margin-left: 10px;"><i><b><a href="http://en.wikibooks.org/wiki/Assembly_Language" class="extiw" title="wikibooks:Assembly_Language">Assembly Language</a></b></i></div>
+</div>
+</div>
+<ul>
+<li><a href="http://www.winasm.net" class="external text" title="http://www.winasm.net" rel="nofollow">WinAsm Studio, The Assembly IDE - Free Downloads, Source Code</a>, a free Assembly IDE, a lot of open source programs to download and a popular <a href="http://www.winasm.net/forum/index.php" class="external text" title="http://www.winasm.net/forum/index.php" rel="nofollow">Board</a></li>
+<li><a href="http://www.asmcommunity.net/" class="external text" title="http://www.asmcommunity.net/" rel="nofollow">The ASM Community</a>, a great ASM programming resource including a <a href="http://www.asmcommunity.net/board/" class="external text" title="http://www.asmcommunity.net/board/" rel="nofollow">Messageboard</a> and an <a href="http://www.asmcommunity.net/board/index.php?action=wiki" class="external text" title="http://www.asmcommunity.net/board/index.php?action=wiki" rel="nofollow">ASM Wiki Book</a></li>
+<li><a href="http://www.jegerlehner.ch/intel/IntelCodeTable.pdf" class="external text" title="http://www.jegerlehner.ch/intel/IntelCodeTable.pdf" rel="nofollow">Intel Assembly 80x86 CodeTable</a> (a cheat sheet reference)</li>
+<li><a href="../../../m/e/n/MenuetOS_b6ad.html" title="MenuetOS">MenuetOS</a> <a href="http://www.menuetos.net/" class="external text" title="http://www.menuetos.net/" rel="nofollow">- hobby Operating System for the PC written entirely in 64bit assembly language</a></li>
+<li><a href="http://home.comcast.net/~dtgm/asm_links.html" class="external text" title="http://home.comcast.net/~dtgm/asm_links.html" rel="nofollow">List of resources; books, websites, newsgroups, and IRC channels</a></li>
+<li><a href="http://www.int80h.org/" class="external text" title="http://www.int80h.org/" rel="nofollow">Unix Assembly Language Programming</a></li>
+<li><a href="http://c2.com/cgi/wiki?LearningAssemblyLanguage" class="external text" title="http://c2.com/cgi/wiki?LearningAssemblyLanguage" rel="nofollow">PPR: Learning Assembly Language</a></li>
+<li><a href="http://codeteacher.com/category.php?ID=12" class="external text" title="http://codeteacher.com/category.php?ID=12" rel="nofollow">CodeTeacher</a></li>
+<li><a href="http://www.azillionmonkeys.com/qed/asmexample.html" class="external text" title="http://www.azillionmonkeys.com/qed/asmexample.html" rel="nofollow">Assembly Language Programming Examples</a></li>
+<li><a href="http://www.cs.cornell.edu/talc/" class="external text" title="http://www.cs.cornell.edu/talc/" rel="nofollow">Typed Assembly Language (TAL)</a></li>
+<li><a href="http://www.grc.com/smgassembly.htm" class="external text" title="http://www.grc.com/smgassembly.htm" rel="nofollow">Authoring Windows Applications In Assembly Language</a></li>
+<li><a href="http://rosasm.org/" class="external text" title="http://rosasm.org/" rel="nofollow">RosAsm assembler/ RosAsm assembly Forum</a></li>
+<li><a href="http://www.geocities.com/yeohhs/" class="external text" title="http://www.geocities.com/yeohhs/" rel="nofollow">RosAsm Programming Examples</a></li>
+<li><a href="http://www.emu8086.com/" class="external text" title="http://www.emu8086.com/" rel="nofollow">80x86 emulator</a></li>
+<li><a href="http://avr-asm.tripod.com/" class="external text" title="http://avr-asm.tripod.com/" rel="nofollow">AVR Assembler</a></li>
+<li><a href="http://www.program-transformation.org/" class="external text" title="http://www.program-transformation.org/" rel="nofollow">The Program Transformation Wiki</a></li>
+<li><a href="http://www.godevtool.com/" class="external text" title="http://www.godevtool.com/" rel="nofollow">GoAsm</a> - a component of the free "Go" tools: 32-bit and 64-bit Windows programming for <a href="../../../x/8/6/X86.html" title="X86">x86</a> and <a href="../../../a/m/d/AMD64_8952.html" title="AMD64">AMD64</a>/<a href="../../../e/m/6/EM64T_5aaf.html" title="EM64T">EM64T</a></li>
+<li><a href="http://www.gnu.org/software/lightning/lightning.html" class="external text" title="http://www.gnu.org/software/lightning/lightning.html" rel="nofollow">GNU lightning</a> is a library that generates assembly language code at run-time which is useful for Just-In-Time compilers</li>
+<li><a href="http://linuxassembly.org/" class="external text" title="http://linuxassembly.org/" rel="nofollow">"information on assembly programming under different platforms: IA32 (x86), IA64 (Itanium), x86-64, SPARC, Alpha, or whatever platform we find contributors for."</a></li>
+<li><a href="http://terse.com/" class="external text" title="http://terse.com/" rel="nofollow">"Terse: Algebraic Assembly Language for x86"</a></li>
+<li><a href="http://win32assembly.online.fr/tutorials.html" class="external text" title="http://win32assembly.online.fr/tutorials.html" rel="nofollow">Iczelion's Win32 Assembly Tutorial</a></li>
+<li><a href="http://www.sbprojects.com/" class="external text" title="http://www.sbprojects.com/" rel="nofollow">SB-Assembler for most 8-bit processors/controllers</a></li>
+<li><a href="http://www.beginnerscode.com/guides.php?lang=assembly" class="external text" title="http://www.beginnerscode.com/guides.php?lang=assembly" rel="nofollow">Assembly Tutorials</a> BeginnersCode.com</li>
+<li><a href="http://www-03.ibm.com/servers/eserver/zseries/zos/bkserv/r8pdf/zarchpops.html" class="external text" title="http://www-03.ibm.com/servers/eserver/zseries/zos/bkserv/r8pdf/zarchpops.html" rel="nofollow">IBM z/Architecture Principles of Operation</a> IBM manuals on <a href="../../../m/a/i/Mainframe_computer.html" title="Mainframe computer">mainframe</a> machine language and internals.</li>
+<li><a href="http://www-03.ibm.com/servers/eserver/zseries/zos/bkserv/r8pdf/hlasm.html" class="external text" title="http://www-03.ibm.com/servers/eserver/zseries/zos/bkserv/r8pdf/hlasm.html" rel="nofollow">IBM High Level Assembler</a> IBM manuals on mainframe assembler language.</li>
+<li><a href="http://learn86.awardspace.co.uk/" class="external text" title="http://learn86.awardspace.co.uk/" rel="nofollow">Tools and tutorials for x86 programmers</a></li>
+<li><a href="http://mark.masmcode.com/" class="external text" title="http://mark.masmcode.com/" rel="nofollow">Assembly Optimization Tips</a> by <a href="../../../m/a/r/Mark_Larson_9001.html" title="Mark Larson">Mark Larson</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 7145 bytes
+Post-expand include size: 2697 bytes
+Template argument size: 1181 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/s/s/Assembly_language.html">http://en.wikipedia.org../../../a/s/s/Assembly_language.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_with_unsourced_statements_since_February_2007_f7dc.html" title="Category:Articles with unsourced statements since February 2007">Articles with unsourced statements since February 2007</a></span> | <span dir='ltr'><a href="../../../a/l/l/Category%7EAll_articles_with_unsourced_statements_2f67.html" title="Category:All articles with unsourced statements">All articles with unsourced statements</a></span> | <span dir='ltr'><a href="../../../a/s/s/Category%7EAssembly_languages_e55e.html" title="Category:Assembly languages">Assembly languages</a></span> | <span dir='ltr'><a href="../../../p/r/o/Category%7EProgramming_languages_ac39.html" title="Category:Programming languages">Programming languages</a></span> | <span dir='ltr'><a href="../../../a/s/s/Category%7EAssemblers_47a6.html" title="Category:Assemblers">Assemblers</a></span> | <span dir='ltr'><a href="../../../p/r/o/Category%7EProgramming_language_implementation_057b.html" title="Category:Programming language implementation">Programming language implementation</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/s/s/Assembly_language.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/s/s/Talk%7EAssembly_language_3ddb.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Assembly_language">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../bs/a/s/s/Assembler.html">Bosanski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../bg/%D0%B0/%D1%81/%D0%B5/%D0%90%D1%81%D0%B5%D0%BC%D0%B1%D0%BB%D0%B5%D1%80.html">Български</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../cs/a/s/s/Assembler.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../da/a/s/s/Assemblersprog.html">Dansk</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/s/s/Assemblersprache.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../et/a/s/s/Assemblerkeel.html">Eesti</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/l/e/n/Lenguaje_ensamblador.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../eo/a/s/e/Asembla_lingvo.html">Esperanto</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/s/s/Assembleur.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EC%96%B4/%EC%85%88/%EB%B8%94/%EC%96%B4%EC%85%88%EB%B8%94%EB%A6%AC%EC%96%B4.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hr/a/s/e/Asemblerski_jezik.html">Hrvatski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../is/s/m/a/Smalam%C3%A1l.html">Íslenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/a/s/s/Assembly.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%A9/%D7%A4/%D7%AA/%D7%A9%D7%A4%D7%AA_%D7%A1%D7%A3.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../lv/a/s/a/Asamblervaloda.html">Latviešu</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hu/a/s/s/Assembly_programoz%C3%A1si_nyelv.html">Magyar</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%82%A2/%E3%82%BB/%E3%83%B3/%E3%82%A2%E3%82%BB%E3%83%B3%E3%83%96%E3%83%AA%E8%A8%80%E8%AA%9E.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../no/a/s/s/Assembler.html">‪Norsk (bokmål)‬</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/s/e/Asembler.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/l/i/n/Linguagem_de_montagem.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D1%8F/%D0%B7/%D1%8B/%D0%AF%D0%B7%D1%8B%D0%BA_%D0%B0%D1%81%D1%81%D0%B5%D0%BC%D0%B1%D0%BB%D0%B5%D1%80%D0%B0.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sl/z/b/i/Zbirnik_%28programski_jezik%29.html">Slovenščina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sr/%D0%B0/%D1%81/%D0%B5/%D0%90%D1%81%D0%B5%D0%BC%D0%B1%D0%BB%D0%B5%D1%80.html">Српски / Srpski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/a/s/s/Assembly_%28ohjelmointikieli%29.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../th/%E0%B8%A0/%E0%B8%B2/%E0%B8%A9/%E0%B8%A0%E0%B8%B2%E0%B8%A9%E0%B8%B2%E0%B9%81%E0%B8%AD%E0%B8%AA%E0%B9%80%E0%B8%8B%E0%B8%A1%E0%B8%9A%E0%B8%A5%E0%B8%B5.html">ไทย</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../tr/a/s/s/Assembly_Dili_7509.html">Türkçe</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/c/h/%C6%B0/Ch%C6%B0%C6%A1ng_tr%C3%ACnh_assembly.html">Tiếng Việt</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E6%B1%87/%E7%BC%96/%E8%AF%AD/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 04:16, 7 April 2007 by Wikipedia user <a href="../../../w/r/p/User%7EWrp103_3edd.html" title="User:Wrp103">Wrp103</a>. Based on work by Wikipedia user(s) <a href="../../../g/a/r/User%7EGaras_3860.html" title="User:Garas">Garas</a>, <a href="../../../s/p/i/User%7ESpinality_2ccb.html" title="User:Spinality">Spinality</a>, <a href="../../../m/a/r/User%7EMartinBot_3f64.html" title="User:MartinBot">MartinBot</a>, Haiviet, <a href="../../../1/6/40/User%7E16%40r.html" title="User:16@r">16@r</a>, ItsProgrammable, Sploonie, Wre2wre, <a href="../../../a/p/o/User%7EApokrif_eeef.html" title="User:Apokrif">Apokrif</a>, <a href="../../../t/o/b/User%7ETobias_Bergemann_bfa6.html" title="User:Tobias Bergemann">Tobias Bergemann</a>, <a href="../../../f/i/l/User%7EFilemon_066c.html" title="User:Filemon">Filemon</a>, <a href="../../../h/o/t/User%7EHotdogger_4c5d.html" title="User:Hotdogger">Hotdogger</a>, <a href="../../../s/u/r/User%7ESurturz_61db.html" title="User:Surturz">Surturz</a>, <a href="../../../s/l/a/User%7ESlaryn_a1d7.html" title="User:Slaryn">Slaryn</a>, Brage, <a href="../../../s/t/a/User%7EStarionwolf_ad89.html" title="User:Starionwolf">Starionwolf</a>, <a href="../../../j/a/n/User%7EJAnDbot_5c44.html" title="User:JAnDbot">JAnDbot</a>, <a href="../../../m/o/n/User%7EMonstaPro_7847.html" title="User:MonstaPro">MonstaPro</a>, <a href="../../../k/p/-/User%7EKP-Adhikari_42c4.html" title="User:KP-Adhikari">KP-Adhikari</a>, <a href="../../../s/k/y/User%7ESkyWalker_5153.html" title="User:SkyWalker">SkyWalker</a>, <a href="../../../m/i/c/User%7EMichal_Jurosz_8783.html" title="User:Michal Jurosz">Michal Jurosz</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, Emuguru, Jorgon, Akyprian, <a href="../../../i/a/n/User%7EIanOsgood_81a9.html" title="User:IanOsgood">IanOsgood</a>, <a href="../../../r/f/c/User%7ERfc1394_3d02.html" title="User:Rfc1394">Rfc1394</a>, <a href="../../../a/l/e/User%7EAlex.g_3ad4.html" title="User:Alex.g">Alex.g</a>, Wwmbes, <a href="../../../g/i/f/User%7EGiftlite_9506.html" title="User:Giftlite">Giftlite</a>, <a href="../../../r/o/n/User%7ERonz_dbdd.html" title="User:Ronz">Ronz</a>, Sanoj1234, <a href="../../../g/a/i/User%7EGaius_Cornelius_c35a.html" title="User:Gaius Cornelius">Gaius Cornelius</a>, SpooK, Schultkl, Jukrat, Owl3638, <a href="../../../f/u/r/User%7EFurrykef_4620.html" title="User:Furrykef">Furrykef</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../a/s/h/User%7EAshmoo_727a.html" title="User:Ashmoo">Ashmoo</a>, <a href="../../../a/b/d/User%7EAbdull_b6f2.html" title="User:Abdull">Abdull</a>, <a href="../../../r/u/s/User%7ERussBot_6f95.html" title="User:RussBot">RussBot</a>, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../w/j/3/User%7EWj32_5b4d.html" title="User:Wj32">Wj32</a>, <a href="../../../w/i/k/User%7EWiki_alf_522c.html" title="User:Wiki alf">Wiki alf</a>, <a href="../../../g/o/l/User%7EGoldenMeadows_5f05.html" title="User:GoldenMeadows">GoldenMeadows</a>, <a href="../../../a/t/l/User%7EAtlant_5157.html" title="User:Atlant">Atlant</a>, <a href="../../../m/p/6/User%7EMP64_c463.html" title="User:MP64">MP64</a>, Rivanov, <a href="../../../m/o/n/User%7EMonz_4cc3.html" title="User:Monz">Monz</a>, <a href="../../../a/h/y/User%7EAhy1_aef6.html" title="User:Ahy1">Ahy1</a>, <a href="../../../f/u/n/User%7EFunnyfarmofdoom_8504.html" title="User:Funnyfarmofdoom">Funnyfarmofdoom</a>, <a href="../../../a/n/t/User%7EAntiVandalBot_aa84.html" title="User:AntiVandalBot">AntiVandalBot</a>, <a href="../../../m/i/k/User%7EMike_Field_fb5d.html" title="User:Mike Field">Mike Field</a>, <a href="../../../a/u/t/User%7EAutodmc_005c.html" title="User:Autodmc">Autodmc</a>, <a href="../../../e/d/w/User%7EEdward_42f0.html" title="User:Edward">Edward</a>, Paresthesias, <a href="../../../a/n/g/User%7EAngela_56ea.html" title="User:Angela">Angela</a>, <a href="../../../c/a/n/User%7ECan%27t_sleep%2C_clown_will_eat_me_7058.html" title="User:Can't sleep, clown will eat me">Can't sleep, clown will eat me</a>, Eagle246, <a href="../../../k/o/n/User%7EKonstable_8474.html" title="User:Konstable">Konstable</a>, <a href="../../../r/e/x/User%7ERexNL_e4e0.html" title="User:RexNL">RexNL</a>, <a href="../../../n/a/n/User%7ENandesuka_0333.html" title="User:Nandesuka">Nandesuka</a>, <a href="../../../1/5/6/User%7E1568.html" title="User:1568">1568</a>, <a href="../../../t/a/w/User%7ETawkerbot4_5045.html" title="User:Tawkerbot4">Tawkerbot4</a>, <a href="../../../w/i/k/User%7EWikiklrsc_e9c8.html" title="User:Wikiklrsc">Wikiklrsc</a>, <a href="../../../m/e/l/User%7EMellamokb_9169.html" title="User:Mellamokb">Mellamokb</a>, <a href="../../../m/o/z/User%7EMozillaman_6b57.html" title="User:Mozillaman">Mozillaman</a>, <a href="../../../p/n/e/User%7EPneuhaus_5491.html" title="User:Pneuhaus">Pneuhaus</a>, <a href="../../../w/k/n/User%7EWknight8111_df13.html" title="User:Wknight8111">Wknight8111</a>, <a href="../../../p/a/u/User%7EPaul_August_2fe5.html" title="User:Paul August">Paul August</a>, <a href="../../../t/e/a/User%7ETeaDrinker_0ad2.html" title="User:TeaDrinker">TeaDrinker</a>, <a href="../../../f/r/e/User%7EFred_Bradstadt_749b.html" title="User:Fred Bradstadt">Fred Bradstadt</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../k/i/n/User%7EKindall_055e.html" title="User:Kindall">Kindall</a>, <a href="../../../g/o/n/User%7EGondooley_de88.html" title="User:Gondooley">Gondooley</a>, <a href="../../../t/h/o/User%7EThomasHarte_c731.html" title="User:ThomasHarte">ThomasHarte</a>, <a href="../../../a/n/g/User%7EAnger22_483f.html" title="User:Anger22">Anger22</a>, Blashyrk, <a href="../../../i/x/f/User%7EIxfd64_14d3.html" title="User:Ixfd64">Ixfd64</a>, <a href="../../../a/2E/r/User%7EA.R._dbac.html" title="User:A.R.">A.R.</a>, Vwollan, <a href="../../../b/i/l/User%7EBilbo1507_fe6d.html" title="User:Bilbo1507">Bilbo1507</a>, <a href="../../../k/a/s/User%7EKaster_9a52.html" title="User:Kaster">Kaster</a>, <a href="../../../f/u/z/User%7EFuzzbox_c84a.html" title="User:Fuzzbox">Fuzzbox</a>, <a href="../../../b/r/y/User%7EBryan_Derksen_3ce8.html" title="User:Bryan Derksen">Bryan Derksen</a>, <a href="../../../s/i/m/User%7ESimon80_f57b.html" title="User:Simon80">Simon80</a>, Chopin1810, <a href="../../../t/a/w/User%7ETawkerbot2_313a.html" title="User:Tawkerbot2">Tawkerbot2</a>, Locke Cole, <a href="../../../v/e/l/User%7EVelle_d626.html" title="User:Velle">Velle</a>, <a href="../../../r/a/s/User%7ERasmus_Faber_cecb.html" title="User:Rasmus Faber">Rasmus Faber</a>, <a href="../../../e/r/i/User%7EEricR_931f.html" title="User:EricR">EricR</a>, Jth299, <a href="../../../a/k/a/User%7EAkamad_92a5.html" title="User:Akamad">Akamad</a>, <a href="../../../s/h/a/User%7EShadow_demon_6f22.html" title="User:Shadow demon">Shadow demon</a>, Derek farn, <a href="../../../c/a/p/User%7ECapi_crimm_d771.html" title="User:Capi crimm">Capi crimm</a>, <a href="../../../b/l/a/User%7EBlainster_3d88.html" title="User:Blainster">Blainster</a>, <a href="../../../o/h/n/User%7EOhnoitsjamie_fc14.html" title="User:Ohnoitsjamie">Ohnoitsjamie</a>, <a href="../../../m/s/i/User%7EMsikma_222d.html" title="User:Msikma">Msikma</a>, <a href="../../../c/r/o/User%7ECrotalus_horridus_5cc6.html" title="User:Crotalus horridus">Crotalus horridus</a>, <a href="../../../t/z/a/User%7ETzarius_7691.html" title="User:Tzarius">Tzarius</a>, <a href="../../../k/g/l/User%7EKglavin_a2c2.html" title="User:Kglavin">Kglavin</a>, <a href="../../../e/v/e/User%7EEveryking_5c9e.html" title="User:Everyking">Everyking</a>, Dasnov, <a href="../../../p/g/k/User%7EPgk_d0c7.html" title="User:Pgk">Pgk</a>, An-chan, <a href="../../../m/r/2E/User%7EMr.Do%21_ab73.html" title="User:Mr.Do!">Mr.Do!</a>, <a href="../../../s/l/a/User%7ESlashme_49c3.html" title="User:Slashme">Slashme</a>, <a href="../../../d/a/v/User%7EDavidCary_1a42.html" title="User:DavidCary">DavidCary</a>, <a href="../../../m/e/l/User%7EMellum_a257.html" title="User:Mellum">Mellum</a>, Cquarksnow, <a href="../../../x/j/a/User%7EXJamRastafire_2aa5.html" title="User:XJamRastafire">XJamRastafire</a>, <a href="../../../o/l/d/User%7EOldhamlet_a3e6.html" title="User:Oldhamlet">Oldhamlet</a>, <a href="../../../b/u/m/User%7EBumm13_d24e.html" title="User:Bumm13">Bumm13</a>, <a href="../../../e/a/s/User%7EEasyas12c_219d.html" title="User:Easyas12c">Easyas12c</a>, DouglasGreen, StealthFox, <a href="../../../d/a/r/User%7EDarrien_ba7e.html" title="User:Darrien">Darrien</a>, <a href="../../../m/u/s/User%7EMustafazamany_68c9.html" title="User:Mustafazamany">Mustafazamany</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../r/o/b/User%7ERobert_Merkel_dd17.html" title="User:Robert Merkel">Robert Merkel</a>, <a href="../../../s/t/e/User%7EStewartadcock_c102.html" title="User:Stewartadcock">Stewartadcock</a>, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, <a href="../../../k/b/d/User%7EKbdank71_f952.html" title="User:Kbdank71">Kbdank71</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../r/d/n/User%7ERdnk_212d.html" title="User:Rdnk">Rdnk</a>, <a href="../../../w/e/r/User%7EWereon_8361.html" title="User:Wereon">Wereon</a>, Red Prince, <a href="../../../s/p/a/User%7ESpalding_eecd.html" title="User:Spalding">Spalding</a>, <a href="../../../t/o/k/User%7EToksyuryel_fea4.html" title="User:Toksyuryel">Toksyuryel</a>, <a href="../../../w/e/r/User%7EWernher_a499.html" title="User:Wernher">Wernher</a>, <a href="../../../s/c/o/User%7EScott_Gall_cc1f.html" title="User:Scott Gall">Scott Gall</a>, <a href="../../../a/n/d/User%7EAndres_1bcc.html" title="User:Andres">Andres</a>, <a href="../../../a/h/o/User%7EAhoerstemeier_88c8.html" title="User:Ahoerstemeier">Ahoerstemeier</a>, <a href="../../../n/i/k/User%7ENikai_7c15.html" title="User:Nikai">Nikai</a>, <a href="../../../r/2E/_/User%7ER._S._Shaw_abc4.html" title="User:R. S. Shaw">R. S. Shaw</a>, <a href="../../../f/e/m/User%7EFemto_bb69.html" title="User:Femto">Femto</a>, <a href="../../../s/p/e/User%7ESpeedyGonsales_1fb8.html" title="User:SpeedyGonsales">SpeedyGonsales</a>, <a href="../../../f/e/r/User%7EFerkelparade_da80.html" title="User:Ferkelparade">Ferkelparade</a>, <a href="../../../m/u/r/User%7EMurray_Langton_52f5.html" title="User:Murray Langton">Murray Langton</a>, <a href="../../../b/g/b/User%7EBgbot_e04d.html" title="User:Bgbot">Bgbot</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../f/u/e/User%7EFuelbottle_c429.html" title="User:Fuelbottle">Fuelbottle</a>, <a href="../../../g/u/a/User%7EGuanabot_b902.html" title="User:Guanabot">Guanabot</a>, <a href="../../../s/h/a/User%7EShadanan_5fc2.html" title="User:Shadanan">Shadanan</a>, <a href="../../../v/a/m/User%7EVampWillow_af3c.html" title="User:VampWillow">VampWillow</a>, <a href="../../../m/e/n/User%7EMendalus_c9f9.html" title="User:Mendalus">Mendalus</a>, <a href="../../../s/a/n/User%7ESanbec_55aa.html" title="User:Sanbec">Sanbec</a>, <a href="../../../p/i/n/User%7EPingveno_6d12.html" title="User:Pingveno">Pingveno</a>, Just Another Dan, <a href="../../../g/i/d/User%7EGiddie_ac12.html" title="User:Giddie">Giddie</a>, <a href="../../../c/h/r/User%7EChristian_3dad.html" title="User:Christian">Christian</a>, <a href="../../../w/i/k/User%7EWikibot_9002.html" title="User:Wikibot">Wikibot</a>, <a href="../../../a/l/f/User%7EAlfio_ae11.html" title="User:Alfio">Alfio</a>, <a href="../../../p/o/p/User%7EPopsracer_cec6.html" title="User:Popsracer">Popsracer</a>, <a href="../../../d/t/g/User%7EDtgm_4059.html" title="User:Dtgm">Dtgm</a>, <a href="../../../e/m/p/User%7EEmperorbma_7b7a.html" title="User:Emperorbma">Emperorbma</a>, <a href="../../../k/a/r/User%7EKarada_595b.html" title="User:Karada">Karada</a>, <a href="../../../w/e/s/User%7EWesley_19bf.html" title="User:Wesley">Wesley</a>, <a href="../../../p/a/t/User%7EPatrick_7b47.html" title="User:Patrick">Patrick</a>, <a href="../../../n/a/n/User%7ENanshu_9373.html" title="User:Nanshu">Nanshu</a>, <a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a>, <a href="../../../h/i/r/User%7EHirzel_8c30.html" title="User:Hirzel">Hirzel</a>, <a href="../../../s/c/i/User%7EScipius_3475.html" title="User:Scipius">Scipius</a>, <a href="../../../d/e/r/User%7EDerek_Ross_f2d2.html" title="User:Derek Ross">Derek Ross</a>, <a href="../../../a/n/d/User%7EAndre_Engels_23d0.html" title="User:Andre Engels">Andre Engels</a>, <a href="../../../0/_/_/User%7E0.html" title="User:0">0</a> and <a href="../../../a/l/a/User%7EAlan_d_664c.html" title="User:Alan d">Alan_d</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

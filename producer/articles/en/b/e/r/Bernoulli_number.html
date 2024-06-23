@@ -1,0 +1,398 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bernoulli number,1842,Abraham de Moivre,Absolute value,Ada Byron's notes on the analytical engine,Agoh-Giuga conjecture,Algebraic K-theory,Algorithm,Ankeny-Artin-Chowla congruence,Bell numbers,Bernoulli polynomial" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bernoulli number - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bernoulli number</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, the <b>Bernoulli numbers</b> are a <a href="../../../s/e/q/Sequence.html" title="Sequence">sequence</a> of <a href="../../../r/a/t/Rational_number.html" title="Rational number">rational numbers</a> with deep connections in <a href="../../../n/u/m/Number_theory.html" title="Number theory">number theory</a>. Although easy to calculate, the values of the Bernoulli numbers have no elementary description; they are closely related to the values of the <a href="../../../r/i/e/Riemann_zeta_function.html" title="Riemann zeta function">Riemann zeta function</a> at negative integers.</p>
+<p>In Europe, they were first studied by <a href="../../../j/a/k/Jakob_Bernoulli_f68c.html" title="Jakob Bernoulli">Jakob Bernoulli</a>, after whom they were named by <a href="../../../a/b/r/Abraham_de_Moivre_19ca.html" title="Abraham de Moivre">Abraham de Moivre</a>, and independently discovered, perhaps earlier, by <a href="../../../s/e/k/Seki_Takakazu_f008.html" title="Seki Takakazu">Seki Takakazu</a>. They appear in the <a href="../../../t/a/y/Taylor_series.html" title="Taylor series">Taylor series</a> expansion of the <a href="../../../t/a/n/Tangent.html" title="Tangent">tangent</a> and <a href="../../../h/y/p/Hyperbolic_tangent.html" title="Hyperbolic tangent">hyperbolic tangent</a> functions, in the <a href="../../../e/u/l/Euler-Maclaurin_formula_4e7b.html" title="Euler-Maclaurin formula">Euler-Maclaurin formula</a>, and in expressions of certain values of the Riemann zeta function.</p>
+<p>Curiously, in note G of <a href="../../../a/d/a/Ada_Byron%27s_notes_on_the_analytical_engine_eb22.html" title="Ada Byron's notes on the analytical engine">Ada Byron's notes on the analytical engine</a> from <a href="../../../1/8/4/1842.html" title="1842">1842</a>, an <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a> for computer-generated Bernoulli numbers was described for the first time. This distinguishes the Bernoulli numbers as being the subject of one of the first computer programs ever.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Introduction"><span class="tocnumber">1</span> <span class="toctext">Introduction</span></a></li>
+<li class="toclevel-1"><a href="#Values_of_the_Bernoulli_numbers"><span class="tocnumber">2</span> <span class="toctext">Values of the Bernoulli numbers</span></a></li>
+<li class="toclevel-1"><a href="#Asymptotic_approximation"><span class="tocnumber">3</span> <span class="toctext">Asymptotic approximation</span></a></li>
+<li class="toclevel-1"><a href="#Assorted_identities"><span class="tocnumber">4</span> <span class="toctext">Assorted identities</span></a></li>
+<li class="toclevel-1"><a href="#Arithmetical_properties_of_the_Bernoulli_numbers"><span class="tocnumber">5</span> <span class="toctext">Arithmetical properties of the Bernoulli numbers</span></a>
+<ul>
+<li class="toclevel-2"><a href="#p-adic_continuity"><span class="tocnumber">5.1</span> <span class="toctext">p-adic continuity</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Geometrical_properties_of_the_Bernoulli_numbers"><span class="tocnumber">6</span> <span class="toctext">Geometrical properties of the Bernoulli numbers</span></a></li>
+<li class="toclevel-1"><a href="#Efficient_computation_of_Bernoulli_numbers_mod_p"><span class="tocnumber">7</span> <span class="toctext">Efficient computation of Bernoulli numbers mod p</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">10</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Introduction" id="Introduction"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: Introduction">edit</a>]</span> <span class="mw-headline">Introduction</span></h2>
+<p>The Bernoulli numbers <i>B</i><sub><i>n</i></sub> were first discovered in connection with the closed forms of the sums</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/6/d/66d1fafeea6d545f12f618156acf2065.png" alt="\sum_{k=0}^{m-1} k^n = 0^n + 1^n + 2^n + \cdots + {(m-1)}^n" /></dd>
+</dl>
+<p>for various fixed values of <i>n</i>. The closed forms are always <a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomials</a> in <i>m</i> of degree <i>n</i>&#160;+&#160;1. The <a href="../../../c/o/e/Coefficient.html" title="Coefficient">coefficients</a> of these polynomials are closely related to the Bernoulli numbers, as follows (this is known, not entirely justly, as <a href="../../../f/a/u/Faulhaber%27s_formula.html" title="Faulhaber's formula">Faulhaber's formula</a>):</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/b/1/fb1041f62d98d53f4bf986945e7857ad.png" alt="\sum_{k=0}^{m-1} k^n = {1\over{n+1}}\sum_{k=0}^n{n+1\choose{k}} B_k m^{n+1-k}." /></dd>
+</dl>
+<p>For example, taking <i>n</i> to be 1, we have 0 + 1 + 2 + ... + (<i>m</i>&#160;−&#160;1) = (1/2) (<i>B</i><sub>0</sub> <i>m</i><sup>2</sup> + 2 <i>B</i><sub>1</sub> <i>m</i><sup>1</sup>) = 1/2 (<i>m</i><sup>2</sup> − <i>m</i>). See <a href="../../../f/a/u/Faulhaber%27s_formula.html" title="Faulhaber's formula">Faulhaber's formula</a> for more details on this, including an <a href="../../../u/m/b/Umbral_calculus.html" title="Umbral calculus">umbral</a> form.</p>
+<p>One may also write</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/d/3/fd30feec5cdbfb6e3d2bedbe115795d0.png" alt="\sum_{k=0}^{m-1} k^n = \frac{B_{n+1}(m)-B_{n+1}(0)}{n+1}," /></dd>
+</dl>
+<p>where <i>B</i><sub><i>n</i>&#160;+&#160;1</sub>(<i>m</i>) is the (<i>n</i>&#160;+&#160;1)th-degree <a href="../../../b/e/r/Bernoulli_polynomial.html" title="Bernoulli polynomial">Bernoulli polynomial</a>.</p>
+<p>Bernoulli numbers may be calculated by using the following <a href="../../../r/e/c/Recursion.html" title="Recursion">recursive</a> formula:</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/a/3/4a3707c5c74f22d5f654829b442ca5e2.png" alt="\sum_{j=0}^m{m+1\choose{j}}B_j = 0" /></dd>
+</dl>
+<p>for <i>m</i> &gt; 0, and <i>B</i><sub>0</sub> = 1.</p>
+<p>The Bernoulli numbers may also be defined using the technique of <a href="../../../g/e/n/Generating_function.html" title="Generating function">generating functions</a>. Their <a href="../../../e/x/p/Exponential_generating_function.html" title="Exponential generating function">exponential generating function</a> is <i>x</i>/(<i>e<sup>x</sup></i>&#160;−&#160;1), so that:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/9/5/a957e17e460a059d9776df5c224a117f.png" alt="\frac{x}{e^x-1} = \sum_{n=0}^{\infin} B_n \frac{x^n}{n!}" /></dd>
+</dl>
+<p>for all values of <i>x</i> of <a href="../../../a/b/s/Absolute_value.html" title="Absolute value">absolute value</a> less than 2π (the <a href="../../../r/a/d/Radius_of_convergence.html" title="Radius of convergence">radius of convergence</a> of this <a href="../../../p/o/w/Power_series.html" title="Power series">power series</a>).</p>
+<p>These definitions can be shown to be equivalent using <a href="../../../m/a/t/Mathematical_induction.html" title="Mathematical induction">mathematical induction</a>. The initial condition <span class="texhtml"><i>B</i><sub>0</sub> = 1</span> is immediate from <a href="../../../l/27/h/L%27H%C3%B4pital%27s_rule_03ba.html" title="L'Hôpital's rule">L'Hôpital's rule</a>. To obtain the recurrence, multiply both sides of the equation by <span class="texhtml"><i>e</i><sup><i>x</i></sup> − 1</span>. Then, using the <a href="../../../t/a/y/Taylor_series.html" title="Taylor series">Taylor series</a> for the <a href="../../../e/x/p/Exponential_function.html" title="Exponential function">exponential function</a>,</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/e/4/4e4ac5eba65dc4f0feff531ceefcd93d.png" alt="x = \left( \sum_{j=1}^{\infty} \frac{x^j}{j!} \right) \left( \sum_{k=0}^{\infty} \frac{B_k x^k}{k!} \right)." /></dd>
+</dl>
+<p>By expanding this as a <a href="../../../c/a/u/Cauchy_product.html" title="Cauchy product">Cauchy product</a> and rearranging slightly, one obtains</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/1/b/41bc4cdbf74ce592f4d6c1042f6f225a.png" alt="x = \sum_{m=0}^{\infty} \left( \sum_{j=0}^{m} {m+1 \choose j} B_j \right) \frac{x^{m+1}}{(m+1)!}." /></dd>
+</dl>
+<p>It is clear from this last equality that the coefficients in this power series satisfy the same recurrence as the Bernoulli numbers.</p>
+<p>Sometimes the lower-case <i>b<sub>n</sub></i> is used in order to distinguish these from the <a href="../../../b/e/l/Bell_numbers.html" title="Bell numbers">Bell numbers</a>.</p>
+<p><a name="Values_of_the_Bernoulli_numbers" id="Values_of_the_Bernoulli_numbers"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: Values of the Bernoulli numbers">edit</a>]</span> <span class="mw-headline">Values of the Bernoulli numbers</span></h2>
+<p>The first few non-zero Bernoulli numbers (sequences <a href="http://www.research.att.com/cgi-bin/access.cgi/as/njas/sequences/eisA.cgi?Anum=A027641" class="external text" title="http://www.research.att.com/cgi-bin/access.cgi/as/njas/sequences/eisA.cgi?Anum=A027641" rel="nofollow">A027641</a> and <a href="http://www.research.att.com/cgi-bin/access.cgi/as/njas/sequences/eisA.cgi?Anum=A027642" class="external text" title="http://www.research.att.com/cgi-bin/access.cgi/as/njas/sequences/eisA.cgi?Anum=A027642" rel="nofollow">A027642</a> in <a href="../../../o/e/i/OEIS_8764.html" title="OEIS">OEIS</a>) are listed below.</p>
+<table>
+<tr>
+<td>
+<table class="wikitable">
+<tr>
+<th><i>n</i></th>
+<th><i>B</i><sub><i>n</i></sub></th>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>−1/2 = −0.5</td>
+</tr>
+<tr>
+<td>2</td>
+<td>1/6 ≈ 0.1667</td>
+</tr>
+<tr>
+<td>4</td>
+<td>−1/30 ≈ −0.0333</td>
+</tr>
+<tr>
+<td>6</td>
+<td>1/42 ≈ 0.02381</td>
+</tr>
+<tr>
+<td>8</td>
+<td>−1/30 ≈ −0.0333</td>
+</tr>
+<tr>
+<td>10</td>
+<td>5/66 ≈ 0.07576</td>
+</tr>
+<tr>
+<td>12</td>
+<td>−691/2730 ≈ −0.2531</td>
+</tr>
+<tr>
+<td>14</td>
+<td>7/6 ≈ 1.1667</td>
+</tr>
+</table>
+</td>
+<td>
+<table class="wikitable">
+<tr>
+<th><i>n</i></th>
+<th><i>B</i><sub><i>n</i></sub></th>
+</tr>
+<tr>
+<td>16</td>
+<td>−3617/510 ≈ −7.0922</td>
+</tr>
+<tr>
+<td>18</td>
+<td>43867/798 ≈ 54.9712</td>
+</tr>
+<tr>
+<td>20</td>
+<td>−174611/330 ≈ −529.124</td>
+</tr>
+<tr>
+<td>22</td>
+<td>854513/138 ≈ 6192.12</td>
+</tr>
+<tr>
+<td>24</td>
+<td>−236364091/2730 ≈ −86580.3</td>
+</tr>
+<tr>
+<td>26</td>
+<td>8553103/6 ≈ 1425517</td>
+</tr>
+<tr>
+<td>28</td>
+<td>−23749461029/870 ≈ −27298231</td>
+</tr>
+<tr>
+<td>30</td>
+<td>8615841276005/14322 ≈ 601580874</td>
+</tr>
+<tr>
+<td>32</td>
+<td>−7709321041217/510 ≈ −15116315767</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+<p>It can be shown that <i>B</i><sub><i>n</i></sub> = 0 for all odd <i>n</i> other than 1. The appearance of the peculiar value <i>B</i><sub>12</sub> = −691/2730 suggests that the values of the Bernoulli numbers have no elementary description. In fact they may be derived in a simple way from the values of the <a href="../../../r/i/e/Riemann_zeta_function.html" title="Riemann zeta function">Riemann zeta function</a> at negative integers (since ζ(1−<i>n</i>) = −<i>B</i><sub><i>n</i></sub>/<i>n</i> for all integers <i>n</i> greater than 1, but not at <i>n</i> = 1 since the zeta-function is -1/2 at <i>s</i> = 0), and are as a consequence connected to deep number-theoretic properties, and could not be expected to have a trivial formulation.</p>
+<p>The first few Bernoulli numbers might lead one to assume that they are all small. Later values belie this assumption, however. In fact, it can be shown that</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/4/7/947ffa9e3d76088041825c9f1ef04636.png" alt="|B_{2k}| &gt; \frac{2 (2k)!}{(2 \pi)^{2 k}}" /></dd>
+</dl>
+<p>so that the sequence of Bernoulli numbers diverges quite rapidly for large indices.</p>
+<p><a name="Asymptotic_approximation" id="Asymptotic_approximation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: Asymptotic approximation">edit</a>]</span> <span class="mw-headline">Asymptotic approximation</span></h2>
+<p>The Bernoulli numbers with even index can be approximated by</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/c/e/8ce833181e4b71ec4800afd8aa94bbf7.png" alt="|B_{2 n}| \sim 4 \sqrt{\pi n} \left(\frac{n}{ \pi e} \cdot \frac{480 n^2 + 9}{480 n^2 -1}\right)^{2n}" /></dd>
+</dl>
+<p>This formula (Peter Luschny, 2007) is based on the well known connection of the Bernoulli numbers with the Riemann zeta function and on an approximation of the factorial function given by Gergő Nemes in 2007. For example this approximation gives</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/7/6/d7677dd7a5d6348398521891593fb06e.png" alt="|B(1000)| \approx 0.5318704469415522033\ldots\times 10^{1770} \," /></dd>
+</dl>
+<p>which is off only by three units in the least significant digit displayed.</p>
+<p><a name="Assorted_identities" id="Assorted_identities"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: Assorted identities">edit</a>]</span> <span class="mw-headline">Assorted identities</span></h2>
+<p><a href="../../../l/e/o/Leonhard_Euler_b776.html" title="Leonhard Euler">Leonhard Euler</a> expressed the Bernoulli numbers in terms of the Riemann zeta as</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/d/4/bd47f0d78139269274299eb12c45782d.png" alt="B_{2k}=2(-1)^{k+1}\frac {\zeta(2k)\; (2k)!} {(2\pi)^{2k}}." /></dd>
+</dl>
+<p>The <i>n</i>th <a href="../../../c/u/m/Cumulant.html" title="Cumulant">cumulant</a> of the <a href="../../../u/n/i/Uniform_distribution_%28continuous%29.html" title="Uniform distribution (continuous)">uniform</a> <a href="../../../p/r/o/Probability_distribution.html" title="Probability distribution">probability distribution</a> on the interval [−1,&#160;0] is <i>B</i><sub><i>n</i></sub>/<i>n</i>.</p>
+<p>The following relations, due to <a href="../../../r/a/m/Ramanujan.html" title="Ramanujan">Ramanujan</a>, provide a more efficient method for calculating Bernoulli numbers:</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/0/6/e06d6dd117628c7b40ae30ee180e6125.png" alt="m\equiv 0\,\bmod\,6\qquad {{m+3}\choose{m}}B_m={{m+3}\over3}-\sum_{j=1}^{m/6}{m+3\choose{m-6j}}B_{m-6j}" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/e/f/9/ef9bae8f13d424617dce22bfd91e523b.png" alt="m\equiv 2\,\bmod\,6\qquad {{m+3}\choose{m}}B_m={{m+3}\over3}-\sum_{j=1}^{(m-2)/6}{m+3\choose{m-6j}}B_{m-6j}" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/1/8/b/18bcb3154d266c8fe857b510f087bff4.png" alt="m\equiv 4\,\bmod\, 6\qquad{{m+3}\choose{m}}B_m=-{{m+3}\over6}-\sum_{j=1}^{(m-4)/6}{m+3\choose{m-6j}}B_{m-6j}" /></dd>
+</dl>
+<p>An identity of Carlitz:</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/8/9/5899e02a5ae9d76c7b905485636c1f14.png" alt="(-1)^m \sum_{r=0}^m {m \choose r} B_{n+r} = (-1)^n \sum_{s=0}^n {n \choose s} B_{m+s}" /></dd>
+</dl>
+<p><a name="Arithmetical_properties_of_the_Bernoulli_numbers" id="Arithmetical_properties_of_the_Bernoulli_numbers"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: Arithmetical properties of the Bernoulli numbers">edit</a>]</span> <span class="mw-headline">Arithmetical properties of the Bernoulli numbers</span></h2>
+<p>The Bernoulli numbers can be expressed in terms of the Riemann zeta function as <i>B</i><sub><i>n</i></sub> = − <i>n</i>ζ(1 − <i>n</i>), which intimately relates them to the values of the zeta function at negative integers. As such, they could be expected to have and do have deep arithmetical properties, a fact discovered by <a href="../../../k/u/m/Kummer.html" title="Kummer">Kummer</a> in his work on <a href="../../../f/e/r/Fermat%27s_last_theorem.html" title="Fermat's last theorem">Fermat's last theorem</a>.</p>
+<p>Divisibility properties of the Bernoulli numbers are related to the <a href="../../../i/d/e/Ideal_class_group.html" title="Ideal class group">ideal class groups</a> of <a href="../../../c/y/c/Cyclotomic_field.html" title="Cyclotomic field">cyclotomic fields</a> by a theorem of Kummer and its strengthening in the <a href="../../../h/e/r/Herbrand-Ribet_theorem_e3e4.html" title="Herbrand-Ribet theorem">Herbrand-Ribet theorem</a>, and to class numbers of real quadratic fields by <a href="../../../a/n/k/Ankeny-Artin-Chowla_congruence_f046.html" title="Ankeny-Artin-Chowla congruence">Ankeny-Artin-Chowla</a>. We also have a relationship to <a href="../../../a/l/g/Algebraic_K-theory_e0d7.html" title="Algebraic K-theory">algebraic K-theory</a>; if <i>c</i><sub><i>n</i></sub> is the numerator of <i>B</i><sub><i>n</i></sub>/2<i>n</i>, then the order of <img class='tex' src="../../../math/a/f/9/af906b5b82ea48b4b52618c868d6186e.png" alt="K_{4n-2}(\Bbb{Z})" /> is −<i>c</i><sub>2<i>n</i></sub> if <i>n</i> is even, and 2<i>c</i><sub>2<i>n</i></sub> if <i>n</i> is odd.</p>
+<p>Also related to divisibility is the <a href="../../../v/o/n/Von_Staudt-Clausen_theorem_2f21.html" title="Von Staudt-Clausen theorem">von Staudt-Clausen theorem</a> which tells us if we add 1/<i>p</i> to <i>B</i><sub><i>n</i></sub> for every prime <i>p</i> such that <i>p</i> − 1 divides <i>n</i>, we obtain an integer. This fact immediately allows us to characterize the denominators of the non-zero Bernoulli numbers <i>B</i><sub><i>n</i></sub> as the product of all primes <i>p</i> such that <i>p</i> − 1 divides <i>n</i>; consequently the denominators are square-free and divisible by 6.</p>
+<p>The <a href="../../../a/g/o/Agoh-Giuga_conjecture_ddf4.html" title="Agoh-Giuga conjecture">Agoh-Giuga conjecture</a> postulates that <i>p</i> is a prime number if and only if <i>pB</i><sub><i>p</i>−1</sub> is congruent to −1 mod <i>p</i>.</p>
+<p><a name="p-adic_continuity" id="p-adic_continuity"></a></p>
+<h3><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: p-adic continuity">edit</a>]</span> <span class="mw-headline"><i>p</i>-adic continuity</span></h3>
+<p>An especially important congruence property of the Bernoulli numbers can be characterized as a p-adic continuity property. If <i>b</i>, <i>m</i> and <i>n</i> are positive integers such that <i>m</i> and <i>n</i> are not divisible by <i>p</i>&#160;−&#160;1 and <img class='tex' src="../../../math/d/3/3/d33ba3755c54a844d9bfa5385aa4c35e.png" alt="m \equiv n\, \bmod\,p^{b-1}(p-1)" />, then</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/2/d/62d96066d34c40675ee29eb339f01b1e.png" alt="(1-p^{m-1}){B_m \over m} \equiv (1-p^{n-1}){B_n \over n} \,\bmod\, p^b." /></dd>
+</dl>
+<p>Since <span class="texhtml"><i>B</i><sub><i>n</i></sub> = − <i>n</i>ζ(1 − <i>n</i>)</span>, this can also be written</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/8/4/d84e66884155681925393dae14c4a619.png" alt="(1-p^{-u})\zeta(u) \equiv (1-p^{-v})\zeta(v)\, \bmod \,p^b\,," /></dd>
+</dl>
+<p>where <i>u</i> = 1 − <i>m</i> and <i>v</i> = 1 − <i>n</i>, so that <i>u</i> and <i>v</i> are nonpositive and not congruent to 1 mod <i>p</i>&#160;−&#160;1. This tells us that the Riemann zeta function, with 1&#160;−&#160;<i>p</i><sup>−<i>s</i></sup> taken out of the Euler product formula, is continuous in the <a href="../../../p/-/a/P-adic_number.html" title="P-adic number">p-adic numbers</a> on odd negative integers congruent mod <i>p</i>&#160;−&#160;1 to a particular <img class='tex' src="../../../math/d/6/3/d63d9a8ea0064934ca61a06f314fc312.png" alt="a \not\equiv 1\, \bmod\, p-1" />, and so can be extended to a continuous function <span class="texhtml">ζ<sub><i>p</i></sub>(<i>s</i>)</span> for all <i>p</i>-adic integers <img class='tex' src="../../../math/b/0/f/b0f04abe67c662f8e62273a01e2ccd3c.png" alt="\Bbb{Z}_p,\," /> the <b><i>p</i>-adic Zeta function</b>.</p>
+<p><a name="Geometrical_properties_of_the_Bernoulli_numbers" id="Geometrical_properties_of_the_Bernoulli_numbers"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: Geometrical properties of the Bernoulli numbers">edit</a>]</span> <span class="mw-headline">Geometrical properties of the Bernoulli numbers</span></h2>
+<p>The Kervaire-Milnor formula for the order of the cyclic group of diffeomorphism classes of <a href="../../../e/x/o/Exotic_sphere.html" title="Exotic sphere">exotic (4<i>n</i>&#160;−&#160;1)-spheres</a> which bound <a href="../../../p/a/r/Parallelizable_manifold.html" title="Parallelizable manifold">parallelizable manifolds</a> for <img class='tex' src="../../../math/5/d/5/5d5f448f1528508f27683f57c3c34111.png" alt="n \ge 2" /> involves Bernoulli numbers; if <i>B</i><sub>(<i>n</i>)</sub> is the numerator of <i>B</i><sub>4<i>n</i></sub>/<i>n</i>, then</p>
+<dl>
+<dd><span class="texhtml">2<sup>2<i>n</i> − 2</sup>(1 − 2<sup>2<i>n</i> − 1</sup>)<i>B</i><sub>(<i>n</i>)</sub></span></dd>
+</dl>
+<p>is the number of such exotic spheres. (The formula in the topological literature differs because topologists use a different convention for naming Bernoulli numbers; this article uses the number theorists' convention.)</p>
+<p><a name="Efficient_computation_of_Bernoulli_numbers_mod_p" id="Efficient_computation_of_Bernoulli_numbers_mod_p"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: Efficient computation of Bernoulli numbers mod p">edit</a>]</span> <span class="mw-headline">Efficient computation of Bernoulli numbers mod <i>p</i></span></h2>
+<p>In some applications it is useful to be able to compute the Bernoulli numbers <i>B</i><sub>0</sub> through <i>B</i><sub><i>p</i>&#160;−&#160;3</sub> modulo <i>p</i>, where <i>p</i> is a prime; for example to test whether <a href="../../../v/a/n/Vandiver%27s_conjecture.html" title="Vandiver's conjecture">Vandiver's conjecture</a> holds for <i>p</i>, or even just to determine whether <i>p</i> is an <a href="../../../i/r/r/Irregular_prime.html" title="Irregular prime">irregular prime</a>. It is not feasible to carry out such a computation using the above recursive formulae, since at least (a constant multiple of) <i>p</i><sup>2</sup> arithmetic operations would be required. Fortunately, faster methods have been developed (see Buhler et al) which require only O(<i>p</i> (log <i>p</i>)<sup>2</sup>) operations (see <a href="../../../b/i/g/Big-O_notation_5676.html" title="Big-O notation">big-O notation</a>).</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../r/i/e/Riemann_zeta_function.html" title="Riemann zeta function">Riemann zeta function</a></li>
+<li><a href="../../../p/o/l/Poly-Bernoulli_numbers_2e0c.html" title="Poly-Bernoulli numbers">poly-Bernoulli numbers</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.bernoulli.org" class="external text" title="http://www.bernoulli.org" rel="nofollow">The Bernoulli Number Page</a></li>
+<li><i><a href="http://www.gutenberg.net/etext/2586" class="external text" title="http://www.gutenberg.net/etext/2586" rel="nofollow">The first 498 Bernoulli Numbers</a></i> from <a href="../../../p/r/o/Project_Gutenberg_b9aa.html" title="Project Gutenberg">Project Gutenberg</a></li>
+<li><a href="http://www.dd.chalmers.se/~frejohl//math/bernoulli.html" class="external text" title="http://www.dd.chalmers.se/~frejohl//math/bernoulli.html" rel="nofollow">The first 10,000 Bernoulli numbers</a></li>
+<li><a href="http://en.literateprograms.org/Category:Bernoulli_numbers" class="external text" title="http://en.literateprograms.org/Category:Bernoulli_numbers" rel="nofollow">Bernoulli number programs</a> at <a href="http://en.literateprograms.org" class="external text" title="http://en.literateprograms.org" rel="nofollow">LiteratePrograms</a></li>
+</ul>
+<ul>
+<li><a href="http://www.mscs.dal.ca/~dilcher/bernoulli.html" class="external text" title="http://www.mscs.dal.ca/~dilcher/bernoulli.html" rel="nofollow">A Bibliography of Bernoulli Numbers</a></li>
+</ul>
+<ul>
+<li><a href="http://mathworld.wolfram.com/BernoulliNumber.html" class="external text" title="http://mathworld.wolfram.com/BernoulliNumber.html" rel="nofollow">Weisstein, Eric W. Bernoulli Number From MathWorld</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/r/Bernoulli_number.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Buhler, J., Crandall, R., Ernvall, R., Metsankyla, T., and Shokrollahi, M. "Irregular Primes and Cyclotomic Invariants to 12 Million." <i>J. Symb. Comput.</i> <b>11</b>, 1-8, 2000.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/r/Bernoulli_number.html">http://en.wikipedia.org../../../b/e/r/Bernoulli_number.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../n/u/m/Category%7ENumber_theory_ef8a.html" title="Category:Number theory">Number theory</a></span> | <span dir='ltr'><a href="../../../t/o/p/Category%7ETopology_7bf2.html" title="Category:Topology">Topology</a></span> | <span dir='ltr'><a href="../../../i/n/t/Category%7EInteger_sequences_0610.html" title="Category:Integer sequences">Integer sequences</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/e/r/Bernoulli_number.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/e/r/Talk%7EBernoulli_number_5f7c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bernoulli_number">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ar/%D8%B9/%D8%AF/%D8%AF/%D8%B9%D8%AF%D8%AF_%D8%A8%D9%8A%D8%B1%D9%86%D9%88%D9%84%D9%8A.html">العربية</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/b/e/r/Bernoulli-Zahl_3ebe.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/n/%C3%BA/m/N%C3%BAmero_de_Bernoulli_eb91.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/n/o/m/Nombre_de_Bernoulli_5ad6.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/n/u/m/Numeri_di_Bernoulli_83a0.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/b/e/r/Bernoulli-getal.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%83%99/%E3%83%AB/%E3%83%8C/%E3%83%99%E3%83%AB%E3%83%8C%E3%83%BC%E3%82%A4%E6%95%B0.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/l/i/c/Liczby_Bernoulliego_3662.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D1%87/%D0%B8/%D1%81/%D0%A7%D0%B8%D1%81%D0%BB%D0%B0_%D0%91%D0%B5%D1%80%D0%BD%D1%83%D0%BB%D0%BB%D0%B8_0000.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/b/e/r/Bernoullin_luku.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/b/e/r/Bernoullital.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E4%BC%AF/%E5%8A%AA/%E5%88%A9/%E4%BC%AF%E5%8A%AA%E5%88%A9%E6%95%B0.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:32, 21 March 2007 by Wikipedia user <a href="../../../d/o/m/User%7EDominus_070e.html" title="User:Dominus">Dominus</a>. Based on work by Wikipedia user(s) Plouffe, <a href="../../../j/2E/_/User%7EJ._Finkelstein_5210.html" title="User:J. Finkelstein">J. Finkelstein</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, Almit39, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, <a href="../../../s/a/x/User%7ESaxbryn_294e.html" title="User:Saxbryn">Saxbryn</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, <a href="../../../d/a/n/User%7EDantheox_3b5b.html" title="User:Dantheox">Dantheox</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../j/a/g/User%7EJagged_85_b01d.html" title="User:Jagged 85">Jagged 85</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../c/a/t/User%7ECatapult_5a86.html" title="User:Catapult">Catapult</a>, <a href="../../../d/m/h/User%7EDmharvey_69fb.html" title="User:Dmharvey">Dmharvey</a>, <a href="../../../j/o/s/User%7EJosilot_285d.html" title="User:Josilot">Josilot</a>, <a href="../../../e/l/r/User%7EElroch_ff10.html" title="User:Elroch">Elroch</a>, Chad.brewbaker, Wmroche, <a href="../../../c/i/a/User%7ECiaPan_e514.html" title="User:CiaPan">CiaPan</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../s/h/i/User%7EShizhao_dfa6.html" title="User:Shizhao">Shizhao</a>, <a href="../../../2E/3A/a/User%7E.%7EAjvol%7E._8162.html" title="User:.:Ajvol:.">.:Ajvol:.</a>, <a href="../../../k/i/t/User%7EKittySaturn_4d7a.html" title="User:KittySaturn">KittySaturn</a>, Small potato, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../h/e/r/User%7EHerbee_baa0.html" title="User:Herbee">Herbee</a>, <a href="../../../p/t/_/User%7EPt_7ac7.html" title="User:Pt">Pt</a>, <a href="../../../g/a/u/User%7EGauge_3e29.html" title="User:Gauge">Gauge</a>, <a href="../../../j/u/m/User%7EJumbuck_a815.html" title="User:Jumbuck">Jumbuck</a>, <a href="../../../g/e/n/User%7EGene_Ward_Smith_f812.html" title="User:Gene Ward Smith">Gene Ward Smith</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../m/e/r/User%7EMerovingian_a210.html" title="User:Merovingian">Merovingian</a>, <a href="../../../l/u/p/User%7ELupin_68a5.html" title="User:Lupin">Lupin</a>, <a href="../../../a/n/d/User%7EAndrew_Sly_8cbe.html" title="User:Andrew Sly">Andrew Sly</a>, Weialawaga, <a href="../../../t/a/k/User%7ETakuyaMurata_085a.html" title="User:TakuyaMurata">TakuyaMurata</a>, <a href="../../../n/i/x/User%7ENixdorf_8d7c.html" title="User:Nixdorf">Nixdorf</a>, <a href="../../../h/a/r/User%7EHarvester_5656.html" title="User:Harvester">Harvester</a>, <a href="../../../r/o/b/User%7ERob_Hooft_311d.html" title="User:Rob Hooft">Rob Hooft</a>, <a href="../../../r/o/a/User%7ERoadrunner_b57c.html" title="User:Roadrunner">Roadrunner</a>, <a href="../../../a/n/d/User%7EAndre_Engels_23d0.html" title="User:Andre Engels">Andre Engels</a>, <a href="../../../r/c/i/User%7ERcingham_ac7e.html" title="User:Rcingham">Rcingham</a>, <a href="../../../h/a/r/User%7EHari_2229.html" title="User:Hari">Hari</a> and <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

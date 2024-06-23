@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Analysis of resistive circuits,Complex number,Current (electricity),Current division,Current source,DC circuit,Direct current,Dynamics (mechanics),Electric circuit,Electrical impedance,Engineering economics" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Analysis of resistive circuits - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Analysis of resistive circuits</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div class="floatright"><span><a href="../../../c/i/r/Image%7ECircuit_equivalence.png_1015.html" class="image" title=""><img src="../../../upload/shared/thumb/6/67/Circuit_equivalence.png/200px-Circuit_equivalence.png" alt="" width="200" height="255" longdesc="../../../c/i/r/Image%7ECircuit_equivalence.png_1015.html" /></a></span></div>
+<p>A <a href="../../../r/e/s/Resistive_circuit.html" title="Resistive circuit">resistive circuit</a> is a circuit containing only <a href="../../../r/e/s/Resistors.html" title="Resistors">resistors</a>, ideal <a href="../../../c/u/r/Current_source.html" title="Current source">current sources</a>, and ideal <a href="../../../v/o/l/Voltage_source.html" title="Voltage source">voltage sources</a>. This means that relationships between current and voltage are linear. If the sources are constant (<a href="../../../d/i/r/Direct_current.html" title="Direct current">DC)</a> sources, the result is a <a href="../../../d/c/_/DC_circuit_b64b.html" title="DC circuit">DC circuit</a>. The analysis of a circuit refers to the process of solving for the voltages and currents present in the circuit. The solution principles outlined here also apply to <a href="../../../p/h/a/Phasor_%28electronics%29.html" title="Phasor (electronics)">phasor</a> analysis of <a href="#AC_circuits" title="">AC circuits</a>.</p>
+<p>Two <a href="../../../e/l/e/Electric_circuit.html" title="Electric circuit">electric circuits</a> are said to be <b>equivalent</b> with respect to a pair of terminals if the <a href="../../../v/o/l/Voltage.html" title="Voltage">voltages</a> across the terminals and <a href="../../../c/u/r/Current_%28electricity%29.html" title="Current (electricity)">currents</a> through the terminals are identical for both networks.</p>
+<p>If <span class="texhtml"><i>V</i><sub>2</sub> = <i>V</i><sub>1</sub></span> implies <span class="texhtml"><i>I</i><sub>2</sub> = <i>I</i><sub>1</sub></span> for all (real) values of <span class="texhtml"><i>V</i><sub>1</sub></span>, then with respect to terminals ab and xy, circuit 1 and circuit 2 are equivalent.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Resistors_in_series_and_in_parallel"><span class="tocnumber">1</span> <span class="toctext">Resistors in series and in parallel</span></a></li>
+<li class="toclevel-1"><a href="#Delta-wye_transformation"><span class="tocnumber">2</span> <span class="toctext">Delta-wye transformation</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Delta-to-star_transformation_equations"><span class="tocnumber">2.1</span> <span class="toctext">Delta-to-star transformation equations</span></a></li>
+<li class="toclevel-2"><a href="#Star-to-delta_transformation_equations"><span class="tocnumber">2.2</span> <span class="toctext">Star-to-delta transformation equations</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Voltage_and_current_division"><span class="tocnumber">3</span> <span class="toctext">Voltage and current division</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Special_case:_Two_resistors_in_parallel"><span class="tocnumber">3.1</span> <span class="toctext">Special case: Two resistors in parallel</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Source_transformation"><span class="tocnumber">4</span> <span class="toctext">Source transformation</span></a></li>
+<li class="toclevel-1"><a href="#Nodal_analysis"><span class="tocnumber">5</span> <span class="toctext">Nodal analysis</span></a></li>
+<li class="toclevel-1"><a href="#Mesh_analysis"><span class="tocnumber">6</span> <span class="toctext">Mesh analysis</span></a></li>
+<li class="toclevel-1"><a href="#Choice_of_method"><span class="tocnumber">7</span> <span class="toctext">Choice of method</span></a></li>
+<li class="toclevel-1"><a href="#AC_circuits"><span class="tocnumber">8</span> <span class="toctext">AC circuits</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">9</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Other_fundamental_engineering_topics"><span class="tocnumber">10</span> <span class="toctext">Other fundamental engineering topics</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">11</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Resistors_in_series_and_in_parallel" id="Resistors_in_series_and_in_parallel"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Resistors in series and in parallel">edit</a>]</span> <span class="mw-headline">Resistors in series and in parallel</span></h2>
+<p>Resistors in <a href="../../../s/e/r/Series_and_parallel_circuits.html#Series_circuits" title="Series and parallel circuits">series</a>: <img class='tex' src="../../../math/4/2/1/4211ef44e94f599186ddf01fa60dc343.png" alt="R_\mathrm{eq} = R_1 + R_2 + \,\cdots\, + R_n." /></p>
+<p>Resistors in <a href="../../../s/e/r/Series_and_parallel_circuits.html#Parallel_circuits" title="Series and parallel circuits">parallel</a>: <img class='tex' src="../../../math/8/f/b/8fbe7eac4e3248b4caa04e50319b77cd.png" alt="\frac{1}{R_\mathrm{eq}} = \frac{1}{R_1}  +   \frac{1}{R_2}  + \,\cdots\, +  \frac{1}{R_n} ." /></p>
+<dl>
+<dd>The above simplified for only two resistors in parallel: <img class='tex' src="../../../math/6/4/8/648973d394001f0c5611bd8975eab80b.png" alt="R_\mathrm{eq} = \frac{R_1R_2}{R_1 + R_2} ." /></dd>
+</dl>
+<p><a name="Delta-wye_transformation" id="Delta-wye_transformation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Delta-wye transformation">edit</a>]</span> <span class="mw-headline">Delta-wye transformation</span></h2>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../y/-/%CE%B4/Y-%CE%94_transform_915f.html" title="Y-Δ transform">Y-Δ transform</a></i></div>
+</dd>
+</dl>
+<div class="floatright"><span><a href="../../../d/e/l/Image%7EDelta-Star_Transformation.svg_02da.html" class="image" title=""><img src="../../../upload/shared/thumb/1/18/Delta-Star_Transformation.svg/400px-Delta-Star_Transformation.svg.png" alt="" width="400" height="240" longdesc="../../../d/e/l/Image%7EDelta-Star_Transformation.svg_02da.html" /></a></span></div>
+<p>The transformation is used to establish equivalence for networks with 3 terminals.</p>
+<p>For equivalence, the resistance between any pair of terminals must be the same for both networks.</p>
+<p><a name="Delta-to-star_transformation_equations" id="Delta-to-star_transformation_equations"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Delta-to-star transformation equations">edit</a>]</span> <span class="mw-headline">Delta-to-star transformation equations</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/a/e/8/ae8778e67f48fd3e1094dd097e07cc77.png" alt="R_1 =  \frac{R_\mathrm{a}R_\mathrm{b}}{R_\mathrm{a} + R_\mathrm{b} + R_\mathrm{c}}" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/d/b/8/db82a26041a1063178e88a96756f2a69.png" alt="R_2 =  \frac{R_\mathrm{b}R_\mathrm{c}}{R_\mathrm{a} + R_\mathrm{b} + R_\mathrm{c}}" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/4/6/8/468c905fb1a07dccf9527ee08fca6f2f.png" alt="R_3 =  \frac{R_\mathrm{c}R_\mathrm{a}}{R_\mathrm{a} + R_\mathrm{b} + R_\mathrm{c}}" /></dd>
+</dl>
+<p><a name="Star-to-delta_transformation_equations" id="Star-to-delta_transformation_equations"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Star-to-delta transformation equations">edit</a>]</span> <span class="mw-headline">Star-to-delta transformation equations</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/b/a/f/baf664ecbd5aa4af1c4543f11be85d50.png" alt="R_\mathrm{a} = \frac{R_1R_2 + R_2R_3 + R_3R_1}{R_2}" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/b/d/5/bd54bdeaeafff1df2490a94ce133bcf5.png" alt="R_\mathrm{b} = \frac{R_1R_2 + R_2R_3 + R_3R_1}{R_3}" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/8/7/e/87e2215054801217e46b9ffcea0ac638.png" alt="R_\mathrm{c} = \frac{R_1R_2 + R_2R_3 + R_3R_1}{R_1}" /></dd>
+</dl>
+<p><a name="Voltage_and_current_division" id="Voltage_and_current_division"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Voltage and current division">edit</a>]</span> <span class="mw-headline">Voltage and current division</span></h2>
+<p><a href="../../../v/o/l/Voltage_division.html" title="Voltage division">Voltage division</a>: Consider n resistors that are connected in <b>series</b>. The voltage <span class="texhtml"><i>V</i><sub><i>i</i></sub></span> across any resistor <span class="texhtml"><i>R</i><sub><i>i</i></sub></span> is</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/3/d/f3d4df8613dc29072be93e8f95d6aefe.png" alt="V_i = R_iI = \left( \frac{R_i}{R_1 + R_2 + \cdots + R_n} \right)V" /></dd>
+</dl>
+<p><a href="../../../c/u/r/Current_division.html" title="Current division">Current division</a>: Consider n resistors that are connected in <b>parallel</b>. The current <span class="texhtml"><i>I</i><sub><i>i</i></sub></span> through any resistor <span class="texhtml"><i>R</i><sub><i>i</i></sub></span> is</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/8/4/184a31fa9a2f0e9232a6c8fa38fe733a.png" alt="I_i = \left( \frac{\left( \frac{1}{R_i} \right)}{  \left( \frac{1}{R_1} \right) + \left( \frac{1}{R_2} \right) + \,\cdots\, + \left( \frac{1}{R_n} \right)} \right)I" /></dd>
+</dl>
+<p>for <span class="texhtml"><i>i</i> = 1,2,...,<i>n</i>.</span></p>
+<p><a name="Special_case:_Two_resistors_in_parallel" id="Special_case:_Two_resistors_in_parallel"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Special case: Two resistors in parallel">edit</a>]</span> <span class="mw-headline">Special case: Two resistors in parallel</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/a/7/b/a7b942c49984d1fb360afe2d7fc4f845.png" alt="I_1 = \left( \frac{R_2}{R_1 + R_2} \right)I" /></dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/9/a/f/9afcb495b0eb76d885298557447f4e45.png" alt="I_2 = \left( \frac{R_1}{R_1 + R_2} \right)I" /></dd>
+</dl>
+<p><a name="Source_transformation" id="Source_transformation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Source transformation">edit</a>]</span> <span class="mw-headline">Source transformation</span></h2>
+<p><a href="../../../s/o/u/Image%7ESourcetransform.PNG_36de.html" class="image" title="Image:Sourcetransform.PNG"><img src="../../../upload/f/fd/Sourcetransform.PNG" alt="Image:Sourcetransform.PNG" width="696" height="168" longdesc="../../../s/o/u/Image%7ESourcetransform.PNG_36de.html" /></a></p>
+<p>If the two networks are equivalent with respect to terminals ab, then V and I must be identical for both networks. Thus</p>
+<dl>
+<dd><span class="texhtml"><i>V</i><sub>s</sub> = <i>R</i><i>I</i><sub>s</sub></span> or <img class='tex' src="../../../math/0/6/b/06b870663d719a43ff29a0d13576c1f8.png" alt="I_\mathrm{s} = \frac{V_\mathrm{s}}{R}" /></dd>
+</dl>
+<p><i>See also: <a href="../../../n/o/r/Norton%27s_theorem.html" title="Norton's theorem">Norton's theorem</a>, <a href="../../../t/h/%C3%A9/Th%C3%A9venin%27s_theorem.html" title="Thévenin's theorem">Thévenin's theorem</a></i></p>
+<p><a name="Nodal_analysis" id="Nodal_analysis"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Nodal analysis">edit</a>]</span> <span class="mw-headline"><a href="../../../n/o/d/Nodal_analysis.html" title="Nodal analysis">Nodal analysis</a></span></h2>
+<p>1. Label all nodes in the circuit. Arbitrarily select any node as reference.</p>
+<p>2. Define a voltage variable from every remaining node to the reference. These voltage variables must be defined as voltage rises with respect to the reference node.</p>
+<p>3. Write a <a href="../../../k/i/r/Kirchhoff%27s_circuit_laws.html" title="Kirchhoff's circuit laws">KCL</a> equation for every node except the reference.</p>
+<p>4. Solve the resulting system of equations.</p>
+<p><a name="Mesh_analysis" id="Mesh_analysis"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Mesh analysis">edit</a>]</span> <span class="mw-headline"><a href="../../../m/e/s/Mesh_analysis.html" title="Mesh analysis">Mesh analysis</a></span></h2>
+<p><a href="../../../m/e/s/Mesh.html" title="Mesh">Mesh</a> — a loop that does not contain an inner loop.</p>
+<p>1. Count the number of “window panes” in the circuit. Assign a mesh current to each window pane.</p>
+<p>2. Write a <a href="../../../k/i/r/Kirchhoff%27s_circuit_laws.html" title="Kirchhoff's circuit laws">KVL</a> equation for every mesh whose current is unknown.</p>
+<p>3. Solve the resulting equations</p>
+<p><a name="Choice_of_method" id="Choice_of_method"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Choice of method">edit</a>]</span> <span class="mw-headline">Choice of method</span></h2>
+<p>Given the choice, which method should be used: nodal analysis or mesh analysis?</p>
+<p><a href="../../../n/o/d/Nodal_analysis.html" title="Nodal analysis">Nodal analysis</a>: The number of voltage variables equals number of nodes minus one. Every voltage source connected to the reference node reduces the number of unknowns by one.</p>
+<p><a href="../../../m/e/s/Mesh_analysis.html" title="Mesh analysis">Mesh analysis</a>: The number of current variables equals the number of meshes. Every current source in a mesh reduces the number of unknowns by one.</p>
+<p>There is also another point to consider: mesh analysis only applies to planar circuits, i.e. circuits that can be drawn using only two dimensions. Intuitively, what this means is that the wires in the circuit diagram must not "jump over" one another if one is to apply mesh analysis. Nodal analysis, on the other hand, can be applied to both planar and non-planar circuits. Note that sometimes, a circuit that is drawn in a non-planar fashion (i.e. with wires jumping over each other) may be redrawn in planar form, although this is not always the case. Generally, most of the circuits one encounters in elementary resistive network analysis are planar in nature.</p>
+<p>To summarize, for planar circuits, either nodal or mesh analysis may be used; generally, the method with the least unknowns to solve for is selected. For circuits that are non-planar, one can try to redraw the circuit in planar form; if this is not possible, one has no choice but to apply nodal analysis.</p>
+<p><a name="AC_circuits" id="AC_circuits"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: AC circuits">edit</a>]</span> <span class="mw-headline">AC circuits</span></h2>
+<p>All the techniques given above can be applied to single frequency AC circuits by using <a href="../../../p/h/a/Phasor_%28electronics%29.html" title="Phasor (electronics)">phasors</a> represented as <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex numbers</a> for voltage and current and using complex <a href="../../../e/l/e/Electrical_impedance.html" title="Electrical impedance">impedance</a> in place of resistance. AC circuits involving multiple frequencies can be analysed by transforming to the frequency domain, treating each frequency separately and superimposing the results.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../o/h/m/Ohm%27s_law.html" title="Ohm's law">Ohm's law</a></li>
+<li><a href="../../../k/i/r/Kirchhoff%27s_circuit_laws.html" title="Kirchhoff's circuit laws">Kirchhoff's circuit laws</a></li>
+<li><a href="../../../m/i/l/Millman%27s_Theorem_23c9.html" title="Millman's Theorem">Millman's Theorem</a></li>
+<li><a href="../../../s/e/r/Series_and_parallel_circuits.html" title="Series and parallel circuits">Series and parallel circuits</a></li>
+<li><a href="../../../y/-/%CE%B4/Y-%CE%94_transform_915f.html" title="Y-Δ transform">Wye-delta transform</a></li>
+</ul>
+<p><a name="Other_fundamental_engineering_topics" id="Other_fundamental_engineering_topics"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: Other fundamental engineering topics">edit</a>]</span> <span class="mw-headline">Other fundamental engineering topics</span></h2>
+<ul>
+<li><a href="../../../d/y/n/Dynamics_%28mechanics%29.html" title="Dynamics (mechanics)">Dynamics</a>
+<ul>
+<li><a href="../../../t/h/e/Thermodynamics.html" title="Thermodynamics">Thermodynamics</a></li>
+<li><a href="../../../f/l/u/Fluid_dynamics.html" title="Fluid dynamics">Fluid dynamics</a></li>
+</ul>
+</li>
+<li><a href="../../../e/n/g/Engineering_economics.html" title="Engineering economics">Engineering economics</a></li>
+<li><a href="../../../h/e/a/Heat_transfer.html" title="Heat transfer">Heat transfer</a></li>
+<li><a href="../../../m/a/t/Materials_science.html" title="Materials science">Materials science</a>
+<ul>
+<li><a href="../../../s/t/r/Strength_of_materials.html" title="Strength of materials">Strength of materials</a></li>
+</ul>
+</li>
+<li><a href="../../../s/t/a/Statics.html" title="Statics">Statics</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_resistive_circuits.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.eas.asu.edu/~holbert/ece201/recipes.html" class="external text" title="http://www.eas.asu.edu/~holbert/ece201/recipes.html" rel="nofollow">Circuit Analysis Techniques</a> — includes node/mesh analysis, superposition, and thevenin/norton transformation</li>
+<li><a href="http://www.maxim-ic.com/appnotes.cfm/appnote_number/1939" class="external text" title="http://www.maxim-ic.com/appnotes.cfm/appnote_number/1939" rel="nofollow">Nodal Analysis of Op Amp Circuits</a></li>
+<li><a href="http://www.swarthmore.edu/NatSci/echeeve1/Ref/mna/MNA1.html" class="external text" title="http://www.swarthmore.edu/NatSci/echeeve1/Ref/mna/MNA1.html" rel="nofollow">Analysis of Resistive Circuits</a></li>
+<li><a href="http://hyperphysics.phy-astr.gsu.edu/HBASE/electric/dcex.html" class="external text" title="http://hyperphysics.phy-astr.gsu.edu/HBASE/electric/dcex.html" rel="nofollow">Circuit Analysis Related Laws, Examples and Solutions</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1114 bytes
+Post-expand include size: 194 bytes
+Template argument size: 236 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/a/Analysis_of_resistive_circuits.html">http://en.wikipedia.org../../../a/n/a/Analysis_of_resistive_circuits.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../e/l/e/Category%7EElectronic_circuits_b9c2.html" title="Category:Electronic circuits">Electronic circuits</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/n/a/Analysis_of_resistive_circuits.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/n/a/Talk%7EAnalysis_of_resistive_circuits_2817.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Analysis_of_resistive_circuits">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 00:23, 3 April 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../m/y/t/User%7EMythealias_8534.html" title="User:Mythealias">Mythealias</a>, <a href="../../../b/i/l/User%7EBillC_d650.html" title="User:BillC">BillC</a>, <a href="../../../t/s/i/User%7ETsi43318_1310.html" title="User:Tsi43318">Tsi43318</a>, <a href="../../../c/b/d/User%7ECbdorsett_98d9.html" title="User:Cbdorsett">Cbdorsett</a>, <a href="../../../m/l/e/User%7EMlewis000_94d6.html" title="User:Mlewis000">Mlewis000</a>, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../s/h/y/User%7EShyam_1b0b.html" title="User:Shyam">Shyam</a>, <a href="../../../e/n/o/User%7EEnok.cc_0e46.html" title="User:Enok.cc">Enok.cc</a>, <a href="../../../t/h/e/User%7EThe_Photon_5b8f.html" title="User:The Photon">The Photon</a>, <a href="../../../h/e/r/User%7EHeron_606a.html" title="User:Heron">Heron</a>, Colinpan, <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a>, <a href="../../../g/a/i/User%7EGaius_Cornelius_c35a.html" title="User:Gaius Cornelius">Gaius Cornelius</a>, Greggwon, <a href="../../../p/l/u/User%7EPlugwash_0129.html" title="User:Plugwash">Plugwash</a>, <a href="../../../a/l/f/User%7EAlfred_Centauri_dbab.html" title="User:Alfred Centauri">Alfred Centauri</a>, <a href="../../../d/a/n/User%7EDan_Granahan_4f00.html" title="User:Dan Granahan">Dan Granahan</a>, <a href="../../../a/b/d/User%7EAbdull_b6f2.html" title="User:Abdull">Abdull</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../c/r/l/User%7ECrl620_4638.html" title="User:Crl620">Crl620</a>, <a href="../../../d/b/e/User%7EDbenbenn_44bf.html" title="User:Dbenbenn">Dbenbenn</a>, <a href="../../../a/l/i/User%7EAli%40gwc.org.uk_d4f6.html" title="User:Ali@gwc.org.uk">Ali@gwc.org.uk</a>, <a href="../../../a/l/b/User%7EAlberto_Orlandini_547a.html" title="User:Alberto Orlandini">Alberto Orlandini</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../n/a/b/User%7ENabla_d282.html" title="User:Nabla">Nabla</a>, PP Jewel, Prara and <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Borel functional calculus,Borel function,Continuous functional calculus,Countably additive measure,Dynamics (mechanics),Energy,Functional analysis,Functional calculus,Gelfand transform,Hamiltonian (quantum mechanics),Hilbert space" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Borel functional calculus - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Borel functional calculus</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../f/u/n/Functional_analysis.html" title="Functional analysis">functional analysis</a>, a branch of <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, the <b>Borel functional calculus</b> is a <i><a href="../../../f/u/n/Functional_calculus.html" title="Functional calculus">functional calculus</a></i> (that is, an assignment of <a href="../../../o/p/e/Operator.html" title="Operator">operators</a> to functions defined on the <a href="../../../r/e/a/Real_line.html" title="Real line">real line</a>), which has particularly broad scope. Thus for instance if <i>T</i> is an operator, applying the squaring function <i>s</i> → <i>s</i><sup>2</sup> to <i>T</i> yields the operator <i>T</i><sup>2</sup>. Using the functional calculus for larger classes of functions, we can for example define rigorously the "square root" of the (negative) <a href="../../../l/a/p/Laplacian_operator.html" title="Laplacian operator">Laplacian operator</a> −Δ or the exponential</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/8/2/d82d0920dd3560e8f42a3f71e03ad460.png" alt="e^{it \Delta}. \quad" /></dd>
+</dl>
+<p>The 'scope' here means the kind of <i>function of an operator</i> which is allowed. The Borel functional calculus is more general than the <a href="../../../c/o/n/Continuous_functional_calculus.html" title="Continuous functional calculus">continuous functional calculus</a>.</p>
+<p>More precisely, the Borel functional calculus allows us to apply an arbitrary <a href="../../../b/o/r/Borel_function.html" title="Borel function">Borel function</a> to a <a href="../../../s/e/l/Self-adjoint_operator.html" title="Self-adjoint operator">self-adjoint operator</a>, in a way which generalizes applying a <a href="../../../p/o/l/Polynomial_function.html" title="Polynomial function">polynomial function</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Motivation"><span class="tocnumber">1</span> <span class="toctext">Motivation</span></a></li>
+<li class="toclevel-1"><a href="#The_bounded_functional_calculus"><span class="tocnumber">2</span> <span class="toctext">The bounded functional calculus</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Existence_of_a_functional_calculus"><span class="tocnumber">2.1</span> <span class="toctext">Existence of a functional calculus</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#The_general_functional_calculus"><span class="tocnumber">3</span> <span class="toctext">The general functional calculus</span></a></li>
+<li class="toclevel-1"><a href="#Resolution_of_the_identity"><span class="tocnumber">4</span> <span class="toctext">Resolution of the identity</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Motivation" id="Motivation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/r/Borel_functional_calculus.html" title="Edit section: Motivation">edit</a>]</span> <span class="mw-headline">Motivation</span></h2>
+<p>If <i>T</i> is a self-adjoint operator on a finite dimensional inner product space <i>H</i>, <i>H</i> has an <a href="../../../o/r/t/Orthonormal_basis.html" title="Orthonormal basis">orthonormal basis</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/a/0/6/a06eee658689aadd3735b772ac180c03.png" alt="\{e_k\}_{1 \leq k \leq \ell}" /></dd>
+</dl>
+<p>consisting of eigenvectors of <i>T</i>, that is</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/a/4/1a4bb1b2f0076927af8f6260062b4a36.png" alt="T e_k = \lambda_k e_k \quad 1 \leq k \leq \ell. \quad" /></dd>
+</dl>
+<p>Thus, for any positive integer <i>n</i>,</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/7/9/8792947a08e716903893c00a9daa9bb7.png" alt="T^n e_k = \lambda_k^n e_k. \quad" /></dd>
+</dl>
+<p>In this case, given a Borel function <i>h</i>, we can define an operator <i>h</i>(<i>T</i>) by specifying its behavior on the basis:</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/a/0/6a077e086ae231a522495282ffe03ff5.png" alt="h(T) e_k = h(\lambda_k) e_k. \quad" /></dd>
+</dl>
+<p>In general, any self-adjoint operator <i>T</i> is <a href="../../../u/n/i/Unitarily_equivalent.html" title="Unitarily equivalent">unitarily equivalent</a> to a multiplication operator; this means that for many purposes, <i>T</i> can be considered as an operator</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/1/c/31cd2e3742799c9f9cfa35035f616765.png" alt="[T \psi](x) = f(x) \psi(x) \quad" /></dd>
+</dl>
+<p>acting on <i>L</i><sup>2</sup> of some measure space. The domain of <i>T</i> consists of those functions for which the above expression is in <i>L</i><sup>2</sup>. In this case, we can define analogously</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/1/9/1196bf74e7b0eaa94ef98a9719783659.png" alt="[h(T) \psi](x) = [h \circ f](x) \psi(x)." /></dd>
+</dl>
+<p>For many technical purposes, the preceding formulation is good enough. However, it is desirable to formulate the functional calculus in a way in which it is clear that it does not depend on the particular representation of <i>T</i> as a multiplication operator. This we do in the next section.</p>
+<p><a name="The_bounded_functional_calculus" id="The_bounded_functional_calculus"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/r/Borel_functional_calculus.html" title="Edit section: The bounded functional calculus">edit</a>]</span> <span class="mw-headline">The bounded functional calculus</span></h2>
+<p>Formally, the bounded Borel functional calculus of a self adjoint operator <i>T</i> on <a href="../../../h/i/l/Hilbert_space.html" title="Hilbert space">Hilbert space</a> <i>H</i> is a mapping defined on the space of bounded complex-valued Borel functions <i>f</i> on the real line,</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/2/5/0250996f43a97c2953ca362ae2b9201e.png" alt="\pi_T: h \mapsto h(T)" /></dd>
+</dl>
+<p>such that the following conditions hold</p>
+<ul>
+<li>π<sub><i>T</i></sub> is an involution preserving and unit-preserving homomorphism from the ring of complex-valued bounded measurable functions on <b>R</b>.</li>
+</ul>
+<ul>
+<li>If ξ is an element of <i>H</i>, then</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/5/8/4/584a34ff42548b093f3e7f6726b0298e.png" alt="\nu_\xi:E \mapsto \langle \pi_T(\mathbf{1}_E) \xi, \xi \rangle" /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>is a <a href="../../../c/o/u/Countably_additive_measure.html" title="Countably additive measure">countably additive measure</a> on the Borel sets of <b>R</b>. In the above formula <b>1</b><sub><i>E</i></sub> denotes the <a href="../../../i/n/d/Indicator_function.html" title="Indicator function">indicator function</a> of <i>E</i>. These measures ν<sub>ξ</sub> are called the <b>spectral measures</b> of <i>T</i>.</dd>
+</dl>
+<ul>
+<li><img class='tex' src="../../../math/5/8/c/58cb81a12b560a8a1a1c34175bdc9ec2.png" alt="\pi_T([\eta +i]^{-1}) = [T + i]^{-1} \quad" /></li>
+</ul>
+<dl>
+<dd>where η denotes the mapping <i>z</i> → <i>z</i> on <b>C</b>.</dd>
+</dl>
+<p><b>Theorem</b>. Any self-adjoint operator <i>T</i> has a unique Borel functional calculus.</p>
+<p>This defines the functional calculus for <i>bounded</i> functions applied to possibly <i>unbounded</i> self-adjoint operators. Using the bounded functional calculus, one can prove part of the <a href="../../../s/t/o/Stone%27s_theorem_on_one-parameter_unitary_groups.html" title="Stone's theorem on one-parameter unitary groups">Stone's theorem on one-parameter unitary groups</a>:</p>
+<p><b>Theorem</b>. If <i>A</i> is a self-adjoint operator, then</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/5/b/35b70111cb8f4e3d66d11475a1743427.png" alt="U_t = e^{i t A} \quad t \in \mathbb{R}" /></dd>
+</dl>
+<p>is a 1-parameter strongly continuous unitary group whose <a href="../../../i/n/f/Infinitesimal_generator.html" title="Infinitesimal generator">infinitesimal generator</a> is i <i>A</i>.</p>
+<p>As an application, we consider the <a href="../../../s/c/h/Schr%C3%B6dinger_equation.html" title="Schrödinger equation">Schrödinger equation</a>, or equivalently, the <a href="../../../d/y/n/Dynamics_%28mechanics%29.html" title="Dynamics (mechanics)">dynamics</a> of a quantum mechanical system. In <a href="../../../r/e/l/Relativistic.html" title="Relativistic">non-relativistic</a> <a href="../../../q/u/a/Quantum_mechanics.html" title="Quantum mechanics">quantum mechanics</a>, the <a href="../../../h/a/m/Hamiltonian_%28quantum_mechanics%29.html" title="Hamiltonian (quantum mechanics)">Hamiltonian</a> operator <i>H</i> models the total <a href="../../../e/n/e/Energy.html" title="Energy">energy</a> <a href="../../../o/b/s/Observable.html" title="Observable">observable</a> of a quantum mechanical system <b>S</b>. The unitary group generated by i <i>H</i> corresponds to the time evolution of <b>S</b>.</p>
+<p>We can also use the Borel functional calculus to abstractly solve some linear <a href="../../../i/n/i/Initial_value_problem.html" title="Initial value problem">initial value problems</a> such as the heat equation, or Maxwell's equations.</p>
+<p><a name="Existence_of_a_functional_calculus" id="Existence_of_a_functional_calculus"></a></p>
+<h3><span class="editsection">[<a href="../../../b/o/r/Borel_functional_calculus.html" title="Edit section: Existence of a functional calculus">edit</a>]</span> <span class="mw-headline">Existence of a functional calculus</span></h3>
+<p>The existence of a mapping with the properties of a functional calculus requires proof. For the case of a bounded self-adjoint operator <i>T</i>, the Borel existence of a Borel functional calculus can be shown in an elementary way as follows:</p>
+<p>First pass from polynomial to <a href="../../../c/o/n/Continuous_functional_calculus.html" title="Continuous functional calculus">continuous functional calculus</a> by using the <a href="../../../s/t/o/Stone-Weierstrass_theorem_7155.html" title="Stone-Weierstrass theorem">Stone-Weierstrass theorem</a>. The crucial fact here is that, for a bounded self adjoint operator <i>T</i> and a polynomial <i>p</i>,</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/f/5/cf576fd960d9e56a64218810560b7975.png" alt="\| p(T) \| = \sup_{\lambda \in \sigma(T)} |p(\lambda)|." /></dd>
+</dl>
+<p>Consequently, the mapping</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/c/e/6ceaf9f7d29d9e924948b89c1cf278eb.png" alt="p \mapsto p(T)" /></dd>
+</dl>
+<p>is an isometry and a densely defined homomorphism on the ring of polynomial functions. Extending by continuity defines <i>f</i>(<i>T</i>) for a continuous function <i>f</i> on the spectrum of <i>T</i>. The <a href="../../../r/i/e/Riesz-Markov_theorem_740a.html" title="Riesz-Markov theorem">Riesz-Markov theorem</a> then allows us to pass from integration on continuous functions to <a href="../../../s/p/e/Spectral_measure.html" title="Spectral measure">spectral measures</a>, and this is the Borel functional calculus.</p>
+<p>Alternatively, the continuous calculus can be obtained via the <a href="../../../g/e/l/Gelfand_transform.html" title="Gelfand transform">Gelfand transform</a>, in the context of commutative Banach algebras. Extending to measurable functions is achieved by applying Riesz-Markov, as above. In this formulation, <i>T</i> can be a <a href="../../../n/o/r/Normal_operator.html" title="Normal operator">normal operator</a>.</p>
+<p>Given an operator <i>T</i>, the range of the continuous functional calculus <i>h</i> → <i>h</i>(<i>T</i>) is the (abelian) C*-algebra <i>C</i>(<i>T</i>) generated by <i>T</i>. The Borel functional calculus has a larger range, that is the closure of <i>C</i>(<i>T</i>) in the <a href="../../../w/e/a/Weak_operator_topology.html" title="Weak operator topology">weak operator topology</a>, a (still abelian) <a href="../../../v/o/n/Von_Neumann_algebra_2a8c.html" title="Von Neumann algebra">von Neumann algebra</a>.</p>
+<p><a name="The_general_functional_calculus" id="The_general_functional_calculus"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/r/Borel_functional_calculus.html" title="Edit section: The general functional calculus">edit</a>]</span> <span class="mw-headline">The general functional calculus</span></h2>
+<p>We can also define the functional calculus for not necessarily bounded Borel functions <i>h</i>; the result is an operator which in general fails to be bounded. Using the multiplication by a function <i>f</i> model of a self-adjoint operator given by the spectral theorem, this is multiplication by the composition of <i>h</i> with <i>f</i>.</p>
+<p><b>Theorem</b>. Let <i>T</i> be a self-adjoint operator on <i>H</i>, <i>h</i> a real-valued Borel function on <b>R</b>. There is a unique operator <i>S</i> such that</p>
+<ul>
+<li><img class='tex' src="../../../math/e/7/5/e7542c686ff71b7aeba7ac1b0c080220.png" alt="\operatorname{dom} S = \left\{\xi \in H: h \in L^2_{\nu_\xi}(\mathbb{R}) \right\}" /></li>
+</ul>
+<ul>
+<li><img class='tex' src="../../../math/a/9/2/a92c1fb294c15d099e98dbf55d80c247.png" alt="\langle S \xi, \xi \rangle = \int_{\mathbb{R}} h(t) \ d\nu_{\xi} (t), \quad \mbox{for} \quad \xi \in \operatorname{dom} S" /></li>
+</ul>
+<p>The operator <i>S</i> of the previous theorem is denoted <i>h</i>(<i>T</i>).</p>
+<p>More generally, a Borel functional calculus also exists for (bounded) normal operators.</p>
+<p><a name="Resolution_of_the_identity" id="Resolution_of_the_identity"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/r/Borel_functional_calculus.html" title="Edit section: Resolution of the identity">edit</a>]</span> <span class="mw-headline">Resolution of the identity</span></h2>
+<p>Let <i>T</i> be a self-adjoint operator. If <i>E</i> is a Borel subset of <b>R</b>, and <b>1</b><sub><i>E</i></sub> is the <a href="../../../i/n/d/Indicator_function.html" title="Indicator function">indicator function</a> of <i>E</i>, then <b>1</b><sub><i>E</i></sub>(<i>T</i>) is a self-adjoint projection on <i>H</i>. Then mapping</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/0/0/80070631b8f7c436952ad67687c949d4.png" alt="\Omega: E \mapsto \mathbf{1}_E(T)" /></dd>
+</dl>
+<p>is a <a href="../../../p/r/o/Projection-valued_measure.html" title="Projection-valued measure">projection-valued measure</a> called the <b>resolution of the identity</b> for the self adjoint operator <i>T</i>. The measure of <b>R</b> with respect to Ω is the identity operator on <i>H</i>. In other words, the identity operator can be expressed as the spectral integral <i>I</i> = ∫ 1 <i>d</i>Ω. Sometimes the term "resolution of the identity" is also used to describe this representation of the identity operator as a spectral integral.</p>
+<p>In the case of a discrete measure (in particular, when <i>H</i> is finite dimensional), <i>I</i> = ∫ 1 <i>d</i>Ω can be written as</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/4/0/7405e64f535f1f3d93a6e19b75dea67b.png" alt="I = \sum_{i} \left | i \right \rangle  \left \langle i \right |" /></dd>
+</dl>
+<p>in the Dirac notation, where each |<i>i</i>&gt; is a normalized eigenvector of <i>T</i>. The set {|<i>i</i>&gt; } is an orthonormal basis of <i>H</i>.</p>
+<p>In physics literature, using the above as heuristic, one passes to the case when the spectral measure is no longer discrete and write the resolution of identity as</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/1/6/416625fd050358ff540b312551f7de8f.png" alt="I = \int  d |i\rangle \langle i|" /></dd>
+</dl>
+<p>and speak of a "continuous basis", or "continuum of basis states", {|<i>i</i>&gt;}. Mathematically, unless rigorous justifications are given, this expression is purely formal.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/r/Borel_functional_calculus.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>R. Kadison and J. Ringrose, <i>Fundamentals of the Theory of Operator Algebras vol 1</i>, Academic Press, 1983</li>
+<li>M. Reed and B. Simon, <i>Methods of Mathematical Physics</i>, Academic Press, 1972.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/r/Borel_functional_calculus.html">http://en.wikipedia.org../../../b/o/r/Borel_functional_calculus.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../f/u/n/Category%7EFunctional_calculus_165f.html" title="Category:Functional calculus">Functional calculus</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/r/Borel_functional_calculus.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/o/r/Talk%7EBorel_functional_calculus_590a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Borel_functional_calculus">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 07:00, 10 January 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../c/s/t/User%7ECSTAR_0140.html" title="User:CSTAR">CSTAR</a>, <a href="../../../m/c/t/User%7EMct_mht_d584.html" title="User:Mct mht">Mct mht</a>, <a href="../../../r/a/d/User%7ERadagast83_195a.html" title="User:Radagast83">Radagast83</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../d/m/r/User%7EDmr2_db9e.html" title="User:Dmr2">Dmr2</a>, <a href="../../../m/a/r/User%7EMarudubshinki_b9b7.html" title="User:Marudubshinki">Marudubshinki</a>, <a href="../../../j/o/e/User%7EJoeBot_e8e1.html" title="User:JoeBot">JoeBot</a>, <a href="../../../g/a/u/User%7EGauge_3e29.html" title="User:Gauge">Gauge</a>, <a href="../../../s/e/v/User%7ESeventyThree_f926.html" title="User:SeventyThree">SeventyThree</a> and <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

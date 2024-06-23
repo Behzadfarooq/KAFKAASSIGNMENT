@@ -1,0 +1,2402 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Armandeh/editor.js,Bypass your cache" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Armandeh/editor.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Armandeh/editor.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/r/m/User%7EArmandeh_d115.html" title="User:Armandeh">User:Armandeh</a></span></div>
+	    	    	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</span>
+</p><pre>/* &lt;pre&gt;&lt;nowiki&gt; */
+
+
+/*
+
+Comfortable JavaScript editor extension for Wikipedia edit pages by [[User:Cacycle]]
+See [[User:Cacycle/Editor]] for a description and [[User:Cacycle/Editor.js]] for this code.
+Features include:
+* Regular expression search and replace
+* Server-independent ''Show preview'' and ''Show changes''
+* One-click fixing of common mistakes
+* Convert html tables and other markup to wikicode
+* Undo/redo
+* Input boxes with history
+* Fullscreen view
+* Find ahead as you type
+* Horizontal cursor memory
+See [[User:Cacycle/Editor]] for an installation guide.
+The program works only for the mozilla browsers Mozilla, Mozilla Firefox, and Mozilla SeaMonkey.
+The code is currently under active development and might change rapidly.
+This code has been released into the public domain.
+
+*/
+
+
+//
+// configuration variables
+//
+
+// levels of undo (each level holds the whole text)
+var undoBufferMax = undoBufferMax || 20;
+
+// style for preview box
+var stylePreviewBox = stylePreviewBox || 'background-color: #f9f9f9;';
+
+// style for custom edit buttons
+var styleButtons = styleButtons || 'font-size: smaller; padding-left: 0.1em; padding-right: 0.1em; margin-left: 0.1em; margin-right: 0.1em; height: 1.6em; vertical-align: bottom;';
+
+// history length for summary, find and replace fields
+var findHistoryLength = findHistoryLength || 10;
+
+// presets for input field dropdown options
+var presetOptions = presetOptions || [];
+presetOptions['summary'] = presetOptions['summary'] || [
+	'Copyedit',
+	'Linkfix',
+	'Reverting vandalism',
+	'Formatting source text'
+];
+
+// expiration time span for history cookies in seconds
+var cookieExpireSec = cookieExpireSec || (365 * 24 * 60 * 60);
+
+// enable cursor horizontal position memory
+var cursorMemory = cursorMemory || true;
+
+// show at least this number of lines ahead of cursor movement
+var scrollMargin = scrollMargin || 1;
+
+// show at least this number of lines ahead of cursor movement for
+var findMargin = findMargin || 2;
+
+// find ahead checkbox selected by default
+var findAheadSelected = findAheadSelected || true;
+
+
+// global variables
+
+
+// history
+var fieldHist = [];
+var cookieName = [];
+var inputElement = [];
+var selectElement = [];
+
+var checkMarker = [];
+checkMarker[true] = '\u2022';
+checkMarker[false] = '\u22c5';
+
+// undo
+var undoBuffer = new Array(undoBufferMax);
+var undoBufferSelStart = new Array(undoBufferMax);
+var undoBufferSelEnd = new Array(undoBufferMax);
+var undoBufferFirst = 0;
+var undoBufferLast = 0;
+var undoBufferCurr = 0;
+
+// fullscreen
+var normalTextareaWidth;
+var normalTextareaHeight;
+var normalTextareaMargin;
+var normalTextareaRows;
+var normalPageXOffset;
+var normalPageYOffset;
+var normalTreePos = {};
+var fullScreenMode = false;
+var fullButtonValue = 'Full screen';
+var fullButtonTitle = 'Full screen editing mode';
+var normalButtonValue = 'Normal view';
+var normalButtonTitle = 'Back no normal page view';
+var normalFloatButtonValue = 'Back';
+
+// textarea text info object
+var textRows = new Object();
+textRows.lineStart = [];
+textRows.lineLength = [];
+textRows.rowStart = [];
+textRows.rowLength = [];
+
+var textareaElement = {};
+var lastChangePos;
+
+// counter
+var i;
+var j;
+
+
+// load the editor after page loading
+if (window.addOnloadHook != null) {
+	addOnloadHook(SetupEditor);
+}
+
+//
+// find and replace functions
+//
+
+function Edit(what) {
+
+// add focus to textbox
+	textareaElement.focus();
+
+// get the scroll position
+	var scrollTopPx = textareaElement.scrollTop;
+	var scrollHeightPx = textareaElement.scrollHeight;
+
+// convert strange spaces, remove non-\n linebreak characters
+	convertStrangeSpaces();
+
+	var textNew;
+  var textLength = textareaElement.value.length;
+
+// get the find text
+	var find = document.getElementById('findText');
+	var findText = find.value;
+
+// get the replace text
+	var replace = document.getElementById('replaceText');
+	var replaceText = replace.value;
+
+// get checkboxes
+	var caseSensitive = document.getElementById('caseSensitive');
+	var regExp = document.getElementById('regExp');
+
+// changed flags
+	var textChanged = false;
+	var posChanged = false;
+
+// get the text selection info
+	var startPos = textareaElement.selectionStart;
+	var endPos = textareaElement.selectionEnd;
+	var selected = textareaElement.value.substring(startPos, endPos);
+	var startPosNew;
+	var endPosNew;
+
+// manipulate selected text
+	if (selected != '') {
+
+// lowercase selection
+		if ('lowercase'.indexOf(what) &gt;= 0) {
+			var selectedNew = selected.toLowerCase();
+			textNew = textareaElement.value.substring(0, startPos) + selectedNew + textareaElement.value.substring(endPos);
+			startPosNew = startPos;
+			endPosNew = endPos;
+			textChanged = true;
+		}
+
+// bold selection
+		if ('bold'.indexOf(what) &gt;= 0) {
+			var selectedNew;
+			if ( /^\'\'\'.*\'\'\'$/.test(selected) ) {
+				selectedNew = selected.replace(/^\'\'\'(.*)\'\'\'$/, '$1');
+				startPosNew = startPos;
+				endPosNew = endPos - 6 ;
+			}
+			else {
+				selectedNew = &quot;'''&quot; + selected + &quot;'''&quot;;
+				startPosNew = startPos;
+				endPosNew = endPos + 6;
+			}
+			textNew = textareaElement.value.substring(0, startPos) + selectedNew + textareaElement.value.substring(endPos);
+			textChanged = true;
+		}
+
+// italic selection
+		if ('italic'.indexOf(what) &gt;= 0) {
+			var selectedNew;
+			if ( /^\'\'.*\'\'$/.test(selected) ) {
+				selectedNew = selected.replace(/^\'\'(.*)\'\'$/, '$1');
+				startPosNew = startPos;
+				endPosNew = endPos - 4 ;
+			}
+			else {
+				selectedNew = &quot;''&quot; + selected + &quot;''&quot;;
+				startPosNew = startPos;
+				endPosNew = endPos + 4;
+			}
+			textNew = textareaElement.value.substring(0, startPos) + selectedNew + textareaElement.value.substring(endPos);
+			textChanged = true;
+		}
+	}
+
+// increase heading level
+	if ('headingmore'.indexOf(what) &gt;= 0) {
+		var selectedNew = '';
+
+// nothing selected, get current line
+		if (selected == '') {
+			var lineStart = textareaElement.value.lastIndexOf('\n', startPos - 1) + 1;
+			var lineEnd = textareaElement.value.indexOf('\n', startPos);
+			if (lineEnd &lt; 0) {
+				lineEnd = textLength;
+			}
+			selectedNew = textareaElement.value.substring(lineStart, lineEnd);
+
+// increase heading level
+			if ( /^\=\=.*\=\= *$/.test(selectedNew) ) {
+				selectedNew = selectedNew.replace(/^(\=\=+) *(.*?) *(\=\=+) *$/, '=$1 $2 $3=');
+			}
+
+// make the line a heading
+			else {
+				selectedNew = selectedNew.replace(/(^ +| +$)/g, '');
+				if (selectedNew.length &lt; 80) {
+					selectedNew = '== ' + selectedNew + ' ==';
+				}
+				else {
+					lineStart = startPos;
+					lineEnd = endPos;
+					selectedNew = selected;
+				}
+			}
+			startPosNew = lineStart;
+			endPosNew = lineStart;
+			textNew = textareaElement.value.substring(0, lineStart) + selectedNew + textareaElement.value.substring(lineEnd);
+		}
+
+// increase all headings in selected text
+		else {
+			var lines = selected.split('\n');
+
+// cycle trough the lines
+			for (i = 0; i &lt; lines.length; i++) {
+				var line = lines[i];
+
+// increase heading level in selected text
+				if ( /^==.*== *$/.test(line) ) {
+					line = line.replace(/^(==+) *(.*?) *(==+) *$/, '$1= $2 =$3');
+				}
+				selectedNew += line;
+				if (i &lt; lines.length - 1) {
+					selectedNew += '\n';
+				}
+			}
+			startPosNew = startPos;
+			endPosNew = startPos + selectedNew.length;
+			textNew = textareaElement.value.substring(0, startPos) + selectedNew + textareaElement.value.substring(endPos);
+		}
+		textChanged = true;
+	}
+
+// decrease heading level
+	if ('headingless'.indexOf(what) &gt;= 0) {
+		var selectedNew = '';
+
+// nothing selected, get current line
+		if (selected == '') {
+			var lineStart = textareaElement.value.lastIndexOf('\n', startPos - 1) + 1;
+			var lineEnd = textareaElement.value.indexOf('\n', startPos);
+			if (lineEnd &lt; 0) {
+				lineEnd = textLength;
+			}
+			selectedNew = textareaElement.value.substring(lineStart, lineEnd);
+
+// decrease heading level
+			if ( /^===.*=== *$/.test(selectedNew) ) {
+				selectedNew = selectedNew.replace(/^=(==.*==)= *$/, '$1');
+			}
+			else if ( /^==.*==$/.test(selectedNew) ) {
+				selectedNew = selectedNew.replace(/^== *(.*) *== *$/, '$1');
+			}
+			startPosNew = lineStart;
+			endPosNew = lineStart;
+			textNew = textareaElement.value.substring(0, lineStart) + selectedNew + textareaElement.value.substring(lineEnd);
+		}
+
+// increase all headings in selected text
+		else {
+			var lines = selected.split('\n');
+
+// cycle trough the lines
+			for (i = 0; i &lt; lines.length; i++) {
+				var line = lines[i];
+
+// decrease heading level in selected text
+				if ( /^===.*=== *$/.test(line) ) {
+					line = line.replace(/^=(==.*==)= *$/, '$1');
+				}
+				selectedNew += line;
+				if (i &lt; lines.length - 1) {
+					selectedNew += '\n';
+				}
+			}
+			startPosNew = startPos;
+			endPosNew = startPos + selectedNew.length;
+			textNew = textareaElement.value.substring(0, startPos) + selectedNew + textareaElement.value.substring(endPos);
+		}
+		textChanged = true;
+	}
+
+// replacements and text fixes
+	if ('spaces pipes html punct caps dashes units math'.indexOf(what) &gt;= 0) {
+
+		var startPosFix;
+		var endPosFix;
+		var selectedFix;
+
+// apply to whole text if nothing is selected
+		if (startPos == endPos) {
+			startPosFix = 0;
+			endPosFix = textLength;
+			selectedFix = textareaElement.value;
+		}
+		else {
+			startPosFix = startPos;
+			endPosFix = endPos;
+			selectedFix = selected;
+		}
+
+// apply fixes to selected text
+		if      ('spaces'.indexOf(what) &gt;= 0) { selectedFix = FixSpaces(selectedFix); }
+		else if ('pipes'.indexOf (what) &gt;= 0) { selectedFix = FixPipes (selectedFix); }
+		else if ('html'.indexOf  (what) &gt;= 0) { selectedFix = FixHTML  (selectedFix); }
+		else if ('punct'.indexOf (what) &gt;= 0) { selectedFix = FixPunct (selectedFix); }
+		else if ('caps'.indexOf  (what) &gt;= 0) { selectedFix = FixCaps  (selectedFix); }
+		else if ('dashes'.indexOf(what) &gt;= 0) { selectedFix = FixDashes(selectedFix); }
+		else if ('units'.indexOf (what) &gt;= 0) { selectedFix = FixUnits (selectedFix); }
+		else if ('math'.indexOf  (what) &gt;= 0) { selectedFix = FixMath  (selectedFix); }
+
+// remove newlines and spaces
+		selectedFix = selectedFix.replace(/\n{3,}/g, '\n\n');
+		selectedFix = selectedFix.replace(/^\n+/, '');
+		selectedFix = selectedFix.replace(/\n{2,}$/, '\n');
+
+// set selection
+		if (startPos == endPos) {
+			startPosNew = startPos;
+			endPosNew = startPos;
+		}
+		else {
+			startPosNew = startPos;
+			endPosNew = startPos + selectedFix.length;
+		}
+
+// insert selected into unchanged text
+		textNew = textareaElement.value.substring(0, startPosFix) + selectedFix + textareaElement.value.substring(endPosFix);
+		textChanged = true;
+		posChanged = true;
+	}
+
+// prepare find regexp for find and replace
+	var regExpFlags = '';
+	if ('findprev findnext replaceprev replacenext replaceall'.indexOf(what) &gt;= 0) {
+
+// format the find text as regexp or plain text
+		if (regExp.checked) {
+
+// replace \n with newline character, other characters have already been converted
+			replaceText = replaceText.replace(/((^|[^\\])(\\\\)*)\\n/g, '$1\n');
+		}
+		else {
+			findText = findText.replace(/([\\^\$\*\+\?\.\(\)\[\]\{\}\:\=\!\|\,\-])/g, '\\$1');
+		}
+
+// set regexp flag i
+		if ( ! caseSensitive.checked ) {
+			regExpFlags = 'i';
+		}
+	}
+
+// find / replace
+	if ('findnext replacenext findprev replaceprev'.indexOf(what) &gt;= 0) {
+		if (find.value != '') {
+
+// create regexp
+			var regExpFind = new RegExp(findText, regExpFlags + 'g');
+
+// set start position for search to right
+			var indexStart;
+			var result;
+			if ('findnext replacenext'.indexOf(what) &gt;= 0) {
+				indexStart = startPos;
+				if ( (selected.length &gt; 0) &amp;&amp; ('findnext'.indexOf(what) &gt;= 0) ) {
+					indexStart = startPos + 1;
+				}
+
+// execute the regexp search to the right
+				regExpFind.lastIndex = indexStart;
+				result = regExpFind.exec(textareaElement.value);
+			}
+
+// prepare search to the left
+			else {
+
+// set start position for search to left
+				indexStart = startPos - 1;
+				if ( (selected.length &gt; 0) &amp;&amp; ('replaceprev'.indexOf(what) &gt;= 0) ) {
+					indexStart = startPos;
+				}
+
+// cycle through the matches to the left
+				var resultNext;
+				do {
+					result = resultNext;
+					resultNext = regExpFind.exec(textareaElement.value);
+					if (resultNext == null) {
+						break;
+					}
+				} while (resultNext.index &lt;= indexStart);
+			}
+
+// get the matched string
+			var matched;
+			var matchedStart;
+			var matchedLength;
+			if (result != null) {
+				matched = result[0];
+				matchedStart = result.index;
+				matchedLength = matched.length;
+
+// replace only if the next match was already selected
+				if ('replacenext replaceprev'.indexOf(what) &gt;= 0) {
+					if (selected == matched) {
+						var replace = selected.replace(regExpFind, replaceText);
+						textNew = textareaElement.value.substr(0, matchedStart) + replace + textareaElement.value.substr(matchedStart + matched.length);
+						matchedLength = replace.length;
+						textChanged = true;
+					}
+				}
+
+// select the found match in the textarea
+				startPosNew = matchedStart;
+				endPosNew = matchedStart + matchedLength;
+			}
+			else {
+				if ('findprev replaceprev'.indexOf(what) &gt;= 0) {
+					indexStart = startPos;
+				}
+				startPosNew = indexStart;
+				endPosNew = indexStart;
+			}
+			posChanged = true;
+		}
+	}
+
+// replace all
+	if ('replaceall'.indexOf(what) &gt;= 0) {
+		if (findText != '') {
+
+// create regexp
+			var regExpFind = new RegExp(findText, regExpFlags + 'g');
+
+
+// replace all in whole text
+			if (selected == '') {
+
+// get the new cursorposition
+				textNew = textareaElement.value.replace(regExpFind, replaceText);
+				var textbefore = textNew.substr(0, startPos);
+				textbefore = textbefore.replace(regExpFind, replaceText);
+				startPosNew = textbefore.length;
+				endPosNew = startPosNew;
+				posChanged = true;
+			}
+
+// replace all in selection
+			else {
+				var replace = selected.replace(regExpFind, replaceText);
+				startPosNew = startPos;
+				endPosNew = startPos + replace.length;
+				textNew = textareaElement.value.substr(0, startPos) + replace + textareaElement.value.substr(endPos);
+			}
+			textChanged = true;
+		}
+	}
+
+// save search history to cookie
+	if ('findnext findprev'.indexOf(what) &gt;= 0) {
+		AddToHistory('find');
+	}
+	if ('replacenext replaceprev replaceall'.indexOf(what) &gt;= 0) {
+		AddToHistory('find');
+		AddToHistory('replace');
+	}
+
+// get the find field from the selection or the current word
+	if ('findnext findprev replacenext replaceprev getfind'.indexOf(what) &gt;= 0) {
+		if ( ('getfind'.indexOf(what) &gt;= 0) || (find.value == '') ) {
+
+// get from the selection
+			var newFind = '';
+			if (selected != '') {
+			  newFind = selected;
+				startPosNew = startPos;
+				endPosNew = endPos;
+			}
+
+// get from the current word
+			else {
+
+// get until next nonword char to the right
+				endPosNew = endPos;
+			  var pos = startPos;
+			  while (pos &lt; textLength) {
+			    var char = textareaElement.value.substr(pos ++, 1);
+			    if ( char.match(/\W/) ) {
+					  endPosNew = pos - 1;
+			      break;
+			    }
+					newFind += char;
+			  }
+
+// get until next nonword char to the left
+				startPosNew = startPos;
+			  pos = startPos - 1;
+			  while (pos &gt;= 0) {
+			    var char = textareaElement.value.substr(pos --, 1);
+			    if ( char.match(/\W/) ) {
+				  	startPosNew = pos + 2;
+			      break;
+			    }
+			    newFind = char + newFind;
+			  }
+			}
+
+// replace newlines in find field
+			if (regExp.checked) {
+				find.value = newFind.replace(/\n/g, '\\n');
+			}
+			else {
+				find.value = newFind.replace(/\n.*/, '');
+			}
+		}
+	}
+
+// undo all
+	if ('undoall'.indexOf(what) &gt;= 0) {
+		startPosNew = startPos;
+		endPosNew = startPos;
+		textNew = editformOrig;
+		textChanged = true;
+	}
+
+// jump to top / bottom
+	if ('updown'.indexOf(what) &gt;= 0) {
+		if (scrollTopPx &gt; scrollHeightPx / 2) {
+			startPosNew = 0;
+			endPosNew = 0
+		}
+		else {
+			startPosNew = textLength;
+			endPosNew = textLength;
+		}
+		posChanged = true;
+	}
+
+// jump to the last changed position, event handler for button
+	if ('lastchangepos'.indexOf(what) &gt;= 0) {
+		startPosNew = lastChangePos;
+		endPosNew = lastChangePos;
+		posChanged = true;
+  }
+
+// changed textarea, save undo info
+	if (textChanged) {
+		textareaElement.value = textNew;
+		SaveUndo(textareaElement.value, startPos, endPos);
+		SaveUndo(textNew, startPosNew, endPosNew);
+		textRows.changed = true;
+		posChanged = true;
+	}
+
+// set the selection range
+	textareaElement.setSelectionRange(startPosNew, endPosNew);
+
+// scroll the textarea to the selected text or cursor position
+	if (posChanged || textChanged) {
+		ParseRows();
+	}
+	if (posChanged) {
+  	ScrollTextarea(textRows.selStartRow, textRows.selEndRow, 0, findMargin, scrollTopPx);
+	}
+	else {
+		textareaElement.scrollTop = scrollTopPx;
+	}
+	return;
+}
+
+
+//
+// scroll the textarea if the selected text is outside the viewport
+//
+
+function ScrollTextarea(rowStart, rowEnd, lines, margin, scrollTopPx) {
+
+// get top row
+  var scrollHeightPx = textareaElement.scrollHeight;
+  var scrollTopRow = scrollTopPx / scrollHeightPx * textRows.rowTotal;
+
+// cusor direction: up
+	if (lines &lt;= 0) {
+	 	if (scrollTopRow &gt; (rowStart + lines) - margin) {
+			scrollTopRow = (rowStart + lines) - margin;
+			if (scrollTopRow &lt; 0) {
+			  scrollTopRow = 0;
+			}
+		}
+	}
+
+// cusor direction: down
+	if (lines &gt;= 0) {
+	 	if (scrollTopRow &lt; (rowEnd + 1 + lines) + margin - textRows.rows) {
+			scrollTopRow = (rowEnd + 1 + lines) + margin - textRows.rows;
+			if (scrollTopRow &gt; textRows.rowTotal + 1 - textRows.rows) {
+			  scrollTopRow = textRows.rowTotal + 1 - textRows.rows;
+			}
+		}
+	}
+
+// set scroll position
+	textareaElement.scrollTop = scrollTopRow / textRows.rowTotal * scrollHeightPx;
+
+	return;
+}
+
+
+//
+// ParseRows: get row structure of textarea
+//
+
+function ParseRows() {
+
+	textRows.selStart = textareaElement.selectionStart;
+	textRows.selEnd = textareaElement.selectionEnd;
+
+// if the text has not changed we don't need to parse lines and rows
+	if (textRows.changed != true) {
+		if (textRows.textarea == null) {
+			textRows.changed = true;
+		}
+		else if (textRows.textarea.length != textareaElement.value.length) {
+			textRows.changed = true;
+		}
+		else if (textRows.textarea != textareaElement.value) {
+			textRows.changed = true;
+		}
+	}
+  if (textRows.changed) {
+		textRows.changed = false
+		textRows.textarea = textareaElement.value;
+		textRows.cols = textareaElement.cols;
+		textRows.rows = textareaElement.rows;
+
+// parse lines
+		textRows.lineStart = [];
+		textRows.lineLength = [];
+		var pos;
+		var posNext = 0;
+		var line = 0;
+		do {
+			pos = posNext;
+			textRows.lineStart[line] = pos;
+			posNext = textRows.textarea.indexOf('\n', pos) + 1;
+			textRows.lineLength[line] = posNext - pos - 1;
+			line ++;
+		} while (posNext &gt; 0);
+		textRows.lineLength[line - 1] = textRows.textarea.length - pos;
+	  textRows.lineTotal = line;
+
+// parse rows
+		textRows.rowStart = [];
+		textRows.rowLength = [];
+		var lineTotal = textRows.lineTotal;
+		var row = 0;
+		for (line = 0; line &lt; lineTotal; line ++) {
+			var rowStart;
+			var rowStartNext = textRows.lineStart[line];
+			var lineEnd = rowStartNext + textRows.lineLength[line];
+
+// cycle row by row to the end of the line
+			do {
+				rowStart = rowStartNext;
+				pos = 0;
+				posNext = rowStart;
+				if (rowStart + textRows.cols &gt;= lineEnd) {
+					rowStartNext = lineEnd;
+				}
+
+// find last space before or first after right border
+				else {
+					do {
+						pos = posNext;
+						posNext = textRows.textarea.indexOf(' ', pos + 1);
+					} while ( (posNext &gt;= 0) &amp;&amp; (posNext &lt;= rowStart + textRows.cols) &amp;&amp; (posNext &lt; lineEnd) );
+					if (pos &gt; rowStart) {
+						rowStartNext = pos + 1;
+					}
+					else if ( (posNext &gt;= 0) &amp;&amp; (posNext &lt; lineEnd) ) {
+						rowStartNext = posNext + 1;
+					}
+					else {
+						rowStartNext = lineEnd;
+					}
+				}
+
+// jump over trailing spaces
+				while (textRows.textarea.charAt(rowStartNext) == ' ') {
+					rowStartNext ++;
+				}
+
+// set row start and length
+				textRows.rowStart[row] = rowStart;
+				textRows.rowLength[row] = rowStartNext - rowStart;
+				row ++;
+			} while (rowStartNext &lt; lineEnd);
+		}
+  	textRows.rowTotal = row;
+	}
+
+// get text selection rows by stepwise approximation
+	var rowTotal = textRows.rowTotal;
+	var selStart = textRows.selStart;
+	var selEnd = textRows.selEnd;
+
+// find the largest 2^n &lt; rows
+	var add = 1;
+	while (add &lt; rowTotal) {
+	  add = add * 2;
+	}
+  add = add / 2;
+
+// approximate with decreasing add
+	var selStartRow = add;
+	var selEndRow = add;
+	while (add &gt;= 1) {
+
+// approximate selection start
+		if (selStartRow &gt;= rowTotal) {
+			selStartRow -= add;
+		}
+		else if (textRows.rowStart[selStartRow] &gt; selStart) {
+			selStartRow -= add;
+		}
+		else {
+			selStartRow += add;
+		}
+
+// approximate selection end
+		if (selEndRow &gt;= rowTotal) {
+			selEndRow -= add;
+		}
+		else if (textRows.rowStart[selEndRow] &gt; selEnd) {
+			selEndRow -= add;
+		}
+		else {
+			selEndRow += add;
+		}
+	  add = add / 2;
+	}
+	if (textRows.rowStart[selStartRow] &gt; selStart) {
+		selStartRow --;
+	}
+	if (textRows.rowStart[selEndRow] &gt; selEnd) {
+		selEndRow --;
+	}
+	textRows.selStartRow = selStartRow;
+	textRows.selEndRow = selEndRow;
+
+	return;
+}
+
+
+//
+// fix characters, spaces, empty lines, certain headings
+//
+
+function FixSpaces(text) {
+
+// remove trailing spaces from lines
+	text = text.replace(/ +\n/g, '\n');
+
+// empty line before and after headings, spaces around word (lookahead)
+	text = text.replace(/(\n={2,}) *([^\n]*?) *(={2,})(?=\n)/g, '\n$1 $2 $3\n\n');
+
+// uppercase important headings
+	text = text.replace(/\n== external links? ==\n/ig, '\n== External links ==\n');
+	text = text.replace(/\n== see also ==\n/ig, '\n== See also ==\n');
+	text = text.replace(/\n== references? ==\n/ig, '\n== References ==\n');
+
+// add space after * # : ; (list) and after {| |- | (table)
+	text = text.replace(/(^|\n)([\*\#\:\;]+|\{\||\|\-|\|\}|\|) */g, '$1$2 ');
+	text = text.replace(/ +\n/g, '\n');
+
+// empty line before and after tables
+	text = text.replace(/\n+(\{\|)/g, '\n\n$1');
+	text = text.replace(/(\n\|\}) *([^\n]*)[\n|$]+/g, '$1\n\n$2\n\n');
+
+// empty line before and after lists
+	text = text.replace(/(^|\n)([^\*\#\:\;].*?)\n+([\*\#\:\;])/g, '$1$2\n\n$3');
+	text = text.replace(/(^|\n)([\*\#\:\;].*?)\n+([^\*\#\:\;])/g, '$1$2\n\n$3');
+
+// split into lines and change single lines, used to handle tables
+	var lines = text.split('\n');
+	text = '';
+	var tableflag = false;
+	for (var i = 0; i &lt; lines.length; i++) {
+		var line = lines[i];
+
+// do not change lines starting with a blank
+		if ( ! line.match(/^ /) ) {
+
+// detect table
+			if ( line.match(/^(\{\||\!|\|[^}])/) ) {
+				tableflag = true;
+			}
+			else if ( line.match(/^\|\}/) ) {
+				tableflag = false;
+			}
+
+// changes only to be done in tables
+			if (tableflag) {
+
+// add spaces around ||
+				line = line.replace(/ *\|\| */g, ' || ');
+			}
+
+// changes not to be done in tables
+			if ( ! tableflag) {
+
+// empty line before and after images
+				line = line.replace(/^(\[\[image:.*?\]\])/ig, '\n$1');
+				line = line.replace(/(\[\[image:.*?(\[\[.*?\]\].*?)*\]\])$/ig, '$1\n');
+
+// empty line before and after includes
+				line = line.replace(/^(\{\{.*?\}\})/g, '\n$1');
+				line = line.replace(/(\{\{.*?\}\})$/g, '$1\n');
+
+// to be done: convert single newlines into spaces
+//      line = line.replace(/(\n[^\n \*\#\:\;\|\{].*?)\n([^\n \*\#\:\;\|\{])/g, '$1 $2');
+			}
+		}
+
+// concatenate the lines
+		text += line;
+		if (i &lt; lines.length - 1) {
+			text += '\n';
+		}
+	}
+
+// remove spaces in wikilinks
+	text = text.replace(/\[\[ *([^\n]*?) *\]\]/g, '[[$1]]');
+
+// remove spaces in external links
+	text = text.replace(/\[ *([^\n]*?) *\]/g, '[$1]');
+
+// no space around pipes before brackets
+	text = text.replace(/ +\| +\]\]/g, '|]]');
+
+// no space around pipes before curly brackets
+	text = text.replace(/ +\| +\}\}/g, '|}}');
+
+// no empty line between headings and includes
+	text = text.replace(/\n(==+ [^\n]*? ==+\n)\n+(\{\{.*?\}\})/g, '$1$2');
+
+// spaces in comments
+	text = text.replace(/(&lt;!--) *(.*?) *(--&gt;)/g, '$1 $2 $3');
+
+// empty lines around html comments, spaces in comments
+	text = text.replace(/\n+(&lt;!--.*?--&gt;)\n+/g, '\n$1\n\n');
+	text = text.replace(/^(&lt;!--.*?--&gt;)\n+/g, '$1\n');
+	text = text.replace(/\n+(&lt;!--.*?--&gt;)$/g, '\n$1');
+
+// empty line before and after categories
+	text = text.replace(/(\[\[category:[^\n]*?\]\]) */gi, '\n\n$1\n\n');
+
+// categories not separated by empty lines (lookahead)
+	text = text.replace(/(\[\[category:[^\n]*?\]\])\n*(?=\[\[category:[^\n]*?\]\])/gi, '$1\n');
+
+	return(text);
+}
+
+
+//
+// fix space around vertical bars
+//
+
+function FixPipes(text) {
+
+// fix basic
+	text = FixSpaces(text);
+
+// space around pipes in wikilinks but not in images
+	text = text.replace(/(\[\[(?!image:)[^\n]+?) *\| *(.*?\]\])/ig, '$1 | $2');
+
+// space around pipes in templates
+	text = text.replace(/(\{\{)([^\n]+?)(\}\})/g,
+		function (p, p1, p2, p3) {
+			p2 = p2.replace(/ *(\|) */g, ' | ');
+			return(p1 + p2 + p3);
+		}
+	);
+
+	return(text);
+}
+
+
+//
+// fix html to wikicode
+//
+
+function FixHTML(text) {
+
+// fix basic
+	text = FixSpaces(text);
+
+// convert italic
+	text = text.replace(/&lt;i(\s.*?)?&gt;|&lt;\/i(\s.*?)?&gt;/gi, '\'\'');
+
+// convert bold
+	text = text.replace(/&lt;b(\s.*?)?&gt;|&lt;\/b(\s.*?)?&gt;/gi, '\'\'\'');
+
+// convert tables
+	text = text.replace(/\s*&lt;\/td(\s.*?)?&gt;\s*/gi, '');
+	text = text.replace(/\s*&lt;\/th(\s.*?)?&gt;\s*/gi, '');
+	text = text.replace(/\s*&lt;\/tr(\s.*?)?&gt;\s*/gi, '');
+
+	text = text.replace(/\s*&lt;td\s*&gt;\s*/gi, '\n| ');
+	text = text.replace(/\s*&lt;td\s+(.*?)? *&gt;\s*/gi,
+		function (p, p1) {
+			return('\n| ' + p1.replace(/\s+/g, ' ') + ' | ');
+		}
+	);
+	text = text.replace(/\s*&lt;th\s*&gt;\s*/gi, '\n! ');
+	text = text.replace(/\s*&lt;th\s+(.*?)? *&gt;\s*/gi,
+		function (p, p1) {
+			return('\n! ' + p1.replace(/\s+/g, ' ') + ' | ');
+		}
+	);
+
+	text = text.replace(/\s*&lt;tr\s*&gt;\s*/g, '\n|-\n');
+	text = text.replace(/\s*&lt;tr\s+(.*?)? *&gt;\s*/gi,
+		function (p, p1) {
+			return('\n|- ' + p1.replace(/\s+/g, ' ') + '\n');
+		}
+	);
+
+	text = text.replace(/\s*&lt;table\s*&gt;\s*(\|-\n)?/gi, '\n{|\n');
+	text = text.replace(/\s*&lt;table\s+(.*?)? *&gt;\s*(\|-\n)?/gi,
+		function (p, p1) {
+			return('\n{| ' + p1.replace(/\s+/g, ' ') + '\n');
+		}
+	);
+	text = text.replace(/\s*&lt;\/table\s+(.*?)?&gt;\s*/gi, '\n|}\n');
+
+// convert links
+	text = text.replace(/&lt;a\s+(.*?)href\s*=\s*(\&quot;|\')\s*(\S*?)\s*(\&quot;|\')(.*?)&gt;\s*(.*?)\s*&lt;\/a&gt;/gi,
+		function (p, p1, p2, p3, p4, p5, p6) {
+			if (p6 == '') {
+				return('[' + p3 + ']');
+			}
+			return('[' + p3 + ' ' + p6.replace(/\s+/g, ' ') + ']');
+		}
+	);
+	text = text.replace(/&lt;a\s+(.*?)href\s*=\s*(\S*?)\s+(.*?)&gt;\s*(.*?)\s*&lt;\/a&gt;/gi,
+		function (p, p1, p2, p3, p4) {
+			if (p4 == '') {
+				return('[' + p2 + ']');
+			}
+			return('[' + p2 + ' ' + p4.replace(/\s+/g, ' ') + ']');
+		}
+	);
+
+// convert images
+	text = text.replace(/&lt;img\s+(.*?)src\s*=\s*(\&quot;|\')\s*(\S*?)\s*(\&quot;|\')(.*?)&gt;/gi,
+		function (p, p1, p2, p3, p4, p5) {
+			return('[[Image:' + p3.replace(/^.*\/([^\/]+)$/, '$1') + ']]');
+		}
+	);
+	text = text.replace(/&lt;img\s+(.*?)src\s*=\s*(\S*?)\s+(.*?)&gt;/gi,
+		function (p, p1, p2, p3) {
+			return('[[Image:' + p2.replace(/^.*\/([^\/]+)$/, '$1') + ']]');
+		}
+	);
+
+// to do: lists, h1 - hx
+
+	return(text);
+}
+
+
+//
+// fix space before punctuation marks
+//
+
+function FixPunct(text) {
+
+// fix basic
+	text = FixSpaces(text);
+
+// remove space before .,: (; could be a definition)
+	text = text.replace(/([a-zA-Z\'\&quot;\”\]\}\)]) +([\.\,\:])/g, '$1$2');
+
+	return(text);
+}
+
+
+//
+// fix capitalizing of lists, linklists, images, headings
+//
+
+function FixCaps(text) {
+
+
+// fix basic
+	text = FixSpaces(text);
+
+// uppercase lists
+	text = text.replace(/^([\*\#\:\;]+ (\&amp;\w+\;|\{\{.*$|[\W\d])*)([^\W\d].*)$/gm,
+		function (p, p1, p2, p3) {
+			if ( ! p3.match(/^(http|ftp|alpha|beta|gamma|delta|epsilon|kappa|lambda)/) ) {
+				p3 = p3.substr(0, 1).toUpperCase() + p3.substr(1);
+			}
+			return(p1 + p3);
+		}
+	);
+
+
+// uppercase link lists (link)
+	text = text.replace(/^([\*\#\:\;]+ \[\[)([^\n]*?)(\]\])/gm,
+		function (p, p1, p2, p3) {
+
+// uppercase link
+			p2 = p2.replace(/^((\&amp;\w+\;|[\W\d])*)([^\W\d].*)$/,
+				function (p, p1, p2, p3) {
+					if ( ! p3.match(/^(http|ftp|alpha|beta|gamma|delta|epsilon|kappa|lambda)/) ) {
+						p3 = p3.substr(0, 1).toUpperCase() + p3.substr(1);
+					}
+					return(p1 + p3);
+				}
+			);
+
+// uppercase comment
+			p2 = p2.replace(/(\| *(\&amp;\w+\;|[\W\d])*)([^\W\d].*)$/,
+				function (p, p1, p2, p3) {
+					if ( ! p3.match(/^(http|ftp|alpha|beta|gamma|delta|epsilon|kappa|lambda)/) ) {
+						p3 = p3.substr(0, 1).toUpperCase() + p3.substr(1);
+					}
+					return(p1 + p3);
+				}
+			);
+			return(p1 + p2 + p3);
+		}
+	);
+
+// uppercase headings
+	text = text.replace(/^(==+ (\&amp;\w+\;|[\W\d])*)([^\W\d].* ==+)$/gm,
+		function (p, p1, p2, p3) {
+			if ( ! p3.match(/^(http|ftp|alpha|beta|gamma|delta|epsilon|kappa|lambda)/) ) {
+				p3 = p3.substr(0, 1).toUpperCase() + p3.substr(1);
+			}
+			return(p1 + p3);
+		}
+	);
+
+// uppercase images
+	text = text.replace(/(\[\[)image:(\w)([^\n]*\]\])/igm,
+		function (p, p1, p2, p3) {
+			return(p1 + 'Image:' + p2.toUpperCase() + p3);
+		}
+	);
+
+	return(text);
+}
+
+
+//
+// dash fixer - adds a tab that fixes several obvious en/em dash, minus sign, and such special characters.
+// originally from User:Omegatron
+//
+
+function FixDashes(text) {
+
+// fix basic
+	text = FixSpaces(text);
+
+// convert html entities into actual dash characters
+	text = text.replace(/&amp;mdash;/g, '—');
+	text = text.replace(/&amp;ndash;/g, '–');
+	text = text.replace(/&amp;minus;/g, '\u2212');
+
+// convert -- and em dashes with or without spaces to em dash surrounded by spaces
+	text = text.replace(/([a-zA-Z\'\&quot;”\]\}\)]) *(--|—|&amp;mdash;) *([a-zA-Z\'\&quot;“\[\{\(])/g, '$1 — $3');
+
+// convert - or en dashes with spaces to em dash character surrounded by spaces
+	text = text.replace(/([a-zA-Z\'\&quot;”\]\}])( |&amp;nbsp;)+(\u2212|–|&amp;ndash;) +([a-zA-Z\'\&quot;“\[\{])/g, '$1$2— $4');
+
+// convert hyphen next to lone number into a minus sign character
+	text = text.replace(/([a-zA-Z\'\&quot;”\]\&gt;] )-(\d)/g, '$1\u2212$2');
+
+// convert dashes to en dashes in dates
+	text = text.replace(/([ \(][12]\d\d\d) ?(--?|—|&amp;mdash;) ?([12]\d\d\d|\d\d)([ \),.;])/g, '$1–$3$4');
+
+	return(text);
+}
+
+
+//
+// unit formatter - new tab adds spaces between number and units, makes units consistent
+// originally from User:Omegatron
+//
+
+function FixUnits(text) {
+
+// fix basic
+	text = FixSpaces(text);
+
+// convert all &amp;deg; into actual ° symbol
+	text = text.replace(/&amp;deg;/g, '°');
+
+// convert the word ohm(s) or the html entity into the actual O symbol (Omega, not the actual ohm symbol &amp;#8486;) and make sure it's spaced
+	text = text.replace(/(\d) ?(Y|Z|E|P|T|G|M|k|K|h|da|d|c|m|µ|µ|µ|n|p|f|a|z|y)? ?(&amp;Omega;|ohm|Ohm)s?([ ,.])/g, '$1 $2O$4');
+
+// convert various micro symbols into the actual micro symbol, make sure it's spaced
+	text = text.replace(/(\d) ?(&amp;mu;|µ|&amp;micro;)(g|s|m|A|K|mol|cd|rad|sr|Hz|N|J|W|Pa|lm|lx|C|V|O|F|Wb|T|H|S|Bq|Gy|Sv|kat|°C|M)([ ,.])/g, '$1 µ$3$4');
+
+// convert capital K to lowercase k in units
+	text = text.replace(/(\d) ?K(g|s|m|A|K|mol|cd|rad|sr|Hz|N|J|W|Pa|lm|lx|C|V|O|F|Wb|T|H|S|Bq|Gy|Sv|kat|°C|M)([ ,.])/g, '$1 k$2$3');
+
+// capitalize units correctly
+	text = text.replace(/(\d) ?(khz)([ ,.])/gi, '$1 kHz$3');
+	text = text.replace(/(\d) ?(mhz)([ ,.])/gi, '$1 MHz$3');
+	text = text.replace(/(\d) ?(ghz)([ ,.])/gi, '$1 GHz$3');
+	text = text.replace(/(\d) ?(Y|Z|E|P|T|G|M|k|K|h|da|d|c|m|µ|µ|µ|n|p|f|a|z|y)?(hz|HZ)([ ,.])/g, '$1 $2Hz$4');
+	text = text.replace(/(\d) ?(Y|Z|E|P|T|G|M|k|K|h|da|d|c|m|µ|µ|µ|n|p|f|a|z|y)?(pa|PA)([ ,.])/g, '$1 $2Pa$4');
+
+// add a space before dB or B
+	text = text.replace(/(\d) ?(dB|B)\b/g, '$1 $2');
+
+// add a space before any units that were missed before
+	text = text.replace(/(\d) ?(Y|Z|E|P|T|G|M|k|K|h|da|d|c|m|µ|n|p|f|a|z|y)?(g|m|A|K|mol|cd|rad|sr|Hz|N|J|W|Pa|lm|lx|C|V|O|F|Wb|T|H|S|Bq|Gy|Sv|kat|°C|M)([ ,.])/g, '$1 $2$3$4');
+
+// separate one for seconds since they give a lot of false positives like &quot;1970s&quot;. Only difference is mandatory prefix.
+	text = text.replace(/(\d) ?(Y|Z|E|P|T|G|M|k|K|h|da|d|c|m|µ|n|p|f|a|z|y)(s)([ ,.])/g, '$1 $2$3$4');
+
+// bps or b/s or bits/s --&gt; bit/s
+	text = text.replace(/([KkMmGgTtPpEeYyZz])(bps|bits?\/s|b\/s)/g, '$1bit/s');
+
+// Bps or byte/s or bytes/s --&gt; B/s
+	text = text.replace(/([KkMmGgTtPpEeYyZz])(Bps|bytes?\/s)/g, '$1B/s');
+
+// after that, make capitalization correct
+	text = text.replace(/K(bit|B)\/s/g, 'k$1/s');
+	text = text.replace(/m(bit|B)\/s/g, 'M$1/s');
+	text = text.replace(/g(bit|B)\/s/g, 'G$1/s');
+	text = text.replace(/t(bit|B)\/s/g, 'T$1/s');
+	text = text.replace(/e(bit|B)\/s/g, 'E$1/s');
+	text = text.replace(/y(bit|B)\/s/g, 'Y$1/s');
+	text = text.replace(/z(bit|B)\/s/g, 'Z$1/s');
+
+// fix a common error
+	text = text.replace(/mibi(bit|byte)/g, 'mebi$1');
+
+	return(text);
+}
+
+
+//
+// math character fixer, originally from User:Omegatron
+//
+// DO NOT USE ON WHOLE DOCUMENT OR &lt;math&gt; &lt;/math&gt; WIKICODE!
+//
+
+function FixMath(text) {
+
+// fix basic
+	text = FixSpaces(text);
+
+// convert html entities into actual dash characters
+	text = text.replace(/&amp;minus;/g, '\u2212');
+	text = text.replace(/&amp;middot;/g, '·');
+
+// convert dash next to a number into a minus sign character
+	text = text.replace(/([^a-zA-Z0-9\,\_\{])-(\d)/g, '$1\u2212$2');
+
+// changes 2x3 to 2×3
+	text = text.replace(/(\d ?)x( ?\d)/g, '$1×$2');
+
+// changes 10^3 to 10&lt;sup&gt;3&lt;/sup&gt;
+	text = text.replace(/(\d*\.?\d+)\^(\u2212?\d+\.?\d*)/g, '$1&lt;sup&gt;$2&lt;/sup&gt;');
+
+// change x^3 to x&lt;sup&gt;3&lt;/sup&gt;
+	text = text.replace(/([0-9a-zA-Z])\^(\u2212?\d+\.?\d*) /g, '$1&lt;sup&gt;$2&lt;/sup&gt;');
+
+// change +/- to ±
+	text = text.replace(/( |\d)\+\/(-|\u2212)( |\d)/g, '$1±$3');
+
+	return(text);
+}
+
+
+//
+// add a tag to the summary box
+//
+
+function AddSummary(summary) {
+	var text = document.getElementById('wpSummary');
+	if (text.value.match(/ \*\/ $/)) {
+		text += ' ';
+	}
+	else if (text.value != '') {
+		text.value += '; ';
+	}
+	text.value += summary;
+}
+
+
+//
+// save undo information
+//
+
+function SaveUndo(text, startPos, endPos) {
+
+	if (undoBufferLast == 0) {
+		undoBuffer[1] = textareaElement.value;
+		undoBufferSelStart[1] = startPos;
+		undoBufferSelEnd[1] = endPos;
+		undoBufferCurr = 1;
+		undoBufferLast = 1;
+	}
+	undoBufferLast++;
+	undoBufferCurr = undoBufferLast;
+	var slot = undoBufferLast % undoBufferMax;
+	undoBuffer[slot] = text;
+	undoBufferSelStart[slot] = startPos;
+	undoBufferSelEnd[slot] = endPos;
+}
+
+
+//
+//undo
+//
+
+function Undo() {
+
+	if (undoBufferCurr - 1 &gt; undoBufferLast - undoBufferMax) {
+		if (undoBufferCurr - 1 &gt;= 0) {
+			undoBufferCurr--;
+			var slot = undoBufferCurr % undoBufferMax;
+			textareaElement.value = undoBuffer[slot];
+			textareaElement.focus();
+			textareaElement.selectionStart = undoBufferSelStart[slot];
+			textareaElement.selectionEnd = undoBufferSelEnd[slot];
+			textRows.changed = true;
+			ParseRows();
+			ScrollTextarea(textRows.selStartRow, textRows.selEndRow, 0, findMargin, textareaElement.scrollTop);
+		}
+	}
+}
+
+
+//
+// redo
+//
+
+function Redo() {
+
+	if (undoBufferCurr + 1 &lt;= undoBufferLast) {
+		undoBufferCurr++;
+		var slot = undoBufferCurr % undoBufferMax;
+		var slot = undoBufferCurr % undoBufferMax;
+		textareaElement.value = undoBuffer[slot];
+		textareaElement.focus();
+		textareaElement.selectionStart = undoBufferSelStart[slot];
+		textareaElement.selectionEnd = undoBufferSelEnd[slot];
+		textRows.changed = true;
+	  ParseRows();
+  	ScrollTextarea(textRows.selStartRow, textRows.selEndRow, 0, findMargin, textareaElement.scrollTop);
+	}
+}
+
+//
+// resize textarea to ~100% by adapting cols
+//
+
+function ResizeTextarea() {
+
+	var textareaClone = document.getElementById('textareaClone');
+	var scrollTopPx = textareaElement.scrollTop;
+	textareaClone.style.width = '100%';
+	textareaClone.style.display = 'block';
+	var widthMax = textareaClone.offsetWidth;
+	textareaClone.style.width = 'auto';
+
+// find optimal width
+	textareaClone.cols = 20;
+	for (var i = 64; i &gt;= 1; i = i / 2) {
+		while (textareaClone.offsetWidth &lt; widthMax) {
+			textareaClone.cols = textareaClone.cols + i;
+		}
+		textareaClone.cols = textareaClone.cols - i;
+	}
+	textareaClone.style.display = 'none';
+	textareaElement.cols = textareaClone.cols;
+	textareaElement.style.width = 'auto';
+	textareaElement.scrollTop = scrollTopPx;
+
+// parse rows
+	textRows.changed = true;
+  ParseRows();
+
+	return;
+}
+
+
+//
+// convert strange spaces, remove non-\n linebreak characters
+//
+
+function convertStrangeSpaces() {
+
+	var startPos = textareaElement.selectionStart;
+	var endPos = textareaElement.selectionEnd;
+
+	var text = textareaElement.value;
+	text = text.replace(/[\t\v\u00a0\u2028\u2029]+/g, ' '); // \u00a0 = &amp;nbsp;
+	text = text.replace(/[\r\f]/g, '');
+	textareaElement.value = text;
+
+	textareaElement.selectionStart = startPos;
+	textareaElement.selectionEnd = endPos;
+
+	return;
+}
+
+
+//
+// setup routine for javascript editor
+//
+
+function SetupEditor() {
+
+	var html = '';
+
+// check if the editor is already installed
+	if (document.getElementById('findText') != null) { return; }
+
+// at the moment this works only for mozilla browsers (Mozilla, Mozilla Firefox, Mozilla SeaMonkey)
+	var name = navigator.appName.match(/Netscape/i)[0];
+	if (name == null) { return; }
+	var version = navigator.appVersion.match(/\d+(\.\d+)/)[0];
+	if (version == null) { return; }
+	if (version &lt; 5.0) { return; }
+
+// get the textarea object
+	textareaElement = document.getElementById('wpTextbox1');
+	if (textareaElement == null) { return; }
+
+// install the diff functions
+	SetupDiff();
+
+// setup the undo buffers and get the original text for instant change view
+	undoBuffer[0] = textareaElement.value;
+	editformOrig = textareaElement.value;
+
+// set textarea size to maximal row number, always show vertical scrollbar
+  textareaElement.style.overflow = '-moz-scrollbars-vertical';
+  textareaElement.style.overflowX = 'auto';
+
+// convert strange spaces, remove non-\n linebreak characters
+	convertStrangeSpaces();
+
+// add custom edit area stylesheet definition to head
+	var insert = document.getElementsByTagName('head')[0];
+	html = '';
+	html += '&lt;style type=&quot;text/css&quot;&gt;';
+	html += '.customEdit { ' + styleButtons + '}';
+	html += '.previewBox { ' + stylePreviewBox + ' }';
+	html += '&lt;/style&gt;';
+	insert.innerHTML += html;
+
+// create inputWrapper for textarea and buttons (fullscreen elements)
+	var inputWrapper = document.createElement('div');
+	inputWrapper.id = 'inputWrapper';
+	textareaElement.parentNode.insertBefore(inputWrapper, textareaElement);
+
+// move textareaElement to textareaWrapper
+	var textareaWrapper = document.createElement('div');
+	textareaWrapper.id = 'textareaWrapper';
+	inputWrapper.appendChild(textareaWrapper);
+	textareaWrapper.appendChild(textareaElement);
+
+// add all other buttons and inputs to buttonsWrapper
+	var buttonsWrapper = document.createElement('div');
+	buttonsWrapper.id = 'buttonsWrapper';
+	inputWrapper.appendChild(buttonsWrapper);
+
+// add custom formatting buttons
+	var customEditButtons = document.createElement('div');
+	customEditButtons.id ='customEditButtons';
+	html = '';
+
+// find, replace
+	html += '&lt;div style=&quot;margin-top: 0.1em; margin-left: 0;&quot; id=&quot;customEditRow1&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;Get&quot; onclick=&quot;javascript:Edit(\'getfind\');&quot; title=&quot;Get the find text from the selection&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;larr;Find&quot; onclick=&quot;javascript:Edit(\'findprev\');&quot; title=&quot;Find previous&quot;&gt;';
+	html += '&lt;span style=&quot;position: relative; padding: 0; margin: 0 0.2em;&quot; id=&quot;findComboInput&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;text&quot; value=&quot;&quot; style=&quot;height: 1.4em; font-family: monospace; height: 1.2em; padding: 0; margin: 0; position: absolute; left: 0; top: 0; z-index: 2;&quot; onfocus=&quot;javascript:this.setSelectionRange(0, this.textLength);&quot; id=&quot;findText&quot; title=&quot;&quot;&gt;';
+	html += '&lt;select class=&quot;customEdit&quot; id=&quot;findSelect&quot; style=&quot;height: 1.5em; font-family: monospace; border: none; padding: 0; margin: 0; position: relative; vertical-align: baseline; z-index: 1;&quot; onfocus=&quot;javascript:SetComboOptions(\'find\')&quot; onChange=&quot;javascript:ChangeComboInput(\'find\');&quot;&gt;';
+	html += '&lt;/select&gt;';
+	html += '&lt;/span&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;Find&amp;rarr;&quot; onclick=&quot;javascript:Edit(\'findnext\');&quot; title=&quot;Find next&quot;&gt;';
+	html += '&lt;span style=&quot;margin-left: 0.5em;&quot;&gt;&lt;/span/&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;uarr;&amp;darr;&quot; onclick=&quot;javascript:Edit(\'updown\');&quot; title=&quot;Jump to the top / bottom&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;crarr;&quot; id=&quot;lastChangePos&quot; onclick=&quot;javascript:Edit(\'lastchangepos\');&quot; title=&quot;Jump to the last changed position&quot;&gt;';
+  html += '&lt;span style=&quot;margin-left: 1em;&quot;&gt;&lt;/span/&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;larr;&quot; onclick=&quot;javascript:Undo();&quot; title=&quot;Undo button clicks&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;rarr;&quot; onclick=&quot;javascript:Redo();&quot; title=&quot;Redo button clicks&quot;&gt;';
+	html += '&lt;span style=&quot;margin-left: 0.5em;&quot;&gt;&lt;/span/&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;Undo all&quot; onclick=&quot;javascript:Edit(\'undoall\');&quot; title=&quot;Restore original text, can be undone&quot;&gt;';
+	html += '&lt;span style=&quot;margin-left: 1em;&quot;&gt;&lt;/span/&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; style=&quot;font-weight: bold;&quot; value=&quot;b&quot; onclick=&quot;javascript:Edit(\'bold\');&quot; title=&quot;Bold text&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; style=&quot;font-style: italic;&quot; value=&quot;i&quot; onclick=&quot;javascript:Edit(\'italic\');&quot; title=&quot;Italic text&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;A&amp;rarr;a&quot; onclick=&quot;javascript:Edit(\'lowercase\');&quot; title=&quot;Lowercase text&quot;&gt;';
+	html += '&lt;span style=&quot;margin-left: 0.5em;&quot;&gt;&lt;/span/&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;=&amp;larr;&quot; onclick=&quot;javascript:Edit(\'headingless\');&quot; title=&quot;Decrease heading level of current lines&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;rarr;==&quot; onclick=&quot;javascript:Edit(\'headingmore\');&quot; title=&quot;Increase heading level of current lines&quot;&gt;';
+	html += '&lt;span style=&quot;margin-left: 0.5em;&quot;&gt;&lt;/span/&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;prod;&quot; id=&quot;scrollToTop&quot; title=&quot;Scroll text area to window top&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; id=&quot;fullScreenButtonFloat&quot; style=&quot;display: none; position: absolute; z-index: 5;&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; id=&quot;fullScreenButton&quot;&gt;';
+	html += '&lt;/div&gt;';
+
+// fixing functions
+	html += '&lt;div style=&quot;margin-top: 0.2em; margin-bottom: 0.5em; margin-left: 0;&quot; id=&quot;customEditRow2&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;All&quot; onclick=&quot;javascript:Edit(\'replaceall\');&quot; title=&quot;Replace all occurrences in whole text or selection&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;larr;Repl.&quot; onclick=&quot;javascript:Edit(\'replaceprev\');&quot; title=&quot;Replace previous&quot;&gt;';
+	html += '&lt;span style=&quot;position: relative; padding: 0; margin: 0 0.2em;&quot; id=&quot;replaceComboInput&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;text&quot; value=&quot;&quot; style=&quot;height: 1.4em; font-family: monospace; height: 1.2em; padding: 0; margin: 0; position: absolute; left: 0; top: 0; z-index: 2;&quot; onfocus=&quot;this.setSelectionRange(0, this.textLength);&quot; id=&quot;replaceText&quot; title=&quot;&quot;&gt;';
+	html += '&lt;select class=&quot;customEdit&quot; id=&quot;replaceSelect&quot; style=&quot;height: 1.5em; font-family: monospace; border: none; padding: 0; margin: 0; position: relative; vertical-align: baseline; z-index: 1;&quot; onfocus=&quot;SetComboOptions(\'replace\')&quot; onChange=&quot;javascript:ChangeComboInput(\'replace\');&quot;&gt;';
+	html += '&lt;/select&gt;';
+	html += '&lt;/span&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;Repl.&amp;rarr;&quot; onclick=&quot;javascript:Edit(\'replacenext\');&quot; title=&quot;Replace&quot;&gt;';
+	html += '&lt;span title=&quot;Find ahead as you type (non-regexp only)&quot;&gt;&lt;input class=&quot;customEdit&quot; style=&quot;margin: 0 0.2em 0 0.5em;&quot; type=&quot;checkbox&quot; value=&quot;1&quot; id=&quot;findAhead&quot;&gt;Find ahead&lt;/span&gt;';
+	html += '&lt;span title=&quot;Search should be case sensitive&quot;&gt;&lt;input class=&quot;customEdit&quot; style=&quot;margin: 0 0.2em 0 0.3em;&quot; type=&quot;checkbox&quot; value=&quot;1&quot; id=&quot;caseSensitive&quot;&gt;Case&lt;/span&gt;';
+	html += '&lt;span title=&quot;Search should be a regular expression&quot;&gt;&lt;input class=&quot;customEdit&quot; style=&quot;margin: 0 0.2em 0 0.3em;&quot; type=&quot;checkbox&quot; value=&quot;1&quot; id=&quot;regExp&quot;&gt;Regexp&lt;/span&gt;';
+	html += '&lt;span style=&quot;margin-left: 1em;&quot;&gt;Fix:&lt;/span/&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;Basic&quot; onclick=&quot;javascript:Edit(\'spaces\');&quot; title=&quot;Fix blanks and empty lines&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;nbsp;|&amp;nbsp;&quot; onclick=&quot;javascript:Edit(\'pipes\');&quot; title=&quot;Fix blanks around vertical bars&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;k&amp;Omega;&quot; onclick=&quot;javascript:Edit(\'units\');&quot; title=&quot;Fix units&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;radic;&quot; onclick=&quot;javascript:Edit(\'math\');&quot; title=&quot;Fix math, DO NOT USE ON WHOLE TEXT OR &lt;math&gt;&lt;/math&gt; WIKICODE!!!&quot;&gt;';
+  html += '&lt;span style=&quot;margin-left: 0.5em;&quot;&gt;&lt;/span/&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;&amp;mdash;&quot; onclick=&quot;javascript:Edit(\'dashes\');&quot; title=&quot;Fix dashes&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;html&quot; onclick=&quot;javascript:Edit(\'html\');&quot; title=&quot;Fix html to wikicode&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;.,:&quot; onclick=&quot;javascript:Edit(\'punct\');&quot; title=&quot;Fix spaces before puntuation&quot;&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;Aa&quot; onclick=&quot;javascript:Edit(\'caps\');&quot; title=&quot;Fix caps in headers and lists&quot;&gt;';
+	html += '&lt;/div&gt;';
+	customEditButtons.innerHTML = html;
+	buttonsWrapper.appendChild(customEditButtons);
+
+// add elements to buttonsWrapper
+	var element = document.getElementById('editpage-copywarn');
+	while (element != null) {
+		if (element.id == 'editpage-specialchars') {
+			break;
+		}
+		next_element = element.nextSibling;
+		buttonsWrapper.appendChild(element);
+		element = next_element;
+	}
+
+// add preview and changes buttons
+	var customPreview = document.createElement('span');
+	customPreview.id = 'customPreviewButtons';
+	html = '';
+	html += '&lt;span style=&quot;margin-left: 0.5em; margin-right: 0.5em&quot;&gt;';
+	html += 'Instant:\n';
+  html += '&lt;input type=&quot;button&quot; class=&quot;customEdit&quot; title=&quot;Show a preview below&quot; value=&quot;Preview&quot; id=&quot;instantPreview&quot; onclick=&quot;NormalScreen(); document.getElementById(\'PreviewBox\').innerHTML = wiki2html(editform.wpTextbox1.value);&quot;&gt;';
+	html += '&lt;input type=&quot;button&quot; class=&quot;customEdit&quot; title=&quot;Show changes since your last preview below&quot; value=&quot;Changes&quot; id=&quot;instantDiff&quot; onclick=&quot;NormalScreen(); document.getElementById(\'PreviewBox\').innerHTML = StringDiff(editformOrig, editform.wpTextbox1.value);&quot;&gt;';
+	html += '&lt;input type=&quot;button&quot; class=&quot;customEdit&quot; title=&quot;Clear the preview box&quot; value=&quot;Clear&quot; id=&quot;instantClear&quot; onclick=&quot;NormalScreen(); document.getElementById(\'PreviewBox\').innerHTML = \'\';&quot;&gt;';
+	html += '&lt;/span&gt;';
+	html += 'Server:\n';
+	customPreview.innerHTML = html;
+	var preview = document.getElementById('wpPreview');
+	preview.parentNode.insertBefore(customPreview, preview);
+
+// add preview box
+	var previewBox = document.createElement('div');
+	previewBox.id = 'customPreviewBox';
+	html = '';
+	html += '&lt;div style=&quot;margin-top: 0.5em; margin-bottom: 0.5em; border-width: 1px; border-style: solid; border-color: #808080 #d0d0d0 #d0d0d0 #808080;&quot; id=&quot;PreviewBoxOutline&quot;&gt;';
+	html += '&lt;div class=&quot;previewBox&quot; style=&quot;padding: 5px; border-width: 1px; border-style: solid; border-color: #404040 #ffffff #ffffff #404040;&quot; id=&quot;PreviewBox&quot;&gt;';
+	html += '&lt;/div&gt;';
+	html += '&lt;/div&gt;';
+	html += '&lt;input class=&quot;customEdit&quot; type=&quot;button&quot; value=&quot;Scroll up&quot; id=&quot;scrollToTopBottom&quot; title=&quot;Scroll text area to window top&quot;&gt;';
+	previewBox.innerHTML = html;
+	inputWrapper.parentNode.insertBefore(previewBox, inputWrapper.nextSibling);
+
+// move linebreak before checkboxes down
+	var summary = document.getElementById('wpSummary');
+	var checkboxSep = document.createTextNode('');
+	summary.parentNode.replaceChild(checkboxSep, summary.nextSibling);
+
+// move 'Summary:' into submit button div
+	var summary = document.getElementById('wpSummary');
+	var summaryLabel = document.getElementById('wpSummaryLabel');
+	summary.parentNode.insertBefore(summaryLabel, summary.parentNode.firstChild);
+
+// make the summary a combo box
+	var summary = document.getElementById('wpSummary');
+	var htmlPre = '';
+	var htmlPost = '';
+	html = '';
+	htmlPre  += ' &lt;span style=&quot;position: relative;&quot; id=&quot;summaryComboInput&quot;&gt;';
+	html     += ' style=&quot;padding: 0; margin: 0; position: absolute; left: 0; top: 0; z-index: 2;&quot; onfocus=&quot;this.setSelectionRange(0, this.textLength);&quot;';
+	htmlPost += '&lt;select style=&quot;border: none; padding: 0; margin: 0; position: relative; vertical-align: middle; z-index: 1;&quot; id=&quot;wpSummarySelect&quot; onfocus=&quot;javascript:SetComboOptions(\'summary\')&quot; onchange=&quot;javascript:ChangeComboInput(\'summary\');&quot;&gt;';
+	htmlPost += '&lt;/select&gt;';
+	htmlPost += '&lt;/span&gt;';
+	summary.parentNode.innerHTML = summary.parentNode.innerHTML.replace(/\s*(&lt;input.*?id\=\&quot;wpSummary\&quot;)(.*?&gt;)/, htmlPre + '$1' + html + '$2' + htmlPost);
+
+// add margin around submit buttons
+	var saveButton = document.getElementById('wpSave');
+	saveButton.parentNode.style.marginTop = '0.7em';
+	saveButton.parentNode.style.marginBottom = '0.5em';
+
+// move copywarn down
+	var copywarn = document.getElementById('editpage-copywarn');
+	inputWrapper.parentNode.insertBefore(copywarn, previewBox.nextSibling);
+
+// shorten submit button texts and add onclick handler
+	document.getElementById('wpPreview').value = 'Preview';
+	document.getElementById('wpDiff').value = 'Changes';
+	window.onsubmit = function() {
+		AddToHistory('summary');
+	};
+
+// set up combo input boxes with history
+	fieldHist ['find'] = [];
+	cookieName['find'] = 'findHistory';
+	inputElement['find'] = new Object(document.getElementById('findText'));
+	selectElement['find'] = new Object(document.getElementById('findSelect'));
+	selectElement['find'].style.height = (inputElement['find'].clientHeight + 1) +'px';
+
+	fieldHist ['replace'] = [];
+	cookieName['replace'] = 'replaceHistory';
+	inputElement['replace'] = new Object(document.getElementById('replaceText'));
+	selectElement['replace'] = new Object(document.getElementById('replaceSelect'));
+	selectElement['replace'].style.height = (inputElement['replace'].clientHeight + 1) +'px';
+
+	fieldHist ['summary'] = [];
+	cookieName['summary'] = 'summaryHistory';
+	inputElement['summary'] = new Object(document.getElementById('wpSummary'));
+	selectElement['summary'] = new Object(document.getElementById('wpSummarySelect'));
+	selectElement['summary'].style.height = (inputElement['summary'].clientHeight + 1) +'px';
+
+	ResizeComboInput('find');
+	ResizeComboInput('replace');
+	ResizeComboInput('summary');
+
+// setup fullscreen mode
+
+// save textbox properties
+	normalTextareaWidth = getStyle(textareaElement, 'width');
+	normalTextareaHeight = getStyle(textareaElement, 'height');
+	normalTextareaMargin = getStyle(textareaElement, 'margin');
+	normalTextareaRows = textareaElement.rows;
+
+// set fullscreen style fixes
+	var inputWrapper = document.getElementById('inputWrapper');
+	var content = document.getElementById('content');
+	var content = document.getElementById('content');
+	inputWrapper.style.lineHeight = getStyle(content, 'line-height');
+
+// move globalWrapper elements to new subGlobalWrapper
+	var globalWrapper = document.getElementById('globalWrapper');
+	var subGlobalWrapper = document.createElement('div');
+	subGlobalWrapper.id = 'subGlobalWrapper';
+	globalWrapper.appendChild(subGlobalWrapper);
+	var element = globalWrapper.firstChild;
+	while (element != null) {
+		if (element.id == 'subGlobalWrapper') {
+			break;
+		}
+		next_element = element.nextSibling;
+		subGlobalWrapper.appendChild(element);
+		element = next_element;
+	}
+
+// set original tree position of input area
+	normalTreePos = inputWrapper.nextSibling;
+
+// set fullscreen button texts
+	var fullScreenButton = document.getElementById('fullScreenButton');
+	var floatButton = document.getElementById('fullScreenButtonFloat');
+	fullScreenButton.value = fullButtonValue;
+	fullScreenButton.title = fullButtonTitle;
+	floatButton.value = normalFloatButtonValue;
+	floatButton.title = normalButtonTitle;
+
+// set button event handlers
+	document.captureEvents(Event.click);
+	document.captureEvents(Event.mouseover);
+	document.captureEvents(Event.keyup);
+	document.captureEvents(Event.keypress);
+
+// fullscreen
+	fullScreenButton.onclick = FullScreen;
+	floatButton.onclick = NormalScreen;
+	floatButton.onblur = function() {
+		floatButton.style.right = '0.5em';
+		floatButton.style.bottom = '0.5em';
+		floatButton.style.top = '';
+		floatButton.style.left = '';
+	};
+
+// scroll to text area top
+	var scrollToTop = document.getElementById('scrollToTop');
+	var scrollToTopBottom = document.getElementById('scrollToTopBottom');
+	scrollToTop.onmouseover = ScrollToTop;
+	scrollToTop.onclick = ScrollToTop;
+	scrollToTopBottom.onmouseover = ScrollToTop;
+	scrollToTopBottom.onclick = ScrollToTop;
+
+// find ahead
+	var findText = document.getElementById('findText');
+	findText.onkeyup = FindAhead;
+
+// cursor memory, jump to last changed position
+	textareaElement.onkeypress = KeyTextArea;
+	textareaElement.onkeyup = KeyTextArea;
+	textareaElement.onclick = ClickTextArea;
+
+// submit buttons
+	var saveButton = document.getElementById('wpSave');
+	var previewButton = document.getElementById('wpPreview');
+	var diffButton = document.getElementById('wpDiff');
+	saveButton.onclick = function() { NormalScreen(); saveButton.onclick = null; saveButton.click(); };
+	previewButton.onclick = function() { NormalScreen(); previewButton.onclick = null; previewButton.click(); };
+	diffButton.onclick = function() { NormalScreen(); diffButton.onclick = null; diffButton.click(); };
+
+// insert an invisible clone of the textarea for resizing
+  var textareaClone = textareaElement.cloneNode(false);
+  textareaClone.id = 'textareaClone';
+  textareaClone.name = null;
+  textareaClone.accesskey = null
+  textareaClone.tabindex = null;
+	textareaClone.style.position = 'relative';
+  textareaClone.style.display = 'none';
+	textareaClone.style.zIndex = '-5';
+	textareaClone.style.height = '';
+	textareaClone.rows = 1;
+  textareaClone.style.overflow = 'scroll';
+  textareaElement.parentNode.insertBefore(textareaClone, textareaElement.nextSibling);
+
+// resize textarea and parse rows
+	window.onresize = ResizeTextarea;
+	ResizeTextarea();
+
+// set textarea cursor to start
+	textareaElement.setSelectionRange(0, 0);
+
+// default checkboxes
+  if (findAheadSelected) {
+    document.getElementById('findAhead').checked = true;
+  }
+
+	return;
+}
+
+
+//
+// FindAhead: find non-regexp text as you type, event handler for find field
+//
+
+function FindAhead() {
+
+  if (document.getElementById('findAhead').checked) {
+    if (!document.getElementById('regExp').checked) {
+
+// get the find text
+			var find = document.getElementById('findText');
+			var findText = find.value;
+
+// get checkboxes
+			var caseSensitive = document.getElementById('caseSensitive');
+			var regExp = document.getElementById('regExp');
+
+// replace special characters for regexp search
+			var startPos = textareaElement.selectionStart;
+			findText = findText.replace(/([\\^\$\*\+\?\.\(\)\[\]\{\}\:\=\!\|\,\-])/g, '\\$1');
+			if ( ! caseSensitive.checked ) {
+				regExpFlags = 'i';
+			}
+			if (findText != '') {
+
+// create regexp
+				var regExpFind = new RegExp(findText, regExpFlags);
+
+// set start position for search to right
+				var indexStart;
+				var result;
+				indexStart = startPos;
+
+// execute the regexp search to the right
+				regExpFind.lastIndex = indexStart;
+				result = regExpFind.exec(textareaElement.value);
+
+// set the selection
+				if (result != null) {
+
+// set the selection range
+					textareaElement.setSelectionRange(result.index, result.index + result[0].length);
+
+// scroll the textarea to the selected text or cursor position
+					ParseRows();
+					if (textRows.selStartRow &gt;= textRows.rows) {
+					  ScrollTextarea(textRows.selStartRow, textRows.selEndRow, 0, 0, 0);
+					}
+					else {
+					  ScrollTextarea(textRows.selStartRow, textRows.selEndRow, 0, 0, textareaElement.scrollHeight);
+					}
+				}
+			}
+		}
+	}
+	return;
+}
+
+
+//
+// ClickTextArea: event handler for textarea clicks
+//
+
+function ClickTextArea(event) {
+
+// reset cursor memory
+  textRows.cursorMemory = null;
+	return;
+}
+
+
+//
+// KeyTextArea: event handler for textarea keypresses
+//
+
+function KeyTextArea(event) {
+
+// 'jump to last change' function
+	if (event.type == 'keyup') {
+
+// left, right, up, down, page up, page down;
+		switch (event.keyCode) {
+			case 37: ; case 39: ; case 38: ; case 33: ; case 40: ; case 34: break;
+			default:
+			if (event.charCode != null) {
+				lastChangePos = textareaElement.selectionStart;
+			}
+  	}
+ 	}
+
+// cursor memory function
+	else if (event.type == 'keypress') {
+
+// check if cursor memory has been enabled
+		if (cursorMemory != true) {
+			return;
+		}
+
+// left, right
+		if ( (event.keyCode == 37) || (event.keyCode == 39) ) {
+			textRows.cursorMemory = null;
+		}
+
+// up, down, page up, page down; contains a workaround for a bug that misplaces cusor in empty lines
+		else if ( (event.keyCode == 38) || (event.keyCode == 40) || (event.keyCode == 33) || (event.keyCode == 34) ) {
+			ParseRows();
+			var row = textRows.selStartRow;
+			var col;
+			if (textRows.cursorMemory != null) {
+				col = textRows.cursorMemory;
+			}
+			else {
+				col = textRows.selEnd - textRows.rowStart[row];
+				textRows.cursorMemory = col;
+			}
+			var lines;
+
+// up, down, page up, page down
+			switch (event.keyCode) {
+				case 38: lines = -1; break;
+				case 33: lines = scrollMargin - textRows.rows; break;
+				case 40: lines = 1; break;
+				case 34: lines = textRows.rows - scrollMargin;
+			}
+			if ( ( (lines &lt; 0) &amp;&amp; (row &gt; 0) ) || ( (lines &gt; 0) &amp;&amp; (row &lt; textRows.rowTotal) ) ) {
+				row = row + lines;
+				if (row &lt; 0) {
+					row = 0;
+				}
+				else if (row &gt; textRows.rowTotal) {
+					row = textRows.rowTotal;
+				}
+				var pos;
+				if (textRows.rowLength[row] &gt;= col) {
+					pos = textRows.rowStart[row] + col;
+					if (!event.metaKey &amp;&amp; !event.shiftKey &amp;&amp; !event.ctrlKey) {
+						textareaElement.setSelectionRange(pos, pos);
+						event.preventDefault();
+					}
+				}
+				else {
+					pos = textRows.rowStart[row] + textRows.rowLength[row];
+				}
+				ScrollTextarea(textRows.selStartRow, textRows.selEndRow, lines, scrollMargin, textareaElement.scrollTop);
+			}
+		}
+		else {
+			textRows.changed = true;
+		}
+	}
+	return;
+}
+
+
+//
+// ScrollToTop: event handler for scroll to textarea top button
+//
+
+function ScrollToTop(event) {
+
+	var scrollToTop = document.getElementById('scrollToTop');
+	var scrollToTopBottom = document.getElementById('scrollToTopBottom');
+	var textarea = document.getElementById('textareaWrapper');
+	var buttons = document.getElementById('buttonsWrapper');
+	var textareaTop = getOffsetTop(textarea);
+	var buttonsTop = getOffsetTop(buttons);
+	var offset = window.pageYOffset;
+
+// click
+	if (event.type == 'click') {
+		if (offset == textareaTop) {
+		  window.scroll(0, buttonsTop);
+			scrollToTop.title = &quot;Scroll text area to window top&quot;;
+			scrollToTopBottom.title = &quot;Scroll text area to window top&quot;;
+		}
+		else {
+			window.scroll(0, textareaTop);
+			scrollToTop.title = &quot;Scroll button area to window top&quot;;
+			scrollToTopBottom.title = &quot;Scroll button area to window top&quot;;
+		}
+	}
+
+// mouseover
+	else {
+		if (offset == textareaTop) {
+			scrollToTop.title = &quot;Scroll button area to window top&quot;;
+			scrollToTopBottom.title = &quot;Scroll button area to window top&quot;;
+		}
+		else {
+			scrollToTop.title = &quot;Scroll text area to window top&quot;;
+			scrollToTopBottom.title = &quot;Scroll text area to window top&quot;;
+		}
+	}
+	return;
+}
+
+
+
+//
+// FullScreen: change to fullscreen input area; event handler for fullscreen buttons
+//
+
+function FullScreen(event) {
+
+	fullScreenMode = true;
+
+// save window scroll position
+	normalPageYOffset = window.pageYOffset;
+	normalPageXOffset = window.pageXOffset;
+
+// get fullscreen button coordinates
+	var buttonOffsetLeft = event.pageX - window.pageXOffset;
+	var buttonOffsetTop = event.pageY - window.pageYOffset;
+
+// move the input area up in the tree
+	var inputWrapper = document.getElementById('inputWrapper');
+	var globalWrapper = document.getElementById('globalWrapper');
+	var subGlobalWrapper = document.getElementById('subGlobalWrapper');
+	globalWrapper.insertBefore(inputWrapper, subGlobalWrapper);
+
+// set input area to fullscreen
+	inputWrapper.style.position = 'fixed';
+	inputWrapper.style.top = '0';
+	inputWrapper.style.left = '0';
+	inputWrapper.style.right = '0';
+	inputWrapper.style.bottom = '0';
+	var content = document.getElementById('content');
+	inputWrapper.style.backgroundColor = getStyle(content, 'background-color');
+	var buttonsWrapper = document.getElementById('buttonsWrapper');
+	buttonsWrapper.style.paddingLeft = '0.5em'
+	buttonsWrapper.style.paddingBottom = '0.5em'
+
+// set textarea size
+	textareaElement.style.margin = '0';
+
+// set the textarea to maximal height
+	var textareaWrapper = document.getElementById('textareaWrapper');
+	textareaElement.style.height = (window.innerHeight - buttonsWrapper.offsetHeight - 4) + 'px';
+
+// hide the rest of the page
+	subGlobalWrapper.style.display = 'none';
+
+// set floating 'back to normal' button
+	var floatButton = document.getElementById('fullScreenButtonFloat');
+	floatButton.style.right = '';
+	floatButton.style.bottomt = '';
+	floatButton.style.display = 'inline';
+	floatButton.style.left = (buttonOffsetLeft - floatButton.offsetWidth / 2) + 'px';
+	floatButton.style.top = (buttonOffsetTop - floatButton.offsetHeight / 2) + 'px';
+	floatButton.focus();
+
+// change fullscreen button text and handler
+	var fullScreenButton = document.getElementById('fullScreenButton');
+	fullScreenButton.value = normalButtonValue;
+	fullScreenButton.title = normalButtonTitle;
+	fullScreenButton.onclick = NormalScreen;
+
+// set rows
+	var textareaClone = document.getElementById('textareaClone');
+	textareaClone.style.display = 'block';
+  var rows = textareaElement.clientHeight / textareaClone.clientHeight * textareaClone.rows;
+	textareaClone.style.display = 'none';
+	textareaElement.rows = rows;
+
+// resize textarea to defined cols number and parse rows
+	ResizeTextarea();
+
+	return;
+}
+
+
+//
+// NormalScreen: change back to normal page view; event handler for fulscreen buttons
+//
+
+function NormalScreen() {
+
+// check if we are in fullscreen mode
+	if (fullScreenMode != true) {
+		return;
+	}
+	fullScreenMode = false;
+
+// hide floating 'back to normal' button
+	var floatButton = document.getElementById('fullScreenButtonFloat').style.display = 'none';
+
+// show the rest of the page
+	document.getElementById('subGlobalWrapper').style.display = 'block';
+
+// set input area back to the original position
+	var inputWrapper = document.getElementById('inputWrapper');
+	normalTreePos.parentNode.insertBefore(inputWrapper, normalTreePos);
+	inputWrapper.style.position = 'static';
+	inputWrapper.style.height = '';
+	inputWrapper.style.backgroundColor = '';
+
+// reset textarea settings
+	textareaElement.style.width = normalTextareaWidth;
+	textareaElement.style.height = normalTextareaHeight;
+	textareaElement.style.margin = normalTextareaMargin;
+	textareaElement.rows = normalTextareaRows;
+	document.getElementById('buttonsWrapper').style.padding = '';
+
+// change fullscreen button text and handler
+	var fullScreenButton = document.getElementById('fullScreenButton');
+	fullScreenButton.value = fullButtonValue;
+	fullScreenButton.title = fullButtonTitle;
+	fullScreenButton.onclick = FullScreen;
+
+// reset window scroll position
+	window.scrollTo(normalPageXOffset, normalPageYOffset);
+
+// resize textarea to defined cols number
+	ResizeTextarea();
+
+	return;
+}
+
+
+//
+// ResizeComboInput: set the size of the background select boxes so that the button is visible
+//
+
+function ResizeComboInput(field) {
+
+// add a dummy option
+	var dummy;
+	if (selectElement[field].options.length == 0) {
+		selectElement[field].options[0] = new Option('');
+		dummy = true;
+	}
+
+// set option widths to 0
+	for (i = 0; i &lt; selectElement[field].options.length; i ++) {
+		selectElement[field].options[i].style.width = '0';
+	}
+
+// calculate select width
+	var inputWidth = inputElement[field].clientWidth;
+	var selectWidth = selectElement[field].clientWidth;
+	var optionWidth = selectElement[field].options[0].offsetWidth;
+	var border = inputElement[field].offsetWidth - inputElement[field].clientWidth;
+	selectElement[field].style.width = (selectWidth - optionWidth + inputWidth - border) + 'px';
+
+// delete dummy option
+	if (dummy) {
+		selectElement[field].options[0] = null;
+	}
+
+// set option widths to auto
+	for (i = 0; i &lt; selectElement[field].options.length; i ++) {
+		selectElement[field].options[i].style.width = 'auto';
+	}
+	return;
+}
+
+
+//
+// ChangeComboInput: set the input value to selected option; onchange event handler for select boxes
+//
+
+function ChangeComboInput(field) {
+
+// get selection index (-1 for unselected)
+	var selected = selectElement[field].selectedIndex;
+	if (selected &gt;= 0) {
+
+// get selected option
+		var option = selectElement[field].options[selected];
+		if (option.text != '') {
+
+// add case and regexp checkboxes to find / replace fields
+			if (option.value == 'setcheck') {
+				document.getElementById('caseSensitive').checked
+					= ( option.text.charAt(0) == checkMarker[true] );
+				document.getElementById('regExp').checked
+					= ( option.text.charAt(1) == checkMarker[true] );
+				inputElement[field].value = option.text.substr(3);
+			}
+			else {
+				inputElement[field].value = option.text;
+			}
+		}
+	}
+	return;
+}
+
+
+//
+// AddToHistory: add an input value to the cookie history
+//
+
+function AddToHistory(field) {
+
+	if (inputElement[field].value != '') {
+
+// load history from cookie
+	LoadHistoryFromCookie(field);
+
+// add current value to history
+		fieldHist[field].unshift(inputElement[field].value);
+
+// add case and regexp checkboxes to find / replace value
+		if ( (field == 'find') || (field == 'replace') ) {
+			fieldHist[field][0] =
+				checkMarker[ document.getElementById('caseSensitive').checked ] +
+				checkMarker[ document.getElementById('regExp').checked ] +
+				' ' + fieldHist[field][0];
+		}
+
+// remove multiple old copies from history
+		i = 1;
+		while (i &lt; fieldHist[field].length) {
+			if (fieldHist[field][i] == fieldHist[field][0]) {
+				fieldHist[field].splice(i, 1);
+			}
+			else {
+				i ++;
+			}
+		}
+
+// remove new value if it is a preset value
+		i = 0;
+		if (presetOptions[field] != null) {
+			while (i &lt; presetOptions[field].length) {
+				if (presetOptions[field][i] == fieldHist[field][0]) {
+					fieldHist[field].shift;
+					break;
+				}
+				else {
+					i ++;
+				}
+			}
+		}
+
+// cut history to maximal history length
+		fieldHist[field] = fieldHist[field].slice(0, findHistoryLength);
+
+// saved history to cookie
+		SaveHistoryToCookie(field);
+	}
+	return;
+}
+
+
+//
+// SetComboOptions: generate the select options from cookie history; onfocus handler for select box
+//
+
+function SetComboOptions(field) {
+
+// load history from cookie
+	LoadHistoryFromCookie(field);
+
+	var option = {};
+	var selected = null;
+	j = 0;
+
+// delete options
+	var options = selectElement[field].options;
+	for (i = 0; i &gt; options.length; i ++) {
+		selectElement[field].remove(i);
+	}
+
+// delete optgroup
+	option = document.getElementById(field + 'Optgroup');
+	if (option != null) {
+		selectElement[field].removeChild(option);
+	}
+
+// workaround for onchange not firing when selecting first option from unselected dropdown
+	option = document.createElement('option');
+	option.style.display = 'none';
+	selectElement[field].options[j++] = option;
+
+// add history entries
+	for (i = 0; i &lt; fieldHist[field].length; i ++) {
+		if (fieldHist[field][i] != null) {
+			if (fieldHist[field][i] == inputElement[field].value) {
+				selected = j;
+			}
+			option = document.createElement('option');
+			option.text = fieldHist[field][i];
+			if ( (field == 'find') || (field == 'replace') ) {
+				option.value = 'setcheck';
+			}
+			selectElement[field].options[j++] = option;
+		}
+	}
+
+// add preset entries
+	if (presetOptions[field] != null) {
+		var startPreset = j;
+		for (i = 0; i &lt; presetOptions[field].length; i ++) {
+			if (presetOptions[field][i] != null) {
+				if (presetOptions[field][i] == inputElement[field].value) {
+					selected = j;
+				}
+				option = document.createElement('option');
+				option.text = presetOptions[field][i];
+				selectElement[field].options[j++] = option;
+			}
+		}
+
+// add a blank separator
+		if (startPreset &gt; 1) {
+			option = document.createElement('optgroup');
+			option.label = '\u00a0';
+			option.id = field + 'Optgroup';
+			selectElement[field].insertBefore(option, selectElement[field].options[startPreset]);
+		}
+	}
+
+// set the selection
+	selectElement[field].selectedIndex = selected;
+	return;
+}
+
+
+//
+// LoadHistoryFromCookie: get the input box history from the respective cookie
+//
+
+function LoadHistoryFromCookie(field) {
+	var cookie = GetCookie(cookieName[field]);
+	if (cookie != null) {
+		cookie = decodeURIComponent(cookie);
+		fieldHist[field] = cookie.split('\n');
+	}
+	return;
+}
+
+
+//
+// SaveHistoryToCookie: save the input box history to the respective cookie
+//
+
+function SaveHistoryToCookie(field) {
+	var cookieExpire = new Date();
+	cookieExpire.setTime( cookieExpire.getTime() + cookieExpireSec * 1000 );
+	var cookie = '';
+	cookie = fieldHist[field].join('\n')
+	cookie = encodeURIComponent(cookie);
+	SetCookie(cookieName[field], cookie, cookieExpire.toGMTString());
+	return;
+}
+
+
+// getStyle: get style properties for non-inline css definitions
+function getStyle(element, styleProperty) {
+	var style;
+	if (element != null) {
+		style = document.defaultView.getComputedStyle(element, null).getPropertyValue(styleProperty);
+	}
+	return(style);
+}
+
+
+//
+// GetCookie
+//
+
+function GetCookie(name) {
+	var cookie = ' ' + document.cookie;
+	var search = ' ' + name + '=';
+	var setStr = null;
+	var offset = 0;
+	var end = 0;
+	if (cookie.length &gt; 0) {
+		offset = cookie.indexOf(search);
+		if (offset != -1) {
+			offset += search.length;
+			end = cookie.indexOf(';', offset)
+			if (end == -1) {
+				end = cookie.length;
+			}
+			setStr = cookie.substring(offset, end);
+			setStr = setStr.replace(/\\+/g, ' ');
+			setStr = decodeURIComponent(setStr);
+		}
+	}
+	return(setStr);
+}
+
+
+//
+// SetCookie
+//
+
+function SetCookie(name, value, expires, path, domain, secure) {
+	document.cookie = name + '=' + encodeURIComponent(value) +
+		((expires) ? '; expires=' + expires : '') +
+		((path)    ? '; path=' + path : '') +
+		((domain)  ? '; domain=' + domain : '') +
+		((secure)  ? '; secure' : '');
+}
+
+//
+// getOffsetTop: get element offset relative to left window border
+//
+
+function getOffsetTop(element) {
+	var offset = 0;
+	do {
+		offset += element.offsetTop;
+	} while ( (element = element.offsetParent) != null );
+	return(offset);
+}
+
+
+/* &lt;/nowiki&gt;&lt;/pre&gt; */
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/m/User%7EArmandeh_editor.js_67bc.html">http://en.wikipedia.org../../../a/r/m/User%7EArmandeh_editor.js_67bc.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/r/m/User%7EArmandeh_editor.js_67bc.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/r/m/User_talk%7EArmandeh_editor.js_24b3.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Armandeh/editor.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:02, 10 March 2006 by Wikipedia user <a href="../../../a/r/m/User%7EArmandeh_d115.html" title="User:Armandeh">Armandeh</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

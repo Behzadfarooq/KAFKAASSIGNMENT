@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Arkon/monobook.js,Blocking policy,Bypass your cache,Village pump (technical)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Arkon/monobook.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Arkon/monobook.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/r/k/User%7EArkon_a61e.html" title="User:Arkon">User:Arkon</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</p>
+<div style="color:darkred;background-color:#EEEEEE;border: darkred 2px solid;padding:5px;" id="jswarning"><div style="clear: both;color:darkred;"></div><b><div style="display:block;">If a message on your talk page led you here, please be wary of who left it.  The code below could contain malicious content capable of compromising your account; if your account appears to be compromised, it will be <a href="../../../b/l/o/Wikipedia%7EBlocking_policy_2eb0.html" title="Wikipedia:Blocking policy">blocked</a>.  If you are unsure whether the code is safe, you can ask at the appropriate <a href="../../../v/i/l/Wikipedia%7EVillage_pump_%28technical%29_e812.html" title="Wikipedia:Village pump (technical)">village pump</a>.</b></div></div></span>
+<pre>// Script from [[User:Lupin/recent2.js]]
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://en.wikipedia.org/w/index.php?title=User:Lupin/recent2.js' 
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+// [[User:Lupin/popups.js]]
+
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://en.wikipedia.org/w/index.php?title=User:Lupin/popups.js' 
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+
+//
+
+function addlilink(tabs, url, name, id, title, key){
+    var na = document.createElement('a');
+    na.href = url;
+    na.appendChild(document.createTextNode(name));
+    var li = document.createElement('li');
+    if(id) li.id = id;
+    li.appendChild(na);
+    tabs.appendChild(li);
+    if(id)
+    {
+        if(key &amp;&amp; title)
+        {
+            ta[id] = [key, title];
+        }
+        else if(key)
+        {
+            ta[id] = [key, ''];
+        }
+        else if(title)
+        {
+            ta[id] = ['', title];
+        }
+    }
+    // re-render the title and accesskeys from existing code in wikibits.js
+    akeytt();
+    return li;
+}
+
+//
+
+function addTab(url, name, id, title, key){
+    var tabs = document.getElementById('p-cactions').getElementsByTagName('ul')[0];
+    return addlilink(tabs, url, name, id, title, key)
+};
+//
+
+//From http://en.wikipedia.org/w/index.php?title=User:JesseW/monobook.js&amp;oldid=20755510
+
+// addLastDiff
+addOnloadHook(function () {
+    z=document.getElementById(&quot;content&quot;).childNodes;
+    for (var n=0;n&lt;z.length;n++) { 
+      if (z[n].className==&quot;firstHeading&quot;) {
+        var pname=z[n].textContent;
+      }
+    }
+    var l=addTab(&quot;http://en.wikipedia.org/w/index.php?title=&quot; + pname + &quot;&amp;diff=cur&amp;oldid=prev&quot;, 'last', '');
+    l.lastChild.title=&quot;Show most recent diff&quot;;
+});
+
+//
+
+// -----------------------------------------------------------------------------
+// God-like Monobook skin
+// (c) 2005 Sam Hocevar &lt;sam@zoy.org&gt;
+// $Id: godmode-light.js 911 2005-08-09 10:06:39Z sam $
+// Modified for navpopups compatibility by Martijn Pieters. (?)
+// Ampersand bug fixed by Ilmari Karonen.
+// -----------------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+// Language support, taken from phase3/languages/*
+// -----------------------------------------------------------------------------
+var rollbacklink = 'rollback';
+var cantrollback = 'Cannot revert edit; last contributor is only author of this page.';
+var alreadyrolled = 'Cannot rollback last edit of [[$1]] by [[User:$2|$2]] ([[User talk:$2|Talk]]); someone else has edited or rolled back the page already. Last edit was by [[User:$3|$3]] ([[User talk:$3|Talk]]). ';
+var revertpage = 'Reverted edits by [[Special:Contributions/$2|$2]] to last version by $1';
+switch (document.getElementsByTagName('html')[0].lang) {
+  case 'fr':
+    rollbacklink = 'révoquer';
+    cantrollback = 'Impossible de révoquer: dernier auteur est le seul à avoir modifié cet article';
+    alreadyrolled = 'Impossible de révoquer la dernière modification de [[$1]] par  [[User:$2|$2]] ([[User talk:$2|Talk]]); quelqu\'un d\'autre à déjà modifer ou révoquer l\'article. La dernière modificaion était de [[User:$3|$3]] ([[User talk:$3|Talk]]). '; // lol @ pathetic grammar
+    revertpage = &quot;Révocation des modifications de [[Special:Contributions/$2|$2]] et restauration d'une précédente version de $1&quot;;
+    break;
+  case 'de':
+    rollbacklink = 'Zurücksetzen';
+    cantrollback = 'Die Änderung kann nicht zurückgenommen werden; der letzte Autor ist der einzige.';
+    alreadyrolled = 'Die Zurücknahme des Artikels [[$1]] von [[Benutzer:$2|$2]] ([[Benutzer Diskussion:$2|Diskussion]]) ist nicht möglich, da eine andere Änderung oder Rücknahme erfolgt ist.  Die letzte Änderung ist von [[Benutzer:$3|$3]] ([[Benutzer Diskussion:$3|Diskussion]])';
+    revertpage = 'Änderungen von [[Benutzer:$2]] rückgängig gemacht und letzte Version von [[Benutzer:$1]] wiederhergestellt';
+    break;
+  case 'es':
+    rollbacklink = 'Revertir';
+    cantrollback = 'No se pueden revertir las ediciones; el último colaborador es el único autor de este artículo.';
+    alreadyrolled = 'No se puede revertir la última edición de [[$1]] por [[Colaborador:$2|$2]] ([[Colaborador Discusión:$2|Discusión]]); alguien más ya ha editado o revertido esa página.  La última edición fue hecha por [[Colaborador:$3|$3]] ([[Colaborador Discusión:$3|Discusión]]). ';
+    revertpage = 'Revertida a la última edición de $1';
+    break;
+  case 'it':
+    rollbacklink = 'rollback';
+    cantrollback = 'Impossibile tornare ad una versione precedente: l\'ultima modifica è stata apportata dall\'unico utente che abbia lavorato a questo articolo.';
+    //alreadyrolled = '';
+    revertpage = 'Riportata alla revisione precedente da $1';
+    break;
+  case 'pt':
+    rollbacklink = 'voltar';
+    cantrollback = 'Não foi possível reverter a edição; o último contribuidor é o único autor deste artigo.';
+    alreadyrolled = 'Não foi possível reverter as edições de  [[$1]] por [[User:$2|$2]] ([[User talk:$2|Talk]]); alguém o editou ou já o reverteu.  A última edição foi de  [[User:$3|$3]] ([[User talk:$3|Conversar com ele]]). ';
+    revertpage = 'Revertidas edições por [[Special:Contributions/$2|$2]], para a última versão por $1';
+    break;
+}
+
+// -----------------------------------------------------------------------------
+// XMLHttpRequest support
+// -----------------------------------------------------------------------------
+if (document.implementation.createDocument &amp;&amp; window.DOMParser) {
+  var xmlparser = new DOMParser();
+}
+
+function XMLParse(xmlhttp) {
+  if (document.implementation.createDocument &amp;&amp; window.DOMParser) {
+    return xmlparser.parseFromString(xmlhttp.responseText, &quot;text/xml&quot;);
+  } else if (window.ActiveXObject) {
+    var xmldoc = new ActiveXObject(&quot;Microsoft.XMLDOM&quot;);
+    xmldoc.async = &quot;false&quot;;
+    ret = xmldoc.loadXML(xmlhttp.responseText);      
+    if (!ret)
+      return null;
+    return xmldoc.documentElement;
+  }
+  return xmlhttp.responseXML;
+}
+
+var xmlhttp;
+
+function HTTPClient() {
+  var http;
+  if(window.XMLHttpRequest) {
+    http = new XMLHttpRequest();
+  } else if (window.ActiveXObject) {
+    try {
+      http = new ActiveXObject(&quot;Msxml2.XMLHTTP&quot;);
+    } catch (e) {
+      try {
+        http = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+      } catch (E) {
+        http = false;
+      }
+    }
+  }
+  return http;
+}
+
+// -----------------------------------------------------------------------------
+// MD5 hash calculator
+// -----------------------------------------------------------------------------
+// Version 2.1 Copyright (C) Paul Johnston 1999 - 2002.
+// Other contributors: Greg Holt, Andrew Kepert, Ydnar, Lostinet
+// Distributed under the BSD License
+// See http://pajhome.org.uk/crypt/md5 for more info.
+// -----------------------------------------------------------------------------
+var hexcase = 0;
+var b64pad  = &quot;&quot;;
+var chrsz   = 8;
+
+function hex_md5(s){ return binl2hex(core_md5(str2binl(s), s.length * chrsz));}
+
+function core_md5(x, len)
+{
+  x[len &gt;&gt; 5] |= 0x80 &lt;&lt; ((len) % 32);
+  x[(((len + 64) &gt;&gt;&gt; 9) &lt;&lt; 4) + 14] = len;
+
+  var a =  1732584193;
+  var b = -271733879;
+  var c = -1732584194;
+  var d =  271733878;
+
+  for(var i = 0; i &lt; x.length; i += 16)
+  {
+    var olda = a;
+    var oldb = b;
+    var oldc = c;
+    var oldd = d;
+
+    a = md5_ff(a, b, c, d, x[i+ 0], 7 , -680876936); d = md5_ff(d, a, b, c, x[i+ 1], 12, -389564586); c = md5_ff(c, d, a, b, x[i+ 2], 17,  606105819); b = md5_ff(b, c, d, a, x[i+ 3], 22, -1044525330); a = md5_ff(a, b, c, d, x[i+ 4], 7 , -176418897); d = md5_ff(d, a, b, c, x[i+ 5], 12,  1200080426); c = md5_ff(c, d, a, b, x[i+ 6], 17, -1473231341); b = md5_ff(b, c, d, a, x[i+ 7], 22, -45705983); a = md5_ff(a, b, c, d, x[i+ 8], 7 ,  1770035416); d = md5_ff(d, a, b, c, x[i+ 9], 12, -1958414417); c = md5_ff(c, d, a, b, x[i+10], 17, -42063); b = md5_ff(b, c, d, a, x[i+11], 22, -1990404162); a = md5_ff(a, b, c, d, x[i+12], 7 ,  1804603682); d = md5_ff(d, a, b, c, x[i+13], 12, -40341101); c = md5_ff(c, d, a, b, x[i+14], 17, -1502002290); b = md5_ff(b, c, d, a, x[i+15], 22,  1236535329);
+
+    a = md5_gg(a, b, c, d, x[i+ 1], 5 , -165796510); d = md5_gg(d, a, b, c, x[i+ 6], 9 , -1069501632); c = md5_gg(c, d, a, b, x[i+11], 14,  643717713); b = md5_gg(b, c, d, a, x[i+ 0], 20, -373897302); a = md5_gg(a, b, c, d, x[i+ 5], 5 , -701558691); d = md5_gg(d, a, b, c, x[i+10], 9 ,  38016083); c = md5_gg(c, d, a, b, x[i+15], 14, -660478335); b = md5_gg(b, c, d, a, x[i+ 4], 20, -405537848); a = md5_gg(a, b, c, d, x[i+ 9], 5 ,  568446438); d = md5_gg(d, a, b, c, x[i+14], 9 , -1019803690); c = md5_gg(c, d, a, b, x[i+ 3], 14, -187363961); b = md5_gg(b, c, d, a, x[i+ 8], 20,  1163531501); a = md5_gg(a, b, c, d, x[i+13], 5 , -1444681467); d = md5_gg(d, a, b, c, x[i+ 2], 9 , -51403784); c = md5_gg(c, d, a, b, x[i+ 7], 14,  1735328473); b = md5_gg(b, c, d, a, x[i+12], 20, -1926607734);
+
+    a = md5_hh(a, b, c, d, x[i+ 5], 4 , -378558); d = md5_hh(d, a, b, c, x[i+ 8], 11, -2022574463); c = md5_hh(c, d, a, b, x[i+11], 16,  1839030562); b = md5_hh(b, c, d, a, x[i+14], 23, -35309556); a = md5_hh(a, b, c, d, x[i+ 1], 4 , -1530992060); d = md5_hh(d, a, b, c, x[i+ 4], 11,  1272893353); c = md5_hh(c, d, a, b, x[i+ 7], 16, -155497632); b = md5_hh(b, c, d, a, x[i+10], 23, -1094730640); a = md5_hh(a, b, c, d, x[i+13], 4 ,  681279174); d = md5_hh(d, a, b, c, x[i+ 0], 11, -358537222); c = md5_hh(c, d, a, b, x[i+ 3], 16, -722521979); b = md5_hh(b, c, d, a, x[i+ 6], 23,  76029189); a = md5_hh(a, b, c, d, x[i+ 9], 4 , -640364487); d = md5_hh(d, a, b, c, x[i+12], 11, -421815835); c = md5_hh(c, d, a, b, x[i+15], 16,  530742520); b = md5_hh(b, c, d, a, x[i+ 2], 23, -995338651);
+
+    a = md5_ii(a, b, c, d, x[i+ 0], 6 , -198630844); d = md5_ii(d, a, b, c, x[i+ 7], 10,  1126891415); c = md5_ii(c, d, a, b, x[i+14], 15, -1416354905); b = md5_ii(b, c, d, a, x[i+ 5], 21, -57434055); a = md5_ii(a, b, c, d, x[i+12], 6 ,  1700485571); d = md5_ii(d, a, b, c, x[i+ 3], 10, -1894986606); c = md5_ii(c, d, a, b, x[i+10], 15, -1051523); b = md5_ii(b, c, d, a, x[i+ 1], 21, -2054922799); a = md5_ii(a, b, c, d, x[i+ 8], 6 ,  1873313359); d = md5_ii(d, a, b, c, x[i+15], 10, -30611744); c = md5_ii(c, d, a, b, x[i+ 6], 15, -1560198380); b = md5_ii(b, c, d, a, x[i+13], 21,  1309151649); a = md5_ii(a, b, c, d, x[i+ 4], 6 , -145523070); d = md5_ii(d, a, b, c, x[i+11], 10, -1120210379); c = md5_ii(c, d, a, b, x[i+ 2], 15,  718787259); b = md5_ii(b, c, d, a, x[i+ 9], 21, -343485551);
+
+    a = safe_add(a, olda);
+    b = safe_add(b, oldb);
+    c = safe_add(c, oldc);
+    d = safe_add(d, oldd);
+  }
+  return Array(a, b, c, d);
+
+}
+
+function md5_cmn(q, a, b, x, s, t) { return safe_add(bit_rol(safe_add(safe_add(a, q), safe_add(x, t)), s),b); }
+function md5_ff(a, b, c, d, x, s, t) { return md5_cmn((b &amp; c) | ((~b) &amp; d), a, b, x, s, t); }
+function md5_gg(a, b, c, d, x, s, t) { return md5_cmn((b &amp; d) | (c &amp; (~d)), a, b, x, s, t); }
+function md5_hh(a, b, c, d, x, s, t) { return md5_cmn(b ^ c ^ d, a, b, x, s, t); }
+function md5_ii(a, b, c, d, x, s, t) { return md5_cmn(c ^ (b | (~d)), a, b, x, s, t); }
+
+function safe_add(x, y)
+{
+  var lsw = (x &amp; 0xFFFF) + (y &amp; 0xFFFF);
+  var msw = (x &gt;&gt; 16) + (y &gt;&gt; 16) + (lsw &gt;&gt; 16);
+  return (msw &lt;&lt; 16) | (lsw &amp; 0xFFFF);
+}
+
+function bit_rol(num, cnt)
+{
+  return (num &lt;&lt; cnt) | (num &gt;&gt;&gt; (32 - cnt));
+}
+
+function str2binl(str)
+{
+  var bin = Array();
+  var mask = (1 &lt;&lt; chrsz) - 1;
+  for(var i = 0; i &lt; str.length * chrsz; i += chrsz)
+    bin[i&gt;&gt;5] |= (str.charCodeAt(i / chrsz) &amp; mask) &lt;&lt; (i%32);
+  return bin;
+}
+
+function binl2hex(binarray)
+{
+  var hex_tab = hexcase ? &quot;0123456789ABCDEF&quot; : &quot;0123456789abcdef&quot;;
+  var str = &quot;&quot;;
+  for(var i = 0; i &lt; binarray.length * 4; i++)
+  {
+    str += hex_tab.charAt((binarray[i&gt;&gt;2] &gt;&gt; ((i%4)*8+4)) &amp; 0xF) +
+           hex_tab.charAt((binarray[i&gt;&gt;2] &gt;&gt; ((i%4)*8  )) &amp; 0xF);
+  }
+  return str;
+}
+
+// -----------------------------------------------------------------------------
+// Our nice Revert functions
+// -----------------------------------------------------------------------------
+var gml_vandal, gml_editor, gml_url;
+
+function PerformRevert() {
+  var l, token = '', revert = false;
+  // Look for '&amp;fakeaction=rollback' in URL
+  gml_url = location.pathname;
+  l = location.search.substring(1).split('&amp;');
+  for (i = 0; i &lt; l.length; i++) {
+    var n = l[i].indexOf('=');
+    var name = l[i].substring(0, n);
+    if (name == 'fakeaction') {
+      if (l[i].substring(n + 1) == 'rollback')
+        revert = true;
+    } else if (name == 'vandal') {
+      gml_vandal = unescape(l[i].substring(n + 1));
+    } else if (name == 'token') {
+      token = unescape(l[i].substring(n + 1));
+    } else if (name == 'title') {
+      gml_url += '?' + l[i];
+    }
+  }
+  if (!revert)
+    return;
+  document.getElementById('bodyContent').innerHTML = 'Please wait, reverting edits by ' + gml_vandal + '...';
+  // Avoid XSS kiddies by using a special token
+  if (token == '' || token != hex_md5(gml_url + gml_vandal + document.cookie)) {
+    document.getElementById('bodyContent').innerHTML += '&lt;br /&gt;Bad authentication token!';
+    return;
+  }
+
+  xmlhttp = HTTPClient();
+  if (!xmlhttp)
+    return;
+  document.getElementById('bodyContent').innerHTML += '&lt;br /&gt;Getting article history...';
+  xmlhttp.open(&quot;GET&quot;, gml_url + '&amp;action=history&amp;limit=50', true);
+  xmlhttp.onreadystatechange = RevertStepTwo;
+  xmlhttp.send(null);
+}
+
+function RevertStepTwo() {
+  if (xmlhttp.readyState != 4)
+    return
+  var l;
+  var oldid;
+  // Get the vandal and new editor names
+  gml_vandal = gml_vandal.replace(/_/g, ' ');
+  gml_editor = '';
+  doc = XMLParse(xmlhttp);
+  l = doc.getElementById('pagehistory').getElementsByTagName('li');
+  //l = doc.selectSingleNode('//*[@id=&quot;pagehistory&quot;]').getElementsByTagName('li');
+  for (i = 0; i &lt; l.length; i++) {
+    var name = l[i].getElementsByTagName('span')[0].getElementsByTagName('a')[0].innerHTML.replace(/_/g, ' ');
+    if (i == 0 &amp;&amp; name != gml_vandal) {
+      document.getElementById('bodyContent').innerHTML += '&lt;br /&gt;Error: Last editor is ' + name + ', not ' + gml_vandal + '!';
+      return;
+    } else if (i &gt; 0 &amp;&amp; name != gml_vandal) {
+      oldid = l[i].getElementsByTagName('input')[0].value;
+      gml_editor = name;
+      break;
+    }
+  }
+  if (gml_editor == '') {
+    document.getElementById('bodyContent').innerHTML += '&lt;br /&gt;Error: ' + gml_vandal + ' is the only editor!';
+    return;
+  }
+
+  xmlhttp = HTTPClient();
+  if (!xmlhttp)
+    return;
+  document.getElementById('bodyContent').innerHTML += '&lt;br /&gt;Getting article edit form (GET' + gml_url + '&amp;action=edit&amp;oldid=' + oldid + ')...';
+  xmlhttp.open('GET', gml_url + '&amp;action=edit&amp;oldid=' + oldid, true);
+  xmlhttp.onreadystatechange = RevertStepThree;
+  xmlhttp.send(null);
+}
+
+function RevertStepThree() {
+  if (xmlhttp.readyState != 4)
+    return
+  var form, newform, l;
+  // Insert the downloaded form in our current page, using
+  // only hidden form inputs.
+  doc = XMLParse(xmlhttp);
+  form = doc.getElementById('editform');
+  newform = document.createElement('form');
+  l = form.getElementsByTagName('textarea');
+  for (i = l.length; i--; ) {
+    var t = document.createElement('input');
+    t.type = 'hidden';
+    t.name = l[i].name;
+    t.value = l[i].value;
+    newform.appendChild(t);
+  }
+  l = form.getElementsByTagName('input');
+  for (i = l.length; i--; ) {
+    if (l[i].name == 'wpSummary') {
+      l[i].value = revertpage.replace(/\$1/g, gml_editor).replace(/\$2/g, gml_vandal);
+    } else if (l[i].name == 'wpMinoredit') {
+      l[i].value = '1';
+    } else if (l[i].name == 'wpWatchthis') {
+      if (!l[i].checked)
+        continue; // Don’t touch the &quot;watch&quot; status
+      l[i].value = &quot;on&quot;;
+    } else if (l[i].name == 'wpPreview') {
+      continue;
+    } else if (l[i].name == 'wpDiff') {
+      continue;
+    }
+    l[i].type = 'hidden';
+    newform.appendChild(l[i]);
+  }
+  newform.name = form.name;
+  newform.method = form.method;
+  newform.id = form.id;
+  newform.action = form.action;
+  document.getElementById('bodyContent').innerHTML += '&lt;br /&gt;Submitting form...';
+  document.getElementById('bodyContent').appendChild(newform);
+  // Submit the form
+  newform.submit();
+}
+
+// -----------------------------------------------------------------------------
+// Add revert buttons to the page
+// -----------------------------------------------------------------------------
+function AddRevertButtons() {
+  var l, article = '', vandal;
+  // Add 'revert' links to a diff page
+  l = document.getElementById('bodyContent').getElementsByTagName('td');
+  for (i = 0; i &lt; l.length; i++) {
+    if (l[i].className == 'diff-otitle') {
+      article = l[i].getElementsByTagName('a')[0].href.split('&amp;')[0].replace(/[^\/]*\/\/[^\/]*/, '');
+    } else if (l[i].className == 'diff-ntitle') {
+      var toplink = l[i].getElementsByTagName('a')[0];
+      var vndlink = l[i].getElementsByTagName('a')[1];
+      vandal = /^User:(.*)/.exec(vndlink.title);   
+      if (!vandal) vandal = /\?title=Special:Contributions&amp;target=([0-9.]+)/.exec(vndlink.href);  
+      if (!vandal) return;   
+      vandal = vandal[1];  
+      if (article != '' &amp;&amp; toplink.href.indexOf('oldid=') == -1) {  
+        var rvlink = '    &lt;strong&gt;[&lt;a href=&quot;' + article + '&amp;fakeaction=rollback&amp;vandal=' + vandal + '&amp;token=' + hex_md5(article + vandal + document.cookie) + '&quot;&gt;' + rollbacklink + '&lt;/a&gt;]&lt;/strong&gt; ';  
+        l[i].innerHTML = l[i].innerHTML.replace(/&lt;\/a&gt;\)\s+&lt;br/i, &quot;&lt;/a&gt;)&quot;+rvlink+&quot;&lt;br&quot;); 
+      }
+    }
+  }
+  // Add 'revert' links to a contributions page
+  if (location.href.indexOf(':Contributions') != -1) {
+    var c = document.getElementById('contentSub');
+    var a = c.getElementsByTagName('a');
+    if (a.length == 2) {
+      vandal = a[0].innerHTML;
+    } else {
+      vandal = c.innerHTML.replace(/ \(.*/, '').replace(/.* /, '');
+    }
+    l = document.getElementById('bodyContent').getElementsByTagName('li');
+    for (i = 0; i &lt; l.length; i++) {
+      var t = l[i].innerHTML
+      // If we are already a sysop on this wiki, abort
+      if (t.indexOf('&gt;' + rollbacklink + '&lt;/a&gt;]') != -1)
+          break;
+      //if (t.indexOf('&amp;diff=0') != -1) {
+      if (t.indexOf('&lt;strong&gt; (') != -1) {
+        article = l[i].getElementsByTagName('a')[0].href.split('&amp;')[0].replace(/[^\/]*\/\/[^\/]*/, '');
+        l[i].innerHTML += ' [&lt;a href=&quot;' + article + '&amp;fakeaction=rollback&amp;vandal=' + vandal + '&amp;token=' + hex_md5(article + vandal + document.cookie) + '&quot;&gt;' + rollbacklink + '&lt;/a&gt;]';
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Modify the page once it is loaded
+// -----------------------------------------------------------------------------
+addOnloadHook(PerformRevert);
+addOnloadHook(AddRevertButtons);
+
+//
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/k/User%7EArkon_monobook.js_202d.html">http://en.wikipedia.org../../../a/r/k/User%7EArkon_monobook.js_202d.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/r/k/User%7EArkon_monobook.js_202d.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/r/k/User_talk%7EArkon_monobook.js_25e3.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Arkon/monobook.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 06:26, 1 July 2006 by Wikipedia user <a href="../../../a/r/k/User%7EArkon_a61e.html" title="User:Arkon">Arkon</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

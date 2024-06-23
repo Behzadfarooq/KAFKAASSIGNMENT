@@ -1,0 +1,633 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Alphachimp/csd.js,Bypass your cache" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Alphachimp/csd.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Alphachimp/csd.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/l/p/User%7EAlphachimp_1adb.html" title="User:Alphachimp">User:Alphachimp</a></span></div>
+	    	    	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</span>
+</p><pre>//&lt;pre&gt;&lt;nowiki&gt;
+//When you install this script, you will also need to install cookie functions:
+//[[User:GeorgeMoney/UserScripts/helpers/all#Cookies]]
+//_-_-_-_-_-_-_-_-_-_CSD-_-_-_-_
+if(window.location.href.indexOf('speedydel') != -1 &amp;&amp; window.location.href.indexOf('action=delete') != -1)
+{ addOnloadHook(function() { doeasycsd(); }); }
+
+//The accesskey to use on the tab
+var tab_shortcut = &quot;a&quot;;
+
+//the criteria to not show &quot;content was&quot;
+var nocontent = &quot;A2|A8|G10|U1&quot;;
+
+//Delete the talkpage along with the main page
+var deletetalk = true;
+
+//Namespaces to not delete the talkpage of
+var nodeletetalkNS = &quot;User|Help&quot;;
+
+//Image deletion extention
+var image_use = true;
+
+//The summary to use when removing from article
+var image_sum = &quot;Commenting out Image:$1 because it has been deleted&quot;;
+
+//The button to click when commenting out image
+var image_click = 'wpSave';
+
+//If image not found on page, ask to skip it, or just skip it period
+var image_asktoskip  =  false;
+
+
+//Article wikilink removal extention
+var article_use = true;
+
+//Summary to use when removing wikilink
+var article_sum = &quot;Removing wikilink to [[$1]] because it was deleted&quot;;
+
+//The button to click when removing wikilink
+var article_click = 'wpSave';
+
+//The namespaces to ask you if you want to remove link from it (namespace of the page deleted)
+var article_remove_ns = &quot;&quot;; //&quot;User|Talk|Wikipedia&quot;; //if is blank, it means main namespace
+
+//If link not found on page, ask to skip it
+var article_asktoskip  =  false;
+
+//namespaces to not remove link (namespace of page where the link is being removed from)
+var article_noremove_ns = &quot;User|Wikipedia|User_talk|Image|Category|Category_talk&quot;;
+
+//To open the creator's talk page Please set this to false it is experimental
+var useopentp = false;
+
+//Default summary for criterias. $1 means where the criteria name will go
+//This is NOT what is used if you leave the inputbox blank. See above
+//This is called from the function defaultsum()
+var thedefaultsum = &quot;Per [[WP:CSD#$1|Criteria for Speedy Deletion, $1]]&quot;;
+
+//The default criteria to use if the inputbox is blank
+//Note: This is NOT the defaultsum. The defaultsum is the summary to use as default for criterias that you haven't set a special summary
+//This is ONLY used if the inputbox is blank, or you entered a summary that is not defined
+//This just calls the summary for whatever value you put in the var
+var defaultcrit = &quot;I4&quot;;
+
+var msgs  = {
+//This is all the messages used in the script
+
+//Extra summaries that you will type into the inputbox. so if you type &quot;extra1&quot; it will go to the value of &quot;extra1&quot;
+//Make sure there is a comma at the end of every line
+//Note: The extra summaries are case sensitive. The WP:CSD ones are not
+extra1: &quot;Extra summary&quot;,
+
+//All the criterias. Replace defualtsum('foo') with &quot;yoursummary&quot;. so    G1: defaultsum('G1'),  becomes   G1: &quot;yoursummary&quot;,
+G1: defaultsum('G1'),
+G2: defaultsum('G2'),
+G3: defaultsum('G3'),
+G4: defaultsum('G4'),
+G5: defaultsum('G5'),
+G6: defaultsum('G6'),
+G7: defaultsum('G7'),
+G8: defaultsum('G8'),
+G9: defaultsum('G9'),
+G10: &quot;Per [[WP:CSD#G10|CSD G10 - Attack page]] - Please don't post [[WP:ATK|attacks]].&quot;,
+G11: 'Per [[WP:CSD#G11|CSD G11 - Advertising]] - Please see our [[WP:SPAM|guidelines]].',
+G12: 'Per [[WP:CSD#G12|CSD G12 - Copyright infringement]], Please see our [[WP:COPYRIGHT|copyright policy]]. Find answers to common questions at our [[Wikipedia:Copyright FAQ|Copyright FAQ]] and [[Wikipedia:Contributing_FAQ#Copyrights|Contributing FAQ]].',
+
+A1: '[[WP:CSD#A1|CSD A1 - Limited to no context]]',
+A2: 'per [[WP:CSD#A2|CSD A2 - Foreign language article]], Foreign language articles that exist on another Wikimedia project are eligible for speedy deletion',
+A3: &quot;Per [[WP:CSD#A3|CSD A3 - No content whatsoever]], Any article consisting only of links elsewhere, a rephrasing of the title, and/or attempts to correspond with the person or group named by its title&quot;,
+A4: defaultsum('A4'),
+A5: defaultsum('A5'),
+A6: &quot;Per [[WP:CSD#G10|CSD G10 - Attack page]] - Please don't post [[WP:ATK|attacks]].&quot;,
+A7: &quot;Per [[WP:CSD#A7|CSD A7 - Unremarkable people, groups, companies and web content that does not assert the importance or significance of its subject.]]&quot;,
+A8: 'Per [[WP:CSD#G12|CSD G12 - Copyright infringement]], Please see our [[WP:COPYRIGHT|copyright policy]]. Find answers to common questions at our [[Wikipedia:Copyright FAQ|Copyright FAQ]] and [[Wikipedia:Contributing_FAQ#Copyrights|Contributing FAQ]].',
+
+R1: defaultsum('R1'),
+R2: defaultsum('R2'),
+R3: defaultsum('R3'),
+
+I1: defaultsum('I1'),
+I2: defaultsum('I2'),
+I3: defaultsum('I3'),
+I4: defaultsum('I4'),
+I5: defaultsum('I5'),
+I6: defaultsum('I6'),
+I7: defaultsum('I7'),
+I8: defaultsum('I8'),
+I9: defaultsum('I9'),
+
+C1: defaultsum('C1'),
+C2: defaultsum('C2'),
+C3: defaultsum('C3'),
+
+U1: defaultsum('U1'),
+U2: defaultsum('U2'),
+
+T1: defaultsum('T1'),
+
+P1: defaultsum('P1'),
+P2: defaultsum('P2'),
+
+z: 'Prod that is older than 5 days.',
+x: 'abandoned user subpage unlikely to be used, hasnt been edited in 20 weeks or more',
+
+dummy: 'this is a dummy entry to break the comma'
+};
+
+if(/*document.getElementById('ca-delete')*/wgCanonicalNamespace != 'Special') {
+addOnloadHook(function() {
+var tbsd = document.getElementById('p-cactions').getElementsByTagName('ul')[0];
+addlilink(tbsd, 'javascript:doeasycsd()', 'speedy delete', 'ca-speedy', 'speedy delete', tab_shortcut);
+});
+}
+
+var nocontent = nocontent.split('|');
+var nodeletetalkNS = nodeletetalkNS.split('|');
+var article_remove_ns = article_remove_ns.split('|');
+var article_noremove_ns = article_noremove_ns.split('|');
+
+var myPageName = wgPageName.replace(/_/g, ' ');
+
+//alert(msgs.thedefaultsum + msgs.extra1);
+function defaultsum(h) {
+var f = thedefaultsum.replace(/\$1/g, h);
+return f;
+}
+function doeasycsd() {
+var alm = true;
+if(window.location.href.indexOf('useurl') == -1) {
+var otherurlstf = &quot;&quot;;
+var useprompt = true;
+if(document.getElementById('delete')) {
+ useprompt  = false;
+ var md = document.getElementById('delete');
+ var linksf = md.getElementsByTagName('a');
+// alert(&quot;DEBUG: Over the next &quot;+(linksf.length+1)+&quot; alerts, you will see the urls of all the links in the speedy tag&quot;); 
+ for(var i=0; i&lt;linksf.length; i++) {
+ var ll = linksf[i];
+// alert(&quot;DEBUG: Link #&quot;+(i+1)+&quot;: href: &quot;+ll.href+&quot;\ninnerHTML: &quot;+ll.innerHTML); 
+ if(ll.href.indexOf(&quot;Wikipedia:Criteria_for_speedy_deletion&quot;) != -1||ll.href.indexOf(&quot;WP:CSD&quot;) != -1) {
+ var usecrit = ll.href.split('#');
+ if(usecrit[1] == undefined) usecrit = false;
+ else {
+// alert(&quot;DEBUG: WP:CSD criteria was found on link #&quot;+(i+1)+&quot;: href: &quot;+ll.href); 
+ usecrit = usecrit[1];
+ break;
+ }
+ } else var usecrit = false;
+ }
+ if(usecrit === false) { 
+ useprompt = true; 
+// alert(&quot;DEBUG: Speedy criteria not found in speedy tag&quot;); 
+ } else {
+ var r = prompt('A speedy deletion criteria, &quot;'+usecrit+'&quot; was found on this page\nTo delete the page using that criteria, leave this textbox blank and press ok\nTo use a different criteria, enter it in the textbox and press ok');
+ if(r==null) { alert(&quot;Action canceled&quot;); return; }
+ if(r==&quot;&quot;) r = usecrit;
+ }
+}
+
+if(useprompt) var r = prompt('What speedy criteria?');
+if(r == null) {
+alert('Action canceled'); return;
+} else if(r==&quot;s&quot;) {
+  var re = prompt('What extra summary?');
+  if(re == null) { alert('Action canceled'); return; }
+  var usesum = re;
+  var lr = &quot;spec&quot;;
+  var alm = false;
+} else if(r==&quot;h&quot;) {
+  var re = prompt('What extra summary to use \nwithout showing &quot;content was&quot;?');
+  if(re == null) { alert('Action canceled'); return; }
+  var usesum = re;
+  var lr = &quot;specnc&quot;;
+  var alm = false;
+}
+
+for(var i = 0; i&lt;article_remove_ns.length; i++) {
+     var nf = article_remove_ns[i];
+       if(wgCanonicalNamespace == nf) {
+         var dolink = true;
+           break;
+       } else {
+            var dolink = false;
+          }
+ }
+if(window.location.href.indexOf('?') != -1) var charuse = '&amp;';
+else var charuse = '?';
+if(wgCanonicalNamespace == &quot;Image&quot;&amp;&amp;image_use) {
+ if(confirm(&quot;Would you also like to remove all the file links from this image?&quot;)) {
+ var gop = window.location.href.replace('action=delete', '')+charuse+'&amp;imageopen=true';
+ otherurlstf = &quot;&amp;ext_dorem_img=true&amp;ext_dorem_goto=&quot;+escape(gop);
+}} else if(dolink &amp;&amp; article_use) {
+ if(confirm(&quot;Would you also like to remove all the wikilinks pointing to this page?&quot;)) {
+ var nop = unescape(window.location.href).replace(wgPageName, 'Special:Whatlinkshere/'+wgPageName)+charuse+'&amp;linkopen=true';
+ otherurlstf = &quot;&amp;ext_dorem_art=true&amp;ext_dorem_goto=&quot;+escape(nop);
+}}
+} else {
+var r = gvo('delcrit');
+}
+if(r.indexOf('s|') == 0) { var usesum = r.replace('s|', ''); var lr = &quot;spec&quot;; var alm = false; }
+else if(r.indexOf('h|') == 0) { var usesum = r.replace('h|', ''); var lr = &quot;specnc&quot;; var alm = false; }
+
+if(r!=''&amp;&amp;alm) {
+var cr = r.toUpperCase();
+eval('if(msgs.'+cr+' != undefined) { var usesum = msgs.'+cr+'; var lr = \''+cr+'\'; } else if(msgs.'+r+' != undefined) { var usesum = msgs.'+r+'; var lr = \''+r+'\'; } else { var usesum = msgs.'+defaultcrit+'; var lr = defaultcrit; }');
+}
+
+     if(window.location.href.indexOf('speedydel') == -1) {
+          if(lr == &quot;spec&quot;) { lr = &quot;s|&quot;+usesum; }
+          if(lr == &quot;specnc&quot;) { lr = &quot;h|&quot;+usesum; }
+   if(wgNamespaceNumber % 2 == 0 &amp;&amp; deletetalk) var urldeletetalk = &quot;&amp;deletetalk=&quot;+escape(((wgCanonicalNamespace != '')?wgCanonicalNamespace+'_talk:':'Talk:')+wgTitle);
+   else var urldeletetalk = &quot;&quot;;
+          window.location.href = (document.getElementById('ca-delete').firstChild.href+'&amp;speedydel=true&amp;delcrit='+escape(lr)+'&amp;useurl=true'+urldeletetalk+otherurlstf);
+  if(useopentp) { window.open(document.getElementById('ca-history').firstChild.href+'&amp;opentalk=true&amp;limit=1'); window.open(document.getElementById('ca-history').firstChild.href+'&amp;opentalk=true&amp;opencontribs=true&amp;limit=1'); }
+        } else if(window.location.href.indexOf('speedydel') != -1) {
+ var mydel = document.getElementById('wpReason');
+ if(mydel) {
+ var olddelsum = mydel.value;
+        for(var i = 0; i&lt;nocontent.length; i++) {
+          var nc = nocontent[i];
+          if(lr == nc||lr==&quot;specnc&quot;) {
+            var donotc = true;
+                break;
+          } else {
+            var donotc = false;
+          }
+        }
+        if(donotc||mydel.value==&quot;&quot;) { var olddelsum = &quot;&quot;; } else { var olddelsum = &quot;- &quot;+olddelsum; }
+    var newdelsum = usesum+&quot; &quot;+olddelsum;
+    document.getElementById('wpReason').value = newdelsum;
+    var inputs = document.getElementsByTagName('input');
+ for(var i = 0; i&lt;nodeletetalkNS.length; i++) {
+          var nd = nodeletetalkNS[i];
+          if(wgCanonicalNamespace == nd) {
+            var donod = false;
+                break;
+          } else {
+            var donod = true;
+          }
+        }
+ if(window.location.href.indexOf('deletetalk') != -1&amp;&amp;deletetalk&amp;&amp;donod) {
+ var wop = window.location.href.split('&amp;deletetalk=')[0].replace(wgPageName, gvo('deletetalk'));//+'&amp;closewindow=true';
+ createCookie('delscript_goto', escape(wop));
+ }
+ if(window.location.href.indexOf('ext_dorem_img=true') != -1) {
+ var gop = gvo('ext_dorem_goto');
+ createCookie('delscript_goto', escape(gop));
+ createCookie('delscript_imagepage', escape(wgTitle));
+ }
+ if(window.location.href.indexOf('ext_dorem_art=true') != -1)  {
+ var nop = gvo('ext_dorem_goto');
+ createCookie('delscript_goto', escape(nop));
+ createCookie('delscript_linkpage', escape(myPageName));
+ }
+    for (i=0; i&lt;inputs.length; i++) {
+        if (inputs[i].name == 'wpConfirmB') {
+           inputs[i].click();
+         }
+ }
+ }
+    } 
+
+}
+
+
+if(readCookie('delscript_goto') != null) {
+ var cookie = unescape(readCookie('delscript_goto'));
+ eraseCookie('delscript_goto');
+ window.location.href = (cookie);
+}
+
+if(window.location.href.indexOf('imageopen=true') != -1) {
+var togoto = &quot;&quot;;
+addOnloadHook(function() {
+
+ if(readCookie('delscript_doimg') == null) {
+ var ok = true;
+ if(ok) {
+ createCookie('delscript_image_ok', 0);
+ var main1 = document.getElementById('filelinks');
+ if(main1) {
+ var main2 = main1.nextSibling.nextSibling;
+ if(main2) {
+ var main3 = main2.nextSibling;
+ if(main3) {
+ var main4 = main3.nextSibling.nextSibling;
+ if(main4) {
+ if(main2.tagName == &quot;P&quot; &amp;&amp; main3.id == &quot;linkstoimage&quot; &amp;&amp; main4.tagName == &quot;UL&quot;) {
+ var lis = main4.getElementsByTagName('li');
+ for(var i = 0; i &lt; lis.length; i++) {
+ var hr = lis[i].firstChild.href;
+ var realpg = unescape(readCookie('delscript_imagepage'));
+ var wnopen = hr+'?action=edit&amp;remimage=true&amp;image_to_delete='+escape(realpg);
+ //window.open(wnopen);
+ togoto += &quot;|&quot;+wnopen;
+ }
+ togoto += &quot;|&quot;+window.location.href.split('&amp;imageopen=true')[0];
+ createCookie('delscript_togoto', escape(togoto.substr(1)));
+ createCookie('delscript_doimg', 'yes');
+ eraseCookie('delscript_oktogoto');
+ location.reload();
+ }
+ }}}}
+}} else {
+ eraseCookie('delscript_doimg');
+ createCookie('delscript_numgoto', '0');
+ var oldnum = parseInt(readCookie('delscript_numgoto'));
+ var newnum = oldnum + 1;
+ createCookie('delscript_numgoto', newnum);
+ var myarr = unescape(readCookie('delscript_togoto')).split('|');
+ //alert('doimg. togoto is set, and it is: '+myarr+'; numgoto is: '+readCookie('delscript_numgoto')+' newnum: '+newnum+'; oldnum: '+oldnum);
+ window.location.href = myarr[oldnum];
+}
+});
+}
+
+if(window.location.href.indexOf('linkopen=true') != -1) {
+var togoto = &quot;&quot;; var templategoto = &quot;&quot;;
+addOnloadHook(function() {
+ if(readCookie('delscript_doart') == null) {
+ var ok = true;
+ if(ok) {
+ if(readCookie('delscript_latergoto') != null) { togoto = unescape(readCookie('delscript_latergoto')); eraseCookie('delscript_latergoto'); var notemplate = true; }
+ else { 
+ var notemplate = false;
+ var lis = document.getElementById('bodyContent').getElementsByTagName('ul')[0].getElementsByTagName('li');
+ for(var i = 0; i &lt; lis.length; i++) {
+ var hr = lis[i].firstChild;
+ if(!hr) continue;
+ hr = hr.href;
+ if(hr.indexOf('&amp;redirect=no') != -1) var isRedir = true;
+ else var isRedir = false;
+ var page_ns = hr.substr(('http://'+location.host).length);
+ page_ns = page_ns.split(':')[0];
+ if(page_ns == hr) page_ns = &quot;&quot;;
+ else {
+ page_ns = page_ns.split('/');
+ page_ns = page_ns[(page_ns.length - 1)];
+ }
+ for(var j=0; j&lt;article_noremove_ns.length; j++) {
+ var nk = article_noremove_ns[j];
+ if(page_ns == nk) {
+ var oktocont = false;
+ break;
+ } else var oktocont = true;
+ }
+ if(!oktocont) continue;
+ var realpg = unescape(readCookie('delscript_linkpage'));
+ if(!isRedir) var wnopen = hr+'?&amp;action=edit&amp;remlink=true&amp;link_to_delete='+escape(realpg);
+ else var wnopen = hr+'?&amp;action=delete&amp;speedydel=true&amp;delcrit=r1&amp;useurl=true';
+ if(page_ns == &quot;Template&quot;) templategoto += &quot;|&quot;+wnopen;
+ else togoto += &quot;|&quot;+wnopen;
+ }
+ togoto += &quot;|&quot;+window.location.href.split('&amp;linkopen=true')[0];
+ }
+ if(templategoto != '') templategoto += &quot;|&quot;+window.location.href;
+ if(togoto.indexOf('|') == 0) togoto = togoto.substr(1);
+ if(templategoto.indexOf('|') == 0) templategoto = templategoto.substr(1);
+ if(notemplate) templategoto = &quot;&quot;;
+ var mygoto = (templategoto != '')?templategoto:togoto;
+ if(mygoto == templategoto) createCookie('delscript_latergoto', escape(togoto));
+ createCookie('delscript_togoto', escape(mygoto));
+ createCookie('delscript_doart', 'yes');
+ eraseCookie('delscript_oktogoto');
+ location.reload();
+}} else {
+ eraseCookie('delscript_doart');
+ createCookie('delscript_numgoto', '0');
+ var oldnum = parseInt(readCookie('delscript_numgoto'));
+ var newnum = oldnum + 1;
+ createCookie('delscript_numgoto', newnum);
+ var myarr = unescape(readCookie('delscript_togoto')).split('|');
+ //alert('doimg. togoto is set, and it is: '+myarr+'; numgoto is: '+readCookie('delscript_numgoto')+' newnum: '+newnum+'; oldnum: '+oldnum);
+ window.location.href = myarr[oldnum];
+}
+});
+}
+
+if(window.location.href.indexOf('remimage=true') != -1 &amp;&amp; window.location.href.indexOf('action=edit') != -1) {
+addOnloadHook(function() {
+ var oldtext = document.getElementById('wpTextbox1').value;
+ var txt = document.getElementById('wpTextbox1');
+ var img = gvo('image_to_delete');
+ var regimg = img.replace(/\./g, '\\.').replace(/\*/g, '\\*').replace(/\//g, '\\/')
+ .replace(/[ _]/g, '[ _]')
+ var reg1 = new RegExp('\\[\\[[Ii]mage:\\s*'+regimg+'\\s*(\\|.*?\\]|\\])\\]', &quot;ig&quot;);
+ var rpl1 = '&lt;!-- Commented out because image was deleted: [[Image:'+img+'$1] --&gt;';
+ var reg2 = new RegExp('([Ii]mage:)?'+regimg, &quot;ig&quot;);
+ var rpl2 = '&lt;!-- Commented out because image was deleted: $1'+img+' --&gt;';
+ var newtext = oldtext.replace(reg1, rpl1);
+ var is_same = (newtext == oldtext);
+ if(is_same) newtext = oldtext.replace(reg2, rpl2);
+ txt.value = newtext;
+ document.getElementById('wpSummary').value = image_sum.replace(/\$1/g, img);
+ document.getElementById('wpMinoredit').checked = &quot;checked&quot;;
+ document.getElementById('wpWatchthis').checked = &quot;&quot;;
+ if(is_same&amp;&amp;image_asktoskip) {
+ var oktoclick = confirm(&quot;The image, &quot;+img+&quot; was not found on this page \n probably due to it being in an odd format \n press ok to go and remove it yourself,\n or cancel to just abort this edit and move on to the next&quot;);
+ } else var oktoclick = false;
+ createCookie('delscript_oktogoto', 'yes');
+ if(!oktoclick) document.getElementById(image_click).click();
+ //if(image_click == &quot;wpSave&quot;) window.close();
+});
+}
+
+if(window.location.href.indexOf('remlink=true') != -1 &amp;&amp; window.location.href.indexOf('action=edit') != -1) {
+addOnloadHook(function() {
+ var oldtext = document.getElementById('wpTextbox1').value;
+ var txt = document.getElementById('wpTextbox1');
+ var lnk = gvo('link_to_delete');
+ var reglnk = lnk.replace(/\./g, '\\.').replace(/\*/g, '\\*').replace(/\//g, '\\/')
+ .replace(/[ _]/g, '[ _]')
+ var reg = new RegExp('\\[\\['+reglnk+'\\|?(.*?)\\]\\]', &quot;ig&quot;);
+ newtext = oldtext.replace(reg, '{{D:$1}}');
+ newtext = newtext.replace(/\{\{D\:\}\}/g, lnk);
+ newtext = newtext.replace(/\{\{D:(.*?)\}\}/g, '$1');
+ txt.value = newtext;
+ document.getElementById('wpSummary').value = article_sum.replace(/\$1/g, lnk);
+ document.getElementById('wpMinoredit').checked = &quot;checked&quot;;
+ document.getElementById('wpWatchthis').checked = &quot;&quot;;
+ if(newtext == oldtext&amp;&amp;article_asktoskip) {
+ var oktoclick = confirm(&quot;The link, &quot;+lnk+&quot; was not found on this page \n probably due to it being in an odd format \n press ok to go and remove it yourself,\n or cancel to just abort this edit and move on to the next&quot;);
+ } else var oktoclick = false;
+ createCookie('delscript_oktogoto', 'yes');
+ if(!oktoclick) document.getElementById(article_click).click();
+ //if(image_click == &quot;wpSave&quot;) window.close();
+});
+}
+
+
+if(readCookie('delscript_togoto') != null&amp;&amp;readCookie('delscript_oktogoto') != null) {
+ // alert('Togoto is set, and it is: '+readCookie('delscript_togoto')+'; numgoto is: '+readCookie('delscript_numgoto'));
+ var oldnum = parseInt(readCookie('delscript_numgoto'));
+ var newnum = oldnum + 1;
+ createCookie('delscript_numgoto', newnum);
+ var myarr = unescape(readCookie('delscript_togoto')).split('|');
+ if(newnum == myarr.length) { eraseCookie('delscript_togoto'); eraseCookie('delscript_numgoto'); }
+ eraseCookie('delscript_oktogoto');
+ window.location.href = myarr[oldnum];
+}
+
+if(useopentp &amp;&amp; window.location.href.indexOf('opentalk=true') != -1 &amp;&amp; window.location.href.indexOf('action=history') != -1) {
+addOnloadHook(function() {
+for(var i=0; i&lt;document.links.length; i++) {
+var l = document.links[i];
+if(l.innerHTML.indexOf('Earliest') == 0) {
+window.location.href = (l.href+'&amp;opentalk=true');
+return;
+} else { foundit = false; }
+}
+if(!foundit) {
+for(var i=0; i&lt;document.getElementsByTagName('form').length; i++){
+var k = document.getElementsByTagName('form')[i];
+if(k.method==&quot;get&quot; &amp;&amp; k.firstChild.name == &quot;title&quot; &amp;&amp; k.firstChild.type == &quot;hidden&quot;) {
+var lastli = k.getElementsByTagName('li')[(k.getElementsByTagName('li').length - 1)];
+var g = lastli.getElementsByTagName('span')[0].getElementsByTagName('a');
+for(var j = 0; j&lt;g.length; j++) {
+var f = g[j];
+if(f.firstChild.data == &quot;Talk&quot;) {
+var go = f.href;
+} else if(f.firstChild.data == &quot;contribs&quot;&amp;&amp;window.location.href.indexOf('opencontribs=true') != -1) {
+var wo = f.href;
+}
+}
+}
+}
+if(window.location.href.indexOf('opencontribs=true') != -1) {
+window.location.href = (wo);
+}
+if(window.location.href.indexOf('opencontribs=true') == -1) {
+window.location.href = (go);
+}
+}
+});
+}
+
+
+//URL parameter function:
+//Originally from [[User:Lupin/autoedit.js]]
+function gvo(paramName) {
+  var cmdRe=RegExp('[&amp;?]'+paramName+'=([^&amp;]*)');
+  var h=document.location;
+  var m;
+  if (m=cmdRe.exec(h)) {
+    try { 
+      return unescape(decodeURI(m[1]));
+    } catch (someError) {}
+  }
+  return null;
+};
+
+if(window.location.href.indexOf('action=delete') != -1 &amp;&amp; document.title.indexOf('Action complete') == 0&amp;&amp;!deletetalk) {
+addOnloadHook(function() {
+if(document.getElementById('t-whatlinkshere').firstChild.href.indexOf('&amp;') != -1) { var chara = '&amp;'; } else { var chara = '?'; }
+window.location.href = (document.getElementById('t-whatlinkshere').firstChild.href+chara+'delfrom=true');
+});
+}
+if(window.location.href.indexOf('delfrom=true') != -1&amp;&amp;!deletetalk) {
+addOnloadHook(function() {
+var bx = document.getElementById('contentSub');
+var hea = bx;
+var bxlw = document.createElement('div');
+bxlw.id = &quot;msgwrapper&quot;;
+bxlw.innerHTML = '&lt;big&gt;&lt;font color=&quot;green&quot;&gt;Page successfully deleted!&lt;/font&gt;&lt;/big&gt;';
+hea.parentNode.insertBefore(bxlw, hea.nextSibling);
+});
+}
+
+//END
+//&lt;/nowiki&gt;&lt;/pre&gt;
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/p/User%7EAlphachimp_csd.js_0e93.html">http://en.wikipedia.org../../../a/l/p/User%7EAlphachimp_csd.js_0e93.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/l/p/User%7EAlphachimp_csd.js_0e93.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/l/p/User_talk%7EAlphachimp_csd.js_3502.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Alphachimp/csd.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 07:30, 23 December 2006 by Wikipedia user <a href="../../../a/l/p/User%7EAlphachimp_1adb.html" title="User:Alphachimp">Alphachimp</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

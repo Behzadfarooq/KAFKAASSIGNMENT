@@ -1,0 +1,338 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Anthony cfc/monobook.js,Blocking policy,Bypass your cache,Village pump (technical)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Anthony cfc/monobook.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Anthony cfc/monobook.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/n/t/User%7EAnthony_cfc_934f.html" title="User:Anthony cfc">User:Anthony cfc</a></span></div>
+	    	    	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</p>
+<div style="color:darkred;background-color:#EEEEEE;border: darkred 2px solid;padding:5px;" id="jswarning"><div style="clear: both;color:darkred;"></div><b><div style="display:block;">If a message on your talk page led you here, please be wary of who left it.  The code below could contain malicious content capable of compromising your account; if your account appears to be compromised, it will be <a href="../../../b/l/o/Wikipedia%7EBlocking_policy_2eb0.html" title="Wikipedia:Blocking policy">blocked</a>.  If you are unsure whether the code is safe, you can ask at the appropriate <a href="../../../v/i/l/Wikipedia%7EVillage_pump_%28technical%29_e812.html" title="Wikipedia:Village pump (technical)">village pump</a>.</b></div></div></span>
+<pre> /* &lt;pre&gt; */
+
+ function welcome() {
+
+   // Find the edit box
+   var txt = document.editform.wpTextbox1;
+
+   //The welcome *template* you want to use
+   var welcome_template = 'User:Anthony_cfc/Welcome_Template'
+   var welcome_summary  = 'welcome!'
+   var welcome_watch    = false
+
+   // The tag to be included is a welcome message
+   var tag = '{{subst:'+ welcome_template +'|~~~~}}';
+
+   // If the edit box doesn't already have this tag...
+   if (txt.value.indexOf(tag) == -1) {
+
+     // Append the tag
+     txt.value += tag;
+
+     // Add an edit summary
+     document.editform.wpSummary.value     = welcome_summary;
+     document.editform.wpWatchthis.checked = welcome_watch;
+
+     // Press the Save page button
+     document.editform.submit();
+   } 
+
+   // If the tag was already there, turn the tab background red to indicate 
+   // that the script is functioning properly, but that there is no action 
+   // to do.  This doesn't interrupt the user's work like an alert() would.
+   else {
+     document.getElementById('ca-unverified').firstChild.style.backgroundColor = &quot;#ff4444&quot;;
+     document.getElementById('ca-unverified').style.backgroundColor            = &quot;#ff4444&quot;;
+   }
+ }
+
+// Create a tab that calls this function when pressed
+addOnloadHook(function () {
+if(document.title.indexOf(&quot;Editing User talk:&quot;) == 0) {
+addPortletLink('p-cactions', 'javascript:welcome()', 'welcome', 'ca-welcome', 'Adds a welcome note to a new user', '', '');
+}
+});
+
+/* This is to keep track of who is using this extension: [[User:Flex/welcome_newuser.js]] */
+
+/* &lt;/pre&gt; */
+
+importScript(&quot;User:Lupin/recent2.js&quot;);
+
+// &lt;pre&gt;&lt;nowiki&gt;
+
+// addPurge
+addOnloadHook(function () {
+    var hist; var url;
+    if (!(hist = document.getElementById('ca-history') )) return;
+    if (!(url = hist.getElementsByTagName('a')[0] )) return;
+    if (!(url = url.href )) return;
+    addPortletLink('p-cactions', url.replace(/([?&amp;]action=)history([&amp;#]|$)/, '$1purge$2'),
+                   'purge', 'ca-purge', 'Purge server cache for this page', '0');
+});
+
+// &lt;/nowiki&gt;&lt;/pre&gt;
+
+// [[Category:Wikipedia scripts]]
+
+// &lt;pre&gt;&lt;nowiki&gt;
+
+// Please leave the following line
+// [[user:Where/usertabs]]
+ 
+addOnloadHook(function() {
+  if (wgTitle.indexOf(&quot;/&quot;) != -1 || document.title.indexOf(&quot;- History -&quot;) != -1)  //no subpages or history
+     return;
+  if (wgCanonicalNamespace == &quot;User&quot; || wgCanonicalNamespace == &quot;User_talk&quot;) {
+     var username = encodeURIComponent( wgTitle );
+     addPortletLink(&quot;p-cactions&quot;, wgServer + &quot;/wiki/Special:Contributions/&quot; + username, &quot;Contribs&quot;, &quot;ca-contrib&quot;, &quot;User contributions&quot;);
+     addPortletLink(&quot;p-cactions&quot;, &quot;http://tools.wikimedia.de/~interiot/cgi-bin/Tool1/wannabe_kate?username=&quot; + username + &quot;&amp;site=en.wikipedia.org&quot;, &quot;Edit count&quot;, &quot;ca-editcount&quot;, &quot;Edit count from Interiot's Tool1&quot;);
+     addPortletLink(&quot;p-cactions&quot;, wgServer + &quot;/w/index.php?title=Special:Log&amp;type=block&amp;page=User:&quot; + username, &quot;Blocks&quot;, &quot;ca-blog&quot;, &quot;Blocks received by this user&quot;);
+  }
+});
+
+// &lt;/nowiki&gt;&lt;/pre&gt;
+
+// from [http://en.wikipedia.org/w/index.php?title=User:Thebainer/monobook.js&amp;oldid=32546177 User:Thebainer/monobook.js]  &lt;pre&gt;&lt;nowiki&gt;
+
+// adds a 'logs for this page' link to the toolbox bar
+// if the page is a user's page, talk page or subpage, the link will go to logs for the user instead
+// if the page is a special page, then no link is displayed
+
+addOnloadHook(function () {
+ 
+ // if this is a user, show the logs for the user rather than the page
+ if ( wgCanonicalNamespace == &quot;User&quot; || wgCanonicalNamespace == &quot;User_talk&quot; ) {
+  url = wgServer + &quot;/w/index.php?title=Special:Log&amp;user=&quot; + wgTitle.split(&quot;/&quot;)[0];
+ } else if ( wgCanonicalNamespace == &quot;Special&quot; ) {
+  // don't display link for special pages
+  return;
+ } else {
+  url = wgServer + &quot;/w/index.php?title=Special:Log&amp;page=&quot; + wgPageName;
+ }
+ 
+ addPortletLink(&quot;p-tb&quot;, url, &quot;Logs&quot;, &quot;pt-logs&quot;);
+
+});
+
+// &lt;/nowiki&gt;&lt;/pre&gt;
+
+//&lt;pre&gt;&lt;nowiki&gt;
+ function aivlist(type) {
+  var f = document.editform, t = f.wpTextbox1;
+  if (t.value.length &gt; 0)
+    t.value += '\n';
+  var ip = prompt(&quot;Enter IP address&quot;, &quot;&quot;);
+  var reason = prompt(&quot;Enter reason for listing&quot;, &quot;&quot;);
+  t.value += &quot;*{{&quot; + type + &quot;|&quot; + ip +&quot;}} &quot; + reason + &quot;--~&quot; + &quot;~&quot; + &quot;~&quot; + &quot;~&quot;;
+  f.wpSummary.value = &quot;Listing &quot; + ip;
+  f.submit();
+ }
+
+addOnloadHook(
+ function addaivlink() { 
+  if (document.title.indexOf(&quot;Editing Wikipedia:Administrator intervention against vandalism&quot;) != -1)
+  {
+    addPortletLink(&quot;p-cactions&quot;, &quot;javascript:aivlist('vandal')&quot;, &quot;vandal&quot;, &quot;ca-vandal&quot;, &quot;Report a vandal&quot;, &quot;&quot;);
+    addPortletLink(&quot;p-cactions&quot;, &quot;javascript:aivlist('ipvandal')&quot;, &quot;ipvandal&quot;, &quot;ca-ipvandal&quot;, &quot;Report an ipvandal&quot;, &quot;&quot;);
+  } }
+);
+//&lt;/nowiki&gt;&lt;/pre&gt;
+
+//&lt;pre&gt;&lt;nowiki&gt;
+// Add date and time to your monobook &quot;personal menu&quot; list at the very top of the page.
+// Created by [[User:Mathwiz2020]]
+
+// Indicate where you would like the time to appear:
+// 1 is first (before username), 2 is second (before talk link), ... 7 is last (after log out link)
+insertBeforeNum = 7;
+
+// Do NOT edit below this line unless you're experiened in javascript
+insertBeforeArr = new Array(&quot;&quot;,&quot;pt-userpage&quot;,&quot;pt-mytalk&quot;,&quot;pt-preferences&quot;,&quot;pt-watchlist&quot;,&quot;pt-mycontris&quot;,&quot;pt-logout&quot;,&quot;&quot;);
+insertBefore = insertBeforeArr[insertBeforeNum];
+
+function makeTime()
+{
+  var li = document.createElement( 'li' );
+  li.id = 'pt-time';
+
+  var mySpan = document.createElement( 'span' );
+  mySpan.appendChild( document.createTextNode( 'date and time' ) );
+
+  li.appendChild( mySpan );
+
+  if ( insertBefore )
+  {
+    var before = document.getElementById( insertBefore );
+    before.appendChild( li, before );
+  }
+  else // append to end (right) of list
+  {
+    document.getElementById( 'pt-logout' ).parentNode.appendChild( li );
+  }
+
+  getTime();
+}
+
+if      ( window.addEventListener ) window.addEventListener ( 'load', makeTime, false );
+else if ( window.attachEvent      ) window.attachEvent      ( 'onload', makeTime      );
+
+function getTime()
+{
+    var time    = new Date();
+    var date    = time.getUTCDate();
+    var months  = 'Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec'.split(' ');
+        month   = months[time.getUTCMonth()];
+    var year    = time.getUTCFullYear();
+    var hours   = '0' + time.getUTCHours();
+        hours   = hours.substr(hours.length-2, hours.length);
+    var minutes = '0' + time.getUTCMinutes();
+        minutes = minutes.substr(minutes.length-2, minutes.length);
+    var seconds = '0' + time.getUTCSeconds();
+        seconds = seconds.substr(seconds.length-2, seconds.length);
+    var curTime = hours + &quot;:&quot; + minutes + &quot;:&quot; + seconds + &quot;, &quot; + date + &quot; &quot; + month + &quot; &quot; + year + &quot; (UTC)&quot;;
+    datePlace   = document.getElementById('pt-time').childNodes[0].childNodes[0];
+                  datePlace.replaceData(0, datePlace.length, curTime);
+    doTime      = window.setTimeout(&quot;getTime()&quot;, 1000);
+}
+//&lt;/nowiki&gt;&lt;/pre&gt;
+
+
+// &lt;/noinclude&gt;
+
+ // Helper tools
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://en.wikipedia.org/w/index.php?title=User:Voice_of_All/Addtabs/monobook.js' 
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+//
+
+// Checkuser tools [[Category:Wikipedia administrators who use VoA script|{{PAGENAME}}]]
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://en.wikipedia.org/w/index.php?title=User:Voice_of_All/CheckUser/monobook.js' 
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+//
+
+importScript('User:AzaToth/morebits.js');
+importScript('User:AzaToth/twinklefluff.js');
+importScript('Wikipedia:WikiProject User scripts/Scripts/Add LI menu');
+importStylesheet('Wikipedia:WikiProject User scripts/Scripts/Add LI menu/css');
+importScript('User:AzaToth/twinklewarn.js');
+importScript('User:AzaToth/twinklearv.js');
+importScript('User:AzaToth/twinklespeedy.js');
+importScript('User:AzaToth/twinklediff.js');
+importScript('User:AzaToth/twinkleprotect.js');
+
+TwinkleConfig = {
+        revertMaxRevisions              :       50,
+        userTalkPageMode                :       'window',
+        showSharedIPNotice              :       true,
+        openTalkPage                    :       [ 'agf', 'norm', 'vand' ],
+        openTalkPageOnAutoRevert        :       false,
+        openAOLAnonTalkPage             :       false,
+        summaryAd                       :       &quot; using [[WP:TWINKLE|TW]]&quot;,
+        deletionSummaryAd               :       &quot; using [[WP:TWINKLE|TW]]&quot;,
+        protectionSummaryAd             :       &quot; using [[WP:TWINKLE|TW]]&quot;,
+        watchSpeedyPages                :       [ 'g3', 'g5', 'g10', 'g11', 'g12' ],
+        openUserTalkPageOnSpeedyDelete  :       [ 'g1', 'g2', 'g10', 'g11', 'g12', 'a1', 'a7', 'i3', 'i4', 'i5', 'i6', 'i7', 'u3', 't1' ],
+        watchRevertedPages              :       [ 'agf', 'norm', 'vand', 'torev' ],
+        markRevertedPagesAsMinor        :       [ 'agf', 'norm', 'vand', 'torev' ],
+        deleteTalkPageOnDelete          :       false,
+        markWarningsAsMinor             :       true,
+        markAIVReportAsMinor            :       true,
+        markSpeedyPagesAsMinor          :       true,
+        confirmUsernameToAIV            :       true
+};
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/t/User%7EAnthony_cfc_monobook.js_7f86.html">http://en.wikipedia.org../../../a/n/t/User%7EAnthony_cfc_monobook.js_7f86.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/n/t/User%7EAnthony_cfc_monobook.js_7f86.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/n/t/User_talk%7EAnthony_cfc_monobook.js_f51f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Anthony_cfc/monobook.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 07:31, 25 March 2007 by Wikipedia user <a href="../../../a/n/t/User%7EAnthony_cfc_934f.html" title="User:Anthony cfc">Anthony cfc</a>. Based on work by Wikipedia user(s) <a href="../../../o/h/n/User%7EOhnoitsjamie_fc14.html" title="User:Ohnoitsjamie">Ohnoitsjamie</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

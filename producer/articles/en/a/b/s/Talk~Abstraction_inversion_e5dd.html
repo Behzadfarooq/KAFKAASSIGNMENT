@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Abstraction inversion,Facade pattern,Berkana,PJTraill,Wlievens" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Abstraction inversion - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Abstraction inversion</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>What about the <a href="../../../f/a/c/Facade_pattern.html" title="Facade pattern">Facade pattern</a>? (Originally asked by <a href="../../../w/l/i/User%7EWlievens_2d8b.html" title="User:Wlievens">Wlievens</a> on 2004-05-16 12:12:29, linked by <a href="../../../p/j/t/User%7EPJTraill_4845.html" title="User:PJTraill">PJTraill</a> 01:04, 6 December 2005 (UTC))</p>
+<p><a name="Abstraction.2C_and_what_constitutes_abstraction_inversion" id="Abstraction.2C_and_what_constitutes_abstraction_inversion"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Talk%7EAbstraction_inversion_e5dd.html" title="Edit section: Abstraction, and what constitutes abstraction inversion">edit</a>]</span> <span class="mw-headline">Abstraction, and what constitutes abstraction inversion</span></h2>
+<p>The enthymeme (syllogism with an unstated premise - <a href="../../../p/j/t/User%7EPJTraill_4845.html" title="User:PJTraill">PJTraill</a> 23:50, 26 February 2006 (UTC)) I see in this entry is that abstraction inversion is bad. Perhaps I misunderstand, but isn't the point of abstraction to put simple wrappers around complex things? High level languages are simple constructs under which, at the lowest level, is assembly language; in general, code for a high level language using a well designed framework or library is very simple, but the assembly language equivalent is so complex that it is utterly beyond the capacity of humans to work with the same operations at the level of machine instructions. Yet by the description given in the article, this would seem to be abstraction inversion, which everyone seems to imply is bad. Similarly, writing functions seems to be an act of abstraction inversion as well: instead of typing out code for an entire sub-routine, the complex subroutine is packaged with a simple function's interface. Is this abstraction inversion and "the incorrect way" or is something amiss in the article, or my understanding? Am I mistaken? Is my example a bad example?</p>
+<p>Would somebody who groks this please give a few good examples of what abstraction inversion is, and what it is not, and what the crucial differences are between the two?</p>
+<p>FYI, I didn't fundamentally understand the insights behind data abstraction and object-oriented programming until I read the intro to Objective-C (published by Apple), which described abstraction with an analogy of the mechanical watch: the internals of the watch are incredibly complex, full of gears of different ratios, escapement mechanisms, springs, and co-axial shafts, but the interface uses data abstraction (in the mechanical/physical sense) to present us with an elegant, simple interface: two watch arms with their own states (namely, their position relative to the watch face), and a knob to adjust the states. That way, the user never has to bother with how it works (complex), just how to work it (simple). Yet, a casual glance at this seems to show that the watch "creates abstract (or simple) constructs on top of concrete (or complex) constructs. The correct way is considered to be the other way round — to create complex constructs on top of more basic constructs." (Quoted from the Wiki article.)</p>
+<p>Is this correct? Is it possible that "the correct way" as described in this article is actually mistaken? Why would anyone want to increase complexity? I want my complexity to be canned away so I don't have to think about or deal with it.</p>
+<p>Perhaps the article should be ammended so as to create less confusion. I looked up "abstraction inversion" here in order to clarify my confusion, but it has only furthered it.</p>
+<p>(Contributed on 2006-02-03 06:28:19 by Berkana)</p>
+<dl>
+<dd>I agree that the whole thing is dubious, and I hope that the remarks on difficulties recognising it suggest as much, but I have a feeling there is something in it, and it would be useful to disentangle the whole thing. Other articles I have found on the internet have not been any clearer. <a href="../../../p/j/t/User%7EPJTraill_4845.html" title="User:PJTraill">PJTraill</a> 23:45, 26 February 2006 (UTC)</dd>
+</dl>
+<p><a name="I_hope_usefully_extended.2C_standard_anti-pattern_structure" id="I_hope_usefully_extended.2C_standard_anti-pattern_structure"></a></p>
+<h2><span class="editsection">[<a href="../../../a/b/s/Talk%7EAbstraction_inversion_e5dd.html" title="Edit section: I hope usefully extended, standard anti-pattern structure">edit</a>]</span> <span class="mw-headline">I hope usefully extended, standard anti-pattern structure</span></h2>
+<p>I hope that my latest series of edits to this article is useful: it is the result of a fair amount of googling, but it may need some restructuring. I feel at any rate that it is becoming clearer what abstraction inversion is really about, in particular the problem of exposing too <b>weak</b> interfaces makes much more sense to me than too <b>simple</b> interfaces.</p>
+<p>It also seems to me that we should try to develop a standard structure for anti-pattern articles, something like:</p>
+<ul>
+<li>description</li>
+<li>symptoms / recognition</li>
+<li>ill-effects</li>
+<li>cure</li>
+<li>examples from the real world</li>
+<li>a worked example, with code</li>
+<li>links</li>
+</ul>
+<p><a href="../../../p/j/t/User%7EPJTraill_4845.html" title="User:PJTraill">PJTraill</a> 02:42, 27 February 2006 (UTC)</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/b/s/Talk%7EAbstraction_inversion_e5dd.html">http://en.wikipedia.org../../../a/b/s/Talk%7EAbstraction_inversion_e5dd.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../a/b/s/Abstraction_inversion.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../a/b/s/Talk%7EAbstraction_inversion_e5dd.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Abstraction_inversion">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 02:42, 27 February 2006 by Wikipedia user <a href="../../../p/j/t/User%7EPJTraill_4845.html" title="User:PJTraill">PJTraill</a>. Based on work by Wikipedia user(s) Berkana and <a href="../../../w/l/i/User%7EWlievens_2d8b.html" title="User:Wlievens">Wlievens</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

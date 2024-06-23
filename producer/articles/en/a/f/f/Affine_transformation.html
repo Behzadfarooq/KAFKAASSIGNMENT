@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Affine transformation,3D projection,Affine combination,Affine geometry,Affine group,Affine space,Area,Binary numeral system,Coset,Cross product,Eigenvalue, eigenvector, and eigenspace" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Affine transformation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Affine transformation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../g/e/o/Geometry.html" title="Geometry">geometry</a>, an <b>affine transformation</b> or <b>affine map</b> (from the Latin, <i>affinis</i>, "connected with") between two <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector spaces</a> (strictly speaking, two <a href="../../../a/f/f/Affine_space.html" title="Affine space">affine spaces</a>) consists of a <a href="../../../l/i/n/Linear_transformation.html" title="Linear transformation">linear transformation</a> followed by a <a href="../../../t/r/a/Translation_%28geometry%29.html" title="Translation (geometry)">translation</a>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/7/d/37db8eb069239a8191a95dcb183be9b5.png" alt="x \mapsto A x+ b" /></dd>
+</dl>
+<p>In the finite-dimensional case each affine transformation is given by a matrix A and a vector <i>b</i>, which can be written as the matrix A with an extra column <i>b</i>. An affine transformation corresponds to multiplication of a matrix and a vector, and composition of affine transformations corresponds to ordinary matrix multiplication, if an extra row is added at the bottom of the matrix containing only zeros except a 1 at the right:</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/c/0/2c05c4e2e1eb3bbb43795b2f837bcbaf.png" alt="\begin{bmatrix} A &amp; b \\ 0..0 &amp; 1 \end{bmatrix}" /></dd>
+</dl>
+<p>while an element 1 is added at the bottom of column vectors:</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/a/9/5a9823cb853c1e385e66bd67e5b0bb77.png" alt="\begin{bmatrix} x \\ 1 \end{bmatrix}" /></dd>
+</dl>
+<p>(<a href="../../../h/o/m/Homogeneous_coordinates.html" title="Homogeneous coordinates">homogeneous coordinates</a>).</p>
+<p>An affine transformation is <a href="../../../i/n/v/Invertible.html" title="Invertible">invertible</a> <a href="../../../i/f/_/If_and_only_if.html" title="If and only if">if and only if</a> A is invertible. The invertible affine transformations form the <a href="../../../a/f/f/Affine_group.html" title="Affine group">affine group</a>, which has the <a href="../../../g/e/n/General_linear_group.html" title="General linear group">general linear group</a> of degree <i>n</i> as subgroup and is itself a subgroup of the general linear group of degree <i>n</i>+1.</p>
+<p>The <a href="../../../s/i/m/Similarity_%28mathematics%29.html" title="Similarity (mathematics)">similarity transformations</a> form the subgroup where A is a scalar times an <a href="../../../o/r/t/Orthogonal_matrix.html" title="Orthogonal matrix">orthogonal matrix</a>. If and only if the determinant of A is 1 or -1 then the transformation preserves area; these also form a subgroup. Combining both conditions we have the <a href="../../../i/s/o/Isometry.html" title="Isometry">isometries</a>, the subgroup of both where A is an orthogonal matrix.</p>
+<p>Each of these groups has a subgroup of transformations which preserve <a href="../../../o/r/i/Orientation_%28mathematics%29.html" title="Orientation (mathematics)">orientation</a>: those where the determinant of A is positive. In the last case this is in 3D the group of <a href="../../../r/i/g/Rigid_body.html" title="Rigid body">rigid body</a> motions (<a href="../../../i/m/p/Improper_rotation.html" title="Improper rotation">proper rotations</a> and pure translations).</p>
+<p>For matrix A the following propositions are equivalent:</p>
+<ul>
+<li>A - I is invertible</li>
+<li>A does <i>not</i> have an <a href="../../../e/i/g/Eigenvalue%2C_eigenvector%2C_and_eigenspace.html" title="Eigenvalue, eigenvector, and eigenspace">eigenvalue</a> equal to 1</li>
+<li>for all <i>b</i> the transformation has exactly one <a href="../../../f/i/x/Fixed_point_%28mathematics%29.html" title="Fixed point (mathematics)">fixed point</a></li>
+<li>there is a <i>b</i> for which the transformation has exactly one fixed point</li>
+<li>affine transformations with matrix A can be written as a linear transformation with some point as origin</li>
+</ul>
+<p>If there is a fixed point we can take that as the origin, and the affine transformation reduces to a linear transformation. This may make it easier to classify and understand the transformation. For example, describing a transformation as a rotation by a certain angle with respect to a certain axis is easier to get an idea of the overall behavior of the transformation than describing it as a combination of a translation and a rotation. However, this depends on application and context. Describing such a transformation for an <i>object</i> tends to make more sense in terms of rotation about an axis through the center of that object, combined with a translation, rather than by just a rotation with respect to some distant point. For example "move 200 m north and rotate 90° anti-clockwise", rather than the equivalent "with respect to the point 141 m to the northwest, rotate 90° anti-clockwise".</p>
+<p>Affine transformations in 2D without fixed point (so where A has eigenvalue 1) are:</p>
+<ul>
+<li>pure translations</li>
+<li><a href="../../../s/c/a/Scaling_%28geometry%29.html" title="Scaling (geometry)">scaling</a> in a given direction, with respect to a line in another direction (not necessarily perpendicular), combined with translation that is not purely in the direction of scaling; the <a href="../../../s/c/a/Scale_factor.html" title="Scale factor">scale factor</a> is the other eigenvalue; taking "scaling" in a generalized sense it includes the cases that the scale factor is zero (<a href="../../../p/r/o/Projection_%28linear_algebra%29.html" title="Projection (linear algebra)">projection</a>) and negative; the latter includes <a href="../../../r/e/f/Reflection_%28mathematics%29.html" title="Reflection (mathematics)">reflection</a>, and combined with translation it includes <a href="../../../g/l/i/Glide_reflection.html" title="Glide reflection">glide reflection</a>.</li>
+<li><a href="../../../s/h/e/Shear.html" title="Shear">shear</a> combined with translation that is not purely in the direction of the shear (there is no other eigenvalue than 1; it has algebraic <a href="../../../e/i/g/Eigenvalue%2C_eigenvector%2C_and_eigenspace.html#Multiplicity" title="Eigenvalue, eigenvector, and eigenspace">multiplicity</a> 2, but geometric multiplicity 1)</li>
+</ul>
+<p>In a geometric setting, affine transformations are precisely the functions that map straight lines to straight lines.</p>
+<p>A linear transformation is a function that preserves all <a href="../../../l/i/n/Linear_combination.html" title="Linear combination">linear combinations</a>; an affine transformation is a function that preserves all affine combinations. An <b><a href="../../../a/f/f/Affine_combination.html" title="Affine combination">affine combination</a></b> is a linear combination in which the sum of the coefficients is 1.</p>
+<p>An <b>affine subspace</b> of a vector space (sometimes called a <b>linear manifold</b>) is a <a href="../../../c/o/s/Coset.html" title="Coset">coset</a> of a <a href="../../../l/i/n/Linear_subspace.html" title="Linear subspace">linear subspace</a>; i.e., it is the result of adding a constant vector to every element of the linear subspace. A linear subspace of a vector space is a subset that is closed under linear combinations; an affine subspace is one that is closed under affine combinations.</p>
+<p>For example, in <i>R</i><sup><i>3</i></sup>, lines and planes through the origin and the whole space are linear subspaces, while points, lines and planes in general as well as the whole space are the affine subspaces.</p>
+<p>Just as members of a set of vectors are <a href="../../../l/i/n/Linearly_independent.html" title="Linearly independent">linearly independent</a> if none is a linear combination of the others, so also they are <b>affinely independent</b> if none is an affine combination of the others. The set of linear combinations of a set of vectors is their "linear span" and is always a linear subspace; the set of all affine combinations is their "affine span" and is always an affine subspace. For example, the affine span of a set of two points is the line that contains both; the affine span of a set of three <a href="../../../n/o/n/Non-collinear_points.html" title="Non-collinear points">non-collinear points</a> is the plane that contains all three. Vectors</p>
+<dl>
+<dd><i>v</i><sub>1</sub>, <i>v</i><sub>2</sub>,. ., <i>v</i><sub><i>n</i></sub></dd>
+</dl>
+<p>are linearly dependent if scalars</p>
+<dl>
+<dd><i>a</i><sub>1</sub>, <i>a</i><sub>2</sub>,. ., <i>a</i><sub><i>n</i></sub></dd>
+</dl>
+<p>exist, not all 0, such that</p>
+<dl>
+<dd><i>a</i><sub>1</sub><i>v</i><sub>1</sub> +. .. + <i>a</i><sub><i>n</i></sub><i>v</i><sub><i>n</i></sub> = 0.</dd>
+</dl>
+<p>Similarly they are <b>affinely dependent</b> if the same is true and also</p>
+<dl>
+<dd><i>a</i><sub>1</sub> + ... + <i>a</i><sub><i>n</i></sub> = 0.</dd>
+</dl>
+<p>Such a vector (<i>a</i><sub>1</sub>,. .., <i>a</i><sub><i>n</i></sub>) is an <b>affine dependence</b> among the vectors <i>v</i><sub>1</sub>, <i>v</i><sub>2</sub>,. .., <i>v</i><sub><i>n</i></sub>.</p>
+<p>The set of all invertible affine transformations forms a <a href="../../../g/r/o/Group_%28mathematics%29.html" title="Group (mathematics)">group</a> under the operation of composition of functions. That group is called the <a href="../../../a/f/f/Affine_group.html" title="Affine group">affine group</a>, and is the <a href="../../../s/e/m/Semidirect_product.html" title="Semidirect product">semidirect product</a> of <i>K</i><sup><i>n</i></sup> and GL(<i>n</i>, <i>k</i>).</p>
+<p><a name="Affine_transformation_of_the_plane" id="Affine_transformation_of_the_plane"></a></p>
+<h2><span class="editsection">[<a href="../../../a/f/f/Affine_transformation.html" title="Edit section: Affine transformation of the plane">edit</a>]</span> <span class="mw-headline">Affine transformation of the plane</span></h2>
+<p>To visualise the general affine transformation of the <a href="../../../e/u/c/Euclidean_plane.html" title="Euclidean plane">Euclidean plane</a>, take labelled <a href="../../../p/a/r/Parallelogram.html" title="Parallelogram">parallelograms</a> <i>ABCD</i> and <i>A′B′C′D′</i>. Whatever the choices of points, there is an affine transformation <i>T</i> of the plane taking <i>A</i> to <i>A′</i>, and each vertex similarly. Supposing we exclude the degenerate case where <i>ABCD</i> has zero <a href="../../../a/r/e/Area.html" title="Area">area</a>, there is a unique such affine transformation <i>T</i>. Drawing out a whole grid of parallelograms based on <i>ABCD</i>, the image <i>T</i>(<i>P</i>) of any point <i>P</i> is determined by noting that <i>T</i>(<i>A</i>) = <i>A′</i>, <i>T</i> applied to the line segment <i>AB</i> is <i>A′B′</i>, <i>T</i> applied to the line segment <i>AC</i> is <i>A′C′</i>, and <i>T</i> respects scalar multiples of vectors based at <i>A</i>. [If <i>A</i>, <i>E</i>, <i>F</i> are colinear then the ratio length(<i>AF</i>)/length(<i>AE</i>) is equal to length(<i>A</i>′<i>F</i>′)/length(<i>A</i>′<i>E</i>′).] Geometrically <i>T</i> transforms the grid based on <i>ABCD</i> to that based in <i>A′B′C′D′</i>.</p>
+<p>Affine transformations don't respect lengths or angles; they multiply area by a constant factor</p>
+<dl>
+<dd>area of <i>A′ B′ C′ D′</i> / area of <i>ABCD</i>.</dd>
+</dl>
+<p>A given <i>T</i> may either be <i>direct</i> (respect orientation), or <i>indirect</i> (reverse orientation), and this may be determined by its effect on <i>signed</i> areas (as defined, for example, by the <a href="../../../c/r/o/Cross_product.html" title="Cross product">cross product</a> of vectors).</p>
+<p><a name="Example_of_an_affine_transformation" id="Example_of_an_affine_transformation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/f/f/Affine_transformation.html" title="Edit section: Example of an affine transformation">edit</a>]</span> <span class="mw-headline">Example of an affine transformation</span></h2>
+<p>The following equation expresses an affine transformation in <a href="../../../g/a/l/Galois_field.html" title="Galois field">GF</a>(2) (with "+" representing <a href="../../../x/o/r/XOR_9767.html" title="XOR">XOR</a>):</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/e/a/5eab6a00322c58620257ffd4a8f25764.png" alt="\{\,a'\,\} = M\{\,a\,\} + \{\,v\,\}." /></dd>
+</dl>
+<p>where [M] is the <a href="../../../m/a/t/Matrix_%28mathematics%29.html" title="Matrix (mathematics)">matrix</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/b/0/7/b07f04fd75ef0b112a13320bf47f4808.png" alt="\begin{bmatrix} 1&amp;0&amp;0&amp;0&amp;1&amp;1&amp;1&amp;1 \\ 1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;1&amp;1 \\ 1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;1&amp;1 \\ 1&amp;1&amp;1&amp;1&amp;0&amp;0&amp;0&amp;1 \\ 1&amp;1&amp;1&amp;1&amp;1&amp;0&amp;0&amp;0 \\ 0&amp;1&amp;1&amp;1&amp;1&amp;1&amp;0&amp;0 \\ 0&amp;0&amp;1&amp;1&amp;1&amp;1&amp;1&amp;0 \\ 0&amp;0&amp;0&amp;1&amp;1&amp;1&amp;1&amp;1\end{bmatrix}" /></dd>
+</dl>
+<p>and {<i>v</i>} is the <a href="../../../v/e/c/Vector_space.html" title="Vector space">vector</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/d/9/1/d91d8e56fcba87c18fe9a718ff087ce8.png" alt="\begin{bmatrix} 1 \\ 1 \\ 0 \\ 0 \\ 0 \\ 1 \\ 1 \\ 0 \end{bmatrix}." /></dd>
+</dl>
+<p>For instance, the affine transformation of the element {a} = <i>x</i><sup>7</sup> + <i>x</i><sup>6</sup> + <i>x</i><sup>3</sup> + <i>x</i> = {11001010} in <a href="../../../e/n/d/Endianness.html" title="Endianness">big-endian</a> <a href="../../../b/i/n/Binary_numeral_system.html" title="Binary numeral system">binary</a> notation = {CA} in big-endian <a href="../../../h/e/x/Hexadecimal.html" title="Hexadecimal">hexadecimal</a> notation, is calculated as follows:</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/a/8/ea81c251b19008d602620590c6536797.png" alt="a_0' = a_0 \oplus a_4 \oplus a_5 \oplus a_6 \oplus a_7 \oplus 1 = 0 \oplus 0 \oplus 0 \oplus 1 \oplus 1 \oplus 1 = 1" /></dd>
+<dd><img class='tex' src="../../../math/9/6/3/9631403c183d0f77b9469d9ca4d553a8.png" alt="a_1' = a_0 \oplus a_1 \oplus a_5 \oplus a_6 \oplus a_7 \oplus 1 = 0 \oplus 1 \oplus 0 \oplus 1 \oplus 1 \oplus 1 = 0" /></dd>
+<dd><img class='tex' src="../../../math/a/8/7/a8785a7f3e5c6c45c1347dd98bc79c73.png" alt="a_2' = a_0 \oplus a_1 \oplus a_2 \oplus a_6 \oplus a_7 \oplus 0 = 0 \oplus 1 \oplus 0 \oplus 1 \oplus 1 \oplus 0 = 1" /></dd>
+<dd><img class='tex' src="../../../math/9/3/6/9364aff9f143b7c3b5e7ab4afa9a7b8b.png" alt="a_3' = a_0 \oplus a_1 \oplus a_2 \oplus a_3 \oplus a_7 \oplus 0 = 0 \oplus 1 \oplus 0 \oplus 1 \oplus 1 \oplus 0 = 1" /></dd>
+<dd><img class='tex' src="../../../math/2/1/9/21958fbf0a3f327a67ba62b2627df17e.png" alt="a_4' = a_0 \oplus a_1 \oplus a_2 \oplus a_3 \oplus a_4 \oplus 0 = 0 \oplus 1 \oplus 0 \oplus 1 \oplus 0 \oplus 0 = 0" /></dd>
+<dd><img class='tex' src="../../../math/6/7/5/675ff47b541af15dcad2591ec6ca41a0.png" alt="a_5' = a_1 \oplus a_2 \oplus a_3 \oplus a_4 \oplus a_5 \oplus 1 = 1 \oplus 0 \oplus 1 \oplus 0 \oplus 0 \oplus 1 = 1" /></dd>
+<dd><img class='tex' src="../../../math/6/b/9/6b994e767922df6ecd81b4faead68e7d.png" alt="a_6' = a_2 \oplus a_3 \oplus a_4 \oplus a_5 \oplus a_6 \oplus 1 = 0 \oplus 1 \oplus 0 \oplus 0 \oplus 1 \oplus 1 = 1" /></dd>
+<dd><img class='tex' src="../../../math/d/4/9/d49971aee114d17d51ec6ca5f50294d1.png" alt="a_7' = a_3 \oplus a_4 \oplus a_5 \oplus a_6 \oplus a_7 \oplus 0 = 1 \oplus 0 \oplus 0 \oplus 1 \oplus 1 \oplus 0 = 1." /></dd>
+</dl>
+<p>Thus, {<i>a</i>′} = <i>x</i><sup>7</sup> + <i>x</i><sup>6</sup> + <i>x</i><sup>5</sup> + <i>x</i><sup>3</sup> + <i>x</i><sup>2</sup> + 1 = {11101101} = {ED}</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/f/f/Affine_transformation.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../t/r/a/Transformation_matrix.html#Affine_transformations" title="Transformation matrix">the transformation matrix for an affine transformation</a></li>
+<li><a href="../../../t/r/a/Translation_%28geometry%29.html#Matrix_representation" title="Translation (geometry)">matrix representation of a translation</a></li>
+<li><a href="../../../a/f/f/Affine_group.html" title="Affine group">affine group</a></li>
+<li><a href="../../../a/f/f/Affine_geometry.html" title="Affine geometry">affine geometry</a></li>
+<li><a href="../../../h/o/m/Homothetic_transformation.html" title="Homothetic transformation">homothetic transformation</a></li>
+<li><a href="../../../s/i/m/Similarity_transformation.html" title="Similarity transformation">similarity transformation</a></li>
+<li><a href="../../../l/i/n/Linear.html" title="Linear">linear</a> (the second meaning is affine transformation in 1D)</li>
+<li><a href="../../../3/d/_/3D_projection_54bf.html" title="3D projection">3D projection</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/f/f/Affine_transformation.html">http://en.wikipedia.org../../../a/f/f/Affine_transformation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/f/f/Category%7EAffine_geometry_0455.html" title="Category:Affine geometry">Affine geometry</a></span> | <span dir='ltr'><a href="../../../l/i/n/Category%7ELinear_algebra_5c7d.html" title="Category:Linear algebra">Linear algebra</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/f/f/Affine_transformation.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/f/f/Talk%7EAffine_transformation_aa63.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Affine_transformation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ar/%D8%AA/%D8%AD/%D9%88/%D8%AA%D8%AD%D9%88%D9%8A%D9%84_%D8%AE%D8%B7%D9%8A.html">العربية</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../cs/a/f/i/Afinn%C3%AD_zobrazen%C3%AD.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/f/f/Affine_Abbildung_098f.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../eo/a/f/i/Afina_transformo.html">Esperanto</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/p/p/Application_affine.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/t/r/a/Trasformazione_affine.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/a/f/f/Affiene_transformatie.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%82%A2/%E3%83%95/%E3%82%A3/%E3%82%A2%E3%83%95%E3%82%A3%E3%83%B3%E5%86%99%E5%83%8F.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/p/r/z/Przekszta%C5%82cenie_afiniczne.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/f/u/n/Fun%C3%A7%C3%A3o_afim.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B0/%D1%84/%D1%84/%D0%90%D1%84%D1%84%D0%B8%D0%BD%D0%BD%D0%BE%D0%B5_%D0%BF%D1%80%D0%B5%D0%BE%D0%B1%D1%80%D0%B0%D0%B7%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sl/a/f/i/Afina_preslikava.html">Slovenščina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/a/f/f/Affiinikuvaus.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/a/f/f/Affin_transformation.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/b/i/%E1%BA%BF/Bi%E1%BA%BFn_%C4%91%E1%BB%95i_afin.html">Tiếng Việt</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ur/%D9%86/%D8%B3/%D8%A8/%D9%86%D8%B3%D8%A8%DB%8C_%D8%A7%D8%B3%D8%AA%D8%AD%D8%A7%D9%84%DB%81.html">اردو</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E4%BB%BF/%E5%B0%84/%E5%8F%98/%E4%BB%BF%E5%B0%84%E5%8F%98%E6%8D%A2.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 12:50, 18 February 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../a/l/n/User%7EAlnoktaBOT_865c.html" title="User:AlnoktaBOT">AlnoktaBOT</a>, <a href="../../../d/h/n/User%7EDHN-bot_8c4a.html" title="User:DHN-bot">DHN-bot</a>, <a href="../../../k/o/c/User%7EKocjoBot_a9f5.html" title="User:KocjoBot">KocjoBot</a>, <a href="../../../u/r/d/User%7EUrdutext_a8c2.html" title="User:Urdutext">Urdutext</a>, <a href="../../../b/e/n/User%7EBenFrantzDale_c7e5.html" title="User:BenFrantzDale">BenFrantzDale</a>, <a href="../../../a/j/g/User%7EAjgorhoe_1441.html" title="User:Ajgorhoe">Ajgorhoe</a>, <a href="../../../f/e/l/User%7EFelix_Wiemann_0d27.html" title="User:Felix Wiemann">Felix Wiemann</a>, <a href="../../../l/e/o/User%7ELeonardoRob0t_c34e.html" title="User:LeonardoRob0t">LeonardoRob0t</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../m/e/t/User%7EMets501_2e06.html" title="User:Mets501">Mets501</a>, <a href="../../../i/v/a/User%7EIvanAndreevich_737d.html" title="User:IvanAndreevich">IvanAndreevich</a>, <a href="../../../t/o/n/User%7ETong_993a.html" title="User:Tong">Tong</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../a/r/c/User%7EArchelon_1fc6.html" title="User:Archelon">Archelon</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../c/u/r/User%7ECurpsbot-unicodify_bd8d.html" title="User:Curpsbot-unicodify">Curpsbot-unicodify</a>, <a href="../../../m/p/a/User%7EMpatel_da58.html" title="User:Mpatel">Mpatel</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../p/a/t/User%7EPatrick_7b47.html" title="User:Patrick">Patrick</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../m/y/s/User%7EMysidia_5e77.html" title="User:Mysidia">Mysidia</a>, <a href="../../../m/a/r/User%7EMargosbot_a231.html" title="User:Margosbot">Margosbot</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../2E/3A/a/User%7E.%7EAjvol%7E._8162.html" title="User:.:Ajvol:.">.:Ajvol:.</a>, <a href="../../../j/u/m/User%7EJumbuck_a815.html" title="User:Jumbuck">Jumbuck</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../j/o/s/User%7EJosh_Cherry_99df.html" title="User:Josh Cherry">Josh Cherry</a>, <a href="../../../g/u/a/User%7EGuanabot_b902.html" title="User:Guanabot">Guanabot</a>, <a href="../../../v/2E/_/User%7EV._Z._d997.html" title="User:V. Z.">V. Z.</a>, Dave Foley, <a href="../../../c/a/t/User%7ECatherineMunro_0200.html" title="User:CatherineMunro">CatherineMunro</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../s/c/h/User%7ESchneelocke_ee99.html" title="User:Schneelocke">Schneelocke</a>, <a href="../../../j/-/w/User%7EJ-Wiki_7c83.html" title="User:J-Wiki">J-Wiki</a>, <a href="../../../s/k/e/User%7ESkeetch_db51.html" title="User:Skeetch">Skeetch</a>, <a href="../../../p/h/y/User%7EPhys_1a7b.html" title="User:Phys">Phys</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a>, <a href="../../../c/h/a/User%7EChas_zzz_brown_d8e1.html" title="User:Chas zzz brown">Chas zzz brown</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and <a href="../../../d/a/m/User%7EDamian_Yerrick_2a18.html" title="User:Damian Yerrick">Damian Yerrick</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Boundary representation,ACIS,Boolean logic,Computer-aided design,Constructive solid geometry,Face (geometry),Parasolid,Romulus (b-rep solid modeler),Topology,University of Cambridge,Vertex" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Boundary representation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Boundary representation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Computer-aided_design.html" title="Computer-aided design">computer-aided design</a>, <b>boundary representation</b>—often abbreviated as <b>B-rep</b> or <b>BREP</b>—is a method for representing shapes using the limits. A solid is represented as a collection of connected surface elements, the boundary between solid and non-solid. The basic method was developed independently in the early 1970s by Braid in <a href="../../../u/n/i/University_of_Cambridge_5f20.html" title="University of Cambridge">Cambridge</a> (for CAD) and Baumgart in America (for computer vision). Braid continued his work with the research solid modeller BUILD which was the forerunner of many research and commercial solid modelling systems. Braid worked on the commercial systems <a href="../../../r/o/m/Romulus_%28b-rep_solid_modeler%29.html" title="Romulus (b-rep solid modeler)">ROMULUS</a>, the forerunner of <a href="../../../p/a/r/Parasolid.html" title="Parasolid">Parasolid</a>, and on <a href="../../../a/c/i/ACIS_b62c.html" title="ACIS">ACIS</a>. Parasolid and ACIS are the basis for many of today's commercial CAD systems.</p>
+<p>Boundary representation models are comprised of two parts: <a href="../../../t/o/p/Topology.html" title="Topology">topology</a> and geometry. The main topological items are: <a href="../../../f/a/c/Face_%28geometry%29.html" title="Face (geometry)">faces</a>, edges and <a href="../../../v/e/r/Vertex.html" title="Vertex">vertices</a>. A face is a bounded portion of a surface; an edge is a bounded piece of a curve and a vertex lies at a point. Other elements are the shell (a set of connected faces), the loop (a circuit of edges bounding a face) and loop-edge links (also known as winged-edge links or half-edges) which are used to create the edge circuits.</p>
+<p>Unlike the <a href="../../../c/o/n/Constructive_solid_geometry.html" title="Constructive solid geometry">constructive solid geometry</a> (CSG) representation, which represents objects as a collection of primitive objects and <a href="../../../b/o/o/Boolean_logic.html" title="Boolean logic">Boolean operations</a> to combine them, boundary representation is more flexible and has a much richer operation set. This richer operation set makes boundary representation a more appropriate choice for CAD systems than CSG. CSG was used initially by several commercial systems because it was easier to implement but the advent of reliable commercial B-rep kernel systems like Parasolid and ACIS, mentioned above, has led to widespread adoption of B-rep for CAD. As well as the Boolean operations, B-rep has extrusion, chamfering, blending, drafting, shelling, tweaking and other operations which make use of these.</p>
+<p>Boundary representation is essentially a local representation connecting faces, edges and vertices. An extension of this was to group sub-elements of the shape into logical units called "features". Pioneering work was done on this by Kyprianou in Cambridge using the BUILD system and continued and extended by Jared and others. Much other work on this topic has been done in several research centres throughout the world and it is a subject of continuing interest. Features, or geometric features, are the basis of many other developments, allowing high-level "geometric reasoning" about shape for comparison, process-planning, manufacturing, etc.</p>
+<p>Boundary representation has also been extended to allow special, non-solid model types called non-manifold models. As described by Braid, normal solids found in nature have the property that, at every point on the boundary, a small enough sphere around the point is divided into two pieces, one inside and one outside the object. Non-manifold models break this rule. An important sub-class of non-manifold models are sheet objects which are used to represent thin-plate objects and integrate surface modelling into a solid modelling environment.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/u/Boundary_representation.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../c/o/n/Constructive_solid_geometry.html" title="Constructive solid geometry">CSG</a></li>
+<li><a href="../../../w/i/n/Winged_edge.html" title="Winged edge">Winged edge</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/u/Boundary_representation.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://wheger.tripod.com/step" class="external text" title="http://wheger.tripod.com/step" rel="nofollow">Actual example of source boundary representation in STEP format</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/u/Boundary_representation.html">http://en.wikipedia.org../../../b/o/u/Boundary_representation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer-aided_design_f2c7.html" title="Category:Computer-aided design">Computer-aided design</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/u/Boundary_representation.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/o/u/Talk%7EBoundary_representation_948f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Boundary_representation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../zh/%E8%BE%B9/%E7%95%8C/%E8%A1%A8/%E8%BE%B9%E7%95%8C%E8%A1%A8%E7%A4%BA.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:52, 16 January 2007 by Wikipedia user <a href="../../../f/r/e/User%7EFreeformer_f773.html" title="User:Freeformer">Freeformer</a>. Based on work by Wikipedia user(s) Ian.stroud, <a href="../../../s/_/r/User%7ES_Roper_e200.html" title="User:S Roper">S Roper</a>, Sterrys, <a href="../../../l/i/n/User%7ELino_Mastrodomenico_5b7a.html" title="User:Lino Mastrodomenico">Lino Mastrodomenico</a>, <a href="../../../b/e/n/User%7EBenFrantzDale_c7e5.html" title="User:BenFrantzDale">BenFrantzDale</a>, <a href="../../../d/e/n/User%7EDennette_c7df.html" title="User:Dennette">Dennette</a>, <a href="../../../n/i/k/User%7ENikai_7c15.html" title="User:Nikai">Nikai</a>, <a href="../../../l/o/t/User%7ELothartklein_7221.html" title="User:Lothartklein">Lothartklein</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a> and <a href="../../../w/h/e/User%7EWheger_1226.html" title="User:Wheger">Wheger</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

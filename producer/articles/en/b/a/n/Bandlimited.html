@@ -1,0 +1,179 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bandlimited,Bandwidth,Claude E. Shannon,Deterministic,Fourier transform,Frequency,Fundamental theorem of algebra,Harry Nyquist,Nyquist frequency,Nyquist rate,Nyquist–Shannon sampling theorem" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bandlimited - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bandlimited</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <div class="thumb tright">
+<div class="thumbinner" style="width:302px;"><a href="../../../b/a/n/Image%7EBandlimited.svg_9a1b.html" class="internal" title="Spectrum of a bandlimited signal as a function of frequency"><img src="../../../upload/shared/thumb/f/f7/Bandlimited.svg/300px-Bandlimited.svg.png" alt="Spectrum of a bandlimited signal as a function of frequency" width="300" height="153" longdesc="../../../b/a/n/Image%7EBandlimited.svg_9a1b.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/a/n/Image%7EBandlimited.svg_9a1b.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Spectrum of a <b>bandlimited signal</b> as a function of frequency</div>
+</div>
+</div>
+<p>A <b>bandlimited</b> signal is a <a href="../../../d/e/t/Deterministic.html" title="Deterministic">deterministic</a> or <a href="../../../s/t/o/Stochastic.html" title="Stochastic">stochastic</a> signal whose <a href="../../../f/o/u/Fourier_transform.html" title="Fourier transform">Fourier transform</a> or <a href="../../../p/o/w/Power_spectral_density.html" title="Power spectral density">power spectral density</a> is zero above a certain finite <a href="../../../f/r/e/Frequency.html" title="Frequency">frequency</a>. In other words, if the <a href="../../../f/o/u/Fourier_transform.html" title="Fourier transform">Fourier transform</a> or <a href="../../../p/o/w/Power_spectral_density.html" title="Power spectral density">power spectral density</a> has finite <a href="../../../s/u/p/Support_%28mathematics%29.html" title="Support (mathematics)">support</a> then the signal is said to be bandlimited.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Sampling_bandlimited_signals"><span class="tocnumber">1</span> <span class="toctext">Sampling bandlimited signals</span></a></li>
+<li class="toclevel-1"><a href="#Bandlimited_versus_timelimited"><span class="tocnumber">2</span> <span class="toctext">Bandlimited versus timelimited</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">3</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Sampling_bandlimited_signals" id="Sampling_bandlimited_signals"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/n/Bandlimited.html" title="Edit section: Sampling bandlimited signals">edit</a>]</span> <span class="mw-headline">Sampling bandlimited signals</span></h2>
+<p>A bandlimited signal can be fully reconstructed from its samples, provided that the sampling rate exceeds twice the maximum frequency in the bandlimited signal. This minimum sampling frequency is called the <a href="../../../n/y/q/Nyquist_rate.html" title="Nyquist rate">Nyquist rate</a>. This result, usually attributed to <a href="../../../h/a/r/Harry_Nyquist_5898.html" title="Harry Nyquist">Nyquist</a> and <a href="../../../c/l/a/Claude_E._Shannon_1a89.html" title="Claude E. Shannon">Shannon</a>, is known as the <a href="../../../n/y/q/Nyquist%E2%80%93Shannon_sampling_theorem_fd0a.html" title="Nyquist–Shannon sampling theorem">Nyquist–Shannon sampling theorem</a>, or simply the <b>sampling theorem</b>.</p>
+<p>An example of a simple deterministic bandlimited signal is a sinusoid of the form <img class='tex' src="../../../math/f/3/5/f35721a8350957509ab8f246a0d46860.png" alt="x(t) = \sin(2 \pi ft + \theta) \" />. If this signal is sampled at a rate <img class='tex' src="../../../math/b/a/7/ba7e5b7223ff5266e96a70d94b23efa3.png" alt="f_s =\frac{1}{T} &gt; 2B" /> so that we have the samples <img class='tex' src="../../../math/2/6/9/269e6a3cdee35a7eec719c55abbf640a.png" alt="x(nT) \" />, for all integers <span class="texhtml"><i>n</i></span>, we can recover <img class='tex' src="../../../math/e/3/4/e34fd49d79f3869d9033f958be91021e.png" alt="x(t) \" /> completely from these samples. Similarly, sums of sinusoids with different frequencies and phases are also bandlimited.</p>
+<p>The signal whose Fourier transform is shown in the figure is also bandlimited. Suppose <img class='tex' src="../../../math/e/3/4/e34fd49d79f3869d9033f958be91021e.png" alt="x(t)\" /> is a signal whose Fourier transform is <img class='tex' src="../../../math/1/9/4/194e3a185efd76ee4c356ad1f1abca0d.png" alt="X(f)\" />, the magnitude of which is shown in the figure. The highest frequency component in <img class='tex' src="../../../math/e/3/4/e34fd49d79f3869d9033f958be91021e.png" alt="x(t)\" /> is <img class='tex' src="../../../math/6/2/2/622305a4d4aa133a26c5b53ff4a3c729.png" alt="B \" />. As a result, the Nyquist rate is</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/7/c/67c8e536dca9686af421851050e4a579.png" alt="R_N = 2B \," /></dd>
+</dl>
+<p>or twice the highest frequency component in the signal, as shown in the figure. According to the sampling theorem, it is possible to reconstruct <img class='tex' src="../../../math/e/3/4/e34fd49d79f3869d9033f958be91021e.png" alt="x(t)\" /> completely and exactly using the samples</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/0/7/d07e24ecf3e69b2427f7e9397a6e1feb.png" alt="x[n] \ \stackrel{\mathrm{def}}{=}\  x(nT) = x \left( { n \over f_s  } \right)" /> for integer <img class='tex' src="../../../math/a/9/5/a957404c96e59f1746f97ab668c8e1f8.png" alt="n \," /> and <img class='tex' src="../../../math/3/3/f/33f9ffe77473b36a29b41903de4244fe.png" alt="T \ \stackrel{\mathrm{def}}{=}\  { 1 \over f_s }" /></dd>
+</dl>
+<p>as long as</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/d/8/9d8964390116ffd0c65b8bbe7a3f94cb.png" alt="f_s &gt; R_N  \," /></dd>
+</dl>
+<p>The reconstruction of a signal from its samples can be accomplished using the <a href="../../../w/h/i/Whittaker%E2%80%93Shannon_interpolation_formula_248c.html" title="Whittaker–Shannon interpolation formula">Whittaker–Shannon interpolation formula</a>.</p>
+<p><a name="Bandlimited_versus_timelimited" id="Bandlimited_versus_timelimited"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/n/Bandlimited.html" title="Edit section: Bandlimited versus timelimited">edit</a>]</span> <span class="mw-headline">Bandlimited versus timelimited</span></h2>
+<p>A bandlimited signal cannot be also timelimited. More precisely, a function and its Fourier transform cannot both have finite support. This fact can be proved by using the <a href="../../../s/a/m/Sampling_theorem.html" title="Sampling theorem">sampling theorem</a>.</p>
+<p><b>Proof:</b> Assume that a signal which has finite support in both domains exists, and sample it faster than the Nyquist frequency. This finite number of time-domain coefficients should define the entire signal. Equivalently, the entire spectrum of the bandlimited signal should be expressible in terms of the finite number of time-domain coefficients obtained from sampling the signal. Mathematically this is equivalent to requiring that a (trigonometric) polynomial can have infinitely many zeros in bounded intervals since the bandlimited signal must be zero on an interval beyond a critical frequency which has infinitely many points. However, it is well-known that polynomials do not have more zeros than their orders due to the <a href="../../../f/u/n/Fundamental_theorem_of_algebra.html" title="Fundamental theorem of algebra">fundamental theorem of algebra</a>. This contradiction shows that our original assumption that a time-limited and bandlimited signal exists is incorrect.</p>
+<p>One important consequence of this result is that it is impossible to generate a truly bandlimited signal in any real-world situation, because a bandlimited signal would require infinite time to transmit. All real-world signals are, by necessity, <i>timelimited</i>, which means that they <i>cannot</i> be bandlimited. Nevertheless, the concept of a bandlimited signal is a useful idealization for theoretical and analytical purposes. Furthermore, it is possible to approximate a bandlimited signal to any arbitrary level of accuracy desired.</p>
+<p>A similar relationship between duration in time and bandwidth in frequency also forms the mathematical basis for the <a href="../../../u/n/c/Uncertainty_principle.html" title="Uncertainty principle">uncertainty principle</a> in <a href="../../../q/u/a/Quantum_mechanics.html" title="Quantum mechanics">quantum mechanics</a>. In that setting, the "width" of the time domain and frequency domain functions are evaluated with a <a href="../../../v/a/r/Variance.html" title="Variance">variance</a>-like measure. Quantitatively, the uncertainty principle imposes the following condition on any real waveform:</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/8/0/1808d14eefe6a433ed1a35437ca9a8a3.png" alt="2 \pi W_B T_D \ge 1" /></dd>
+</dl>
+<p>where</p>
+<dl>
+<dd><span class="texhtml"><i>W</i><sub><i>B</i></sub></span> is a (suitably chosen) measure of bandwidth (in hertz), and</dd>
+</dl>
+<dl>
+<dd><span class="texhtml"><i>T</i><sub><i>D</i></sub></span> is a (suitably chosen) measure of time duration (in seconds).</dd>
+</dl>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/n/Bandlimited.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<p><cite class="book" style="font-style:normal">William McC. Siebert (1986). <i>Circuits, Signals, and Systems</i>. Cambridge, MA: MIT Press.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Circuits%2C+Signals%2C+and+Systems&amp;rft.title=Circuits%2C+Signals%2C+and+Systems&amp;rft.au=William+McC.+Siebert&amp;rft.date=1986&amp;rft.pub=MIT+Press&amp;rft.place=Cambridge%2C+MA">&#160;</span></p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/n/Bandlimited.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/a/n/Bandwidth.html" title="Bandwidth">Bandwidth</a></li>
+<li><a href="../../../n/y/q/Nyquist%E2%80%93Shannon_sampling_theorem_fd0a.html" title="Nyquist–Shannon sampling theorem">Nyquist–Shannon sampling theorem</a></li>
+<li><a href="../../../n/y/q/Nyquist_rate.html" title="Nyquist rate">Nyquist rate</a></li>
+<li><a href="../../../n/y/q/Nyquist_frequency.html" title="Nyquist frequency">Nyquist frequency</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 4849 bytes
+Post-expand include size: 1283 bytes
+Template argument size: 995 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/n/Bandlimited.html">http://en.wikipedia.org../../../b/a/n/Bandlimited.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../d/i/g/Category%7EDigital_signal_processing_a269.html" title="Category:Digital signal processing">Digital signal processing</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/n/Bandlimited.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/a/n/Talk%7EBandlimited_a8ff.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bandlimited">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 00:57, 1 April 2007 by Wikipedia user <a href="../../../e/d/i/User%7EEditor_at_Large_0787.html" title="User:Editor at Large">Editor at Large</a>. Based on work by Wikipedia user(s) <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a>, <a href="../../../e/n/d/User%7EEndersdouble_cdcd.html" title="User:Endersdouble">Endersdouble</a>, <a href="../../../s/e/b/User%7ESebastianHelm_63db.html" title="User:SebastianHelm">SebastianHelm</a>, <a href="../../../r/b/j/User%7ERbj_42ae.html" title="User:Rbj">Rbj</a>, <a href="../../../l/i/g/User%7ELigulembot_623f.html" title="User:Ligulembot">Ligulembot</a>, <a href="../../../k/y/n/User%7EKYN_0594.html" title="User:KYN">KYN</a>, <a href="../../../c/i/h/User%7ECihan_1945.html" title="User:Cihan">Cihan</a>, <a href="../../../m/e/t/User%7EMetacomet_63d1.html" title="User:Metacomet">Metacomet</a>, Rdrosson, <a href="../../../m/i/c/User%7EMick_Knapton_bc65.html" title="User:Mick Knapton">Mick Knapton</a>, <a href="../../../t/w/t/User%7ETwthmoses_5da0.html" title="User:Twthmoses">Twthmoses</a>, Beeftrax, <a href="../../../c/h/i/User%7EChicXulub_974f.html" title="User:ChicXulub">ChicXulub</a> and <a href="../../../t/l/o/User%7ETlotoxl_1dca.html" title="User:Tlotoxl">Tlotoxl</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

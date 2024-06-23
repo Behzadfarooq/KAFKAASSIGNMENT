@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Arrangement of hyperplanes,Affine geometry,Chain complex,Codimension,Cohomology,Combinatorics,Complex number,Convex polygon,De Rham cohomology,Differential form,Geometry" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Arrangement of hyperplanes - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Arrangement of hyperplanes</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../g/e/o/Geometry.html" title="Geometry">geometry</a> and <a href="../../../c/o/m/Combinatorics.html" title="Combinatorics">combinatorics</a>, an <b>arrangement of hyperplanes</b> is a finite set <i>A</i> of <a href="../../../h/y/p/Hyperplane.html" title="Hyperplane">hyperplanes</a> in a <a href="../../../l/i/n/Linear_space.html" title="Linear space">linear</a>, <a href="../../../a/f/f/Affine_geometry.html" title="Affine geometry">affine</a>, or <a href="../../../p/r/o/Projective_geometry.html" title="Projective geometry">projective</a> space <i>S</i>. Questions about a hyperplane arrangement <i>A</i> generally concern geometrical, topological, or other properties of the <b>complement</b>, <i>M</i>(<i>A</i>), which is the set that remains when the hyperplanes are removed from the whole space. One may ask how these properties are related to the arrangement and its intersection semilattice. The <b>intersection <a href="../../../s/e/m/Semilattice.html" title="Semilattice">semilattice</a></b> of <i>A</i>, written <i>L</i>(<i>A</i>), is the set of all <a href="../../../s/u/b/Subspace.html" title="Subspace">subspaces</a> that are obtained by intersecting some of the hyperplanes; among these subspaces are <i>S</i> itself, all the individual hyperplanes, all intersections of pairs of hyperplanes, etc. (excluding, in the affine case, the empty set). These subspaces are called the <b>flats</b> of <i>A</i>. <i>L</i>(<i>A</i>) is partially ordered by <i>reverse inclusion</i>.</p>
+<p>If the whole space <i>S</i> is 2-dimensional, the hyperplanes are <a href="../../../l/i/n/Line_%28mathematics%29.html" title="Line (mathematics)">lines</a>; such an arrangement is often called an <b>arrangement of lines</b>. Historically, real arrangements of lines were the first arrangements investigated. If <i>S</i> is 3-dimensional one has an <b>arrangement of planes</b>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#General_theory"><span class="tocnumber">1</span> <span class="toctext">General theory</span></a>
+<ul>
+<li class="toclevel-2"><a href="#The_intersection_semilattice"><span class="tocnumber">1.1</span> <span class="toctext">The intersection semilattice</span></a></li>
+<li class="toclevel-2"><a href="#Polynomials"><span class="tocnumber">1.2</span> <span class="toctext">Polynomials</span></a></li>
+<li class="toclevel-2"><a href="#The_Orlik-Solomon_algebra"><span class="tocnumber">1.3</span> <span class="toctext">The Orlik-Solomon algebra</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Real_arrangements"><span class="tocnumber">2</span> <span class="toctext">Real arrangements</span></a></li>
+<li class="toclevel-1"><a href="#Complex_arrangements"><span class="tocnumber">3</span> <span class="toctext">Complex arrangements</span></a></li>
+<li class="toclevel-1"><a href="#Technicalities"><span class="tocnumber">4</span> <span class="toctext">Technicalities</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="General_theory" id="General_theory"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/r/Arrangement_of_hyperplanes.html" title="Edit section: General theory">edit</a>]</span> <span class="mw-headline">General theory</span></h2>
+<p><a name="The_intersection_semilattice" id="The_intersection_semilattice"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/r/Arrangement_of_hyperplanes.html" title="Edit section: The intersection semilattice">edit</a>]</span> <span class="mw-headline">The intersection semilattice</span></h3>
+<p>The intersection semilattice <i>L</i>(<i>A</i>) is a meet semilattice and more specifically is a geometric semilattice. If the arrangement is linear or projective, or if the intersection of all hyperplanes is nonempty, the intersection lattice is a geometric lattice. (This is why the semilattice must be ordered by reverse inclusion--rather than by inclusion, which might seem more natural but would not yield a geometric (semi)lattice.)</p>
+<p><a name="Polynomials" id="Polynomials"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/r/Arrangement_of_hyperplanes.html" title="Edit section: Polynomials">edit</a>]</span> <span class="mw-headline">Polynomials</span></h3>
+<p>For a subset <i>B</i> of <i>A</i>, let us define <i>f</i>(<i>B</i>)&#160;:= the intersection of the hyperplanes in <i>B</i>; this is <i>S</i> if <i>B</i> is empty. The <b>characteristic polynomial of</b> <i>A</i>, written <i>p<sub>A</sub></i>(<i>y</i>), can be defined by</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/8/a/28a19aa5fe85aa03c480192a0a8a3130.png" alt="p_A(y)&#160;:= \sum_B (-1)^{|B|}y^{\dim f(B)}," /></dd>
+</dl>
+<p>summed over all subsets <i>B</i> of <i>A</i> except, in the affine case, subsets whose intersection is empty. (The dimension of the empty set is defined to be −1.) This polynomial helps to solve some basic questions; see below. Another polynomial associated with <i>A</i> is the <b>Whitney-number polynomial</b> <i>w<sub>A</sub></i>(<i>x</i>, <i>y</i>), defined by</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/1/5/4152032c51ecdac0747aee26cab7a835.png" alt="w_A(x,y)&#160;:= \sum_B x^{n-\dim f(B)} \sum_C (-1)^{|C-B|}y^{\dim f(C)}," /></dd>
+</dl>
+<p>summed over <i>B</i> ⊆ <i>C</i> ⊆ <i>A</i> such that <i>f</i>(<i>B</i>) is nonempty.</p>
+<p>Being a geometric lattice or semilattice, <i>L</i>(<i>A</i>) has a characteristic polynomial, <i>p</i><sub><i>L</i>(<i>A</i>)</sub>(<i>y</i>), which has an extensive theory (see geometric lattice). Thus it is good to know that <i>p</i><sub><i>A</i></sub>(<i>y</i>) = <i>y</i><sup><i>i</i></sup> <i>p</i><sub><i>L</i>(<i>A</i>)</sub>(<i>y</i>), where <i>i</i> is the smallest dimension of any flat, except that in the projective case it equals <i>y</i><sup><i>i</i> + 1</sup><i>p</i><sub><i>L</i>(<i>A</i>)</sub>(<i>y</i>). The Whitney-number polynomial of <i>A</i> is similarly related to that of <i>L</i>(<i>A</i>). (The empty set is excluded from the semilattice in the affine case specifically so that these relationships will be valid.)</p>
+<p><a name="The_Orlik-Solomon_algebra" id="The_Orlik-Solomon_algebra"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/r/Arrangement_of_hyperplanes.html" title="Edit section: The Orlik-Solomon algebra">edit</a>]</span> <span class="mw-headline">The Orlik-Solomon algebra</span></h3>
+<p>The intersection semilattice determines another combinatorial invariant of the arrangement, the Orlik-Solomon algebra. To define it, fix a commutative subring <i>K</i> of the base field, and form the exterior algebra <i>E</i> of the vector space</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/a/8/ba86f89fb2012423718632f659accc5c.png" alt="\bigoplus_{H \in A} K e_H" /></dd>
+</dl>
+<p>generated by the hyperplanes. A <a href="../../../c/h/a/Chain_complex.html" title="Chain complex">chain complex</a> structure is defined on <i>E</i> with the usual boundary operator <img class='tex' src="../../../math/5/2/c/52cc749bb1c32abf1dccf613bd847a6e.png" alt="\partial" />. The Orlik-Solomon algebra is then the quotient of <i>E</i> by the <a href="../../../i/d/e/Ideal.html" title="Ideal">ideal</a> generated by elements of the form <img class='tex' src="../../../math/b/9/0/b908e795bd853961fc9c8a67009ab4b2.png" alt="e_{H_1} \wedge \cdots \wedge e_{H_p}" /> where <i>H_1</i>, ..., <i>H_p</i> have empty intersection, and by boundaries of elements of the same form for which <img class='tex' src="../../../math/f/9/4/f947be7d15279ac5b2a8961368bcbfa4.png" alt="H_1 \cap \cdots \cap H_p" /> has <a href="../../../c/o/d/Codimension.html" title="Codimension">codimension</a> greater than <i>p</i>.</p>
+<p><a name="Real_arrangements" id="Real_arrangements"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/r/Arrangement_of_hyperplanes.html" title="Edit section: Real arrangements">edit</a>]</span> <span class="mw-headline">Real arrangements</span></h2>
+<p>In <a href="../../../r/e/a/Real_number.html" title="Real number">real</a> affine space, the complement is disconnected: it is made up of separate pieces called <b>regions</b> or <b>chambers</b>, each of which is either a bounded region that is a <a href="../../../c/o/n/Convex_polygon.html" title="Convex polygon">convex</a> <a href="../../../p/o/l/Polytope.html" title="Polytope">polytope</a>, or an unbounded region that is a convex <a href="../../../p/o/l/Polyhedron.html#general" title="Polyhedron">polyhedral</a> region which goes off to infinity. Each flat of <i>A</i> is also divided into pieces by the hyperplanes that do not contain the flat; these pieces are called the <b>faces</b> of <i>A</i>. The regions are faces because the whole space is a flat. The faces of codimension 1 may be called the <b>facets</b> of <i>A</i>. The <b>face semilattice</b> of an arrangement is the set of all faces, ordered by <i>inclusion</i>. Adding an extra top element to the face semilattice gives the <b>face lattice</b>.</p>
+<p>In two dimensions (i.e., in the real affine <a href="../../../p/l/a/Plane_%28mathematics%29.html" title="Plane (mathematics)">plane</a>) each region is a convex <a href="../../../p/o/l/Polygon.html" title="Polygon">polygon</a> (if it is bounded) or a convex polygonal region which goes off to infinity.</p>
+<ul>
+<li>As an example, if the arrangement consists of three parallel lines, the intersection semilattice consists of the plane and the three lines, but not the empty set. There are four regions, none of them bounded.</li>
+<li>If we add a line crossing the three parallels, then the intersection semilattice consists of the plane, the four lines, and the three points of intersection. There are eight regions, still none of them bounded.</li>
+<li>If we add one more line, parallel to the last, then there are 12 regions, of which two are bounded <a href="../../../p/a/r/Parallelogram.html" title="Parallelogram">parallelograms</a>.</li>
+</ul>
+<p>A typical problem about an arrangement in <i>n</i>-dimensional real space is to say how many regions there are, or how many faces of dimension 4, or how many bounded regions. These questions can be answered just from the intersection semilattice. For instance, two basic theorems are that the number of regions of an affine arrangement equals (−1)<sup><i>n</i></sup><i>p</i><sub><i>A</i></sub>(−1) and the number of bounded regions equals (−1)<sup><i>n</i></sup>p<sub><i>A</i></sub>(1). Similarly, the number of <i>k</i>-dimensional faces or bounded faces can be read off as the coefficient of <i>x</i><sup><i>n</i>−<i>k</i></sup> in (−1)<sup><i>n</i></sup> w<sub><i>A</i></sub> (−<i>x</i>, −1) or (−1)<sup><i>n</i></sup><i>w</i><sub><i>A</i></sub>(−<i>x</i>, 1).</p>
+<p>Another question about an arrangement in real space is to decide how many regions are <a href="../../../s/i/m/Simplex.html" title="Simplex">simplices</a> (the <i>n</i>-dimensional generalization of <a href="../../../t/r/i/Triangle.html" title="Triangle">triangles</a> and <a href="../../../t/e/t/Tetrahedron.html" title="Tetrahedron">tetrahedra</a>). This cannot be answered based solely on the intersection semilattice.</p>
+<p>A real linear arrangement has, besides its face semilattice, a <b>lattice of regions</b>, one for each region (Edelman 1984). This is formed by choosing a base region, <i>R</i><sub>0</sub>, and associating with each region <i>R</i> the set <i>A</i>(<i>R</i><sub>0</sub>, <i>R</i>) defined as the set of hyperplanes that separate the two regions. One says <i>R</i><sub>1</sub> ≥ <i>R</i><sub>2</sub> if <i>A</i>(<i>R</i><sub>1</sub>, <i>R</i>) contains <i>A</i>(<i>R</i><sub>2</sub>, <i>R</i>). This lattice has interesting properties that we will not go into here; notably, it is an Eulerian poset.</p>
+<p><a name="Complex_arrangements" id="Complex_arrangements"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/r/Arrangement_of_hyperplanes.html" title="Edit section: Complex arrangements">edit</a>]</span> <span class="mw-headline">Complex arrangements</span></h2>
+<p>In <a href="../../../c/o/m/Complex_number.html" title="Complex number">complex</a> affine space (which is hard to visualize because even the complex affine plane has four real dimensions), the complement is connected (all one piece) with holes where the hyperplanes were removed.</p>
+<p>A typical problem about an arrangement in complex space is to describe the holes.</p>
+<p>The basic theorem about complex arrangements is that the <a href="../../../c/o/h/Cohomology.html" title="Cohomology">cohomology</a> of the complement <i>M</i>(<i>A</i>) is completely determined by the intersection semilattice. To be precise, the cohomology ring of <i>M</i>(<i>A</i>) (with integer coefficients) is <a href="../../../i/s/o/Isomorphic.html" title="Isomorphic">isomorphic</a> to the Orlik-Solomon algebra on <b>Z</b>.</p>
+<p>The isomorphism can be described rather explicitly, and gives a presentation of the cohomology in terms of generators and relations, where generators are represented (in the <a href="../../../d/e/_/De_Rham_cohomology_20ee.html" title="De Rham cohomology">de Rham cohomology</a>) as logarithmic <a href="../../../d/i/f/Differential_form.html" title="Differential form">differential forms</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/9/c/9/9c91838bf87f53c986bb34c7c34342b2.png" alt="\frac{1}{2\pi i}\frac{d\alpha}{\alpha}." /></dd>
+</dl>
+<p>with <span class="texhtml">α</span> any linear form defining the generic hyperplane of the arrangement.</p>
+<p><a name="Technicalities" id="Technicalities"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/r/Arrangement_of_hyperplanes.html" title="Edit section: Technicalities">edit</a>]</span> <span class="mw-headline">Technicalities</span></h2>
+<p>Sometimes it is convenient to allow the <b>degenerate hyperplane</b>, which is the whole space <i>S</i>, to belong to an arrangement. If <i>A</i> contains the degenerate hyperplane, then it has no regions because the complement is empty. However, it still has flats, an intersection semilattice, and faces. The preceding discussion assumes the degenerate hyperplane is not in the arrangement.</p>
+<p>Sometimes one wants to allow repeated hyperplanes in the arrangement. We did not consider this possibility in the preceding discussion, but it makes no material difference.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/r/Arrangement_of_hyperplanes.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Edelman, Paul H. (1984), "A partial order on the regions of <i>R</i> <sup><i>n</i></sup> dissected by hyperplanes." <i>Transactions of the American Mathematical Society</i>, vol. 283, pp. 617-631.</li>
+<li>Orlik, Peter, and Terao, Hiroaki (1992). <i>Arrangements of Hyperplanes</i>. Springer-Verlag, New York.</li>
+<li>Zaslavsky, Thomas (1975). <i>Facing Up to Arrangements: Face-Count Formulas for Arrangements of Hyperplanes</i>. Memoirs of the American Mathematical Society, No. 154. [Not "Vol. 154".] American Mathematical Society, Providence, R.I.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/r/Arrangement_of_hyperplanes.html">http://en.wikipedia.org../../../a/r/r/Arrangement_of_hyperplanes.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../d/i/s/Category%7EDiscrete_geometry_6300.html" title="Category:Discrete geometry">Discrete geometry</a></span> | <span dir='ltr'><a href="../../../c/o/m/Category%7ECombinatorics_5de6.html" title="Category:Combinatorics">Combinatorics</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/r/r/Arrangement_of_hyperplanes.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/r/r/Talk%7EArrangement_of_hyperplanes_abb2.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Arrangement_of_hyperplanes">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:59, 30 March 2007 by Wikipedia user <a href="../../../z/a/s/User%7EZaslav_7e27.html" title="User:Zaslav">Zaslav</a>. Based on work by Wikipedia user(s) <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../a/r/n/User%7EArnoldReinhold_8f4c.html" title="User:ArnoldReinhold">ArnoldReinhold</a>, <a href="../../../m/i/c/User%7EMichael_Slone_bd9a.html" title="User:Michael Slone">Michael Slone</a>, <a href="../../../z/h/w/User%7EZhw_fbe0.html" title="User:Zhw">Zhw</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, <a href="../../../r/o/b/User%7ERobthbot_2e43.html" title="User:Robthbot">Robthbot</a>, <a href="../../../t/i/z/User%7ETizio_edab.html" title="User:Tizio">Tizio</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../t/t/z/User%7ETtzz_bca6.html" title="User:Ttzz">Ttzz</a>, <a href="../../../t/o/s/User%7ETosha_2812.html" title="User:Tosha">Tosha</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a> and <a href="../../../w/a/l/User%7EWaltpohl_11fc.html" title="User:Waltpohl">Waltpohl</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

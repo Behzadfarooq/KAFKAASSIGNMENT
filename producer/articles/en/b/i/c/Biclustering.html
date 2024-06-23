@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Biclustering,Biclique,Bicluster,Bioinformatics,Clustering,Data mining,Formal concept analysis,Galois connection,Gene expression" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Biclustering - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Biclustering</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>Biclustering</b> (or two-mode clustering<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup>) is a <a href="../../../d/a/t/Data_mining.html" title="Data mining">data mining</a> technique that allows simultaneous <a href="../../../c/l/u/Clustering.html" title="Clustering">clustering</a> of rows and columns. The term was first introduced by Mirkin<sup id="_ref-mirkin_0" class="reference"><a href="#_note-mirkin" title="">[2]</a></sup> (recently by Cheng and Church<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[3]</a></sup> in <a href="../../../g/e/n/Gene_expression.html" title="Gene expression">gene expression</a> analysis), although the technique was originally introduced much earlier <sup id="_ref-mirkin_1" class="reference"><a href="#_note-mirkin" title="">[2]</a></sup> (i.e., by J.A. Hartigan<sup id="_ref-2" class="reference"><a href="#_note-2" title="">[4]</a></sup>).</p>
+<p>Given a set of m rows in n columns (i.e., an m×n matrix), the biclustering algorithm generates <a href="../../../b/i/c/Bicluster.html" title="Bicluster">biclusters</a> - a subset of rows that exhibit similar behavior across a subset of columns, or vice versa.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Complexity"><span class="tocnumber">1</span> <span class="toctext">Complexity</span></a></li>
+<li class="toclevel-1"><a href="#Type_of_Bicluster"><span class="tocnumber">2</span> <span class="toctext">Type of Bicluster</span></a></li>
+<li class="toclevel-1"><a href="#Algorithms"><span class="tocnumber">3</span> <span class="toctext">Algorithms</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Complexity" id="Complexity"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/c/Biclustering.html" title="Edit section: Complexity">edit</a>]</span> <span class="mw-headline">Complexity</span></h2>
+<p>The complexity of the biclustering problem depends on the exact problem formulation, and particularly on the merit function used to evaluate the quality of a given bicluster. However most interesting variants of this problem are NP-complete requiring either large computational effort or the use of lossy heuristics to short-circuit the calculation.</p>
+<p><a name="Type_of_Bicluster" id="Type_of_Bicluster"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/c/Biclustering.html" title="Edit section: Type of Bicluster">edit</a>]</span> <span class="mw-headline">Type of Bicluster</span></h2>
+<p>Different <strong class="selflink">biclustering</strong> algorithms have different definitions of bicluster.</p>
+<p>They are:</p>
+<ol>
+<li>Bicluster with constant values (a),</li>
+<li>Bicluster with constant values on rows or columns (b, c),</li>
+<li>Bicluster with coherent values (d, e).</li>
+</ol>
+<p><a href="../../../b/i/c/Image%7EBicluster.JPG_e8f4.html" class="image" title="Image:bicluster.JPG"><img src="../../../upload/a/a9/Bicluster.JPG" alt="Image:bicluster.JPG" width="502" height="474" longdesc="../../../b/i/c/Image%7EBicluster.JPG_e8f4.html" /></a></p>
+<p><a name="Algorithms" id="Algorithms"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/c/Biclustering.html" title="Edit section: Algorithms">edit</a>]</span> <span class="mw-headline">Algorithms</span></h2>
+<p>There are many biclustering algorithm developed for <a href="../../../b/i/o/Bioinformatics.html" title="Bioinformatics">bioinformatics</a>, including: Block clustering, CTWC, ITWC, δ-bicluster, δ-pCluster, δ-pattern, FLOC, OPC, Plaid Model, OPSMs, Gibbs, SAMBA, cMonkey<sup id="_ref-3" class="reference"><a href="#_note-3" title="">[5]</a></sup>, PRMs and DCC. Biclustering algorithms have also been proposed and used in other application fields under the names coclustering, biodimentional clustering, and subspace clustering<sup id="_ref-4" class="reference"><a href="#_note-4" title="">[6]</a></sup>.</p>
+<p>Some recent algorithms have attempted to include additional support for biclustering rectangular matricies in the form of other datatypes. One such algorithm, cMonkey, has been recently developed and applied to several systems-biology datasets.</p>
+<p>There is an ongoing debate about how to judge the results of these methods, as biclustering allows overlap between clusters and some algorithms allow the exclusion of hard to reconcile columns/conditions. Not all of the available algorithms are deterministic and you need to pay attention to the degree to which results represent stable minima. Because this is an unsupervised classification problem, the lack of gold standard makes it difficult to spot errors in the results. One approach is to utilize multiple biclustering algorithms, with majority or super-majority voting amongst them deciding the best result.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/c/Biclustering.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../f/o/r/Formal_concept_analysis.html" title="Formal concept analysis">Formal concept analysis</a></li>
+<li><a href="../../../b/i/c/Biclique.html" title="Biclique">Biclique</a></li>
+<li><a href="../../../g/a/l/Galois_connection.html" title="Galois connection">Galois connection</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/c/Biclustering.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <cite style="font-style:normal">Van Mechelen I, Bock HH, De Boeck P (2004). "Two-mode clustering methods:a structured overview". <i>Statistical Methods in Medical Research</i> <b>13</b> (5): 363-94.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.atitle=Two-mode+clustering+methods%3Aa+structured+overview&amp;rft.title=Statistical+Methods+in+Medical+Research&amp;rft.jtitle=Statistical+Methods+in+Medical+Research&amp;rft.date=2004&amp;rft.volume=13&amp;rft.issue=5&amp;rft.au=Van+Mechelen+I%2C+Bock+HH%2C+De+Boeck+P&amp;rft.pages=363-94">&#160;</span></li>
+<li id="_note-mirkin">^ <a href="#_ref-mirkin_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-mirkin_1" title=""><sup><i><b>b</b></i></sup></a> <cite class="book" style="font-style:normal" id="Reference-Mirkin-1996">Mirkin, Boris (1996). <i>Mathematical Classification and Clustering</i>. Kluwer Academic Publishers. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0792341597</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Mathematical+Classification+and+Clustering&amp;rft.title=Mathematical+Classification+and+Clustering&amp;rft.aulast=Mirkin&amp;rft.aufirst=Boris&amp;rft.date=1996&amp;rft.pub=Kluwer+Academic+Publishers&amp;rft.isbn=0792341597">&#160;</span></li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <cite style="font-style:normal">Cheng Y, Church GM (2000). "Biclustering of expression data". <i>Proceedings of the 8th International Conference on Intelligent Systems for Molecular Biology</i>: 93–103.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.atitle=Biclustering+of+expression+data&amp;rft.title=Proceedings+of+the+8th+International+Conference+on+Intelligent+Systems+for+Molecular+Biology&amp;rft.jtitle=Proceedings+of+the+8th+International+Conference+on+Intelligent+Systems+for+Molecular+Biology&amp;rft.date=2000&amp;rft.au=Cheng+Y%2C+Church+GM&amp;rft.pages=93%E2%80%93103">&#160;</span></li>
+<li id="_note-2"><b><a href="#_ref-2" title="">^</a></b> <cite style="font-style:normal">Hartigan JA (1972). "Direct clustering of a data matrix". <i>Journal of the American Statistical Association</i> <b>67</b> (337): 123-9.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.atitle=Direct+clustering+of+a+data+matrix&amp;rft.title=Journal+of+the+American+Statistical+Association&amp;rft.jtitle=Journal+of+the+American+Statistical+Association&amp;rft.date=1972&amp;rft.volume=67&amp;rft.issue=337&amp;rft.au=Hartigan+JA&amp;rft.pages=123-9">&#160;</span></li>
+<li id="_note-3"><b><a href="#_ref-3" title="">^</a></b> <cite style="font-style:normal">Reiss DJ, Baliga NS, Bonneau R (2006). "Integrated biclustering of heterogeneous genome-wide datasets for the inference of global regulatory networks". <i>BMC Bioinformatics</i> <b>2</b> (7): 280-302.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.atitle=Integrated+biclustering+of+heterogeneous+genome-wide+datasets+for+the+inference+of+global+regulatory+networks&amp;rft.title=BMC+Bioinformatics&amp;rft.jtitle=BMC+Bioinformatics&amp;rft.date=2006&amp;rft.volume=2&amp;rft.issue=7&amp;rft.au=Reiss+DJ%2C+Baliga+NS%2C+Bonneau+R&amp;rft.pages=280-302">&#160;</span></li>
+<li id="_note-4"><b><a href="#_ref-4" title="">^</a></b> <cite style="font-style:normal">Madeira SC, Oliveira AL (2004). "Biclustering Algorithms for Biological Data Analysis: A Survey". <i>IEEE Transactions on Computational Biology and Bioinformatics</i> <b>1</b> (1): 24-45.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Ajournal&amp;rft.atitle=Biclustering+Algorithms+for+Biological+Data+Analysis%3A+A+Survey&amp;rft.title=IEEE+Transactions+on+Computational+Biology+and+Bioinformatics&amp;rft.jtitle=IEEE+Transactions+on+Computational+Biology+and+Bioinformatics&amp;rft.date=2004&amp;rft.volume=1&amp;rft.issue=1&amp;rft.au=Madeira+SC%2C+Oliveira+AL&amp;rft.pages=24-45">&#160;</span></li>
+</ol>
+</div>
+
+<!-- 
+Pre-expand include size: 27919 bytes
+Post-expand include size: 9792 bytes
+Template argument size: 6981 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/c/Biclustering.html">http://en.wikipedia.org../../../b/i/c/Biclustering.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../d/a/t/Category%7EData_mining_31bf.html" title="Category:Data mining">Data mining</a></span> | <span dir='ltr'><a href="../../../b/i/o/Category%7EBioinformatics_ee23.html" title="Category:Bioinformatics">Bioinformatics</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/c/Biclustering.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/c/Talk%7EBiclustering_8e9c.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Biclustering">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:44, 10 March 2007 by Wikipedia user <a href="../../../i/n/n/User%7EInnar_0003.html" title="User:Innar">Innar</a>. Based on work by Wikipedia user(s) <a href="../../../r/a/d/User%7ERadagast83_195a.html" title="User:Radagast83">Radagast83</a>, <a href="../../../e/v/e/User%7EEveryking_5c9e.html" title="User:Everyking">Everyking</a>, <a href="../../../a/l/p/User%7EAlphachimpbot_48b3.html" title="User:Alphachimpbot">Alphachimpbot</a>, <a href="../../../d/a/v/User%7EDavid_Eppstein_0880.html" title="User:David Eppstein">David Eppstein</a>, <a href="../../../b/e/e/User%7EBeefyt_3823.html" title="User:Beefyt">Beefyt</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../x/i/a/User%7EXiaowei_JIANG_94a1.html" title="User:Xiaowei JIANG">Xiaowei JIANG</a>, <a href="../../../g/w/e/User%7EGwernol_c4bf.html" title="User:Gwernol">Gwernol</a>, <a href="../../../d/e/l/User%7EDelirium_b0dc.html" title="User:Delirium">Delirium</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a> and Yhchung and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

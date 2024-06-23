@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Beta wavelet,Beta distribution,Blur derivative,Central Limit Theorem,Compact support,Continuous wavelets,Haar wavelet" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Beta wavelet - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Beta wavelet</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><a href="../../../c/o/n/Continuous_wavelets.html" title="Continuous wavelets">Continuous wavelets</a> of <a href="../../../c/o/m/Compact_support.html" title="Compact support">compact support</a> can be built [1], which are related to the <a href="../../../b/e/t/Beta_distribution.html" title="Beta distribution">beta distribution</a>. The process is derived from probability distributions using <a href="../../../b/l/u/Blur_derivative.html" title="Blur derivative">blur derivative</a>. These new wavelets have just one cycle, so they are termed unicycle wavelets. They can be viewed as a <i>soft variety</i> of <a href="../../../h/a/a/Haar_wavelet.html" title="Haar wavelet">Haar wavelets</a> whose shape is fine-tuned by two parameters <span class="texhtml">α</span> and <span class="texhtml">β</span>. Close expressions for beta wavelets and scale functions as well as their spectra are derived. Their importance is due to the <a href="../../../c/e/n/Central_Limit_Theorem_2582.html" title="Central Limit Theorem">Central Limit Theorem</a> by Gnedenko&amp;Kolmogorov applied for compactly supported signals [2].</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Beta_distribution"><span class="tocnumber">1</span> <span class="toctext">Beta distribution</span></a></li>
+<li class="toclevel-1"><a href="#Gnedenko-Kolmogorov_Central_limit_theorem_revisited"><span class="tocnumber">2</span> <span class="toctext">Gnedenko-Kolmogorov Central limit theorem revisited</span></a></li>
+<li class="toclevel-1"><a href="#Beta_wavelets"><span class="tocnumber">3</span> <span class="toctext">Beta wavelets</span></a></li>
+<li class="toclevel-1"><a href="#Beta_wavelet_spectrum"><span class="tocnumber">4</span> <span class="toctext">Beta wavelet spectrum</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">5</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Beta_distribution" id="Beta_distribution"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/t/Beta_wavelet.html" title="Edit section: Beta distribution">edit</a>]</span> <span class="mw-headline">Beta distribution</span></h2>
+<p>The <a href="../../../b/e/t/Beta_distribution.html" title="Beta distribution">beta distribution</a> is a continuous probability distribution defined over the interval <img class='tex' src="../../../math/9/6/1/961ee396092cc73f0ee29ab25401594c.png" alt="0\leq t\leq 1" />. It is characterised by a couple of parameters, namely <span class="texhtml">α</span> and <span class="texhtml">β</span> according to:</p>
+<p><img class='tex' src="../../../math/c/4/e/c4e591df8bdfdeb39c4e7c3b09a78c2a.png" alt="P(t)=\frac{1}{B(\alpha ,\beta )}t^{\alpha -1}\cdot (1-t)^{\beta -1},\quad 1\leq \alpha ,\beta \leq +\infty" />.</p>
+<p>The normalising factor is <img class='tex' src="../../../math/b/b/2/bb224693ec00a17b91a9ed3f3b739fb8.png" alt="B(\alpha ,\beta )=\frac{\Gamma (\alpha )\cdot \Gamma (\beta )}{\Gamma (\alpha +\beta )}" />,</p>
+<p>where <img class='tex' src="../../../math/1/1/e/11ee491fb6e261ad0b4f721d59ea7318.png" alt="\Gamma (\cdot )" /> is the generalised factorial function of Euler and <img class='tex' src="../../../math/1/7/0/170a3afdaf86e278ca3f41f4516996fd.png" alt="B(\cdot ,\cdot )" /> is the Beta function [4].</p>
+<p><a name="Gnedenko-Kolmogorov_Central_limit_theorem_revisited" id="Gnedenko-Kolmogorov_Central_limit_theorem_revisited"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/t/Beta_wavelet.html" title="Edit section: Gnedenko-Kolmogorov Central limit theorem revisited">edit</a>]</span> <span class="mw-headline">Gnedenko-Kolmogorov Central limit theorem revisited</span></h2>
+<p>Let <span class="texhtml"><i>p</i><sub><i>i</i></sub>(<i>t</i>)</span> be a probability density of the random variable <span class="texhtml"><i>t</i><sub><i>i</i></sub></span>, <span class="texhtml"><i>i</i> = 1,2,3..<i>N</i></span> i.e.</p>
+<p><img class='tex' src="../../../math/0/5/a/05ae5f79cdcf5dcc25642ec2541df300.png" alt="p_{i}(t)\ge 0" />, <img class='tex' src="../../../math/d/3/c/d3cdec7e62069db846d3c4c8ddb2c92e.png" alt="(\forall t)" /> and <img class='tex' src="../../../math/0/d/0/0d0ae38af7f43ae349c3373eef85c3b3.png" alt="\int_{-\infty }^{+\infty }p_{i}(t)dt=1" />.</p>
+<p>Suppose that all variables are independent.</p>
+<p>The mean and the variance of a given random variable <span class="texhtml"><i>t</i><sub><i>i</i></sub></span> are, respectively</p>
+<p><img class='tex' src="../../../math/0/d/a/0da3f5bfc4fef5cf447b22f606f26ac4.png" alt="m_{i}=\int_{-\infty }^{+\infty }\tau \cdot p_{i}(\tau )d\tau ," /> <img class='tex' src="../../../math/4/e/c/4ecf2f2a55c829e8f1a19b09aaaa51e8.png" alt="\sigma _{i}^{2}=\int_{-\infty }^{+\infty }(\tau -m_{i})^{2}\cdot p_{i}(\tau )d\tau" />.</p>
+<p>The mean and variance of <span class="texhtml"><i>t</i></span> are therefore <img class='tex' src="../../../math/5/5/1/5517a358bd253f95a322d4c9e9cb5e1a.png" alt="m=\sum_{i=1}^{N}m_{i}" /> and <img class='tex' src="../../../math/b/9/1/b9141e69e35d4b580d65e3f9e17a052d.png" alt="\sigma^2 =\sum_{i=1}^{N}\sigma _{i}^{2}" />.</p>
+<p>The density <span class="texhtml"><i>p</i>(<i>t</i>)</span> of the random variable corresponding to the sum <img class='tex' src="../../../math/b/4/0/b40fc4ee19bdbebe8c89bfb66be3a743.png" alt="t=\sum_{i=1}^{N}t_{i}" /> is given by the</p>
+<p><b>Central Limit Theorem for distributions of compact support (Gnedenko and Kolmogorov) [2].</b></p>
+<p>Let <span class="texhtml">{<i>p</i><sub><i>i</i></sub>(<i>t</i>)}</span> be distributions such that <img class='tex' src="../../../math/8/4/e/84e8188c7386daee2bb291437e1ae98c.png" alt="Supp\{(p_{i}(t))\}=(a_{i},b_{i})(\forall i)" />.</p>
+<p>Let <img class='tex' src="../../../math/e/1/4/e14f13f04594b9de25fd519872cdb3dc.png" alt="a=\sum_{i=1}^{N}a_{i}&lt;+\infty" />, and <img class='tex' src="../../../math/8/4/9/8493f73a07f820ddeacc6c795fc4232e.png" alt="b=\sum_{i=1}^{N}b_{i}&lt;+\infty" />.</p>
+<p>Without loss of generality assume that <span class="texhtml"><i>a</i> = 0</span> and <span class="texhtml"><i>b</i> = 1</span>.</p>
+<p>The random variable <span class="texhtml"><i>t</i></span> holds, as <img class='tex' src="../../../math/e/c/4/ec4668d92fc0fc5cfc89732fbc840c0d.png" alt="N\rightarrow \infty" />, <img class='tex' src="../../../math/2/b/4/2b44ad3d36aeeec2adf77918b3aa9143.png" alt="p(t)\approx" /> <img class='tex' src="../../../math/4/f/4/4f4d11505eb2403b727d09b32edd71dd.png" alt="\begin{cases} {k \cdot t^{\alpha }(1-t)^{\beta}}, \\otherwise \end{cases}" /></p>
+<p>where <img class='tex' src="../../../math/f/1/d/f1d5463c5824d57ddc73c715b1fea05c.png" alt="\alpha =\frac{m(m-m^{2}-\sigma ^{2})}{\sigma ^{2}}," /> and <img class='tex' src="../../../math/e/5/9/e59d01d91753182109658e5550d15c4d.png" alt="\beta =\frac{(1-m)(\alpha +1)}{m}." /></p>
+<p><a name="Beta_wavelets" id="Beta_wavelets"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/t/Beta_wavelet.html" title="Edit section: Beta wavelets">edit</a>]</span> <span class="mw-headline">Beta wavelets</span></h2>
+<p>Since <img class='tex' src="../../../math/1/3/6/1369100fedcec429e3834ca46d847ea1.png" alt="P(\cdot |\alpha ,\beta )" /> is unimodal, the wavelet generated by</p>
+<p><img class='tex' src="../../../math/1/f/0/1f08791d9912a5e8030987cd27901379.png" alt="\psi _{beta}(t|\alpha ,\beta )=(-1)\frac{dP(t|\alpha ,\beta )}{dt}" /> has only one-cycle (a negative half-cycle and a positive half-cycle).</p>
+<p>The main features of beta wavelets of parameters <span class="texhtml">α</span> and <span class="texhtml">β</span> are:</p>
+<p><img class='tex' src="../../../math/0/4/5/0453072530f39e787484e5636d1913c7.png" alt="Supp(\psi )=[ \frac{-1}{\sqrt{{\beta }/ \alpha }}\sqrt{\alpha + \beta +1},\sqrt{ \frac{\beta }{\alpha }} \sqrt{\alpha +\beta +1}]=[a,b]." /></p>
+<p><img class='tex' src="../../../math/4/9/3/493d1cf0fa60f64167d9e61cca3a694d.png" alt="lengthSupp(\psi )=T(\alpha ,\beta )=(\alpha +\beta )\sqrt{\frac{\alpha +\beta +1}{\alpha \beta }}." /></p>
+<p>The parameter <span class="texhtml"><i>R</i> = <i>b</i> / | <i>a</i> | = β / α</span> is referred to as “cyclic balance”, and is defined as the ratio between the lengths of the causal and non-causal piece of the wavelet. The instant of transition <span class="texhtml"><i>t</i><sub><i>z</i><i>e</i><i>r</i><i>o</i><i>c</i><i>r</i><i>o</i><i>s</i><i>s</i></sub></span> from the first to the second half cycle is given by</p>
+<p><img class='tex' src="../../../math/c/3/8/c3861b6a6946afce71e8d89b686e88f3.png" alt="t_{zerocross}=\frac{(\alpha -\beta )}{(\alpha +\beta -2)}\sqrt{\frac{\alpha +\beta +1}{\alpha \beta }}." /></p>
+<p>The (unimodal) scale function associated with the wavelets is given by</p>
+<p><img class='tex' src="../../../math/3/2/1/3217c26d49f8b99998f05d37cc28f6d5.png" alt="\phi _{beta}(t|\alpha ,\beta )=\frac{1}{B(\alpha ,\beta )T^{\alpha +\beta -1}}\cdot (t-a)^{\alpha -1}\cdot (b-t)^{\beta -1}," /> <img class='tex' src="../../../math/d/a/5/da586be939b9cea0a09e7dde4f3b1725.png" alt="a\leq t\leq b" />.</p>
+<p>A close expression for first-order beta wavelets can easily be derived. Within their support,</p>
+<p><img class='tex' src="../../../math/a/7/4/a745c6bb7069c3cb48b613a00ae0af51.png" alt="\psi_{beta}(t|\alpha ,\beta ) =\frac{-1}{B(\alpha ,\beta )T^{\alpha +\beta -1}} \cdot [\frac{\alpha -1}{t-a}-\frac{\beta -1}{b-t}] \cdot(t-a)^{\alpha -1} \cdot(b-t)^{\beta -1}" /></p>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:788px;"><a href="../../../b/e/t/Image%7EBeta_scale_and_wavelet.jpg_1136.html" class="internal" title="Figure. Unicyclic beta scale function and wavelet for different parameters: a) α = 4, β = 3 b) α = 3, β = 7 c) α = 5, β = 17."><img src="../../../upload/shared/9/9a/Beta_scale_and_wavelet.jpg" alt="Figure. Unicyclic beta scale function and wavelet for different parameters: a) α = 4, β = 3 b) α = 3, β = 7 c) α = 5, β = 17." width="786" height="675" longdesc="../../../b/e/t/Image%7EBeta_scale_and_wavelet.jpg_1136.html" class="thumbimage" /></a>
+<div class="thumbcaption"><b>Figure. Unicyclic beta scale function and wavelet for different parameters: a) <span class="texhtml">α = 4</span>, <span class="texhtml">β = 3</span> b) <span class="texhtml">α = 3</span>, <span class="texhtml">β = 7</span> c) <span class="texhtml">α = 5</span>, <span class="texhtml">β = 17</span>.</b></div>
+</div>
+</div>
+<p><a name="Beta_wavelet_spectrum" id="Beta_wavelet_spectrum"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/t/Beta_wavelet.html" title="Edit section: Beta wavelet spectrum">edit</a>]</span> <span class="mw-headline">Beta wavelet spectrum</span></h2>
+<p>The beta wavelet spectrum can be derived in terms of the Kummer hypergeometric function [5].</p>
+<p>Let <img class='tex' src="../../../math/f/b/d/fbd6285245cf3b286f10347be12026ef.png" alt="\psi _{beta}(t|\alpha ,\beta )\leftrightarrow \Psi _{BETA}(\omega |\alpha ,\beta )" /> denote the Fourier transform pair associated with the wavelet.</p>
+<p>This spectrum is also denoted by <span class="texhtml">Ψ<sub><i>B</i><i>E</i><i>T</i><i>A</i></sub>(ω)</span> for short. It can be proved by applying properties of the Fourier transform that</p>
+<p><img class='tex' src="../../../math/9/b/4/9b4157ba372a26f3b43b9c68e478d86c.png" alt="\Psi _{BETA}(\omega ) =-j\omega \cdot M(\alpha ,\alpha +\beta ,-j\omega (\alpha +\beta )\sqrt{\frac{\alpha +\beta +1}{\alpha \beta}})\cdot exp\{(j\omega \sqrt{\frac{\alpha (\alpha +\beta +1)}{\beta }})\}" /></p>
+<p>where <img class='tex' src="../../../math/9/3/e/93ed07dbcb66f6c7e19230ad1f294be1.png" alt="M(\alpha ,\alpha +\beta ,j\nu )=\frac{\Gamma (\alpha +\beta )}{\Gamma (\alpha )\cdot \Gamma (\beta )}\cdot \int_{0}^{1}e^{j\nu t}t^{\alpha -1}(1-t)^{\beta -1}dt" />.</p>
+<p>Only symmetrical <span class="texhtml">(α = β)</span> cases have zeroes in the spectrum. A few asymmetric <img class='tex' src="../../../math/0/a/c/0ac8d8837a8bd760f91fed392f9dc9c6.png" alt="(\alpha \neq \beta )" /> beta wavelets are shown in Fig. Inquisitively, they are parameter-symmetrical in the sense that they hold <span class="texhtml">| Ψ<sub><i>B</i><i>E</i><i>T</i><i>A</i></sub>(ω | α,β) | = | Ψ<sub><i>B</i><i>E</i><i>T</i><i>A</i></sub>(ω | β,α) | .</span></p>
+<p>Higher derivatives may also generate further beta wavelets. Higher order beta wavelets are defined by <img class='tex' src="../../../math/f/e/0/fe0a91560044fc6ae1481167e3e4cd1b.png" alt="\psi _{beta}(t|\alpha ,\beta )=(-1)^{N}\frac{d^{N}P(t|\alpha ,\beta )}{dt^{N}}." /></p>
+<p>This is henceforth referred to as an <span class="texhtml"><i>N</i></span>-order beta wavelet. They exist for order <img class='tex' src="../../../math/6/d/f/6df9e452de451f480b4b788588ad97eb.png" alt="N\leq Min(\alpha ,\beta )-1" />. After some algebraic handling, their close expression can be found:</p>
+<p><img class='tex' src="../../../math/3/6/7/367f97b0c50b7d338d4bf2c9ca924400.png" alt="\Psi _{beta}(t|\alpha ,\beta ) =\frac{(-1)^{N}}{B(\alpha ,\beta ) \cdot T^{\alpha +\beta -1}} \sum_{n=0}^{N}sgn(2n-N)\cdot \frac{\Gamma (\alpha )}{\Gamma (\alpha -(N-n))}(t-a)^{\alpha -1-(N-n)} \cdot \frac{\Gamma (\beta )}{\Gamma (\beta -n)}(b-t)^{\beta -1-n}." /></p>
+<p><br /></p>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:406px;"><a href="../../../f/i/g/Image%7EFig1a.jpg_0775.html" class="internal" title="Figure. Magnitude of the spectrum ΨBETA(ω) of beta wavelets,  | ΨBETA(ωα,β) |    for Symmetric beta wavelet α = β = 3, α = β = 4, α = β = 5"><img src="../../../upload/shared/b/b9/Fig1a.jpg" alt="Figure. Magnitude of the spectrum ΨBETA(ω) of beta wavelets,  | ΨBETA(ωα,β) |    for Symmetric beta wavelet α = β = 3, α = β = 4, α = β = 5" width="404" height="246" longdesc="../../../f/i/g/Image%7EFig1a.jpg_0775.html" class="thumbimage" /></a>
+<div class="thumbcaption"><b>Figure. Magnitude of the spectrum <span class="texhtml">Ψ<sub><i>B</i><i>E</i><i>T</i><i>A</i></sub>(ω)</span> of beta wavelets, <span class="texhtml">| Ψ<sub><i>B</i><i>E</i><i>T</i><i>A</i></sub>(ωα,β) |</span> <img class='tex' src="../../../math/b/7/4/b74d387b2941f357b4166bec574eb989.png" alt="\times \omega" /> for Symmetric beta wavelet <span class="texhtml">α = β = 3</span>, <span class="texhtml">α = β = 4</span>, <span class="texhtml">α = β = 5</span></b></div>
+</div>
+</div>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:394px;"><a href="../../../f/i/g/Image%7EFig1b.jpg_a530.html" class="internal" title="Figure. Magnitude of the spectrum ΨBETA(ω) of beta wavelets,  | ΨBETA(ωα,β) |    for: Asymmetric beta wavelet α = 3, β = 4, α = 3, β = 5."><img src="../../../upload/shared/0/0e/Fig1b.jpg" alt="Figure. Magnitude of the spectrum ΨBETA(ω) of beta wavelets,  | ΨBETA(ωα,β) |    for: Asymmetric beta wavelet α = 3, β = 4, α = 3, β = 5." width="392" height="244" longdesc="../../../f/i/g/Image%7EFig1b.jpg_a530.html" class="thumbimage" /></a>
+<div class="thumbcaption"><b>Figure. Magnitude of the spectrum <span class="texhtml">Ψ<sub><i>B</i><i>E</i><i>T</i><i>A</i></sub>(ω)</span> of beta wavelets, <span class="texhtml">| Ψ<sub><i>B</i><i>E</i><i>T</i><i>A</i></sub>(ωα,β) |</span> <img class='tex' src="../../../math/b/7/4/b74d387b2941f357b4166bec574eb989.png" alt="\times \omega" /> for: Asymmetric beta wavelet <span class="texhtml">α = 3</span>, <span class="texhtml">β = 4</span>, <span class="texhtml">α = 3</span>, <span class="texhtml">β = 5</span>.</b></div>
+</div>
+</div>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/t/Beta_wavelet.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>[1] H.M. de Oliveira, G.A.A. Araújo, Compactly Supported One-cyclic Wavelets Derived from Beta Distributions, Journal of Communication and Information Systems, (former Journal of the Brazilian Telecommunications Society), vol.20, n.3, pp.27-33, 2005.</li>
+</ul>
+<ul>
+<li><a href="http://www.iecom.org.br/" class="external free" title="http://www.iecom.org.br/" rel="nofollow">http://www.iecom.org.br/</a></li>
+<li><a href="http://www2.ee.ufpe.br/codec/WEBLET.html" class="external free" title="http://www2.ee.ufpe.br/codec/WEBLET.html" rel="nofollow">http://www2.ee.ufpe.br/codec/WEBLET.html</a></li>
+</ul>
+<ul>
+<li>[2] B.V. Gnedenko and A.N. Kolmogorov, Limit Distributions for Sums of Independent Random Variables, Reading, Ma: Addison-Wesley, 1954.</li>
+</ul>
+<ul>
+<li>[3] W.B. Davenport, Probability and Random Processes, McGraw-Hill /Kogakusha, Tokyo, 1970.</li>
+</ul>
+<ul>
+<li>[4] P.J. Davies, Gamma Fuction and Related Fuctions, in: M. Abramowitz; I. Segun (Eds.), Handbook of Mathematical Functions, New York: Dover, 1968.</li>
+</ul>
+<ul>
+<li>[5] L.J. Slater, Confluent Hypergeometric Function, in: M. Abramowitz; I. Segun (Eds.), Handbook of Mathematical Functions, New York: Dover, 1968.</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/t/Beta_wavelet.html">http://en.wikipedia.org../../../b/e/t/Beta_wavelet.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/n/Category%7EContinuous_wavelets_ba04.html" title="Category:Continuous wavelets">Continuous wavelets</a></span> | <span dir='ltr'><a href="../../../f/u/n/Category%7EFunctional_analysis_1cc5.html" title="Category:Functional analysis">Functional analysis</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/e/t/Beta_wavelet.html">Article</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/e/t/Talk%7EBeta_wavelet_3c07.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Beta_wavelet">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 11:49, 20 October 2006 by Wikipedia user Hmo. Based on work by Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

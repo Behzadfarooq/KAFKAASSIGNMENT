@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Wikipedia:ASCII art conversion tool,ASCII art,Allegro library" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Wikipedia:ASCII art conversion tool - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-4">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Wikipedia:ASCII art conversion tool</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>Given the filename of a monochrome bitmap in argv[1], this program will produce an <a href="../../../a/s/c/ASCII_art_8901.html" title="ASCII art">ASCII art</a> representation of the bitmap on stdout. It uses the <a href="../../../a/l/l/Allegro_library.html" title="Allegro library">Allegro library</a>.</p>
+<pre>
+/*
+
+ascii art conversion utility
+Copyright 2001 Damian Yerrick
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN
+AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF
+OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+IN THE SOFTWARE.
+
+*/
+/*
+
+ascii.c converts a bitmap (in .bmp or .pcx format) to ASCII art.
+It treats the least significant bitplane as a monochrome image,
+making 0 dark and 1 light.  Each character sent to stdout represents
+a 2x2 cell in the bitmap.
+
+It uses the Allegro library to read the bitmap.  Allegro is a
+multimedia library that has been ported to POSIX+X11, DOS, Windows,
+BeOS, and Mac OS.  There are library extensions that allow Allegro
+to handle other file formats such as PNG.
+  http://alleg.sourceforge.net/allegro/
+
+Because of the simple design of the program, it is also extremely
+easy to port to other imaging APIs.
+
+Compilation on DOS:
+  gcc -Wall -O ascii.c -lalleg -o ascii.exe
+Compilation on Linux:
+  gcc -Wall -O ascii.c `allegro-config --libs` -o ascii
+
+*/
+
+#include &lt;allegro.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+/* the following characters' glyphs represent 2x2 pixel tiles */
+const char tiles[16] = {
+  'M', 'P', 'V', '"',
+  'b', ')', '\\','\'',
+  'd', '/', '(', '`',
+  'a', '.', ',', ' '
+};
+
+int main(int argc, char **argv)
+{
+  BITMAP *bmp;
+  int y;
+
+  install_allegro(SYSTEM_NONE, &amp;errno, atexit);
+
+  if(argc != 2)
+  {
+    allegro_message("usage: ascii foo.bmp\n");
+    return EXIT_FAILURE;
+  }
+
+  /* if you've installed Allegro library extensions for
+     other bitmap formats, register their functions here */
+
+  bmp = load_bitmap(argv[1], NULL);
+  if(bmp == NULL)
+  {
+    allegro_exit();
+
+
+    fprintf(stderr, "ascii Error: could not load bitmap `%s'\n", argv[1]);
+    return EXIT_FAILURE;
+  }
+
+  for(y = 0; y &lt; bmp-&gt;h; y += 2)
+  {
+    int x;
+    for(x = 0; x &lt; bmp-&gt;w; x += 2)
+    {
+      int c = 0;
+      if(getpixel(bmp, x,   y  ) &amp; 1)
+        c |= 8;
+      if(getpixel(bmp, x+1, y  ) &amp; 1)
+        c |= 4;
+      if(getpixel(bmp, x,   y+1) &amp; 1)
+        c |= 2;
+      if(getpixel(bmp, x+1, y+1) &amp; 1)
+        c |= 1;
+      putchar(tiles[c]);
+    }
+    putchar('\n');
+  }
+  destroy_bitmap(bmp);
+
+  return EXIT_SUCCESS;
+} END_OF_MAIN();
+</pre>
+<hr />
+<p>Output of <code>ascii wikilogo.bmp</code>, where <code>wikilogo.bmp</code> contains an earlier Wikipedia logo:</p>
+<pre style="font-size:x-small;">
+                                                           ,M., a. a  , ,.                                                          
+                                              a   d.(M.  (b."'"'`"""' "'V'`"MMM'M.a.,., a                                           
+                                       a. dbM'"'  `     ,a                  `  "     "'""M)aa                                       
+                                    (M""'     a.    ,   (Mba a.aa.   aa a.a   a ,           ""'`a.                                 
+                                      ,da ,  (P"V'M)    () M V' ""   V) "b. ,aMb`VbM) aaa.a ,  , ` ,                                
+                                  ,ad.d VP   `"  ,                                    " " ( ,a `Vaa                                 
+                               ,.""'"'                        (M                             "  `'""MMa                            
+                           aM              ,  a a.Vb.d)M'V) M)(M  VM)VP'   (M"Vb `M.aa aa             `  ,a                        
+                        ,`"     dMa.a.Ma   VMaM.d.,M)MMa.`" "'`"""""'""    `M)`'VbMb "MP"bPMMM',aaa.  d   `" ,                     
+                           ,  M'M)dM" `"            `' `                   `"'             " ` "'V)M  V)aa    M)                   
+                        ("M  `"'                      (M                 M)   `     (M                `"","'aa                      
+                       `                   aaa.aa  db.(M.d)      `M.MM.V'MP"M.da ,   Mba.                   `"M                     
+                       ,    ,a   ,M V"V)MP M M)(MaadM)(M `VMaa    `M)VM  M) M)(MPM.  M)(M   M)VM.   da  (                           
+                     ,adba/'V   ,dM)M.V'"'""'"'`"'"'` `     `"'             ` `" `"' "'`"   V" ("' ,MM. (PM',aa.                    
+                    dMaaP"' "                   ,a             ,a.                                      `""VP"M) ,.                 
+                   ` `                (M        (M        ,.    M),                                            ` `V                 
+                                aaa   M)     VP'(M"M) `VM MP'   M)"M)Vb/"    "VM)   MPVb.a.a.dM.a.  a.a                             
+                  (a.a  (PMPMP"MP MbM d),    db (M M)aaMM Vb    Mba`  VP    ,MMM)   M) `"M)  d. "VbM"""b ,M'VM ,aa                  
+                 `\MM)  (.d)""'"'"" """'""                           ,/             MP    "' `'  "'""' "'`V. ,.dMPM ,               
+                 `"""                  ,                       ,a                   `                            """"               
+                         (b   (M       M'                   ,. (M.                            `            (.                       
+                    aa   d)aaad)aaa.MM.M"M)`M"   (b MP"M.   MP'(M"VbadPM)   dP"",d'"b.MPVb.MP M.dPMba.aa.aad   ,.aa ,               
+                  (MM) (aaMM) (.aM)MP  M d) M.   (M M) M)   Mb (M (MPMa.    Mba "M ,M)M. M)M. d.() dMb.MadMb.  ,MPVMM
+                  `'""  ""'`" `'""\P"V"" "' `    `' "' "'    " `" `"  "'     `"   `'  "' " `' "'"' " `""""""'  """"""               
+                            ,      V                  ,a    ,.                                                                      
+                            ('    d        `          `M'   M)                                     `             ,                  
+                     (MM"ba V)a/b M' "M)MP'M.a/"M),`M. MPMb.M) a.a.   a.VM.a.aa.MPMb.a.a.dMP  MbMM'V)a/"aMPM  ("VM                  
+                     (MM.MMadPMa  M.a.M)Ma () MP" ,.Mb.M. M'd)MM)     (bP' M)   M)(MPM)  (M ,aMbMM ()"ba"M.d  `\"V                  
+                                  `   "  " `',P"Vb""""'"""  "" """    V""M.`""  "'`" `"' `"  "'                                     
+                   (              a       ,   "                       "'             ,          a           (     ,.                
+                   `MPMb.aa a ,   M       VM                                         V)         (.       ,. Mba`MMM                 
+                    VbdaMM (PbMbP'V.dPM.a VMaaPM.a.aa      ,.a.,a.aa , a. aaa.,.a.   M)ad'   MP'M"VbdP"  "Mb.MPb"'                  
+                          `' `'"' ()Mb.`MadM)M)" M)       (MP"  `Mb (M.  MP' VM)  Mb d) "M.  M.aM.d'Vb     `                        
+                                         `' ,M"Vb "" `V)   """ `"'"" """ `""  ""' `"""'                       `                     
+                         ,     ()            `                                                           a ,ad                      
+                          VPaMb Mba ,a   a                               ,`                    ,a.aa.dPVPMbdMP                      
+                             Va d.dMM"'VM"V'VbaMM. MPVb., " aaa.   aa a. M)    `M. MPMb"M)"  ,M  adMbM ('""                         
+                                  ` "" `"'V'dMPba  M.(MPMa (M)     M) (P'M.   a.M)aM d) V"    "" `                                  
+                                                         "'  "'     `'   "    `        (                                            
+                                                         a.                                                                         
+                                                    aaaa ()  ,   ,a     a ,. aa.,aa.                                                
+                                                    (M V'MbMMP"',aM)"Mb.M)dM)M) Mb  ,.                                              
+                                                    (M)  `" `"' """"  " """"""   `                                                  
+                                                                                                                                    
+ ,.   ,a.aa. ,aa.a. aaaaa.aaa                                                                                           aa.         
+ "VMMMM"""VMMMM"""MMM""""MMM"                                                                                          dMMM.        
+   (MMM)   `MMM) ,MM'   (MM'  aaaaaa  aaaaaa  ,aaaaa ,aaaaaa ,aaaaaaa     aaaaaaaaaaa   aaaaaaaa.        aaaaaa       ,MMMMM.       
+    VMMM)   VMMMbMM'   ,MM)   `VMMP'  "MMMP'   MMP"'  "MMMP'  VMMM""VMMa. `VMMP""""MM)  "MMMP""""MMba    `VMMM"       dMPMMMb       
+     VMMM.   VMMMM'    dMP     (MM)    MMM)  aMP'      MMM)   (MMM   VMMb  (MM)     "'   MMM)     "MMM.   (MMM       (M) (MMM)      
+      MMMb    VMMM    dMP      (MM)    MMM)aMP'        MMM)   `MMM   (MMP  (MM)   ,a     MMM)      `MMM)  (MMM      ,MP   VMMM.     
+      `MMMb   dMMMb  ,MM'      (MM)    MMMMMb.         MMM)    MMM ,aMM"'  (MMMMMMMM     MMM)       MMM)  (MMM      MMMaaaMMMMb     
+       `MMM) dMPMMMb.MM)       (MM)    MMMPMMMb.       MMM)    MMM"""'     (MM)   VM     MMM)       MMM)  (MMM     dMP     `MMM)    
+        VMMMMM) `MMMMMP        (MM)    MMM) "MMMa      MMM)   (MMM         (MM)          MMM)      (MMP'  (MMM    (MM'      VMMM.   
+         VMMMP   `MMMP         (MM)    MMM)  `VMMMa    MMM)   (MMM         (MM)     ,MP  MMM)    ,dMM"    (MMM   ,MM)        MMMM.  
+         `MMP     VMM'        dMMMMb  dMMMMb   `"MMMbaMMMMMb aMMMMM.      dMMMMMMMMMMM' dMMMMMMMP""'     aMMMMbaMMMMMM.    ,MMMMMMM 
+                                                                                                                                    
+    ,aaaaaaaa.db               aa. aa                     ,aa.aa.                          db                         (M. aa        
+        MM    MM               MM                          M)                              MM                         ,M)           
+        MM    MM""M) aP"Mb     MMbaM  MMP"'aP"M. dP"Mb     MMad)  MMP"Mb ,d""V"MM (M',d'""'MM ,dP"Vb.`MP"VM. dP"M. aP'"M) Mb ,d"Mb  
+        MM    MM  M)(M)`"      MM     MM  (M) " dMP""      M)     (M) MM M)    `Mb/  M)    MM MM   M) M)  M)MM' " MM.  M) MM  ,.MM  
+       ,MM.   MM.,Mb VMaa     ,MM.    MM.  Vbaa  Mbaa     ,Mbaaad dM) MM."Mba.  VM'  "Mba. MM.`VbadP' Mb.aP'`Mbaa `MbadM) MM.MbaMM. 
+                                                                               ,d                     M)                            
+                                                                               "'                    `""                           
+</pre>
+<hr />
+<p><i>See also: <a href="../../../a/s/c/ASCII_art_8901.html" title="ASCII art">ASCII art</a></i></p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/s/c/Wikipedia%7EASCII_art_conversion_tool_4e51.html">http://en.wikipedia.org../../../a/s/c/Wikipedia%7EASCII_art_conversion_tool_4e51.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../w/i/k/Category%7EWikipedia_image_help_d38c.html" title="Category:Wikipedia image help">Wikipedia image help</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-project"
+	       class="selected"	       ><a href="../../../a/s/c/Wikipedia%7EASCII_art_conversion_tool_4e51.html">Project page</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/s/c/Wikipedia_talk%7EASCII_art_conversion_tool_5fde.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Wikipedia:ASCII_art_conversion_tool">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 03:58, 15 September 2006 by Wikipedia user <a href="../../../g/u/n/User%7EGunslinger47_cf62.html" title="User:Gunslinger47">Gunslinger47</a>. Based on work by Wikipedia user(s) <a href="../../../b/e/l/User%7EBeland_b814.html" title="User:Beland">Beland</a>, <a href="../../../d/a/m/User%7EDamian_Yerrick_2a18.html" title="User:Damian Yerrick">Damian Yerrick</a>, <a href="../../../b/d/e/User%7EBdesham_60a4.html" title="User:Bdesham">Bdesham</a>, <a href="../../../k/i/n/User%7EKingturtle_613d.html" title="User:Kingturtle">Kingturtle</a> and <a href="../../../b/r/i/User%7EBrion_VIBBER_bae4.html" title="User:Brion VIBBER">Brion VIBBER</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

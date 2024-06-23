@@ -1,0 +1,538 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Algorithmics of sudoku,Algorithmics of Sudoku,Backtracking,Class (set theory),Graph coloring,Puzzle,Sudoku" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Algorithmics of sudoku - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Algorithmics of sudoku</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>The <a href="../../../c/l/a/Class_%28set_theory%29.html" title="Class (set theory)">class</a> of <b><a href="../../../s/u/d/Sudoku.html" title="Sudoku">Sudoku</a></b> <a href="../../../p/u/z/Puzzle.html" title="Puzzle">puzzles</a> consists of a partially completed row-column grid of cells partitioned into <i>N</i> <i>regions</i> or <i>zones</i> each of size <i>N</i> cells, to be filled in using a prescribed set of <i>N</i> distinct symbols (typically the numbers {1, ..., <i>N</i>}), so that each row, column and region contains exactly one of each element of the set. The puzzle can be solved using a variety of algorithms. This page provides algorithms and implementations, when appropriate.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Solving_sudokus_by_backtracking"><span class="tocnumber">1</span> <span class="toctext">Solving sudokus by backtracking</span></a></li>
+<li class="toclevel-1"><a href="#Standard_Sudoku_solver_and_enumerator"><span class="tocnumber">2</span> <span class="toctext">Standard Sudoku solver and enumerator</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Key_modifications_to_the_algorithm"><span class="tocnumber">2.1</span> <span class="toctext">Key modifications to the algorithm</span></a></li>
+<li class="toclevel-2"><a href="#Discussion_of_the_reference_implementation"><span class="tocnumber">2.2</span> <span class="toctext">Discussion of the reference implementation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">3</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Solving_sudokus_by_backtracking" id="Solving_sudokus_by_backtracking"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algorithmics_of_sudoku.html" title="Edit section: Solving sudokus by backtracking">edit</a>]</span> <span class="mw-headline">Solving sudokus by backtracking</span></h3>
+<p>The basic <a href="../../../b/a/c/Backtracking.html" title="Backtracking">backtracking</a> algorithm can be adapted to solve jigsaw sudokus. This is straightforward. Say a <i>zone</i> is a subset of <i>N</i> boxes of an <i>N x N</i> grid, which must contain the numbers from 1 to <i>N</i>. A standard sudoku contains 27 zones, namely 9 rows, 9 columns and 9 squares that are 3 x 3. In a jigsaw sudoku, the square zones are replaced by zones having irregular boundaries, like a jigsaw piece.</p>
+<p>One possible algorithm that uses backtracking to solve such sudokus constructs a graph on <span class="texhtml"><i>N</i><sup>2</sup></span> vertices, one vertex for each box of the grid. Two vertices are connected by an edge if there exists a zone containing the two boxes. The problem is then equivalent to coloring this graph with <i>N</i> colors, where adjacent vertices may not have the same color. This is done by starting with an empty assignment of colors (for jigsaw sudokus) and assigning colors to vertices one after another, using some fixed order of the vertices. Whenever a color is being assigned, we check whether it is compatible with the existing assignments, i.e. whether the new color occurs among the neighbors of that vertex. If it doesn't, then we may assign it to the vertex and try to process another vertex. We backtrack once all <i>N</i> colors have been tried for a given vertex. If all vertices have been assigned a color, then we have found a solution. There are of course much more sophisticated algorithms to solve <a href="../../../g/r/a/Graph_coloring.html" title="Graph coloring">graph coloring</a>. If the sudoku contains initial data, i.e. some boxes have already been filled, then these go into the color assignment before backtracking begins and the vertex sequence includes only the empty boxes.</p>
+<p>A Perl implementation in just 86 lines of the above algorithm, which is easily translated into other programming languages, is shown below. It solves a 10x10 jigsaw sudoku that was proposed on <i>Les-Mathematiques.net</i> A link to the proposal may be found in the section for <a href="../../../a/l/g/Algorithmics_of_Sudoku_c32b.html#External_links" title="Algorithmics of Sudoku">external links</a>. The first section of the program defines the 10 jigsaw pieces (zones), the second the row and column zones. Thereafter the graph is constructed as an adjacency list. The search procedure prints completed solutions (when all 100 boxes have been assigned). Otherwise it computes the set of colors present among the neighbors of the next vertex to be processed, and recursively tries those assignments that do not conflict with this set. The search starts with an empty assignment.</p>
+<table>
+<tr>
+<td width="300px" valign="top">
+<pre>
+#! /usr/bin/perl -w
+#
+
+$| = 1;
+
+my $zones =
+  [[qw(00 10 11 12 20 21 22 30 31 40)],
+   [qw(01 02 03 04 13 23 33 34 43 44)],
+   [qw(05 06 14 15 16 24 25 26 35 36)],
+   [qw(07 08 09 17 18 19 27 28 29 37)],
+   [qw(32 41 42 51 52 53 61 62 63 72)],
+   [qw(45 54 55 56 64 65 66 74 75 84)],
+   [qw(38 39 46 47 48 49 57 58 67 68)],
+   [qw(50 60 70 71 80 81 82 90 91 92)],
+   [qw(73 83 93 94 85 86 95 96 97 98)],
+   [qw(59 69 76 77 78 79 87 88 89 99)]];
+
+foreach my $a (0..9){
+  my $z = [ map {
+    "$a" . $_
+  } (0..9) ];
+  push @$zones, $z;
+
+  $z = [ map {
+    $_ . "$a"
+  } (0..9) ];
+  push @$zones, $z;
+}
+
+my $adj;
+
+foreach my $z (@$zones){
+  foreach my $a (0..9){
+    foreach my $b (0..9){
+      push @{$adj-&gt;{$z-&gt;[$a]}}, $z-&gt;[$b]
+      if $a != $b;
+    }
+  }
+}
+
+
+
+
+</pre></td>
+<td width="300px" valign="top">
+<pre>
+sub search {
+  my ($n, $sol) = @_;
+
+  if($n==100){
+    foreach my $a (0..9){
+      print $sol-&gt;{$a . '0'};
+      foreach my $b (1..9){
+      print ' ' . $sol-&gt;{$a . $b};
+      }
+
+      print "\n";
+    }
+
+    print '-' x 19; print "\n";
+    return;
+  }
+
+  my ($a, $b);
+  $b = $n % 10; $a = ($n - $b)/10;
+
+  my $box = "$a$b";
+
+  my %set;
+
+  my $nbs = $adj-&gt;{$box};
+
+  foreach my $nb (@$nbs){
+    if(defined($sol-&gt;{$nb})){
+      my $val = $sol-&gt;{$nb};
+      $set{$val} = 1;
+    }
+  }
+
+  foreach my $val (0..9){
+    if(not(defined($set{$val}))){
+      $sol-&gt;{$box} = $val;
+      search($n+1, $sol);
+      undef($sol-&gt;{$box});
+    }
+  }
+}
+
+search(0, {});
+</pre></td>
+</tr>
+</table>
+<p><br /></p>
+<p><a name="Standard_Sudoku_solver_and_enumerator" id="Standard_Sudoku_solver_and_enumerator"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algorithmics_of_sudoku.html" title="Edit section: Standard Sudoku solver and enumerator">edit</a>]</span> <span class="mw-headline">Standard Sudoku solver and enumerator</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:202px;"><a href="../../../s/u/d/Image%7ESudoku-by-L2G-20050714.svg_e388.html" class="internal" title="A sudoku puzzle"><img src="../../../upload/thumb/f/ff/Sudoku-by-L2G-20050714.svg/200px-Sudoku-by-L2G-20050714.svg.png" alt="A sudoku puzzle" width="200" height="200" longdesc="../../../s/u/d/Image%7ESudoku-by-L2G-20050714.svg_e388.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../s/u/d/Image%7ESudoku-by-L2G-20050714.svg_e388.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A sudoku puzzle</div>
+</div>
+</div>
+<p>This section contains a reference implementation and discussion of a modified backtracking algorithm that can be used to create and solve large Sudokus even with modest computing resources. A standard Sudoku is an <span class="texhtml"><i>N</i><i>x</i><i>N</i></span> Sudoku where <span class="texhtml"><i>N</i> = <i>k</i><sup>2</sup></span> whose zones consist of the rows, columns and <span class="texhtml"><i>k</i><i>x</i><i>k</i></span> subsquares as in the classic <span class="texhtml">9<i>x</i>9</span> Sudoku. The example implementation reads the initial state of the Sudoku from standard input and outputs all possible solutions on standard output.</p>
+<p>For example, the example Sudoku shown at right would be entered into a text file, including empty lines and comments:</p>
+<pre>
+host&gt; cat example1.sdk
+# Example sudoku
+ 
+5 3 . . 7 . . . .
+6 . . 1 9 5 . . .
+. 9 8 . . . . 6 .
+8 . . . 6 . . . 3
+4 . . 8 . 3 . . 1
+7 . . . 2 . . . 6
+. 6 . . . . 2 8 .
+. . . 4 1 9 . . 5
+. . . . 8 . . 7 9
+</pre>
+<p>The solver solves the Sudoku and outputs the solution:</p>
+<pre>
+host&gt; ./puzzle-vsort.pl 9 example1.sdk
+5 3 4 6 7 8 9 1 2
+6 7 2 1 9 5 3 4 8
+1 9 8 3 4 2 5 6 7
+8 5 9 7 6 1 4 2 3
+4 2 6 8 5 3 7 9 1
+7 1 3 9 2 4 8 5 6
+9 6 1 5 3 7 2 8 4
+2 8 7 4 1 9 6 3 5
+3 4 5 2 8 6 1 7 9
+-----------------
+</pre>
+<p>The solver will enumerate all possible Sudokus when invoked with an empty input file, as in</p>
+<pre>
+host&gt; ./puzzle-vsort.pl 25 /dev/null
+</pre>
+<p>As examples of the Sudokus that can be created this way, consider</p>
+<pre>
+1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P
+6 7 8 9 A L M N O P 1 2 3 4 5 B C D E F G H I J K
+B C D E F G H I J K L M N O P 6 7 8 9 A 1 2 3 4 5
+G H I J K 1 2 3 4 5 6 7 8 9 A L M N O P B C D E F
+L M N O P B C D E F G H I J K 1 2 3 4 5 6 7 8 9 A
+2 I E A 1 C B 5 N D 9 G P F 7 J K L H 8 M 4 6 3 O
+3 L H C 6 O J F 7 9 M D A 1 2 N I E 5 4 P K G 8 B
+4 N J D 8 2 3 A G 1 5 I K L C M O P B 6 F 9 H 7 E
+5 O K F 9 M I E P L 4 8 6 B H 7 3 G D C J 1 2 A N
+7 P M G B H 8 4 K 6 J N E 3 O 9 A F 1 2 D I C 5 L
+8 1 2 7 J E N O A H C K F I B 4 D 6 M 9 3 5 P L G
+9 3 4 B L F G C 8 M P E 1 N 6 O 5 K 7 H I J A 2 D
+A 5 6 H M J L P 2 B O 3 4 7 D C E 1 I G N F 9 K 8
+C E G I N 9 D K 6 3 2 J H 5 8 F L A P B 4 O 7 1 M
+D F P K O 4 1 7 5 I A 9 L G M 2 8 J 3 N C B E H 6
+E 6 1 8 2 K F G L J N O 7 M I P 9 B A 3 5 D 4 C H
+F B 5 L 3 D E H 1 N 8 A J P 4 K 6 C 2 I 9 G O M 7
+H D 9 M 4 I O 6 3 C E F 5 K L 8 J 7 G 1 A N B P 2
+I G A N 7 5 P 9 B 8 H 1 C 2 3 D 4 M L O E 6 K F J
+J K O P C A 4 2 M 7 D B 9 6 G H N 5 F E 8 L 1 I 3
+K 4 7 1 D 8 A B H O 3 L M C E 5 G 9 N J 2 P F 6 I
+M 8 B 2 E N K J F 4 7 P G A 9 I 1 O 6 L H 3 5 D C
+N 9 C 3 G 7 6 L I 2 F 5 O D 1 E P H 8 M K A J B 4
+O A F 5 H P 9 M C G I 6 2 8 J 3 B 4 K D 7 E L N 1
+P J L 6 I 3 5 1 D E K 4 B H N A F 2 C 7 O 8 M G 9
+-------------------------------------------------
+</pre>
+<p>and</p>
+<pre>
+1 2 3 4 5 6 7 8 9 A B C D E F G H I J K L M N O P Q R S T U V W X Y Z a
+7 8 9 A B C V W X Y Z a 1 2 3 4 5 6 D E F G H I J K L M N O P Q R S T U
+D E F G H I J K L M N O V W X Y Z a P Q R S T U 1 2 3 4 5 6 7 8 9 A B C
+J K L M N O P Q R S T U 7 8 9 A B C V W X Y Z a D E F G H I 1 2 3 4 5 6
+P Q R S T U 1 2 3 4 5 6 J K L M N O 7 8 9 A B C V W X Y Z a D E F G H I
+V W X Y Z a D E F G H I P Q R S T U 1 2 3 4 5 6 7 8 9 A B C J K L M N O
+2 R M H C 1 S A K 5 Q L I a Z V F B O P D X W T E 4 G 3 6 7 N 9 Y 8 U J
+3 V Q K E 7 Z T O I 9 D W L G 1 2 4 Y S N H 8 B a U P J A F X R M C 6 5
+4 X S L F 9 8 1 P B E J N U Y T 6 A C 7 Z a R Q K 5 M I D H 2 3 W V O G
+5 Y T N G A W X 2 6 a 3 K R J O Q 7 E M 4 U V F C 9 1 B 8 L H Z S P I D
+6 Z U O I B M N H 7 F R 5 C 8 9 D P A 3 1 2 G J W S V Q X Y a 4 E T K L
+8 a W P J D G Y U C V 4 S X M H 3 E L I 6 K 9 5 T Z O R 2 N A B 7 F 1 Q
+9 D 4 1 K T U O S F A Q Z V P X E 2 N C a 6 L 8 R J I W Y 3 M G 5 H 7 B
+A G 8 2 L V 5 6 Y X I T B 7 C a J D R O M E P 9 Z H N U F 4 W S 1 3 Q K
+B H J 3 O W L 4 M 9 P 8 Q G T R 1 N K 5 I F X S A 6 E 7 a D Z U C 2 Y V
+C I N 5 Q X K R 7 2 W E L M S 3 U H B J G Z Y 4 9 P 8 1 V T F O 6 D a A
+E M P 6 R Y a G V H 3 Z 4 I A W K F U 1 7 Q D 2 S O 5 X C B 9 J T N L 8
+F U a 7 S Z B D C N J 1 8 O 6 5 9 Y 3 T H W A V 2 G K L M Q R P I E 4 X
+G J 1 9 U 2 F 5 W D S V M H O L a Z Q 4 K I 6 3 8 X C T P R B N A 7 E Y
+H N 6 B V 3 I L 8 R M 7 X 4 E Q W S G a P C J 1 F Y A Z U 2 K T O 5 D 9
+I O 7 C W 4 A B J E 1 N U D 2 P 8 V T Z 5 R S Y L a 6 H 9 K 3 M G Q X F
+K P A F X 5 3 Z Q a C 2 T B N 6 Y 9 8 D V O M 7 G I J E W 1 S L H U R 4
+L S D Q Y 8 T H G U 4 P C F K J R 1 X A E 9 2 N B M 7 O 3 5 6 I Z a V W
+M T Z R a E X 9 6 O Y K 3 A I 7 G 5 W U B L F H N D 4 V Q S 8 C J 1 P 2
+N 1 2 U 8 F E J Z K 6 9 H S V B X M 5 L O T Q D 4 7 W P R A C Y a I G 3
+O 3 B V 9 G C 7 A P D X E 5 U Z I R F N 2 1 4 W 6 T Y a K 8 L H Q J S M
+Q 4 C W A H R a N 8 G F 9 Y 1 D P L I 6 J 7 E M U 3 B 5 S V O X K Z 2 T
+R 5 E X D J 4 M I 1 L W F T a 2 O K H Y S V 3 A Q N Z C G 9 U 7 B 6 8 P
+S 6 I Z M K H V B T 2 Y G 3 W 8 7 Q a X C P U R O L D F J E 5 1 4 9 A N
+T 7 Y a P L Q U 5 3 O S A 6 4 N C J 9 G 8 B K Z X 1 H 2 I M E V D W F R
+U 9 5 8 1 M 2 3 E W X G R J H K A T 6 V Y N a L I B S D 4 Z Q F P O C 7
+W A G D 2 N 6 F T Z 7 M a P B C L 3 4 H Q J 1 E Y R U 8 O X I 5 V K 9 S
+X B H E 3 P O S 4 Q U 5 Y N 7 F V 8 Z 9 W D I K M C a 6 L G T A 2 R J 1
+Y C K I 4 Q N P 1 L R A 6 Z D E S W M F T 8 O X 5 V 2 9 7 J G a U B 3 H
+Z F O J 6 R Y C a V 8 H 2 9 Q I M X S B U 5 7 G 3 A T K 1 P 4 D N L W E
+a L V T 7 S 9 I D J K B O 1 5 U 4 G 2 R A 3 C P H F Q N E W Y 6 8 X M Z
+-----------------------------------------------------------------------
+</pre>
+<p>The above examples illustrate the convention of using letters when we run out of single digit numbers.</p>
+<p><a name="Key_modifications_to_the_algorithm" id="Key_modifications_to_the_algorithm"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algorithmics_of_sudoku.html" title="Edit section: Key modifications to the algorithm">edit</a>]</span> <span class="mw-headline">Key modifications to the algorithm</span></h3>
+<p>Conceptually there is one modification only: the backtracking algorithm sorts the vertices by the number of colors already assigned among its neighbors before selecting the next vertex to try. The vertex with the largest number of assigned colors, and hence, the smallest number of choices, is tried first. (There may be more than one such vertex).</p>
+<p>The data structures used during the backtracking search are chosen to make this easy and fast, although further optimization is possible. The search state is stored in three data structures: a hash table whose keys are the vertices and whose values are the colors that have been assigned to them. There is an array that contains the vertices that have not yet been assigned a color. Finally, there is a hash table whose keys are again the vertices and whose values are hash tables containing the colors present among the neighbors of the respective vertex, as well as a hint as to who assigned them.</p>
+<p><a name="Discussion_of_the_reference_implementation" id="Discussion_of_the_reference_implementation"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algorithmics_of_sudoku.html" title="Edit section: Discussion of the reference implementation">edit</a>]</span> <span class="mw-headline">Discussion of the reference implementation</span></h3>
+<p>The implementation follows this sequence of steps:</p>
+<ul>
+<li>Read the dimensions of the Sudoku from the command line and verify that <span class="texhtml"><i>N</i> = <i>k</i><sup>2</sup></span>.</li>
+<li>Provide a routine to map numbers to single-character codes (digits and uppercase letters).</li>
+<li>Create the row and column zones, then create the subsquare zones.</li>
+<li>Construct the adjacency matrix of the graph.</li>
+<li>The search routine:
+<ul>
+<li>Print the solution if there are no more vertices to be assigned a color, and return.</li>
+<li>Sort the remaining vertices in descending order of colors present among their neighbors.</li>
+<li>Pick the/a vertex with the largest number of assigned colors.</li>
+<li>Try each of the remaining possible colors recursively.
+<ul>
+<li>Update the hash table of vertex neighboring colors to reflect the assignment.</li>
+<li>Update the partial solution to reflect the assignment.</li>
+<li>Recurse.</li>
+<li>Remove the color from the partial solution.</li>
+<li>Undo the color assignments from the neighboring colors hash table.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Before the search begins, read the initial color assignment from standard input (may be empty), skipping comments and empty lines. Assignments are separated by spaces, valid assignments are single-character digit or letter codes.</li>
+<li>Compute the set of vertices to be assigned a color, i.e. not present in the initial assignment.</li>
+<li>Compute the initial state of the hash table of neighbor colors.</li>
+<li>Start the search.</li>
+</ul>
+<table>
+<tr>
+<td width="300px" valign="top">
+<pre>
+#! /usr/bin/perl -w
+#
+
+my $dim = shift || 9;
+my $subdim = int(sqrt($dim));
+
+die "not a square: $dim\n"
+  if $subdim*$subdim != $dim;
+
+$| = 1;
+
+sub tochar { 
+  $_[0]&lt;10 ? $_[0] : 
+    ($_[0]&lt;36 ? chr($_[0]-10+ord('A')) :
+     chr($_[0]-36+ord('a')))
+}
+
+foreach my $a (1..$dim){
+  my $z = [ map {
+    tochar($a) . tochar($_)
+  } (1..$dim) ];
+  push @$zones, $z;
+
+  $z = [ map {
+    tochar($_) . tochar($a)
+  } (1..$dim) ];
+  push @$zones, $z;
+}
+
+foreach my $a (0..$subdim-1){
+  foreach my $b (0..$subdim-1){
+    my $z = [];
+    foreach my $a1 (0..$subdim-1){
+      foreach my $b1 (0..$subdim-1){
+        my ($a2, $b2) = 
+          ($a*$subdim + $a1+1, $b*$subdim + $b1+1);
+        push @$z, tochar($a2) . tochar($b2);
+      }
+    }
+
+    push @$zones, $z;
+  }
+}
+
+my $adj;
+
+foreach my $z (@$zones){
+  foreach my $a (0..$dim-1){
+    foreach my $b (0..$dim-1){
+      push @{$adj-&gt;{$z-&gt;[$a]}}, $z-&gt;[$b]
+        if $a != $b;
+    }
+  }
+}
+
+sub search {
+  my ($sol, $verts, $cols) = @_;
+
+  if(!scalar(@$verts)){
+    foreach my $a (1..$dim){
+      print $sol-&gt;{tochar($a) . '1'};
+      foreach my $b (2..$dim){
+        print ' ' . 
+          $sol-&gt;{tochar($a) . tochar($b)};
+      }
+
+      print "\n";
+    }
+
+    print '-' x (2*$dim-1); print "\n";
+    return;
+  }
+
+</pre></td>
+<td width="300px" valign="top">
+<pre>
+  my @sverts = sort {
+    scalar(keys(%{ $cols-&gt;{$b}} )) 
+      &lt;=&gt; 
+    scalar(keys(%{ $cols-&gt;{$a}} ))
+  } @$verts;
+
+  my $box = shift @sverts;
+  my $set = $cols-&gt;{$box};
+
+  my $nbs = $adj-&gt;{$box};
+
+  foreach my $val (1..$dim){
+    my $cval = tochar($val);
+    if(not(defined($set-&gt;{$cval}))){
+      foreach my $nb (@$nbs){
+        $cols-&gt;{$nb}-&gt;{$cval} = \@sverts
+          if not defined($cols-&gt;{$nb}-&gt;{$cval});
+      }
+
+      $sol-&gt;{$box} = $cval;
+      search($sol, \@sverts, $cols);
+      delete $sol-&gt;{$box};
+
+      foreach my $nb (@$nbs){
+        delete $cols-&gt;{$nb}-&gt;{$cval}
+          if defined($cols-&gt;{$nb}-&gt;{$cval}) &amp;&amp;
+            $cols-&gt;{$nb}-&gt;{$cval} == \@sverts;
+      }
+    }
+  }
+}
+
+my ($row, $col) = (1);
+my $initial = {};
+
+while(my $line = &lt;&gt;){
+  next if $line =~ /^\s*$/ or $line =~ /^#/;
+  chomp $line;
+
+  my @fields = split /\s+/, $line; $col = 1;
+  foreach my $ent (@fields){
+    if($ent =~ /^[1-9A-Za-z]$/){
+      my $box = tochar($row) . tochar($col);
+      $initial-&gt;{$box} = $ent;
+    }
+    $col++;
+  }
+
+  $row++;
+  last if $row&gt;$dim;
+}
+
+my $vertices = [];
+
+foreach my $a (1..$dim){
+  foreach my $b (1..$dim){
+    my $box = tochar($a) . tochar($b);
+    push @$vertices, $box
+      if not(defined($initial-&gt;{$box}));
+  }
+}
+
+my $cols = {}; my $eref = [];
+
+foreach my $v (@$vertices){
+  foreach my $nb (@{ $adj-&gt;{$v} }){
+    my $col = $initial-&gt;{$nb};
+    $cols-&gt;{$v}-&gt;{$col} = $eref
+      if defined($col);
+  }
+}
+
+search($initial, $vertices, $cols);
+</pre></td>
+</tr>
+</table>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algorithmics_of_sudoku.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://les-mathematiques.u-strasbg.fr/phorum/read.php?f=2&amp;i=341098&amp;t=341098" class="external text" title="http://les-mathematiques.u-strasbg.fr/phorum/read.php?f=2&amp;i=341098&amp;t=341098" rel="nofollow">Riedel, Marko. <i>Solving a 10x10 jigsaw sudoku</i></a></li>
+<li><a href="http://www.bluechromis.com/stan/sudoku.html" class="external text" title="http://www.bluechromis.com/stan/sudoku.html" rel="nofollow">A Java library implementation of Donald Knuth's "Algorithm X" and a Sudoku solver using the library</a></li>
+<li><a href="http://www.ecclestoad.co.uk/blog/2005/06/02/sudoku_solver_in_three_lines_explained.html" class="external text" title="http://www.ecclestoad.co.uk/blog/2005/06/02/sudoku_solver_in_three_lines_explained.html" rel="nofollow">A three-line sudoku solver</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/g/Algorithmics_of_sudoku.html">http://en.wikipedia.org../../../a/l/g/Algorithmics_of_sudoku.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../s/u/d/Category%7ESudoku_35d6.html" title="Category:Sudoku">Sudoku</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/l/g/Algorithmics_of_sudoku.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/l/g/Talk%7EAlgorithmics_of_sudoku_e4ee.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Algorithmics_of_sudoku">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:39, 26 February 2007 by Wikipedia user <a href="../../../z/a/h/User%7EZahlentheorie_044c.html" title="User:Zahlentheorie">Zahlentheorie</a>. Based on work by Wikipedia user(s) LouisWins, <a href="../../../b/e/n/User%7EBenFrantzDale_c7e5.html" title="User:BenFrantzDale">BenFrantzDale</a>, StanChesnutt, <a href="../../../b/i/g/User%7EBigtop_067e.html" title="User:Bigtop">Bigtop</a> and <a href="../../../d/r/e/User%7EDreamGuy_80bf.html" title="User:DreamGuy">DreamGuy</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

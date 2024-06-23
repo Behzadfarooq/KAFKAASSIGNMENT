@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Best-first search,A* search algorithm,Artificial Intelligence: A Modern Approach,Beam search,Bellman-Ford algorithm,Bidirectional search,Breadth-first search,Combinatorial search,Depth-first search,Depth-limited search,Dijkstra's algorithm" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Best-first search - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Best-first search</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <table align="right" class="toccolours" style="padding: 0px; width: 170px; margin: 0 0 1em 1em;">
+<tr>
+<th style="background: #ccf;"><a href="../../../g/r/a/Graph_search_algorithm.html" title="Graph search algorithm">Graph search algorithms</a></th>
+</tr>
+<tr>
+<td><b>Search</b>
+<ul>
+<li><a href="../../../a/2A/_/A__search_algorithm_6db8.html" title="A* search algorithm">A*</a></li>
+<li><a href="../../../b/e/l/Bellman-Ford_algorithm_224c.html" title="Bellman-Ford algorithm">Bellman-Ford algorithm</a></li>
+<li><strong class="selflink">Best-first search</strong></li>
+<li><a href="../../../b/i/d/Bidirectional_search.html" title="Bidirectional search">Bidirectional search</a></li>
+<li><a href="../../../b/r/e/Breadth-first_search.html" title="Breadth-first search">Breadth-first search</a></li>
+<li><a href="../../../d/e/p/Depth-first_search.html" title="Depth-first search">Depth-first search</a></li>
+<li><a href="../../../d/e/p/Depth-limited_search.html" title="Depth-limited search">Depth-limited search</a></li>
+<li><a href="../../../d/i/j/Dijkstra%27s_algorithm.html" title="Dijkstra's algorithm">Dijkstra's algorithm</a></li>
+<li><a href="../../../f/l/o/Floyd-Warshall_algorithm_103d.html" title="Floyd-Warshall algorithm">Floyd-Warshall algorithm</a></li>
+<li><a href="../../../i/t/e/Iterative_deepening_depth-first_search.html" title="Iterative deepening depth-first search">Iterative deepening depth-first search</a></li>
+<li><a href="../../../j/o/h/Johnson%27s_algorithm.html" title="Johnson's algorithm">Johnson's algorithm</a></li>
+<li><a href="../../../u/n/i/Uniform-cost_search.html" title="Uniform-cost search">Uniform-cost search</a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><b>Best-first search</b> is a <a href="../../../s/e/a/Search_algorithm.html" title="Search algorithm">search algorithm</a> which optimizes <a href="../../../b/r/e/Breadth-first_search.html" title="Breadth-first search">breadth-first search</a> by expanding the most promising node chosen according to some rule.</p>
+<p><a href="../../../j/u/d/Judea_Pearl_602a.html" title="Judea Pearl">Judea Pearl</a> described best-first search as estimating the promise of node <i>n</i> by a "heuristic evaluation function <span class="texhtml"><i>f</i>(<i>n</i>)</span> which, in general, may depend on the description of <i>n</i>, the description of the goal, the information gathered by the search up to that point, and most important, on any extra knowledge about the problem domain."<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> This general sense of the term is used by many authors, including Russell &amp; Norvig.<sup id="_ref-RN03_0" class="reference"><a href="#_note-RN03" title="">[2]</a></sup></p>
+<p>Other authors have used "best-first search" to refer specifically to a search with a <a href="../../../h/e/u/Heuristic_%28computer_science%29.html" title="Heuristic (computer science)">heuristic</a> that attempts to predict how close the end of a path is to a solution, so that paths which are judged to be closer to a solution are extended first. This specific type of search is called <b>greedy best-first search</b> by Russell &amp; Norvig.<sup id="_ref-RN03_1" class="reference"><a href="#_note-RN03" title="">[2]</a></sup></p>
+<p>Efficient selection of the current best candidate for extension is typically implemented using a <a href="../../../p/r/i/Priority_queue.html" title="Priority queue">priority queue</a>.</p>
+<p>Examples of best-first search algorithms include the <a href="../../../a/2A/_/A__search_algorithm_6db8.html" title="A* search algorithm">A* search algorithm</a>, and in turn, <a href="../../../d/i/j/Dijkstra%27s_algorithm.html" title="Dijkstra's algorithm">Dijkstra's algorithm</a> (which can be considered a specialisation of A*). Best-first algorithms are often used for pathfinding in <a href="../../../c/o/m/Combinatorial_search.html" title="Combinatorial search">combinatorial search</a>.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/s/Best-first_search.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/e/a/Beam_search.html" title="Beam search">Beam search</a></li>
+<li><a href="../../../a/2A/_/A__search_algorithm_6db8.html" title="A* search algorithm">A* search</a></li>
+<li><a href="../../../d/i/j/Dijkstra%27s_algorithm.html" title="Dijkstra's algorithm">Dijkstra's algorithm</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/s/Best-first_search.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="../../../j/u/d/Judea_Pearl_602a.html" title="Judea Pearl">Pearl, J.</a> <i>Heuristics: Intelligent Search Strategies for Computer Problem Solving</i>. Addison-Wesley, 1984. p. 48.</li>
+<li id="_note-RN03">^ <a href="#_ref-RN03_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-RN03_1" title=""><sup><i><b>b</b></i></sup></a> <a href="../../../s/t/u/Stuart_J._Russell_3de3.html" title="Stuart J. Russell">Russell, S.J.</a>, &amp; <a href="../../../p/e/t/Peter_Norvig_fdd6.html" title="Peter Norvig">Norvig, P.</a>&#160; <i><a href="../../../a/_/m/Artificial_Intelligence%7E_A_Modern_Approach_19ac.html" title="Artificial Intelligence: A Modern Approach">Artificial Intelligence: A Modern Approach</a></i>. 2nd edition. Pearson Education, Inc, 2003. pp. 94 and 95 (note 3).</li>
+</ol>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/s/Best-first_search.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.cee.hw.ac.uk/~alison/ai3notes/subsubsection2_6_2_3_2.html" class="external free" title="http://www.cee.hw.ac.uk/~alison/ai3notes/subsubsection2_6_2_3_2.html" rel="nofollow">http://www.cee.hw.ac.uk/~alison/ai3notes/subsubsection2_6_2_3_2.html</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/s/Best-first_search.html">http://en.wikipedia.org../../../b/e/s/Best-first_search.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../t/r/e/Category%7ETrees_%28structure%29_77fb.html" title="Category:Trees (structure)">Trees (structure)</a></span> | <span dir='ltr'><a href="../../../s/e/a/Category%7ESearch_algorithms_e191.html" title="Category:Search algorithms">Search algorithms</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/e/s/Best-first_search.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/e/s/Talk%7EBest-first_search_78d0.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Best-first_search">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ja/%E6%9C%80/%E8%89%AF/%E5%84%AA/%E6%9C%80%E8%89%AF%E5%84%AA%E5%85%88%E6%8E%A2%E7%B4%A2.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/t/%C3%AC/m/T%C3%ACm_ki%E1%BA%BFm_theo_l%E1%BB%B1a_ch%E1%BB%8Dn_t%E1%BB%91t_nh%E1%BA%A5t.html">Tiếng Việt</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 22:38, 25 February 2007 by Wikipedia user <a href="../../../p/g/a/User%7EPgan002_fb49.html" title="User:Pgan002">Pgan002</a>. Based on work by Wikipedia user(s) <a href="../../../d/h/n/User%7EDHN-bot_8c4a.html" title="User:DHN-bot">DHN-bot</a>, <a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a>, <a href="../../../m/i/k/User%7EMikkalai_a7bb.html" title="User:Mikkalai">Mikkalai</a>, <a href="../../../j/o/n/User%7EJonH_0559.html" title="User:JonH">JonH</a>, MagiMaster, <a href="../../../m/e/l/User%7EMellery_d65a.html" title="User:Mellery">Mellery</a>, <a href="../../../k/e/s/User%7EKesla_cb29.html" title="User:Kesla">Kesla</a>, <a href="../../../q/u/u/User%7EQuuxplusone_9b50.html" title="User:Quuxplusone">Quuxplusone</a>, <a href="../../../c/e/s/User%7ECesarB_5f7f.html" title="User:CesarB">CesarB</a>, <a href="../../../p/a/u/User%7EPaul_Hope_7105.html" title="User:Paul Hope">Paul Hope</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, GiovanniS, <a href="../../../k/d/a/User%7EKdau_ce62.html" title="User:Kdau">Kdau</a>, <a href="../../../h/a/p/User%7EHappyDog_f746.html" title="User:HappyDog">HappyDog</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../t/h/e/User%7EThesilverbail_89d5.html" title="User:Thesilverbail">Thesilverbail</a>, <a href="../../../b/a/r/User%7EBart_Massey_07dc.html" title="User:Bart Massey">Bart Massey</a> and <a href="../../../k/p/j/User%7EKpjas_9cb5.html" title="User:Kpjas">Kpjas</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

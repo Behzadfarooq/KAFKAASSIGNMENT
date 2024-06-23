@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Analytic continuation,Analytic function,Basis (topology),Complex analysis,Complex plane,Connected component,Connected space,Connectedness,Domain,Equivalence relation,Functional equation" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Analytic continuation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Analytic continuation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../c/o/m/Complex_analysis.html" title="Complex analysis">complex analysis</a>, a branch of <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, <b>analytic continuation</b> is a technique to extend the domain of definition of a given <a href="../../../a/n/a/Analytic_function.html" title="Analytic function">analytic function</a>. Analytic continuation often succeeds in defining further values of a function, for example in a new region where an <a href="../../../i/n/f/Infinite_series.html" title="Infinite series">infinite series</a> representation in terms of which it is initially defined becomes divergent.</p>
+<p>The step-wise continuation technique may, however, come up against difficulties. These may have an essentially topological nature, leading to inconsistencies (defining more than one value). They may alternatively have to do with the presence of <a href="../../../m/a/t/Mathematical_singularities.html" title="Mathematical singularities">mathematical singularities</a>. The case of <a href="../../../s/e/v/Several_complex_variables.html" title="Several complex variables">several complex variables</a> is rather different, since singularities then cannot be isolated points, and its investigation was a major reason for the development of <a href="../../../s/h/e/Sheaf_cohomology.html" title="Sheaf cohomology">sheaf cohomology</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Initial_discussion"><span class="tocnumber">1</span> <span class="toctext">Initial discussion</span></a></li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">2</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1"><a href="#Formal_definition_of_a_germ"><span class="tocnumber">3</span> <span class="toctext">Formal definition of a germ</span></a></li>
+<li class="toclevel-1"><a href="#The_topology_of_the_set_of_germs"><span class="tocnumber">4</span> <span class="toctext">The topology of the set of germs</span></a></li>
+<li class="toclevel-1"><a href="#Examples_of_analytic_continuation"><span class="tocnumber">5</span> <span class="toctext">Examples of analytic continuation</span></a></li>
+<li class="toclevel-1"><a href="#Monodromy_theorem"><span class="tocnumber">6</span> <span class="toctext">Monodromy theorem</span></a></li>
+<li class="toclevel-1"><a href="#Hadamard.27s_gap_theorem"><span class="tocnumber">7</span> <span class="toctext">Hadamard's gap theorem</span></a></li>
+<li class="toclevel-1"><a href="#Polya.27s_theorem"><span class="tocnumber">8</span> <span class="toctext">Polya's theorem</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Initial_discussion" id="Initial_discussion"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analytic_continuation.html" title="Edit section: Initial discussion">edit</a>]</span> <span class="mw-headline">Initial discussion</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:318px;"><a href="../../../i/m/a/Image%7EImaginary_log_analytic_continuation.png_7acd.html" class="internal" title="analytic continuation of natural logarithm (imaginary part)"><img src="../../../upload/shared/thumb/4/4d/Imaginary_log_analytic_continuation.png/316px-Imaginary_log_analytic_continuation.png" alt="analytic continuation of natural logarithm (imaginary part)" width="316" height="286" longdesc="../../../i/m/a/Image%7EImaginary_log_analytic_continuation.png_7acd.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../i/m/a/Image%7EImaginary_log_analytic_continuation.png_7acd.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+analytic continuation of natural logarithm (imaginary part)</div>
+</div>
+</div>
+<p>Suppose <i>f</i> is an analytic function defined on an <a href="../../../o/p/e/Open_subset.html" title="Open subset">open subset</a> <i>U</i> of the <a href="../../../c/o/m/Complex_plane.html" title="Complex plane">complex plane</a> <b>C</b>. If <i>V</i> is a larger open subset of <b>C</b>, containing <i>U</i>, and <i>F</i> is an analytic function defined on <i>V</i> such that</p>
+<dl>
+<dd><i>F</i>(<i>z</i>) = <i>f</i>(<i>z</i>) for all <i>z</i> in <i>U</i>,</dd>
+</dl>
+<p>then <i>F</i> is called an analytic continuation of <i>f</i>. In other words, the <i>restriction</i> of <i>F</i> to <i>U</i> is the function <i>f</i> we started with.</p>
+<p>Analytic continuations are unique in the following sense: if <i>V</i> is <a href="../../../c/o/n/Connectedness.html" title="Connectedness">connected</a> and is the domain of both <i>F</i><sub>1</sub> and <i>F</i><sub>2</sub>, two analytic continuations of <i>f</i>, then</p>
+<dl>
+<dd><i>F</i><sub>1</sub> = <i>F</i><sub>2</sub></dd>
+</dl>
+<p>everywhere. That is because the difference is an analytic function which vanishes on a non-empty open set <i>U</i> (the domain of <i>f</i>), and an analytic function which vanishes on a non-empty open set must vanish everywhere on its domain (assuming the domain is <a href="../../../c/o/n/Connected_space.html" title="Connected space">connected</a>) and hence must be identically zero.</p>
+<p>For example, if a <a href="../../../p/o/w/Power_series.html" title="Power series">power series</a> with <a href="../../../r/a/d/Radius_of_convergence.html" title="Radius of convergence">radius of convergence</a> <i>r</i> about a point <i>a</i> of <b>C</b> is given, one can consider analytic continuations of the power series, i.e. analytic functions <i>F</i> which are defined on larger sets than the <a href="../../../o/p/e/Open_disc.html" title="Open disc">open disc</a> of radius <i>r</i> at <i>a</i>, in symbols</p>
+<dl>
+<dd>{<i>z</i>&#160;: |<i>z</i> − <i>a</i>| &lt; <i>r</i>},</dd>
+</dl>
+<p>and agree with the given power series on that set. The number <i>r</i> is maximal in the following sense: there always exists a complex number <i>z</i> with</p>
+<dl>
+<dd>|<i>z</i> − <i>a</i>| = <i>r</i></dd>
+</dl>
+<p>such that no analytic continuation of the series can be defined at <i>z</i>. Therefore there is a limitation to analytic continuation to bigger discs with the same centre <i>a</i>. On the other hand there may well be analytic continuations to some larger sets. That depends on the radius of convergence when you expand about points <i>b</i> other than <i>a</i>; if that is greater than</p>
+<dl>
+<dd><i>r</i> − |<i>b</i> − <i>a</i>|</dd>
+</dl>
+<p>then we win the right to use that expansion on an open disc, part of which lies outside the original disc of definition. If not, there is a <b>natural boundary</b> on the bounding circle.</p>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analytic_continuation.html" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p>A common way to define functions in complex analysis proceeds by first specifying the function on a small domain only, and then extending it by analytic continuation. In practice, this continuation is often done by first establishing some <a href="../../../f/u/n/Functional_equation.html" title="Functional equation">functional equation</a> on the small domain and then using this equation to extend the domain. Examples are the <a href="../../../r/i/e/Riemann_zeta_function.html" title="Riemann zeta function">Riemann zeta function</a> and the <a href="../../../g/a/m/Gamma_function.html" title="Gamma function">gamma function</a>.</p>
+<p>The concept of a <a href="../../../u/n/i/Universal_cover.html" title="Universal cover">universal cover</a> was first developed to define a natural domain for the analytic continuation of an <a href="../../../a/n/a/Analytic_function.html" title="Analytic function">analytic function</a>. The idea of finding the maximal analytic continuation of a function in turn led to the development of the idea of <a href="../../../r/i/e/Riemann_surface.html" title="Riemann surface">Riemann surfaces</a>.</p>
+<p>The power series defined above is generalized by the idea of a <i><a href="../../../g/e/r/Germ_%28mathematics%29.html" title="Germ (mathematics)">germ</a></i>. The general theory of analytic continuation and its generalizations are known as <a href="../../../s/h/e/Sheaf_%28mathematics%29.html" title="Sheaf (mathematics)">sheaf theory</a>.</p>
+<p><a name="Formal_definition_of_a_germ" id="Formal_definition_of_a_germ"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analytic_continuation.html" title="Edit section: Formal definition of a germ">edit</a>]</span> <span class="mw-headline">Formal definition of a germ</span></h2>
+<p>Let</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/5/7/35761853a9e79c9b36ece2d2863deda2.png" alt="f(z)=\sum_{k=0}^\infty \alpha_k (z-z_0)^k" /></dd>
+</dl>
+<p>be a <a href="../../../p/o/w/Power_series.html" title="Power series">power series</a> converging in the disc <i>D</i><sub><i>r</i></sub>(<i>z</i><sub>0</sub>)&#160;:= {<i>z</i> in <b>C</b>&#160;: |<i>z</i> - <i>z</i><sub>0</sub>| &lt; <i>r</i>} for <i>r</i> &gt; 0. (Note, without loss of generality, here and in the sequel, we will always assume that a maximal such <i>r</i> was chosen, even if it is ∞.) Also note that it would be equivalent to begin with an analytic function defined on some small open set. We say that the vector</p>
+<dl>
+<dd><i>g</i> = (<i>z</i><sub>0</sub>, α<sub>0</sub>, α<sub>1</sub>, α<sub>2</sub>, ...)</dd>
+</dl>
+<p>is a <i><a href="../../../g/e/r/Germ_%28mathematics%29.html" title="Germ (mathematics)">germ</a></i> of <i>f</i>. The <i>base</i> <i>g</i><sub>0</sub> of <i>g</i> is <i>z</i><sub>0</sub>, the <i>stem</i> of <i>g</i> is (α<sub>0</sub>, α<sub>1</sub>, α<sub>2</sub>, ...) and the <i>top</i> <i>g</i><sub>1</sub> of <i>g</i> is α<sub>0</sub>. The top of <i>g</i> is the value of <i>f</i> at <i>z</i><sub>0</sub>, the bottom of <i>g</i>.</p>
+<p>Any vector <i>g</i> = (<i>z</i><sub>0</sub>, α<sub>0</sub>, α<sub>1</sub>, ...) is a germ if it represents a power series of an analytic function around <i>z</i><sub>0</sub> with some radius of convergence <i>r</i> &gt; 0. Therefore, we can safely speak of the set of germs <img class='tex' src="../../../math/b/4/0/b40a7a19cd8d1aab464d18c05d7c21d5.png" alt="\mathcal G" />.</p>
+<p><a name="The_topology_of_the_set_of_germs" id="The_topology_of_the_set_of_germs"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analytic_continuation.html" title="Edit section: The topology of the set of germs">edit</a>]</span> <span class="mw-headline">The topology of the set of germs</span></h2>
+<p>Let <i>g</i> and <i>h</i> be <a href="../../../g/e/r/Germ_%28mathematics%29.html" title="Germ (mathematics)">germs</a>. If |<i>h</i><sub>0</sub> - <i>g</i><sub>0</sub>| &lt; <i>r</i> where <i>r</i> is the radius of convergence of <i>g</i> and if the power series that <i>g</i> and <i>h</i> represent define identical functions on the intersection of the two domains, then we say that <i>h</i> is generated by (or compatible with) <i>g</i>, and we write <i>g</i> ≥ <i>h</i>. This compatibility condition is neither transitive, symmetric nor antisymmetric. If we <a href="../../../t/r/a/Transitive_closure.html" title="Transitive closure">extend</a> the relation by <a href="../../../t/r/a/Transitive_relation.html" title="Transitive relation">transitivity</a>, we obtain a symmetric relation, which is therefore also an <a href="../../../e/q/u/Equivalence_relation.html" title="Equivalence relation">equivalence relation</a> on germs (but not an ordering). This extension by transitivity is one definition of analytic continuation. The equivalence relation will be denoted <img class='tex' src="../../../math/f/1/6/f16a7bd80bb5648a755eb58221d03546.png" alt="\cong" />.</p>
+<p>We can define a <a href="../../../t/o/p/Topology.html" title="Topology">topology</a> on <img class='tex' src="../../../math/b/4/0/b40a7a19cd8d1aab464d18c05d7c21d5.png" alt="\mathcal G" />. Let <i>r</i> &gt; 0, and let</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/8/8/388ed932e1d5cb82ccaaa9412de060eb.png" alt="U_r(g) = \{h \in \mathcal G&#160;: g \ge h, |g_0 - h_0| &lt; r\}." /></dd>
+</dl>
+<p>The sets <i>U</i><sub>r</sub>(<i>g</i>), for all <i>r</i> &gt; 0 and <i>g</i> ∈ <img class='tex' src="../../../math/b/4/0/b40a7a19cd8d1aab464d18c05d7c21d5.png" alt="\mathcal G" /> define a <a href="../../../b/a/s/Basis_%28topology%29.html" title="Basis (topology)">basis of open sets</a> for the topology on <img class='tex' src="../../../math/b/4/0/b40a7a19cd8d1aab464d18c05d7c21d5.png" alt="\mathcal G" />.</p>
+<p>A <a href="../../../c/o/n/Connected_component.html" title="Connected component">connected component</a> of <img class='tex' src="../../../math/b/4/0/b40a7a19cd8d1aab464d18c05d7c21d5.png" alt="\mathcal G" /> (i.e., an equivalence class) is called a <i><a href="../../../s/h/e/Sheaf_%28mathematics%29.html" title="Sheaf (mathematics)">sheaf</a></i>. We also note that the map φ<sub><i>g</i></sub>(<i>h</i>) = <i>h</i><sub>0</sub> from <i>U</i><sub><i>r</i></sub>(<i>g</i>) to <b>C</b> where <i>r</i> is the radius of convergence of <i>g</i>, is a chart. The set of such charts forms an atlas for <img class='tex' src="../../../math/b/4/0/b40a7a19cd8d1aab464d18c05d7c21d5.png" alt="\mathcal G" />, hence <img class='tex' src="../../../math/b/4/0/b40a7a19cd8d1aab464d18c05d7c21d5.png" alt="\mathcal G" /> is a <a href="../../../r/i/e/Riemann_surface.html" title="Riemann surface">Riemann surface</a>. <img class='tex' src="../../../math/b/4/0/b40a7a19cd8d1aab464d18c05d7c21d5.png" alt="\mathcal G" /> is sometimes called the <i>universal analytic function</i>.</p>
+<p><a name="Examples_of_analytic_continuation" id="Examples_of_analytic_continuation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analytic_continuation.html" title="Edit section: Examples of analytic continuation">edit</a>]</span> <span class="mw-headline">Examples of analytic continuation</span></h2>
+<dl>
+<dd><img class='tex' src="../../../math/9/c/4/9c408eee2f42a67e851725833d3d378e.png" alt="L(z) = \sum_{k=1}^\infin \frac{(-1)^{k+1}}{k}(z-1)^k" /></dd>
+</dl>
+<p>is a power series corresponding to the <a href="../../../n/a/t/Natural_logarithm.html" title="Natural logarithm">natural logarithm</a> near <i>z</i> = 1. This power series can be turned into a <a href="../../../g/e/r/Germ_%28mathematics%29.html" title="Germ (mathematics)">germ</a></p>
+<dl>
+<dd><i>g</i> = (1, 0, 1, −1, 1, −1, 1, −1, ...)</dd>
+</dl>
+<p>This germ has a radius of convergence of 1, and so there is a <a href="../../../s/h/e/Sheaf_%28mathematics%29.html" title="Sheaf (mathematics)">sheaf</a> <i>S</i> corresponding to it. This is the sheaf of the logarithm function.</p>
+<p>The uniqueness theorem for analytic functions also extends to sheaves of analytic functions: if the sheaf of an analytic function contains the zero germ (i.e., the sheaf is uniformly zero in some neighborhood) then the entire sheaf is zero. Armed with this result, we can see that if we take any germ <i>g</i> of the sheaf <i>S</i> of the logarithm function, as described above, and turn it into a power series <i>f</i>(<i>z</i>) then this function will have the property that exp(<i>f</i>(<i>z</i>))=z. If we had decided to use a version of the inverse function theorem for analytic functions, we could construct a wide variety of inverses for the exponential map, but we would discover that they are all represented by some germ in <i>S</i>. In that sense, <i>S</i> is the "one true inverse" of the exponential map.</p>
+<p>In older literature, sheaves of analytic functions were called <i><a href="../../../m/u/l/Multi-valued_function.html" title="Multi-valued function">multi-valued functions</a></i>. See <a href="../../../s/h/e/Sheaf_%28mathematics%29.html" title="Sheaf (mathematics)">sheaf</a> for the general concept.</p>
+<p><a name="Monodromy_theorem" id="Monodromy_theorem"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analytic_continuation.html" title="Edit section: Monodromy theorem">edit</a>]</span> <span class="mw-headline">Monodromy theorem</span></h2>
+<p>The monodromy theorem gives a sufficient condition for the existence of a direct analytic continuation (i.e. an extension of an analytic function to an analytic function on a bigger set).</p>
+<p>Suppose D is an open set in <img class='tex' src="../../../math/f/0/b/f0b01fe0a1eec87c634584ac0694fb71.png" alt="\mathbb{C}" />, and f an analytic function on D. If G is a <a href="../../../s/i/m/Simply_connected.html" title="Simply connected">simply connected</a> <a href="../../../d/o/m/Domain.html" title="Domain">domain</a> containing D, such that f has an analytic continuation along every path in G, starting from some fixed point a in D, then f has a direct analytic continuation to G.</p>
+<p>In the above language this means that if G is a simply connected domain, and S is a sheaf whose set of base points contains G, then there exists an analytic function f on G whose germs belong to S.</p>
+<p><a name="Hadamard.27s_gap_theorem" id="Hadamard.27s_gap_theorem"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analytic_continuation.html" title="Edit section: Hadamard's gap theorem">edit</a>]</span> <span class="mw-headline">Hadamard's gap theorem</span></h2>
+<p>For a power series</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/5/7/35761853a9e79c9b36ece2d2863deda2.png" alt="f(z)=\sum_{k=0}^\infty \alpha_k (z-z_0)^k" /></dd>
+</dl>
+<p>with coefficients mostly zero in the precise sense that they vanish outside a sequence of exponents <i>k</i>(<i>i</i>) with</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/8/7/c8710049af8102543b591bb04442ac94.png" alt="\lim_{i\to\infty} \frac{k(i+1)}{k(i)} &gt; 1 + \delta \," /></dd>
+</dl>
+<p>for some fixed δ &gt; 0, the circle centre <i>z</i><sub>0</sub> and with radius the radius of convergence is a natural boundary. Such a power series defines a <a href="../../../l/a/c/Lacunary_function.html" title="Lacunary function">lacunary function</a>.</p>
+<p><a name="Polya.27s_theorem" id="Polya.27s_theorem"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analytic_continuation.html" title="Edit section: Polya's theorem">edit</a>]</span> <span class="mw-headline">Polya's theorem</span></h2>
+<p>Let <img class='tex' src="../../../math/3/5/7/35761853a9e79c9b36ece2d2863deda2.png" alt="f(z)=\sum_{k=0}^\infty \alpha_k (z-z_0)^k" /> be a power series, then there exist <img class='tex' src="../../../math/9/7/5/975b18eddd32fe5a4b38a808d8e5536a.png" alt="\epsilon_k\in \{-1,1\}" /> such that</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/c/8/8c8fe4d7d82c3a22e2690cd1805c0a35.png" alt="f(z)=\sum_{k=0}^\infty \epsilon_k\alpha_k (z-z_0)^k" /></dd>
+</dl>
+<p>has the convergence disc of f around <i>z</i><sub>0</sub> as a natural boundary.</p>
+<p>The proof of this theorem makes use of Hadamard's gap theorem.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/a/Analytic_continuation.html">http://en.wikipedia.org../../../a/n/a/Analytic_continuation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComplex_analysis_68e1.html" title="Category:Complex analysis">Complex analysis</a></span> | <span dir='ltr'><a href="../../../r/i/e/Category%7ERiemann_surfaces_0c6c.html" title="Category:Riemann surfaces">Riemann surfaces</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/n/a/Analytic_continuation.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/n/a/Talk%7EAnalytic_continuation_d522.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Analytic_continuation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ca/c/o/n/Continuaci%C3%B3_anal%C3%ADtica.html">Català</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/a/n/a/Analytische_Fortsetzung_f851.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/p/r/o/Prolongement_analytique.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/p/r/o/Prolungamento_analitico.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../lmo/c/u/n/Cuntinuazziun_anal%C3%ADtica.html">Lumbaart</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E8%A7%A3/%E6%9E%90/%E6%8E%A5/%E8%A7%A3%E6%9E%90%E6%8E%A5%E7%B6%9A.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sl/a/n/a/Analiti%C4%8Dno_nadaljevanje.html">Slovenščina</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 15:17, 25 January 2007 by Wikipedia user Jonas August. Based on work by Wikipedia user(s) <a href="../../../d/a/v/User%7EDavidCBryant_f1d6.html" title="User:DavidCBryant">DavidCBryant</a>, <a href="../../../c/h/o/User%7EChochopk_5bb4.html" title="User:Chochopk">Chochopk</a>, <a href="../../../a/r/c/User%7EArchelon_1fc6.html" title="User:Archelon">Archelon</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../k/e/n/User%7EKennyDC_9c1d.html" title="User:KennyDC">KennyDC</a>, <a href="../../../e/s/k/User%7EEskimbot_5fb5.html" title="User:Eskimbot">Eskimbot</a>, <a href="../../../j/a/p/User%7EJapanese_Searobin_fc2d.html" title="User:Japanese Searobin">Japanese Searobin</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../c/l/a/User%7EClamengh_4c4a.html" title="User:Clamengh">Clamengh</a>, <a href="../../../l/e/t/User%7ELethe_ae09.html" title="User:Lethe">Lethe</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../k/s/m/User%7EKSmrq_61e9.html" title="User:KSmrq">KSmrq</a>, DanielSHaischt, <a href="../../../g/a/u/User%7EGauge_3e29.html" title="User:Gauge">Gauge</a>, <a href="../../../b/o/_/User%7EBo_Jacoby_56d6.html" title="User:Bo Jacoby">Bo Jacoby</a>, <a href="../../../e/e/q/User%7EEequor_b13d.html" title="User:Eequor">Eequor</a>, <a href="../../../f/r/o/User%7EFropuff_31b9.html" title="User:Fropuff">Fropuff</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, <a href="../../../r/o/m/User%7ERomanm_5283.html" title="User:Romanm">Romanm</a>, <a href="../../../p/o/u/User%7EPouya_e290.html" title="User:Pouya">Pouya</a>, <a href="../../../h/e/r/User%7EHerbee_baa0.html" title="User:Herbee">Herbee</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

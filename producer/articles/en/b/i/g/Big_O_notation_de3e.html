@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Big O notation,Big O notation,0 (number),AKS primality test,Absolute value,Abuse of notation,Ackermann function,Algorithm,Analysis of algorithms,Asymptot,Asymptotic behavior" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Big O notation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Big O notation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div class="dablink"><i>For other uses, see <a href="../../../b/i/g/Big_O_31e7.html" title="Big O">Big O</a>.</i></div>
+<p><b>Big O notation</b> or <b>Big Oh notation</b>, and also <b>Landau notation</b> or <b>asymptotic notation</b>, is a <a href="../../../m/a/t/Mathematical_notation.html" title="Mathematical notation">mathematical notation</a> used to describe the <a href="../../../a/s/y/Asymptotic_behavior.html" title="Asymptotic behavior">asymptotic behavior</a> of <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">functions</a>. Its purpose is to characterize a function's behavior for very large (or very small) inputs in a simple but <a href="../../../r/i/g/Rigorous.html" title="Rigorous">rigorous</a> way that enables comparison to other functions.</p>
+<p>The symbol <i>O</i> is used to describe an asymptotic <a href="../../../u/p/p/Upper_bound.html" title="Upper bound">upper bound</a> for the <a href="../../../m/a/g/Magnitude.html" title="Magnitude">magnitude</a> of a function in terms of another, usually simpler, function. There are also other symbols <i>o</i>, Ω, ω, and Θ for various other upper, lower, and tight bounds. Informally, the <i>O</i> notation is commonly employed to describe an asymptotic tight bound, but tight bounds are more formally and precisely denoted by the Θ (capital <a href="../../../t/h/e/Theta.html" title="Theta">theta</a>) symbol as described below.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Usage"><span class="tocnumber">1</span> <span class="toctext">Usage</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Infinite_asymptotics"><span class="tocnumber">1.1</span> <span class="toctext">Infinite asymptotics</span></a></li>
+<li class="toclevel-2"><a href="#Infinitesimal_asymptotics"><span class="tocnumber">1.2</span> <span class="toctext">Infinitesimal asymptotics</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Formal_definition"><span class="tocnumber">2</span> <span class="toctext">Formal definition</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Matters_of_notation"><span class="tocnumber">4</span> <span class="toctext">Matters of notation</span></a></li>
+<li class="toclevel-1"><a href="#Common_orders_of_functions"><span class="tocnumber">5</span> <span class="toctext">Common orders of functions</span></a></li>
+<li class="toclevel-1"><a href="#Properties"><span class="tocnumber">6</span> <span class="toctext">Properties</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Product"><span class="tocnumber">6.1</span> <span class="toctext">Product</span></a></li>
+<li class="toclevel-2"><a href="#Sum"><span class="tocnumber">6.2</span> <span class="toctext">Sum</span></a></li>
+<li class="toclevel-2"><a href="#Multiplication_by_a_constant"><span class="tocnumber">6.3</span> <span class="toctext">Multiplication by a constant</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Related_asymptotic_notations"><span class="tocnumber">7</span> <span class="toctext">Related asymptotic notations</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Little-o_notation"><span class="tocnumber">7.1</span> <span class="toctext">Little-o notation</span></a></li>
+<li class="toclevel-2"><a href="#Other_standard_computer_science_notation:_.CE.A9.2C_.CF.89.2C_.CE.98.2C_.C3.95"><span class="tocnumber">7.2</span> <span class="toctext">Other standard computer science notation: Ω, ω, Θ, Õ</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Multiple_variables"><span class="tocnumber">8</span> <span class="toctext">Multiple variables</span></a></li>
+<li class="toclevel-1"><a href="#Graph_theory"><span class="tocnumber">9</span> <span class="toctext">Graph theory</span></a></li>
+<li class="toclevel-1"><a href="#Generalizations_and_related_usages"><span class="tocnumber">10</span> <span class="toctext">Generalizations and related usages</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">11</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">12</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Usage" id="Usage"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Usage">edit</a>]</span> <span class="mw-headline">Usage</span></h2>
+<p>Big O notation has two main areas of application: in <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, it is usually used to characterize the residual term of a truncated <a href="../../../i/n/f/Infinite_series.html" title="Infinite series">infinite series</a>, especially an <a href="../../../a/s/y/Asymptotic_series.html" title="Asymptotic series">asymptotic series</a>, and in <a href="../../../c/o/m/Computer_science.html" title="Computer science">computer science</a>, it is useful in the <a href="../../../a/n/a/Analysis_of_algorithms.html" title="Analysis of algorithms">analysis</a> of the <a href="../../../c/o/m/Computational_complexity_theory.html" title="Computational complexity theory">complexity</a> of <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithms</a>.</p>
+<p>The notation was first introduced by German number theorist <a href="../../../p/a/u/Paul_Bachmann_b579.html" title="Paul Bachmann">Paul Bachmann</a> in 1894, in the second volume of his book <i>Analytische Zahlentheorie</i> ("analytic <a href="../../../n/u/m/Number_theory.html" title="Number theory">number theory</a>"), the first volume of which (not yet containing big O notation) came out in 1892. The notation was popularized in the work of another German number theorist <a href="../../../e/d/m/Edmund_Landau_b852.html" title="Edmund Landau">Edmund Landau</a>, hence it is sometimes called a Landau symbol. The big-O, standing for "order of", was originally a capital <a href="../../../o/m/i/Omicron.html" title="Omicron">omicron</a>; today the identical-looking Latin capital letter <i><a href="../../../o/_/_/O.html" title="O">O</a></i> is also used, but never the digit <a href="../../../0/_/%28/0_%28number%29.html" title="0 (number)">zero</a>.</p>
+<p>There are two formally close, but noticeably different usages of this notation: <a href="../../../i/n/f/Infinite.html" title="Infinite">infinite</a> asymptotics and <a href="../../../i/n/f/Infinitesimal.html" title="Infinitesimal">infinitesimal</a> asymptotics. This distinction is only in application and not in principle, however—the formal definition for the "big O" is the same for both cases, only with different limits for the function argument.</p>
+<p><a name="Infinite_asymptotics" id="Infinite_asymptotics"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Infinite asymptotics">edit</a>]</span> <span class="mw-headline">Infinite asymptotics</span></h3>
+<p>Big O notation is useful when <a href="../../../a/n/a/Analysis_of_algorithms.html" title="Analysis of algorithms">analyzing algorithms</a> for efficiency. For example, the time (or the number of steps) it takes to complete a problem of size <i>n</i> might be found to be <i>T</i>(<i>n</i>) = 4<i>n</i>² - 2<i>n</i> + 2.</p>
+<p>As <i>n</i> grows large, the <i>n</i>² term will come to dominate, so that all other terms can be neglected—for instance when <i>n</i> = 500, the term 4<i>n</i>² is 1000 times as large as the 2<i>n</i> term, and so ignoring the latter would have negligible effect on the expression's value for most purposes.</p>
+<p>Further, the <a href="../../../c/o/e/Coefficient.html" title="Coefficient">coefficients</a> become irrelevant as well if we compare to any other order of expression, such as an expression containing a term n³ or 2<sup><i>n</i></sup>. Even if <i>T</i>(<i>n</i>) = 1,000,000<i>n</i>², if <i>U</i>(<i>n</i>) = <i>n</i>³, the latter will always exceed the former once <i>n</i> grows larger than 1,000,000 (<i>T</i>(1,000,000) = 1,000,000³ = <i>U</i>(1,000,000)).</p>
+<p>So the big O notation captures what remains: we write</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/0/a/60addbf5bd23f64206d1c15b0b7e9d64.png" alt="T(n)\in \mathcal{O}(n^2)" /></dd>
+</dl>
+<p>(pronounced "big O of n squared") and say that the algorithm has <i>order of n²</i> &#160; time complexity.</p>
+<p><a name="Infinitesimal_asymptotics" id="Infinitesimal_asymptotics"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Infinitesimal asymptotics">edit</a>]</span> <span class="mw-headline">Infinitesimal asymptotics</span></h3>
+<p>Big O can also be used to describe the error term in an approximation to a mathematical function. For example,</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/1/c/c1cf0b6d5f3bab52e370baee360a12c6.png" alt="e^x=1+x+\frac{x^2}{2}+\mathcal{O}(x^3)\qquad\hbox{as}\ x\to 0" /></dd>
+</dl>
+<p>expresses the fact that the error, the difference <img class='tex' src="../../../math/3/9/6/3960a3407ea5f000510b073c4517a28d.png" alt="e^x - \left(1 + x +\frac{x^2}{2}\right)" />, is smaller in <a href="../../../a/b/s/Absolute_value.html" title="Absolute value">absolute value</a> than some constant times |<i>x</i>|<sup>3</sup> when <i>x</i> is close enough to 0.</p>
+<p><a name="Formal_definition" id="Formal_definition"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Formal definition">edit</a>]</span> <span class="mw-headline">Formal definition</span></h2>
+<p>Suppose <span class="texhtml"><i>f</i>(<i>x</i>)</span> and <span class="texhtml"><i>g</i>(<i>x</i>)</span> are two functions defined on some subset of the <a href="../../../r/e/a/Real_number.html" title="Real number">real numbers</a>. We say</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/6/0/860a224f5065543d343d5abb5de6e336.png" alt="f(x)\mbox{ is }O(g(x))\mbox{ as }x\to\infty" /></dd>
+</dl>
+<p><a href="../../../i/f/_/If_and_only_if.html" title="If and only if">if and only if</a></p>
+<dl>
+<dd><img class='tex' src="../../../math/4/3/7/437b7c66245bddc1bd36225795f48fd0.png" alt="\exists \;x_0,\exists \;M&gt;0\mbox{ such that } |f(x)| \le \; M |g(x)|\mbox{ for }x&gt;x_0." /></dd>
+</dl>
+<p>The notation can also be used to describe the behavior of <i>f</i> near some real number <i>a</i>: we say</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/7/7/077b08c34318601767ac243e9262d64f.png" alt="f(x)\mbox{ is }O(g(x))\mbox{ as }x\to a" /></dd>
+</dl>
+<p>if and only if</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/3/d/63d3624a61ec83fd9660c5dec3daf199.png" alt="\exists \;\delta &gt;0,\exists \; M&gt;0\mbox{ such that }|f(x)| \le \; M |g(x)|\mbox{ for }|x - a| &lt; \delta." /></dd>
+</dl>
+<p>If <span class="texhtml"><i>g</i>(<i>x</i>)</span> is non-zero for values of <i>x</i> sufficiently close to <i>a</i>, both of these definitions can be unified using the <a href="../../../l/i/m/Limsup.html" title="Limsup">limit superior</a>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/7/7/077b08c34318601767ac243e9262d64f.png" alt="f(x)\mbox{ is }O(g(x))\mbox{ as }x \to a" /></dd>
+</dl>
+<p>if and only if</p>
+<dl>
+<dd><img class='tex' src="../../../math/2/f/2/2f2f99a0bfbb20a47555c4234ba34470.png" alt="\limsup_{x\to a} \left|\frac{f(x)}{g(x)}\right| &lt; \infty." /></dd>
+</dl>
+<div class="center">
+<div class="thumb tnone">
+<div class="thumbinner" style="width:402px;"><a href="../../../y/o/r/Image%7EYorick215.svg_dc24.html" class="internal" title="Theory of O-Notation: f is in the order of g (f(x)&#160;=&#160;O(g(x))) if and only if there exists a positive real number M and a real number x0 such that for all x,|f(x)| &lt;= M . |g(x)|, wherever x &gt; x0"><img src="../../../upload/thumb/c/cc/Yorick215.svg/400px-Yorick215.svg.png" alt="Theory of O-Notation: f is in the order of g (f(x)&#160;=&#160;O(g(x))) if and only if there exists a positive real number M and a real number x0 such that for all x,|f(x)| &lt;= M . |g(x)|, wherever x &gt; x0" width="400" height="180" longdesc="../../../y/o/r/Image%7EYorick215.svg_dc24.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../y/o/r/Image%7EYorick215.svg_dc24.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Theory of <i>O</i>-Notation: <i>f</i> is in the order of <i>g</i> (<i>f</i>(<i>x</i>)&#160;=&#160;<i>O</i>(<i>g</i>(<i>x</i>))) if and only if there exists a positive real number <i>M</i> and a real number <i>x</i><sub>0</sub> such that for all <i>x</i>,<br />
+|<i>f</i>(<i>x</i>)| &lt;= <i>M</i> . |<i>g</i>(<i>x</i>)|, wherever <i>x</i> &gt; <i>x</i><sub>0</sub></div>
+</div>
+</div>
+</div>
+<p>In mathematics, both asymptotic behaviours near ∞ and near <i>a</i> are considered. In <a href="../../../c/o/m/Computational_complexity_theory.html" title="Computational complexity theory">computational complexity theory</a>, only asymptotics near ∞ are used; furthermore, only positive functions are considered, so the absolute value bars may be left out.</p>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>Take the <a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomials</a>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/7/a/b7a86831a6461e7436a417414264ee53.png" alt="f(x) = 6x^4 -2x^3 +5 \," /></dd>
+<dd><img class='tex' src="../../../math/8/3/5/835695ab8c73396770df24aaec403fce.png" alt="g(x) = x^4.  \," /></dd>
+</dl>
+<p>We say <i>f</i>(<i>x</i>) has order O(<i>g</i>(<i>x</i>)) or O(<i>x</i><sup>4</sup>). From the definition of order, |<i>f(x)</i>| ≤ <i>C</i> |<i>g(x)</i>| for all <i>x</i>&gt;1, where <i>C</i> is a constant.</p>
+<p>Proof:</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/d/5/4d59f179faf2e7ddd96d62bf36d69ac7.png" alt="|6x^4 - 2x^3 + 5| \le 6x^4 + 2x^3 + 5 \," /> &#160; &#160; &#160; &#160; where <i>x</i> &gt; 1</dd>
+<dd><img class='tex' src="../../../math/2/a/2/2a27538f523f73c0b76b241a24d13cc0.png" alt="|6x^4 - 2x^3 + 5| \le 6x^4 + 2x^4 + 5x^4 \," /> &#160; &#160; because <i>x</i><sup>3</sup> &lt; <i>x</i><sup>4</sup>, and so on.</dd>
+<dd><img class='tex' src="../../../math/e/f/4/ef4c4f2b60809e86f44af7c3ab239797.png" alt="|6x^4 - 2x^3 + 5| \le 13x^4 \," /></dd>
+<dd><img class='tex' src="../../../math/8/3/3/833369f6030a032164dd0413b03d4c2c.png" alt="|6x^4 - 2x^3 + 5| \le 13 \,|x^4 |. \," /> &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; &#160; where C = 13 in this example</dd>
+</dl>
+<p><a name="Matters_of_notation" id="Matters_of_notation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Matters of notation">edit</a>]</span> <span class="mw-headline">Matters of notation</span></h2>
+<p>The statement "<span class="texhtml"><i>f</i>(<i>x</i>)</span> is <span class="texhtml"><i>O</i>(<i>g</i>(<i>x</i>))</span>" as defined above is usually written as <span class="texhtml"><i>f</i>(<i>x</i>) = <i>O</i>(<i>g</i>(<i>x</i>))</span>. This is a slight <a href="../../../a/b/u/Abuse_of_notation.html" title="Abuse of notation">abuse of notation</a>; equality of two functions is not asserted, and it cannot be since the property of being <span class="texhtml"><i>O</i>(<i>g</i>(<i>x</i>))</span> is not symmetric:</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/a/f/4af7d3eb33bf546cc89555b4b844642b.png" alt="\mathcal{O}(x)=\mathcal{O}(x^2)\mbox{ but }\mathcal{O}(x^2)\ne \mathcal{O}(x)" />.</dd>
+</dl>
+<p>For this reason, some authors prefer <a href="../../../s/e/t/Set_notation.html" title="Set notation">set notation</a> and write <img class='tex' src="../../../math/3/a/2/3a2ea26ba8e2fefe1d5037f68350c78d.png" alt="f \in \mathcal{O}(g)" />, thinking of <img class='tex' src="../../../math/0/6/8/068da8d25d65b2651b4cd2ac27c5423a.png" alt="\mathcal{O}(g)" /> as the set of all functions dominated by <i>g</i>.</p>
+<p>In more complex usage, O( ) can appear in different places in an equation, even several times on each side. For example, the following are true for <img class='tex' src="../../../math/d/3/a/d3a3154c093175197f6594a7db2f1b2f.png" alt="n\to\infty" /></p>
+<dl>
+<dd><img class='tex' src="../../../math/9/5/e/95ed006416d36513231531819b3547cf.png" alt="(n+1)^2 = n^2 + \mathcal{O}(n)" /></dd>
+<dd><img class='tex' src="../../../math/3/b/f/3bf4ee81239ff80fe31425e0c7b93b95.png" alt="(n+\mathcal{O}(n^{1/2}))(n + \mathcal{O}(\log\,n))^2 = n^3 + \mathcal{O}(n^{5/2})" /></dd>
+<dd><img class='tex' src="../../../math/0/0/9/0096b5a86770d05ea9eafb33cdfe3411.png" alt="n^{\mathcal{O}(1)} = \mathcal{O}(e^n)" /></dd>
+</dl>
+<p>The meaning of such statements is as follows: for <i>any</i> functions which satisfy each O( ) on the left side, there are <i>some</i> functions satisfying each O( ) on the right side, such that substituting all these functions into the equation makes the two sides equal. For example, the third equation above means: "For any function <i>f</i>(<i>n</i>)=O(1), there is some function <i>g</i>(<i>n</i>)=O(<i>e</i><sup><i>n</i></sup>) such that <i>n</i><sup><i>f</i>(<i>n</i>)</sup>=<i>g</i>(<i>n</i>)." In terms of the "set notation" above, the meaning is that the class of functions represented by the left side is a subset of the class of functions represented by the right side.</p>
+<p><a name="Common_orders_of_functions" id="Common_orders_of_functions"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Common orders of functions">edit</a>]</span> <span class="mw-headline">Common orders of functions</span></h2>
+<p>Here is a list of classes of functions that are commonly encountered when analyzing algorithms. All of these are as <i>n</i> increases to infinity. The slower-growing functions are listed first. <i>c</i> is an arbitrary constant.</p>
+<table class="wikitable">
+<tr>
+<th>Notation</th>
+<th>Name</th>
+<th>Example</th>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/8/8/8/888824f927e3941162481ec1e6a80a4d.png" alt="\mathcal{O}\left(1\right)" /></td>
+<td><a href="../../../c/o/n/Constant.html" title="Constant">constant</a></td>
+<td>Determining if a number is even or odd</td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/d/f/f/dffc45a5565208e34bba3fbc0733d2c3.png" alt="\mathcal{O}\left(\log^* n\right)" /></td>
+<td><a href="../../../i/t/e/Iterated_logarithm.html" title="Iterated logarithm">iterated logarithmic</a></td>
+<td>The <tt>find</tt> algorithm of Hopcroft and Ullman on a <a href="../../../d/i/s/Disjoint_set_data_structure.html" title="Disjoint set data structure">disjoint set</a></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/e/9/7/e97bac4d94b3b4762ebc061cb65c3a09.png" alt="\mathcal{O}\left(\log n\right)" /></td>
+<td><a href="../../../l/o/g/Logarithm.html" title="Logarithm">logarithmic</a></td>
+<td>Finding an item in a sorted list with the <a href="../../../b/i/n/Binary_search_algorithm.html" title="Binary search algorithm">binary search algorithm</a></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/4/1/b/41be8765d7c54f6de4119838182a958d.png" alt="\mathcal{O}\left(\left(\log n\right)^c\right)" /></td>
+<td><a href="../../../p/o/l/Polylogarithmic.html" title="Polylogarithmic">polylogarithmic</a></td>
+<td>Deciding if <i>n</i> is prime with the <a href="../../../a/k/s/AKS_primality_test_e243.html" title="AKS primality test">AKS primality test</a></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/1/1/a/11a23e0d7b520ccb078ffdc68abf019e.png" alt="\mathcal{O}\left({n^c}\right), 0&lt;c&lt;1" /></td>
+<td>fractional power</td>
+<td>searching in a <a href="../../../k/d/-/Kd-tree.html" title="Kd-tree">kd-tree</a></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/4/f/f/4ffb6f36df8528cc63aa62b32c85ff7c.png" alt="\mathcal{O}\left(n\right)" /></td>
+<td><a href="../../../l/i/n/Linear.html" title="Linear">linear</a></td>
+<td>Finding an item in an unsorted list</td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/0/6/b/06b794d6fc33d5aaae41ee7658a09898.png" alt="\mathcal{O}\left(n\log n\right)" /></td>
+<td><a href="../../../l/i/n/Linearithmic.html" title="Linearithmic">linearithmic</a>, loglinear, or quasilinear</td>
+<td>Sorting a list with <a href="../../../h/e/a/Heapsort.html" title="Heapsort">heapsort</a>, computing a <a href="../../../f/f/t/FFT_86de.html" title="FFT">FFT</a></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/9/e/9/9e90bf6de369140a3f217b76a787a854.png" alt="\mathcal{O}\left({n^2}\right)" /></td>
+<td><a href="../../../q/u/a/Quadratic_function.html" title="Quadratic function">quadratic</a></td>
+<td>Sorting a list with <a href="../../../i/n/s/Insertion_sort.html" title="Insertion sort">insertion sort</a>, computing a <a href="../../../d/i/s/Discrete_Fourier_transform_3a68.html" title="Discrete Fourier transform">DFT</a></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/8/5/1/851ab6e4b5df90b53198ca4965aee204.png" alt="\mathcal{O}\left({n^c}\right), c&gt;1" /></td>
+<td><a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomial</a>, sometimes called algebraic</td>
+<td>Finding the shortest path on a weighted digraph with the <a href="../../../f/l/o/Floyd-Warshall_algorithm_103d.html" title="Floyd-Warshall algorithm">Floyd-Warshall algorithm</a></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/a/3/8/a38a19efd1f1611f387eda4eed412a42.png" alt="\mathcal{O}\left({c^n}\right)=2^{O(n)}" /></td>
+<td><a href="../../../e/x/p/Exponential_function.html" title="Exponential function">exponential</a>, sometimes called <a href="../../../g/e/o/Geometric_progression.html" title="Geometric progression">geometric</a></td>
+<td>Finding the (exact) solution to the <a href="../../../t/r/a/Traveling_salesman_problem.html" title="Traveling salesman problem">traveling salesman problem</a> (under the assumption that <a href="../../../p/_/v/P_versus_NP_58f1.html" title="P versus NP">P ≠ NP</a>)</td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/0/0/3/0036a08882d5bc4bc7609acbb0825be9.png" alt="\mathcal{O}\left(n!\right)" /></td>
+<td><a href="../../../f/a/c/Factorial.html" title="Factorial">factorial</a>, sometimes called combinatorial</td>
+<td>Determining if two logical statements are equivalent <a href="http://citeseer.ist.psu.edu/588414.html" class="external autonumber" title="http://citeseer.ist.psu.edu/588414.html" rel="nofollow">[1]</a>, <a href="../../../t/r/a/Traveling_salesman_problem.html" title="Traveling salesman problem">traveling salesman problem</a>, or any other <a href="../../../c/o/m/Complexity_classes_P_and_NP_8d78.html" title="Complexity classes P and NP">NP Complete</a> problem via <a href="../../../b/r/u/Brute-force_search.html" title="Brute-force search">brute-force search</a></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/5/b/4/5b404a001e001c85e204dad11f0a177f.png" alt="\mathcal{O}\left(2^{c^n}\right)" /></td>
+<td><a href="../../../d/o/u/Double_exponential_function.html" title="Double exponential function">double exponential</a></td>
+<td>Finding a complete set of associative-commutative unifiers <a href="http://citeseer.ist.psu.edu/337363.html" class="external autonumber" title="http://citeseer.ist.psu.edu/337363.html" rel="nofollow">[2]</a></td>
+</tr>
+</table>
+<p>Not as common, but even larger growth is possible, such as the single-valued version of the <a href="../../../a/c/k/Ackermann_function.html" title="Ackermann function">Ackermann function</a>, A(<i>n</i>,<i>n</i>). Conversely, extremely slowly-growing functions such as the inverse of this function, often denoted α(<i>n</i>), are possible. Although unbounded, these functions are often regarded as being constant factors for all practical purposes.</p>
+<p><a name="Properties" id="Properties"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Properties">edit</a>]</span> <span class="mw-headline">Properties</span></h2>
+<p>If a function <i>f</i>(<i>n</i>) can be written as a finite sum of other functions, then the fastest growing one determines the order of <i>f</i>(<i>n</i>). For example</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/3/3/f33bc30fcb226fed61f6a212262e2624.png" alt="f(n) = 9 \log n + 5 (\log n)^3 + 3n^2 + 2n^3 \in \mathcal{O}(n^3)\,\!." /></dd>
+</dl>
+<p>In particular, if a function may be bounded by a polynomial in <i>n</i>, then as <i>n</i> tends to <i>infinity</i>, one may disregard <i>lower-order</i> terms of the polynomial.</p>
+<p><span class="texhtml"><i>O</i>(<i>n</i><sup><i>c</i></sup>)</span> and <span class="texhtml"><i>O</i>(<i>c</i><sup><i>n</i></sup>)</span> are very different. The latter grows much, much faster, no matter how big the constant <i>c</i> is (as long as it is greater than one). A function that grows faster than any power of <i>n</i> is called <i>superpolynomial</i>. One that grows slower than any exponential function of the form <span class="texhtml"><i>c</i><sup><i>n</i></sup></span> is called <i>subexponential</i>. An algorithm can require time that is both superpolynomial and subexponential; examples of this include the fastest known algorithms for <a href="../../../i/n/t/Integer_factorization.html" title="Integer factorization">integer factorization</a>.</p>
+<p><span class="texhtml"><i>O</i>(log<i>n</i>)</span> is exactly the same as <span class="texhtml"><i>O</i>(log(<i>n</i><sup><i>c</i></sup>))</span>. The logarithms differ only by a constant factor, (since <span class="texhtml">log(<i>n</i><sup><i>c</i></sup>) = <i>c</i>log<i>n</i>)</span> and thus the big O notation ignores that. Similarly, logs with different constant bases are equivalent. Exponentials with different bases, on the other hand, are not of the same order; assuming that they are is a common mistake. For example, <span class="texhtml">2<sup><i>n</i></sup></span> and <span class="texhtml">3<sup><i>n</i></sup></span> are <b>not</b> of the same order.</p>
+<p>Changing units may or may not affect the order of the resulting algorithm. Changing units is equivalent to multiplying the appropriate variable by a constant wherever it appears. For example, if an algorithm runs in the order of n<sup>2</sup>, replacing n by cn means the algorithm runs in the order of <span class="texhtml"><i>c</i><sup>2</sup><i>n</i><sup>2</sup></span>, and the big O notation ignores the constant <span class="texhtml"><i>c</i><sup>2</sup></span>. This can be written as <img class='tex' src="../../../math/7/4/3/743430845102362a17bd23214c380404.png" alt="c^2n^2 \in \mathcal{O}(n^2)" />. If, however, an algorithm runs in the order of <span class="texhtml">2<sup><i>n</i></sup></span>, replacing n with cn gives <span class="texhtml">2<sup><i>c</i><i>n</i></sup> = (2<sup><i>c</i></sup>)<sup><i>n</i></sup></span>. This is not equivalent to <span class="texhtml">2<sup><i>n</i></sup></span> (unless, of course, c=1).</p>
+<p><a name="Product" id="Product"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Product">edit</a>]</span> <span class="mw-headline">Product</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/d/6/9/d696f73bbf058cbb530591ccf6f960f4.png" alt="f_1(n)  f_2(n)=\mathcal{O}(g_1(n)  g_2(n))\," /></dd>
+</dl>
+<p><a name="Sum" id="Sum"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Sum">edit</a>]</span> <span class="mw-headline">Sum</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/e/7/7/e776c2897c63f7c03d83a6ac5bfac73b.png" alt="\mathcal{O}(f(n)) + \mathcal{O}(g(n)) = \mathcal{O}(\max \lbrace |f(n)|,|g(n)| \rbrace) \," /></dd>
+</dl>
+<p><a name="Multiplication_by_a_constant" id="Multiplication_by_a_constant"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Multiplication by a constant">edit</a>]</span> <span class="mw-headline">Multiplication by a constant</span></h3>
+<dl>
+<dd><img class='tex' src="../../../math/1/6/4/1648450db6fc39d21163c0a68bea9358.png" alt="\mathcal{O}(k g(n)) = \mathcal{O}(g(n)),\quad k \ne 0" /></dd>
+</dl>
+<p>Other useful relations are given in section <a href="#Related_asymptotic_notations:_O.2C_o.2C_.CE.A9.2C_.CF.89.2C_.CE.98.2C_.C3.95" title="">Big O and little o</a> below.</p>
+<p><a name="Related_asymptotic_notations" id="Related_asymptotic_notations"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Related asymptotic notations">edit</a>]</span> <span class="mw-headline">Related asymptotic notations</span></h2>
+<p>Big O is the most commonly used asymptotic notation for comparing functions, although in many cases Big O may be replaced with Θ for asymptotically tighter bounds (<a href="../../../t/h/e/Theta.html" title="Theta">Theta</a>, see below). Here, we define some related notations in terms of "big O":</p>
+<p><a name="Little-o_notation" id="Little-o_notation"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Little-o notation">edit</a>]</span> <span class="mw-headline">Little-o notation</span></h3>
+<p>The relation <img class='tex' src="../../../math/4/7/5/4759670e35ecabcda6175efb393fb781.png" alt="f(x) \in  o(g(x))" /> is read as "<span class="texhtml"><i>f</i>(<i>x</i>)</span> is little-oh of <span class="texhtml"><i>g</i>(<i>x</i>)</span>". Intuitively, it means that <span class="texhtml"><i>g</i>(<i>x</i>)</span> grows much faster than <span class="texhtml"><i>f</i>(<i>x</i>)</span>. It assumes that <i>f</i> and <i>g</i> are both functions of one variable. Formally, it states that the <a href="../../../l/i/m/Limit_%28mathematics%29.html" title="Limit (mathematics)">limit</a> of <span class="texhtml"><i>f</i>(<i>x</i>) / <i>g</i>(<i>x</i>)</span> is zero, as <i>x</i> approaches infinity.</p>
+<p>For example,</p>
+<ul>
+<li><img class='tex' src="../../../math/2/0/e/20ef4c65bca00c3f1d61755cdfcf4818.png" alt="2x  \in o(x^2) \,\!" /></li>
+<li><img class='tex' src="../../../math/4/d/e/4dee7efcc1f703c9fd27eac380d3a6a5.png" alt="2x^2 \not \in  o(x^2)" /></li>
+</ul>
+<p>Little-o notation is common in mathematics but rarer in computer science. In computer science the variable (and function value) is most often a natural number. In math, the variable and function values are often real numbers. The following properties can be useful:</p>
+<ul>
+<li><img class='tex' src="../../../math/2/a/b/2ab375e3e6dfcefc066d1eb3c9172fe1.png" alt="o(f) + o(f) \subseteq o(f)" /></li>
+<li><img class='tex' src="../../../math/2/6/1/26184371a0aba09849fe01219aceb3de.png" alt="o(f)o(g) \subseteq o(fg)" /></li>
+<li><img class='tex' src="../../../math/d/5/b/d5b84b11f0e1cd23d2b43ad47926254b.png" alt="o(o(f)) \subseteq o(f)" /></li>
+<li><img class='tex' src="../../../math/9/6/9/969dc399cd0c9701c9878c20b92492c5.png" alt="o(f) \subset O(f)" /> (and thus the above properties apply with most combinations of o and O).</li>
+</ul>
+<p>As with <a href="../../../b/i/g/Big_O_notation_de3e.html#Matters_of_notation" title="Big O notation">big O notation</a>, the statement "<span class="texhtml"><i>f</i>(<i>x</i>)</span> is <span class="texhtml"><i>o</i>(<i>g</i>(<i>x</i>))</span>" is usually written as <span class="texhtml"><i>f</i>(<i>x</i>) = <i>o</i>(<i>g</i>(<i>x</i>))</span>, which is a slight abuse of notation.</p>
+<p><a name="Other_standard_computer_science_notation:_.CE.A9.2C_.CF.89.2C_.CE.98.2C_.C3.95" id="Other_standard_computer_science_notation:_.CE.A9.2C_.CF.89.2C_.CE.98.2C_.C3.95"></a></p>
+<h3><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Other standard computer science notation: Ω, ω, Θ, Õ">edit</a>]</span> <span class="mw-headline">Other standard computer science notation: Ω, ω, Θ, <i>Õ</i></span></h3>
+<table border="1" cellpadding="4" cellspacing="0">
+<tr>
+<th>Notation</th>
+<th>Definition</th>
+<th>Mathematical definition</th>
+<th>Alternative definition</th>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/d/9/b/d9b0c3a5fdb436804c7a00f5571443b2.png" alt="f(n) \in O(g(n))" /></td>
+<td>asymptotic upper bound</td>
+<td><img class='tex' src="../../../math/6/1/2/612404894111f3149a911d3ae6bdddfc.png" alt="\limsup_{n \to \infty} \left|\frac{f(n)}{g(n)}\right| &lt; \infty" /></td>
+<td><img class='tex' src="../../../math/d/5/c/d5c184f8051811c4f7552d16e4245f1a.png" alt="\exists \;M&gt;0,\exists \;x_0: |f(x)| \le \; M |g(x)|\forall x&gt;x_0." /></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/d/0/a/d0ab994a416beabeeeef7aeb8325169b.png" alt="f(n) \in \Omega(g(n))" /></td>
+<td>asymptotic lower bound</td>
+<td><img class='tex' src="../../../math/d/c/e/dce2cc91dc6bfab25047260954e3f966.png" alt="\liminf_{n \to \infty} \left|\frac{f(n)}{g(n)}\right| &gt; 0" /></td>
+<td><img class='tex' src="../../../math/d/4/7/d47babd57de1b860d42f6ae522f1378f.png" alt="\exists \;M&gt;0,\exists \;x_0: |f(x)| \ge \; M |g(x)|\forall x&gt;x_0." /></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/9/4/2/94227c841132a2c0d7cbf1daefab5ab9.png" alt="f(n) \in \Theta(g(n))" /></td>
+<td>asymptotically tight bound</td>
+<td><img class='tex' src="../../../math/e/f/8/ef809d7ded345f12f99da9b15ba6c019.png" alt="0 &lt; \liminf_{n \to \infty} \left|\frac{f(n)}{g(n)}\right| \leq \limsup_{n \to \infty} \left|\frac{f(n)}{g(n)}\right|&lt; \infty" /></td>
+<td><img class='tex' src="../../../math/1/4/a/14abf9b4a56ae3698a12dd6a61a6683e.png" alt="f(n) \in O(g(n)) \cap \Omega(g(n))" /></td>
+</tr>
+<tr>
+<td><img class='tex' src="../../../math/8/4/1/841cb2659745f261061344fe1ef740f9.png" alt="f(n) \in \omega(g(n))" /></td>
+<td>asymptotically dominant</td>
+<td><img class='tex' src="../../../math/d/0/5/d05db4d058d19b867e84137ff8bfeabf.png" alt="\lim_{n \to \infty} \left|\frac{f(n)}{g(n)}\right| = \infty" /></td>
+<td><img class='tex' src="../../../math/4/b/6/4b637e147ad266b87a609f3ae620b3d1.png" alt="\forall \;M&gt;0,\exists \;x_0&#160;: |f(x)| &gt; \; M |g(x)| \forall x&gt;x_0." /></td>
+</tr>
+</table>
+<p>(A mnemonic for these Greek letters is that "omicron" can be read "o-micron", i.e., "o-<i>small</i>", whereas "omega" can be read "o-mega" or "o-<i>big</i>".)</p>
+<p><br /></p>
+<p>Aside from big-O, the notations Θ and Ω are the two most often used in computer science; The lower-case ω is rarely used.</p>
+<p>Another notation sometimes used in computer science is Õ (read <i>soft-O</i>). <img class='tex' src="../../../math/a/5/6/a56d28cd9473ee36d145c0cbebf085ba.png" alt="f(n) = \tilde{O} (g(n))" /> is shorthand for <span class="texhtml"><i>f</i>(<i>n</i>) = <i>O</i>(<i>g</i>(<i>n</i>)log<sup><i>k</i></sup><i>g</i>(<i>n</i>))</span> for some <i>k</i>. Essentially, it is Big-O, ignoring logarithmic factors. This notation is often used to describe a class of "nitpicking" estimates (since <span class="texhtml">log<sup><i>k</i></sup><i>n</i></span> is always <span class="texhtml"><i>o</i>(<i>n</i><sup>ε</sup>)</span> for any constant <span class="texhtml"><i>k</i></span> and any <span class="texhtml">ε &gt; 0</span>).</p>
+<p><a name="Multiple_variables" id="Multiple_variables"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Multiple variables">edit</a>]</span> <span class="mw-headline">Multiple variables</span></h2>
+<p>Big O (and little o, and Ω...) can also be used with multiple variables. For example, the statement</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/6/f/76fcde8bbe78d60b1282df6dcccafc1d.png" alt="f(n,m) = n^2 + m^3 + \hbox{O}(n+m) \mbox{ as } n,m\to\infty" /></dd>
+</dl>
+<p>asserts that there exist constants <i>C</i> and <i>N</i> such that</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/4/7/4471c08387d67e8528e0ce86734e4e98.png" alt="\forall n, m&gt;N: |g(n,m)| \le C(n+m)." /></dd>
+</dl>
+<p>where <i>g</i>(<i>n</i>,<i>m</i>) is defined by</p>
+<dl>
+<dd><span class="texhtml"><i>f</i>(<i>n</i>,<i>m</i>) = <i>n</i><sup>2</sup> + <i>m</i><sup>3</sup> + <i>g</i>(<i>n</i>,<i>m</i>).</span></dd>
+</dl>
+<p>To avoid ambiguity, the running variable should always be specified: the statement</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/9/a/e9a50a8b8e5399629dbcbb303e008eae.png" alt="f(n,m) = \hbox{O}(n^m) \mbox{ as } n,m\to\infty" /></dd>
+</dl>
+<p>is quite different from</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/0/b/d0be57dfefce4380f4b5cb9d97f867e1.png" alt="\forall m: f(n,m) = \hbox{O}(n^m) \mbox{ as } n\to\infty." /></dd>
+</dl>
+<p><a name="Graph_theory" id="Graph_theory"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Graph theory">edit</a>]</span> <span class="mw-headline">Graph theory</span></h2>
+<p>It is often useful to bound the running time of <a href="../../../g/r/a/Graph_%28mathematics%29.html" title="Graph (mathematics)">graph</a> algorithms. Unlike most other computational problems, in graphs, there are two relevant parameters describing the size of the input, |V| and |E|; |V| is the number of vertices in the graph, while |E| is the number of edges in the graph. Inside <a href="../../../a/s/y/Asymptot.html" title="Asymptot">asymptotic</a> notation (and only there), it is common to use the symbols V and E, when someone really means |V| and |E|. We adopt this convention here to simplify asymptotic functions and make them easily readable. Keep in mind that the symbols V and E are never used inside asymptotic notation with their literal meaning, so there is no risk of ambiguity. For example <span class="texhtml"><i>O</i>(<i>E</i> + <i>V</i>log<i>V</i>)</span> means <img class='tex' src="../../../math/9/8/c/98c29ad23ddc4bb65254166a5ed38e62.png" alt="O((E,V) \mapsto |E| + |V|\cdot\log|V|)" /> for a suitable metric of graphs.</p>
+<p><a name="Generalizations_and_related_usages" id="Generalizations_and_related_usages"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: Generalizations and related usages">edit</a>]</span> <span class="mw-headline">Generalizations and related usages</span></h2>
+<p>The generalization to functions taking values in any <a href="../../../n/o/r/Normed_vector_space.html" title="Normed vector space">normed vector space</a> is straightforward (replacing absolute values by norms), where <i>f</i> and <i>g</i> need not take their values in the same space. A generalization to functions <i>g</i> taking values in any <a href="../../../t/o/p/Topological_group.html" title="Topological group">topological group</a> is also possible.</p>
+<p>The "limiting process" <i>x→x<sub>o</sub></i> can also be generalized by introducing an arbitrary <a href="../../../f/i/l/Filter_base.html" title="Filter base">filter base</a>, i.e. to directed <a href="../../../n/e/t/Net_%28mathematics%29.html" title="Net (mathematics)">nets</a> <i>f</i> and <i>g</i>.</p>
+<p>The <i>o</i> notation can be used to define <a href="../../../d/e/r/Derivative.html" title="Derivative">derivatives</a> and <a href="../../../d/i/f/Differentiability.html" title="Differentiability">differentiability</a> in quite general spaces, and also (asymptotical) equivalence of functions,</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/f/1/5f1d66188d780648bde804bb043bbb9e.png" alt="f\sim g \iff (f-g) = o(g)" /></dd>
+</dl>
+<p>which is an <a href="../../../e/q/u/Equivalence_relation.html" title="Equivalence relation">equivalence relation</a> and a more restrictive notion than the relationship "<i>f</i> is Θ(<i>g</i>)" from above. (It reduces to <img class='tex' src="../../../math/e/d/a/edac71f7c31ebdd150854f924571b7f8.png" alt="\lim f/g = 1" /> if <i>f</i> and <i>g</i> are positive real valued functions.) For example, 2<i>x</i> is Θ(<i>x</i>), but 2<i>x</i>&#160;−&#160;<i>x</i> is not <i>o</i>(<i>x</i>).</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/s/y/Asymptotic_expansion.html" title="Asymptotic expansion">Asymptotic expansion</a>: approximation of functions generalizing Taylor's formula.</li>
+<li><a href="../../../a/s/y/Asymptotically_optimal.html" title="Asymptotically optimal">Asymptotically optimal</a>: A phrase frequently used to describe an algorithm that has an upper bound asymptotically within a constant of a lower bound for the problem</li>
+<li><a href="../../../h/a/r/Hardy_notation.html" title="Hardy notation">Hardy notation</a>: a different asymptotic notation</li>
+<li><a href="../../../n/a/c/Nachbin%27s_theorem.html" title="Nachbin's theorem">Nachbin's theorem</a>: a precise way of bounding <a href="../../../c/o/m/Complex_analytic.html" title="Complex analytic">complex analytic</a> functions so that the domain of convergence of <a href="../../../i/n/t/Integral_transform.html" title="Integral transform">integral transforms</a> can be stated.</li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/g/Big_O_notation_de3e.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Paul Bachmann. <i>Die Analytische Zahlentheorie. Zahlentheorie</i>. pt. 2 Leipzig: B. G. Teubner, 1894.</li>
+<li>Edmund Landau. <i>Handbuch der Lehre von der Verteilung der Primzahlen</i>. 2 vols. Leipzig: B. G. Teubner, 1909.</li>
+<li>Marian Slodicka &amp; Sandy Van Wontergem. <i>Mathematical Analysis I</i>. University of Ghent, 2004.</li>
+<li><a href="../../../d/o/n/Donald_Knuth_c2da.html" title="Donald Knuth">Donald Knuth</a>. <i><a href="http://doi.acm.org/10.1145/1008328.1008329" class="external text" title="http://doi.acm.org/10.1145/1008328.1008329" rel="nofollow">Big Omicron and big Omega and big Theta</a></i>, ACM SIGACT News, Volume 8, Issue 2, 1976.</li>
+<li><a href="../../../d/o/n/Donald_Knuth_c2da.html" title="Donald Knuth">Donald Knuth</a>. <i>The Art of Computer Programming</i>, Volume 1: <i>Fundamental Algorithms</i>, Third Edition. Addison-Wesley, 1997. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-201-89683-4</a>. Section 1.2.11: Asymptotic Representations, pp.107–123.</li>
+<li><a href="../../../t/h/o/Thomas_H._Cormen_67e5.html" title="Thomas H. Cormen">Thomas H. Cormen</a>, <a href="../../../c/h/a/Charles_E._Leiserson_1e0a.html" title="Charles E. Leiserson">Charles E. Leiserson</a>, <a href="../../../r/o/n/Ronald_L._Rivest_593e.html" title="Ronald L. Rivest">Ronald L. Rivest</a>, and <a href="../../../c/l/i/Clifford_Stein_13fe.html" title="Clifford Stein">Clifford Stein</a>. <i><a href="../../../i/n/t/Introduction_to_Algorithms_bdfd.html" title="Introduction to Algorithms">Introduction to Algorithms</a></i>, Second Edition. MIT Press and McGraw-Hill, 2001. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-262-03293-7</a>. Section 3.1: Asymptotic notation, pp.41–50.</li>
+<li><cite class="book" style="font-style:normal"><a href="../../../m/i/c/Michael_Sipser_25ea.html" title="Michael Sipser">Michael Sipser</a> (1997). <i>Introduction to the Theory of Computation</i>. PWS Publishing. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-534-94728-X</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Introduction+to+the+Theory+of+Computation&amp;rft.title=Introduction+to+the+Theory+of+Computation&amp;rft.au=%5B%5BMichael+Sipser%5D%5D&amp;rft.date=1997&amp;rft.pub=PWS+Publishing">&#160;</span> Pages 226–228 of section 7.1: Measuring complexity.</li>
+<li>Jeremy Avigad, Kevin Donnelly. <i><a href="http://www.andrew.cmu.edu/~avigad/Papers/bigo.pdf" class="external text" title="http://www.andrew.cmu.edu/~avigad/Papers/bigo.pdf" rel="nofollow">Formalizing O notation in Isabelle/HOL</a></i></li>
+<li>Paul E. Black, <a href="http://www.nist.gov/dads/HTML/bigOnotation.html" class="external text" title="http://www.nist.gov/dads/HTML/bigOnotation.html" rel="nofollow">"big-O notation"</a>, in <i>Dictionary of Algorithms and Data Structures</i> [online], Paul E. Black, ed., U.S. National Institute of Standards and Technology. 11 March 2005. Retrieved December 16, 2006.</li>
+<li>Paul E. Black, <a href="http://www.nist.gov/dads/HTML/littleOnotation.html" class="external text" title="http://www.nist.gov/dads/HTML/littleOnotation.html" rel="nofollow">"little-o notation"</a>, in <i>Dictionary of Algorithms and Data Structures</i> [online], Paul E. Black, ed., U.S. National Institute of Standards and Technology. 17 December 2004. Retrieved December 16, 2006.</li>
+<li>Paul E. Black, <a href="http://www.nist.gov/dads/HTML/omegaCapital.html" class="external text" title="http://www.nist.gov/dads/HTML/omegaCapital.html" rel="nofollow">"Ω"</a>, in <i>Dictionary of Algorithms and Data Structures</i> [online], Paul E. Black, ed., U.S. National Institute of Standards and Technology. 17 December 2004. Retrieved December 16, 2006.</li>
+<li>Paul E. Black, <a href="http://www.nist.gov/dads/HTML/omega.html" class="external text" title="http://www.nist.gov/dads/HTML/omega.html" rel="nofollow">"ω"</a>, in <i>Dictionary of Algorithms and Data Structures</i> [online], Paul E. Black, ed., U.S. National Institute of Standards and Technology. 29 November 2004. Retrieved December 16, 2006.</li>
+<li>Paul E. Black, <a href="http://www.nist.gov/dads/HTML/theta.html" class="external text" title="http://www.nist.gov/dads/HTML/theta.html" rel="nofollow">"Θ"</a>, in <i>Dictionary of Algorithms and Data Structures</i> [online], Paul E. Black, ed., U.S. National Institute of Standards and Technology. 17 December 2004. Retrieved December 16, 2006.</li>
+</ul>
+
+<!-- 
+Pre-expand include size: 5764 bytes
+Post-expand include size: 1549 bytes
+Template argument size: 1094 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/g/Big_O_notation_de3e.html">http://en.wikipedia.org../../../b/i/g/Big_O_notation_de3e.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../m/a/t/Category%7EMathematical_notation_8d45.html" title="Category:Mathematical notation">Mathematical notation</a></span> | <span dir='ltr'><a href="../../../m/a/t/Category%7EMathematical_analysis_6fe4.html" title="Category:Mathematical analysis">Mathematical analysis</a></span> | <span dir='ltr'><a href="../../../a/s/y/Category%7EAsymptotic_analysis_09df.html" title="Category:Asymptotic analysis">Asymptotic analysis</a></span> | <span dir='ltr'><a href="../../../c/o/m/Category%7EComputational_complexity_theory_6470.html" title="Category:Computational complexity theory">Computational complexity theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/i/g/Big_O_notation_de3e.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/i/g/Talk%7EBig_O_notation_5b8b.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Big_O_notation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/l/a/n/Landau-Symbole_1e07.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/c/o/t/Cota_superior_asint%C3%B3tica.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/n/o/t/Notations_de_Landau_7453.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../id/n/o/t/Notasi_O_besar_3a97.html">Bahasa Indonesia</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/o/-/g/O-grande.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%83%A9/%E3%83%B3/%E3%83%80/%E3%83%A9%E3%83%B3%E3%83%80%E3%82%A6%E3%81%AE%E8%A8%98%E5%8F%B7.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EC%A0%90/%EA%B7%BC/_/%EC%A0%90%EA%B7%BC_%ED%91%9C%EA%B8%B0%EB%B2%95.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../no/s/t/o/Stor_O-notasjon_d8ba.html">‪Norsk (bokmål)‬</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/n/o/t/Notacja_du%C5%BCego_O_e20f.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/g/r/a/Grande-O_38cd.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%C2%AB/o/%C2%BB/%C2%ABO%C2%BB_%D0%B1%D0%BE%D0%BB%D1%8C%D1%88%D0%BE%D0%B5_%D0%B8_%C2%ABo%C2%BB_%D0%BC%D0%B0%D0%BB%D0%BE%D0%B5_8d80.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sr/%D0%B2/%D0%B5/%D0%BB/%D0%92%D0%B5%D0%BB%D0%B8%D0%BA%D0%BE_%D0%9E_6aaa.html">Српски / Srpski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/o/r/d/Ordo.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../th/%E0%B8%AA/%E0%B8%B1/%E0%B8%8D/%E0%B8%AA%E0%B8%B1%E0%B8%8D%E0%B8%81%E0%B8%A3%E0%B8%93%E0%B9%8C%E0%B9%82%E0%B8%AD%E0%B9%83%E0%B8%AB%E0%B8%8D%E0%B9%88.html">ไทย</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../tr/b/%C3%BC/y/B%C3%BCy%C3%BCk_O_G%C3%B6sterimi_5a57.html">Türkçe</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../uk/%D0%BD/%D0%BE/%D1%82/%D0%9D%D0%BE%D1%82%D0%B0%D1%86%D1%96%D1%8F_%D0%9B%D0%B0%D0%BD%D0%B4%D0%B0%D1%83_4db4.html">Українська</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E5%A4%A7/o/%E7%AC%A6/%E5%A4%A7O%E7%AC%A6%E5%8F%B7_1bbb.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 11:52, 8 April 2007 by Wikipedia user <a href="../../../c/h/a/User%7EChazBeckett_1565.html" title="User:ChazBeckett">ChazBeckett</a>. Based on work by Wikipedia user(s) <a href="../../../s/h/e/User%7EShellgirl_f6df.html" title="User:Shellgirl">Shellgirl</a>, <a href="../../../z/u/n/User%7EZundark_7566.html" title="User:Zundark">Zundark</a>, TNARasslin, Tritium6, <a href="../../../m/a/d/User%7EMad_Jaqk_4f77.html" title="User:Mad Jaqk">Mad Jaqk</a>, <a href="../../../c/r/g/User%7ECRGreathouse_d93e.html" title="User:CRGreathouse">CRGreathouse</a>, Stefan.karpinski, ZAB, <a href="../../../u/l/t/User%7EUltimus_e530.html" title="User:Ultimus">Ultimus</a>, <a href="../../../c/o/n/User%7EConnelly_7db8.html" title="User:Connelly">Connelly</a>, <a href="../../../m/o/b/User%7EMobius_d8da.html" title="User:Mobius">Mobius</a>, <a href="../../../s/t/e/User%7EStevertigo_b55d.html" title="User:Stevertigo">Stevertigo</a>, <a href="../../../r/i/c/User%7ERiceplaytexas_4991.html" title="User:Riceplaytexas">Riceplaytexas</a>, <a href="../../../b/t/y/User%7EBtyner_9437.html" title="User:Btyner">Btyner</a>, <a href="../../../m/x/n/User%7EMxn_bd81.html" title="User:Mxn">Mxn</a>, <a href="../../../f/i/b/User%7EFibonacci_80f7.html" title="User:Fibonacci">Fibonacci</a>, Opelio, <a href="../../../v/i/c/User%7EVictorAnyakin_df1a.html" title="User:VictorAnyakin">VictorAnyakin</a>, <a href="../../../m/c/k/User%7EMcKay_32b8.html" title="User:McKay">McKay</a>, <a href="../../../q/u/e/User%7EQuendus_12a6.html" title="User:Quendus">Quendus</a>, <a href="../../../s/h/o/User%7EShoessss_80c5.html" title="User:Shoessss">Shoessss</a>, <a href="../../../g/j/d/User%7EGjd001_0a78.html" title="User:Gjd001">Gjd001</a>, <a href="../../../i/x/f/User%7EIxfd64_14d3.html" title="User:Ixfd64">Ixfd64</a>, <a href="../../../o/t/t/User%7EOtt2_aa19.html" title="User:Ott2">Ott2</a>, <a href="../../../s/t/i/User%7EStimpy_3788.html" title="User:Stimpy">Stimpy</a>, <a href="../../../p/a/u/User%7EPaul_August_2fe5.html" title="User:Paul August">Paul August</a>, <a href="../../../p/a/t/User%7EPatrick_Lucas_8280.html" title="User:Patrick Lucas">Patrick Lucas</a>, <a href="../../../r/o/b/User%7ERobertBorgersen_7f68.html" title="User:RobertBorgersen">RobertBorgersen</a>, Matiasholte, <a href="../../../i/n/t/User%7EIntgr_3172.html" title="User:Intgr">Intgr</a>, <a href="../../../n/e/i/User%7ENeilc_4027.html" title="User:Neilc">Neilc</a>, <a href="../../../s/t/e/User%7EStevenj_40e5.html" title="User:Stevenj">Stevenj</a>, <a href="../../../h/e/n/User%7EHenrygb_9b92.html" title="User:Henrygb">Henrygb</a>, <a href="../../../d/a/m/User%7EDamian_Yerrick_2a18.html" title="User:Damian Yerrick">Damian Yerrick</a>, <a href="../../../m/e/t/User%7EMetsBot_6c59.html" title="User:MetsBot">MetsBot</a>, <a href="../../../j/a/m/User%7EJames.S_5497.html" title="User:James.S">James.S</a>, <a href="../../../t/a/w/User%7ETawkerbot2_313a.html" title="User:Tawkerbot2">Tawkerbot2</a>, <a href="../../../b/o/r/User%7EBorgx_25f8.html" title="User:Borgx">Borgx</a>, <a href="../../../a/r/v/User%7EArvindn_6a6a.html" title="User:Arvindn">Arvindn</a>, <a href="../../../w/i/n/User%7EWinBot_3e52.html" title="User:WinBot">WinBot</a>, <a href="../../../d/r/p/User%7EDrpaule_cb87.html" title="User:Drpaule">Drpaule</a>, Aelvin, <a href="../../../f/e/l/User%7EFelix_Wiemann_0d27.html" title="User:Felix Wiemann">Felix Wiemann</a>, <a href="../../../p/u/z/User%7EPuzzletChung_25e9.html" title="User:PuzzletChung">PuzzletChung</a>, <a href="../../../j/o/w/User%7EJowan2005_8d52.html" title="User:Jowan2005">Jowan2005</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../d/c/o/User%7EDcoetzee_a2a7.html" title="User:Dcoetzee">Dcoetzee</a>, <a href="../../../h/d/a/User%7EHdante_fb8a.html" title="User:Hdante">Hdante</a>, <a href="../../../l/e/o/User%7ELeonardoGregianin_7e7f.html" title="User:LeonardoGregianin">LeonardoGregianin</a>, <a href="../../../n/i/l/User%7ENils_Grimsmo_4b59.html" title="User:Nils Grimsmo">Nils Grimsmo</a>, <a href="../../../r/o/v/User%7ERovenhot_93bd.html" title="User:Rovenhot">Rovenhot</a>, FauxFaux, <a href="../../../g/i/f/User%7EGiftlite_9506.html" title="User:Giftlite">Giftlite</a>, <a href="../../../d/u/a/User%7EDuagloth_f239.html" title="User:Duagloth">Duagloth</a>, <a href="../../../b/o/o/User%7EBooyabazooka_79a9.html" title="User:Booyabazooka">Booyabazooka</a>, <a href="../../../b/k/e/User%7EBkell_6f8f.html" title="User:Bkell">Bkell</a>, <a href="../../../g/a/d/User%7EGadig_99df.html" title="User:Gadig">Gadig</a>, <a href="../../../e/p/a/User%7EEpachamo_69f9.html" title="User:Epachamo">Epachamo</a>, <a href="../../../b/a/r/User%7EBaronjonas_6688.html" title="User:Baronjonas">Baronjonas</a>, <a href="../../../k/o/f/User%7EKoffieyahoo_12ee.html" title="User:Koffieyahoo">Koffieyahoo</a>, Alan smithee, Pete4512, <a href="../../../a/d/a/User%7EAdashiel_6d8c.html" title="User:Adashiel">Adashiel</a>, <a href="../../../b/i/r/User%7EBird_of_paradox_27bb.html" title="User:Bird of paradox">Bird of paradox</a>, <a href="../../../p/a/i/User%7EPain_373e.html" title="User:Pain">Pain</a>, <a href="../../../d/i/o/User%7EDionyziz_5efb.html" title="User:Dionyziz">Dionyziz</a>, <a href="../../../b/e/n/User%7EBenFrantzDale_c7e5.html" title="User:BenFrantzDale">BenFrantzDale</a>, <a href="../../../a/b/d/User%7EAbdull_b6f2.html" title="User:Abdull">Abdull</a>, <a href="../../../l/i/g/User%7ELigulembot_623f.html" title="User:Ligulembot">Ligulembot</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, <a href="../../../a/-/g/User%7EA-Ge0_6890.html" title="User:A-Ge0">A-Ge0</a>, <a href="../../../n/e/o/User%7ENeoUrfahraner_7166.html" title="User:NeoUrfahraner">NeoUrfahraner</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../v/e/c/User%7EVecter_b429.html" title="User:Vecter">Vecter</a>, <a href="../../../s/i/m/User%7ESimetrical_0dc0.html" title="User:Simetrical">Simetrical</a>, <a href="../../../j/h/m/User%7EJHMM13_dfcf.html" title="User:JHMM13">JHMM13</a>, <a href="../../../l/e/i/User%7ELeithp_3c9a.html" title="User:Leithp">Leithp</a>, <a href="../../../z/a/c/User%7EZack_882a.html" title="User:Zack">Zack</a>, <a href="../../../j/a/c/User%7EJacobolus_a4a3.html" title="User:Jacobolus">Jacobolus</a>, <a href="../../../t/o/s/User%7ETosha_2812.html" title="User:Tosha">Tosha</a>, <a href="../../../j/p/k/User%7EJpkotta_b7ec.html" title="User:Jpkotta">Jpkotta</a>, <a href="../../../d/n/i/User%7EDniQ_3a9e.html" title="User:DniQ">DniQ</a>, <a href="../../../a/d/d/User%7EAddps4cat_f103.html" title="User:Addps4cat">Addps4cat</a>, <a href="../../../h/a/h/User%7EHaham_hanuka_7d7e.html" title="User:Haham hanuka">Haham hanuka</a>, <a href="../../../n/e/j/User%7ENejko_3e59.html" title="User:Nejko">Nejko</a>, <a href="../../../m/a/c/User%7EMacrakis_14b1.html" title="User:Macrakis">Macrakis</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../y/a/r/User%7EYarin_Kaul_cdfb.html" title="User:Yarin Kaul">Yarin Kaul</a>, <a href="../../../s/y/d/User%7ESydbarrett74_a926.html" title="User:Sydbarrett74">Sydbarrett74</a>, <a href="../../../c/o/o/User%7ECookie4869_5fce.html" title="User:Cookie4869">Cookie4869</a>, Buster79, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../m/i/k/User%7EMikkalai_a7bb.html" title="User:Mikkalai">Mikkalai</a>, <a href="../../../m/f/h/User%7EMFH_a7c6.html" title="User:MFH">MFH</a>, <a href="../../../a/l/l/User%7EAllanBz_ac15.html" title="User:AllanBz">AllanBz</a>, <a href="../../../b/u/b/User%7EBubba73_9231.html" title="User:Bubba73">Bubba73</a>, <a href="../../../e/n/o/User%7EEnochlau_9436.html" title="User:Enochlau">Enochlau</a>, <a href="../../../r/e/x/User%7ERexNL_e4e0.html" title="User:RexNL">RexNL</a>, <a href="../../../p/3/d/User%7EP3d0_7b66.html" title="User:P3d0">P3d0</a>, <a href="../../../s/t/e/User%7EStephen_Compall_cd00.html" title="User:Stephen Compall">Stephen Compall</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../g/e/n/User%7EGene_Ward_Smith_f812.html" title="User:Gene Ward Smith">Gene Ward Smith</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../m/i/t/User%7EMIT_Trekkie_1e9d.html" title="User:MIT Trekkie">MIT Trekkie</a>, <a href="../../../c/u/r/User%7ECurps_5b50.html" title="User:Curps">Curps</a>, Hlg, <a href="../../../r/f/l/User%7ERfl_2cf2.html" title="User:Rfl">Rfl</a>, <a href="../../../a/b/c/User%7EABCD_d6a3.html" title="User:ABCD">ABCD</a>, <a href="../../../f/v/w/User%7EFvw_ae32.html" title="User:Fvw">Fvw</a>, <a href="../../../a/h/o/User%7EAhoerstemeier_88c8.html" title="User:Ahoerstemeier">Ahoerstemeier</a>, Sligocki, <a href="../../../l/u/q/User%7ELuqui_90ea.html" title="User:Luqui">Luqui</a>, <a href="../../../p/a/t/User%7EPatrick_7b47.html" title="User:Patrick">Patrick</a>, <a href="../../../m/a/t/User%7EMathMartin_aca3.html" title="User:MathMartin">MathMartin</a>, <a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a>, <a href="../../../w/h/o/User%7EWhosyourjudas_77b8.html" title="User:Whosyourjudas">Whosyourjudas</a>, <a href="../../../p/l/u/User%7EPlutor_2e6a.html" title="User:Plutor">Plutor</a>, Zowch, <a href="../../../e/j/_/User%7EEJ_933d.html" title="User:EJ">EJ</a>, <a href="../../../p/r/u/User%7EPrumpf_a740.html" title="User:Prumpf">Prumpf</a>, <a href="../../../a/s/c/User%7EAsc%C3%A1nder_7612.html" title="User:Ascánder">Ascánder</a>, <a href="../../../d/c/l/User%7EDcljr_a662.html" title="User:Dcljr">Dcljr</a>, <a href="../../../k/n/e/User%7EKneeLess_7e94.html" title="User:KneeLess">KneeLess</a>, <a href="../../../s/h/i/User%7EShizhao_dfa6.html" title="User:Shizhao">Shizhao</a>, <a href="../../../d/a/n/User%7EDanakil_c52d.html" title="User:Danakil">Danakil</a>, <a href="../../../d/h/u/User%7EDhuss_549c.html" title="User:Dhuss">Dhuss</a>, <a href="../../../d/i/b/User%7EDiberri_3d04.html" title="User:Diberri">Diberri</a>, <a href="../../../g/u/a/User%7EGuanabot_b902.html" title="User:Guanabot">Guanabot</a>, <a href="../../../f/e/n/User%7EFennec_d10b.html" title="User:Fennec">Fennec</a>, <a href="../../../j/a/r/User%7EJaredwf_4536.html" title="User:Jaredwf">Jaredwf</a>, <a href="../../../e/r/i/User%7EEric119_9f87.html" title="User:Eric119">Eric119</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../m/o/d/User%7EModeha_961b.html" title="User:Modeha">Modeha</a>, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../r/3/m/User%7ER3m0t_5466.html" title="User:R3m0t">R3m0t</a>, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, <a href="../../../g/u/t/User%7EGutza_f973.html" title="User:Gutza">Gutza</a>, <a href="../../../h/e/a/User%7EHead_4665.html" title="User:Head">Head</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../c/y/b/User%7ECyborgTosser_1c56.html" title="User:CyborgTosser">CyborgTosser</a>, <a href="../../../t/a/k/User%7ETakuyaMurata_085a.html" title="User:TakuyaMurata">TakuyaMurata</a>, <a href="../../../p/o/o/User%7EPoor_Yorick_efc9.html" title="User:Poor Yorick">Poor Yorick</a>, <a href="../../../j/e/r/User%7EJeronimo_378d.html" title="User:Jeronimo">Jeronimo</a>, <a href="../../../i/s/i/User%7EIsis_f221.html" title="User:Isis">Isis</a>, <a href="../../../b/r/i/User%7EBrion_VIBBER_bae4.html" title="User:Brion VIBBER">Brion VIBBER</a>, <a href="../../../a/n/d/User%7EAndre_Engels_23d0.html" title="User:Andre Engels">Andre Engels</a>, <a href="../../../l/c/_/User%7ELC_0e98.html" title="User:LC">LC</a>, <a href="../../../b/4/h/User%7EB4hand_8888.html" title="User:B4hand">B4hand</a>, <a href="../../../m/i/g/User%7EMiguel_74e3.html" title="User:Miguel">Miguel</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a> and <a href="../../../d/a/c/User%7EDachshund_0575.html" title="User:Dachshund">Dachshund</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

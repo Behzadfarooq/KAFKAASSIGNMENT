@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Algebraic variety,Abelian variety,Affine space,Alexander Grothendieck,Algebraic curve,Algebraic geometry,Algebraic manifold,Algebraic set,Algebraic space,Algebraic stack,Algebraically closed field" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Algebraic variety - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Algebraic variety</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <dl>
+<dd><i>This article is about algebraic varieties. For varieties of algebras, and an explanation of the difference, see <a href="../../../v/a/r/Variety_%28universal_algebra%29.html" title="Variety (universal algebra)">variety (universal algebra)</a>.</i></dd>
+</dl>
+<p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, an <b>algebraic variety</b> is essentially a set of common zeroes of a set of <a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomials</a>. Algebraic varieties are one of the central objects of study in classical (and to some extent, modern) <a href="../../../a/l/g/Algebraic_geometry.html" title="Algebraic geometry">algebraic geometry</a>.</p>
+<p>Historically, the <a href="../../../f/u/n/Fundamental_theorem_of_algebra.html" title="Fundamental theorem of algebra">fundamental theorem of algebra</a> established a link between algebra and geometry by saying that a <a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomial</a> in one variable over the <a href="../../../c/o/m/Complex_numbers.html" title="Complex numbers">complex numbers</a> is determined by the set of its roots, which is an inherently geometric object. Building on this result, <a href="../../../h/i/l/Hilbert%27s_Nullstellensatz_700f.html" title="Hilbert's Nullstellensatz">Hilbert's Nullstellensatz</a> provides a fundamental correspondence between ideals of <a href="../../../p/o/l/Polynomial_ring.html" title="Polynomial ring">polynomial rings</a> and subsets of affine space. Using the Nullstellensatz and related results, we are able to capture the geometric notion of a variety in algebraic terms as well as bring geometry to bear on questions of <a href="../../../r/i/n/Ring_theory.html" title="Ring theory">ring theory</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Formal_definitions"><span class="tocnumber">1</span> <span class="toctext">Formal definitions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Affine_varieties"><span class="tocnumber">1.1</span> <span class="toctext">Affine varieties</span></a></li>
+<li class="toclevel-2"><a href="#Projective_varieties"><span class="tocnumber">1.2</span> <span class="toctext">Projective varieties</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Basic_results"><span class="tocnumber">2</span> <span class="toctext">Basic results</span></a></li>
+<li class="toclevel-1"><a href="#Discussion_and_generalizations"><span class="tocnumber">3</span> <span class="toctext">Discussion and generalizations</span></a></li>
+<li class="toclevel-1"><a href="#Isomorphism_of_algebraic_varieties"><span class="tocnumber">4</span> <span class="toctext">Isomorphism of algebraic varieties</span></a></li>
+<li class="toclevel-1"><a href="#Algebraic_manifolds"><span class="tocnumber">5</span> <span class="toctext">Algebraic manifolds</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Formal_definitions" id="Formal_definitions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebraic_variety.html" title="Edit section: Formal definitions">edit</a>]</span> <span class="mw-headline">Formal definitions</span></h2>
+<p><a name="Affine_varieties" id="Affine_varieties"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algebraic_variety.html" title="Edit section: Affine varieties">edit</a>]</span> <span class="mw-headline">Affine varieties</span></h3>
+<p>Let <i>k</i> be an <a href="../../../a/l/g/Algebraically_closed_field.html" title="Algebraically closed field">algebraically closed field</a> and let <b>A</b><sup><i>n</i></sup> be <a href="../../../a/f/f/Affine_space.html" title="Affine space"><b>affine <i>n</i>-space</b></a> over <i>k</i>. The polynomials <i>f</i> in the ring <i>k</i>[<i>x</i><sub>1</sub>, ..., <i>x</i><sub><i>n</i></sub>] can be viewed as <i>k</i>-valued functions on <b>A</b><sup><i>n</i></sup> by evaluating <i>f</i> at the points in <b>A</b><sup><i>n</i></sup>. For each subset <i>S</i> of <i>k</i>[<i>x</i><sub>1</sub>, ..., <i>x</i><sub><i>n</i></sub>], define the zero-locus of <i>S</i> to be the set of points in <b>A</b><sup><i>n</i></sup> on which the functions in <i>S</i> vanish:</p>
+<dl>
+<dd><img class='tex' src="../../../math/c/0/0/c00469729d95c206c0d2d5de2d65d794.png" alt="Z(S) = \{x \in \mathbb A^n \mid f(x) = 0 \mbox{ for all } f\in S\}." /></dd>
+</dl>
+<p>A subset <i>V</i> of <b>A</b><sup><i>n</i></sup> is called an <b>affine <a href="../../../a/l/g/Algebraic_set.html" title="Algebraic set">algebraic set</a></b> if <i>V</i> = <i>Z</i>(<i>S</i>) for some <i>S</i>. A nonempty affine algebraic set <i>V</i> is called <i>irreducible</i> if it cannot be written as the union of two proper algebraic subsets. An irreducible affine algebraic set is called an <b>affine variety</b>.</p>
+<p>Affine varieties can be given a natural <a href="../../../t/o/p/Topological_space.html" title="Topological space">topology</a>, called the <a href="../../../z/a/r/Zariski_topology.html" title="Zariski topology">Zariski topology</a>, by declaring all algebraic sets to be <a href="../../../c/l/o/Closed_set.html" title="Closed set">closed</a>.</p>
+<p>Given a subset <i>V</i> of <b>A</b><sup><i>n</i></sup>, let <i>I</i>(<i>V</i>) be the <a href="../../../i/d/e/Ideal_%28ring_theory%29.html" title="Ideal (ring theory)">ideal</a> of all functions vanishing on <i>V</i>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/a/3/aa36effba81feb8a96813b2e6eaebd21.png" alt="I(V) = \{f \in k[x_1,\cdots,x_n] \mid f(x) = 0 \mbox{ for all } x\in V\}." /></dd>
+</dl>
+<p>For any affine algebraic set <i>V</i>, the <b>coordinate ring</b> of <i>V</i> is the quotient of the polynomial ring by this ideal.</p>
+<p><a name="Projective_varieties" id="Projective_varieties"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algebraic_variety.html" title="Edit section: Projective varieties">edit</a>]</span> <span class="mw-headline">Projective varieties</span></h3>
+<p>Let <b>P</b><sup><i>n</i></sup> be <b>projective <i>n</i>-space</b> over <i>k</i>. <a href="../../../h/o/m/Homogeneous_polynomial.html" title="Homogeneous polynomial">Homogeneous polynomials</a> in <i>k</i>[<i>x</i><sub>0</sub>, <i>x</i><sub>1</sub>, ..., <i>x</i><sub><i>n</i></sub>] can be viewed as <i>k</i>-valued functions on <b>P</b><sup><i>n</i></sup> by evaluating them on <a href="../../../h/o/m/Homogeneous_coordinates.html" title="Homogeneous coordinates">homogeneous coordinates</a>. The homogeneity of the polynomial ensures that this construction is well-defined. For each set <i>S</i> of homogeneous polynomials, define the zero-locus of <i>S</i> to be the set of points in <b>P</b><sup><i>n</i></sup> on which the functions in <i>S</i> vanish:</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/c/d/5cddd164857791baa52a606b372d0d54.png" alt="Z(S) = \{x \in \mathbb P^n \mid f(x) = 0 \mbox{ for all } f\in S\}." /></dd>
+</dl>
+<p>A subset <i>V</i> of <b>P</b><sup><i>n</i></sup> is called an <b>projective algebraic set</b> if <i>V</i> = <i>Z</i>(<i>S</i>) for some <i>S</i>. An irreducible projective algebraic set is called a <b>projective variety</b>.</p>
+<p>Projective varieties are also equipped with the Zariski topology by declaring all algebraic sets to be closed.</p>
+<p>Given a subset <i>V</i> of <b>P</b><sup><i>n</i></sup>, let <i>I</i>(<i>V</i>) be the <a href="../../../i/d/e/Ideal_%28ring_theory%29.html" title="Ideal (ring theory)">ideal</a> generated by all homogeneous polynomials vanishing on <i>V</i>. For any projective algebraic set <i>V</i>, the <b>coordinate ring</b> of <i>V</i> is the quotient of the polynomial ring by this ideal.</p>
+<p><a name="Basic_results" id="Basic_results"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebraic_variety.html" title="Edit section: Basic results">edit</a>]</span> <span class="mw-headline">Basic results</span></h2>
+<ul>
+<li>An affine algebraic set <i>V</i> is a variety if and only if <i>I(V)</i> is a <a href="../../../p/r/i/Prime_ideal.html" title="Prime ideal">prime ideal</a>; equivalently, <i>V</i> is a variety if and only if its coordinate ring is an <a href="../../../i/n/t/Integral_domain.html" title="Integral domain">integral domain</a>.</li>
+<li>Every nonempty affine algebraic set may be written uniquely as a union of algebraic varieties (where none of the sets in the decomposition are subsets of each other).</li>
+<li>Let <i>k[V]</i> be the coordinate ring of the variety <i>V</i>. Then the <b>dimension</b> of <i>V</i> is the <a href="../../../t/r/a/Transcendence_degree.html" title="Transcendence degree">transcendence degree</a> of the <a href="../../../f/i/e/Field_of_fractions.html" title="Field of fractions">field of fractions</a> of <i>k[V]</i> over <i>k</i>.</li>
+</ul>
+<p><a name="Discussion_and_generalizations" id="Discussion_and_generalizations"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebraic_variety.html" title="Edit section: Discussion and generalizations">edit</a>]</span> <span class="mw-headline">Discussion and generalizations</span></h2>
+<p>The basic definitions and facts above enable one to do classical <a href="../../../a/l/g/Algebraic_geometry.html" title="Algebraic geometry">algebraic geometry</a>. To be able to do more — for example, to deal with varieties over fields that are not <a href="../../../a/l/g/Algebraically_closed_field.html" title="Algebraically closed field">algebraically closed</a> — some foundational changes are required. The current notion of a variety is considerably more abstract than the one above, though equivalent in the case of varieties over algebraically closed fields. An <i>abstract algebraic variety</i> is a particular kind of <a href="../../../s/c/h/Scheme_%28mathematics%29.html" title="Scheme (mathematics)">scheme</a>; the generalization to schemes on the geometric side enables an extension of the correspondence described above to a wider class of rings. A scheme is a <a href="../../../l/o/c/Locally_ringed_space.html" title="Locally ringed space">locally ringed space</a> such that every point has a neighbourhood, which, as a locally ringed space, is isomorphic to a <a href="../../../s/p/e/Spectrum_of_a_ring.html" title="Spectrum of a ring">spectrum of a ring</a>. Basically, a variety is a scheme whose <a href="../../../s/t/r/Structure_sheaf.html" title="Structure sheaf">structure sheaf</a> is a <a href="../../../s/h/e/Sheaf_%28mathematics%29.html" title="Sheaf (mathematics)">sheaf</a> of <i>K</i>-algebras with the property that the rings <i>R</i> that occur above are all domains and are all finitely generated <i>K</i>-algebras, i.e., quotients of <a href="../../../p/o/l/Polynomial_algebra.html" title="Polynomial algebra">polynomial algebras</a> by <a href="../../../p/r/i/Prime_ideal.html" title="Prime ideal">prime ideals</a>.</p>
+<p>This definition works over any field <i>K</i>. It allows you to glue affine varieties (along common open sets) without worrying whether the resulting object can be put into some projective space. This also leads to <i>problems</i> since one can introduce somewhat pathological objects, e.g. an affine line with zero doubled. These are usually not considered varieties, and we get rid of them by requiring the schemes underlying a variety to be <i>separated</i>. (There is strictly speaking also a third condition, namely, that in the definition above one needs only finitely many affine patches.)</p>
+<p>Some modern researchers also remove the restriction on a variety having <a href="../../../i/n/t/Integral_domain.html" title="Integral domain">integral domain</a> affine charts, and when speaking of a variety simply mean that the affine charts have trivial <a href="../../../n/i/l/Nilradical.html" title="Nilradical">nilradical</a>.</p>
+<p>A <a href="../../../c/o/m/Complete_variety.html" title="Complete variety">complete variety</a> is a variety such that any map from an open subset of a nonsingular <a href="../../../a/l/g/Algebraic_curve.html" title="Algebraic curve">curve</a> into it can be extended uniquely to the whole curve. Every projective variety is complete, but not <i>vice versa</i>.</p>
+<p>These varieties have been called 'varieties in the sense of Serre', since <a href="../../../j/e/a/Jean-Pierre_Serre_e55e.html" title="Jean-Pierre Serre">Serre</a>'s foundational paper FAC on <a href="../../../s/h/e/Sheaf_cohomology.html" title="Sheaf cohomology">sheaf cohomology</a> was written for them. They remain typical objects to start studying in algebraic geometry, even if more general objects are also used in an auxiliary way.</p>
+<p>One way that leads to generalisations is to allow reducible algebraic sets (and fields <i>K</i> that aren't algebraically closed), so the rings <i>R</i> may not be integral domains. This is not a big step technically. More serious is to allow <a href="../../../n/i/l/Nilpotent.html" title="Nilpotent">nilpotents</a> in the sheaf of rings. A nilpotent in a field must be 0: these if allowed in co-ordinate rings aren't seen as <i>co-ordinate functions</i>.</p>
+<p>From the <a href="../../../c/a/t/Category_theory.html" title="Category theory">categorical</a> point of view, nilpotents must be allowed, in order to have finite limits of varieties (to get <a href="../../../f/i/b/Fiber_product.html" title="Fiber product">fiber products</a>). Geometrically this says that fibres of good mappings may have 'infinitesimal' structure. In the theory of <a href="../../../s/c/h/Scheme_%28mathematics%29.html" title="Scheme (mathematics)">schemes</a> of <a href="../../../a/l/e/Alexander_Grothendieck_0d2a.html" title="Alexander Grothendieck">Grothendieck</a> these points are all reconciled: but the general <i>scheme</i> is far from having the immediate geometric content of a <i>variety</i>.</p>
+<p>There are further generalizations called <a href="../../../a/l/g/Algebraic_stack.html" title="Algebraic stack">stacks</a> and <a href="../../../a/l/g/Algebraic_space.html" title="Algebraic space">algebraic spaces</a>.</p>
+<p><a name="Isomorphism_of_algebraic_varieties" id="Isomorphism_of_algebraic_varieties"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebraic_variety.html" title="Edit section: Isomorphism of algebraic varieties">edit</a>]</span> <span class="mw-headline">Isomorphism of algebraic varieties</span></h2>
+<p>Let V<sub>1</sub> and V<sub>2</sub> be algebraic varieties. We say that V<sub>1</sub> and V<sub>2</sub> are <a href="../../../g/r/a/Graph_isomorphism.html" title="Graph isomorphism">isomorphic</a>, and write V<sub>1</sub> ≅ V<sub>2</sub>, if there are regular maps <i>φ&#160;: V<sub>1</sub> → V<sub>2</sub> and ψ&#160;: V<sub>2</sub> → V<sub>1</sub> such that the <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">compositions</a> ψ ° φ and φ ° ψ are the <a href="../../../i/d/e/Identity_map.html" title="Identity map">identity maps</a> on V<sub>1</sub> and V<sub>2</sub> respectively.</i></p>
+<p><a name="Algebraic_manifolds" id="Algebraic_manifolds"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebraic_variety.html" title="Edit section: Algebraic manifolds">edit</a>]</span> <span class="mw-headline">Algebraic manifolds</span></h2>
+<dl>
+<dd>
+<div class="noprint"><i>Main article: <a href="../../../a/l/g/Algebraic_manifold.html" title="Algebraic manifold">Algebraic manifold</a></i></div>
+</dd>
+</dl>
+<p>An algebraic manifold is an algebraic variety which is also a <i>m</i>-dimensional <a href="../../../m/a/n/Manifold.html" title="Manifold">manifold</a>, and hence every sufficiently small local patch is isomorphic to <i>k</i><sup><i>m</i></sup>. Equivalently, the variety is <a href="../../../s/m/o/Smooth_function.html" title="Smooth function">smooth</a> (free from <a href="../../../s/i/n/Singular_point_of_an_algebraic_variety.html" title="Singular point of an algebraic variety">singular points</a>). When <i>k</i> is the <a href="../../../r/e/a/Real_number.html" title="Real number">real numbers</a>, <b>R</b>, algebraic manifolds are called Nash manifolds. Algebraic manifolds can be defined as the zero set of a finite collection of analytic algebraic functions. <a href="../../../p/r/o/Projective_algebraic_manifold.html" title="Projective algebraic manifold">Projective algebraic manifolds</a> are an equivalent definition for projective varieties. The <a href="../../../r/i/e/Riemann_sphere.html" title="Riemann sphere">Riemann sphere</a> is one example.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebraic_variety.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../f/u/n/Function_field.html" title="Function field">function field</a></li>
+<li><a href="../../../d/i/m/Dimension_of_an_algebraic_variety.html" title="Dimension of an algebraic variety">dimension of an algebraic variety</a></li>
+<li><a href="../../../s/i/n/Singular_point_of_an_algebraic_variety.html" title="Singular point of an algebraic variety">singular point of an algebraic variety</a></li>
+<li><a href="../../../b/i/r/Birational_geometry.html" title="Birational geometry">birational geometry</a></li>
+<li><a href="../../../a/b/e/Abelian_variety.html" title="Abelian variety">abelian variety</a></li>
+<li><a href="../../../m/o/t/Motive_%28algebraic_geometry%29.html" title="Motive (algebraic geometry)">motive</a></li>
+<li><a href="../../../s/c/h/Scheme_%28mathematics%29.html" title="Scheme (mathematics)">scheme</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebraic_variety.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><cite class="book" style="font-style:normal"><a href="../../../r/o/b/Robin_Hartshorne_e4b0.html" title="Robin Hartshorne">Robin Hartshorne</a> (1997). <i>Algebraic Geometry</i>. <a href="../../../s/p/r/Springer_Science%2BBusiness_Media_fe54.html" title="Springer Science+Business Media">Springer-Verlag</a>. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-387-90244-9</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Algebraic+Geometry&amp;rft.title=Algebraic+Geometry&amp;rft.au=%5B%5BRobin+Hartshorne%5D%5D&amp;rft.date=1997&amp;rft.pub=%5B%5BSpringer+Science%2BBusiness+Media%7CSpringer-Verlag%5D%5D">&#160;</span></li>
+<li><cite class="book" style="font-style:normal"><a href="../../../d/a/v/David_Cox_7c74.html" title="David Cox">David Cox</a>; John Little, Don O'Shea (1997). <i>Ideals, Varieties, and Algorithms</i>, second edition, <a href="../../../s/p/r/Springer_Science%2BBusiness_Media_fe54.html" title="Springer Science+Business Media">Springer-Verlag</a>. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-387-94680-2</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Ideals%2C+Varieties%2C+and+Algorithms&amp;rft.title=Ideals%2C+Varieties%2C+and+Algorithms&amp;rft.au=%5B%5BDavid+Cox%5D%5D&amp;rft.date=1997&amp;rft.edition=second+edition&amp;rft.pub=%5B%5BSpringer+Science%2BBusiness+Media%7CSpringer-Verlag%5D%5D">&#160;</span></li>
+<li><cite class="book" style="font-style:normal"><a href="../../../d/a/v/David_Eisenbud_f7e0.html" title="David Eisenbud">David Eisenbud</a> (1999). <i>Commutative Algebra with a View Toward Algebraic Geometry</i>. <a href="../../../s/p/r/Springer_Science%2BBusiness_Media_fe54.html" title="Springer Science+Business Media">Springer-Verlag</a>. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-387-94269-6</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Commutative+Algebra+with+a+View+Toward+Algebraic+Geometry&amp;rft.title=Commutative+Algebra+with+a+View+Toward+Algebraic+Geometry&amp;rft.au=%5B%5BDavid+Eisenbud%5D%5D&amp;rft.date=1999&amp;rft.pub=%5B%5BSpringer+Science%2BBusiness+Media%7CSpringer-Verlag%5D%5D">&#160;</span></li>
+<li><cite class="book" style="font-style:normal">David Dummit; Richard Foote (2003). <i>Abstract Algebra</i>, third edition, Wiley. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-471-43334-9</a>.</cite><span class="Z3988" title="ctx_ver=Z39.88-2004&amp;rft_val_fmt=info%3Aofi%2Ffmt%3Akev%3Amtx%3Abook&amp;rft.genre=book&amp;rft.btitle=Abstract+Algebra&amp;rft.title=Abstract+Algebra&amp;rft.au=%5B%5BDavid+Dummit%5D%5D&amp;rft.date=2003&amp;rft.edition=third+edition&amp;rft.pub=Wiley">&#160;</span></li>
+</ul>
+<hr />
+<p><i>This article incorporates material from <a href="http://planetmath.org/?op=getobj&amp;from=objects&amp;id=6838" class="extiw" title="planetmath:6838">Isomorphism of varieties</a> on <a href="../../../p/l/a/PlanetMath_a40d.html" title="PlanetMath">PlanetMath</a>, which is licensed under the <a href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GFDL</a>.</i></p>
+
+<!-- 
+Pre-expand include size: 21656 bytes
+Post-expand include size: 6654 bytes
+Template argument size: 4826 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/g/Algebraic_variety.html">http://en.wikipedia.org../../../a/l/g/Algebraic_variety.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../p/l/a/Category%7EPlanetMath_sourced_articles_da41.html" title="Category:PlanetMath sourced articles">PlanetMath sourced articles</a></span> | <span dir='ltr'><a href="../../../a/l/g/Category%7EAlgebraic_geometry_4e75.html" title="Category:Algebraic geometry">Algebraic geometry</a></span> | <span dir='ltr'><a href="../../../a/l/g/Category%7EAlgebraic_varieties_202b.html" title="Category:Algebraic varieties">Algebraic varieties</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/l/g/Algebraic_variety.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/l/g/Talk%7EAlgebraic_variety_93db.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Algebraic_variety">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/l/g/Algebraische_Variet%C3%A4t_13dd.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/v/a/r/Vari%C3%A9t%C3%A9_alg%C3%A9brique.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EB%8C%80/%EC%88%98/%EB%8B%A4/%EB%8C%80%EC%88%98%EB%8B%A4%EC%96%91%EC%B2%B4.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/v/a/r/Variet%C3%A0_algebrica.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/v/a/r/Varisto_%28matematiikka%29.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/a/l/g/Algebraisk_varietet.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E4%BB%A3/%E6%95%B0/%E7%B0%87/%E4%BB%A3%E6%95%B0%E7%B0%87.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:27, 16 February 2007 by Wikipedia user <a href="../../../e/d/w/User%7EEdward_42f0.html" title="User:Edward">Edward</a>. Based on work by Wikipedia user(s) <a href="../../../h/e/s/User%7EHesam7_71d4.html" title="User:Hesam7">Hesam7</a>, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, Andri Egilsson, <a href="../../../k/s/m/User%7EKSmrq_61e9.html" title="User:KSmrq">KSmrq</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, Juliusross, <a href="../../../g/e/n/User%7EGene_Ward_Smith_f812.html" title="User:Gene Ward Smith">Gene Ward Smith</a>, <a href="../../../s/a/l/User%7ESalix_alba_9f89.html" title="User:Salix alba">Salix alba</a>, <a href="../../../j/o/e/User%7EJoeBot_e8e1.html" title="User:JoeBot">JoeBot</a>, <a href="../../../w/i/k/User%7EWikikris_3cb1.html" title="User:Wikikris">Wikikris</a>, <a href="../../../o/r/t/User%7EOrthografer_608c.html" title="User:Orthografer">Orthografer</a>, <a href="../../../f/r/o/User%7EFropuff_31b9.html" title="User:Fropuff">Fropuff</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../m/p/o/User%7EMporter_1d80.html" title="User:Mporter">Mporter</a>, <a href="../../../e/s/k/User%7EEskimbot_5fb5.html" title="User:Eskimbot">Eskimbot</a>, <a href="../../../k/o/m/User%7EKompik_eacd.html" title="User:Kompik">Kompik</a>, <a href="../../../j/i/n/User%7EJinhyun_park_39e3.html" title="User:Jinhyun park">Jinhyun park</a>, KarlSchwede, <a href="../../../g/a/u/User%7EGauge_3e29.html" title="User:Gauge">Gauge</a>, <a href="../../../n/p/a/User%7ENparikh_16f1.html" title="User:Nparikh">Nparikh</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, <a href="../../../p/d/n/User%7EPdn_a12d.html" title="User:Pdn">Pdn</a>, <a href="../../../c/a/m/User%7ECambyses_caf9.html" title="User:Cambyses">Cambyses</a>, <a href="../../../r/v/o/User%7ERvollmert_54eb.html" title="User:Rvollmert">Rvollmert</a>, <a href="../../../w/a/l/User%7EWaltpohl_11fc.html" title="User:Waltpohl">Waltpohl</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../m/s/h/User%7EMsh210_2d23.html" title="User:Msh210">Msh210</a>, <a href="../../../m/a/t/User%7EMathMartin_aca3.html" title="User:MathMartin">MathMartin</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and <a href="../../../l/o/r/User%7ELoren_Rosen_2e64.html" title="User:Loren Rosen">Loren Rosen</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

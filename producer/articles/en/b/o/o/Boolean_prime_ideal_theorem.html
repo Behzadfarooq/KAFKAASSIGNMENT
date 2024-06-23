@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Boolean prime ideal theorem,Abstract algebra,Axiom of choice,Boolean algebra,Directed set,Disjoint,Distributive lattice,Duality (order theory),Filter (mathematics),Fundamenta Mathematicae,Heyting algebra" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Boolean prime ideal theorem - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Boolean prime ideal theorem</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, a <b>prime ideal theorem</b> guarantees the existence of certain types of subsets in a given <a href="../../../a/b/s/Abstract_algebra.html" title="Abstract algebra">abstract algebra</a>. A common example is the <b>Boolean prime ideal theorem</b>, which states that <a href="../../../i/d/e/Ideal_%28order_theory%29.html" title="Ideal (order theory)">ideals</a> in a <a href="../../../b/o/o/Boolean_algebra.html" title="Boolean algebra">Boolean algebra</a> can be extended to <a href="../../../i/d/e/Ideal_%28order_theory%29.html" title="Ideal (order theory)">prime ideals</a>. A variation of this statement for <a href="../../../f/i/l/Filter_%28mathematics%29.html" title="Filter (mathematics)">filters</a> on sets is known as the <a href="#ultrafilter_lemma" title="">ultrafilter lemma</a>. Other theorems are obtained by considering different mathematical structures with appropriate notions of ideals, for example, <a href="../../../r/i/n/Ring_%28mathematics%29.html" title="Ring (mathematics)">rings</a> and <a href="../../../p/r/i/Prime_ideal.html" title="Prime ideal">prime ideals</a> (of ring theory), or <a href="../../../d/i/s/Distributive_lattice.html" title="Distributive lattice">distributive lattices</a> and <i>maximal</i> ideals (of <a href="../../../o/r/d/Order_theory.html" title="Order theory">order theory</a>). This article focuses on prime ideal theorems from <a href="../../../o/r/d/Order_theory.html" title="Order theory">order theory</a>.</p>
+<p>Although the various prime ideal theorems may appear simple and intuitive, they can in general not be derived from the axioms of <a href="../../../z/e/r/Zermelo%E2%80%93Fraenkel_set_theory_70c8.html" title="Zermelo–Fraenkel set theory">Zermelo–Fraenkel set theory</a> (ZF). Instead, some of the statements turn out to be equivalent to the <a href="../../../a/x/i/Axiom_of_choice.html" title="Axiom of choice">axiom of choice</a> (AC), while others, like the Boolean prime ideal theorem, represent a property that is strictly weaker than AC. It is due to this intermediate status between ZF and ZF+AC (ZFC) that the Boolean prime ideal theorem is often taken as an axiom of set theory. The abbreviations <b>BPI</b> or <b>PIT</b> (for Boolean algebras) are sometimes used to refer to this additional axiom.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Prime_ideal_theorems"><span class="tocnumber">1</span> <span class="toctext">Prime ideal theorems</span></a></li>
+<li class="toclevel-1"><a href="#Boolean_prime_ideal_theorem"><span class="tocnumber">2</span> <span class="toctext">Boolean prime ideal theorem</span></a></li>
+<li class="toclevel-1"><a href="#Further_prime_ideal_theorems"><span class="tocnumber">3</span> <span class="toctext">Further prime ideal theorems</span></a></li>
+<li class="toclevel-1"><a href="#The_ultrafilter_lemma"><span class="tocnumber">4</span> <span class="toctext">The ultrafilter lemma</span></a></li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">5</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Notes"><span class="tocnumber">7</span> <span class="toctext">Notes</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">8</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Prime_ideal_theorems" id="Prime_ideal_theorems"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Edit section: Prime ideal theorems">edit</a>]</span> <span class="mw-headline">Prime ideal theorems</span></h2>
+<p>Before proceeding to actual prime ideal theorems, recall that an <a href="../../../i/d/e/Ideal_%28order_theory%29.html" title="Ideal (order theory)">order theoretical ideal</a> is just a (non-empty) <a href="../../../d/i/r/Directed_set.html" title="Directed set">directed</a> <a href="../../../l/o/w/Lower_set.html" title="Lower set">lower set</a>. If the considered poset has binary <a href="../../../s/u/p/Supremum.html" title="Supremum">suprema</a> like the posets within this article, then this is equivalently characterized as a lower set <i>I</i> which is closed for binary suprema (i.e. <i>x</i>, <i>y</i> in <i>I</i> imply <i>x</i><img class='tex' src="../../../math/7/2/7/727ea4c8c49862411edae46adf506e3e.png" alt="\vee" /><i>y</i> in <i>I</i>). An ideal <i>I</i> is prime if, whenever an <a href="../../../i/n/f/Infimum.html" title="Infimum">infimum</a> <i>x</i><img class='tex' src="../../../math/1/b/a/1ba4f06f68614e5da79a8ebd378d532a.png" alt="\wedge" /><i>y</i> is in <i>I</i>, one also has <i>x</i> in <i>I</i> or <i>y</i> in <i>I</i>. Ideals are proper if they are not equal to the whole poset.</p>
+<p>Historically, the first statement relating to later prime ideal theorems was in fact referring to filters -- subsets that are ideals with respect to the <a href="../../../d/u/a/Duality_%28order_theory%29.html" title="Duality (order theory)">dual</a> order. The ultrafilter lemma states that every filter on a set is contained within some maximal (proper) filter -- an <i>ultrafilter</i>. Recall that filters on sets are just proper filters of the Boolean algebra of its <a href="../../../p/o/w/Powerset.html" title="Powerset">powerset</a>. In this special case, maximal filters (i.e. filters that are not strict subsets of any proper filter) and prime filters (i.e. filters that, with each union of subsets <i>X</i> and <i>Y</i>, also contain <i>X</i> or <i>Y</i>) coincide. Thus the (equivalent) dual of this statement assures that every ideal of a powerset is contained in a prime ideal.</p>
+<p>The above statement led to various generalized prime ideal theorems, each of which exists in a weak and in a strong form. <i>Weak prime ideal theorems</i> state that every <i>non-trivial</i> algebra of a certain class has at least one prime ideal. In contrast, <i>strong prime ideal theorems</i> require that every ideal that is disjoint from a given filter can be extended to a prime ideal which is still disjoint from that filter. In the case of algebras that are not posets, one uses different substructures instead of filters. Many forms of these theorems are actually known to be equivalent, so that the assertion that "PIT" holds is usually taken as the assertion that the corresponding statement for Boolean algebras (BPI) is valid.</p>
+<p>Another variation of similar theorems is obtained by replacing each occurrence of <i>prime ideal</i> by <i>maximal ideal</i>. The corresponding <b>maximal ideal theorems</b> (MIT) are often -- though not always -- stronger than their PIT equivalents.</p>
+<p><a name="Boolean_prime_ideal_theorem" id="Boolean_prime_ideal_theorem"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Edit section: Boolean prime ideal theorem">edit</a>]</span> <span class="mw-headline">Boolean prime ideal theorem</span></h2>
+<p>The Boolean prime ideal theorem is the strong prime ideal theorem for Boolean algebras. Thus the formal statement is:</p>
+<dl>
+<dd>Let <i>B</i> be a Boolean algebra, let <i>I</i> be an ideal and let <i>F</i> be a filter of <i>B</i>, such that <i>I</i> and <i>F</i> are <a href="../../../d/i/s/Disjoint.html" title="Disjoint">disjoint</a>. Then <i>I</i> is contained in some prime ideal of <i>B</i> that is disjoint from <i>F</i>.</dd>
+</dl>
+<p>The weak prime ideal theorem for Boolean algebras simply states:</p>
+<dl>
+<dd>Every Boolean algebra contains a prime ideal.</dd>
+</dl>
+<p>We refer to these statements as the weak and strong <i>BPI</i>. The two are equivalent, as the strong BPI clearly implies the weak BPI, and the reverse implication can be achieved by using the weak BPI to find prime ideals in the appropriate quotient algebra.</p>
+<p>The BPI can be expressed in various different ways. For this purpose, recall the following theorem:</p>
+<p>For any ideal <i>I</i> of a Boolean algebra <i>B</i>, the following are equivalent:</p>
+<ul>
+<li><i>I</i> is a prime ideal.</li>
+<li><i>I</i> is a maximal proper ideal, i.e. for any proper ideal <i>J</i>, if <i>I</i> is contained in <i>J</i> then <i>I</i> = <i>J</i>.</li>
+<li>For every element <i>a</i> of <i>B</i>, <i>I</i> contains exactly one of {<i>a</i>, ¬<i>a</i>}.</li>
+</ul>
+<p>This theorem is a well-known fact for Boolean algebras. Its dual establishes the equivalence of prime filters and ultrafilters. Note that the last property is in fact self-dual -- only the prior assumption that <i>I</i> is an ideal gives the full characterization. It is worth mentioning that all of the implications within this theorem can be proven in classical Zermelo-Fraenkel set theory.</p>
+<p>Thus the following (strong) maximal ideal theorem (MIT) for Boolean algebras is equivalent to BPI:</p>
+<dl>
+<dd>Let <i>B</i> be a Boolean algebra, let <i>I</i> be an ideal and let <i>F</i> be a filter of <i>B</i>, such that <i>I</i> and <i>F</i> are disjoint. Then <i>I</i> is contained in some maximal ideal of <i>B</i> that is disjoint from <i>F</i>.</dd>
+</dl>
+<p>Note that one requires "global" maximality, not just maximality with respect to being disjoint from <i>F</i>. Yet, this variation yields another equivalent characterization of BPI:</p>
+<dl>
+<dd>Let <i>B</i> be a Boolean algebra, let <i>I</i> be an ideal and let <i>F</i> be a filter of <i>B</i>, such that <i>I</i> and <i>F</i> are disjoint. Then <i>I</i> is contained in some ideal of <i>B</i> that is maximal among all ideals disjoint from <i>F</i>.</dd>
+</dl>
+<p>The fact that this statement is equivalent to BPI is easily established by noting the following theorem: For any <a href="../../../d/i/s/Distributive_lattice.html" title="Distributive lattice">distributive lattice</a> <i>L</i>, if an ideal <i>I</i> is maximal among all ideals of <i>L</i> that are disjoint to a given filter <i>F</i>, then <i>I</i> is a prime ideal. The proof for this statement (which can again be carried out in ZF set theory) is included in the article on <a href="../../../i/d/e/Ideal_%28order_theory%29.html" title="Ideal (order theory)">ideals</a>. Since any Boolean algebra is a distributive lattice, this shows the desired implication.</p>
+<p>All of the above statements are now easily seen to be equivalent. Going even further, one can exploit the fact the dual orders of Boolean algebras are exactly the Boolean algebras themselves. Hence, when taking the equivalent duals of all former statements, one ends up with a number of theorems that equally apply to Boolean algebras, but where every occurrence of <i>ideal</i> is replaced by <i>filter</i>. It is worth noting that for the special case where the Boolean algebra under consideration is a <a href="../../../p/o/w/Powerset.html" title="Powerset">powerset</a> with the <a href="../../../s/u/b/Subset.html" title="Subset">subset</a> ordering, the "maximal filter theorem" is called the <a href="#ultrafilter_lemma" title="">ultrafilter lemma</a>.</p>
+<p>Summing up, for Boolean algebras, the weak and strong MIT, the weak and strong PIT, and the equivalent statements with filters in place of ideals are all equivalent. It is known that all of these statements are consequences of the axiom of choice (the easy proof makes use of <a href="../../../z/o/r/Zorn%27s_lemma.html" title="Zorn's lemma">Zorn's lemma</a>), but cannot be proven in classical Zermelo-Fraenkel set theory. Yet, the BPI is strictly weaker than the axiom of choice, though the proof of this statement is rather non-trivial.</p>
+<p><a name="Further_prime_ideal_theorems" id="Further_prime_ideal_theorems"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Edit section: Further prime ideal theorems">edit</a>]</span> <span class="mw-headline">Further prime ideal theorems</span></h2>
+<p>The prototypical properties that were discussed for Boolean algebras in the above section can easily be modified to include more general <a href="../../../l/a/t/Lattice_%28order%29.html" title="Lattice (order)">lattices</a>, such as <a href="../../../d/i/s/Distributive_lattice.html" title="Distributive lattice">distributive lattices</a> or <a href="../../../h/e/y/Heyting_algebra.html" title="Heyting algebra">Heyting algebras</a>. However, in these cases maximal ideals are different from prime ideals, and the relation between PITs and MITs is not obvious.</p>
+<p>Indeed, it turns out that the MITs for distributive lattices and even for Heyting algebras are equivalent to the axiom of choice. On the other hand, it is known that the strong PIT for distributive lattices is equivalent to BPI (i.e. to the MIT and PIT for Boolean algebras). Hence this statement is strictly weaker than the axiom of choice. Furthermore, observe that Heyting algebras are not self dual, and thus using filters in place of ideals yields different theorems in this setting. Maybe surprisingly, the MIT for the duals of Heyting algebras is not stronger than BPI, which is in sharp contrast to the abovementioned MIT for Heyting algebras.</p>
+<p>Finally, prime ideal theorems do also exist for other (not order-theoretical) abstract algebras. For example, the MIT for rings implies the axiom of choice. This situation requires to replace the order-theoretic term "filter" by other concepts -- for rings a "multiplicatively closed subset" is appropriate.</p>
+<p><a name="The_ultrafilter_lemma" id="The_ultrafilter_lemma"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Edit section: The ultrafilter lemma">edit</a>]</span> <span class="mw-headline">The ultrafilter lemma</span></h2>
+<p>A <b><a href="../../../f/i/l/Filter_%28mathematics%29.html" title="Filter (mathematics)">filter</a></b> on a set <i>X</i> is a collection of nonempty subsets of <i>X</i> that is closed under finite intersection and under superset. An <b>ultrafilter</b> is a maximal filter. The <b>ultrafilter lemma</b> states that every <a href="../../../f/i/l/Filter_%28mathematics%29.html" title="Filter (mathematics)">filter</a> on a set <i>X</i> is a subset of some <a href="../../../u/l/t/Ultrafilter.html" title="Ultrafilter">ultrafilter</a> on <i>X</i> (a maximal filter of nonempty subsets of <i>X</i>.) This lemma is most often used in the study of <a href="../../../t/o/p/Topology.html" title="Topology">topology</a>.</p>
+<p>The ultrafilter lemma is equivalent to the Boolean prime ideal theorem, with the equivalence provable in ZF set theory without the axiom of choice. The idea behind the proof is that the subsets of any set form a Boolean algebra partially ordered by inclusion, and any Boolean algebra is representable as an algebra of sets by <a href="../../../s/t/o/Stone%27s_representation_theorem.html" title="Stone's representation theorem">Stone's representation theorem</a>.</p>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<p>Intuitively, the Boolean prime ideal theorem states that there are "enough" prime ideals in a Boolean algebra in the sense that we can extend <i>every</i> ideal to a maximal one. This is of practical importance for proving <a href="../../../s/t/o/Stone%27s_representation_theorem_for_Boolean_algebras_58f8.html" title="Stone's representation theorem for Boolean algebras">Stone's representation theorem for Boolean algebras</a>, a special case of <a href="../../../s/t/o/Stone_duality.html" title="Stone duality">Stone duality</a>, in which one equips the set of all prime ideals with a certain <a href="../../../t/o/p/Topology.html" title="Topology">topology</a> and can indeed regain the original Boolean algebra (<a href="../../../u/p/_/Up_to.html" title="Up to">up to</a> <a href="../../../i/s/o/Isomorphism.html" title="Isomorphism">isomorphism</a>) from this data. Furthermore, it turns out that in applications one can freely choose either to work with prime ideals or with prime filters, because every ideal uniquely determines a filter: the set of all Boolean complements of its elements. Both approaches are found in the literature.</p>
+<p>Many other theorems of general topology that are often said to rely on the axiom of choice are in fact equivalent to BPI. For example, the theorem that a product of compact Hausdorff spaces is compact is equivalent to it. If we leave out "Hausdorff" we get a theorem equivalent to the full axiom of choice. <i>Feel free to add some examples.</i></p>
+<p>A not too well known application of the Boolean prime ideal theorem is the existence of a <a href="../../../n/o/n/Non-measurable_set.html" title="Non-measurable set">non-measurable set</a><sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> (the example usually given is the <a href="../../../v/i/t/Vitali_set.html" title="Vitali set">Vitali set</a>, which requires the Axiom of Choice). From this and the fact that the BPI is strictly weaker than the Axiom of Choice, it follows that the existence of non measurable sets is strictly weaker than the axiom of choice.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../l/i/s/List_of_Boolean_algebra_topics_81d0.html" title="List of Boolean algebra topics">list of Boolean algebra topics</a></li>
+</ul>
+<p><br /></p>
+<p><a name="Notes" id="Notes"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Edit section: Notes">edit</a>]</span> <span class="mw-headline">Notes</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <a href="../../../w/a/c/Waclaw_Sierpinski_d0ba.html" title="Waclaw Sierpinski">Waclaw Sierpinski</a>, Fonctions additives non complètement additives et fonctions non mesurables. <a href="../../../f/u/n/Fundamenta_Mathematicae_f482.html" title="Fundamenta Mathematicae">Fund.Math.</a> 30, 96-99 (1938)</li>
+</ol>
+<p><br /></p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/o/o/Boolean_prime_ideal_theorem.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>B. A. Davey and H. A. Priestley, <i>Introduction to Lattices and Order</i>, 2<sup>nd</sup> edition, Cambridge University Press, 2002.</li>
+</ul>
+<dl>
+<dd><i>An easy to read introduction, showing the equivalence of PIT for Boolean algebras and distributive lattices.</i></dd>
+</dl>
+<ul>
+<li>P. T. Johnstone, <i>Stone Spaces</i>, Cambridge studies in advanced mathematics 3, Cambridge University Press, 1982.</li>
+</ul>
+<dl>
+<dd><i>The theory in this book often requires choice principles. The notes on various chapters discuss the general relation of the theorems to PIT and MIT for various structures (though mostly lattices) and give pointers to further literature.</i></dd>
+</dl>
+<ul>
+<li>B. Banaschewski, <i>The Power of the Ultrafilter Theorem</i>, Journal of the London Mathematical Society (2) 27, 193--202, 1983.</li>
+</ul>
+<dl>
+<dd><i>Discusses the status of the ultrafilter lemma.</i></dd>
+</dl>
+<ul>
+<li>M. Erné, <i>Prime Ideal Theory for General Algebras</i>, Applied Categorical Structures 8, 115--144, 2000.</li>
+</ul>
+<dl>
+<dd><i>Gives many equivalent statements for the BPI, including prime ideal theorems for other algebraic structures. PITs are considered as special instances of separation lemmas.</i></dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/o/o/Boolean_prime_ideal_theorem.html">http://en.wikipedia.org../../../b/o/o/Boolean_prime_ideal_theorem.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../b/o/o/Category%7EBoolean_algebra_9990.html" title="Category:Boolean algebra">Boolean algebra</a></span> | <span dir='ltr'><a href="../../../o/r/d/Category%7EOrder_theory_2596.html" title="Category:Order theory">Order theory</a></span> | <span dir='ltr'><a href="../../../a/x/i/Category%7EAxiom_of_choice_7206.html" title="Category:Axiom of choice">Axiom of choice</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/o/o/Boolean_prime_ideal_theorem.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/o/o/Talk%7EBoolean_prime_ideal_theorem_3ccb.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Boolean_prime_ideal_theorem">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../zh/%E5%B8%83/%E5%B0%94/%E7%B4%A0/%E5%B8%83%E5%B0%94%E7%B4%A0%E7%90%86%E6%83%B3%E5%AE%9A%E7%90%86.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 06:00, 22 March 2007 by Wikipedia user <a href="../../../m/h/s/User%7EMhss_en_0b75.html" title="User:Mhss en">Mhss en</a>. Based on work by Wikipedia user(s) <a href="../../../a/l/e/User%7EAleph4_0f7d.html" title="User:Aleph4">Aleph4</a>, Hennobrandsma, <a href="../../../c/m/u/User%7ECMummert_c108.html" title="User:CMummert">CMummert</a>, TexD, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, Trioculite, <a href="../../../j/o/n/User%7EJon_Awbrey_aa98.html" title="User:Jon Awbrey">Jon Awbrey</a>, <a href="../../../o/t/t/User%7EOtt2_aa19.html" title="User:Ott2">Ott2</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../e/r/i/User%7EEric119_9f87.html" title="User:Eric119">Eric119</a>, <a href="../../../m/a/r/User%7EMarkus_Kr%C3%B6tzsch_72f1.html" title="User:Markus Krötzsch">Markus Krötzsch</a>, <a href="../../../v/i/v/User%7EVivacissamamente_d5f6.html" title="User:Vivacissamamente">Vivacissamamente</a>, <a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and <a href="../../../c/h/i/User%7EChinju_e6fd.html" title="User:Chinju">Chinju</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

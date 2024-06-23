@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Basic Definition and Identity of the Term &quot;System&quot;" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Basic Definition and Identity of the Term &quot;System&quot; - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Basic Definition and Identity of the Term &quot;System&quot;</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>For the section on ‘System Science’ of Wikipedia</p>
+<p><b>Basic Definition and Identity of the Term "System"</b></p>
+<p>Talk proposed by Suresh Gupta</p>
+<pre>
+   Often, one comes across the term "System" without a clear connotation.  For example, computer hardware is a system, so also is the software residing in it.  Is their any ambiguity in the usage here?  No, indeed, any collection of things, ideas, entities or any other objects is entitled to be called a System.  A broad requirement is that the collection should have a purpose, or has a set of objectives - concrete or not so concrete even to the extent of being invisible, indirect or virtual.  For example, a concrete purpose of computers is to assist in storage and processing of data. Wide spread use of computers has revolutionized the quality of life.  But, this objective is somewhat indirect and some times invisible.  It will, thus, be quite correct to call the combination of the computer hardware and the resident software to be called a Data Storage and Processing System
+</pre>
+<p>Motivation for writing this article is to attempt a rigorous definition of the term "System" and its "Components", in order to facilitate their simulation, analysis, and optimization. Further, when we have a cluster of items, it may be needed to determine whether all the items belong to a system. Also, it may be needed to determine, how many systems are present in a cluster. Are their any objective methods answering such doubts?</p>
+<p>Blanchard and Fabrycki [Blanchard and Fabrycki, “Systems Engineering and Analysis”, 3rd Edition, Prentice hall, Upper Saddle River, 1998] have defined, ‘rigorously’, system as a set of components working towards a common purpose or objective. They stipulate that a system should satisfy the following three criteria:</p>
+<p>“a. The properties and behavior of each component of the set has an</p>
+<pre>
+   effect on the properties and behavior of the set as a whole.
+b. The properties and behavior of each component of the set depends on the properties and behavior of at  
+   least one other component of the set.
+c. Each possible sub-set of components has the two properties listed previously; the components cannot be 
+   divided into independent sub-sets.”
+</pre>
+<p>While there is no doubt about the criterion ‘a’ above, the validity of ‘b’ and ‘c’ is not obvious. For example, in the case of an automobile as a system, the engine, power transmission, steering mechanism, dash board, chassis, wheels and the brakes are essential components of the system. Though, air pressure in the wheels is an essential property of the wheels, the properties and behavior of the dash board is not dependent on it. As such, in this case the criterion ‘b’ is not satisfied. Thus, we have to search for more satisfactory criteria.</p>
+<p>From the example of an automobile system, discussed above and corroborated by the properties and behavior of satellite launch vehicles, one can stipulate safely that the properties and behavior of each component does not have to depend on those of any other component. Finite sensitivity of the properties and behavior of a system to the properties and behavior of an item, entitles the item to be a legitimate component of the system. If the sensitivity is negligible, the item should not be considered as a component of the system, having the stated purpose, objective or mission.</p>
+<p>The term ‘sensitivity’ has the classical definition given by Bode [Bode, H. W., ”Network Analysis and Feedback Amplifier Design”, Nan Nostrand Company, 1945; pp 47 – 86]. Bode used the concept of sensitivity in the design of feedback amplifiers. For ease of understanding, and for general application of the concept of Sensitivity in the context of System Science, the definition of sensitivity is reworded here as follows:</p>
+<p>'<i><b>Let M be a mission parameter and C be a component parameter. Due to a variation ΔC in C, there will be a variation ΔM in M. The quantity ΔC divided by C is the fractional variation of C. Similarly, the corresponding quantity ΔM divided by M is the fractional variation of M. The quantity fractional variation of M divided by the fractional variation of C is referred here as the Sensitivity, S, of M to C.'</b></i></p>
+<pre>
+      In general, a system will have a number of components, say, C!, C2, ….., Cn and ΔM will be function of ΔC1, ΔC2,…, ΔCn, with  Sensitivities, S1, S2, …, Sn   of M with respect to C1, C2, ……, Cn.  S will be a composite function of S1, S2, …, Sn.   This concept enables exploration of the relative values of S1, S2, …., Sn and identification of Primary components.  There will be secondary components, which have the same relationship with the primary components as the primary components have with the system, characterized by its Mission.   
+</pre>
+<pre>
+      When a mission is amenable to quantitative characterization, like the orbital injection parameters of a satellite launch vehicle, it is possible to devise a quantitative method of determining the nominal values of the performance of its primary  components and the permissible tolerances.
+</pre>
+<pre>
+      This method is useful in determining the acceptable design of components of a system.  It can be extended to simulation, optimization, determination of probabilities of success of a mission in the presence of inevitable dispersions in the performance and behavior of components.  Indeed, we have to identify all the primary components and the probability distribution of the deviations in components.
+</pre>
+<p>This method also enables trade-off studies of relative spread of tolerances in components. These aspects are discussed by Gupta [Gupta, S. C., “ Growing Rocket Systems and the Team”, PRISM BOOKS, 2006; pp 71 – 82].</p>
+<p>One could consider this article as a legitimate contribution to Systems Science.</p>
+<p>[Editorial Summary by the Author: Presents a rigorous basic definition of System and Components, by invoking the classical concept of Sensitivity and Relative Sensitivity Functions. Also presents a methodology of mapping out the characteristics of systems in terms of the characteristics of components. This makes straightforward the tasks of design, simulation analysis, and optimization.]</p>
+<p>Completed : 7 August 2006</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/s/Talk%7EBasic_Definition_and_Identity_of_the_Term__System__74cf.html">http://en.wikipedia.org../../../b/a/s/Talk%7EBasic_Definition_and_Identity_of_the_Term__System__74cf.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/a/s/Basic_Definition_and_Identity_of_the_Term__System__5631.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/a/s/Talk%7EBasic_Definition_and_Identity_of_the_Term__System__74cf.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Basic_Definition_and_Identity_of_the_Term_%22System%22">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 14:25, 7 August 2006 by Wikipedia user Suresh Gupta. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

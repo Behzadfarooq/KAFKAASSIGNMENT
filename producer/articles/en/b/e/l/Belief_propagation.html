@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Belief propagation,Adjacent,Algorithm,Approximation error,Arg max,Artificial intelligence,Bayesian networks,Clique (graph theory),Cycle (graph theory),David J.C. MacKay,Diameter" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Belief propagation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Belief propagation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>Belief propagation</b>, also known as the sum-product algorithm, is an iterative <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a> for computing <a href="../../../m/a/r/Marginal_distribution.html" title="Marginal distribution">marginals</a> of functions on a <a href="../../../g/r/a/Graphical_model.html" title="Graphical model">graphical model</a> most commonly used in <a href="../../../a/r/t/Artificial_intelligence.html" title="Artificial intelligence">artificial intelligence</a> and <a href="../../../i/n/f/Information_theory.html" title="Information theory">information theory</a>. <a href="../../../j/u/d/Judea_Pearl_602a.html" title="Judea Pearl">Judea Pearl</a> in 1986 and Lauritzen and Spiegelhalter also in 1986 independently formulated this algorithm. It is an efficient inference algorithm on <a href="../../../t/r/e/Tree_%28graph_theory%29.html" title="Tree (graph theory)">trees</a> and has demonstrated empirical success in numerous applications including <a href="../../../l/o/w/Low-density_parity-check_codes.html" title="Low-density parity-check codes">low-density parity-check codes</a>, <a href="../../../t/u/r/Turbo_codes.html" title="Turbo codes">turbo codes</a>, <a href="../../../f/r/e/Free_energy.html" title="Free energy">free energy</a> approximation, and <a href="../../../s/a/t/Satisfiability.html" title="Satisfiability">satisfiability</a>. It is commonly used in pairwise <a href="../../../m/a/r/Markov_random_field.html" title="Markov random field">Markov random fields</a> (MRFs with a maximum <a href="../../../c/l/i/Clique_%28graph_theory%29.html" title="Clique (graph theory)">clique</a> size of 2), <a href="../../../b/a/y/Bayesian_networks.html" title="Bayesian networks">Bayesian networks</a>, and <a href="../../../f/a/c/Factor_graph.html" title="Factor graph">factor graphs</a>.</p>
+<p>Recall that the <a href="../../../m/a/r/Marginal_distribution.html" title="Marginal distribution">marginal distribution</a> of a single variable <span class="texhtml"><i>X</i><sub><i>i</i></sub></span> is simply the summation of a <a href="../../../j/o/i/Joint_distribution.html" title="Joint distribution">joint distribution</a> over all variables except <span class="texhtml"><i>X</i><sub><i>i</i></sub></span>, and let <img class='tex' src="../../../math/3/c/6/3c66d9170d4c3fb75456e1a9fc6ead37.png" alt="\mathbf{x}" /> be an assignment of all variables in the joint distribution:</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/9/7/d975a462e36bac6ab8d4e9e407a9cd3d.png" alt="P(x_i) = \sum_{\mathbf{x}: X_i=x_i} P(\mathbf{x})" /></dd>
+</dl>
+<p>For the purposes of explaining this algorithm, consider the marginal function, which is simply an <a href="../../../n/o/r/Normalizing_constant.html" title="Normalizing constant">unnormalized</a> marginal distribution with a generic global function <img class='tex' src="../../../math/8/a/d/8adfaf1e8ad58fd465fcebd9166c135e.png" alt="g(\mathbf{x})" />:</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/7/8/378d58a726074396c96f9cb2bd3bc68a.png" alt="z(x_i) = \sum_{\mathbf{x}: X_i=x_i} g(\mathbf{x})" /></dd>
+</dl>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Exact_algorithm_for_trees"><span class="tocnumber">1</span> <span class="toctext">Exact algorithm for trees</span></a></li>
+<li class="toclevel-1"><a href="#Approximate_algorithm_for_general_graphs"><span class="tocnumber">2</span> <span class="toctext">Approximate algorithm for general graphs</span></a></li>
+<li class="toclevel-1"><a href="#Related_algorithm_and_complexity_issues"><span class="tocnumber">3</span> <span class="toctext">Related algorithm and complexity issues</span></a></li>
+<li class="toclevel-1"><a href="#Relation_to_free_energy"><span class="tocnumber">4</span> <span class="toctext">Relation to free energy</span></a></li>
+<li class="toclevel-1"><a href="#Generalized_Belief_Propagation_.28GBP.29"><span class="tocnumber">5</span> <span class="toctext">Generalized Belief Propagation (GBP)</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Exact_algorithm_for_trees" id="Exact_algorithm_for_trees"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Belief_propagation.html" title="Edit section: Exact algorithm for trees">edit</a>]</span> <span class="mw-headline">Exact algorithm for trees</span></h2>
+<p>This algorithm functions by passing <a href="../../../r/e/a/Real_number.html" title="Real number">real</a>-valued messages across edges in a graphical model. More precisely, in <a href="../../../t/r/e/Tree_%28graph_theory%29.html" title="Tree (graph theory)">trees</a>: a <a href="../../../v/e/r/Vertex.html" title="Vertex">vertex</a> sends a message to an <a href="../../../a/d/j/Adjacent.html" title="Adjacent">adjacent</a> <a href="../../../v/e/r/Vertex.html" title="Vertex">vertex</a> if (a) it has received messages from all of its other <a href="../../../a/d/j/Adjacent.html" title="Adjacent">adjacent</a> vertices and (b) hasn't already sent one. So in the first iteration, the algorithm will send messages from all <a href="../../../l/e/a/Leaf_node.html" title="Leaf node">leaf nodes</a> to the lone vertex adjacent to its respective leaf and continues sending messages in this manner until all messages have been sent exactly once, hence explaining the term propagation. It is easily proven that all messages will be sent (there are twice the number of edges of them). Upon termination, the marginal of a variable is simply the product of the incoming messages of all its adjacent vertices. A simple proof of this fact, though somewhat messy, can be done by <a href="../../../m/a/t/Mathematical_induction.html" title="Mathematical induction">mathematical induction</a>.</p>
+<p>The message definitions will be described in the <a href="../../../f/a/c/Factor_graph.html" title="Factor graph">factor graph</a> setting, as the algorithms for other <a href="../../../g/r/a/Graphical_model.html" title="Graphical model">graphical models</a> are nearly identical. Since <a href="../../../f/a/c/Factor_graph.html" title="Factor graph">factor graphs</a> have variable and factor nodes, there are two types of messages to define:</p>
+<p>A <i>variable message</i> is a real-valued <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">function</a> that is a message sent from a variable to a factor, and defined as</p>
+<dl>
+<dd><img class='tex' src="../../../math/d/e/6/de67d52fd50cb17cd40b024ff05d0c22.png" alt="X_n\rightarrow f_m(x_n) = \prod_{f_i\in N(X_n)\setminus \{f_m\}} f_i\rightarrow X_n(x_n)." /></dd>
+</dl>
+<p>A <i>factor message</i> is a real-valued <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">function</a> that is a message sent from a factor to a variable, and defined as</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/b/d/9bdc83ab9ef10771c604293b29591289.png" alt="f_m\rightarrow X_n(x_n) = \sum_{\mathbf{x_m}:X_n=x_n} f_m(\mathbf{x_m}) \prod_{X_i\in N(f_m)\setminus \{X_n\}} X_i\rightarrow f_m(x_i)," /></dd>
+</dl>
+<p>where <span class="texhtml"><i>N</i>(<i>u</i>)</span> is defined as the set of neighbours (adjacent vertices in a <a href="../../../g/r/a/Graph_%28mathematics%29.html" title="Graph (mathematics)">graph</a>) of a <a href="../../../v/e/r/Vertex.html" title="Vertex">vertex</a> <span class="texhtml"><i>u</i></span>. <img class='tex' src="../../../math/3/a/7/3a714563f6bdebab5c5d201aa0362718.png" alt="\mathbf{x_m}" /> is an assignment to the vertices affecting <span class="texhtml"><i>f</i><sub><i>m</i></sub></span> (i.e. vertices in <span class="texhtml"><i>N</i>(<i>f</i><sub><i>m</i></sub>)</span>).</p>
+<p>As mentioned in the description of the algorithm, the marginal of <span class="texhtml"><i>X</i><sub><i>i</i></sub></span> can be computed in the following manner:</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/7/9/f7932e17ad690c26595c5e6cfa40950f.png" alt="z(x_i) = \prod_{f_j\in N(X_i)} f_j\rightarrow X_i(x_i)" /></dd>
+</dl>
+<p>One can also compute the marginal of a factor <span class="texhtml"><i>f</i><sub><i>j</i></sub></span>, equivalently, the marginal of the subset of variables <span class="texhtml"><i>X</i><sub><i>j</i></sub></span> in the following manner:</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/8/8/088764d7021b29344737314e7482cce4.png" alt="z(\mathbf{x_j}) = f_j(\mathbf{x_j})\prod_{X_i\in N(f_j)} X_i\rightarrow f_j(x_i)" /></dd>
+</dl>
+<p><a name="Approximate_algorithm_for_general_graphs" id="Approximate_algorithm_for_general_graphs"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Belief_propagation.html" title="Edit section: Approximate algorithm for general graphs">edit</a>]</span> <span class="mw-headline">Approximate algorithm for general graphs</span></h2>
+<p>Curiously, nearly the same algorithm is used in general <a href="../../../g/r/a/Graph_%28mathematics%29.html" title="Graph (mathematics)">graphs</a> and then the algorithm is sometimes called loopy belief propagation because graphs typically contain <a href="../../../c/y/c/Cycle_%28graph_theory%29.html" title="Cycle (graph theory)">cycles</a>, or loops. The procedure must be adjusted slightly because graphs might not contain any leaves. Instead, one initializes all variable messages to 1 and uses the same message definitions above. It is easy to show that in a tree, the message definitions of this modified procedure will converge to the set of message definitions given above within a number of iterations equal to the <a href="../../../d/i/a/Diameter.html" title="Diameter">diameter</a> of the tree.</p>
+<p>There are other approximate methods for marginalization including <a href="../../../v/a/r/Variational_method.html" title="Variational method">variational methods</a> and <a href="../../../m/o/n/Monte_Carlo_method_ff34.html" title="Monte Carlo method">Monte Carlo methods</a>.</p>
+<p>One method of exact marginalization in general graphs is called the <a href="../../../j/u/n/Junction_tree_algorithm.html" title="Junction tree algorithm">junction tree algorithm</a>, which is simply belief propagation on a modified graph guaranteed to be a tree. The basic premise is to eliminate cycles by clustering them into single nodes.</p>
+<p><a name="Related_algorithm_and_complexity_issues" id="Related_algorithm_and_complexity_issues"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Belief_propagation.html" title="Edit section: Related algorithm and complexity issues">edit</a>]</span> <span class="mw-headline">Related algorithm and complexity issues</span></h2>
+<p>A similar algorithm is commonly referred to as the <a href="../../../v/i/t/Viterbi_algorithm.html" title="Viterbi algorithm">Viterbi algorithm</a>, but also known as the max-product or min-sum algorithm, which solves the related problem of maximization, or most probable explanation. Instead of attempting to solve the marginal, the goal here is to find the values <img class='tex' src="../../../math/3/c/6/3c66d9170d4c3fb75456e1a9fc6ead37.png" alt="\mathbf{x}" /> that maximises the global function (i.e. most probable values in a probabilistic setting), and it can be defined using the <a href="../../../a/r/g/Arg_max.html" title="Arg max">arg max</a>:</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/a/3/3a3a01d29acc8be44848e27aff8f2271.png" alt="\arg\max_{\mathbf{x}} g(\mathbf{x})" /></dd>
+</dl>
+<p>An algorithm that solves this problem is nearly identical to belief propagation, with the sums replaced by maxima in the definitions.</p>
+<p>It is worth noting that <a href="../../../i/n/f/Inference.html" title="Inference">inference</a> problems like marginalization and maximization are <a href="../../../n/p/-/NP-hard_1fde.html" title="NP-hard">NP-hard</a> to solve exactly and approximately (at least for <a href="../../../a/p/p/Approximation_error.html" title="Approximation error">relative error</a>) in a graphical model. More precisely, the marginalization problem defined above is <a href="../../../s/h/a/Sharp-P_a74c.html" title="Sharp-P">#P</a>-complete and maximization is <a href="../../../n/p/-/NP-complete_3f4f.html" title="NP-complete">NP-complete</a>.</p>
+<p><a name="Relation_to_free_energy" id="Relation_to_free_energy"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Belief_propagation.html" title="Edit section: Relation to free energy">edit</a>]</span> <span class="mw-headline">Relation to free energy</span></h2>
+<p>The sum-product algorithm is related to the calculation of <a href="../../../f/r/e/Free_energy.html" title="Free energy">free energy</a> in <a href="../../../t/h/e/Thermodynamics.html" title="Thermodynamics">thermodynamics</a>. A probability distribution</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/1/e/81e58cd026724b5b0d7f6adbf3b05239.png" alt="P(\mathbf{X}) = \frac{1}{Z} \prod_{f_j} f_j(x_j)" /></dd>
+</dl>
+<p>(as per the factor graph representation) can be viewed as a measure of the <a href="../../../i/n/t/Internal_energy.html" title="Internal energy">internal energy</a> present in a system, computed as</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/1/7/b1738606194ca4cd4c2d1b58a6659a52.png" alt="E(\mathbf{X}) = \log \prod_{f_j} f_j(x_j)" />.</dd>
+</dl>
+<p>The free energy of the system is then</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/9/0/790f3c1476ccea3161b058e7b8b3d6fb.png" alt="F = U - H = \sum_{\mathbf{X}} P(\mathbf{X}) E(\mathbf{X}) + \sum_{\mathbf{X}}  P(\mathbf{X}) \log P(\mathbf{X})" />.</dd>
+</dl>
+<p>It can then be shown that the points of convergence of the sum-product algorithm represent the points where the free energy in such a system is minimized. Similarly, it can be shown that a fixed point of the iterative belief propagation algorithm in graphs with cycles is a stationary point of a free energy approximation.</p>
+<p><a name="Generalized_Belief_Propagation_.28GBP.29" id="Generalized_Belief_Propagation_.28GBP.29"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Belief_propagation.html" title="Edit section: Generalized Belief Propagation (GBP)">edit</a>]</span> <span class="mw-headline">Generalized Belief Propagation (GBP)</span></h2>
+<p>Belief propagation algorithms are normally presented as messages update equations on a factor graph, involving messages between variable nodes and their neighboring factor nodes and vice versa. Considering messages between <i>regions</i> in a graph is one way of generalizing the belief propagation algorithm. There are several ways of defining the set of regions in a graph that can exchange messages. One method uses ideas introduced by <a href="../../../k/i/k/Kikuchi.html" title="Kikuchi">Kikuchi</a> in the physics literature, and is known as Kikuchi's cluster variation method.</p>
+<p>Improvements in the performance of belief propagation algorithms are also achievable by breaking the replicas symmetry in the distributions of the fields (messages). This generailzation leads to a new kind of algorithm called Survey Propagation (SP), which have proved to be very efficient in <a href="../../../n/p/-/NP-Complete_83f7.html" title="NP-Complete">NP-Complete</a> problems like <a href="../../../s/a/t/Satisfiability.html" title="Satisfiability">Satisfiability</a> and Graph Coloring.</p>
+<p>The Cluster Variational Method and the Survey Propgation algorithms are two different improvements to Belief Propagation. The name Generalized Survey Propagation (GSP) is waiting to be assigned to the algorithm that merges both generalizations.</p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/e/l/Belief_propagation.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Frey, Brendan (1998). <i>Graphical Models for Machine Learning and Digital Communication</i>. MIT Press</li>
+<li><a href="../../../d/a/v/David_J.C._MacKay_3b78.html" title="David J.C. MacKay">David J.C. MacKay</a> (2003). Exact Marginalization in Graphs. In David J.C. MacKay, <i>Information Theory, Inference, and Learning Algorithms</i>, pp. 334–340. Cambridge: Cambridge University Press.</li>
+<li>Pearl, Judea (1988). <i>Probabilistic Reasoning in Intelligent Systems: Networks of Plausible Inference</i> (2nd edition). San Francisco: Morgan Kaufmann Publishers, Inc.</li>
+<li>Mackenzie, Dana (2005). <a href="http://www.newscientist.com/channel/info-tech/mg18725071.400" class="external text" title="http://www.newscientist.com/channel/info-tech/mg18725071.400" rel="nofollow"><i>Communication Speed Nears Terminal Velocity</i></a> New Scientist. 9 July 2005. Issue 2507 (Registration required)</li>
+<li>Yedidia, J.S. and Freeman, W.T. and Weiss, Y. Constructing free-energy approximations and generalized belief propagation algorithms, <i>IEEE Transactions on Information Theory</i>, vol.51(7), pp.2282-2312, July 2005.</li>
+<li>Yedidia, J.S.; Freeman, W.T.; Weiss, Y., <a href="http://www.merl.com/publications/TR2001-022/" class="external text" title="http://www.merl.com/publications/TR2001-022/" rel="nofollow"><i>Understanding Belief Propagation and Its Generalizations</i></a>, Exploring Artificial Intelligence in the New Millennium, <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 1558608117</a>, Chap. 8, pp. 239-236, January 2003 (Science &amp; Technology Books)</li>
+</ul>
+<ul>
+<li><a href="http://research.microsoft.com/%7Ecmbishop/PRML/Bishop-PRML-sample.pdf" class="external text" title="http://research.microsoft.com/%7Ecmbishop/PRML/Bishop-PRML-sample.pdf" rel="nofollow">Graphical models, Chapter 8 of Pattern Recognition and Machine Learning by Christopher M. Bishop</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/l/Belief_propagation.html">http://en.wikipedia.org../../../b/e/l/Belief_propagation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/l/g/Category%7EAlgorithms_e36c.html" title="Category:Algorithms">Algorithms</a></span> | <span dir='ltr'><a href="../../../g/r/a/Category%7EGraph_theory_5e8c.html" title="Category:Graph theory">Graph theory</a></span> | <span dir='ltr'><a href="../../../c/o/d/Category%7ECoding_theory_47e8.html" title="Category:Coding theory">Coding theory</a></span> | <span dir='ltr'><a href="../../../p/r/o/Category%7EProbability_theory_ef79.html" title="Category:Probability theory">Probability theory</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/e/l/Belief_propagation.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/e/l/Talk%7EBelief_propagation_82a6.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Belief_propagation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:51, 21 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, EssRon, <a href="../../../l/a/g/User%7ELage_a052.html" title="User:Lage">Lage</a>, <a href="../../../x/e/z/User%7EXezbeth_c481.html" title="User:Xezbeth">Xezbeth</a>, <a href="../../../p/i/e/User%7EPiet_Delport_08f7.html" title="User:Piet Delport">Piet Delport</a>, <a href="../../../s/y/n/User%7ESynergeticMaggot_5ec3.html" title="User:SynergeticMaggot">SynergeticMaggot</a>, Averisk, <a href="../../../v/s/i/User%7EVsion_cd35.html" title="User:Vsion">Vsion</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../m/e/c/User%7EMecanismo_bcb8.html" title="User:Mecanismo">Mecanismo</a>, <a href="../../../f/r/a/User%7EFrancs2000_6420.html" title="User:Francs2000">Francs2000</a>, <a href="../../../i/k/c/User%7EIkcotyck_cfd9.html" title="User:Ikcotyck">Ikcotyck</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../c/e/s/User%7ECesarB_5f7f.html" title="User:CesarB">CesarB</a>, <a href="../../../y/u/l/User%7EYUL89YYZ_a738.html" title="User:YUL89YYZ">YUL89YYZ</a>, <a href="../../../s/i/m/User%7ESimonMayer_3dd3.html" title="User:SimonMayer">SimonMayer</a> and Emin63.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

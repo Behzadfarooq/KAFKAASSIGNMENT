@@ -1,0 +1,600 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Brainfuck,ASCII,Amiga,Artificial life,Befunge,Bignum,Branch (computer science),Byte,C (programming language),Cat (Unix),Command (computing)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Brainfuck - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Brainfuck</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>The <b>brainfuck</b> language is an <a href="../../../e/s/o/Esoteric_programming_language.html" title="Esoteric programming language">esoteric programming language</a> noted for its extreme minimalism. It was designed to challenge and amuse <a href="../../../p/r/o/Programmer.html" title="Programmer">programmers</a>, and is not suitable for practical use. Its name has been variously <a href="../../../t/h/o/Thomas_Bowdler_f95a.html" title="Thomas Bowdler">bowdlerized</a>, as in <i>brainf*ck</i> or <i>brainfsck</i>, since its name contains the <a href="../../../e/x/p/Expletive.html" title="Expletive">expletive</a> "<a href="../../../f/u/c/Fuck.html" title="Fuck">fuck</a>". The name of the language is generally not capitalized, despite the fact that it is a <a href="../../../p/r/o/Proper_noun.html" title="Proper noun">proper noun</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Language_design"><span class="tocnumber">1</span> <span class="toctext">Language design</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Commands"><span class="tocnumber">1.1</span> <span class="toctext">Commands</span></a></li>
+<li class="toclevel-2"><a href="#Brainfuck.27s_formal_.22parent_language.22"><span class="tocnumber">1.2</span> <span class="toctext">Brainfuck's formal "parent language"</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">2</span> <span class="toctext">Examples</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Hello_World.21"><span class="tocnumber">2.1</span> <span class="toctext">Hello World!</span></a></li>
+<li class="toclevel-2"><a href="#Trivial"><span class="tocnumber">2.2</span> <span class="toctext">Trivial</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Cell-clear"><span class="tocnumber">2.2.1</span> <span class="toctext">Cell-clear</span></a></li>
+<li class="toclevel-3"><a href="#Simple_loop"><span class="tocnumber">2.2.2</span> <span class="toctext">Simple loop</span></a></li>
+<li class="toclevel-3"><a href="#Moving_the_pointer"><span class="tocnumber">2.2.3</span> <span class="toctext">Moving the pointer</span></a></li>
+<li class="toclevel-3"><a href="#Add"><span class="tocnumber">2.2.4</span> <span class="toctext">Add</span></a></li>
+<li class="toclevel-3"><a href="#Conditional_loop_statements"><span class="tocnumber">2.2.5</span> <span class="toctext">Conditional loop statements</span></a></li>
+<li class="toclevel-3"><a href="#Copying_a_byte"><span class="tocnumber">2.2.6</span> <span class="toctext">Copying a byte</span></a></li>
+</ul>
+</li>
+<li class="toclevel-2"><a href="#Addition"><span class="tocnumber">2.3</span> <span class="toctext">Addition</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Multiplication"><span class="tocnumber">2.3.1</span> <span class="toctext">Multiplication</span></a></li>
+<li class="toclevel-3"><a href="#Division"><span class="tocnumber">2.3.2</span> <span class="toctext">Division</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Portability_issues"><span class="tocnumber">3</span> <span class="toctext">Portability issues</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Cell_size"><span class="tocnumber">3.1</span> <span class="toctext">Cell size</span></a></li>
+<li class="toclevel-2"><a href="#Array_size"><span class="tocnumber">3.2</span> <span class="toctext">Array size</span></a></li>
+<li class="toclevel-2"><a href="#End-of-line_code"><span class="tocnumber">3.3</span> <span class="toctext">End-of-line code</span></a></li>
+<li class="toclevel-2"><a href="#End-of-file_behavior"><span class="tocnumber">3.4</span> <span class="toctext">End-of-file behavior</span></a></li>
+<li class="toclevel-2"><a href="#Miscellaneous_dialects"><span class="tocnumber">3.5</span> <span class="toctext">Miscellaneous dialects</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Languages_based_on_brainfuck"><span class="tocnumber">4</span> <span class="toctext">Languages based on brainfuck</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">5</span> <span class="toctext">External links</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Implementations"><span class="tocnumber">5.1</span> <span class="toctext">Implementations</span></a>
+<ul>
+<li class="toclevel-3"><a href="#Hardware"><span class="tocnumber">5.1.1</span> <span class="toctext">Hardware</span></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Language_design" id="Language_design"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Language design">edit</a>]</span> <span class="mw-headline">Language design</span></h2>
+<p><a href="../../../u/r/b/Urban_M%C3%BCller_23ac.html" title="Urban Müller">Urban Müller</a> created brainfuck in 1993 with the intention of designing a language which could be implemented with the smallest possible <a href="../../../c/o/m/Compiler.html" title="Compiler">compiler</a> <a href="http://www.muppetlabs.com/~breadbox/bf/" class="external autonumber" title="http://www.muppetlabs.com/~breadbox/bf/" rel="nofollow">[1]</a>, inspired by the 1024 byte compiler for the <a href="../../../f/a/l/FALSE_9460.html" title="FALSE">FALSE</a> programming language. Several brainfuck compilers have been made smaller than 200 bytes. The classic distribution is <a href="http://www.aminet.net/package.php?package=dev/lang/brainfuck-2.lha" class="external text" title="http://www.aminet.net/package.php?package=dev/lang/brainfuck-2.lha" rel="nofollow">Müller's version 2</a>, containing a compiler for the <a href="../../../a/m/i/Amiga.html" title="Amiga">Amiga</a>, an interpreter, example programs, and a readme document.</p>
+<p>The language consists of eight <a href="../../../c/o/m/Command_%28computing%29.html" title="Command (computing)">commands</a>, listed below. A brainfuck program is a sequence of these commands, possibly interspersed with other characters (which are ignored). The commands are executed sequentially, except as noted below.</p>
+<p>The brainfuck language uses a simple machine model consisting, besides the program, of an array of 30,000 <a href="../../../b/y/t/Byte.html" title="Byte">byte</a> cells initialized to zero, a movable <a href="../../../p/o/i/Pointer.html" title="Pointer">pointer</a> into the array (initialized to point to the leftmost byte of the array), and two streams of bytes for input and output (most often connected to a keyboard and a monitor respectively, and using the <a href="../../../a/s/c/ASCII_d2cd.html" title="ASCII">ASCII</a> character encoding).</p>
+<p><a name="Commands" id="Commands"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Commands">edit</a>]</span> <span class="mw-headline">Commands</span></h3>
+<p>The eight language commands, each consisting of a single character, are the following:</p>
+<table class="wikitable">
+<tr>
+<th align="center">Character</th>
+<th align="left">Meaning</th>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;</code></td>
+<td>increment the pointer (to point to the next cell to the right).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&lt;</code></td>
+<td>decrement the pointer (to point to the next cell to the left).</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>+</code></td>
+<td>increment (increase by one) the byte at the pointer.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-</code></td>
+<td>decrement (decrease by one) the byte at the pointer.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>.</code></td>
+<td>output the value of the byte at the pointer.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>,</code></td>
+<td>accept one byte of input, storing its value in the byte at the pointer.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>[</code></td>
+<td><a href="../../../b/r/a/Branch_%28computer_science%29.html" title="Branch (computer science)">jump</a> forward to the command after the corresponding <code>]</code> if the byte at the pointer is zero.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>]</code></td>
+<td>jump back to the command after the corresponding <code>[</code> if the byte at the pointer is nonzero.</td>
+</tr>
+</table>
+<p>(Alternatively, the <code>]</code> command may instead be translated as an unconditional jump <b>to</b> the corresponding <code>[</code> command, or vice versa; programs will behave the same but will run more slowly.)</p>
+<p>Brainfuck programs can be translated into <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> using the following substitutions, assuming <code>ptr</code> is of type <code>unsigned char*</code> and has been initialized to point to an array of zeroed bytes:</p>
+<table class="wikitable">
+<tr>
+<th align="center">brainfuck command</th>
+<th align="left">C equivalent</th>
+</tr>
+<tr>
+<td style="text-align:center"><code>&gt;</code></td>
+<td><code>++ptr;</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>&lt;</code></td>
+<td><code>--ptr;</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>+</code></td>
+<td><code>++*ptr;</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>-</code></td>
+<td><code>--*ptr;</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>.</code></td>
+<td><code>putchar(*ptr);</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>,</code></td>
+<td><code>*ptr=getchar();</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>[</code></td>
+<td><code>while (*ptr) {</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>]</code></td>
+<td><code>}</code></td>
+</tr>
+</table>
+<p>As the name suggests, brainfuck programs tend to be difficult to comprehend. Partly this is because any mildly complex task requires a long sequence of commands; partly it is because the program's text gives no direct indications of the program's <a href="../../../s/t/a/State_%28computer_science%29.html" title="State (computer science)">state</a>. These, as well as brainfuck's inefficiency and its limited input/output capabilities, are some of the reasons it is not used for serious programming. Nonetheless, like any <a href="../../../t/u/r/Turing_completeness.html" title="Turing completeness">Turing-complete</a> language, brainfuck is theoretically capable of computing any computable function or simulating any other computational model, if given an unlimited memory store<a href="http://www.iwriteiam.nl/Ha_bf_Turing.html" class="external autonumber" title="http://www.iwriteiam.nl/Ha_bf_Turing.html" rel="nofollow">[2]</a>. A variety of brainfuck programs have been written<a href="http://esoteric.sange.fi/brainfuck/bf-source/prog/" class="external autonumber" title="http://esoteric.sange.fi/brainfuck/bf-source/prog/" rel="nofollow">[3]</a>.</p>
+<p><a name="Brainfuck.27s_formal_.22parent_language.22" id="Brainfuck.27s_formal_.22parent_language.22"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Brainfuck's formal &quot;parent language&quot;">edit</a>]</span> <span class="mw-headline">Brainfuck's formal "parent language"</span></h3>
+<p>Except for its two I/O commands, brainfuck is a minor variation of the formal programming language <a href="../../../p/_/p/P_prime_prime.html" title="P prime prime">P prime prime</a> (P′′) created by <a href="../../../c/o/r/Corrado_B%C3%B6hm_f29b.html" title="Corrado Böhm">Corrado Böhm</a> in 1964. (In fact, using six symbols equivalent to the respective brainfuck commands <tt>+, -, &lt;, &gt;, [, ],</tt> Böhm provided an explicit program for each of the basic functions that together serve to compute any <a href="../../../c/o/m/Computable_function.html" title="Computable function">computable function</a>. So in a very real sense, the first "brainfuck" programs appear in Böhm's 1964 paper – and they were programs sufficient to prove Turing-completeness.)</p>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p><a name="Hello_World.21" id="Hello_World.21"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Hello World!">edit</a>]</span> <span class="mw-headline">Hello World!</span></h3>
+<p>The following program prints <a href="../../../h/e/l/Hello_world_program.html" title="Hello world program">"Hello World!"</a> and a newline to the screen:</p>
+<pre>
+++++++++++
+[&gt;+++++++&gt;++++++++++&gt;+++&gt;+&lt;&lt;&lt;&lt;-] The initial loop to set up useful values in the array
+&gt;++.                             Print 'H'
+&gt;+.                              Print 'e'
++++++++.                         Print 'l'
+.                                Print 'l'
++++.                             Print 'o'
+&gt;++.                             Print ' '
+&lt;&lt;+++++++++++++++.               Print 'W'
+&gt;.                               Print 'o'
++++.                             Print 'r'
+------.                          Print 'l'
+--------.                        Print 'd'
+&gt;+.                              Print '!'
+&gt;.                               Print newline
+</pre>
+<p>For readability, this code has been spread across many lines and comments have been added. Brainfuck treats all characters but <code>+-&lt;&gt;[],.</code> as comments so no special syntax for a comment is needed. The code could just as well have been written as:</p>
+<pre>
+<code> ++++++++++[&gt;+++++++&gt;++++++++++&gt;+++&gt;+&lt;&lt;&lt;&lt;-]&gt;++.&gt;+.+++++++..+++.&gt;++.&lt;&lt;+++++++++++++++.&gt;.+++.------.--------.&gt;+.&gt;.</code>
+</pre>
+<p>The first line initialises <code>a[0] = 10</code> by simply incrementing ten times from 0. The loop from line 2 effectively sets the initial values for the array: <tt>a[1] = 70</tt> (close to 72, the <a href="../../../a/s/c/ASCII_d2cd.html" title="ASCII">ASCII</a> code for the character 'H'), <code>a[2] = 100</code> (close to 101 or 'e'), <code>a[3] = 30</code> (close to 32, the code for space) and <code>a[4] = 10</code> (newline). The loop works by multiplying the value of <code>a[0]</code>, <code>10</code>, by 7, 10, 3, and 1, saving the results in other cells. After the loop is finished, a[0] is zero. <code>&gt;++.</code> then moves the pointer to <code>a[1]</code> which holds <code>70</code>, adds two to it (producing 72 which is the ASCII character code of a capital H), and outputs it.</p>
+<p>The next line moves the array pointer to <code>a[2]</code> and adds one to it, producing <code>101</code>, a lower-case 'e', which is then output.</p>
+<p>As 'l' happens to be the seventh letter after 'e', to output 'll' we add another seven (<code>+++++++</code>) to <code>a[2]</code> and output the result twice.</p>
+<p>'o' is the third letter after 'l', so we increment <code>a[2]</code> three more times and output the result.</p>
+<p>The rest of the program goes on in the same way. For the space and capital letters, different array cells are selected and incremented or decremented as needed.</p>
+<p><a name="Trivial" id="Trivial"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Trivial">edit</a>]</span> <span class="mw-headline">Trivial</span></h3>
+<p><a name="Cell-clear" id="Cell-clear"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Cell-clear">edit</a>]</span> <span class="mw-headline">Cell-clear</span></h4>
+<pre>
+[-]
+</pre>
+<p>A simple program fragment which sets the current location to 0, by iteratively decrementing until it is equal to 0.</p>
+<p><a name="Simple_loop" id="Simple_loop"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Simple loop">edit</a>]</span> <span class="mw-headline">Simple loop</span></h4>
+<pre>
+,[.,]
+</pre>
+<p>A continuous loop that takes text input from the keyboard and echoes it to the screen (similar to the Unix <a href="../../../c/a/t/Cat_%28Unix%29_14b9.html" title="Cat (Unix)">cat</a> program). Note that this assumes the cell is set to 0 when a '<code>,</code>' command is executed after the end of input (sometimes called end-of-file or "EOF"); implementations vary on this point. For implementations that set the cell to -1 on EOF, or leave the cell's value unchanged, this program would be written "<code>,+[-.,+]</code>" or "<code>,[.[-],]</code>" respectively.</p>
+<p><a name="Moving_the_pointer" id="Moving_the_pointer"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Moving the pointer">edit</a>]</span> <span class="mw-headline">Moving the pointer</span></h4>
+<pre>
+&gt;,[.&gt;,]
+</pre>
+<p>A version of the last one that also saves all the input in the array for future use, by moving the pointer each time.</p>
+<p><a name="Add" id="Add"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Add">edit</a>]</span> <span class="mw-headline">Add</span></h4>
+<pre>
+[-&gt;+&lt;]
+</pre>
+<p>This adds the current location (destructively, it is left at zero) to the next location.</p>
+<p><a name="Conditional_loop_statements" id="Conditional_loop_statements"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Conditional loop statements">edit</a>]</span> <span class="mw-headline">Conditional loop statements</span></h4>
+<pre>
+,----------[----------------------.,----------]
+</pre>
+<p>This will take lowercase input from the keyboard and make it uppercase. To exit, press the enter key.</p>
+<p>First, we input the first character using the <code>,</code> and immediately subtract 10 from it. (Most, but not all, brainfuck implementations use 10 as the code for a <a href="../../../n/e/w/Newline.html" title="Newline">newline</a> character.) If the user hits enter, the loop command (<code>[</code>) will jump past the end of the loop, because we will have set the first byte to zero. If the character input was not a 10, we boldly assume it was a lowercase letter, and enter the loop, wherein we subtract another 22 from it, for a total of 32, which is the difference between an ASCII lowercase letter and the corresponding uppercase letter.</p>
+<p>Next we output it. Now we input the next character, and again subtract 10. If this character was a linefeed, we exit the loop; otherwise, we go back to the start of the loop, subtract another 22, output, and so on. When we exit the loop, the program terminates, as there are no more commands.</p>
+<p><a name="Copying_a_byte" id="Copying_a_byte"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Copying a byte">edit</a>]</span> <span class="mw-headline">Copying a byte</span></h4>
+<p>(Now things start to get a bit more complicated. We may as well refer to the bytes in the array as [0], [1], [2], and so on.)</p>
+<p>Brainfuck does not include any operation for copying <a href="../../../b/y/t/Byte.html" title="Byte">bytes</a>. This must be done with the looping construct and arithmetical operators. Moving a byte is simple enough; moving the value of [0] to [1] can be done as follows:</p>
+<pre>
+&gt;[-]&lt;[-&gt;+&lt;]
+</pre>
+<p>However, this resets the value of [0] to 0. We can restore the value of [0] after copying by taking advantage of the ability to copy a value to two places at once. To copy the value of [0] to both [1] and [2] is simple:</p>
+<pre>
+&gt;[-]&gt;[-]&lt;&lt;[-&gt;+&gt;+&lt;&lt;]
+</pre>
+<p>We can take advantage of this to restore the value of [0]. Therefore, we can nondestructively copy [0] to [1] (using [2] as scratch space) as follows:</p>
+<pre>
+&gt;[-]&gt;[-]&lt;&lt;[-&gt;+&gt;+&lt;&lt;]&gt;&gt;[-&lt;&lt;+&gt;&gt;]&lt;&lt;
+</pre>
+<p><a name="Addition" id="Addition"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Addition">edit</a>]</span> <span class="mw-headline">Addition</span></h3>
+<pre>
+,&gt;++++++[&lt;--------&gt;-],[&lt;+&gt;-],&lt;.&gt;.
+</pre>
+<p>This program adds two single-digit numbers and displays the result correctly if it too has only one digit:</p>
+<pre>
+43
+</pre>
+<pre>
+7
+</pre>
+<p>The first number is input in [0], and 48 is subtracted from it to correct it (the ASCII codes for the digits 0-9 are 48-57). This is done by putting a 6 in [1] and using a loop to subtract 8 from [0] that many times. (This is a common method of adding or subtracting large numbers.) Next, the second number is input in [1].</p>
+<p>The next loop <code>[&lt;+&gt;-]</code> does the real work, moving the second number onto the first, adding them together and zeroing [1]. Each time through, it adds one to [0] and subtracts one from [1]; so by the time [1] is zeroed, as many have been added to [0] as have been removed from [1]. Now a return is input in [1]. (We're not error-checking the input at all.)</p>
+<p>Then the pointer is moved back to the [0], which is then output. ([0] is now a + (b + 48), since we didn't correct b; which is identical to (a + b) + 48, which is what we want.) Now the pointer is moved to [1], which holds the return that was input; it is now output, and we're done.</p>
+<p>Apparently, some implementation prefers this variant which does not use linefeeds at all:</p>
+<pre>
+,&gt;------[&lt;--------&gt;+],[&lt;+&gt;-]&lt;.
+</pre>
+<p><a name="Multiplication" id="Multiplication"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Multiplication">edit</a>]</span> <span class="mw-headline">Multiplication</span></h4>
+<pre>
+,&gt;,&gt;++++++++[&lt;------&lt;------&gt;&gt;-]
+&lt;&lt;[&gt;[&gt;+&gt;+&lt;&lt;-]&gt;&gt;[&lt;&lt;+&gt;&gt;-]&lt;&lt;&lt;-]
+&gt;&gt;&gt;++++++[&lt;++++++++&gt;-],&lt;.&gt;.
+</pre>
+<p>Like the previous, but does multiplication, not addition.</p>
+<p>The first number is input in [0], the second number is input in [1], and both numbers are corrected by having 48 subtracted.</p>
+<p>Now we enter the main multiplication loop. The basic idea is that each time through it we subtract one from [0] and add [1] to the running total kept in [2]. In particular: the first inner loop moves [1] onto both [2] and [3], while zeroing [1]. (This is the basic way to duplicate a number.) The next inner loop moves [3] back into [1], zeroing [3]. Then one is subtracted from [0], and the outer loop is ended. On exiting this loop, [0] is zero, [1] still has the second number in it, and [2] has the product of the two numbers. (Had we cared about keeping the first number, we could have added one to [4] each time through the outer loop, then moved the value from [4] back to [0] afterward.)</p>
+<p>Now we add 48 to the product, input a return in [3], output the ASCIIfied product, and then output the return we just stored.</p>
+<p><a name="Division" id="Division"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Division">edit</a>]</span> <span class="mw-headline">Division</span></h4>
+<p>This example accepts two numbers from the user, divides them, and displays the truncated quotient.</p>
+<p>The following code prompts the user for two numbers; the dividend is stored in [0] and the divisor stored in [1] The code then enters the main loop. With each iteration of the loop, the code subtracts the divisor from the dividend. If the difference is greater than zero, the cell holding the quotient is incremented, and the process repeated until the dividend reaches zero.</p>
+<pre>
+,&gt;,&gt;++++++[-&lt;--------&lt;--------&gt;&gt;] Store 2 numbers from kb in (0) and (1); and subtract 48 from each
+&lt;&lt;[                               Loop until the dividend is zero
+&gt;[-&gt;+&gt;+&lt;&lt;]                        Move the divisor in (1) to (2) and (3); setting (1) to zero
+&gt;[-&lt;&lt;-                            Subtract 1 from both the dividend(0) and the divisor(2) until (2) is zero
+[&gt;]&gt;&gt;&gt;[&lt;[&gt;&gt;&gt;-&lt;&lt;&lt;[-]]&gt;&gt;]&lt;&lt;]        If the dividend is zero; exit the loop
+&gt;&gt;&gt;+                              Add one to the quotient in (5)
+&lt;&lt;[-&lt;&lt;+&gt;&gt;]                        Move the saved divisor in (3) to (2)
+&lt;&lt;&lt;]                              Move ptr to {0} and repeat loop
+&gt;[-]&gt;&gt;&gt;&gt;[-&lt;&lt;&lt;&lt;&lt;+&gt;&gt;&gt;&gt;&gt;]            Move the quotient in (5) to (0)
+&lt;&lt;&lt;&lt;++++++[-&lt;++++++++&gt;]&lt;.         Add 48 and print result
+</pre>
+<p><a name="Portability_issues" id="Portability_issues"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Portability issues">edit</a>]</span> <span class="mw-headline">Portability issues</span></h2>
+<p>Partly because Urban Müller did not write a thorough language specification, the many subsequent brainfuck interpreters and compilers have come to use slightly different dialects of brainfuck.</p>
+<p><a name="Cell_size" id="Cell_size"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Cell size">edit</a>]</span> <span class="mw-headline">Cell size</span></h3>
+<p>In <a href="http://wuarchive.wustl.edu/pub/aminet/dev/lang/brainfuck-2.lha" class="external text" title="http://wuarchive.wustl.edu/pub/aminet/dev/lang/brainfuck-2.lha" rel="nofollow">the classic distribution</a>, the cells are 8-bit bytes, and this is still the most common size. However, to read non-textual data, a brainfuck program may need to distinguish an <a href="../../../e/n/d/End-of-file.html" title="End-of-file">end-of-file</a> condition from any possible byte value; thus 16-bit cells have also been used. Some implementations have used 32-bit cells, 64-bit cells, or <a href="../../../b/i/g/Bignum.html" title="Bignum">bignum</a> cells with practically unlimited range, but programs that use this extra range are likely to be slow, since storing or using cell values generally takes time proportional to the values stored or used.</p>
+<p>In all these variants, the <code>,</code> and <code>.</code> commands still read and write data in bytes. In most of them, the cells wrap around, i.e. incrementing a cell which holds its maximal value (with the <code>+</code> command) will bring it to its minimal value and vice versa. The exceptions are implementations which are distant from the underlying hardware, implementations that use bignums, and implementations that try to enforce portability.</p>
+<p>Fortunately, it is usually easy to write brainfuck programs that do not ever cause integer wraparound or overflow. Such programs thus do not depend heavily on cell size. Generally this means avoiding increment of +255 (unsigned char wraparound); or avoiding the overstepping the boundaries of [-128, +127] inclusive (signed char wraparound). For more details on integer wraparound, see the <a href="../../../i/n/t/Integer_overflow.html" title="Integer overflow">Integer overflow</a> article.</p>
+<p><a name="Array_size" id="Array_size"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Array size">edit</a>]</span> <span class="mw-headline">Array size</span></h3>
+<p>In the classic distribution, the array has 30,000 cells, and the pointer begins at the leftmost cell. Any brainfuck implementation should thus provide at least that many cells, but surprisingly many implementations provide fewer. Even more cells are needed to store things like the millionth <a href="../../../f/i/b/Fibonacci_number.html" title="Fibonacci number">Fibonacci number</a>, and the easiest way to make the language Turing-complete is to make the array unlimited on the right.</p>
+<p>A few implementations extend the array to the left as well; this is an uncommon feature, and therefore portable brainfuck programs do not depend on it.</p>
+<p>When the pointer moves outside the bounds of the array, some implementations will give an error message, some will try to extend the array dynamically, some will not notice and will produce unpredictable behavior, and a few will move the pointer to the opposite end of the array. Some tradeoffs are involved: expanding the array dynamically to the right is the most user-friendly approach and is good for memory-hungry programs, but it carries a speed penalty. If a fixed-size array is used it is helpful to make it very large, or better yet let the user set the size. Giving an error message for bounds violations is very useful for debugging but even that carries a speed penalty unless it can be handled by the operating system's memory protections.</p>
+<p><a name="End-of-line_code" id="End-of-line_code"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: End-of-line code">edit</a>]</span> <span class="mw-headline">End-of-line code</span></h3>
+<p>Different operating systems (and sometimes different programming environments) use subtly different versions of ASCII. The most important difference is in the code used for the end of a line of text. MS-DOS and Microsoft Windows use a <a href="../../../n/e/w/Newline.html#CR.2BLF" title="Newline">CRLF</a>, i.e. a 13 followed by a 10, in most contexts. UNIX and its descendants, including Linux and Mac OS X, use just 10, and older Macs use just 13. It would be unfortunate if brainfuck programs had to be rewritten for different operating systems. Happily, a unified standard is easy to find. Urban Müller's compiler and his example programs use 10, on both input and output; so do a large majority of existing brainfuck programs; and 10 is also more convenient to use than CRLF. Thus, brainfuck implementations should make sure that brainfuck programs that assume newline=10 will run properly; many do so, but some do not.</p>
+<p>This assumption is also consistent with most of the world's sample code for <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> and other languages, in that they use '\n', or 10, for their newlines. On systems that use CRLF line endings, the C standard library transparently remaps "\n" to "\r\n" on output and "\r\n" to "\n" on input for streams not opened in binary mode.</p>
+<p><a name="End-of-file_behavior" id="End-of-file_behavior"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: End-of-file behavior">edit</a>]</span> <span class="mw-headline">End-of-file behavior</span></h3>
+<p>The behavior of the <code>,</code> command when an <a href="../../../e/n/d/End-of-file.html" title="End-of-file">end-of-file</a> condition has been encountered varies. Some implementations set the cell at the pointer to 0, some set it to the C constant EOF (in practice this is usually -1), some leave the cell's value unchanged. There is no real consensus; arguments for the three behaviors are as follows.</p>
+<p>Setting the cell to 0 avoids the use of negative numbers, and makes it marginally more concise to write a loop that reads characters until EOF occurs. This is a language extension devised by Panu Kalliokoski.</p>
+<p>Setting the cell to -1 allows EOF to be distinguished from any byte value (if the cells are larger than bytes), which is necessary for reading non-textual data; also, it is the behavior of the C translation of <code>,</code> given in Müller's readme file. However, it is not obvious that those C translations are to be taken as normative.</p>
+<p>Leaving the cell's value unchanged is the behavior of Urban Müller's brainfuck compiler. This behavior can easily coexist with either of the others; for instance, a program that assumes EOF=0 can set the cell to 0 before each <code>,</code> command, and will then work correctly on implementations that do either EOF=0 or EOF="no change". It is so easy to accommodate the "no change" behavior that any brainfuck programmer interested in portability should do so.</p>
+<p><a name="Miscellaneous_dialects" id="Miscellaneous_dialects"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Miscellaneous dialects">edit</a>]</span> <span class="mw-headline">Miscellaneous dialects</span></h3>
+<p>Many people have modified brainfuck, often by adding commands, occasionally by removing them. Some of these variants have value, but they should be (and usually are) given different names and considered separate languages, much like C++ with relation to C. Many of these are listed below. However, there are also minor variants, formed possibly as a result of inattention, of which some of the more common are:</p>
+<ul>
+<li>forbidding, rather than ignoring, any non-command characters in brainfuck programs</li>
+<li>introducing a comment marker which comments out the rest of the line</li>
+<li>various alterations of the loop semantics, sometimes destroying <a href="../../../t/u/r/Turing_completeness.html" title="Turing completeness">Turing completeness</a></li>
+<li>requiring a special character to mark the end of the program</li>
+</ul>
+<p><a name="Languages_based_on_brainfuck" id="Languages_based_on_brainfuck"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Languages based on brainfuck">edit</a>]</span> <span class="mw-headline">Languages based on brainfuck</span></h2>
+<dl>
+<dd><i>Further information: <a href="http://esoteric.voxelperfect.net/wiki/Category:Brainfuck_derivatives" class="external text" title="http://esoteric.voxelperfect.net/wiki/Category:Brainfuck_derivatives" rel="nofollow">Brainfuck derivatives</a> on the <a href="http://esoteric.voxelperfect.net/" class="external text" title="http://esoteric.voxelperfect.net/" rel="nofollow">Esolang wiki</a></i></dd>
+</dl>
+<p>Because brainfuck is so simple, it is easy to make other programming languages based on it:</p>
+<ul>
+<li>2L: based loosely on PATH and Brainfuck, but has only two symbols.</li>
+<li><a href="http://www.rpi.edu/~hughes/boof/" class="external text" title="http://www.rpi.edu/~hughes/boof/" rel="nofollow">Boolfuck</a> uses bits instead of bytes.</li>
+<li><a href="http://www.clanpogo.dk/pogocms/index.php?action=bf" class="external text" title="http://www.clanpogo.dk/pogocms/index.php?action=bf" rel="nofollow">Brainfork</a> is a multi-threaded version of brainfuck with an additional "Y" instruction to fork the current thread.</li>
+<li>Brainfuck++ can be used in more applications by adding file I/O and networking support.</li>
+<li>Brainstab replaces the eight Brainfuck operators with phrases constructed from the words "stab" and "stabbity".</li>
+<li><a href="http://sigkill.dk/code/bf.html" class="external text" title="http://sigkill.dk/code/bf.html" rel="nofollow">Braintwist</a> uses the eight operators from brainfuck, and an "X"-operator (uppercase "x") that swaps the data and code arrays, thus making it possible to store code in the data array, and execute it at a later time.</li>
+<li>COW reformats brainfuck's commands as various capitalisations of the word "Moo".</li>
+<li>Doublefuck has an additional array and eight additional instructions which perform brainfuck-identical operations on the second array. They are, in order: "^", "v", "/", "\", ":", ";", "{", and "}".</li>
+<li><a href="http://web.archive.org/web/20050318095341/http://www.chilliwilli.co.uk/ff/" class="external text" title="http://web.archive.org/web/20050318095341/http://www.chilliwilli.co.uk/ff/" rel="nofollow">f*ckf*ck</a> replaces the Brainfuck operators with <a href="../../../s/e/v/Seven_dirty_words.html" title="Seven dirty words">explicit words</a>.</li>
+<li><a href="http://geocities.com/r_e_s_01/" class="external text" title="http://geocities.com/r_e_s_01/" rel="nofollow">Fm languages</a> are program formulations of Turing machines, based on Böhm's (1964) language <a href="../../../p/_/p/P_prime_prime.html" title="P prime prime">P′′</a> (a formal equivalent to brainfuck with no i/o instructions); e.g. F2 edits an unbounded bit-string memory using + &lt; &gt; [ ] only.</li>
+<li><a href="../../../l/3/3/L33t_programming_language.html" title="L33t programming language">l33t</a> adds networking capabilities. (Very loosely based)</li>
+<li>L00P has an implicit loop, removes the "[" and "]" looping instructions and adds ten others.</li>
+<li><a href="http://www.greythumb.org/people/api/nanopond.html" class="external text" title="http://www.greythumb.org/people/api/nanopond.html" rel="nofollow">Nanopond</a> Nanopond is an <a href="../../../a/r/t/Artificial_life.html" title="Artificial life">artificial life</a> <a href="../../../v/i/r/Virtual_machine.html" title="Virtual machine">virtual machine</a> whose simple <a href="../../../e/v/o/Evolvable.html" title="Evolvable">evolvable</a> instruction set is loosely based on Brainfuck.</li>
+<li><a href="../../../o/o/k/Ook%21.html" title="Ook!">Ook!</a> reformats brainfuck's commands as combinations of "Ook." "Ook!" and "Ook?".</li>
+<li>PATH and SNUSP are combinations of brainfuck with <a href="../../../b/e/f/Befunge.html" title="Befunge">Befunge</a>, a language which represents instructions as symbols in two-dimensional space.</li>
+<li><a href="http://www.parkscomputing.com/code/pbrain/" class="external text" title="http://www.parkscomputing.com/code/pbrain/" rel="nofollow">pbrain</a>, which adds procedures to Brainfuck.</li>
+<li><a href="http://esoteric.voxelperfect.net/wiki/Pi" class="external text" title="http://esoteric.voxelperfect.net/wiki/Pi" rel="nofollow">Pi language</a> obfuscates brainfuck commands as random errors in <a href="../../../p/i/_/Pi.html" title="Pi">Pi</a> digits.</li>
+<li><a href="http://esoteric.voxelperfect.net/wiki/ReverseFuck" class="external text" title="http://esoteric.voxelperfect.net/wiki/ReverseFuck" rel="nofollow">ReverseFuck</a> uses "reversed" brainfuck's commands. ("+" means "-", "&lt;" means "&gt;", etc.)</li>
+<li>Spoon uses a <a href="../../../h/u/f/Huffman_coding.html" title="Huffman coding">Huffman coded</a> set of brainfuck's instructions.</li>
+<li>THRAT uses two instructions to access brainfuck instructions on an <a href="../../../o/p/c/Opcode.html" title="Opcode">opcode</a> table.</li>
+<li><a href="http://oopsilon.com/Trainf*ck" class="external text" title="http://oopsilon.com/Trainf*ck" rel="nofollow">Trainfuck</a> is another treatment of support for file I/O and networking; the page provides examples of usage.</li>
+<li><a href="http://www.soulsphere.org/stuffage/smbf/" class="external text" title="http://www.soulsphere.org/stuffage/smbf/" rel="nofollow">Self modifying Brainfuck</a> is a modified version of Brainfuck which allows self modifying code.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<dl>
+<dd><i>Further information: <a href="http://esoteric.voxelperfect.net/wiki/Brainfuck" class="external text" title="http://esoteric.voxelperfect.net/wiki/Brainfuck" rel="nofollow">Brainfuck</a> on the <a href="http://esoteric.voxelperfect.net/wiki/" class="external text" title="http://esoteric.voxelperfect.net/wiki/" rel="nofollow">esolangs wiki</a></i></dd>
+</dl>
+<ul>
+<li><a href="http://www.muppetlabs.com/~breadbox/bf/" class="external text" title="http://www.muppetlabs.com/~breadbox/bf/" rel="nofollow">Brian Raiter, Muppetlabs. <b>Brainfuck: An Eight-Instruction Turing-Complete Programming Language</b></a> is a concise informational page with comments on portability.</li>
+<li><a href="http://esoteric.sange.fi/brainfuck/" class="external text" title="http://esoteric.sange.fi/brainfuck/" rel="nofollow">Panu Kalliokoski. <b>The Brainfuck Archive</b></a> has many brainfuck programs and implementations.</li>
+<li><a href="http://www.hevanet.com/cristofd/brainfuck/" class="external text" title="http://www.hevanet.com/cristofd/brainfuck/" rel="nofollow">Daniel Cristofani. <b>some brainfuck fluff</b></a> has a complete brainfuck reference, implementations and an amazing collection of programs.</li>
+<li><a href="http://www.iwriteiam.nl/Ha_BF.html" class="external text" title="http://www.iwriteiam.nl/Ha_BF.html" rel="nofollow">Frans Faase. <b>Brainf***</b></a> is written from a mathematician's angle and has Turing-completeness proofs.</li>
+<li><a href="http://alx2002.free.fr/." class="external text" title="http://alx2002.free.fr/." rel="nofollow"><b>A Brainfuck tutorial</b> in English and French</a>.</li>
+<li><a href="http://www.bf-hacks.org/" class="external text" title="http://www.bf-hacks.org/" rel="nofollow">Keymaker. <b>bf-hacks.org</b></a> features a collection of brainfuck programs.</li>
+<li><a href="http://esolangs.org/wiki/Brainfuck_algorithms" class="external text" title="http://esolangs.org/wiki/Brainfuck_algorithms" rel="nofollow"><b>Brainfuck Algorithms</b></a> and code snippets</li>
+<li><a href="http://jonripley.com/i-fiction/games/LostKingdomBF.html" class="external text" title="http://jonripley.com/i-fiction/games/LostKingdomBF.html" rel="nofollow"><b>Lost Kingdom BF</b></a> A conversational game written in brainfuck.</li>
+<li><a href="http://www.49-6-dev.net/takingovertheworlden.htm" class="external text" title="http://www.49-6-dev.net/takingovertheworlden.htm" rel="nofollow"><b>Taking Over The World</b></a> A game written in brainfuck.</li>
+<li><a href="http://homepages.uni-paderborn.de/skoehler/html/" class="external text" title="http://homepages.uni-paderborn.de/skoehler/html/" rel="nofollow"><b>Rather theoretical elaboration</b></a> about brainfuck incl. an interpreter/debugger-applet.</li>
+</ul>
+<p><a name="Implementations" id="Implementations"></a></p>
+<h3><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Implementations">edit</a>]</span> <span class="mw-headline">Implementations</span></h3>
+<div class="messagebox cleanup metadata plainlinks">
+<table style="width:100%;background:none">
+<tr>
+<td width="60px"><a href="../../../i/n/f/Image%7EInformation_icon.svg_dac9.html" class="image" title=""><img src="../../../upload/thumb/3/35/Information_icon.svg/40px-Information_icon.svg.png" alt="" width="40" height="40" longdesc="../../../i/n/f/Image%7EInformation_icon.svg_dac9.html" /></a></td>
+<td><b>The <a href="../../../e/x/t/Wikipedia%7EExternal_links_6e33.html" title="Wikipedia:External links">external links</a> in this article may require <a href="../../../c/l/e/Wikipedia%7ECleanup_89e0.html" title="Wikipedia:Cleanup">cleanup</a> to comply with Wikipedia's <a href="../../../w/h/a/Wikipedia%7EWhat_Wikipedia_is_not_86da.html#Wikipedia_is_not_a_mirror_or_a_repository_of_links.2C_images.2C_or_media_files" title="Wikipedia:What Wikipedia is not">content policies</a>.</b><br />
+<small>Please <a href="http://en.wikipedia.org../../../b/r/a/Brainfuck.html" class="external text" title="http://en.wikipedia.org../../../b/r/a/Brainfuck.html" rel="nofollow">improve this article</a> by removing excessive or inappropriate external links. Please remove this tag when this is done. This article has been tagged since March 2007. (<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Talk:Brainfuck">talk</a>)</small></td>
+</tr>
+</table>
+</div>
+<ul>
+<li><a href="http://4mhz.de/" class="external text" title="http://4mhz.de/" rel="nofollow">Brainfuck Developer</a>, powerful development environment with integrated debugger (IDE) for Windows</li>
+<li><a href="http://xieke.com/dbfi.php" class="external text" title="http://xieke.com/dbfi.php" rel="nofollow">Delphi Brainfuck Interpreter</a> a fast interpreter written in Delphi with a large collection of brainfuck scripts. Executable and source code included.</li>
+<li><a href="http://www.politea.sk/brainfuck.txt" class="external text" title="http://www.politea.sk/brainfuck.txt" rel="nofollow">Brainf*ck Pascal/Delphi implementation</a> , simple and easy to understand</li>
+<li><a href="http://mitglied.lycos.de/wichtiasoft/d.html" class="external text" title="http://mitglied.lycos.de/wichtiasoft/d.html" rel="nofollow">TaccoMat the Brainfuck interpreter</a> by Benjamin F. Loleit</li>
+<li><a href="http://www.nada.kth.se/~matslina/awib/" class="external text" title="http://www.nada.kth.se/~matslina/awib/" rel="nofollow">Also Written In Brainfuck (awib)</a> is a brainfuck compiler written in brainfuck for <a href="../../../l/i/n/Linux.html" title="Linux">Linux</a> on <a href="../../../i/3/8/I386.html" title="I386">i386</a>.</li>
+<li><a href="http://home.arcor.de/partusch/html_en/bfd.html" class="external text" title="http://home.arcor.de/partusch/html_en/bfd.html" rel="nofollow">Brainfucked</a> a small compatible <a href="../../../o/p/e/Open_source.html" title="Open source">open source</a> compiler with syntax checking and code optimization for <a href="../../../m/i/c/Microsoft_Windows_48e2.html" title="Microsoft Windows">Microsoft Windows</a>/<a href="../../../d/o/s/DOS_a58e.html" title="DOS">DOS</a>.</li>
+<li><a href="http://www.saschaseidel.de/html/eigeneprogramme/eigeneprogramme.php#Brainfuck_Express" class="external text" title="http://www.saschaseidel.de/html/eigeneprogramme/eigeneprogramme.php#Brainfuck_Express" rel="nofollow">Sascha Seidel, Brainfuck Express - Virtual Turing Machine</a> - Development environment, editor, compiler, tools, tutorials, ASCII table and historical information about Brainfuck.</li>
+<li><a href="http://www.tkk.pl/~KKKas/index.php?i=19" class="external text" title="http://www.tkk.pl/~KKKas/index.php?i=19" rel="nofollow">Brainfuck Machine</a> - BF IDE - Editor, <a href="../../../c/o/m/Compiler.html" title="Compiler">compiler</a>, <a href="../../../d/e/b/Debugger.html" title="Debugger">debugger</a>, <a href="../../../i/n/t/Interpreter_%28computing%29.html" title="Interpreter (computing)">interpreter</a>, converter to other <a href="../../../p/r/o/Programming_language.html" title="Programming language">programming languages</a>, <a href="../../../a/s/c/ASCII_d2cd.html" title="ASCII">ASCII</a> table, changing BF instructions to own (for example + =&gt; a, - =&gt; b, ...) (for <a href="../../../m/i/c/Microsoft_Windows_48e2.html" title="Microsoft Windows">Windows</a>)</li>
+<li><a href="http://www.swapped.cc/bf" class="external text" title="http://www.swapped.cc/bf" rel="nofollow">BFF</a> is very fast optimizing interpreter written in portable C</li>
+<li><a href="http://mozaika.com.au/oleg/brainf/" class="external text" title="http://mozaika.com.au/oleg/brainf/" rel="nofollow">BFF4</a> is really fast interpreter written in C</li>
+<li><a href="http://alephmobius.8m.com/dl.html" class="external text" title="http://alephmobius.8m.com/dl.html" rel="nofollow">Blue Fern</a>, a brainfuck IDE for Windows</li>
+<li><a href="http://www.soulsphere.org/stuffage/bf.net/" class="external text" title="http://www.soulsphere.org/stuffage/bf.net/" rel="nofollow">Brainfuck.Net</a></li>
+<li><a href="http://search.cpan.org/~jaldhar/Acme-Brainfuck-1.1.1/lib/Acme/Brainfuck.pm" class="external text" title="http://search.cpan.org/~jaldhar/Acme-Brainfuck-1.1.1/lib/Acme/Brainfuck.pm" rel="nofollow">Acme::Brainfuck</a>, a <a href="../../../p/e/r/Perl.html" title="Perl">Perl</a> module that permits brainfuck programs to be embedded in Perl.</li>
+<li><a href="http://bolk.exler.ru/files/bf/" class="external text" title="http://bolk.exler.ru/files/bf/" rel="nofollow">Processing_BF</a> is a <a href="../../../p/h/p/PHP_2fec.html" title="PHP">PHP</a> class featuring an optmizing parser, executor and PHP translator</li>
+<li><a href="http://www.hevanet.com/cristofd/brainfuck/di.html" class="external text" title="http://www.hevanet.com/cristofd/brainfuck/di.html" rel="nofollow">Minimalistic brainfuck interpreter in JavaScript</a>, for people who do not want to spend ten minutes getting a compiler.</li>
+<li><a href="http://jtauber.com/blog/2006/03/01/brainf" class="external text" title="http://jtauber.com/blog/2006/03/01/brainf" rel="nofollow">brainf.py</a>, a <a href="../../../p/y/t/Python_%28programming_language%29.html" title="Python (programming language)">Python</a> implementation by James Tauber.</li>
+<li><a href="http://www.smultron.nu/bf/" class="external text" title="http://www.smultron.nu/bf/" rel="nofollow">BrainF** Turbo Interpreter</a> A fast web-based interpreter applet.</li>
+<li><a href="http://www.bf-hacks.org/hacks/kbfi.b" class="external text" title="http://www.bf-hacks.org/hacks/kbfi.b" rel="nofollow">kbfi</a> A brainfuck interpreter written in brainfuck that can emulate cell values from zero to infinity. Designed in the traditional non-wrapping unsigned 8-bit cell (and non-wrapping array) brainfuck environment.</li>
+<li><a href="http://felipe.mfontoura.vilabol.uol.com.br/bfi3/bfi3_en.html" class="external text" title="http://felipe.mfontoura.vilabol.uol.com.br/bfi3/bfi3_en.html" rel="nofollow">BfI3 in English</a> — brainfuck interpreter in JavaScript. Slow but features syntax highlighting. Doesn't work at all except on some versions of Internet Explorer.</li>
+<li><a href="http://web.mit.edu/amrik/www" class="external text" title="http://web.mit.edu/amrik/www" rel="nofollow">SchemeBF</a> is fast brainfuck interpreter in Scheme.</li>
+<li><a href="http://sviip.dk/phpi/brainfuck/interpreter.php" class="external text" title="http://sviip.dk/phpi/brainfuck/interpreter.php" rel="nofollow">phpBrainfuckInterpreter</a> is an Brainfuck interpreter which can be run from the web and can give verbose feedback as a program runs to aid in debugging.</li>
+<li><a href="http://arainyday.se/projects/palm/BFEdit/" class="external text" title="http://arainyday.se/projects/palm/BFEdit/" rel="nofollow">BrainF#ck</a> is a full BrainFuck IDE for PalmOS. Complete with editor, step-by-step debugging and a runtime memory view.</li>
+<li><a href="http://www.aldweb.com/articles.php?lng=en&amp;pg=8290" class="external text" title="http://www.aldweb.com/articles.php?lng=en&amp;pg=8290" rel="nofollow">iBrainF*ck</a> is another implementation of BrainFuck for PalmOS.</li>
+<li><a href="http://www.bur.st/~yayyak/Fred" class="external text" title="http://www.bur.st/~yayyak/Fred" rel="nofollow">Fred</a> is a BrainFuck to C filter program, with ANSI C source under the GNU GPL.</li>
+<li><a href="http://djm.cc/bfdb-0.02.tgz" class="external text" title="http://djm.cc/bfdb-0.02.tgz" rel="nofollow">bfdb</a>, an optimizing Brainfuck interpreter, debugger and compiler.</li>
+<li><a href="http://savannah.nongnu.org/projects/libbf" class="external text" title="http://savannah.nongnu.org/projects/libbf" rel="nofollow">libbf</a>, a free portable library for Brainfuck fast interpretation, optimization, compilation and execution</li>
+<li><a href="http://www.jabb-sch.narod.ru/bf/" class="external text" title="http://www.jabb-sch.narod.ru/bf/" rel="nofollow">Branfuck.NET Compiler</a> is a Brainfuck compiler for Microsoft .Net Framework. Compiles BF programms into Portable Executable files (exe)</li>
+<li><a href="http://daniel.lorch.cc/projects/brainfuck/" class="external text" title="http://daniel.lorch.cc/projects/brainfuck/" rel="nofollow">A Brainfuck Interpreter in PHP</a> is a Brainfuck interpreter written in PHP</li>
+<li><a href="http://www.joachim-breitner.de/blog/archives/161-Brainfuck-interpreter-in-Haskell.html" class="external text" title="http://www.joachim-breitner.de/blog/archives/161-Brainfuck-interpreter-in-Haskell.html" rel="nofollow">Interpreter in Haskell</a> is a Interpreter in Haskell</li>
+<li><a href="http://www.esolangs.org/files/brainfuck/impl/BEFstarObf.tec" class="external text" title="http://www.esolangs.org/files/brainfuck/impl/BEFstarObf.tec" rel="nofollow">Brain Editor and Fucker</a>, or BEF*, is a BF interpreter written for TECO. The slim documentation can be found <a href="http://www.esolangs.org/files/brainfuck/impl/BEFstar.txt" class="external text" title="http://www.esolangs.org/files/brainfuck/impl/BEFstar.txt" rel="nofollow">here</a> and the commented version of the source <a href="http://www.esolangs.org/files/brainfuck/impl/BEFstar.tec" class="external text" title="http://www.esolangs.org/files/brainfuck/impl/BEFstar.tec" rel="nofollow">here</a>.</li>
+<li><a href="http://www.kpym.com/brainfuck/" class="external text" title="http://www.kpym.com/brainfuck/" rel="nofollow">Brainfuck Studio</a> is brainfuck interpreter and debugger written in JavaScript.</li>
+<li><a href="http://brainfoo.sourceforge.net/" class="external text" title="http://brainfoo.sourceforge.net/" rel="nofollow">brainfoo</a> is a small brainfuck interpreter written in C.</li>
+<li><a href="http://wiki.gudinna.com/288" class="external text" title="http://wiki.gudinna.com/288" rel="nofollow">Brainfuck VGA</a> Brainfuck compiler for graphics programmers.</li>
+<li><a href="http://www.michihiebl.de/?page_id=14" class="external free" title="http://www.michihiebl.de/?page_id=14" rel="nofollow">http://www.michihiebl.de/?page_id=14</a> shows an online Version of a Brainfuckinterpreter written in PHP</li>
+</ul>
+<p><a name="Hardware" id="Hardware"></a></p>
+<h4><span class="editsection">[<a href="../../../b/r/a/Brainfuck.html" title="Edit section: Hardware">edit</a>]</span> <span class="mw-headline">Hardware</span></h4>
+<ul>
+<li><a href="http://www.robos.org/electronics/bfcomp/" class="external text" title="http://www.robos.org/electronics/bfcomp/" rel="nofollow">Robert Östling. Brainfuck computer.</a></li>
+<li><a href="http://www.clifford.at/bfcpu/" class="external text" title="http://www.clifford.at/bfcpu/" rel="nofollow">Clifford Wolf. The Brainf*ck CPU and other brainfuck-related projects</a></li>
+</ul>
+
+<!-- 
+Pre-expand include size: 1604 bytes
+Post-expand include size: 1174 bytes
+Template argument size: 289 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/a/Brainfuck.html">http://en.wikipedia.org../../../b/r/a/Brainfuck.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../w/i/k/Category%7EWikipedia_external_links_cleanup_7eee.html" title="Category:Wikipedia external links cleanup">Wikipedia external links cleanup</a></span> | <span dir='ltr'><a href="../../../n/o/n/Category%7ENon-English-based_programming_languages_31ec.html" title="Category:Non-English-based programming languages">Non-English-based programming languages</a></span> | <span dir='ltr'><a href="../../../e/s/o/Category%7EEsoteric_programming_languages_5b5d.html" title="Category:Esoteric programming languages">Esoteric programming languages</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/r/a/Brainfuck.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Brainfuck">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../ca/b/r/a/Brainfuck.html">Català</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../cs/b/r/a/Brainfuck.html">Česky</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../de/b/r/a/Brainfuck.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../et/b/r/a/Brainfuck.html">Eesti</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/b/r/a/Brainfuck.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../eo/b/r/a/Brainfuck_%28programlingvo%29.html">Esperanto</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/b/r/a/Brainfuck.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ko/%EB%B8%8C/%EB%A0%88/%EC%9D%B8/%EB%B8%8C%EB%A0%88%EC%9D%B8%ED%8D%BD.html">한국어</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../is/h/e/i/Heilari%C3%B0lun.html">Íslenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/b/r/a/Brainfuck.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/b/r/a/Brainfuck.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../hu/b/r/a/Brainfuck_programoz%C3%A1si_nyelv.html">Magyar</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/b/r/a/Brainfuck.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/b/r/a/Brainfuck.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../no/b/r/a/Brainfuck.html">‪Norsk (bokmål)‬</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/b/r/a/Brainfuck.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/b/r/a/Brainfuck.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/b/r/a/Brainfuck.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sk/b/r/a/Brainfuck.html">Slovenčina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sl/b/r/a/Brainfuck.html">Slovenščina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/b/r/a/Brainfuck.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/b/r/a/Brainfuck.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../tr/b/r/a/Brainfuck.html">Türkçe</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../uk/b/r/a/Brainfuck.html">Українська</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/b/r/a/Brainfuck.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 08:03, 24 March 2007 by Wikipedia user <a href="../../../e/a/t/User%7EEatMyShortz_1fd5.html" title="User:EatMyShortz">EatMyShortz</a>. Based on work by Wikipedia user(s) <a href="../../../r/2E/e/User%7ER.e.s._9f77.html" title="User:R.e.s.">R.e.s.</a>, <a href="../../../i/a/n/User%7EIanOsgood_81a9.html" title="User:IanOsgood">IanOsgood</a>, Nonename, <a href="../../../a/p/a/User%7EApankrat_f950.html" title="User:Apankrat">Apankrat</a>, <a href="../../../r/j/w/User%7ERjwilmsi_027f.html" title="User:Rjwilmsi">Rjwilmsi</a>, <a href="../../../d/u/n/User%7EDungodung_84cc.html" title="User:Dungodung">Dungodung</a>, <a href="../../../s/i/m/User%7ESimeon87_a726.html" title="User:Simeon87">Simeon87</a>, <a href="../../../h/a/p/User%7EHappypal_1511.html" title="User:Happypal">Happypal</a>, Montyphy, <a href="../../../r/e/v/User%7ERevolus_a591.html" title="User:Revolus">Revolus</a>, Rowfilter, <a href="../../../m/j/p/User%7EMjpieters_3aa7.html" title="User:Mjpieters">Mjpieters</a>, Mr richard t king, <a href="../../../v/e/i/User%7EVeinor_0082.html" title="User:Veinor">Veinor</a>, <a href="../../../a/m/p/User%7EAmpersand777_8e91.html" title="User:Ampersand777">Ampersand777</a>, Reallybored999, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a>, <a href="../../../r/u/u/User%7ERuud_Koot_88b0.html" title="User:Ruud Koot">Ruud Koot</a>, <a href="../../../c/h/o/User%7EChobot_0dce.html" title="User:Chobot">Chobot</a>, <a href="../../../a/i/s/User%7EAis523_9dee.html" title="User:Ais523">Ais523</a>, <a href="../../../s/t/b/User%7ESTBot_bbca.html" title="User:STBot">STBot</a>, <a href="../../../p/o/w/User%7EPowPit_dc11.html" title="User:PowPit">PowPit</a>, <a href="../../../b/r/i/User%7EBridgeplayer_5ae5.html" title="User:Bridgeplayer">Bridgeplayer</a>, <a href="../../../m/o/n/User%7EMonz_4cc3.html" title="User:Monz">Monz</a>, <a href="../../../y/a/n/User%7EYanksox_34ed.html" title="User:Yanksox">Yanksox</a>, <a href="../../../h/a/i/User%7EHaikz_42c5.html" title="User:Haikz">Haikz</a>, <a href="../../../t/r/o/User%7ETrovatore_c393.html" title="User:Trovatore">Trovatore</a>, <a href="../../../i/n/k/User%7EInkington_1303.html" title="User:Inkington">Inkington</a>, <a href="../../../j/i/p/User%7EJIP_0758.html" title="User:JIP">JIP</a>, <a href="../../../d/a/n/User%7EDanielBeaver_f5eb.html" title="User:DanielBeaver">DanielBeaver</a>, Daler, <a href="../../../v/o/l/User%7EVoluntarySlave_e88b.html" title="User:VoluntarySlave">VoluntarySlave</a>, <a href="../../../b/o/v/User%7EBovineone_f416.html" title="User:Bovineone">Bovineone</a>, <a href="../../../n/o/m/User%7ENomeata_bd21.html" title="User:Nomeata">Nomeata</a>, <a href="../../../w/r/i/User%7EWrittenonsand_3868.html" title="User:Writtenonsand">Writtenonsand</a>, <a href="../../../a/n/t/User%7EAntiVandalBot_aa84.html" title="User:AntiVandalBot">AntiVandalBot</a>, Tomcs, <a href="../../../p/r/o/User%7EProtious_7250.html" title="User:Protious">Protious</a>, Thotypous, <a href="../../../c/m/u/User%7ECMummert_c108.html" title="User:CMummert">CMummert</a>, <a href="../../../a/n/d/User%7EAndros_1337_b575.html" title="User:Andros 1337">Andros 1337</a>, <a href="../../../r/a/n/User%7ERanok_ed78.html" title="User:Ranok">Ranok</a>, <a href="../../../i/c/e/User%7EIcey_711b.html" title="User:Icey">Icey</a>, <a href="../../../s/e/d/User%7ESedimin_a0a5.html" title="User:Sedimin">Sedimin</a>, <a href="../../../i/v/u/User%7EIvucica_f607.html" title="User:Ivucica">Ivucica</a>, <a href="../../../s/e/a/User%7ESearch4Lancer_007d.html" title="User:Search4Lancer">Search4Lancer</a>, <a href="../../../c/r/g/User%7ECRGreathouse_d93e.html" title="User:CRGreathouse">CRGreathouse</a>, Semiclear, <a href="../../../t/a/w/User%7ETawkerbot2_313a.html" title="User:Tawkerbot2">Tawkerbot2</a>, Jamaica mon, Neonleonb, <a href="../../../h/a/z/User%7EHaza-w_0438.html" title="User:Haza-w">Haza-w</a>, <a href="../../../k/y/l/User%7EKyle_Barbour_98c3.html" title="User:Kyle Barbour">Kyle Barbour</a>, Amrik, <a href="../../../u/g/u/User%7EUgur_Basak_Bot_6132.html" title="User:Ugur Basak Bot">Ugur Basak Bot</a>, <a href="../../../f/u/r/User%7EFurrykef_4620.html" title="User:Furrykef">Furrykef</a>, <a href="../../../l/a/m/User%7ELambyuk_5bb7.html" title="User:Lambyuk">Lambyuk</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../h/e/x/User%7EHexagon1_7aa4.html" title="User:Hexagon1">Hexagon1</a>, <a href="../../../b/e/n/User%7EBenjamin_Mako_Hill_1ad0.html" title="User:Benjamin Mako Hill">Benjamin Mako Hill</a>, Jeffrey O. Gustafson, <a href="../../../n/2E/m/User%7EN.MacInnes_8d69.html" title="User:N.MacInnes">N.MacInnes</a>, <a href="../../../f/r/a/User%7EFragglet_2ddd.html" title="User:Fragglet">Fragglet</a>, <a href="../../../j/o/r/User%7EJorge_Stolfi_00bf.html" title="User:Jorge Stolfi">Jorge Stolfi</a>, <a href="../../../m/a/t/User%7EMatveims_c684.html" title="User:Matveims">Matveims</a>, <a href="../../../e/t/h/User%7EEtherealflaim_a635.html" title="User:Etherealflaim">Etherealflaim</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../s/i/r/User%7ESiroxo_bc18.html" title="User:Siroxo">Siroxo</a>, <a href="../../../d/o/u/User%7EDoug_Bell_8398.html" title="User:Doug Bell">Doug Bell</a>, TomasS, <a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a>, <a href="../../../o/p/t/User%7EOptichan_6a3d.html" title="User:Optichan">Optichan</a>, <a href="../../../s/t/o/User%7EStoive_433f.html" title="User:Stoive">Stoive</a>, <a href="../../../p/o/s/User%7EPostrach_7547.html" title="User:Postrach">Postrach</a>, Jiy, <a href="../../../w/a/t/User%7EWater_Bottle_595b.html" title="User:Water Bottle">Water Bottle</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../b/a/y/User%7EBaylink_cb4a.html" title="User:Baylink">Baylink</a>, <a href="../../../d/b/e/User%7EDbenbenn_44bf.html" title="User:Dbenbenn">Dbenbenn</a>, <a href="../../../b/k/e/User%7EBkell_6f8f.html" title="User:Bkell">Bkell</a>, <a href="../../../t/a/_/User%7ETa_bu_shi_da_yu_9191.html" title="User:Ta bu shi da yu">Ta bu shi da yu</a>, <a href="../../../i/r/i/User%7EIrixman_d51f.html" title="User:Irixman">Irixman</a>, <a href="../../../w/c/l/User%7EWclark_3ce6.html" title="User:Wclark">Wclark</a>, <a href="../../../m/i/s/User%7EMistercow_17cc.html" title="User:Mistercow">Mistercow</a>, <a href="../../../r/o/b/User%7ERobost_c93e.html" title="User:Robost">Robost</a>, 404notfound, <a href="../../../g/t/r/User%7EGtrmp_2ffc.html" title="User:Gtrmp">Gtrmp</a>, <a href="../../../f/l/a/User%7EFlarn2005_c400.html" title="User:Flarn2005">Flarn2005</a>, <a href="../../../b/o/d/User%7EBodyTag_ffc4.html" title="User:BodyTag">BodyTag</a>, <a href="../../../t/a/e/User%7ETaejo_8cf3.html" title="User:Taejo">Taejo</a>, <a href="../../../n/i/k/User%7ENikai_7c15.html" title="User:Nikai">Nikai</a>, <a href="../../../b/e/t/User%7EBetterworld_0391.html" title="User:Betterworld">Betterworld</a>, <a href="../../../a/t/h/User%7EAthas_a471.html" title="User:Athas">Athas</a>, -OOPSIE-, <a href="../../../a/l/l/User%7EAllen3_f7ae.html" title="User:Allen3">Allen3</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../i/b/y/User%7EIByte_f0c6.html" title="User:IByte">IByte</a>, <a href="../../../j/u/m/User%7EJumbuck_a815.html" title="User:Jumbuck">Jumbuck</a>, <a href="../../../s/p/l/User%7ESplash_a61b.html" title="User:Splash">Splash</a>, <a href="../../../x/m/n/User%7EXmnemonic_d4e1.html" title="User:Xmnemonic">Xmnemonic</a>, <a href="../../../s/m/o/User%7ESmoothhenry_2300.html" title="User:Smoothhenry">Smoothhenry</a>, <a href="../../../s/t/e/User%7EStewartadcock_c102.html" title="User:Stewartadcock">Stewartadcock</a>, Scottbell, <a href="../../../d/r/i/User%7EDrini_e6be.html" title="User:Drini">Drini</a>, <a href="../../../c/m/d/User%7ECmdrjameson_3c06.html" title="User:Cmdrjameson">Cmdrjameson</a>, <a href="../../../k/m/i/User%7EKmill_3cfa.html" title="User:Kmill">Kmill</a>, Spankthecrumpet, Yuubinbako, <a href="../../../s/g/e/User%7ESgeo_6a36.html" title="User:Sgeo">Sgeo</a>, <a href="../../../s/a/m/User%7ESam_Hughes_b513.html" title="User:Sam Hughes">Sam Hughes</a>, <a href="../../../p/a/d/User%7EPaddu_be1f.html" title="User:Paddu">Paddu</a>, <a href="../../../a/d/r/User%7EAdrian.benko_9ee6.html" title="User:Adrian.benko">Adrian.benko</a>, <a href="../../../s/h/r/User%7EShreevatsa_6099.html" title="User:Shreevatsa">Shreevatsa</a>, <a href="../../../n/i/c/User%7ENickj_5f86.html" title="User:Nickj">Nickj</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../g/r/a/User%7EGrammarbot_5e0a.html" title="User:Grammarbot">Grammarbot</a>, BrianV, <a href="../../../d/a/r/User%7EDarco_711e.html" title="User:Darco">Darco</a>, <a href="../../../a/u/t/User%7EAutrijus_e98e.html" title="User:Autrijus">Autrijus</a>, <a href="../../../c/x/i/User%7ECXI_62c6.html" title="User:CXI">CXI</a>, <a href="../../../t/r/i/User%7ETriskaideka_72fe.html" title="User:Triskaideka">Triskaideka</a>, <a href="../../../i/m/s/User%7EIMSoP_6779.html" title="User:IMSoP">IMSoP</a>, <a href="../../../l/u/d/User%7ELudraman_395d.html" title="User:Ludraman">Ludraman</a>, <a href="../../../a/n/d/User%7EAndrewa_c818.html" title="User:Andrewa">Andrewa</a>, <a href="../../../t/o/n/User%7ETony_Sidaway_8b51.html" title="User:Tony Sidaway">Tony Sidaway</a>, <a href="../../../m/7/_/User%7EM7_ecdf.html" title="User:M7">M7</a>, <a href="../../../a/_/p/User%7EA_purple_wikiuser_cc5e.html" title="User:A purple wikiuser">A purple wikiuser</a>, <a href="../../../s/u/n/User%7ESundar_8811.html" title="User:Sundar">Sundar</a>, <a href="../../../d/p/e/User%7EDpen2000_dffb.html" title="User:Dpen2000">Dpen2000</a>, Prino, Andrewbadr, <a href="../../../r/o/b/User%7ERobbot_3bd9.html" title="User:Robbot">Robbot</a>, <a href="../../../c/h/r/User%7EChris_73_2ea7.html" title="User:Chris 73">Chris 73</a>, <a href="../../../l/e/i/User%7ELeif_7e14.html" title="User:Leif">Leif</a>, <a href="../../../g/u/a/User%7EGuanabot_b902.html" title="User:Guanabot">Guanabot</a>, <a href="../../../%C3%A6/v/a/User%7E%C3%86var_Arnfj%C3%B6r%C3%B0_Bjarmason_03c5.html" title="User:Ævar Arnfjörð Bjarmason">Ævar Arnfjörð Bjarmason</a>, <a href="../../../c/r/i/User%7ECrimmer_3f1c.html" title="User:Crimmer">Crimmer</a>, <a href="../../../p/t/_/User%7EPt_7ac7.html" title="User:Pt">Pt</a>, <a href="../../../d/a/n/User%7EDanakil_c52d.html" title="User:Danakil">Danakil</a>, <a href="../../../i/a/i/User%7EIainscott_79a1.html" title="User:Iainscott">Iainscott</a>, <a href="../../../n/e/i/User%7ENeilc_4027.html" title="User:Neilc">Neilc</a>, Bunny Angel13, <a href="../../../w/i/l/User%7EWile_E._Heresiarch_9879.html" title="User:Wile E. Heresiarch">Wile E. Heresiarch</a>, <a href="../../../m/a/x/User%7EMaximus_Rex_f7db.html" title="User:Maximus Rex">Maximus Rex</a>, <a href="../../../b/e/n/User%7EBen-Arba_2e34.html" title="User:Ben-Arba">Ben-Arba</a>, Bug, <a href="../../../w/i/k/User%7EWikiborg_3c13.html" title="User:Wikiborg">Wikiborg</a>, <a href="../../../t/i/e/User%7ETietew_cf0c.html" title="User:Tietew">Tietew</a>, <a href="../../../s/z/a/User%7ESzajd_5ce5.html" title="User:Szajd">Szajd</a>, <a href="../../../t/s/c/User%7ETsca_13ad.html" title="User:Tsca">Tsca</a>, <a href="../../../a/r/v/User%7EArvindn_6a6a.html" title="User:Arvindn">Arvindn</a>, <a href="../../../e/2/3/User%7EE23_b97e.html" title="User:E23">E23</a>, <a href="../../../s/p/i/User%7ESpikey_c3ba.html" title="User:Spikey">Spikey</a>, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, <a href="../../../x/y/b/User%7EXyb_e2be.html" title="User:Xyb">Xyb</a>, <a href="../../../t/a/n/User%7ETannin_d034.html" title="User:Tannin">Tannin</a>, <a href="../../../g/e/n/User%7EGeneral_Wesc_0ef7.html" title="User:General Wesc">General Wesc</a>, <a href="../../../n/o/t/User%7ENotheruser_b27a.html" title="User:Notheruser">Notheruser</a>, <a href="../../../k/r/i/User%7EKricxjo_d8c0.html" title="User:Kricxjo">Kricxjo</a>, <a href="../../../c/p/r/User%7ECprompt_297d.html" title="User:Cprompt">Cprompt</a>, <a href="../../../s/g/b/User%7ESGBailey_9d1e.html" title="User:SGBailey">SGBailey</a>, <a href="../../../c/f/e/User%7ECferrero_3327.html" title="User:Cferrero">Cferrero</a>, <a href="../../../p/a/t/User%7EPatrick_7b47.html" title="User:Patrick">Patrick</a>, <a href="../../../f/v/d/User%7EFvdP_984c.html" title="User:FvdP">FvdP</a>, <a href="../../../a/l/f/User%7EAlfio_ae11.html" title="User:Alfio">Alfio</a>, <a href="../../../f/r/e/User%7EFrecklefoot_571c.html" title="User:Frecklefoot">Frecklefoot</a>, <a href="../../../v/_/_/User%7EV_16d9.html" title="User:V">V</a>, <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, <a href="../../../b/r/y/User%7EBryan_Derksen_3ce8.html" title="User:Bryan Derksen">Bryan Derksen</a> and <a href="../../../g/a/r/User%7EGareth_Owen_3dfc.html" title="User:Gareth Owen">Gareth Owen</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

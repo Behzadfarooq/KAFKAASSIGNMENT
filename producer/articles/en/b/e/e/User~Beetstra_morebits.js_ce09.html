@@ -1,0 +1,664 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Beetstra/morebits.js,Bypass your cache" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Beetstra/morebits.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Beetstra/morebits.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../b/e/e/User%7EBeetstra_df14.html" title="User:Beetstra">User:Beetstra</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</span>
+</p><pre>/**
+* Will escape a string to be used in a RegExp
+*/
+RegExp.escape = function( text, space_fix ) {
+
+	if ( !arguments.callee.sRE ) {
+		arguments.callee.sRE = /(\/|\.|\*|\+|\?|\||\(|\)|\[|\]|\{|\}|\\|\$|\^)/g;
+	}
+
+	text = text.replace( arguments.callee.sRE , '\\$1' );
+
+	// Special Mediawiki escape, underscore/space is the same, often at lest:
+
+	if( space_fix ) {
+		text = text.replace( / |_/g, '[_ ]' );
+	}
+
+	return text;
+
+}
+namespaces	=	{
+	'-2':	'Media',
+	'-1':	'Special',
+	'0'	:	'',
+	'1'	:	'Talk',
+	'2'	:	'User',
+	'3'	:	'User_talk',
+	'4'	:	'Project',
+	'5'	:	'Project talk',
+	'6'	:	'Image',
+	'7'	:	'Image talk',
+	'8'	:	'MediaWiki',
+	'9'	:	'MediaWiki talk',
+	'10':	'Template',
+	'11':	'Template talk',
+	'12':	'Help',
+	'13':	'Help talk',
+	'14':	'Category',
+	'15':	'Category talk'
+};
+/**
+* Helper functions to get the month as a string instead of a number
+*/
+
+Date.monthNames = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December'
+];
+Date.monthNamesAbbrev = [
+	'Jan',
+	'Feb',
+	'Mar',
+	'Apr',
+	'May',
+	'Jun',
+	'Jul',
+	'Aug',
+	'Sep',
+	'Oct',
+	'Nov',
+	'Dec'
+];
+
+Date.prototype.getMonthName = function() {
+	return Date.monthNames[ this.getMonth() ];
+}
+
+Date.prototype.getMonthNameAbbrev = function() {
+	return Date.monthNamesAbbrev[ this.getMonth() ];
+}
+Date.prototype.getUTCMonthName = function() {
+	return Date.monthNames[ this.getUTCMonth() ];
+}
+
+Date.prototype.getUTCMonthNameAbbrev = function() {
+	return Date.monthNamesAbbrev[ this.getUTCMonth() ];
+}
+
+// Simple helper functions to see what groups a user might belong
+
+function userIsInGroup( group ) {
+if( !Array.indexOf ) {  
+    Array.prototype.indexOf = function( needle ) {  
+        for( var i in this ) {  
+            if( this[i] == needle ) {  
+                return i;  
+            }  
+        }  
+        return -1;  
+    }  
+}  
+  
+if( !Array.lastIndexOf ) {  
+    Array.prototype.lastIndexOf = function( needle ) {  
+        for( var i = this.length; i &gt;= 0; --i ) {  
+            if( this[i] == needle ) {  
+                return i;  
+            }  
+        }  
+        return -1;  
+    }  
+} 
+}
+
+function userIsAnon() {
+	return wgUserGroups == null;
+}
+
+// AOL Proxy IP Addresses (2007-02-03)
+var AOLNetworks = [
+	'64.12.96.0/19',
+	'149.174.160.0/20',
+	'152.163.240.0/21',
+	'152.163.248.0/22',
+	'152.163.252.0/23',
+	'152.163.96.0/22',
+	'152.163.100.0/23',
+	'195.93.32.0/22',
+	'195.93.48.0/22',
+	'195.93.64.0/19',
+	'195.93.96.0/19',
+	'195.93.16.0/20',
+	'198.81.0.0/22',
+	'198.81.16.0/20',
+	'198.81.8.0/23',
+	'202.67.64.128/25',
+	'205.188.192.0/20',
+	'205.188.208.0/23',
+	'205.188.112.0/20',
+	'205.188.146.144/30',
+	'207.200.112.0/21',
+];
+
+// AOL Client IP Addresses (2007-02-03)
+var AOLClients = [
+	'172.128.0.0/10',
+	'172.192.0.0/12',
+	'172.208.0.0/14',
+	'202.67.66.0/23',
+	'172.200.0.0/15',
+	'172.202.0.0/15',
+	'172.212.0.0/14',
+	'172.216.0.0/16',
+	'202.67.68.0/22',
+	'202.67.72.0/21',
+	'202.67.80.0/20',
+	'202.67.96.0/19',
+];
+
+/**
+* ipadress is in the format 1.2.3.4 and network is in the format 1.2.3.4/5
+*/
+
+function isInNetwork( ipaddress, network ) {
+	var iparr = ipaddress.split('.');
+	var ip = (parseInt(iparr[0]) &lt;&lt; 24) + (parseInt(iparr[1]) &lt;&lt; 16) + (parseInt(iparr[2]) &lt;&lt; 8) + (parseInt(iparr[3]));
+
+	var netmask = 0xffffffff &lt;&lt; network.split('/')[1];
+
+	var netarr = network.split('/')[0].split('.');
+	var net = (parseInt(netarr[0]) &lt;&lt; 24) + (parseInt(netarr[1]) &lt;&lt; 16) + (parseInt(netarr[2]) &lt;&lt; 8) + (parseInt(netarr[3]));
+
+	return (ip &amp; netmask) == net;
+}
+
+/* Returns true if given string contains a valid IP-address, that is, from 0.0.0.0 to 255.255.255.255*/
+function isIPAddress( string ){
+	var res = /(\d{1,4})\.(\d{1,3})\.(\d{1,3})\.(\d{1,4})/.exec( string );
+	return res != null &amp;&amp; res.slice( 1, 5 ).every( function( e ) { return e &lt; 256; } );
+}
+
+/**
+* Maps the querystring to an object
+*
+* Functions:
+*
+* QueryString.exists(key)
+*     returns true if the particular key is set
+* QueryString.get(key)
+*     returns the value associated to the key
+* QueryString.equals(key, value)
+*     returns true if the value associated with given key equals given value
+* QueryString.toString()
+*     returns the query string as a string
+*
+* Optional parameter to exists, get and equals, can define another query string, but remember that that string wont be cached.
+*/
+
+function QueryString() {}
+
+QueryString.init = function(str) {
+	var params = {};
+
+	if( QueryString.params != null &amp;&amp; !str ) {
+		return;
+	}
+	if ( !str ) {
+		QueryString.params = {};
+	}
+	var queryString = str || location.search.substring(1);
+
+	if(queryString.length == 0) {
+		return;
+	}
+
+	if( !str ) {
+		QueryString.str = queryString;
+	}
+
+	queryString.replace(/\+/, ' ');
+
+	var args = queryString.split('&amp;');
+
+	for( var i in args ) {
+		var pair = args[i].split( '=' );
+		var key = decodeURIComponent( pair[0] ), value = key;
+
+		if( pair.length == 2 ) {
+			value = decodeURIComponent( pair[1] );
+		}
+
+		params[key] = value;
+	}
+
+	if( !str ) {
+		QueryString.params = params;
+	}
+
+	return params;
+}
+
+QueryString.get = function(key, str) {
+	if( str ) {
+		var val = QueryString.init(str)[key];
+		return val ? val : null;
+	} else if( QueryString.params == null ) {
+		QueryString.init();
+	}
+	return QueryString.params[key] ? QueryString.params[key] : null;
+};
+
+QueryString.exists = function(key, str) {
+	if( str ) {
+		return QueryString.init(str)[key] ? true : false;
+	} else if( QueryString.params == null ) {
+		QueryString.init();
+	}
+
+	return QueryString.params[key] ? true : false;
+}
+
+QueryString.equals = function(key, value, str) {
+	if (str ) {
+		return QueryString.init(str)[key] == value ? true : false;
+	} else if( QueryString.params == null ) {
+		QueryString.init();
+	}
+	return QueryString.params[key] == value ? true : false;
+}
+
+QueryString.toString = function() {
+	if( QueryString.str == null ) {
+		QueryString.init();
+	}
+	return QueryString.str ? QueryString.str : null;
+}
+
+QueryString.create = function( arr ) {
+	var resarr = Array();
+	for( var i in arr ) {
+		if( typeof arr[i] == 'object' ){
+			var v =  Array();
+			for(var j in arr[i] ) {
+				v[j] = encodeURIComponent( arr[i][j] );
+			}
+			resarr.push( encodeURIComponent( i ) + '=' +  v.join('|')  );
+		} else {
+			resarr.push( encodeURIComponent( i ) + '=' + encodeURIComponent( arr[i] ) );
+		}
+	}
+
+	return resarr.join('&amp;');
+
+}
+
+QueryString.params = null;
+QueryString.str = null;
+
+/**
+* Simple exception handling
+*/
+
+Exception = function( str ) {
+	this.str = str || '';
+}
+
+Exception.prototype.what = function() {
+	return this.str;
+}
+
+/**
+* Status updating class
+*/
+
+Status = function() {}
+
+/*
+Initiate an element to be a status window, it will remove all it's childs
+*/
+Status.init = function( elem ) {
+
+	if( !( elem instanceof Element ) ) {
+		throw new Exception( 'object not an instance of Element' );
+	}
+
+	Status.elem = elem;
+	Status.currentNode = null;
+
+	while( elem.hasChildNodes() ) {
+		elem.removeChild( elem.firstChild );
+	}
+}
+
+// Private function
+Status.append = function( obj, node ) {
+
+	if( Status.elem == null ) {
+		throw new Exception( 'no initialized object found' );
+	}
+
+	if ( ! ( obj instanceof Array ) ) {
+		obj = [ obj ];
+	}
+
+	node = node || Status.currentNode;
+
+	for( var i in obj ) {
+		if( typeof obj[i] == 'string' ) {
+			node.appendChild( document.createTextNode( obj[i] ) );
+		} else {
+			node.appendChild( obj[i] );
+		}
+	}
+}
+
+Status.error = function( obj ) {
+	Status.currentNode = document.createElement( 'div' );
+	Status.currentNode.style.color = 'OrangeRed';
+	Status.currentNode.style.fontWeight = '900';
+	Status.append( obj );
+	Status.elem.appendChild( Status.currentNode );
+	return Status.currentNode;
+}
+
+Status.warn = function( obj ) {
+	Status.currentNode = document.createElement( 'div' );
+	Status.currentNode.style.color = 'OrangeRed';
+	Status.append( obj );
+	Status.elem.appendChild( Status.currentNode );
+	return Status.currentNode;
+}
+
+Status.info = function( obj ) {
+	Status.currentNode = document.createElement( 'div' );
+	Status.currentNode.style.color = 'ForestGreen';
+	Status.append( obj );
+	Status.elem.appendChild( Status.currentNode );
+	return Status.currentNode;
+}
+
+Status.debug = function( obj , level ) {
+	level = level || 1;
+	if( Status.debugLevel &gt;= level ) {
+		Status.currentNode = document.createElement( 'div' );
+		Status.currentNode.style.color = 'DimGray';
+		Status.append( &quot;Debug (&quot; + level + &quot;): &quot; );
+		Status.append( obj );
+		Status.elem.appendChild( Status.currentNode );
+		return Status.currentNode;
+	} else {
+		return null;
+	}
+}
+
+Status.debugLevel = 0;
+
+Status.status = function( obj ) {
+	Status.currentNode = document.createElement( 'div' );
+	Status.currentNode.style.color = 'SteelBlue';
+	Status.append( obj );
+	Status.elem.appendChild( Status.currentNode );
+	return Status.currentNode;
+}
+
+Status.progress = function ( obj, node ) {
+	Status.append( obj, node );	
+}
+
+// Simple helper function to create a simple node
+function htmlNode( type, content, color ) {
+	var node = document.createElement( type );
+	if( color ) {
+		node.style.color = color;
+	}
+	node.appendChild( document.createTextNode( content ) );
+	return node;
+}
+
+// A simple dragable window
+
+function SimpleWindow( width, height ) {
+	this.width = width;
+	this.height = height;
+	this.frame = document.createElement( 'div' );
+	SimpleWindow.frames.push( this.frame );
+	this.topbar = document.createElement( 'div' );
+	this.topbarover = document.createElement( 'div' );
+	this.closeButton = document.createElement( 'span' );
+	this.frame.appendChild( this.topbar );
+	this.topbarover.appendChild( this.closeButton );
+
+
+	this.frame.style.zIndex = 100;
+	this.frame.style.width = width + 'px';
+	this.frame.style.height = height + 'px';
+	this.frame.style.position = 'fixed';
+	this.frame.style.background = 'AliceBlue';
+	this.frame.style.border = '2px ridge Black';
+	this.frame.simpleWindow = this;
+	this.frame.addEventListener( 'mousedown', this.focus, true );
+
+	this.closeButton.appendChild( document.createTextNode( '[close]' ) );
+	this.closeButton.style.position = 'absolute';
+	this.closeButton.style.fontWeight = '100';
+	this.closeButton.style.fontSize = '0.7em';
+	this.closeButton.style.top = '0px';
+	this.closeButton.style.left = '0px';
+	this.closeButton.style.cursor = 'pointer';
+	this.closeButton.simpleWindow = this;
+	this.closeButton.addEventListener( 'click', this.close, false );
+
+	this.topbar.style.width = '100%';
+	this.topbar.style.height = '20px';
+	this.topbar.style.background = 'LightSteelBlue';
+	this.topbar.style.position = 'absolute';
+	this.topbar.style.fontWeight = '900';
+	this.topbar.style.fontSize = '1em';
+	this.topbar.style.fontFamily = 'sans-serif';
+	this.topbar.style.textAlign = 'center';
+	this.topbar.style.verticalAlign = 'baseline';
+	this.topbar.style.top = '0px';
+	this.topbar.style.left = '0px';
+
+	this.topbarover.style.width = '100%';
+	this.topbarover.style.height = '24px';
+	this.topbarover.style.position = 'absolute';
+	this.topbarover.style.top = '0px';
+	this.topbarover.style.left = '0px';
+	this.topbarover.simpleWindow = this;
+	this.topbarover.addEventListener( 'mousedown', this.beginMove, true );
+
+}
+
+SimpleWindow.prototype.focus = function(e) {
+	for( var i in SimpleWindow.frames ) {
+		SimpleWindow.frames[i].style.zIndex = 99;
+	}
+
+	this.simpleWindow.frame.style.zIndex = 100;
+
+}
+
+SimpleWindow.prototype.display = function() {
+
+	this.title = this.title || &quot;Title&quot;;
+	this.content = this.content || document.createTextNode( &quot;&quot; );
+	this.topbar.appendChild( document.createTextNode( this.title ) );
+
+	var content = document.createElement( 'div' );
+	content.style.position = 'relative';
+	content.style.top = '20px';
+	content.style.height = ( this.height -  20 ) + 'px';
+	content.style.overflow = 'auto';
+	content.appendChild( this.content );
+	this.frame.appendChild( content );
+	this.frame.appendChild( this.topbarover );
+	this.frame.style.width = this.width + 'px';
+	this.frame.style.height = this.height + 'px';
+
+	this.frame.style.top = (window.innerHeight - this.height  )/2 + 'px' ;
+	this.frame.style.left = (window.innerWidth - this.width  )/2 + 'px';
+	document.getElementsByTagName('body')[0].appendChild( this.frame );
+}
+
+SimpleWindow.prototype.close = function(e) {
+	if( e ) {
+		this.simpleWindow.frame.parentNode.removeChild(this.simpleWindow.frame);
+	} else {
+		this.frame.parentNode.removeChild(this.frame);
+	}
+}
+
+SimpleWindow.prototype.setWidth = function( width ) {
+	this.width = width;
+}
+
+SimpleWindow.prototype.setHeight = function( height ) {
+	this.height = height;
+}
+
+SimpleWindow.prototype.setTitle = function( title ) {
+	this.title = title;
+}
+
+SimpleWindow.prototype.setContent = function( content ) {
+	this.content = content;
+}
+
+SimpleWindow.frames = [];
+
+SimpleWindow.prototype.currentObject = null;
+
+SimpleWindow.prototype.beginMove = function(e) {
+	if( e.button != 0 ) {
+		return;
+	}
+	this.simpleWindow.initX = e.layerX;
+	this.simpleWindow.initY = e.layerY;
+	this.simpleWindow.lastX = e.clientX;
+	this.simpleWindow.lastY = e.clientY;
+	SimpleWindow.currentObject = this.simpleWindow;
+
+	window.addEventListener( 'mousemove', SimpleWindow.moveWindow, false );
+	window.addEventListener( 'mouseup', function(e) { 
+		SimpleWindow.currentObject = null;
+		window.removeEventListener( 'mousemove', SimpleWindow.moveWindow, false );
+		window.removeEventListener( 'mouseup', SimpleWindow.moveWindow, false );
+	}, false );
+}
+
+SimpleWindow.moveWindow = function(e) {
+	if( SimpleWindow.currentObject == null ) {
+		return;
+	}
+	var y = e.clientY - SimpleWindow.currentObject.initY;
+	var x = e.clientX - SimpleWindow.currentObject.initX;
+
+	SimpleWindow.currentObject.frame.style.top  = y + 'px';
+	SimpleWindow.currentObject.frame.style.left = x + 'px';
+	e.stopPropagation();
+}
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/e/User%7EBeetstra_morebits.js_ce09.html">http://en.wikipedia.org../../../b/e/e/User%7EBeetstra_morebits.js_ce09.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../b/e/e/User%7EBeetstra_morebits.js_ce09.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/e/e/User_talk%7EBeetstra_morebits.js_3ba7.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Beetstra/morebits.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 17:34, 10 February 2007 by Wikipedia user <a href="../../../b/e/e/User%7EBeetstra_df14.html" title="User:Beetstra">Beetstra</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

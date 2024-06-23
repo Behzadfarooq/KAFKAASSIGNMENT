@@ -1,0 +1,249 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Algebra of Communicating Processes,1987,2003,2004,2005,August 1,Calculus of Communicating Systems,Communicating sequential processes,Concurrent systems,Deadlock,Process calculi" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Algebra of Communicating Processes - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Algebra of Communicating Processes</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>The <b>Algebra of Communicating Processes</b> (ACP) is an <a href="../../../u/n/i/Universal_algebra.html" title="Universal algebra">algebraic</a> approach to reasoning about <a href="../../../c/o/n/Concurrent_systems.html" title="Concurrent systems">concurrent systems</a>. It is a member of the family of mathematical theories of concurrency known as process algebras or <a href="../../../p/r/o/Process_calculi.html" title="Process calculi">process calculi</a>. ACP was initially developed by Jan Bergstra and Jan Willem Klop in 1982,<sup id="_ref-baeten2004_0" class="reference"><a href="#_note-baeten2004" title="">[1]</a></sup> as part of an effort to investigate the solutions of unguarded recursive equations. More so than the other seminal process calculi (<a href="../../../c/a/l/Calculus_of_Communicating_Systems_3d59.html" title="Calculus of Communicating Systems">CCS</a> and <a href="../../../c/o/m/Communicating_sequential_processes.html" title="Communicating sequential processes">CSP</a>), the development of ACP focused on the <a href="../../../u/n/i/Universal_algebra.html" title="Universal algebra">algebra</a> of processes, and sought to create an abstract, generalized axiomatic system for processes,<sup id="_ref-luttik2005_0" class="reference"><a href="#_note-luttik2005" title="">[2]</a></sup> and in fact the term <i>process algebra</i> was coined during the research that led to ACP.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Informal_description"><span class="tocnumber">1</span> <span class="toctext">Informal description</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Primitives"><span class="tocnumber">1.1</span> <span class="toctext">Primitives</span></a></li>
+<li class="toclevel-2"><a href="#Algebraic_operators"><span class="tocnumber">1.2</span> <span class="toctext">Algebraic operators</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Formal_definition"><span class="tocnumber">2</span> <span class="toctext">Formal definition</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Basic_process_algebra"><span class="tocnumber">2.1</span> <span class="toctext">Basic process algebra</span></a></li>
+<li class="toclevel-2"><a href="#Deadlock"><span class="tocnumber">2.2</span> <span class="toctext">Deadlock</span></a></li>
+<li class="toclevel-2"><a href="#Concurrency_and_interaction"><span class="tocnumber">2.3</span> <span class="toctext">Concurrency and interaction</span></a></li>
+<li class="toclevel-2"><a href="#Abstraction"><span class="tocnumber">2.4</span> <span class="toctext">Abstraction</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Related_formalisms"><span class="tocnumber">3</span> <span class="toctext">Related formalisms</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Informal_description" id="Informal_description"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: Informal description">edit</a>]</span> <span class="mw-headline">Informal description</span></h2>
+<p>ACP is fundamentally an algebra, in the sense of <a href="../../../u/n/i/Universal_algebra.html" title="Universal algebra">universal algebra</a>. This algebra provides a way to describe systems in terms of algebraic process expressions that define compositions of other processes, or of certain primitive elements.</p>
+<p><a name="Primitives" id="Primitives"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: Primitives">edit</a>]</span> <span class="mw-headline">Primitives</span></h3>
+<p>ACP uses instantaneous, atomic <i>actions</i> (<span class="texhtml"><i>a</i>,<i>b</i>,<i>c</i>,...</span>) as its primitives. Some actions have special meaning, such as the action <span class="texhtml">δ</span>, which represents <a href="../../../d/e/a/Deadlock.html" title="Deadlock">deadlock</a> or stagnation, and the action <span class="texhtml">τ</span>, which represents a <i>silent action</i> (abstracted actions that have no specific identity).</p>
+<p><a name="Algebraic_operators" id="Algebraic_operators"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: Algebraic operators">edit</a>]</span> <span class="mw-headline">Algebraic operators</span></h3>
+<p>Actions can be combined to form <i>processes</i> using a variety of operators. These operators can be roughly categorized as providing a <i>basic process algebra</i>, <i>concurrency</i>, and <i>communication</i>.</p>
+<ul>
+<li><b>Choice and sequencing</b> — the most fundamental of algebraic operators are the <i>alternative</i> operator ( <span class="texhtml">+</span> ), which provides a choice between actions, and the <i>sequencing operator</i> (<img class='tex' src="../../../math/3/6/f/36f8ae4c86b69d52d037a6802d91cc4a.png" alt="\cdot" />), which specifies an ordering on actions. So, for example, the process</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/0/0/7/007ab0be21f37e943739ddcfc116f94c.png" alt="(a+b)\cdot c" /></dd>
+</dl>
+<dl>
+<dd>first chooses to perform either <span class="texhtml"><i>a</i></span> or <span class="texhtml"><i>b</i></span>, and then performs action <span class="texhtml"><i>c</i></span>.</dd>
+</dl>
+<ul>
+<li><b>Concurrency</b> — to allow the description of concurrency, ACP provides the <i>merge</i> and <i>left-merge</i> operators. The merge operator, <img class='tex' src="../../../math/5/7/4/5743381042e3ce06bdc22e7625b25aec.png" alt="\vert \vert" />, represents the parallel composition of two processes, the individual actions of which are interleaved. The left-merge operator, <img class='tex' src="../../../math/e/0/8/e0842b35472da8d63d0cd54191d827e6.png" alt="\vert\lfloor" />, is an auxiliary operator with similar semantics to the merge, but a commitment to always choose its initial step from the left-hand process. As an example, the process</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/0/f/3/0f379b9115b971f99da225e70c2c88d3.png" alt="(a \cdot b) \vert \vert (c \cdot d)" /></dd>
+</dl>
+<dl>
+<dd>may perform the actions <span class="texhtml"><i>a</i>,<i>b</i>,<i>c</i>,<i>d</i></span> in any of the sequences <span class="texhtml"><i>a</i><i>b</i><i>c</i><i>d</i>,<i>a</i><i>c</i><i>b</i><i>d</i>,<i>a</i><i>c</i><i>d</i><i>b</i>,<i>c</i><i>a</i><i>b</i><i>d</i>,<i>c</i><i>a</i><i>d</i><i>b</i>,<i>c</i><i>d</i><i>a</i><i>b</i></span>. On the other hand, the process</dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/2/1/9/21953c6d39de70d2a7116e5b906b641d.png" alt="(a \cdot b) \vert \lfloor (c \cdot d)" /></dd>
+</dl>
+<dl>
+<dd>may only perform the sequences <span class="texhtml"><i>a</i><i>b</i><i>c</i><i>d</i>,<i>a</i><i>c</i><i>b</i><i>d</i>,<i>a</i><i>c</i><i>d</i><i>b</i></span> since the left-merge operators ensures that the action <span class="texhtml"><i>a</i></span> occurs first.</dd>
+</dl>
+<ul>
+<li><b>Communication</b> — interaction (or communication) between processes is represented using the binary communications operator, <img class='tex' src="../../../math/d/c/e/dce63d53ef6d7d04a6c822b1fa06d2c7.png" alt="\vert" />. For example, the actions <span class="texhtml"><i>r</i>(<i>d</i>)</span> and <span class="texhtml"><i>w</i>(<i>d</i>)</span> might be interpreted as the reading and writing of a data item <img class='tex' src="../../../math/a/c/4/ac410ae518f16bbfc7c0e6810dbc8c2f.png" alt="d \in D = \{1,2,3,\ldots\}" />, respectively. Then the process</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/d/1/5/d15f3cb95ba22e63e7927c6ee4edc908.png" alt="(\sum_{d \in D} r(d) \cdot y) \vert (w(1) \cdot z)" /></dd>
+</dl>
+<dl>
+<dd>will communicate the value <span class="texhtml">1</span> from the right component process to the left component process (<i>i.e.</i> the identifier <span class="texhtml"><i>d</i></span> is bound to the value <span class="texhtml">1</span>, and free instances of <span class="texhtml"><i>d</i></span> in the process <span class="texhtml"><i>y</i></span> take on that value), and then behave as the merge of <span class="texhtml"><i>y</i></span> and <span class="texhtml"><i>z</i></span>.</dd>
+</dl>
+<ul>
+<li><b>Abstraction</b> — the abstraction operator, <span class="texhtml">τ<sub><i>I</i></sub></span>, provides a way to "hide" certain actions, and treat them as events that are internal to the systems being modelled. Abstracted actions are converted to the <i>silent step</i> action <span class="texhtml">τ</span>. In some cases, these silent steps can also be removed from the process expression as part of the abstraction process. For example,</li>
+</ul>
+<dl>
+<dd><img class='tex' src="../../../math/1/9/e/19e1bdf596d9d085939561e372c743b2.png" alt="\tau_{\{c\}}((a+b)\cdot c) = (a + b) \cdot \tau" /></dd>
+</dl>
+<dl>
+<dd>which, in this case, can be reduced to</dd>
+</dl>
+<dl>
+<dd><span class="texhtml"><i>a</i> + <i>b</i></span></dd>
+</dl>
+<dl>
+<dd>since the event <span class="texhtml"><i>c</i></span> is no longer observable and has no observable effects.</dd>
+</dl>
+<p><a name="Formal_definition" id="Formal_definition"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: Formal definition">edit</a>]</span> <span class="mw-headline">Formal definition</span></h2>
+<p>ACP fundamentally adopts an axiomatic, algebraic approach to the formal definition of its various operators. The axioms presented below comprise the full axiomatic system for ACP<sub>τ</sub> (ACP with abstraction).</p>
+<p><a name="Basic_process_algebra" id="Basic_process_algebra"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: Basic process algebra">edit</a>]</span> <span class="mw-headline">Basic process algebra</span></h3>
+<p>Using the alternative and sequential composition operators, ACP defines a <i>basic process algebra</i> which satisifies the axioms<sup id="_ref-bergstraklop1987_0" class="reference"><a href="#_note-bergstraklop1987" title="">[3]</a></sup></p>
+<dl>
+<dd><img class='tex' src="../../../math/8/c/0/8c0d6aecd34526b9c16c608b9642d717.png" alt="\begin{matrix} x + y &amp;=&amp; y + x\\ (x+y)+z&amp;=&amp; x+(y+z)\\ x+x&amp;=&amp;x\\ (x+y)\cdot z &amp;=&amp; (x\cdot z) + (y\cdot z)\\ (x \cdot y)\cdot z &amp;=&amp; x \cdot (y \cdot z) \end{matrix}" /></dd>
+</dl>
+<p><a name="Deadlock" id="Deadlock"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: Deadlock">edit</a>]</span> <span class="mw-headline">Deadlock</span></h3>
+<p>Beyond the basic algebra, two additional axioms define the relationships between the alternative and sequencing operators, and the <i>deadlock</i> action, <span class="texhtml">δ</span></p>
+<dl>
+<dd><img class='tex' src="../../../math/d/e/a/deac1b457c2478cc51af17bf3657ffdd.png" alt="\begin{matrix} \delta + x &amp;=&amp; x\\ \delta \cdot x &amp;=&amp; \delta \end{matrix}" /></dd>
+</dl>
+<p><a name="Concurrency_and_interaction" id="Concurrency_and_interaction"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: Concurrency and interaction">edit</a>]</span> <span class="mw-headline">Concurrency and interaction</span></h3>
+<p>The axioms associated with the merge, left-merge, and communication operators are<sup id="_ref-bergstraklop1987_1" class="reference"><a href="#_note-bergstraklop1987" title="">[3]</a></sup></p>
+<dl>
+<dd><img class='tex' src="../../../math/0/a/e/0aee32ef4e0a08afe53bb37bf3c6e328.png" alt="\begin{matrix} x \vert\vert y &amp;=&amp; x \vert\lfloor y + y \vert\lfloor x + x \vert y\\ a \cdot x \vert\lfloor y &amp;=&amp; a\cdot ( x \vert\vert y)\\ a \vert\lfloor y &amp;=&amp; a \cdot y \\ (x+y) \vert\lfloor z &amp;=&amp; (x \vert\lfloor z) + (y \vert\lfloor z)\\ a \cdot x \vert b &amp;=&amp; (a \vert b)\cdot x\\ a \vert b \cdot x &amp;=&amp; (a \vert b)\cdot x\\ a \cdot x \vert b \cdot y &amp;=&amp; (a\vert b)\cdot (x \vert \vert y)\\ (x + y)\vert z &amp;=&amp; x\vert z + y\vert z\\ x \vert (y + z) &amp;=&amp; x\vert y + x\vert z \end{matrix}" /></dd>
+</dl>
+<p>When the communications operator is applied to actions alone, rather than processes, it is interpreted as a binary function from actions to actions, <img class='tex' src="../../../math/a/c/e/ace5b238915ee4c4cf51c48d1a5aaa02.png" alt="\vert&#160;: A \times A \rightarrow A" />. The definition of this function defines the possible interactions between processes — those pairs of actions that do not constitute interactions are mapped to the deadlock action, <span class="texhtml">δ</span>, while permitted interaction pairs are mapped to corresponding single actions representing the occurrence of an interaction. For example, the communications function might specify that</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/8/4/484ef1effb1fea7de88a652a9fce65aa.png" alt="a \vert a \rightarrow c" /></dd>
+</dl>
+<p>which indicates that a successful interaction <img class='tex' src="../../../math/1/6/4/1648db4af18e9d204204ad3df751fe99.png" alt="a \vert a" /> will be reduced to the action <span class="texhtml"><i>c</i></span>. ACP also includes an encapsulation operator, <img class='tex' src="../../../math/6/1/3/6135e673236d50a731f4ea730f48f177.png" alt="\partial_H" /> for some <img class='tex' src="../../../math/5/7/f/57f5fd33bb0f3e7c7f3e8b35ba02e8a9.png" alt="H \subseteq A" />, which is used to convert unsuccessful communication attempts (i.e. elements of <span class="texhtml"><i>H</i></span> that have not been reduced via the communication function) to the deadlock action. The axioms associated with the communications function and encapsulation operator are<sup id="_ref-bergstraklop1987_2" class="reference"><a href="#_note-bergstraklop1987" title="">[3]</a></sup></p>
+<dl>
+<dd><img class='tex' src="../../../math/b/4/6/b4674c68ed91cded00b5ddccbcd2d624.png" alt="\begin{matrix} a \vert b &amp;=&amp; b \vert a\\ (a \vert b) \vert c &amp;=&amp; a \vert (b \vert c)\\ a \vert \delta &amp;=&amp; \delta\\ \partial_H(a) &amp;=&amp; a \mbox{ if } a \notin H\\ \partial_H(a) &amp;=&amp; \delta \mbox{ if } a \in H\\ \partial_H(x + y) &amp;=&amp; \partial_H(x) + \partial_H(y)\\ \partial_H(x \cdot y) &amp;=&amp; \partial_H(x) \cdot \partial_H(y)\\ \end{matrix}" /></dd>
+</dl>
+<p><a name="Abstraction" id="Abstraction"></a></p>
+<h3><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: Abstraction">edit</a>]</span> <span class="mw-headline">Abstraction</span></h3>
+<p>The axioms associated with the abstraction operator are<sup id="_ref-bergstraklop1987_3" class="reference"><a href="#_note-bergstraklop1987" title="">[3]</a></sup></p>
+<dl>
+<dd><img class='tex' src="../../../math/d/f/6/df6fe93547eb6e8b49c10a027fb34010.png" alt="\begin{matrix} \tau_I(\tau) &amp;=&amp; \tau\\ \tau_I(a) &amp;=&amp; a \mbox{ if } a \notin I\\ \tau_I(a) &amp;=&amp; \tau \mbox{ if } a \in I\\ \tau_I(x + y) &amp;=&amp; \tau_I(x) + \tau_I(y)\\ \tau_I(x \cdot y) &amp;=&amp; \tau_I(x) \cdot \tau_I(y)\\ \partial_H(\tau) &amp;=&amp; \tau\\  x \cdot \tau &amp;=&amp; x\\ \tau \cdot x &amp;=&amp; \tau \cdot x + x\\ a\cdot(\tau\cdot x + y) &amp;=&amp; a\cdot(\tau\cdot x + y) + a\cdot x \\ \tau \cdot x \vert\lfloor y &amp;=&amp; \tau\cdot ( x \vert\vert y)\\ \tau \vert\lfloor x &amp;=&amp; \tau \cdot x \\ \tau \vert x &amp;=&amp; \delta\\ x \vert \tau &amp;=&amp; \delta\\ \tau\cdot x \vert y &amp;=&amp; x \vert y\\ x \vert \tau\cdot y &amp;=&amp; x \vert y\\ (x + y)\vert z &amp;=&amp; x\vert z + y\vert z\\ x \vert (y + z) &amp;=&amp; x\vert y + x\vert z \end{matrix}" /></dd>
+</dl>
+<p><a name="Related_formalisms" id="Related_formalisms"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: Related formalisms">edit</a>]</span> <span class="mw-headline">Related formalisms</span></h2>
+<p>ACP has served as the basis or inspiration for several other formalisms that can be used to describe and analyze concurrent systems, including:</p>
+<ul>
+<li><a href="http://homepages.cwi.nl/~mcrl/" class="external text" title="http://homepages.cwi.nl/~mcrl/" rel="nofollow">μCRL</a></li>
+</ul>
+<ul>
+<li><a href="http://www.mcrl2.org/" class="external text" title="http://www.mcrl2.org/" rel="nofollow">mCRL2</a></li>
+</ul>
+<ul>
+<li>HyPA — a process algebra for hybrid systems<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[4]</a></sup></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<div class="references-small">
+<ol class="references">
+<li id="_note-baeten2004"><b><a href="#_ref-baeten2004_0" title="">^</a></b> J.C.M. Baeten, <a href="http://www.win.tue.nl/fm/0402history.pdf" class="external text" title="http://www.win.tue.nl/fm/0402history.pdf" rel="nofollow"><i>A brief history of process algebra</i></a>, Rapport CSR 04-02, Vakgroep Informatica, Technische Universiteit Eindhoven, <a href="../../../2/0/0/2004.html" title="2004">2004</a></li>
+<li id="_note-luttik2005"><b><a href="#_ref-luttik2005_0" title="">^</a></b> Bas Luttik, <a href="http://www.win.tue.nl/~luttik/Papers/AlgProc_essay.pdf" class="external text" title="http://www.win.tue.nl/~luttik/Papers/AlgProc_essay.pdf" rel="nofollow"><i>What is algebraic in process theory</i></a>, <a href="http://www.cs.auc.dk/~luca/BICI/PA-05/" class="external text" title="http://www.cs.auc.dk/~luca/BICI/PA-05/" rel="nofollow">Algebraic Process Calculi: The First Twenty Five Years and Beyond</a>, Bertinoro, Italy, <a href="../../../a/u/g/August_1.html" title="August 1">August 1</a>, <a href="../../../2/0/0/2005.html" title="2005">2005</a></li>
+<li id="_note-bergstraklop1987">^ <a href="#_ref-bergstraklop1987_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-bergstraklop1987_1" title=""><sup><i><b>b</b></i></sup></a> <a href="#_ref-bergstraklop1987_2" title=""><sup><i><b>c</b></i></sup></a> <a href="#_ref-bergstraklop1987_3" title=""><sup><i><b>d</b></i></sup></a> J.A. Bergstra and J.W. Klop, <a href="http://www.cs.vu.nl/~jwk/ACPL-TAU.PDF" class="external text" title="http://www.cs.vu.nl/~jwk/ACPL-TAU.PDF" rel="nofollow"><i>ACP<sub>τ</sub>: A Universal Axiom System for Process Specification</i></a>, CWI Quarterly 15, pp. 3-23, <a href="../../../1/9/8/1987.html" title="1987">1987</a></li>
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> P.J.L. Cuijpers and M.A. Reniers, <i>Hybrid process algebra</i>, Technical Report, Department of Mathematics and Computer Science, Technical University Eindhoven, <a href="../../../2/0/0/2003.html" title="2003">2003</a></li>
+</ol>
+</div>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html">http://en.wikipedia.org../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../p/r/o/Category%7EProcess_calculi_c307.html" title="Category:Process calculi">Process calculi</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/l/g/Algebra_of_Communicating_Processes_3b86.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/l/g/Talk%7EAlgebra_of_Communicating_Processes_8bc2.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Algebra_of_Communicating_Processes">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 09:38, 26 March 2007 by Anonymous user(s) of Wikipedia. Based on work by Wikipedia user(s) <a href="../../../a/l/l/User%7EAllan_McInnes_23d1.html" title="User:Allan McInnes">Allan McInnes</a>, <a href="../../../s/p/e/User%7ESpellmaster_51e4.html" title="User:Spellmaster">Spellmaster</a>, <a href="../../../k/o/f/User%7EKoffieyahoo_12ee.html" title="User:Koffieyahoo">Koffieyahoo</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../j/o/e/User%7EJoeBot_e8e1.html" title="User:JoeBot">JoeBot</a>, <a href="../../../s/i/m/User%7ESimonP_1010.html" title="User:SimonP">SimonP</a> and <a href="../../../l/e/l/User%7ELeland_McInnes_a728.html" title="User:Leland McInnes">Leland McInnes</a>.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

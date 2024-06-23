@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Alex Smotrov/ExtEdit.vbs.css" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Alex Smotrov/ExtEdit.vbs.css - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Alex Smotrov/ExtEdit.vbs.css</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/l/e/User%7EAlex_Smotrov_4ed6.html" title="User:Alex Smotrov">User:Alex Smotrov</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>' option explicit 'settings const wikiExt = "wiki" const defaultDraftURL = "http://en.wikipedia.org/wiki/Wikipedia:Sandbox" const workingDir = "" 'where .wiki files are saved; by default - script path const backupSubDir = "backup\" 'where old .wiki files are moved if they are to be overwritten const useIEpreview = true 'common objects dim WShell: Set WShell = CreateObject("WScript.Shell") dim FSO: Set FSO = CreateObject("Scripting.FileSystemObject") dim XML: Set XML = CreateObject("Microsoft.XMLHTTP") dim objStream: Set objStream = CreateObject("ADODB.Stream") objStream.Type = 2: objStream.CharSet = "UTF-8" '2 means adTypeText dim path, articleURL, editURL, wpEdittime, wikiText, HTML 'some global vars 'set working folder (path variable) if workingDir&lt;&gt;"" then path = workingDir if not FSO.FolderExists(path) then QuitWith "Please set correct 'workingDir'" else path = Left(WScript.ScriptFullName, InstrRev(WScript.ScriptFullName, "\")) end if 'if no arguments - ask to assciate with .php if WScript.Arguments.Count = 0 then if msgbox("Associate .php files with this script?", vbYesNo, WScript.ScriptName) = vbYes then dim ws: ws = WScript.Path &amp; "\wscript.exe" if not FSO.FileExists(ws) then QuitWith "Sorry, cannot find your file " &amp; ws ws = ws &amp; " """ &amp; WScript.ScriptFullName &amp; """ ""%1""" saveRegVal "HKCR\.php\shell\wikiedit\command\", ws saveRegVal "HKCR\.php\shell\", "wikiedit" msgbox "Done" end if WScript.Quit end if 'check that argument is a valid file dim arg: arg = WScript.Arguments(0) if not FSO.FileExists(arg) then QuitWith "Input file not found: " &amp; arg 'decide what to do Select Case getFileExt(arg) Case "php" processControlFile(arg) Case wikiExt processWikiFile(arg) Case else QuitWith "Input file extension not recognized" End Select Set objStream = Nothing WScript.quit '------------------------------------ Open .php Control File ------------------------------ function processControlFile(ctrlFile) dim articleName, wikiFile dim p1, p2, ch, fobj, controlText 'load Control File and get article URL controlText = FSO.OpenTextFile(ctrlFile, 1).ReadAll p1 = InStr(1, controlText, "URL=", vbTextCompare) + 4 p2 = InStr(p1, controlText, "&amp;", vbTextCompare) articleURL = Mid(controlText, p1, p2-p1) 'get article name, decode it and remove disallowed chars in order to create wiki file name p1 = InStr(1, articleURL, "=", vbTextCompare) + 1 articleName = decodeURL(Mid(articleURL, p1)) for each ch in Array ("\", "/", ":", "*", "?") articleName = replace (articleName, ch, "_") next wikiFile = path &amp; articleName &amp; "." &amp; wikiExt 'backup old wiki file if it exists if FSO.FileExists (wikiFile) and backupSubDir &lt;&gt;"" then if not FSO.FolderExists(path &amp; backupSubDir) then on Error Resume Next FSO.CreateFolder(path &amp; backupSubDir) if Err then QuitWith "Unable to create backup subfolder" on Error Goto 0 end if dim dd, backupName dd = FSO.GetFile(wikiFile).DateLastModified backupName = articleName &amp;"."&amp; year(dd)&amp;"."&amp;z(month(dd))&amp;"."&amp;z(day(dd))&amp;"_"&amp;z(hour(dd))&amp;"."&amp;z(minute(dd))&amp;"."&amp;z(second(dd)) on Error Resume Next FSO.MoveFile wikiFile, path &amp; backupSubDir &amp; backupName &amp; "." &amp; wikiExt if Err then QuitWith "Unable to backup existing ." &amp; wikiExt &amp; " file" &amp; vbCrLf &amp; "(" &amp; Err.Description &amp; ")" on Error Goto 0 end if 'retreive article wiki code XML.Open "GET", articleURL + "&amp;action=raw", False XML.setRequestHeader "If-Modified-Since", "Sat, 1 Jan 2000 00:00:00 GMT" 'to prevent caching XML.Send wikiText = XML.responseText wpEdittime = CompactDate(XML.getResponseHeader("Last-Modified")) 'save wiki code into a file 'Set fobj = FSO.CreateTextFile(wikiFile, true, true) 'overwrite, unicode - creates non-UTF-8 file 'on Error Resume Next objStream.Open objStream.WriteText wikiText objStream.SaveToFile wikiFile, 2 ' adSaveCreateOverWrite 'create info file Set fobj = FSO.CreateTextFile(wikiFile &amp; ".info", true, false) 'overwrite, ascii fobj.WriteLine (articleURL) fobj.WriteLine (wpEdittime) fobj.Close 'start wiki file in editor on Error Resume Next WShell.Run wikiFile, 1, true if Err then QuitWith "Created file '" &amp; wikiFile &amp; "'" &amp; vbCrLf &amp; vbCrLf &amp; "Cannot start the file." &amp; vbCrLf &amp; "Please check that extension ." &amp; wikiExt &amp; " is associated with your text editor." on Error Goto 0 end function '------------------------------------ Open Wiki File ------------------------------ Function processWikiFile(wikiFile) dim infoFile, htmlFile, fobj, isNewArticle 'read wiki file objStream.Open objStream.LoadFromFile wikiFile wikiText = objStream.ReadText objStream.Close 'get article URL isNewArticle = true infoFile = wikiFile &amp; ".info" if FSO.FileExists(infoFile) then 'from info file set fobj = FSO.OpenTextFile(infoFile, 1) 'for reading articleURL = fobj.ReadLine wpEdittime = fobj.ReadLine fobj.Close isNewArticle = false elseif left(wikiText,11) = "&lt;!--http://" then 'from comment in article code articleURL = mid(wikiText, 5, InStr(wikiText, "--&gt;")-5) articleURL = replace (trim(articleURL), " ", "_") else 'new article with unknown url articleURL = defaultDraftURL end if editURL = articleURL if isNewArticle then editURL = replace (editURL, "/wiki/","/w/index.php?title=") wpEdittime = "20000101000000" 'if article in fact exists then make sure there's gonna be an edit conflict end if 'create form HTML code editURL = editURL &amp; "&amp;action=submit&amp;wpPreview" HTML = "&lt;html&gt;&lt;body&gt;&lt;form method=post action='" &amp; editURL &amp; "' enctype='multipart/form-data'&gt;&lt;input type=hidden name=wpEdittime value=" &amp; wpEdittime &amp; "&gt;&lt;textarea name=wpTextbox1 style='display:none'&gt;" &amp; wikiText &amp; "&lt;/textarea&gt;&lt;/form&gt;" if useIEpreview then if not previewIE_TrySameWindow() then previewIE_NewWindow() else previewDefaultBrowser() end if 'check article last-modified now if not isNewArticle then XML.Open "GET", articleURL &amp; "&amp;action=raw", False '!!! would use HEAD but it takes ages to get the answer... XML.Send if wpEdittime &lt;&gt; CompactDate(XML.getResponseHeader("Last-Modified")) then msgbox "Alert! Article has been changed on WikiMedia server" end if end function '--------------------------------------------- function previewIE_TrySameWindow() dim Boundary: Boundary = "--------p1415" dim divPreview, PostData, Response dim win, winurl, isFound, oldColor, oldBgColor 'find our IE window isFound = false for each win in CreateObject("shell.application").Windows if typename(win.document) = "HTMLDocument" then winurl = win.locationUrl if InStr(winurl,"#") &gt; 0 then winurl = left(winurl, InStr(winurl,"#") - 1) 'remove # if winurl = editURL then 'found our window set divPreview = win.document.all("wikiPreview") if typename (divPreview) &lt;&gt; "Nothing" then isFound = true: exit for end if end if next if not isFound then previewIE_TrySameWindow = false: exit function 'kind of hide old preview oldColor = divPreview.style.color: oldBgColor = divPreview.style.backgroundColor divPreview.style.color = "#d0d0d0": divPreview.style.backgroundColor = "#d0d0d0" 'submit new preview XML.Open "POST", editURL &amp; "&amp;live", False XML.setRequestHeader "Content-Type", "multipart/form-data; boundary=" &amp; Boundary PostData = "--" &amp; Boundary &amp; vbCRLf _ &amp; "Content-Disposition: form-data; name='wpTextbox1'" &amp; vbCRLf &amp; vbCRLf _ &amp; wikiText &amp; vbCRLf &amp; "--" &amp; Boundary XML.Send Postdata WShell.AppActivate win.document.title Response = XML.responseText 'Response = mid(Response, InStr(Response, "&lt;h2&gt;")) 'decode XML to HTML Response = replace (Response, "&gt;", "&gt;") Response = replace (Response, "&lt;", "&lt;") Response = replace (Response, """, """") Response = replace (Response, "&amp;apos;", "'") Response = replace (Response, "&amp;", "&amp;") divPreview.innerHTML = Response 'restore colors divPreview.style.color = oldColor divPreview.style.backgroundColor = oldBgColor 'renew wiki text in a form win.document.editform.wpTextbox1.value = wikiText 'done previewIE_TrySameWindow = true end function '--------------------------------------------- function previewIE_NewWindow() ' submit preview in new IE window dim IE: set IE = CreateObject("InternetExplorer.Application") IE.navigate "about:blank" do while IE.busy: loop 'write html and submit IE.document.Open IE.document.write HTML &amp; "&lt;/html&gt;" IE.document.Close IE.document.forms(0).submit() IE.visible = 1 do while IE.busy: wscript.sleep 100: loop WShell.AppActivate IE.document.title 'hide the edit form if typename(IE.document.editform) = "Nothing" then exit function IE.document.editform.style.display = "none" 'slightly move toolbar to hide it as well dim obj: set obj = IE.document.getElementById("toolbar") if typename(obj) &lt;&gt; "Nothing" then IE.document.editform.insertBefore obj, IE.document.editform.firstChild end if ' obj.style.display = "none" 'add a link to restore IE.document.editform.parentNode.appendChild(IE.document.createElement("hr")) set obj = IE.document.CreateElement("a") obj.InnerHTML = "\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/" obj.href = "javascript:document.editform.style.display='block';alert('If you edit text here, do not forget to close your editor');void 0" IE.document.editform.parentNode.appendChild(obj) end function sub previewDefaultBrowser ()'save and launch submit file objStream.Open objStream.WriteText HTML &amp; "&lt;script&gt;document.forms[0].submit()&lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" objStream.SaveToFile path + "temp.htm" , 2 ' adSaveCreateNotExist WShell.Run path + "temp.htm" objStream.Close end sub '=========================== Misc Functions =========================== Sub QuitWith (msg) WShell.Popup msg, 0, WScript.ScriptName &amp; ": Error", 48 WScript.Quit End sub Function getFileExt (fname) 'returns file extension dim pos: pos = InStrRev(fname, ".") getFileExt = "" if pos &gt; 0 then getFileExt = right(fname, len(fname) - pos) end function sub saveRegVal (regName, regVal) on Error Resume Next WShell.RegWrite regName, regval if Err or (regval &lt;&gt; WShell.RegRead(regName)) then QuitWith "Unable to edit registry" on Error Goto 0 end sub function CompactDate (aDate) ' Sun, 04 Feb 2007 21:25:18 GMT =&gt; 20070204212518 dim arr, mm arr = Split(aDate) if UBound(arr)&lt;&gt;5 then QuitWith "Last-Modified not recognized" mm = InStr("JanFebMarAprMayJunJulAugSepOctNovDec", arr(2)) if mm&lt;=0 then QuitWith "Last-Modified not recognized (month)" mm = Cstr((mm-1)/3 + 1): if len(mm)&lt;2 then mm = "0" &amp; mm CompactDate = arr(3) &amp; mm &amp; arr(1) &amp; replace(arr(4),":","") end function Function decodeURL(str) 'decode %D0%A3%... (1 or 2-byte UTF-8) dim result, ii, byte1, byte2: result = "": ii=1 do while ii &lt;= len(str) if mid(str, ii, 1) = "%" then byte1 = hex2dec(mid(str,ii,3)) byte2 = hex2dec(mid(str,ii+3,3)) if byte1 = null then result = result &amp; "%" 'starts with % but cannot decode....weird...just skip ii = ii + 1 elseif byte1 &lt; 128 then 'one-byte UTF result = result &amp; chrW(byte1) ii = ii + 3 elseif byte2=null then 'cannot decode 2nd byte...just skip result = result &amp; mid(str,ii,4) ii = ii + 4 else 'two-byte UTF result = result &amp; chrW( (byte1 and &amp;H1F) * 64 or (byte2 and &amp;H3F) ) ii = ii + 6 end if else 'normal ascii char result = result &amp; mid(str,ii,1) ii = ii + 1 end if loop decodeURL = result end function function hex2dec(hh) ' %D0 -&gt; 208 dim jj, digit, result: result = 0 hex2dec = null if len(hh)&lt;&gt;3 or left(hh,1)&lt;&gt;"%" then exit function for jj = 2 to 3 digit = instr("0123456789ABCDEF", ucase(mid(hh, jj, 1))) - 1 if digit &lt; 0 then exit function result = result * 16 + digit next hex2dec = result end function function z(n) ' 7 -&gt; 07 if len(CStr(n)) &gt; 1 then z = CStr(n) else z = "0" &amp; CStr(n) end function '</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/l/e/User%7EAlex_Smotrov_ExtEdit.vbs.css_2e10.html">http://en.wikipedia.org../../../a/l/e/User%7EAlex_Smotrov_ExtEdit.vbs.css_2e10.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/l/e/User%7EAlex_Smotrov_ExtEdit.vbs.css_2e10.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/l/e/User_talk%7EAlex_Smotrov_ExtEdit.vbs.css_4206.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Alex_Smotrov/ExtEdit.vbs.css">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:54, 16 March 2007 by Wikipedia user <a href="../../../a/l/e/User%7EAlex_Smotrov_4ed6.html" title="User:Alex Smotrov">Alex Smotrov</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

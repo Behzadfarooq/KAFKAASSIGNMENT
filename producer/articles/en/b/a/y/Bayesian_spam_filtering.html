@@ -1,0 +1,210 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Bayesian spam filtering,Computer science,List of portals,Anti-Spam SMTP Proxy,Bayes's theorem,Bayesian inference,Bayesian poisoning,Bogofilter,E-mail filtering,E-mail spam,Electronic mail" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Bayesian spam filtering - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Bayesian spam filtering</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <div class="messagebox cleanup metadata">
+<p><b>This article or section is in need of attention from an expert on the subject.</b><br />
+<a href="../../../w/i/k/Wikipedia%7EWikiProject_Computer_science_e186.html" title="Wikipedia:WikiProject Computer science">WikiProject Computer science</a> or the <a href="../../../c/o/m/Portal%7EComputer_science_ae97.html" title="Portal:Computer science">Computer science Portal</a> may be able to help recruit one.<br />
+If a more appropriate <a href="../../../w/i/k/Wikipedia%7EWikiProject_751e.html" title="Wikipedia:WikiProject">WikiProject</a> or <a href="../../../l/i/s/Portal%7EList_of_portals_00a1.html" title="Portal:List of portals">portal</a> exists, please adjust this template accordingly.</p>
+</div>
+<p><b>Bayesian spam filtering</b> (pronounced "Bays-ee-en", after Rev. <a href="../../../t/h/o/Thomas_Bayes_3ee9.html" title="Thomas Bayes">Thomas Bayes</a>), a form of <a href="../../../e/-/m/E-mail_filtering.html" title="E-mail filtering">e-mail filtering</a>, is the process of using a <a href="../../../n/a/i/Naive_Bayes_classifier_acb3.html" title="Naive Bayes classifier">Naive Bayes classifier</a> to identify spam email.</p>
+<p>Bayesian filtering was proposed by Sahami et al. (1998)<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup> and gained attention in 2002 when it was described in a paper by <a href="../../../p/a/u/Paul_Graham_1672.html" title="Paul Graham">Paul Graham</a>.<sup id="_ref-1" class="reference"><a href="#_note-1" title="">[2]</a></sup> Since then it has become a popular mechanism to distinguish illegitimate <a href="../../../e/-/m/E-mail_spam.html" title="E-mail spam">spam email</a> from legitimate <a href="../../../e/l/e/Electronic_mail.html" title="Electronic mail">email</a> (sometimes called <i>ham</i>). Many modern mail programs implement Bayesian spam filtering. Users can also install separate <a href="../../../e/-/m/E-mail_filtering.html" title="E-mail filtering">email filtering programs</a>. <a href="../../../s/e/r/Server-side.html" title="Server-side">Server-side</a> email filters, such as <a href="../../../s/p/a/SpamAssassin_f1a3.html" title="SpamAssassin">SpamAssassin</a>, <a href="../../../s/p/a/SpamBayes_db2d.html" title="SpamBayes">SpamBayes</a>, <a href="../../../b/o/g/Bogofilter.html" title="Bogofilter">Bogofilter</a> and <a href="../../../a/n/t/Anti-Spam_SMTP_Proxy_9adb.html" title="Anti-Spam SMTP Proxy">ASSP</a>, make use of Bayesian spam filtering techniques, and the functionality is sometimes embedded within <a href="../../../m/a/i/Mail_server.html" title="Mail server">mail server</a> software itself.</p>
+<p><a href="../../../b/a/y/Bayesian_poisoning.html" title="Bayesian poisoning">Bayesian poisoning</a> is a technique used by spammers in an attempt to degrade the effectiveness of spam filters that rely on Bayesian filtering. A spammer practicing Bayesian poisoning will send out emails with large amounts of legitimate text (gathered from legitimate news or literary sources).</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Mathematical_foundation"><span class="tocnumber">1</span> <span class="toctext">Mathematical foundation</span></a></li>
+<li class="toclevel-1"><a href="#Process"><span class="tocnumber">2</span> <span class="toctext">Process</span></a></li>
+<li class="toclevel-1"><a href="#Advantages"><span class="tocnumber">3</span> <span class="toctext">Advantages</span></a></li>
+<li class="toclevel-1"><a href="#General_applications_of_Bayesian_filtering"><span class="tocnumber">4</span> <span class="toctext">General applications of Bayesian filtering</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Mathematical_foundation" id="Mathematical_foundation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_spam_filtering.html" title="Edit section: Mathematical foundation">edit</a>]</span> <span class="mw-headline">Mathematical foundation</span></h2>
+<p>Bayesian <a href="../../../e/m/a/Email_filter.html" title="Email filter">email filters</a> take advantage of <a href="../../../b/a/y/Bayes%27s_theorem.html" title="Bayes's theorem">Bayes's theorem</a>. Bayes's theorem, in the context of spam, says that the probability that an email is spam, given that it has certain words in it, is equal to the probability of finding those certain words in spam email, times the probability that any email is spam, divided by the probability of finding those words in any email:</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/6/7/66761f6e088f8e101bcbbe1011afa731.png" alt="\Pr(\mathrm{spam}|\mathrm{words}) = \frac{\Pr(\mathrm{words}|\mathrm{spam})\Pr(\mathrm{spam})}{\Pr(\mathrm{words})}" /></dd>
+</dl>
+<p><a name="Process" id="Process"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_spam_filtering.html" title="Edit section: Process">edit</a>]</span> <span class="mw-headline">Process</span></h2>
+<p>Particular words have particular <a href="../../../p/r/o/Probability.html" title="Probability">probabilities</a> of occurring in spam email and in legitimate email. For instance, most email users will frequently encounter the word <a href="../../../v/i/a/Viagra.html" title="Viagra">Viagra</a> in spam email, but will seldom see it in other email. The filter doesn't know these probabilities in advance, and must first be trained so it can build them up. To train the filter, the user must manually indicate whether a new email is spam or not. For all words in each training email, the filter will adjust the probabilities that each word will appear in spam or legitimate email in its database. For instance, Bayesian spam filters will typically have learned a very high spam probability for the words "Viagra" and "refinance", but a very low spam probability for words seen only in legitimate email, such as the names of friends and family members.</p>
+<p>After training, the word probabilities (also known as <a href="../../../l/i/k/Likelihood_function.html" title="Likelihood function">likelihood functions</a>) are used to compute the probability that an email with a particular set of words in it belongs to either category. Each word in the email contributes to the email's spam probability. This contribution is called the <a href="../../../p/o/s/Posterior_probability.html" title="Posterior probability">posterior probability</a> and is computed using Bayes' theorem. Then, the email's spam probability is computed over all words in the email, and if the total exceeds a certain threshold (say 95%), the filter will mark the email as a spam. Email marked as spam can then be automatically moved to a "Junk" email folder, or even deleted outright.</p>
+<p><a name="Advantages" id="Advantages"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_spam_filtering.html" title="Edit section: Advantages">edit</a>]</span> <span class="mw-headline">Advantages</span></h2>
+<p>The advantage of Bayesian spam filtering is that it can be trained on a per-user basis.</p>
+<p>The spam that a user receives is often related to the online user's activities. For example, a user may have been subscribed to an online newsletter that the user considers to be spam. This online newsletter is likely to contain words that are common to all newsletters, such as the name of the newsletter and its originating email address. A Bayesian spam filter will eventually assign a higher probability based on the user's specific patterns.</p>
+<p>The legitimate e-mails a user receives will tend to be different. For example, in a corporate environment, the company name and the names of clients or customers will be mentioned often. The filter will assign a lower spam probability to emails containing those names.</p>
+<p>The word probabilities are unique to each user and can evolve over time with corrective training whenever the filter incorrectly classifies an email. As a result, Bayesian spam filtering accuracy after training is often superior to pre-defined rules.</p>
+<p>It can perform particularly well in avoiding false positives, where legitimate email is incorrectly classified as spam. For example, if the email contains the word "Nigeria", which frequently appeared in a long spam campaign, a pre-defined rules filter might reject it outright. A Bayesian filter would mark the word "Nigeria" as a probable spam word, but would take into account other important words that usually indicate legitimate e-mail. For example, the name of a spouse may strongly indicate the e-mail is not spam, which could overcome the use of the word "Nigeria."</p>
+<p>Some spam filters combine the results of both Bayesian spam filtering and pre-defined rules resulting in even higher filtering accuracy. Recent <a href="../../../e/-/m/E-mail_spam.html" title="E-mail spam">spammer</a> tactics include insertion of random innocuous words that are not normally associated with spam, thereby decreasing the email's spam score, making it more likely to slip past a Bayesian spam filter.</p>
+<p><a name="General_applications_of_Bayesian_filtering" id="General_applications_of_Bayesian_filtering"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_spam_filtering.html" title="Edit section: General applications of Bayesian filtering">edit</a>]</span> <span class="mw-headline">General applications of Bayesian filtering</span></h2>
+<div class="messagebox merge metadata">
+<div class="floatleft"><span><a href="../../../s/p/l/Image%7ESplitsection.gif_5aa9.html" class="image" title=""><img src="../../../upload/shared/a/a9/Splitsection.gif" alt="" width="40" height="20" longdesc="../../../s/p/l/Image%7ESplitsection.gif_5aa9.html" /></a></span></div>
+It has been suggested that this section be <a href="../../../s/u/m/Wikipedia%7ESummary_style_1b75.html" title="Wikipedia:Summary style">split</a> into a new article. (<a href="../../../b/a/y/Talk%7EBayesian_spam_filtering_a864.html" title="Talk:Bayesian spam filtering">Discuss</a>)</div>
+<p>While Bayesian filtering is used widely to identify spam email, the technique can classify (or "cluster") almost any sort of data. It has uses in science, medicine, and engineering. One example is a general purpose classification program called <a href="http://ic.arc.nasa.gov/ic/projects/bayes-group/autoclass/" class="external text" title="http://ic.arc.nasa.gov/ic/projects/bayes-group/autoclass/" rel="nofollow">AutoClass</a> which was originally used to classify stars according to spectral characteristics that were otherwise too subtle to notice. There is recent speculation that even the brain uses Bayesian methods to classify sensory stimuli and decide on behavioural responses <a href="http://www.bcs.rochester.edu/people/alex/pub/articles/KnillPougetTINS04.pdf" class="external text" title="http://www.bcs.rochester.edu/people/alex/pub/articles/KnillPougetTINS04.pdf" rel="nofollow">(Trends in Neuroscience, 27(12):712-9, 2004)</a> (pdf).</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_spam_filtering.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../b/a/y/Bayesian_inference.html" title="Bayesian inference">Bayesian inference</a></li>
+<li><a href="../../../b/a/y/Bayes%27s_theorem.html" title="Bayes's theorem">Bayes's theorem</a></li>
+<li><a href="../../../e/m/a/Email_filtering.html" title="Email filtering">Email filtering</a></li>
+<li><a href="../../../n/a/i/Naive_Bayes_classifier_acb3.html" title="Naive Bayes classifier">Naive Bayes classifier</a></li>
+<li><a href="../../../r/e/c/Recursive_Bayesian_estimation_0c29.html" title="Recursive Bayesian estimation">Recursive Bayesian estimation</a></li>
+<li><a href="../../../s/t/o/Stopping_e-mail_abuse.html" title="Stopping e-mail abuse">Stopping e-mail abuse</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_spam_filtering.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li>Guide to Bayesian spam filters: <a href="http://lwn.net/Articles/172491/" class="external text" title="http://lwn.net/Articles/172491/" rel="nofollow">part 1</a>, <a href="http://lwn.net/Articles/173910/" class="external text" title="http://lwn.net/Articles/173910/" rel="nofollow">part 2</a>.</li>
+<li><a href="http://mail.python.org/pipermail/python-dev/2002-August/028216.html" class="external text" title="http://mail.python.org/pipermail/python-dev/2002-August/028216.html" rel="nofollow">Detailed explanation of Paul Graham's formulas, which lack mathematical rigorousness</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/a/y/Bayesian_spam_filtering.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> M. Sahami, S. Dumais, D. Heckerman, E. Horvitz (1998). "<i>A Bayesian approach to filtering junk e-mail</i>". AAAI'98 Workshop on Learning for Text Categorization.</li>
+<li id="_note-1"><b><a href="#_ref-1" title="">^</a></b> <a href="../../../p/a/u/Paul_Graham_1672.html" title="Paul Graham">Graham, Paul</a> (2002). <a href="http://www.paulgraham.com/spam.html" class="external text" title="http://www.paulgraham.com/spam.html" rel="nofollow">A Plan for Spam</a>.</li>
+</ol>
+
+<!-- 
+Pre-expand include size: 6186 bytes
+Post-expand include size: 2135 bytes
+Template argument size: 1224 bytes
+Maximum: 2048000 bytes
+-->
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/a/y/Bayesian_spam_filtering.html">http://en.wikipedia.org../../../b/a/y/Bayesian_spam_filtering.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/m/Category%7EComputer_science_articles_needing_expert_attention_5f7a.html" title="Category:Computer science articles needing expert attention">Computer science articles needing expert attention</a></span> | <span dir='ltr'><a href="../../../a/r/t/Category%7EArticles_to_be_split_6436.html" title="Category:Articles to be split">Articles to be split</a></span> | <span dir='ltr'><a href="../../../b/a/y/Category%7EBayesian_statistics_6ca7.html" title="Category:Bayesian statistics">Bayesian statistics</a></span> | <span dir='ltr'><a href="../../../e/s/t/Category%7EEstimation_theory_0383.html" title="Category:Estimation theory">Estimation theory</a></span> | <span dir='ltr'><a href="../../../s/p/a/Category%7ESpam_filtering_375b.html" title="Category:Spam filtering">Spam filtering</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/a/y/Bayesian_spam_filtering.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/a/y/Talk%7EBayesian_spam_filtering_a864.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Bayesian_spam_filtering">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/a/y/Bayesscher_Filter_fbc6.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/f/i/l/Filtro_bayesiano.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E3%83%99/%E3%82%A4/%E3%82%B8/%E3%83%99%E3%82%A4%E3%82%B8%E3%82%A2%E3%83%B3%E3%83%95%E3%82%A3%E3%83%AB%E3%82%BF.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/f/i/l/Filtro_bayesiano.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fi/b/a/y/Bayesilainen_suodatus.html">Suomi</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/b/a/y/Bayesiskt_skr%C3%A4ppostfilter.html">Svenska</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 00:58, 14 February 2007 by Wikipedia user <a href="../../../r/l/o/User%7ERlove_1468.html" title="User:Rlove">Rlove</a>. Based on work by Wikipedia user(s) <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, <a href="../../../j/a/n/User%7EJanus303_e6e0.html" title="User:Janus303">Janus303</a>, Pianoroy, <a href="../../../w/r/s/User%7EWrs1864_30eb.html" title="User:Wrs1864">Wrs1864</a>, <a href="../../../j/o/h/User%7EJohndburger_f362.html" title="User:Johndburger">Johndburger</a>, <a href="../../../j/i/a/User%7EJianLi_1744.html" title="User:JianLi">JianLi</a>, <a href="../../../a/r/i/User%7EArichnad_d429.html" title="User:Arichnad">Arichnad</a>, <a href="../../../m/a/r/User%7EMarkSweep_b58d.html" title="User:MarkSweep">MarkSweep</a>, Jasoncauck, Tombayes, <a href="../../../k/l/i/User%7EKlimov_1a61.html" title="User:Klimov">Klimov</a>, <a href="../../../o/n/e/User%7EOnexdata_b2c5.html" title="User:Onexdata">Onexdata</a>, <a href="../../../b/r/a/User%7EBradBeattie_1142.html" title="User:BradBeattie">BradBeattie</a>, <a href="../../../e/s/p/User%7EEspoo_d646.html" title="User:Espoo">Espoo</a>, <a href="../../../m/e/s/User%7EMespinola_8aed.html" title="User:Mespinola">Mespinola</a>, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../o/m/i/User%7EOmicronpersei8_71da.html" title="User:Omicronpersei8">Omicronpersei8</a>, <a href="../../../s/h/o/User%7EShotgunlee_6c20.html" title="User:Shotgunlee">Shotgunlee</a>, <a href="../../../b/o/r/User%7EBorgx_25f8.html" title="User:Borgx">Borgx</a>, <a href="../../../g/l/e/User%7EGlen_9316.html" title="User:Glen">Glen</a>, <a href="../../../b/o/v/User%7EBovineone_f416.html" title="User:Bovineone">Bovineone</a>, <a href="../../../s/b/l/User%7ESbluen_0bef.html" title="User:Sbluen">Sbluen</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../m/i/n/User%7EMintleaf_bb08.html" title="User:Mintleaf">Mintleaf</a>, <a href="../../../t/s/e/User%7ETsemii_e415.html" title="User:Tsemii">Tsemii</a>, <a href="../../../o/r/d/User%7EOrderud_9d90.html" title="User:Orderud">Orderud</a>, <a href="../../../b/o/r/User%7EBorgHunter_70c9.html" title="User:BorgHunter">BorgHunter</a>, <a href="../../../l/e/o/User%7ELeonardoRob0t_c34e.html" title="User:LeonardoRob0t">LeonardoRob0t</a>, Wojtek Podgorski, <a href="../../../k/a/i/User%7EKainaw_88a4.html" title="User:Kainaw">Kainaw</a>, <a href="../../../s/t/l/User%7EStlemur_8a12.html" title="User:Stlemur">Stlemur</a>, <a href="../../../e/v/e/User%7EEveryking_5c9e.html" title="User:Everyking">Everyking</a>, <a href="../../../s/h/a/User%7EShaunMacPherson_703f.html" title="User:ShaunMacPherson">ShaunMacPherson</a>, Boredandroid, <a href="../../../a/r/n/User%7EArnoldReinhold_8f4c.html" title="User:ArnoldReinhold">ArnoldReinhold</a>, <a href="../../../c/o/m/User%7ECommander_ae8e.html" title="User:Commander">Commander</a>, <a href="../../../a/g/o/User%7EAgorf_4be2.html" title="User:Agorf">Agorf</a>, Jon2857092, <a href="../../../u/n/c/User%7EUncle_G_0090.html" title="User:Uncle G">Uncle G</a>, <a href="../../../j/n/i/User%7EJni_807c.html" title="User:Jni">Jni</a>, <a href="../../../b/r/y/User%7EBryan_Derksen_3ce8.html" title="User:Bryan Derksen">Bryan Derksen</a>, <a href="../../../h/a/d/User%7EHadal_a4d0.html" title="User:Hadal">Hadal</a>, <a href="../../../m/a/r/User%7EMartinSpacek_7321.html" title="User:MartinSpacek">MartinSpacek</a>, <a href="../../../c/o/g/User%7ECogitoboy_27f8.html" title="User:Cogitoboy">Cogitoboy</a>, <a href="../../../c/h/o/User%7EChocolateboy_d22d.html" title="User:Chocolateboy">Chocolateboy</a>, <a href="../../../m/x/n/User%7EMxn_bd81.html" title="User:Mxn">Mxn</a>, <a href="../../../b/k/e/User%7EBkell_6f8f.html" title="User:Bkell">Bkell</a>, <a href="../../../k/a/m/User%7EKamek_381b.html" title="User:Kamek">Kamek</a>, <a href="../../../x/m/n/User%7EXmnemonic_d4e1.html" title="User:Xmnemonic">Xmnemonic</a>, <a href="../../../s/a/r/User%7ESarge_Baldy_6bdd.html" title="User:Sarge Baldy">Sarge Baldy</a>, <a href="../../../k/a/t/User%7EKate_3866.html" title="User:Kate">Kate</a>, <a href="../../../w/m/a/User%7EWmahan_ede0.html" title="User:Wmahan">Wmahan</a>, <a href="../../../e/g/o/User%7EEgomaniac_b61a.html" title="User:Egomaniac">Egomaniac</a> and <a href="../../../r/i/c/User%7ERichard_cocks_e8d7.html" title="User:Richard cocks">Richard cocks</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

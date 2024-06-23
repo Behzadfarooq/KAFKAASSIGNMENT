@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Adler-32,16-bit,32-bit,ASCII,Algorithm,Byte,CRC-32,CRC32,C (programming language),Checksum,Composite number" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Adler-32 - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Adler-32</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p><b>Adler-32</b> is a <a href="../../../c/h/e/Checksum.html" title="Checksum">checksum</a> <a href="../../../a/l/g/Algorithm.html" title="Algorithm">algorithm</a> which was invented by Mark Adler. It is almost as reliable as a <a href="../../../3/2/-/32-bit.html" title="32-bit">32-bit</a> <a href="../../../c/y/c/Cyclic_redundancy_check.html" title="Cyclic redundancy check">cyclic redundancy check</a> for protecting against accidental modification of data, such as distortions occurring during a transmission, but is significantly faster to calculate in software.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#History"><span class="tocnumber">1</span> <span class="toctext">History</span></a></li>
+<li class="toclevel-1"><a href="#The_algorithm"><span class="tocnumber">2</span> <span class="toctext">The algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Example"><span class="tocnumber">3</span> <span class="toctext">Example</span></a></li>
+<li class="toclevel-1"><a href="#Comparison_with_the_Fletcher_checksum"><span class="tocnumber">4</span> <span class="toctext">Comparison with the Fletcher checksum</span></a></li>
+<li class="toclevel-1"><a href="#Example_implementation"><span class="tocnumber">5</span> <span class="toctext">Example implementation</span></a></li>
+<li class="toclevel-1"><a href="#Advantages_and_disadvantages"><span class="tocnumber">6</span> <span class="toctext">Advantages and disadvantages</span></a></li>
+<li class="toclevel-1"><a href="#Weakness"><span class="tocnumber">7</span> <span class="toctext">Weakness</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">8</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">9</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="History" id="History"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/l/Adler-32.html" title="Edit section: History">edit</a>]</span> <span class="mw-headline">History</span></h2>
+<p>It is a modification of the <a href="../../../f/l/e/Fletcher%27s_checksum.html" title="Fletcher's checksum">Fletcher checksum</a>, which in its original form is slightly faster but less reliable.</p>
+<p>A "rolling checksum" version of Adler-32 is used in the <a href="../../../r/s/y/Rsync.html" title="Rsync">rsync</a> utility.</p>
+<p><a name="The_algorithm" id="The_algorithm"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/l/Adler-32.html" title="Edit section: The algorithm">edit</a>]</span> <span class="mw-headline">The algorithm</span></h2>
+<p>An Adler-32 checksum is obtained by calculating two <a href="../../../1/6/-/16-bit.html" title="16-bit">16-bit</a> checksums <i>A</i> and <i>B</i> and concatenating their bits into a 32-bit integer. <i>A</i> is the sum of all <a href="../../../b/y/t/Byte.html" title="Byte">bytes</a> in the string, <i>B</i> is the sum of the individual values of <i>A</i> from each step.</p>
+<p>At the beginning of an Adler-32 run, <i>A</i> is initialized to 1, <i>B</i> to 0. The sums are done <a href="../../../m/o/d/Modular_arithmetic.html" title="Modular arithmetic">modulo</a> 65521 (the largest <a href="../../../p/r/i/Prime_number.html" title="Prime number">prime number</a> smaller than 2<sup>16</sup>). The bytes are stored in network order (<a href="../../../e/n/d/Endianness.html" title="Endianness">big endian</a>), <i>B</i> occupying the two most significant bytes.</p>
+<p>The function may be expressed as</p>
+<pre>
+ <i>A</i> = 1 + <i>D</i><sub>1</sub> + <i>D</i><sub>2</sub> + ... + <i>D</i><sub><i>n</i></sub> (mod 65521)
+ <i>B</i> = (1 + <i>D</i><sub>1</sub>) + (1 + <i>D</i><sub>1</sub> + <i>D</i><sub>2</sub>) + ... + (1 + <i>D</i><sub>1</sub> + <i>D</i><sub>2</sub> + ... + <i>D</i><sub><i>n</i></sub>) (mod 65521)
+   = <i>n</i>×<i>D</i><sub>1</sub> + (<i>n</i>-1)×<i>D</i><sub>2</sub> + (<i>n</i>-2)×<i>D</i><sub>3</sub> + ... + <i>D</i><sub><i>n</i></sub> + <i>n</i> (mod 65521)
+
+ <i>Adler-32</i>(<i>D</i>) = <i>B</i> × 65536 + <i>A</i>
+</pre>
+<p>where <i>D</i> is the string of bytes for which the checksum is to be calculated, and <i>n</i> is the length of <i>D</i>.</p>
+<p><a name="Example" id="Example"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/l/Adler-32.html" title="Edit section: Example">edit</a>]</span> <span class="mw-headline">Example</span></h2>
+<p>The Adler-32 sum of the <a href="../../../a/s/c/ASCII_d2cd.html" title="ASCII">ASCII</a> string "<code>Wikipedia</code>" would be calculated as follows:</p>
+<pre>
+   ASCII code          A                   B
+
+   W: 87           1 +  87 =  88        0 +  88 =   88
+   i: 105         88 + 105 = 193       88 + 193 =  281
+   k: 107        193 + 107 = 300      281 + 300 =  581
+   i: 105        300 + 105 = 405      581 + 405 =  986
+   p: 112        405 + 112 = 517      986 + 517 = 1503
+   e: 101        517 + 101 = 618     1503 + 618 = 2121
+   d: 100        618 + 100 = 718     2121 + 718 = 2839
+   i: 105        718 + 105 = 823     2839 + 823 = 3662
+   a: 97         823 +  97 = 920     3662 + 920 = 4582
+
+   A = 920  =  398 <a href="../../../h/e/x/Hexadecimal.html" title="Hexadecimal">hex</a>
+   B = 4582 = 11E6 hex
+
+   Output: 11E60398 hex
+</pre>
+<p>(The modulo operation had no effect in this demonstration, since none of the values reached 65521).</p>
+<p><a name="Comparison_with_the_Fletcher_checksum" id="Comparison_with_the_Fletcher_checksum"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/l/Adler-32.html" title="Edit section: Comparison with the Fletcher checksum">edit</a>]</span> <span class="mw-headline">Comparison with the Fletcher checksum</span></h2>
+<p>The first difference between the two algorithms is that Adler-32 sums are calculated modulo a prime number, whereas Fletcher sums are calculated modulo 2<sup>4</sup>-1, 2<sup>8</sup>-1, or 2<sup>16</sup>-1 (depending on the number of bits used), which are all <a href="../../../c/o/m/Composite_number.html" title="Composite number">composite numbers</a>. Using a prime number makes it possible for Adler-32 to catch differences in certain combinations of bytes that Fletcher is unable to detect.</p>
+<p>The second difference, which has the largest effect on the speed of the algorithm, is that the Adler sums are computed over 8-bit <a href="../../../b/y/t/Byte.html" title="Byte">bytes</a> rather than 16-bit <a href="../../../w/o/r/Word_%28computer_science%29.html" title="Word (computer science)">words</a>, resulting in twice the number of loop iterations. This results in the Adler-32 checksum taking between one-and-a-half to two times as long as Fletcher's checksum.</p>
+<p><a name="Example_implementation" id="Example_implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/l/Adler-32.html" title="Edit section: Example implementation">edit</a>]</span> <span class="mw-headline">Example implementation</span></h2>
+<p>An optimized implementation in the <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C programming language</a> operates as follows:</p>
+<pre>
+#define MOD_ADLER 65521
+       uint8_t *data;   /* Pointer to the data to be summed */
+       size_t len;      /* Length in bytes */
+       uint32_t a = 1, b = 0;
+
+       while (len) {
+               unsigned tlen = len &gt; 5550 ? 5550 : len;
+               len -= tlen;
+               do {
+                       a += *data++;
+                       b += a;
+               } while (--tlen);
+               a = (a &amp; 0xffff) + (a &gt;&gt; 16) * (65536-MOD_ADLER);
+               b = (b &amp; 0xffff) + (b &gt;&gt; 16) * (65536-MOD_ADLER);
+       }
+       /* It can be shown that a &lt;= 0x1013a here, so a single subtract will do. */
+       if (a &gt;= MOD_ADLER)
+               a -= MOD_ADLER;
+       /* It can be shown that b can reach 0xffef1 here. */
+       b = (b &amp; 0xffff) + (b &gt;&gt; 16) * (65536-MOD_ADLER);
+       if (b &gt;= MOD_ADLER)
+               b -= MOD_ADLER;
+       return (b &lt;&lt; 16) | a;
+</pre>
+<p>A few tricks are used here for efficiency:</p>
+<ul>
+<li>Most importantly, by using larger (32-bit) temporary sums, it is possible to sum a great deal of data before needing to reduce modulo 65521. The requirement is that the reduction modulo 65521 must be performed before the sums overflow, which would cause an implicit reduction modulo 2<sup>32</sup> = 4294967296 and corrupt the computation.</li>
+<li>65536 ≡ 15 mod 65521, so 65536<i>x</i> ≡ 15<i>x</i> (mod 65521), and the expression <code>(x &amp; 0xffff) + (x &gt;&gt; 16)*15</code> reduces x modulo 65521. Only doing it once is not guaranteed to be complete, but it will be at most <code>0xffff0</code>. A second repetition guarantees a result less than 65745, after which a single conditional subtraction reduces the sum to the range 0..65520.</li>
+<li>The magic value 5550 is the largest number of sums that can be performed without overflowing <code>b</code>. Any smaller value is also permissible; 4096 may be convenient in some cases. Because this implementation does not completely reduce <code>a</code>, its limit is slightly lower than the 5552 mentioned in the RFC. The proof that 5550 is safe (and 5551 is not) is a bit intricate, and starts by proving that <code>a</code> can be at most <code>0x1013a</code> at the start of the inner 4 loop.</li>
+</ul>
+<p><a name="Advantages_and_disadvantages" id="Advantages_and_disadvantages"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/l/Adler-32.html" title="Edit section: Advantages and disadvantages">edit</a>]</span> <span class="mw-headline">Advantages and disadvantages</span></h2>
+<ul>
+<li>Warning: Like the standard <a href="../../../c/r/c/CRC-32_5917.html" title="CRC-32">CRC-32</a>, the Adler-32 checksum can be forged easily and is therefore unsafe for protecting against <i>intentional</i> modification.</li>
+<li>It has the benefit over a CRC that it can be <a href="../../../c/o/m/Computation.html" title="Computation">computed</a> faster in <a href="../../../s/o/f/Software.html" title="Software">software</a>.</li>
+<li>Adler-32 has a weakness for short messages with few hundred bytes, because the checksums for these messages have a poor coverage of the 32 available bits.</li>
+</ul>
+<p><a name="Weakness" id="Weakness"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/l/Adler-32.html" title="Edit section: Weakness">edit</a>]</span> <span class="mw-headline">Weakness</span></h2>
+<p>Jonathan Stone discovered in 2001 that Adler-32 has a weakness for very short messages. He wrote "Briefly, the problem is that, for very short packets, Adler32 is guaranteed to give poor coverage of the available bits. Don't take my word for it, ask Mark Adler. :-)" The problem is that sum <i>A</i> does not wrap for short messages. The maximum value of <i>A</i> for a 128-byte message is 32640, which is below the value 65521 used by the modulo operation. An extended explanation can be found in <a href="http://tools.ietf.org/html/rfc3309" class="external" title="http://tools.ietf.org/html/rfc3309">RFC 3309</a>, which mandates the use of <a href="../../../c/r/c/CRC32_19c1.html" title="CRC32">CRC32</a> instead of Adler-32 for <a href="../../../s/t/r/Stream_Control_Transmission_Protocol_e45e.html" title="Stream Control Transmission Protocol">SCTP</a>, the Stream Control Transmission Protocol.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/l/Adler-32.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../l/i/s/List_of_checksum_algorithms.html" title="List of checksum algorithms">List of checksum algorithms</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/d/l/Adler-32.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://tools.ietf.org/html/rfc1950" class="external" title="http://tools.ietf.org/html/rfc1950">RFC 1950</a> - specification, contains example <a href="../../../c/_/%28/C_%28programming_language%29.html" title="C (programming language)">C</a> code</li>
+<li><a href="http://www.zlib.org" class="external text" title="http://www.zlib.org" rel="nofollow">ZLib</a> - implements the Adler-32 checksum</li>
+<li><a href="http://tools.ietf.org/html/rfc3309" class="external" title="http://tools.ietf.org/html/rfc3309">RFC 3309</a> - information about the short message weakness and related change to SCTP</li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/d/l/Adler-32.html">http://en.wikipedia.org../../../a/d/l/Adler-32.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../c/h/e/Category%7EChecksum_algorithms_c4ed.html" title="Category:Checksum algorithms">Checksum algorithms</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/d/l/Adler-32.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/d/l/Talk%7EAdler-32_bb29.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Adler-32">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/d/l/Adler-32.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/d/l/Adler-32.html">Polski</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 11:41, 6 February 2007 by Wikipedia user Charon1962. Based on work by Wikipedia user(s) <a href="../../../s/t/b/User%7ESTBotD_8c4f.html" title="User:STBotD">STBotD</a>, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, <a href="../../../k/i/n/User%7EKindall_055e.html" title="User:Kindall">Kindall</a>, <a href="../../../l/i/g/User%7ELight_current_29d4.html" title="User:Light current">Light current</a>, <a href="../../../c/i/p/User%7ECiphergoth_5225.html" title="User:Ciphergoth">Ciphergoth</a>, <a href="../../../j/o/n/User%7EJonelo_c3db.html" title="User:Jonelo">Jonelo</a>, <a href="../../../c/a/n/User%7ECanisRufus_0875.html" title="User:CanisRufus">CanisRufus</a>, <a href="../../../g/e/r/User%7EGerbrant_7d11.html" title="User:Gerbrant">Gerbrant</a>, <a href="../../../l/o/w/User%7ELowellian_970e.html" title="User:Lowellian">Lowellian</a>, <a href="../../../k/a/r/User%7EKarada_595b.html" title="User:Karada">Karada</a>, Eyreland, <a href="../../../g/r/a/User%7EGraue_e85a.html" title="User:Graue">Graue</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, Kune, <a href="../../../g/r/e/User%7EGrendelkhan_c5fb.html" title="User:Grendelkhan">Grendelkhan</a>, <a href="../../../o/j/w/User%7EOjw_9290.html" title="User:Ojw">Ojw</a>, <a href="../../../s/h/a/User%7EShaunMacPherson_703f.html" title="User:ShaunMacPherson">ShaunMacPherson</a>, <a href="../../../i/n/k/User%7EInkling_df45.html" title="User:Inkling">Inkling</a>, <a href="../../../e/e/q/User%7EEequor_b13d.html" title="User:Eequor">Eequor</a> and <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

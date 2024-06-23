@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Artificial intelligence systems integration,AIBO,ASIMO,Aaron Sloman,Artificial intelligence,Augmented reality,Blackboard system,CORBA,Carnegie Mellon University,Cognitive architecture,Columbia University" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Artificial intelligence systems integration - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Artificial intelligence systems integration</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><br />
+The core idea of A.I. systems integration is making individual <a href="../../../s/o/f/Software_component.html" title="Software component">software components</a>, such as <a href="../../../s/p/e/Speech_synthesizer.html" title="Speech synthesizer">speech synthesizers</a>, interoperable with other components, such as common sense knowledgebases, in order to create larger, broader and more capable A.I. systems. The main methods that have been proposed for integration are message routing, or communication protocols that the software components use to communicate with each other, often through a middleware <a href="../../../b/l/a/Blackboard_system.html" title="Blackboard system">blackboard system</a>.</p>
+<p>Most artificial intelligence systems involve some sort of integrated technologies, for example the integration of speech synthesis technologies with that of speech recognition. However, in recent years there has been an increasing discussion on the importance of systems integration as a field in its own right. Proponents of this approach are researchers such as <a href="../../../m/a/r/Marvin_Minsky_9305.html" title="Marvin Minsky">Marvin Minsky</a>, <a href="../../../a/a/r/Aaron_Sloman_eadc.html" title="Aaron Sloman">Aaron Sloman</a>, Deb Roy, Kristinn R. Thórisson and <a href="../../../m/i/c/Michael_A._Arbib_780a.html" title="Michael A. Arbib">Michael A. Arbib</a>. A reason for the recent attention A.I. integration is attracting is that there have already been created a number of (relatively) simple A.I. systems for specific problem domains (such as <a href="../../../c/o/m/Computer_vision.html" title="Computer vision">computer vision</a>, <a href="../../../s/p/e/Speech_synthesis.html" title="Speech synthesis">speech synthesis</a>, etc.), and that integrating what's already available is a more logical approach to broader A.I. than building monolithic systems from scratch.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Why_integration.3F"><span class="tocnumber">1</span> <span class="toctext">Why integration?</span></a></li>
+<li class="toclevel-1"><a href="#Challenges_.26_solutions"><span class="tocnumber">2</span> <span class="toctext">Challenges &amp; solutions</span></a></li>
+<li class="toclevel-1"><a href="#Methodologies"><span class="tocnumber">3</span> <span class="toctext">Methodologies</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Constructionist_Design_Methodology"><span class="tocnumber">3.1</span> <span class="toctext">Constructionist Design Methodology</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Tools"><span class="tocnumber">4</span> <span class="toctext">Tools</span></a>
+<ul>
+<li class="toclevel-2"><a href="#OpenAIR_Protocol"><span class="tocnumber">4.1</span> <span class="toctext">OpenAIR Protocol</span></a></li>
+<li class="toclevel-2"><a href="#Psyclone_AIOS"><span class="tocnumber">4.2</span> <span class="toctext">Psyclone AIOS</span></a></li>
+<li class="toclevel-2"><a href="#Elvin"><span class="tocnumber">4.3</span> <span class="toctext">Elvin</span></a></li>
+<li class="toclevel-2"><a href="#OAA"><span class="tocnumber">4.4</span> <span class="toctext">OAA</span></a></li>
+<li class="toclevel-2"><a href="#CORBA"><span class="tocnumber">4.5</span> <span class="toctext">CORBA</span></a></li>
+<li class="toclevel-2"><a href="#MOSID"><span class="tocnumber">4.6</span> <span class="toctext">MOSID</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Examples_of_Integrated_Systems"><span class="tocnumber">5</span> <span class="toctext">Examples of Integrated Systems</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Why_integration.3F" id="Why_integration.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: Why integration?">edit</a>]</span> <span class="mw-headline">Why integration?</span></h2>
+<p>The focus on systems integration, especially with regards to modular approaches, derive from the fact that most intelligences of signifact scales are composed of a multitude of processes and/or utilize multimodal input and output. For example, a humanoid-type of intelligence would preferably have to be able to talk using speech synthesis, hear using speech recognition, understand using a logical (or some other undefined) mechanism, and so forth. In order to produce artificially intelligent software of broader intelligence, integration of these modalities is necessary.</p>
+<p><a name="Challenges_.26_solutions" id="Challenges_.26_solutions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: Challenges &amp; solutions">edit</a>]</span> <span class="mw-headline">Challenges &amp; solutions</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:302px;"><a href="../../../a/i/_/Image%7EAi_integration.jpg_9c19.html" class="internal" title="An example of how multiple modules written in miscellaneous programming languages can be utilized on multiple computers in A.I. systems integration"><img src="../../../upload/thumb/d/d8/Ai_integration.jpg/300px-Ai_integration.jpg" alt="An example of how multiple modules written in miscellaneous programming languages can be utilized on multiple computers in A.I. systems integration" width="300" height="482" longdesc="../../../a/i/_/Image%7EAi_integration.jpg_9c19.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../a/i/_/Image%7EAi_integration.jpg_9c19.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+An example of how multiple modules written in miscellaneous programming languages can be utilized on multiple computers in A.I. systems integration</div>
+</div>
+</div>
+<p>Collaboration is an integral part of <a href="../../../s/o/f/Software_development.html" title="Software development">software development</a> as evidenced by the size of software companies and the size of their software departments. Among the tools to ease software collaboration are various procedures and standards that developers can follow to ensure quality, reliability and that their software is compatible with software created by others (such as <a href="../../../w/3/c/W3C_446a.html" title="W3C">W3C</a> standards for webpage development). However, collaboration in fields of A.I. has been lacking, for the most part not seen outside of the respected schools, departments or research institutes (and sometimes not within them either). This presents practitioners of A.I. systems integration with a substantial problem and often causes A.I. researchers to have to 're-invent the wheel' each time they want a specific functionality to work with their software. Even more damaging is the "not invented here" syndrome, which manifests itself in a strong reluctance of A.I. researchers to build on the work of others.</p>
+<p>The outcome of this in A.I. is a large set of "solution islands": A.I. research has produced numerous isolated software components and mechanisms that deal with various parts of intelligence separately. To take some examples:</p>
+<ul>
+<li>Speech synthesis
+<ul>
+<li>FreeTTS from <a href="../../../c/a/r/Carnegie_Mellon_University_d56e.html" title="Carnegie Mellon University">CMU</a></li>
+</ul>
+</li>
+<li>Speech recognition
+<ul>
+<li>Sphinx from <a href="../../../c/a/r/Carnegie_Mellon_University_d56e.html" title="Carnegie Mellon University">CMU</a></li>
+</ul>
+</li>
+<li>Logical reasoning
+<ul>
+<li>Open<a href="../../../c/y/c/Cyc.html" title="Cyc">Cyc</a> from <a href="../../../c/y/c/Cycorp.html" title="Cycorp">Cycorp</a></li>
+<li><a href="../../../o/p/e/Open_Mind_Common_Sense_edaa.html" title="Open Mind Common Sense">Open Mind Common Sense</a> Net from <a href="../../../m/i/t/MIT_7abc.html" title="MIT">MIT</a></li>
+</ul>
+</li>
+</ul>
+<p>With the increased popularity of the <a href="../../../o/p/e/Open_source.html" title="Open source">open source</a> movement, a lot of the software being created, including A.I. systems, that is available for public exploit. The next natural step is to merge these individual software components into coherent, intelligent systems of a broader nature. As a multitude of components (that often serve the same purpose) have already been created by the community, the most accessible way of integration is giving each of these components an easy way to communicate with each other. By doing so, each component by itself becomes a module which can then be tried in various settings and configurations of larger architectures.</p>
+<p>Many online communities for A.I. developers exist where tutorials, examples and forums aim at helping both beginners and experts build intelligent systems (for example the <a href="http://ai-depot.com" class="external text" title="http://ai-depot.com" rel="nofollow">AI Depot</a>, <a href="http://www.generation5.org" class="external text" title="http://www.generation5.org" rel="nofollow">Generation 5</a>). However, few communities have succeeded in making a certain standard or a code of conduct popular to allow the large collection of miscellaneous systems to be integrated with any ease. Recently, however, there have been focused attempts at producing standards for A.I. research collaboration, <a href="http://www.mindmakers.org" class="external text" title="http://www.mindmakers.org" rel="nofollow">Mindmakers.org</a> is an online community specifically created to harbor collaboration in the development of A.I. systems. The community has proposed the OpenAIR message and routing protocol for communication between software components, making it easier for individual developers to make modules instantly integrateble into other peoples' projects.</p>
+<p><a name="Methodologies" id="Methodologies"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: Methodologies">edit</a>]</span> <span class="mw-headline">Methodologies</span></h2>
+<p><a name="Constructionist_Design_Methodology" id="Constructionist_Design_Methodology"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: Constructionist Design Methodology">edit</a>]</span> <span class="mw-headline">Constructionist Design Methodology</span></h3>
+<p>The <a href="../../../c/o/n/Constructionist_design_methodology.html" title="Constructionist design methodology">Constructionist design methodology</a> (CDM, or 'Constructionist A.I.') is a formal methodology proposed in the year 2004, for use in the development of cognitive robotics, communicative humanoids and broad AI systems. The creation of such systems requires integration of a large number of functionalities that must be carefully coordinated to achieve coherent system behavior. CDM is based on iterative design steps that lead to the creation of a network of named interacting modules, communicating via explicitly typed streams and discrete messages. The OpenAIR message protocol (see below) was inspired by the CDM, and has frequently been used to aid in development of intelligent systems using CDM.</p>
+<p>One of the first projects to use CDM was <a href="http://www.mindmakers.org/projects/MIRAGE" class="external text" title="http://www.mindmakers.org/projects/MIRAGE" rel="nofollow">Mirage</a>, an embodied, graphical agent visualized through <a href="../../../a/u/g/Augmented_reality.html" title="Augmented reality">augmented reality</a> which could communicate with human users and talk about objects present in the user's physical room. Mirage was created by Kristinn R. Thórisson, the creator of CDM, and a number of students at <a href="../../../c/o/l/Columbia_University_082c.html" title="Columbia University">Columbia University</a> in 2004. The methodology is actively being developed at <a href="../../../r/e/y/Reykjavik_University_3884.html" title="Reykjavik University">Reykjavik University</a>.</p>
+<p><a name="Tools" id="Tools"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: Tools">edit</a>]</span> <span class="mw-headline">Tools</span></h2>
+<p><a name="OpenAIR_Protocol" id="OpenAIR_Protocol"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: OpenAIR Protocol">edit</a>]</span> <span class="mw-headline">OpenAIR Protocol</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:112px;"><a href="../../../a/i/r/Image%7EAIR-small.png_9d31.html" class="internal" title="The OpenAIR Logo"><img src="../../../upload/7/7c/AIR-small.png" alt="The OpenAIR Logo" width="110" height="22" longdesc="../../../a/i/r/Image%7EAIR-small.png_9d31.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../a/i/r/Image%7EAIR-small.png_9d31.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+The OpenAIR Logo</div>
+</div>
+</div>
+<p><b><a href="../../../o/p/e/OpenAIR_f516.html" title="OpenAIR">OpenAIR</a></b> is a message routing and communication protocol that has been gaining in popularity over the past two years. The protocol is managed by <a href="http://www.mindmakers.org" class="external text" title="http://www.mindmakers.org" rel="nofollow">Mindmakers.org</a>, and is described on their site in the following manner:</p>
+<p>"<i>OpenAIR is a routing and communication protocol based on a publish-subscribe architecture. It is intended to be the "glue" that allows numerous A.I. researchers to share code more effectively — "AIR to share". It is a definition or a blueprint of the "post office and mail delivery system" for distributed, multi-module systems. OpenAIR provides a core foundation upon which subsequent markup languages and semantics can be based, for e.g. gesture recognition and generation, computer vision, hardware-software interfacing etc; for a recent example see <a href="http://www.mindmakers.org/projects/CVML" class="external text" title="http://www.mindmakers.org/projects/CVML" rel="nofollow">CVML</a></i>."<a href="http://www.mindmakers.org/openair/airPage.jsp" class="external autonumber" title="http://www.mindmakers.org/openair/airPage.jsp" rel="nofollow">[1]</a></p>
+<p>OpenAIR was created to allow software components that serve their own purpose to communicate with each other in order to produce large scale, overall behavior of an intelligent systems. A simple example would be to have a speech recognition system, and a speech synthesizer communicate with an <a href="../../../e/x/p/Expert_system.html" title="Expert system">expert system</a> through OpenAIR messages, to create a system that can hear and answer various questions through spoken dialogue. CORBA (see below) is an older but similar architecture that can be used for comparison, but OpenAIR was specifically created for A.I. research, while CORBA is a more general standard.</p>
+<p>The OpenAIR protocol has been used for collaboration on a number of A.I. systems, a list can be found on the <a href="http://www.mindmakers.org" class="external text" title="http://www.mindmakers.org" rel="nofollow">Mindmakers project pages</a>. Psyclone is a popular platform to pair with the OpenAIR protocol (see below).</p>
+<p><a name="Psyclone_AIOS" id="Psyclone_AIOS"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: Psyclone AIOS">edit</a>]</span> <span class="mw-headline">Psyclone AIOS</span></h3>
+<p><a href="http://www.cmlabs.com/psyclone/" class="external text" title="http://www.cmlabs.com/psyclone/" rel="nofollow">Psyclone</a> is a software platform, or an AI operating system (AIOS), developed by <a href="http://www.cmlabs.com" class="external text" title="http://www.cmlabs.com" rel="nofollow">Communicative Machines Laboratories</a> for use in creating large, multi modal A.I. systems. The system is an implementation of a <a href="../../../b/l/a/Blackboard_system.html" title="Blackboard system">blackboard system</a> that supports the OpenAIR message protocol. Psyclone is available for free for non-commercial purposes and has therefor often been used by research institutes on low budgets and novice A.I. developers.</p>
+<p><a name="Elvin" id="Elvin"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: Elvin">edit</a>]</span> <span class="mw-headline">Elvin</span></h3>
+<p>Elvin is a content-based router with a central routing station, similar to Psyclone AIOS (see above).</p>
+<p><a name="OAA" id="OAA"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: OAA">edit</a>]</span> <span class="mw-headline">OAA</span></h3>
+<p>The OOA is a hybrid architecture that relies on a special inter-agent communication language (ICL) – a logic-based declarative language which is good for expressing high-level, complex tasks and natural language expressions.</p>
+<p><a name="CORBA" id="CORBA"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: CORBA">edit</a>]</span> <span class="mw-headline">CORBA</span></h3>
+<p>The <a href="../../../c/o/r/CORBA_ee6c.html" title="CORBA">Common Object Request Broker Architecture (<b>CORBA</b>)</a> is a standard that enables <a href="../../../s/o/f/Software_componentry.html" title="Software componentry">software components</a> written in multiple <a href="../../../p/r/o/Programming_language.html" title="Programming language">computer languages</a> and running on multiple computers to interoperate. CORBA is defined by the <a href="../../../o/b/j/Object_Management_Group_7215.html" title="Object Management Group">Object Management Group</a> (OMG). CORBA follows similar principles as the OpenAIR protocol (see above), and can be used for A.I. systems integration.</p>
+<p><a name="MOSID" id="MOSID"></a></p>
+<h3><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: MOSID">edit</a>]</span> <span class="mw-headline">MOSID</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:122px;"><a href="../../../o/k/i/Image%7EOki-logo.gif_682c.html" class="internal" title="Open Knowledge Initiative Logo"><img src="../../../upload/thumb/f/f5/Oki-logo.gif/120px-Oki-logo.gif" alt="Open Knowledge Initiative Logo" width="120" height="59" longdesc="../../../o/k/i/Image%7EOki-logo.gif_682c.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../o/k/i/Image%7EOki-logo.gif_682c.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Open Knowledge Initiative Logo</div>
+</div>
+</div>
+<p>The <b>Messaging</b> <a href="../../../o/p/e/Open_Service_Interface_Definition_e765.html" title="Open Service Interface Definition">Open Service Interface Definition</a> (<b>OSID</b>) is an <a href="../../../o/2E/k/O.K.I._5d10.html" title="O.K.I.">O.K.I.</a> <a href="../../../s/p/e/Specification.html" title="Specification">specification</a> which provides a means of sending, subscribing and receiving messages. <b>OSIDs</b> are programmatic interfaces which comprise a <a href="../../../s/e/r/Service_Oriented_Architecture_1627.html" title="Service Oriented Architecture">Service Oriented Architecture</a> for designing and building <a href="../../../s/o/f/Software_reusability.html" title="Software reusability">reusable</a> and <a href="../../../i/n/t/Interoperable.html" title="Interoperable">interoperable</a> <a href="../../../s/o/f/Software.html" title="Software">software</a>.</p>
+<p><a name="Examples_of_Integrated_Systems" id="Examples_of_Integrated_Systems"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: Examples of Integrated Systems">edit</a>]</span> <span class="mw-headline">Examples of Integrated Systems</span></h2>
+<ul>
+<li><a href="http://www.mindmakers.org/projects/MIRAGE" class="external text" title="http://www.mindmakers.org/projects/MIRAGE" rel="nofollow">MIRAGE</a>, an A.I. embodied humanoid in an augmented reality environment.</li>
+<li><a href="../../../a/s/i/ASIMO_9d30.html" title="ASIMO">ASIMO</a>, Honda's humanoid robot, and <a href="../../../q/r/i/QRIO_19e6.html" title="QRIO">QRIO</a>, Sony's version of a humanoid robot.</li>
+<li><a href="../../../m/i/t/MIT_Cog_project_7410.html" title="MIT Cog project">Cog</a>, M.I.T. humanoid robot project under the direction of <a href="../../../r/o/d/Rodney_Brooks_4c18.html" title="Rodney Brooks">Rodney Brooks</a>.</li>
+<li><a href="../../../a/i/b/AIBO_7761.html" title="AIBO">AIBO</a>, Sony's robot dog integrates vision, hearing and motorskills.</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/r/t/Artificial_intelligence.html" title="Artificial intelligence">Artificial intelligence</a></li>
+<li><a href="../../../h/y/b/Hybrid_intelligent_system.html" title="Hybrid intelligent system">Hybrid intelligent system</a>, systems that combine the methods of <a href="../../../g/o/f/GOFAI_f08a.html" title="GOFAI">Conventional A.I. (or GOFAI)</a> &amp; that of <a href="../../../c/o/m/Computational_Intelligence_50d9.html" title="Computational Intelligence">Computational Intelligence</a>.</li>
+<li><a href="../../../h/u/m/Humanoid_robot.html" title="Humanoid robot">Humanoid robots</a> utilize systems integration intensely.</li>
+<li><a href="../../../c/o/n/Constructionist_design_methodology.html" title="Constructionist design methodology">Constructionist design methodology</a></li>
+<li><a href="../../../c/o/g/Cognitive_architecture.html" title="Cognitive architecture">Cognitive architectures</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li><a href="http://www.mindmakers.org/projects/MIRAGE" class="external text" title="http://www.mindmakers.org/projects/MIRAGE" rel="nofollow">The Mirage project page</a></li>
+<li><a href="http://www.mindmakers.org/openair/airPage.jsp" class="external text" title="http://www.mindmakers.org/openair/airPage.jsp" rel="nofollow">The OpenAIR page on Mindmakers.org</a></li>
+<li><a href="http://xenia.media.mit.edu/%7Ekris/ftp/AIMag-CDM-ThorissonEtAl04.pdf" class="external text" title="http://xenia.media.mit.edu/%7Ekris/ftp/AIMag-CDM-ThorissonEtAl04.pdf" rel="nofollow">Constructionist Design Methodology, published in A.I. magazine</a></li>
+<li><a href="http://www.python.org/pycon/2005/papers/4/MissionEngine.WhitePaper.pdf" class="external text" title="http://www.python.org/pycon/2005/papers/4/MissionEngine.WhitePaper.pdf" rel="nofollow">MissionEngine: Multi-system integration using Python in the Tactical Language Project</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/r/t/Artificial_intelligence_systems_integration.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.mindmakers.org" class="external text" title="http://www.mindmakers.org" rel="nofollow">Mindmakers.org</a>, a community portal for A.I. research collaboration and system integration.</li>
+<li><a href="http://www.ai.mit.edu/projects/humanoid-robotics-group/cog/methodology.html" class="external text" title="http://www.ai.mit.edu/projects/humanoid-robotics-group/cog/methodology.html" rel="nofollow">COG, a humanoid robot at M.I.T.</a></li>
+<li><a href="http://okicommunity.mit.edu/filemgmt/index.php" class="external text" title="http://okicommunity.mit.edu/filemgmt/index.php" rel="nofollow">The Open Knowledge Initiative Library</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/r/t/Artificial_intelligence_systems_integration.html">http://en.wikipedia.org../../../a/r/t/Artificial_intelligence_systems_integration.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/r/t/Category%7EArtificial_intelligence_cc78.html" title="Category:Artificial intelligence">Artificial intelligence</a></span> | <span dir='ltr'><a href="../../../s/o/f/Category%7ESoftware_engineering_d46f.html" title="Category:Software engineering">Software engineering</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/r/t/Artificial_intelligence_systems_integration.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/r/t/Talk%7EArtificial_intelligence_systems_integration_ea0f.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Artificial_intelligence_systems_integration">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 14:22, 22 March 2007 by Wikipedia user <a href="../../../r/o/b/User%7ERobotman1974_0598.html" title="User:Robotman1974">Robotman1974</a>. Based on work by Wikipedia user(s) <a href="../../../r/e/q/User%7ERequestion_f172.html" title="User:Requestion">Requestion</a>, <a href="../../../t/h/i/User%7EThiseye_689a.html" title="User:Thiseye">Thiseye</a>, <a href="../../../a/b/e/User%7EAbelani_8b2e.html" title="User:Abelani">Abelani</a>, Thorisson, Kristleifur and <a href="../../../h/t/h/User%7EHthth_cc50.html" title="User:Hthth">Hthth</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

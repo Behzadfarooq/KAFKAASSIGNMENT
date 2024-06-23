@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Betacommand/Common.js,Bypass your cache" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Betacommand/Common.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Betacommand/Common.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../b/e/t/User%7EBetacommand_e660.html" title="User:Betacommand">User:Betacommand</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</span>
+</p><pre>/*
+&lt;pre&gt;
+*/
+/* tooltips and access keys */
+ta = new Object();
+ta['pt-userpage'] = new Array('.','My user page'); 
+ta['pt-anonuserpage'] = new Array('.','The user page for the ip you\'re editing as'); 
+ta['pt-mytalk'] = new Array('n','My talk page'); 
+ta['pt-anontalk'] = new Array('n','Discussion about edits from this ip address'); 
+ta['pt-preferences'] = new Array('-','My preferences'); 
+ta['pt-watchlist'] = new Array('l','The list of pages you\'re monitoring for changes.'); 
+ta['pt-mycontris'] = new Array('y','List of my contributions'); 
+ta['pt-login'] = new Array('o','Logging in is not required, but brings many benefits.'); 
+ta['pt-anonlogin'] = new Array('o','Logging in is not required, but brings many benefits.'); 
+ta['pt-logout'] = new Array('o','Log out'); 
+ta['ca-talk'] = new Array('t','Discussion about the content page'); 
+ta['ca-edit'] = new Array('e','You can edit this page. Please use the preview button before saving.'); 
+ta['ca-addsection'] = new Array('+','Start a new discussion'); 
+ta['ca-viewsource'] = new Array('e','This page is protected. You can view its source.'); 
+ta['ca-history'] = new Array('h','Past versions of this page.'); 
+ta['ca-protect'] = new Array('=','Protect this page'); 
+ta['ca-unprotect'] = new Array('=','Unprotect this page');
+ta['ca-delete'] = new Array('d','Delete this page'); 
+ta['ca-undelete'] = new Array('d','Restore the edits done to this page before it was deleted'); 
+ta['ca-move'] = new Array('m','Move this page'); 
+ta['ca-nomove'] = new Array('','You don\'t have the permissions to move this page'); 
+ta['ca-watch'] = new Array('w','Add this page to your watchlist'); 
+ta['ca-unwatch'] = new Array('w','Remove this page from your watchlist'); 
+ta['search'] = new Array('f','Search Wikipedia'); 
+ta['p-logo'] = new Array('','Main Page'); 
+ta['n-mainpage'] = new Array('z','Visit the Main Page'); 
+ta['n-portal'] = new Array('','About the project, what you can do, where to find things');
+ta['n-Featured-articles'] = new Array('','Featured articles - the best of Wikipedia'); 
+ta['n-currentevents'] = new Array('','Find background information on current events'); 
+ta['n-recentchanges'] = new Array('r','List of recent changes in Wikipedia'); 
+ta['n-randompage'] = new Array('x','Load a random page'); 
+ta['n-help'] = new Array('','The place to find out about Wikipedia'); 
+ta['n-contact'] = new Array('','How to contact Wikipedia');
+ta['n-sitesupport'] = new Array('','Support us'); 
+ta['t-whatlinkshere'] = new Array('j','List of all wiki pages that link here'); 
+ta['t-recentchangeslinked'] = new Array('k','Recent changes in pages linked from this page'); 
+ta['feed-rss'] = new Array('','RSS feed for this page'); 
+ta['feed-atom'] = new Array('','Atom feed for this page'); 
+ta['t-contributions'] = new Array('','View the list of contributions of this user'); 
+ta['t-emailuser'] = new Array('','Send a mail to this user'); 
+ta['t-upload'] = new Array('u','Upload images or media files'); 
+ta['t-specialpages'] = new Array('q','List of all special pages');
+ta['t-print'] = new Array('','Printable version of this page');
+ta['t-permalink'] = new Array('','Permanent link to this version of the page');
+ta['t-cite'] = new Array('','Cite this Wikipedia article');
+ta['ca-nstab-main'] = new Array('c','View the content page'); 
+ta['ca-nstab-user'] = new Array('c','View the user page'); 
+ta['ca-nstab-media'] = new Array('c','View the media page'); 
+ta['ca-article'] = new Array('','This is a special page; you can\'t edit the page itself.'); 
+ta['ca-nstab-project'] = new Array('c','View the project page'); 
+ta['ca-nstab-image'] = new Array('c','View the image page'); 
+ta['ca-nstab-mediawiki'] = new Array('c','View the system message'); 
+ta['ca-nstab-template'] = new Array('c','View the template'); 
+ta['ca-nstab-help'] = new Array('c','View the help page'); 
+ta['ca-nstab-category'] = new Array('c','View the category page');
+
+if (window.showModalDialog &amp;&amp; document.compatMode &amp;&amp; document.compatMode == &quot;CSS1Compat&quot;)
+{
+  var oldWidth;
+  var docEl = document.documentElement;
+
+  function fixIEScroll()
+  {
+    if (!oldWidth || docEl.clientWidth &gt; oldWidth)
+      doFixIEScroll();
+    else
+      setTimeout(doFixIEScroll, 1);
+  
+    oldWidth = docEl.clientWidth;
+  }
+
+  function doFixIEScroll() {
+    docEl.style.overflowX = (docEl.scrollWidth - docEl.clientWidth &lt; 4) ? &quot;hidden&quot; : &quot;&quot;;
+  }
+
+  document.attachEvent(&quot;onreadystatechange&quot;, fixIEScroll);
+  attachEvent(&quot;onresize&quot;, fixIEScroll);
+}
+
+function addLoadEvent(func) 
+{
+  if (window.addEventListener) 
+    window.addEventListener(&quot;load&quot;, func, false);
+  else if (window.attachEvent) 
+    window.attachEvent(&quot;onload&quot;, func);
+}
+
+function LinkFA() 
+{
+   // iterate over all &lt;span&gt;-elements
+   for(var i=0; a = document.getElementsByTagName(&quot;span&quot;)[i]; i++) {
+      // if found a FA span
+      if(a.className == &quot;FA&quot;) {
+         // iterate over all &lt;li&gt;-elements
+         for(var j=0; b = document.getElementsByTagName(&quot;li&quot;)[j]; j++) {
+            // if found a FA link
+            if(b.className == &quot;interwiki-&quot; + a.id) {
+               b.className += &quot; FA&quot;;
+               b.title = &quot;This article has gained featured status&quot;;
+            }
+         }
+      }
+   }
+}
+
+addLoadEvent(LinkFA);
+
+ // ============================================================
+ // BEGIN Dynamic Navigation Bars (experimantal)
+ // Documentation at [[Wikipedia:NavFrame]]
+ 
+ // set up the words in your language
+ var NavigationBarHide = '[hide]';
+ var NavigationBarShow = '[show]';
+ 
+ // set up max count of Navigation Bars on page,
+ // if there are more, all will be hidden
+ // NavigationBarShowDefault = 0; // all bars will be hidden
+ // NavigationBarShowDefault = 1; // on pages with more than 1 bar all bars will be hidden
+ var NavigationBarShowDefault = 1;
+ 
+ 
+ // shows and hides content and picture (if available) of navigation bars
+ // Parameters:
+ //     indexNavigationBar: the index of navigation bar to be toggled
+ function toggleNavigationBar(indexNavigationBar)
+ {
+    var NavToggle = document.getElementById(&quot;NavToggle&quot; + indexNavigationBar);
+    var NavFrame = document.getElementById(&quot;NavFrame&quot; + indexNavigationBar);
+ 
+    if (!NavFrame || !NavToggle) {
+        return false;
+    }
+ 
+    // if shown now
+    if (NavToggle.firstChild.data == NavigationBarHide) {
+        for (
+                var NavChild = NavFrame.firstChild;
+                NavChild != null;
+                NavChild = NavChild.nextSibling
+            ) {
+            if (NavChild.className == 'NavPic') {
+                NavChild.style.display = 'none';
+            }
+            if (NavChild.className == 'NavContent') {
+                NavChild.style.display = 'none';
+            }
+        }
+    NavToggle.firstChild.data = NavigationBarShow;
+ 
+    // if hidden now
+    } else if (NavToggle.firstChild.data == NavigationBarShow) {
+        for (
+                var NavChild = NavFrame.firstChild;
+                NavChild != null;
+                NavChild = NavChild.nextSibling
+            ) {
+            if (NavChild.className == 'NavPic') {
+                NavChild.style.display = 'block';
+            }
+            if (NavChild.className == 'NavContent') {
+                NavChild.style.display = 'block';
+            }
+        }
+    NavToggle.firstChild.data = NavigationBarHide;
+    }
+ }
+ 
+ // adds show/hide-button to navigation bars
+ function createNavigationBarToggleButton()
+ {
+    var indexNavigationBar = 0;
+    // iterate over all &lt; div &gt;-elements
+    for(
+            var i=0; 
+            NavFrame = document.getElementsByTagName(&quot;div&quot;)[i]; 
+            i++
+        ) {
+        // if found a navigation bar
+        if (NavFrame.className == &quot;NavFrame&quot;) {
+ 
+            indexNavigationBar++;
+            var NavToggle = document.createElement(&quot;a&quot;);
+            NavToggle.className = 'NavToggle';
+            NavToggle.setAttribute('id', 'NavToggle' + indexNavigationBar);
+            NavToggle.setAttribute('href', 'javascript:toggleNavigationBar(' + indexNavigationBar + ');');
+            
+            var NavToggleText = document.createTextNode(NavigationBarHide);
+            NavToggle.appendChild(NavToggleText);
+            // Find the NavHead and attach the toggle link (Must be this complicated because Moz's firstChild handling is borked)
+            for(
+              var j=0; 
+              j &lt; NavFrame.childNodes.length; 
+              j++
+            ) {
+              if (NavFrame.childNodes[j].className == &quot;NavHead&quot;) {
+                NavFrame.childNodes[j].appendChild(NavToggle);
+              }
+            }
+            NavFrame.setAttribute('id', 'NavFrame' + indexNavigationBar);
+        }
+    }
+    // if more Navigation Bars found than Default: hide all
+    if (NavigationBarShowDefault &lt; indexNavigationBar) {
+        for(
+                var i=1; 
+                i&lt;=indexNavigationBar; 
+                i++
+        ) {
+            toggleNavigationBar(i);
+        }
+    }
+ 
+ }
+ 
+ addLoadEvent(createNavigationBarToggleButton);
+ 
+ // END Dynamic Navigation Bars
+ // ============================================================
+
+ // == Collapsible tables ======================================
+ var autoCollapse = 2;
+ var collapseCaption = &quot;hide&quot;;
+ var expandCaption = &quot;show&quot;;
+ 
+ function hasClass( element, className ) {
+   var Classes = element.className.split( &quot; &quot; );
+   for ( var i = 0; i &lt; Classes.length; i++ ) {
+     if ( Classes[i] == className ) {
+       return ( true );
+     }
+   }
+   return ( false );
+ }
+ 
+ function collapseTable( tableIndex )
+ {
+     var Button = document.getElementById( &quot;collapseButton&quot; + tableIndex );
+     var Table = document.getElementById( &quot;collapsibleTable&quot; + tableIndex );
+ 
+     if ( !Table || !Button ) {
+         return false;
+     }
+ 
+     var Rows = Table.getElementsByTagName( &quot;tr&quot; ); 
+ 
+     if ( Button.firstChild.data == collapseCaption ) {
+         for ( var i = 1; i &lt; Rows.length; i++ ) {
+             Rows[i].style.display = &quot;none&quot;;
+         }
+         Button.firstChild.data = expandCaption;
+     } else {
+         for ( var i = 1; i &lt; Rows.length; i++ ) {
+             Rows[i].style.display = Rows[0].style.display;
+         }
+         Button.firstChild.data = collapseCaption;
+     }
+ }
+ 
+ function createCollapseButtons()
+ {
+     var tableIndex = 0;
+     var NavigationBoxes = new Object();
+     var Tables = document.getElementsByTagName(&quot;table&quot;);
+ 
+     for ( var i = 0; i &lt; Tables.length; i++ ) {
+         if ( hasClass( Tables[i], &quot;collapsible&quot; ) ) {
+             NavigationBoxes[ tableIndex ] = Tables[i];
+             Tables[i].setAttribute( &quot;id&quot;, &quot;collapsibleTable&quot; + tableIndex);
+ 
+             var Button     = document.createElement( &quot;span&quot; );
+             var ButtonLink = document.createElement( &quot;a&quot; );
+             var ButtonText = document.createTextNode( collapseCaption );
+ 
+             Button.style.styleFloat = &quot;right&quot;;
+             Button.style.cssFloat = &quot;right&quot;;
+ 
+             ButtonLink.setAttribute( &quot;id&quot;, &quot;collapseButton&quot; + tableIndex );
+             ButtonLink.setAttribute( &quot;href&quot;, &quot;javascript:collapseTable(&quot; + tableIndex + &quot;);&quot; );
+             ButtonLink.appendChild( ButtonText );
+ 
+             Button.appendChild( document.createTextNode( &quot;[&quot; ) );
+             Button.appendChild( ButtonLink );
+             Button.appendChild( document.createTextNode( &quot;]&quot; ) );
+ 
+             var Header = Tables[i].getElementsByTagName( &quot;tr&quot; )[0].getElementsByTagName( &quot;th&quot; )[0];
+             Header.insertBefore( Button, Header.childNodes[0] );
+ 
+             tableIndex++;
+         }
+     }
+ 
+     for ( var i = 0;  i &lt; tableIndex; i++ ) {
+         if ( hasClass( NavigationBoxes[i], &quot;collapsed&quot; ) || ( tableIndex &gt;= autoCollapse &amp;&amp; hasClass( NavigationBoxes[i], &quot;autocollapse&quot; ) ) ) {
+             collapseTable(i);
+         }
+     }
+ }
+ 
+ addLoadEvent(createCollapseButtons);
+ 
+ // == END Collapsible tables =============================
+
+
+var mpTitle = &quot;Main Page&quot;;
+var isMainPage = (/(title=|\/wiki\/)([Tt]alk:|)[Mm]ain[ _][Pp]age/.test(document.location));
+var isMainPageFront = (document.title.substr(0, document.title.lastIndexOf(&quot; - &quot;)) == mpTitle);
+var isDiff = (document.location.search &amp;&amp; (document.location.search.indexOf(&quot;diff=&quot;) != -1 || document.location.search.indexOf(&quot;oldid=&quot;) != -1));
+
+if (isMainPage) 
+{
+
+if (isMainPageFront &amp;&amp; !isDiff)
+{
+document.write('&lt;style type=&quot;text/css&quot;&gt;/*&lt;![CDATA[*/ #lastmod, #siteSub, #contentSub, h1.firstHeading { display: none !important; } /*]]&gt;*/&lt;/style&gt;');
+}
+
+var mpSmallEnabled;
+var mpMinWidth = 700;
+
+function mainPageTransform()
+{
+       if (isMainPage &amp;&amp; document.getElementById('ca-nstab-main')) 
+         {document.getElementById('ca-nstab-main').firstChild.innerHTML = 'Main Page';}
+       if (((isMainPageFront &amp;&amp; !isDiff) || /[\/=:]Main_Page/.test(document.location)) &amp;&amp; document.getElementById('ca-nstab-main'))
+	var mpContentEl = document.getElementById(&quot;bodyContent&quot;);
+	var mpBrowseEl = document.getElementById(&quot;EnWpMpBrowse&quot;);
+	var mpContainEl = document.getElementById(&quot;EnWpMpBrowseContainer&quot;);
+	var mpMarginEl = document.getElementById(&quot;EnWpMpMargin&quot;);
+	var mpEl = document.getElementById(&quot;EnWpMainPage&quot;);
+
+	if (!mpContentEl || !mpBrowseEl || !mpContainEl || !mpMarginEl || !mpEl)
+		return;
+
+	if (!mpSmallEnabled &amp;&amp; mpContentEl.offsetWidth &lt; mpMinWidth)
+	{
+		mpContainEl.insertBefore(mpBrowseEl, mpContainEl.firstChild);
+		mpBrowseEl.className = &quot;EnWpMpBrowseBottom&quot;;
+		mpMarginEl.style.marginRight = 0;
+		mpSmallEnabled = true;
+	}
+	else if (mpSmallEnabled &amp;&amp; mpContentEl.offsetWidth &gt; mpMinWidth)
+	{
+		mpEl.insertBefore(mpBrowseEl, mpEl.firstChild);
+		mpBrowseEl.className = &quot;EnWpMpBrowseRight&quot;;
+		mpMarginEl.style.marginRight = &quot;13.8em&quot;;
+		mpSmallEnabled = false;
+	}
+}
+
+var onloadFuncts = [ mainPageTransform ];
+
+if (window.addEventListener) 
+  window.addEventListener(&quot;resize&quot;, mainPageTransform, false);
+else if (window.attachEvent) 
+  window.attachEvent(&quot;onresize&quot;, mainPageTransform);
+
+}
+
+/* add a redirect button to the edit page toolbar */
+if (mwCustomEditButtons) {
+  mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/c/c8/Button_redirect.png&quot;,
+    &quot;speedTip&quot;: &quot;Redirect&quot;,
+    &quot;tagOpen&quot;: &quot;#REDIRECT [[&quot;,
+    &quot;tagClose&quot;: &quot;]]&quot;,
+    &quot;sampleText&quot;: &quot;Insert text&quot;};
+};
+
+//============================================================
+// Extra toolbar options
+//============================================================
+//********WRITTEN BY User:MarkS********
+//This is a modified copy of a script by User:MarkS for extra features added by User:Voice of All.
+
+// This is based on the original code on Wikipedia:Tools/Editing tools
+
+function InsertButtonsToToolBar()
+{
+//Strike-Out Button
+mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/c/c9/Button_strike.png&quot;,
+    &quot;speedTip&quot;: &quot;Strike&quot;,
+    &quot;tagOpen&quot;: &quot;&lt;s&gt;&quot;,
+    &quot;tagClose&quot;: &quot;&lt;/s&gt;&quot;,
+    &quot;sampleText&quot;: &quot;Strike-through text&quot;}
+//Line break button
+mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/1/13/Button_enter.png&quot;,
+    &quot;speedTip&quot;: &quot;Line break&quot;,
+    &quot;tagOpen&quot;: &quot;&lt;br /&gt;&quot;,
+    &quot;tagClose&quot;: &quot;&quot;,
+    &quot;sampleText&quot;: &quot;&quot;}
+//Superscript
+mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/8/80/Button_upper_letter.png&quot;,
+    &quot;speedTip&quot;: &quot;Superscript&quot;,
+    &quot;tagOpen&quot;: &quot;&lt;sup&gt;&quot;,
+    &quot;tagClose&quot;: &quot;&lt;/sup&gt;&quot;,
+    &quot;sampleText&quot;: &quot;Superscript text&quot;}
+//Subscript
+mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/7/70/Button_lower_letter.png&quot;,
+    &quot;speedTip&quot;: &quot;Subscript&quot;,
+    &quot;tagOpen&quot;: &quot;&lt;sub&gt;&quot;,
+    &quot;tagClose&quot;: &quot;&lt;/sub&gt;&quot;,
+    &quot;sampleText&quot;: &quot;Subscript text&quot;}
+//Small Text
+mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/5/58/Button_small.png&quot;,
+    &quot;speedTip&quot;: &quot;Small&quot;,
+    &quot;tagOpen&quot;: &quot;&lt;small&gt;&quot;,
+    &quot;tagClose&quot;: &quot;&lt;/small&gt;&quot;,
+    &quot;sampleText&quot;: &quot;Small Text&quot;}
+//Comment
+mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/3/34/Button_hide_comment.png&quot;,
+    &quot;speedTip&quot;: &quot;Insert hidden Comment&quot;,
+    &quot;tagOpen&quot;: &quot;&lt;!-- &quot;,
+    &quot;tagClose&quot;: &quot; --&gt;&quot;,
+    &quot;sampleText&quot;: &quot;Comment&quot;}
+//Gallery
+mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/1/12/Button_gallery.png&quot;,
+    &quot;speedTip&quot;: &quot;Insert a picture gallery&quot;,
+    &quot;tagOpen&quot;: &quot;\n&lt;gallery&gt;\n&quot;,
+    &quot;tagClose&quot;: &quot;\n&lt;/gallery&gt;&quot;,
+    &quot;sampleText&quot;: &quot;Image:Example.jpg|Caption1\nImage:Example.jpg|Caption2&quot;}
+//Block Quote
+mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/en/f/fd/Button_blockquote.png&quot;,
+    &quot;speedTip&quot;: &quot;Insert block of quoted text&quot;,
+    &quot;tagOpen&quot;: &quot;&lt;blockquote&gt;\n&quot;,
+    &quot;tagClose&quot;: &quot;\n&lt;/blockquote&gt;&quot;,
+    &quot;sampleText&quot;: &quot;Block quote&quot;}
+// Table
+mwCustomEditButtons[mwCustomEditButtons.length] = {
+    &quot;imageFile&quot;: &quot;http://upload.wikimedia.org/wikipedia/commons/0/04/Button_array.png&quot;,
+    &quot;speedTip&quot;: &quot;Insert a table&quot;,
+    &quot;tagOpen&quot;: '{| class=&quot;wikitable&quot;\n|-\n',
+    &quot;tagClose&quot;: &quot;\n|}&quot;,
+    &quot;sampleText&quot;: &quot;! header 1\n! header 2\n! header 3\n|-\n| row 1, cell 1\n| row 1, cell 2\n| row 1, cell 3\n|-\n| row 2, cell 1\n| row 2, cell 2\n| row 2, cell 3&quot;}
+}
+
+addOnloadHook( InsertButtonsToToolBar );
+
+ // ============================================================
+ // BEGIN pageview counter
+ // 	Please talk to de:User:LeonWeber before changing anything or 
+ // 	if there are any issues with that.
+ 
+ // this should be adjusted to a good value.
+ // BE CAREFULL, you will break zedler if it's too low!
+ // And then DaB. will kill Leon :-(
+ var disable_counter = 0;
+ var counter_factor = 6000;
+ 
+ function pgcounter_setup()
+ {
+ 	if(disable_counter == 0)
+ 	{
+ 		var url = window.location.href;
+ 		if(Math.floor(Math.random()*counter_factor)==42)  // the probability thing
+  		{
+  			if(wgIsArticle==true || wgArticleId==0) // do not count history pages etc.
+ 			{
+ 				var pgcountNs = wgCanonicalNamespace;
+ 				if(wgCanonicalNamespace==&quot;&quot;)
+ 				{
+ 					pgcountNs = &quot;0&quot;;
+ 				}
+  				var cnt_url = &quot;http://pgcount.wikimedia.de/index.png?ns=&quot; + pgcountNs + &quot;&amp;title=&quot; + encodeURI(wgTitle) + &quot;&amp;factor=&quot; + counter_factor +&quot;&amp;wiki=enwiki&quot;;
+ 				var img = new Image(); 
+ 				img.src = cnt_url;
+ 			}
+ 		}
+ 	}
+ }
+ // Do not use aOnloadFunctions[aOnloadFunctions.length] = pgcounter_setup;, some browsers don't like that.
+ pgcounter_setup();
+ 
+ // END pageview counter 
+ // ============================================================
+
+
+
+/*
+&lt;/pre&gt;
+*/
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/e/t/User%7EBetacommand_Common.js_ee1e.html">http://en.wikipedia.org../../../b/e/t/User%7EBetacommand_Common.js_ee1e.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../b/e/t/User%7EBetacommand_Common.js_ee1e.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../b/e/t/User_talk%7EBetacommand_Common.js_ab96.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Betacommand/Common.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 00:02, 22 November 2006 by Wikipedia user <a href="../../../b/e/t/User%7EBetacommand_e660.html" title="User:Betacommand">Betacommand</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

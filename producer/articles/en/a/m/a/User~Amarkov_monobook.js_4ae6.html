@@ -1,0 +1,597 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User:Amarkov/monobook.js,Blocking policy,Bypass your cache,Village pump (technical)" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User:Amarkov/monobook.js - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-2">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User:Amarkov/monobook.js</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"><span class="subpages">&lt; <a href="../../../a/m/a/User%7EAmarkov_3e91.html" title="User:Amarkov">User:Amarkov</a></span></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><span id="clearyourcache"><b>Note:</b> After saving, you have to <a href="../../../b/y/p/Wikipedia%7EBypass_your_cache_1dae.html" title="Wikipedia:Bypass your cache">bypass your browser's cache</a> to see the changes. <b>Firefox/Mozilla/Safari:</b> hold down <i>Shift</i> while clicking <i>Reload</i> (or press <i>Ctrl-Shift-R</i>), <b>Internet Explorer:</b> press <i>Ctrl-F5</i>, <b>Opera/Konqueror:</b> press <i>F5</i>. 
+</p>
+<div style="color:darkred;background-color:#EEEEEE;border: darkred 2px solid;padding:5px;" id="jswarning"><div style="clear: both;color:darkred;"></div><b><div style="display:block;">If a message on your talk page led you here, please be wary of who left it.  The code below could contain malicious content capable of compromising your account; if your account appears to be compromised, it will be <a href="../../../b/l/o/Wikipedia%7EBlocking_policy_2eb0.html" title="Wikipedia:Blocking policy">blocked</a>.  If you are unsure whether the code is safe, you can ask at the appropriate <a href="../../../v/i/l/Wikipedia%7EVillage_pump_%28technical%29_e812.html" title="Wikipedia:Village pump (technical)">village pump</a>.</b></div></div></span>
+<pre>&lt;!--Needed functions--&gt;
+function addTab(url, name, id, title, key){
+    var tabs = document.getElementById('p-cactions').getElementsByTagName('ul')[0];
+    return addlilink(tabs, url, name, id, title, key)
+};
+
+function addlilink(tabs, url, name, id, title, key){
+    var na = document.createElement('a');
+    na.href = url;
+    na.appendChild(document.createTextNode(name));
+    var li = document.createElement('li');
+    if(id) li.id = id;
+    li.appendChild(na);
+    tabs.appendChild(li);
+    if(id)
+    {
+        if(key &amp;&amp; title)
+        {
+            ta[id] = [key, title];
+        }
+        else if(key)
+        {
+            ta[id] = [key, ''];
+        }
+        else if(title)
+        {
+            ta[id] = ['', title];
+        }
+    }
+    // re-render the title and accesskeys from existing code in wikibits.js
+    akeytt();
+    return li;
+}
+&lt;!--End needed functions--&gt;
+
+&lt;!-- Begin deletion-sorting code --&gt; 
+
+function dodeletion() {
+  document.editform.wpTextbox1.value = document.editform.wpTextbox1.value + '\n{' + '{' + 'subst' + ':' + 'delsort' + '|' + 'Japan' + '}' + '}' + ' ' + '--' + ' ' + '~' + '~' + '~' + '~';
+  document.editform.wpSummary.value = 'Tagged as a Japan-related deletion.';
+  document.editform.wpMinoredit.checked = true;
+  document.editform.submit();
+}
+
+function adddeletion() {
+  addTab(&quot;javascript:dodeletion()&quot;, &quot;Japan deletion&quot;, &quot;ca-Japandeletion&quot;, &quot;Japan Deletion&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing Wikipedia:Articles for deletion/&quot;) != -1) {
+  addOnloadHook(adddeletion);
+  }
+});
+&lt;!--End deletion-sorting code --&gt;
+
+&lt;!--My talk page header--&gt;
+function doheader() {
+  document.editform.wpTextbox1.value = '&lt;!-' + '-Do not edit this--' + '&gt;' + '{' + '{' + 'bots' + '|' + 'deny' + '=' + 'HagermanBot' + '}' + '}' + '{' + '{' + 'User' + ':' + 'Amarkov' + '/' + 'talkheader' + '}' + '}' + '&lt;!-' + '-Do not edit this--' + '&gt;';
+  document.editform.wpSummary.value = 'header';
+  document.editform.wpMinoredit.checked = true;
+  document.editform.submit();
+}
+
+function addheader() {
+  addTab(&quot;javascript:doheader()&quot;, &quot;Add header&quot;, &quot;ca-Addheader&quot;, &quot;Add header&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing User talk:Amarkov&quot;) != -1) {
+  addOnloadHook(addheader);
+  }
+});
+&lt;!--End talkpage header--&gt;
+
+&lt;!--CSD A7 tab--&gt;
+function doa7() {
+  document.editform.wpTextbox1.value = '{' + '{' + 'db' + '-' + 'a7' + '}' + '}' + '\n' + document.editform.wpTextbox1.value;
+  document.editform.wpSummary.value = 'speedy deletion tag a7-does not assert importance';
+  document.editform.wpMinoredit.checked = false;
+  document.editform.wpWatchthis.checked = true;
+  document.editform.submit();
+}
+
+function adda7() {
+  addTab(&quot;javascript:doa7()&quot;, &quot;CSD A7&quot;, &quot;ca-CSDA7&quot;, &quot;CSD A7&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing &quot;) != -1 &amp;&amp; document.title.indexOf(&quot;Editing User talk&quot;) != 0) {
+  addOnloadHook(adda7);
+  }
+});
+&lt;!--End CSD A7 tab--&gt;
+
+&lt;!--CSD G1 tab--&gt;
+function dog1() {
+  document.editform.wpTextbox1.value = '{' + '{' + 'db' + '-' + 'nonsense}' + '}' + '\n' + document.editform.wpTextbox1.value;
+  document.editform.wpSummary.value = 'speedy deletion tag g1-nonsense';
+  document.editform.wpMinoredit.checked = false;
+  document.editform.wpWatchthis.checked = true;
+  document.editform.submit();
+}
+
+function addg1() {
+  addTab(&quot;javascript:dog1()&quot;, &quot;CSD G1&quot;, &quot;ca-CSDG1&quot;, &quot;CSD G1&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing &quot;) != -1 &amp;&amp; document.title.indexOf(&quot;Editing User talk&quot;) != 0) {
+  addOnloadHook(addg1);
+  }
+});
+&lt;!--End CSD G1 tab--&gt;
+
+&lt;!--CSD G11 tab--&gt;
+function dog11() {
+  document.editform.wpTextbox1.value = '{' + '{' + 'db' + '-' + 'g11' + '}' + '}' + '\n' + document.editform.wpTextbox1.value;
+  document.editform.wpSummary.value = 'speedy deletion tag g11-advertising';
+  document.editform.wpMinoredit.checked = false;
+  document.editform.wpWatchthis.checked = true;
+  document.editform.submit();
+}
+
+function addg11() {
+  addTab(&quot;javascript:dog11()&quot;, &quot;CSD G11&quot;, &quot;ca-CSDG11&quot;, &quot;CSD G11&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing &quot;) != -1 &amp;&amp; document.title.indexOf(&quot;Editing User talk&quot;) != 0) {
+  addOnloadHook(addg11);
+  }
+});
+&lt;!--End CSD G11 tab--&gt;
+
+&lt;!--CSD G10 tab--&gt;
+function dog10() {
+  document.editform.wpTextbox1.value = '{' + '{' + 'db' + '-' + 'g10' + '}' + '}' + '\n' + document.editform.wpTextbox1.value;
+  document.editform.wpSummary.value = 'speedy deletion tag g10-attack page';
+  document.editform.wpMinoredit.checked = false;
+  document.editform.wpWatchthis.checked = true;
+  document.editform.submit();
+}
+
+function addg10() {
+  addTab(&quot;javascript:dog10()&quot;, &quot;CSD G10&quot;, &quot;ca-CSDG10&quot;, &quot;CSD G10&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing &quot;) != -1 &amp;&amp; document.title.indexOf(&quot;Editing User talk&quot;) != 0) {
+  addOnloadHook(addg10);
+  }
+});
+&lt;!--End CSD G10 tab--&gt;
+
+&lt;!--Vanity warning tab--&gt;
+function dovanity() {
+  document.editform.wpTextbox1.value = document.editform.wpTextbox1.value + '\n' + '{' + '{' + 'subst' + ':' + 'User' + ':' + 'Amarkov' + '/' + 'vanitywarning' + '}' + '}';
+  document.editform.wpSummary.value = 'do not create pages on yourself unless you are notable';
+  document.editform.submit();
+}
+
+function addvanity() {
+  addTab(&quot;javascript:dovanity()&quot;, &quot;vanitywarn&quot;, &quot;ca-vanitywarn&quot;, &quot;Vanitywarn&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing User talk&quot;) == 0) {
+  addOnloadHook(addvanity);
+  }
+});
+&lt;!--End vanity warning tab--&gt;
+
+&lt;!--POV tab--&gt;
+function dopov() {
+  document.editform.wpTextbox1.value = '{' + '{' + 'npov' + '}' + '}' + document.editform.wpTextbox1.value;
+  document.editform.wpSummary.value = '{' + '{' + 'npov' + '}' + '}';
+  document.editform.submit();
+}
+
+function addpov() {
+  addTab(&quot;javascript:dopov()&quot;, &quot;pov&quot;, &quot;ca-pov&quot;, &quot;pov&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing &quot;) != -1 &amp;&amp; document.title.indexOf(&quot;Editing User talk&quot;) != 0) {
+  addOnloadHook(addpov);
+  }
+});
+&lt;!--End POV tab--&gt;
+
+&lt;!--CSD blank tab--&gt;
+function doblank() {
+  document.editform.wpTextbox1.value = '{' + '{' + 'db' + '-' + 'blank' + '}' + '}' + document.editform.wpTextbox1.value;
+  document.editform.wpSummary.value = 'speedy deletion tag a3-no information';
+  document.editform.submit();
+}
+
+function addblank() {
+  addTab(&quot;javascript:doblank()&quot;, &quot;blank&quot;, &quot;ca-blank&quot;, &quot;blank&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing &quot;) != -1 &amp;&amp; document.title.indexOf(&quot;Editing User talk&quot;) != 0) {
+  addOnloadHook(addblank);
+  }
+});
+&lt;!--End CSD blank tab--&gt;
+
+
+function tnaddlilink(url, name)
+{
+  var na = document.createElement('a');
+  na.setAttribute('href', url);
+
+  var txt = document.createTextNode(name);
+  na.appendChild(txt);
+
+  var li = document.createElement('li');
+  li.appendChild(na);
+  return li;
+}
+
+function testn(number)
+{
+  var page = prompt(&quot;Vandalism to which article?&quot;)
+  var f = document.editform, t = f.wpTextbox1;
+  if (t.value.length &gt; 0)
+    t.value += '\n';
+  t.value += &quot;{{subst:&quot; + &quot;test&quot; + number + &quot;-n|&quot; + page + &quot;}} ~&quot; + &quot;~&quot; + &quot;~&quot; + &quot;~&quot;;
+  f.wpSummary.value = &quot;Edit to [[&quot; + page + &quot;]] - warning &quot;;
+}
+
+function add_testn_tabs()
+{
+  var c1 = document.getElementById('column-one');
+  var tabs = c1.getElementsByTagName('div')[0].getElementsByTagName('ul')[0];
+
+  // Only add for pages with &quot;Editing User talk:&quot; somewhere in the title
+  if (document.title.indexOf(&quot;Editing User talk:&quot;) != -1)
+    {
+      tabs.appendChild(tnaddlilink('javascript:testn(1)',&quot;t1&quot;));
+      tabs.appendChild(tnaddlilink('javascript:testn(2)',&quot;t2&quot;));
+      tabs.appendChild(tnaddlilink('javascript:testn(3)',&quot;t3&quot;));
+      tabs.appendChild(tnaddlilink('javascript:testn(4)',&quot;t4&quot;));
+    }
+}
+
+addOnloadHook(add_testn_tabs);
+
+&lt;!--Boilerplate new article tab--&gt;
+function doboilerplate() {
+  document.editform.wpTextbox1.value = '{' + '{' + 'linkless' + '}' + '}' + '{' + '{' + 'references' + '}' + '}' + '{' + '{' + 'wikify' + '}' + '}' + '\n' + document.editform.wpTextbox1.value;
+  document.editform.wpSummary.value = 'Some cleanup tags';
+}
+
+function addboilerplate() {
+  addTab(&quot;javascript:doboilerplate()&quot;, &quot;boilerplate&quot;, &quot;ca-boilerplate&quot;, &quot;boilerplate&quot;, &quot;&quot;);
+  akeytt();
+}
+
+addOnloadHook(function() {
+  if (document.title.indexOf(&quot;Editing &quot;) != -1 &amp;&amp; document.title.indexOf(&quot;Editing User talk&quot;) != 0) {
+  addOnloadHook(addboilerplate);
+  }
+});
+&lt;!--End boilerplate tab--&gt;
+
+/* Category watch ([[User:ais523/catwatch.js]]); adds entries on the watchlist if a page is added to a category
+   (and is still in the category when the watchlist is checked). The entry will only appear if there is another
+   page on the watchlist edited that day (if the addition was the only change on that day, it's neglected). The
+   recategorisation of a page in a watched category will also trigger the watching, even if it's a different
+   category that's added or removed (unless the watched category is removed); removals from the watched category
+   can't be detected. Categories with more than 100 elements won't be watched for server-load reasons. */
+
+//&lt;pre&gt;&lt;nowiki&gt;
+
+var cwwpajax;
+// From [[WP:US]] mainpage (wpajax renamed to cwwpajax)
+cwwpajax={
+        download:function(bundle) {
+                // mandatory: bundle.url
+                // optional:  bundle.onSuccess (xmlhttprequest, bundle)
+                // optional:  bundle.onFailure (xmlhttprequest, bundle)
+                // optional:  bundle.otherStuff OK too, passed to onSuccess and onFailure
+                
+                var x = window.XMLHttpRequest ? new XMLHttpRequest()
+                : window.ActiveXObject ? new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;)
+                : false;
+                
+                if (x) {
+                        x.onreadystatechange=function() {
+                                x.readyState==4 &amp;&amp; cwwpajax.downloadComplete(x,bundle);
+                        };
+                        x.open(&quot;GET&quot;,bundle.url,true);
+                        x.send(null); 
+                }
+                return x;
+        },
+
+        downloadComplete:function(x,bundle) {
+                x.status==200 &amp;&amp; ( bundle.onSuccess &amp;&amp; bundle.onSuccess(x,bundle) || true )
+                || ( bundle.onFailure &amp;&amp; bundle.onFailure(x,bundle) || alert(x.statusText));
+        }
+};
+
+// Example:
+// function dlComplete(xmlreq, data) {
+//      alert(data.message + xmlreq.responseText);
+// }
+//  cwwpajax.download({url:'http://en.wikipedia.org/w/index.php?title=Thresher&amp;action=raw', 
+//                   onSuccess: dlComplete, message: &quot;Here's what we got:\n\n&quot; });
+
+// End of [[WP:US]] quote
+
+function cwOntoWatchlist(xmlreq, data)
+{
+  var a=xmlreq.responseText;
+  var c=data.catname;
+  var i;
+  if(a.indexOf(&quot;&lt;error&gt;&quot;)!=-1) return; //cat is empty, nothing to do here
+  if(a.indexOf(&quot;&lt;category next=&quot;)!=-1) return; //cat has more than 100 elements, so the results will be misleading
+  a=a.split(&quot;&lt;timestamp&gt;&quot;);
+  var latesttime=0;
+  var latestpage=&quot;&quot;;
+  var temp, temp2;
+  for(i in a)
+  {
+    temp=a[i].indexOf(&quot;&lt;/timestamp&gt;&quot;);
+    if(temp!=-1)
+    {
+      temp=new Number(a[i].substr(0,temp));
+      if(temp&gt;latesttime)
+      {
+        latesttime=temp;
+        a[i]=a[i].substr(a[i].indexOf(&quot;&lt;title&gt;&quot;)+7);
+        latestpage=a[i].substr(0,a[i].indexOf(&quot;&lt;/title&gt;&quot;));
+      }
+    }
+  }
+  a=document.getElementsByTagName(&quot;h4&quot;); //get dates in the watchlist
+  var monthname=new Array();
+  monthname['01']=&quot;January&quot;;
+  monthname['02']=&quot;February&quot;;
+  monthname['03']=&quot;March&quot;;
+  monthname['04']=&quot;April&quot;;
+  monthname['05']=&quot;May&quot;;
+  monthname['06']=&quot;June&quot;;
+  monthname['07']=&quot;July&quot;;
+  monthname['08']=&quot;August&quot;;
+  monthname['09']=&quot;September&quot;;
+  monthname['10']=&quot;October&quot;;
+  monthname['11']=&quot;November&quot;;
+  monthname['12']=&quot;December&quot;;
+  latesttime=new String(latesttime);
+  temp=&quot;&quot;+new Number(latesttime.substr(6,2))+&quot; &quot;+monthname[latesttime.substr(4,2)]+&quot; &quot;+latesttime.substr(0,4);
+
+  i=a.length;
+  while(i--)
+  {
+    if(a[i].innerHTML==temp)
+    {
+      temp=a[i].nextSibling.firstChild;
+      while(temp!=null)
+      {
+        if(temp.tagName!=null)
+        if(temp.tagName.toLowerCase()==&quot;li&quot;)
+        {
+          temp2=temp.innerHTML.match(/; ([0-9][0-9]):([0-9][0-9]) \. \./);
+          temp2=new Number(temp2[1])*100+new Number(temp2[2]);
+          if(temp2&lt;new Number(latesttime.substr(8,4))) {temp2=temp; break;}
+        }
+        temp2=temp; temp=temp.nextSibling;
+        if(temp==null) break;
+      }
+      temp=document.createElement(&quot;li&quot;);
+      a[i].nextSibling.insertBefore(temp,temp2);
+      temp.innerHTML=&quot;(diff) (hist) . . &lt;a href='http://en.wikipedia.org/wiki/Category:&quot;+encodeURI(c)+
+                     &quot;'&gt;Category:&quot;+c+&quot;&lt;/a&gt;; &quot;+latesttime.substr(8,2)+&quot;:&quot;+latesttime.substr(10,2)+&quot; . . (+ &quot;+
+                     &quot;&lt;a href='http://en.wikipedia.org/wiki/&quot;+encodeURI(latestpage)+&quot;'&gt;&quot;+latestpage+&quot;&lt;/a&gt; &quot;+
+                     &quot;(&lt;a href='http://en.wikipedia.org/w/index.php?title=&quot;+encodeURI(latestpage)+
+                     &quot;&amp;diff=last'&gt;last&lt;/a&gt;))&quot;;
+      return;
+    }
+  }
+}
+
+var WatchedCategories; //prevent error if there isn't a cat-watchlist yet
+
+//An example of a query to check a category would be
+//http://en.wikipedia.org/w/query.php?what=category&amp;cptitle=Wikipedia%20protected%20edit%20requests&amp;cplimit=100&amp;cpextended
+addOnloadHook(function(){
+  if(wgPageName==&quot;Special:Watchlist&quot;)
+  {
+    if(WatchedCategories==undefined)
+    {
+      if(confirm(&quot;You don't have a category watchlist yet. Do you want to create one?&quot;))
+        location.href='http://en.wikipedia.org/w/index.php?title=User:'+wgUserName+
+                      '/WatchedCategories.js&amp;action=edit&amp;preload=User:Ais523/WatchedCategoriesTemplate.js';
+    }
+    else
+    {
+      var i;
+      for(i in WatchedCategories)
+      {
+        var a=WatchedCategories[i];
+        cwwpajax.download({url:'http://en.wikipedia.org/w/query.php?what=category&amp;cptitle='+encodeURI(a)+
+                               '&amp;cplimit=100&amp;cpextended&amp;format=xml', onSuccess:cwOntoWatchlist, catname:a});
+      }
+    }
+  }
+});
+
+// include current user's category watchlist
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;http://en.wikipedia.org'
+             + '/w/index.php?title=User:'+wgUserName+'/WatchedCategories.js' 
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/script&gt;');
+//&lt;/nowiki&gt;&lt;/pre&gt;
+
+// Script from [[User:ais523/editcount.js]]
+document.write('&lt;script type=&quot;text/javascript&quot; src=&quot;' 
+             + 'http://en.wikipedia.org/w/index.php?title=User:ais523/editcount.js' 
+             + '&amp;action=raw&amp;ctype=text/javascript&amp;dontcountme=s&quot;&gt;&lt;/s'+'cript&gt;');
+
+
+// Script from User:Amarkov/linkedpagecontentadder.js
+
+//Or it will be when that is done, at least
+
+// This is a javascript tool which reports things to AIV, which should work for any browser
+
+
+function aivreport() {
+    var username = wgTitle.split('/')[0];
+    var reason = prompt(&quot;Reason?&quot;);
+    if (!reason) {
+        // Cancel clicked or no reason given; abort
+        return;
+    }
+
+    window.location.href = wgServer + wgScriptPath + &quot;/index.php?action=edit&quot; +
+        &quot;&amp;title=Wikipedia:Administrator intervention against vandalism&quot; +
+        &quot;&amp;username=&quot; + escape(username) +
+        &quot;&amp;reason=&quot; + escape(reason) +
+        &quot;&amp;fakeparam=broom&quot;;
+}
+
+if (wgCanonicalNamespace.match(/^User/)) {
+    addOnloadHook(function () {
+        addTab(&quot;javascript:aivreport()&quot;, &quot;AIV&quot;, &quot;ca-AIV&quot;, &quot;AIV&quot;, &quot;&quot;);
+        akeytt();
+    });
+}
+
+function makereport() {
+    var params = location.search.substring(1).split(&quot;&amp;&quot;);
+    var username = unescape(params[2].split(&quot;=&quot;, 2)[1]);
+    var reason = unescape(params[3].split(&quot;=&quot;, 2)[1]);
+
+    var vandalTag;
+    if (username.match(/^\d+\.\d+\.\d+\.\d+$/)) {
+        vandalTag = 'IPvandal';
+    } else {
+        vandalTag = 'vandal';
+    }
+
+    document.editform.wpTextbox1.value += '* {' + '{' + vandalTag + '|' + username + '}' + '}' +
+        ' ' + reason + ' -- ~' + '~' + '~' + '~';
+    document.editform.wpSummary.value = 'Reporting a vandal';
+    document.editform.wpMinoredit.checked = false;
+    document.editform.submit();
+}
+
+if (location.search.indexOf(&quot;fakeparam&quot;) != -1) {
+    addOnloadHook(makereport);
+}
+
+function moocow() {
+  var specialchars = document.getElementById ('editpage-specialchars');
+  specialchars.innerHTML = &quot;&lt;a onclick=\&quot;insertTags('[[Wikipedia:No original research|OR]]','','');return false\&quot; href='#'&gt;OR&lt;/a&gt;&quot; + specialchars.innerHTML;
+}
+
+if (document.title.indexOf(&quot;Editing&quot;) != -1) {
+  addOnloadHook(moocow);
+}
+</pre><div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/m/a/User%7EAmarkov_monobook.js_4ae6.html">http://en.wikipedia.org../../../a/m/a/User%7EAmarkov_monobook.js_4ae6.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       class="selected"	       ><a href="../../../a/m/a/User%7EAmarkov_monobook.js_4ae6.html">User page</a></li><li id="ca-talk"
+	       class="new"	       ><a href="../../../a/m/a/User_talk%7EAmarkov_monobook.js_3ab5.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User:Amarkov/monobook.js">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 18:00, 31 March 2007 by Wikipedia user <a href="../../../a/m/a/User%7EAmarkov_3e91.html" title="User:Amarkov">Amarkov</a>. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

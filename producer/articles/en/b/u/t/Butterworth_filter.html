@@ -1,0 +1,390 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Butterworth filter,Band-pass,Band-pass filter,Band-stop,Bessel filter,Bilinear transform,Bode plot,Britain,Cauer topology (electronics),Chebyshev filter,Decade" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Butterworth filter - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Butterworth filter</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <table class="infobox" style="width: 17em;">
+<tr>
+<th align="center" style="background:#ccccff"><a href="../../../e/l/e/Electronic_filter.html" title="Electronic filter">Linear analog electronic filters</a></th>
+</tr>
+<tr>
+<td><strong class="selflink">Butterworth filter</strong></td>
+</tr>
+<tr>
+<td><a href="../../../c/h/e/Chebyshev_filter.html" title="Chebyshev filter">Chebyshev filter</a></td>
+</tr>
+<tr>
+<td><a href="../../../e/l/l/Elliptic_filter.html" title="Elliptic filter">Elliptic (Cauer) filter</a></td>
+</tr>
+<tr>
+<td><a href="../../../b/e/s/Bessel_filter.html" title="Bessel filter">Bessel filter</a></td>
+</tr>
+<tr>
+<td><a href="../../../g/a/u/Gaussian_filter.html" title="Gaussian filter">Gaussian filter</a></td>
+</tr>
+<tr>
+<td><a href="../../../o/p/t/Optimum__L__filter_118c.html" title="Optimum &quot;L&quot; filter">Optimum "L" (Legendre) filter</a></td>
+</tr>
+<tr>
+<td align="right"><small class="editlink noprint plainlinksneverexpand"><a href="http://en.wikipedia.org../../../l/i/n/Template%7ELinear_analog_electronic_filter_0d4f.html" class="external text" title="http://en.wikipedia.org../../../l/i/n/Template%7ELinear_analog_electronic_filter_0d4f.html" rel="nofollow">edit</a></small></td>
+</tr>
+</table>
+<p>The <b>Butterworth filter</b> is one type of <a href="../../../e/l/e/Electronic_filter.html" title="Electronic filter">electronic filter</a> design. It is designed to have a <a href="../../../f/r/e/Frequency_response.html" title="Frequency response">frequency response</a> which is as flat as mathematically possible in the <a href="../../../p/a/s/Passband.html" title="Passband">passband</a>. Another name for them is 'maximally flat magnitude' filters.</p>
+<p>The Butterworth type filter was first described by the <a href="../../../b/r/i/Britain.html" title="Britain">British</a> <a href="../../../e/n/g/Engineer.html" title="Engineer">engineer</a> Stephen Butterworth in his paper "On the Theory of Filter Amplifiers", <i>Wireless Engineer</i> (also called <i>Experimental Wireless and the Radio Engineer</i>), vol. 7, 1930, pp. 536-541.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1"><a href="#A_Simple_Example"><span class="tocnumber">2</span> <span class="toctext">A Simple Example</span></a></li>
+<li class="toclevel-1"><a href="#The_transfer_function"><span class="tocnumber">3</span> <span class="toctext">The transfer function</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Normalized_Butterworth_polynomials"><span class="tocnumber">3.1</span> <span class="toctext">Normalized Butterworth polynomials</span></a></li>
+<li class="toclevel-2"><a href="#Maximal_flatness"><span class="tocnumber">3.2</span> <span class="toctext">Maximal flatness</span></a></li>
+<li class="toclevel-2"><a href="#High_Frequency_Roll_Off"><span class="tocnumber">3.3</span> <span class="toctext">High Frequency Roll Off</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Filter_Design"><span class="tocnumber">4</span> <span class="toctext">Filter Design</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Cauer_topology"><span class="tocnumber">4.1</span> <span class="toctext">Cauer topology</span></a></li>
+<li class="toclevel-2"><a href="#Sallen-Key_topology"><span class="tocnumber">4.2</span> <span class="toctext">Sallen-Key topology</span></a></li>
+<li class="toclevel-2"><a href="#Digital_implementation"><span class="tocnumber">4.3</span> <span class="toctext">Digital implementation</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Comparison_with_other_linear_filters"><span class="tocnumber">5</span> <span class="toctext">Comparison with other linear filters</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Overview" id="Overview"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: Overview">edit</a>]</span> <span class="mw-headline">Overview</span></h2>
+<p>The frequency response of the Butterworth filter is maximally flat (has no ripples) in the passband, and rolls off towards zero in the stopband. When viewed on a logarithmic <a href="../../../b/o/d/Bode_plot.html" title="Bode plot">Bode plot</a>, the response slopes off linearly towards negative infinity. For a first-order filter, the response rolls off at −6 <a href="../../../d/e/c/Decibel.html" title="Decibel">dB</a> per <a href="../../../o/c/t/Octave.html" title="Octave">octave</a> (−20 dB per <a href="../../../d/e/c/Decade.html" title="Decade">decade</a>). (All first-order filters, regardless of name, are actually identical and so have the same frequency response.) For a second-order Butterworth filter, the response decreases at −12 dB per octave, a third-order at −18 dB, and so on. Butterworth filters have a monotonically changing magnitude function with ω. The Butterworth is the only filter that maintains this same shape for higher orders (but with a steeper decline in the stopband) whereas other varieties of filters (<a href="../../../b/e/s/Bessel_filter.html" title="Bessel filter">Bessel</a>, <a href="../../../c/h/e/Chebyshev_filter.html" title="Chebyshev filter">Chebyshev</a>, <a href="../../../e/l/l/Elliptic_filter.html" title="Elliptic filter">elliptic</a>) have different shapes at higher orders.</p>
+<p>Compared with a <a href="../../../c/h/e/Chebyshev_filter.html" title="Chebyshev filter">Chebyshev</a> Type I/Type II filter or an <a href="../../../e/l/l/Elliptic_filter.html" title="Elliptic filter">elliptic filter</a>, the Butterworth filter has a slower roll-off, and thus will require a higher order to implement a particular <a href="../../../s/t/o/Stopband.html" title="Stopband">stopband</a> specification. However, Butterworth filter will have a more linear phase response in the passband than the Chebyshev Type I/Type II and elliptic filters.</p>
+<p><a name="A_Simple_Example" id="A_Simple_Example"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: A Simple Example">edit</a>]</span> <span class="mw-headline">A Simple Example</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:302px;"><a href="../../../l/o/w/Image%7ELowPass3poleICauer.svg_31a2.html" class="internal" title="A third order low pass filter (Cauer topology). The filter becomes a Butterworth filter with cutoff frequency ωc=1 when (for example) C2=4/3 farad, R4=1 ohm, L1=1/2 and L3=3/2 henry."><img src="../../../upload/shared/thumb/d/dc/LowPass3poleICauer.svg/300px-LowPass3poleICauer.svg.png" alt="A third order low pass filter (Cauer topology). The filter becomes a Butterworth filter with cutoff frequency ωc=1 when (for example) C2=4/3 farad, R4=1 ohm, L1=1/2 and L3=3/2 henry." width="300" height="127" longdesc="../../../l/o/w/Image%7ELowPass3poleICauer.svg_31a2.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../l/o/w/Image%7ELowPass3poleICauer.svg_31a2.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A third order low pass filter (Cauer topology). The filter becomes a Butterworth filter with cutoff frequency ω<sub>c</sub>=1 when (for example) C<sub>2</sub>=4/3 farad, R<sub>4</sub>=1 ohm, L<sub>1</sub>=1/2 and L<sub>3</sub>=3/2 henry.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../b/u/t/Image%7EButterworth_3pole.png_b318.html" class="internal" title="Log density plot of the transfer function H(s) in complex frequency space for the third order Butterworth filter with ωc=1. Note the three poles which lie on a circle of unit radius in the left half plane."><img src="../../../upload/shared/thumb/5/50/Butterworth_3pole.png/180px-Butterworth_3pole.png" alt="Log density plot of the transfer function H(s) in complex frequency space for the third order Butterworth filter with ωc=1. Note the three poles which lie on a circle of unit radius in the left half plane." width="180" height="184" longdesc="../../../b/u/t/Image%7EButterworth_3pole.png_b318.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/u/t/Image%7EButterworth_3pole.png_b318.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Log density plot of the transfer function H(s) in complex frequency space for the third order Butterworth filter with ω<sub>c</sub>=1. Note the three poles which lie on a circle of unit radius in the left half plane.</div>
+</div>
+</div>
+<p>A simple example of a Butterworth filter is the 3rd order <a href="../../../l/o/w/Low_pass_filter.html" title="Low pass filter">low-pass</a> design shown in the figure on the right, with <span class="texhtml"><i>C</i><sub>2</sub> = 4 / 3</span> farad, <span class="texhtml"><i>R</i><sub>4</sub> = 1</span> ohm, <span class="texhtml"><i>L</i><sub>1</sub> = 3 / 2</span> and <span class="texhtml"><i>L</i><sub>3</sub> = 1 / 2</span> henry. Taking the <a href="../../../e/l/e/Electrical_impedance.html" title="Electrical impedance">impedance</a> of the capacitors <i>C</i> to be <i>1/Cs</i> and the impedance of the inductors <i>L</i> to be <i>Ls</i>, where <span class="texhtml"><i>s</i> = σ + <i>j</i>ω</span> is the complex frequency, the circuit equations yields the <a href="../../../t/r/a/Transfer_function.html" title="Transfer function">transfer function</a> for this device:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/8/e/a8e05be50588d5d94ccc604dfba7abf7.png" alt="H(s)=\frac{V_o(s)}{V_i(s)}=\frac{1}{1+2s+2s^2+s^3}" /></dd>
+</dl>
+<p>The <a href="../../../g/a/i/Gain.html" title="Gain">gain</a> <span class="texhtml"><i>G</i>(ω)</span> as a function of angular frequency <span class="texhtml">ω</span> is given by:</p>
+<dl>
+<dd><img class='tex' src="../../../math/4/6/7/467a385bf3ec58a84fe41424d4d6719e.png" alt="G^2(\omega)=|H(j\omega)|^2=\frac{1}{1+\omega^6}\," /></dd>
+</dl>
+<p>and the <a href="../../../p/h/a/Phase_%28waves%29.html" title="Phase (waves)">phase</a> is given by:</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/4/e/74e919e3e685c7af940df243dae29a36.png" alt="\Phi(\omega)=\arg(H(j\omega))\," /></dd>
+</dl>
+<p>The <a href="../../../g/r/o/Group_delay.html" title="Group delay">group delay</a> is defined as the derivative of the phase with respect to angular frequency and is a measure of the distortion in the signal introduced by phase differences for different frequencies. The <span class="texhtml">log<sub>10</sub></span>(gain) and the delay for this filter are plotted in the graph on the left. It can be seen that there are no ripples in the gain curve in either the passband or the stop band.</p>
+<p>The log of the absolute value of the transfer function <i>H(s)</i> is plotted in complex frequency space in the second graph on the right. The function is defined by the three poles in the left half of the complex frequency plane. These are arranged on a circle of radius unity, symmetrical about the real <i>s</i> axis. The gain function will have three more poles on the right half plane to complete the circle.</p>
+<p>By replacing each inductor with a capacitor and each capacitor with an inductor, a <a href="../../../h/i/g/High-pass_filter.html" title="High-pass filter">high-pass</a> Butterworth filter is obtained. If we change each capacitor and inductor into a resonant capacitor and inductor in parallel, with the proper choice of component values, a <a href="../../../b/a/n/Band-pass_filter.html" title="Band-pass filter">band-pass</a> Butterworth filter is obtained.</p>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:258px;"><a href="../../../b/u/t/Image%7EButterworth3_GainDelay.png_8bcd.html" class="internal" title="log10(gain) and group delay of the third order Butterworth filter with ωc=1"><img src="../../../upload/shared/thumb/8/8d/Butterworth3_GainDelay.png/256px-Butterworth3_GainDelay.png" alt="log10(gain) and group delay of the third order Butterworth filter with ωc=1" width="256" height="149" longdesc="../../../b/u/t/Image%7EButterworth3_GainDelay.png_8bcd.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/u/t/Image%7EButterworth3_GainDelay.png_8bcd.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+<span class="texhtml">log<sub>10</sub></span>(gain) and group delay of the third order Butterworth filter with ω<sub>c</sub>=1</div>
+</div>
+</div>
+<p><br />
+<br style="clear:both;" /></p>
+<p><a name="The_transfer_function" id="The_transfer_function"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: The transfer function">edit</a>]</span> <span class="mw-headline">The transfer function</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:352px;"><a href="../../../b/u/t/Image%7EButterworth_orders.png_13db.html" class="internal" title="Plot of the gain of Butterworth low-pass filters of orders 1 through 5. Note that the slope is 20n dB/decade where n is the filter order."><img src="../../../upload/shared/thumb/2/2f/Butterworth_orders.png/350px-Butterworth_orders.png" alt="Plot of the gain of Butterworth low-pass filters of orders 1 through 5. Note that the slope is 20n dB/decade where n is the filter order." width="350" height="248" longdesc="../../../b/u/t/Image%7EButterworth_orders.png_13db.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/u/t/Image%7EButterworth_orders.png_13db.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Plot of the gain of Butterworth low-pass filters of orders 1 through 5. Note that the slope is 20<i>n</i> dB/decade where <i>n</i> is the filter order.</div>
+</div>
+</div>
+<p>Like all filters, the typical <i>prototype</i> is the <a href="../../../l/o/w/Low-pass_filter.html" title="Low-pass filter">low-pass filter</a>, which can be modified into a <a href="../../../h/i/g/High-pass_filter.html" title="High-pass filter">high-pass filter</a>, or placed in series with others to form <a href="../../../b/a/n/Band-pass.html" title="Band-pass">band-pass</a> and <a href="../../../b/a/n/Band-stop.html" title="Band-stop">band-stop</a> filters, and higher order versions of these.</p>
+<p>The gain <span class="texhtml"><i>G</i>(ω)</span> of an <i>n</i>-order Butterworth low pass filter is given in terms of the <a href="../../../t/r/a/Transfer_function.html" title="Transfer function">transfer function</a> <i>H(s)</i> as:</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/1/d/91d724c14df62329d829c4b2dc2fe54c.png" alt="G^2(\omega)=\left |H(j\omega)\right|^2 = \frac {G_0^2}{1+\left(\frac{\omega}{\omega_c}\right)^{2n}}" /></dd>
+</dl>
+<p>where</p>
+<ul>
+<li>n = order of filter</li>
+<li>ω<sub>c</sub> = cutoff frequency (approximately the -3dB frequency)</li>
+<li><span class="texhtml"><i>G</i><sub>0</sub></span> is the DC gain (gain at zero frequency)</li>
+</ul>
+<p>It can be seen that as <i>n</i> approaches infinity, the gain becomes a rectangle function and frequencies below ω<sub>c</sub> will be passed with gain <span class="texhtml"><i>G</i><sub>0</sub></span>, while frequencies above ω<sub>c</sub> will be suppressed. For smaller values of <i>n</i>, the cutoff will be less sharp.</p>
+<p>We wish to determine the transfer function <i>H(s)</i> where <span class="texhtml"><i>s</i> = σ + <i>j</i>ω</span>. Since <i>H(s)H(-s)</i> evaluated at <i>s = jω</i> is simply equal to |H(ω)|<sup>2</sup>, it follows that:</p>
+<dl>
+<dd><img class='tex' src="../../../math/7/6/c/76c7f73458e543c2129c9e41cc12a070.png" alt="H(s)H(-s) = \frac {G_0^2}{1+\left (\frac{-s^2}{\omega_c^2}\right)^n}" /></dd>
+</dl>
+<p>The poles of this expression occur on a circle of radius ω<sub>c</sub> at equally spaced points. The transfer function itself will be specified by just the poles in the negative real half-plane of <i>s</i>. The <i>k-th</i> pole is specified by:</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/c/c/1cc2da11c7f00d4669d184a18a05fefe.png" alt="-\frac{s_k^2}{\omega_c^2} = (-1)^{\frac{1}{n}} = e^{\frac{j(2k-1)\pi}{n}} \qquad\mathrm{k = 1,2,3, \ldots, n}" /></dd>
+</dl>
+<p>and hence,</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/d/0/3d07e6d1f5c4b95987a35cb12eb444ba.png" alt="s_k = \omega_c e^{\frac{j(2k+n-1)\pi}{2n}}\qquad\mathrm{k = 1,2,3, \ldots, n}" /></dd>
+</dl>
+<p>The transfer function may be written in terms of these poles as:</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/f/8/ef82bab14c90b9b5e223bb1740fba78b.png" alt="H(s)=\frac{G_0}{\prod_{k=1}^n (s-s_k)/\omega_c}" /></dd>
+</dl>
+<p>The denominator is a Butterworth polynomial in <i>s</i>.</p>
+<p><a name="Normalized_Butterworth_polynomials" id="Normalized_Butterworth_polynomials"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: Normalized Butterworth polynomials">edit</a>]</span> <span class="mw-headline">Normalized Butterworth polynomials</span></h3>
+<p>The Butterworth polynomials may be written in complex form as above, but are usually written with real coefficients by multiplying pole pairs which are complex conjugates, such as <span class="texhtml"><i>s</i><sub>1</sub></span> and <span class="texhtml"><i>s</i><sub><i>n</i></sub></span>. The polynomials are normalized by setting <span class="texhtml">ω<sub><i>c</i></sub> = 1</span>. The normalized Butterworth polynomials then have the general form:</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/d/4/ad4f4716d76b3e3139307406c199029a.png" alt="B_n(s)=\prod_{k=1}^{\frac{n}{2}} \left[s^2-2s\cos\left(\frac{2k+n-1}{2n}\,\pi\right)+1\right]" /> for n even</dd>
+<dd><img class='tex' src="../../../math/0/1/0/0102df341d364d5ed26a0addf6d6ba66.png" alt="B_n(s)=(s+1)\prod_{k=1}^{\frac{n-1}{2}} \left[s^2-2s\cos\left(\frac{2k+n-1}{2n}\,\pi\right)+1\right]" /> for n odd</dd>
+</dl>
+<p>To four decimal places, they are:</p>
+<center>
+<table>
+<tr>
+<td>
+<table class="wikitable" style="text-align: center;">
+<tr>
+<th>n</th>
+<th>Factors of Polynomial <span class="texhtml"><i>B</i><sub><i>n</i></sub>(<i>s</i>)</span></th>
+</tr>
+<tr>
+<th>1</th>
+<td><span class="texhtml">(<i>s</i> + 1)</span></td>
+</tr>
+<tr>
+<th>2</th>
+<td><span class="texhtml"><i>s</i><sup>2</sup> + 1.4142<i>s</i> + 1</span></td>
+</tr>
+<tr>
+<th>3</th>
+<td><span class="texhtml">(<i>s</i> + 1)(<i>s</i><sup>2</sup> + <i>s</i> + 1)</span></td>
+</tr>
+<tr>
+<th>4</th>
+<td><span class="texhtml">(<i>s</i><sup>2</sup> + 0.7654<i>s</i> + 1)(<i>s</i><sup>2</sup> + 1.8478<i>s</i> + 1)</span></td>
+</tr>
+<tr>
+<th>5</th>
+<td><span class="texhtml">(<i>s</i> + 1)(<i>s</i><sup>2</sup> + 0.6180<i>s</i> + 1)(<i>s</i><sup>2</sup> + 1.6180<i>s</i> + 1)</span></td>
+</tr>
+<tr>
+<th>6</th>
+<td><span class="texhtml">(<i>s</i><sup>2</sup> + 0.5176<i>s</i> + 1)(<i>s</i><sup>2</sup> + 1.4142<i>s</i> + 1)(<i>s</i><sup>2</sup> + 1.9319<i>s</i> + 1)</span></td>
+</tr>
+<tr>
+<th>7</th>
+<td><span class="texhtml">(<i>s</i> + 1)(<i>s</i><sup>2</sup> + 0.4450<i>s</i> + 1)(<i>s</i><sup>2</sup> + 1.2470<i>s</i> + 1)(<i>s</i><sup>2</sup> + 1.8019<i>s</i> + 1)</span></td>
+</tr>
+<tr>
+<th>8</th>
+<td><span class="texhtml">(<i>s</i><sup>2</sup> + 0.3902<i>s</i> + 1)(<i>s</i><sup>2</sup> + 1.1111<i>s</i> + 1)(<i>s</i><sup>2</sup> + 1.6629<i>s</i> + 1)(<i>s</i><sup>2</sup> + 1.9616<i>s</i> + 1)</span></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</center>
+<p><br /></p>
+<p><a name="Maximal_flatness" id="Maximal_flatness"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: Maximal flatness">edit</a>]</span> <span class="mw-headline">Maximal flatness</span></h3>
+<p>Assuming <span class="texhtml">ω<sub><i>c</i></sub> = 1</span> and <span class="texhtml"><i>G</i><sub>0</sub> = 1</span>, the derivative of the gain with respect to frequency can be shown to be:</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/d/e/5de422e27d82efe837f5d968276eca2c.png" alt="\frac{dG}{d\omega}=-nG^3\omega^{2n-1}" /></dd>
+</dl>
+<p>which is monotonically decreasing for all <span class="texhtml">ω</span> since the gain <i>G</i> is always positive. The gain function of the Butterworth filter therefore has no ripple. Furthermore, the series expansion of the gain is given by:</p>
+<dl>
+<dd><img class='tex' src="../../../math/8/0/8/8082c41c84097328e6274e2a96aa5538.png" alt="G(\omega)=1 - \frac{1}{2}\omega^{2n}+\frac{3}{8}\omega^{4n}+\ldots" /></dd>
+</dl>
+<p>In other words, all derivatives of the gain up to but not including the 2<i>n</i>-th derivative are zero, resulting in "maximal flatness".</p>
+<p><a name="High_Frequency_Roll_Off" id="High_Frequency_Roll_Off"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: High Frequency Roll Off">edit</a>]</span> <span class="mw-headline">High Frequency Roll Off</span></h3>
+<p>Again assuming <span class="texhtml">ω<sub><i>c</i></sub> = 1</span>, the slope of the log of the gain for large ω is:</p>
+<dl>
+<dd><img class='tex' src="../../../math/3/d/c/3dce77c1ccd4e6270cff0a7b0626e5c9.png" alt="\lim_{\omega\rightarrow\infty}\frac{d\log(G)}{d\log(\omega)}=-n" /></dd>
+</dl>
+<p>In <a href="../../../d/e/c/Decibel.html" title="Decibel">decibels</a>, the high frequency roll off is therefore 20<i>n</i> dB/decade, or 6<i>n</i> dB/octave (The factor of 20 is used because the power is proportional to the square of the voltage gain.)</p>
+<p><a name="Filter_Design" id="Filter_Design"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: Filter Design">edit</a>]</span> <span class="mw-headline">Filter Design</span></h2>
+<p>There are a number of different filter topologies available to implement a linear analog filter. These circuits differ only in the values of the components, but not in their connections.</p>
+<p><a name="Cauer_topology" id="Cauer_topology"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: Cauer topology">edit</a>]</span> <span class="mw-headline">Cauer topology</span></h3>
+<div class="floatright"><span><a href="../../../c/a/u/Image%7ECauer_lowpass.svg_4674.html" class="image" title="Butterworth filter using Cauer topology "><img src="../../../upload/shared/thumb/5/52/Cauer_lowpass.svg/450px-Cauer_lowpass.svg.png" alt="Butterworth filter using Cauer topology " width="450" height="113" longdesc="../../../c/a/u/Image%7ECauer_lowpass.svg_4674.html" /></a></span></div>
+<p>The <a href="../../../c/a/u/Cauer_topology_%28electronics%29.html" title="Cauer topology (electronics)">Cauer topology</a> uses passive components (shunt capacitors and series inductors) to implement a linear analog filter. The Butterworth filter having a given transfer function can be realised using a Cauer 1-form. The k<sup>th</sup> element is given by:</p>
+<dl>
+<dd><img class='tex' src="../../../math/e/9/1/e912e090b0e30cc8a393c8ea579be580.png" alt="C_k = 2 \sin \left [\frac {(2k-1)}{2n} \pi \right ]" />; k = odd</dd>
+</dl>
+<dl>
+<dd><img class='tex' src="../../../math/4/7/d/47d0b973afc55a9ca878725d302444ff.png" alt="L_k = 2 \sin \left [\frac {(2k-1)}{2n} \pi \right ]" />; k = even</dd>
+</dl>
+<p><a name="Sallen-Key_topology" id="Sallen-Key_topology"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: Sallen-Key topology">edit</a>]</span> <span class="mw-headline">Sallen-Key topology</span></h3>
+<div class="floatright"><span><a href="../../../s/a/l/Image%7ESallen-Key.png_5274.html" class="image" title="Sallen Key topology "><img src="../../../upload/shared/thumb/9/97/Sallen-Key.png/450px-Sallen-Key.png" alt="Sallen Key topology " width="450" height="198" longdesc="../../../s/a/l/Image%7ESallen-Key.png_5274.html" /></a></span></div>
+<p><i>Note that the Sallen-Key filter shown at right is meant for topology reference only.</i></p>
+<p>The <a href="../../../s/a/l/Sallen_Key_filter_f2ca.html" title="Sallen Key filter">Sallen-Key topology</a> uses active and passive components (<a href="../../../o/p/_/Op_amp.html" title="Op amp">op amps</a> and capacitors) to implement a linear analog filter. Each Sallen-Key stage implements a conjugate pair of poles; the overall filter is implemented by cascading all stages in series. If there is a real pole (in the case where <span class="texhtml"><i>n</i></span> is odd), this must be implemented separately, usually as an <a href="../../../r/c/_/RC_circuit_c437.html" title="RC circuit">RC circuit</a>, and cascaded with the op-amp stages.</p>
+<p>The Sallen-Key transfer function is given by</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/f/6/5f68e1a18a257a1a4d5cf98de4e25693.png" alt="H(s)=\frac{1}{1+C_2(R_1+R_2)s+C_1C_2R_1R_2s^2}" /></dd>
+</dl>
+<p>We wish the denominator to be one of the quadratic terms in a Butterworth polynomial. Assuming that <span class="texhtml">ω<sub><i>c</i></sub> = 1</span>, this will mean that</p>
+<dl>
+<dd><img class='tex' src="../../../math/b/7/f/b7fec9abf46efa2001c6796e2ad70d0e.png" alt="C_1C_2R_1R_2=1\," /></dd>
+</dl>
+<p>and</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/b/4/5b4e3db9c921ca5cd6b7b9467b2e0c3a.png" alt="C_2(R_1+R_2)=2\cos\left(\frac{2k+n-1}{2n}\right)" /></dd>
+</dl>
+<p>This leaves two component values undefined, which may be chosen at will.</p>
+<p><a name="Digital_implementation" id="Digital_implementation"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: Digital implementation">edit</a>]</span> <span class="mw-headline">Digital implementation</span></h3>
+<p>Digital implementations of Butterworth filters often use <a href="../../../b/i/l/Bilinear_transform.html" title="Bilinear transform">bilinear transform</a> or <a href="../../../z/-/t/Z-transform.html" title="Z-transform">matched z-transform</a> to discretize an analog filter. For higher orders, they are sensitive to quantization errors. For this reason, they are often calculated as cascaded <a href="../../../d/i/g/Digital_biquad_filter.html" title="Digital biquad filter">biquad sections</a> and a cascaded first order filter, for odd orders.</p>
+<p><a name="Comparison_with_other_linear_filters" id="Comparison_with_other_linear_filters"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/t/Butterworth_filter.html" title="Edit section: Comparison with other linear filters">edit</a>]</span> <span class="mw-headline">Comparison with other linear filters</span></h2>
+<p>Here is an image showing the gain of a discrete-time Butterworth filter next to other common filters types. All filters are fifth-order.</p>
+<div class="center">
+<div class="floatnone"><span><a href="../../../e/l/e/Image%7EElectronic_linear_filters.svg_0be0.html" class="image" title=""><img src="../../../upload/shared/thumb/5/5c/Electronic_linear_filters.svg/500px-Electronic_linear_filters.svg.png" alt="" width="500" height="400" longdesc="../../../e/l/e/Image%7EElectronic_linear_filters.svg_0be0.html" /></a></span></div>
+</div>
+<p>All filters are of the same order, in this case five, which means that all filters roll off by 5 times 20 dB per decade, or 100 dB per decade. The Butterworth filter rolls off more slowly around the cutoff frequency than the others, but shows no ripples.</p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/u/t/Butterworth_filter.html">http://en.wikipedia.org../../../b/u/t/Butterworth_filter.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Category</a>: <span dir='ltr'><a href="../../../l/i/n/Category%7ELinear_filters_de6f.html" title="Category:Linear filters">Linear filters</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/u/t/Butterworth_filter.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/u/t/Talk%7EButterworth_filter_976e.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Butterworth_filter">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/b/u/t/Butterworthfilter.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/f/i/l/Filtro_de_Butterworth_851e.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/f/i/l/Filtre_de_Butterworth_6f8c.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/f/i/l/Filtro_Butterworth_f027.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/f/i/l/Filtr_Butterwortha_71ad.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/f/i/l/Filtro_Butterworth_f027.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D1%84/%D0%B8/%D0%BB/%D0%A4%D0%B8%D0%BB%D1%8C%D1%82%D1%80_%D0%91%D0%B0%D1%82%D1%82%D0%B5%D1%80%D0%B2%D0%BE%D1%80%D1%82%D0%B0_1386.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E5%B7%B4/%E7%89%B9/%E6%B2%83/%E5%B7%B4%E7%89%B9%E6%B2%83%E6%96%AF%E6%BB%A4%E6%B3%A2%E5%99%A8.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:32, 1 April 2007 by Wikipedia user <a href="../../../o/l/i/User%7EOli_Filth_18e8.html" title="User:Oli Filth">Oli Filth</a>. Based on work by Wikipedia user(s) <a href="../../../f/i/s/User%7EFishbert_229f.html" title="User:Fishbert">Fishbert</a>, <a href="../../../s/c/o/User%7EScoofy_b068.html" title="User:Scoofy">Scoofy</a>, <a href="../../../g/i/f/User%7EGiftlite_9506.html" title="User:Giftlite">Giftlite</a>, <a href="../../../m/l/e/User%7EMlewis000_94d6.html" title="User:Mlewis000">Mlewis000</a>, <a href="../../../a/l/e/User%7EAlejo2083_d4a3.html" title="User:Alejo2083">Alejo2083</a>, <a href="../../../s/a/x/User%7ESaxbryn_294e.html" title="User:Saxbryn">Saxbryn</a>, Mjacek, AaronWL, <a href="../../../p/a/r/User%7EPAR_bf60.html" title="User:PAR">PAR</a>, <a href="../../../k/f/4/User%7EKf4bdy_6b95.html" title="User:Kf4bdy">Kf4bdy</a>, <a href="../../../p/f/a/User%7EPfalstad_5494.html" title="User:Pfalstad">Pfalstad</a>, <a href="../../../m/b/e/User%7EMbell_fbfb.html" title="User:Mbell">Mbell</a>, Slaweks, FredK, <a href="../../../g/i/s/User%7EGisling_1ae6.html" title="User:Gisling">Gisling</a>, <a href="../../../l/i/g/User%7ELight_current_29d4.html" title="User:Light current">Light current</a>, <a href="../../../f/u/r/User%7EFurrykef_4620.html" title="User:Furrykef">Furrykef</a>, <a href="../../../k/r/i/User%7EKrishnavedala_21cb.html" title="User:Krishnavedala">Krishnavedala</a>, <a href="../../../p/o/u/User%7EPoulpy_a6b8.html" title="User:Poulpy">Poulpy</a>, <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a>, <a href="../../../h/a/d/User%7EHadal_a4d0.html" title="User:Hadal">Hadal</a>, <a href="../../../d/a/n/User%7EDankelley_61a3.html" title="User:Dankelley">Dankelley</a>, <a href="../../../t/h/e/User%7EThe_Anome_61a9.html" title="User:The Anome">The Anome</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, Hooperbloob, <a href="../../../r/i/c/User%7ERich_Farmbrough_7642.html" title="User:Rich Farmbrough">Rich Farmbrough</a>, <a href="../../../n/i/x/User%7ENixdorf_8d7c.html" title="User:Nixdorf">Nixdorf</a>, <a href="../../../r/f/l/User%7ERfl_2cf2.html" title="User:Rfl">Rfl</a> and <a href="../../../g/e/o/User%7EGeoGreg_b8dd.html" title="User:GeoGreg">GeoGreg</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1265 @@
+''This is a copy of the master help [[m:Help:Template|page at Meta]]. '''Do not edit this copy.'''<br />Edits will be lost in the next update from the master page. See below for more information.''
+----
+{| align="right" class="noprint" style="padding:0.3em; margin-left:15px; border:1px solid #a3b1bf; text-align:center; font-size: 95%"
+|
+{| border="0" cellspacing="0" cellpadding="1" style="text-align:center; background:#F5FAFF;"
+!<big>[[Help:Editing|Editing]]</big>
+|-
+|[[Help:Starting a new page|Start new pages]]
+|-
+|[[Help:Page name|Page name]]
+|-
+!<br />'''Referencing'''
+|-
+|[[Help:Link|Links]]
+|-
+|[[Help:Piped link|Piped links]]
+|-
+|[[Help:Interwiki linking|Interwiki linking]]
+|-
+|[[Help:Footnotes|Footnotes]] (References)
+|-
+!<br />Formatting
+|-
+|[[Help:Wikitext|Wikitext]]
+|-
+|[[Help:List|Lists]] & [[Help:Table|Tables]]
+|-
+|[[Help:Images and other uploaded files|Image & file uploads]]
+|-
+|[[Help:Formula|Formulae]]
+|-
+!<br />Organising
+|-
+|[[Help:Section|Sections]]
+|-
+|[[Help:Category|Categories]]
+|-
+|[[Help:Redirect|Redirects]] (<small>forward</small>)
+|-
+|[[Help:Namespace|Namespaces]]
+|-
+|[[Help:Moving a page|Moving a page]]
+|-
+|[[Wikipedia:Page size|Page size]]
+|-
+!<br />Fixing mistakes
+|-
+|[[Help:Reverting|Reverting edits]]
+|-
+|[[Help:Show preview|Show preview]]
+|-
+!<br />Saving effort
+|-
+|[[Help:Editing shortcuts|Editing shortcuts]]
+|-
+|[[Help:Edit toolbar|Edit toolbar]]
+|-
+|[[Help:Magic words|Magic words]]
+|-
+|[[Help:A quick guide to templates|Templates]]
+|-
+|[[Help:Variable|Variables]]
+|-
+|[[Help:Calculation|Calculation]]
+|-
+!<br />Communicating
+|-
+|[[Help:Edit summary|Edit summary]]
+|-
+|[[Help:Talk page|Talk page]]
+|-
+|[[Help:Edit conflict|Edit conflict]]
+|-
+|[[Help:Minor edit|Minor edit]]
+|-
+!<br />Other 
+|-
+|[[Help:Special characters|Characters]]
+|-
+|[[Help:Sandbox|Sandbox]]
+|}
+<br clear="right" />
+[[Category:Editor handbook]]
+
+|}
+In MediaWiki, a  '''template''' is a page which can be inserted into another page via a process called [[w:transclusion|transclusion]]. It can be considered a wiki [[w:en:subroutine|subroutine]] facility and is comparable to a #include statement or [[wikt:en:macro#Noun|macro]] that is expanded at page view time.  [[Help:Substitution|Substitution]] allows templates to be used as a macro facility.
+
+This page and its extension '''[[Help:Advanced templates]]''' provide a reference manual on templates in MediaWiki. For an introduction, see ''[[Help:A quick guide to templates|A quick guide to templates]]'' and [[mw:Help:Templates]].  For syntax often used within templates, see [[m:ParserFunctions]] and other "Advanced functioning" help pages listed below.
+
+'''Note:''' The master version of this page is the page [[m:Help:Template]] on Meta-Wikipedia; template demos work there, but may not work if you are viewing a copy of this page on another project.
+
+==General==
+The '''template namespace''' is the [[Help:Namespace|namespace]] with prefix "'''Template:'''" (this prefix can be used in all languages, but the canonical prefixes in languages other than English include Vorlage, Modèle, Sjabloon, with colon; the site WikiFAQ calls it Snippet).
+
+A page in this namespace is called a '''template'''. The contents of such a page (either fixed or depending on [[w:en:Parameter (computer science)|parameters]] and/or [[Help:Variable|variable]]s) is designed to be useful for insertion in other pages ([[en:transclusion|transclusion]], creating a [[w:compound document|compound document]]).
+
+The syntax for insertion of the page "Template:''name''" is <nowiki>{{</nowiki>''name''<nowiki>}}</nowiki>. This is called a template tag. 
+
+'''Example:''' <nowiki>abc{{tc}}def</nowiki> 
+
+(using [[Template:tc]] containing "in") 
+
+'''Gives:''' abcindef.
+
+This reference in the wikitext causes insertion of the template content when the referring page is rendered. Various equivalent terms are:
+*calling the template
+*including the template
+*transcluding the template
+*using the template
+*embedding the template
+
+Depending on context "including" can be used as opposed to ''substituting'' the template. 
+
+To create a hyperlink to a template page, use the usual wikilink syntax <nowiki>[[</nowiki>Template:''name'']].
+
+If the page "Template:''name''" does not exist, then <nowiki>{{</nowiki>''<nowiki>name</nowiki>''<nowiki>}}</nowiki> works as <nowiki>[[</nowiki>Template:''name''<nowiki>]]</nowiki>, a link to a non-existing page, leading to the edit page. Thus, one way of making a template is putting the tag first, and then following the link.
+
+If ''name'' starts with a valid namespace prefix, or a colon, then it is not prefixed with "Template:". This way any page can be used as template (a colon at the start refers to the main namespace). 
+
+Also it provides an alternative way of calling a template, which can be used in the case of a name conflict with a variable, e.g. [[m:Template:Ns:3|Template:Ns:3]] and [[m:Template:PAGENAME|Template:PAGENAME]].
+
+Using a page outside the template namespace as template can be useful for:
+*quoting interface messages in the MediaWiki namespace
+*templates for personal use in subpages of one's userpage, e.g. for experimenting
+*inclusion of pages in other pages in the same namespace, e.g. having an extra page associated with each page, such as a to-do list, with a simple name correspondence; it can be created and included with <nowiki>{{{{NAMESPACE}}:{{PAGENAME}}/todo}}</nowiki>.
+
+As usual the template name is case sensitive except (on most projects) for the first letter, and a blank space is equivalent with an underscore (as opposed to parameter names, see below: they are case-sensitive, even with respect to the first letter, and spaces are distinguished from underscores).
+
+One can call a template that calls another template. If a template calls itself directly or indirectly, inclusion works only on one level for each template. However, with templates redirecting to the template that one would want to call recursively, one can achieve recursion without having to make copies of the whole template content, with the number of levels limited by the number of redirects. See also [[Help:Template#Repetition_within_a_page|Repetition within a page]] and  [[m:Template:List of template calls]] ([[m:Template talk:List of template calls|talk]], [[m:Special:Whatlinkshere/Template:List of template calls|backlinks]], [http://meta.wikimedia.org/wiki/Template:List_of_template_calls?action=edit edit]).
+
+A [[Help:Variable|variable]] in a template is evaluated after insertion in the referring page, i.e. if <nowiki>{{PAGENAME}}</nowiki> occurs in the wikitext of a template, it is rendered as the name of the referring page, not the name of the template.
+
+A list of pages embedded in a page (as recorded in the [[m:templatelinks table|templatelinks table]]), all with links, is given on the edit page. Notes:
+*on a section edit page first the whole list is given, i.e. also the templates used in other sections; after pressing preview only those in the section, updated for the edits made, if any; preview on first edit  gives the full list;
+*similarly, when editing an old version of a page, the list is first given for the current version, while after pressing preview the templates that used to be included are shown, updated for the edits on the old version made in the current session, if any; 
+*if a page is conditionally embedded through #if, #ifeq, #ifexist, #ifexpr, or #switch, it is counted as embedded, even if the condition is not fulfilled
+*if the name of an embedded page is an expression, e.g. <nowiki>{{abc{{CURRENTDAY}}}}</nowiki>, currently giving [[:Template:Abc8]], or <nowiki>{{{{#ifexist:Template:A|A|x1}}|Template does not exist}}</nowiki>, currently giving bgcolor="#FFFFFF" | &nbsp;, the current template name is shown.
+
+Thus, to use "What links here" to find the pages that actually embed template A, instead of using e.g.
+
+:<nowiki>{{#if:..|{{a|pa1}}|{{b|pb1}}}}</nowiki>
+
+one has to use an alternative, e.g., duplicating the condition:
+
+:<nowiki>{{{{#if:..|a|b}}|{{#if:..|pa1|pb1}}}}</nowiki>
+
+or, using [[m:Template:echo]] ([[m:Template talk:echo|talk]], [[m:Special:Whatlinkshere/Template:echo|backlinks]], [http://meta.wikimedia.org/wiki/Template:echo?action=edit edit]):
+
+:<nowiki>{{{{#if:..|a|echo}}|1=pa1|echo={{b|pb1}}}}</nowiki>
+
+Only with the first of the two alternatives "What links here" also finds the pages that actually embed template B. In the second alternative the page is anyway considered embedded. If we replace "b" by "<nowiki>{{if:1|b}}</nowiki>" the page is never considered embedded.
+
+(''Supported in version 1.4 and higher.'')
+
+When saving a page without newline at the end, and going to the edit page again, there is a newline at the end. However, this does not seem to have effect, see the example above and the following example:
+
+<pre>{{Numbered list demo}}{{Numbered list demo}}
+{{Numbered list demo}}</pre>
+
+using [[Template:Numbered list demo]], gives
+
+#Amsterdam
+#Rotterdam
+#The Hague
+#Amsterdam
+#Rotterdam
+#The Hague
+
+#Amsterdam
+#Rotterdam
+#The Hague
+
+
+In a template name the character "#" and any characters after that are ignored: <nowiki>{{tc#abc}}</nowiki> gives in. This is used in [[en:Template:hif]] ([[en:Template talk:hif|talk]], [[en:Special:Whatlinkshere/Template:hif|backlinks]], [http://en.wikipedia.org/wiki/en:Template:hif?action=edit edit]).
+
+A wikitext with consecutive double opening braces and consecutive double closing braces is interpreted as containing a template parameter tag with triple braces. To avoid that, use a space in at least one of the two quadruples. For example, <nowiki>{{{{tc}}}}</nowiki> gives {{{{tc}}}}, while <nowiki>{{ {{tc}}}}</nowiki> gives [[:Template:In]]. 
+
+With [[Special:ExpandTemplates]] one can view the expanded wikitext a template call produces, as intermediate step toward rendering. The same is also produced with a URL like  http://en.wikipedia.org../../../raw/Help%7ETemplate_43b9.
+
+==Use of templates across projects==
+A template only works when referred to from a page in the same project. To use it in another project, one has to copy it to there. [[Bugzilla:1126]] is a request to lift that restriction, i.e. allow interwiki use of templates.
+
+The adjustments needed in the copy, to work on the other project, can be reduced by using <nowiki>{{</nowiki>SERVER}}, localurl, and generic namespace names, and writing links in a way that works on multiple projects, e.g. [[m:Help:Table]]. For copying multiple templates, [[Help:Export|export]] and [[Help:Import|import]] can be helpful. It is also convenient if the template names can be the same on the other project. Therefore, when choosing template names, check which names are in use on other projects to which people might want to copy the templates. Note that if a template is referred to by something like abc<nowiki>{{</nowiki>NAMESPACE}}, a project with different namespace names requires a different template name, or a redirect.
+
+Transclusion across projects, hence changing contents from a central place, is only possible:
+*for content in the form of an image on Commons, to any page,
+*for editable content on an image page on Commons, including content transcluded from other pages on Commons, to the corresponding local image pages, if there is no local image with the same name
+
+Templates on the central Wikia work in the separate Wikia projects, provided that the prefix "wikia:" is used, see <span class="plainlinks">[http://www.wikia.com/wiki/Help:Shared_templates shared templates on wikia]</span>. (Please note that these external Wikia projects are NOT hosted and managed by the Wikimedia Foundation.)
+
+Sometimes multiple projects require pages which are partly the same and partly different. For example, on some projects "m:" is used as interwiki link to Meta, and on some projects "MetaWikipedia:". In this case a common wikitext can be used, calling project-specific templates. In the example the wikitext of the page could contain <nowiki>{{meta}}</nowiki>, and we would have on each wiki a Template:Meta containing the required prefix.
+
+==Parameters==
+
+Template parameters are either named or numbered. They are [[w:en:Parameter (computer science)#Calling conventions|called-by-value]], and therefore input parameters only.
+
+In the template ''definition'', the formal parameter (the [[w:en:Free variables and bound variables|placeholder]] for the parameter value) is a parameter name with three pairs of braces.  So, for example, you would write {{{myVariableName}}} for a template parameter which you wanted to call ''myVariableName''.
+
+
+{| style="float:right; clear:right; margin:0.5ex 0ex 0.5ex 0.5ex; padding: 0.2ex 0.3ex; border:1px solid #888888; background-color:#FFFFEE; font-size:80%;"
+| style="font-size:100%; padding-right:1ex; vertical-align:bottom;" | MediaWiki version:
+| style="font-size:180%; font-weight:bold; " | 1.6
+| style="font-size:100%; padding-right:1ex; vertical-align:bottom;" | (for parameters defaults)
+|} 
+In the template ''call'', the syntax is either
+*<tt><nowiki>{{templatename|parname1=parvalue1|parname2=parvalue2}}</nowiki></tt> with tags <tt><nowiki>{{{parname1|default}}}</nowiki></tt>, <tt><nowiki>{{{parname2|default}}}</nowiki></tt>, etc. in the template, or
+*<tt><nowiki>{{templatename|parvalue1|parvalue2}}</nowiki></tt> with tags <tt><nowiki>{{{1|default}}}</nowiki></tt>, <tt><nowiki>{{{2|default}}}</nowiki></tt>, etc. in the template. 
+
+The default (optional, together with the pipe character in front) can be different for every occurrence, and applies if no value is specified when calling the template, not to be confused with the case that the empty value is specified.
+
+A way to determine whether a parameter is defined is by comparing the results of two occurrences with different defaults, e.g. with <tt><nowiki>{{#ifeq: {{{a|+}}}|{{{a|-}}}|1|0}}</nowiki></tt>.
+
+In the case of [[Help:Substitution|page substitution]] with an undefined parameter, not the default but the parameter itself with default is substituted into the wikitext.
+
+===Example: named parameter substitution ===
+Let's create a template called '''Name-example''' (that is, the template will be '''[[Template:Name-example]]'''), with a parameter for the first name which we will call ''firstName'', and a parameter for the last name which we will call ''lastName''.<br>
+
+Type the following in the new [[Template:Name-example]]: 
+
+<pre>
+:I am a template example, my first name is '''{{{firstName}}}''' and my last name is '''{{{lastName}}}'''.
+:
+:You can reference my page at [[{{{lastName}}}, {{{firstName}}}]].
+</pre>
+
+On a second page, type this: <nowiki>{{Name-example}}</nowiki>
+
+The result is: 
+:I am a template example, my first name is '''{{{firstName}}}''' and my last name is '''{{{lastName}}}'''.
+:
+:You can reference my page at [[{{{lastName}}}, {{{firstName}}}]].
+
+Because the template has no parameters.
+
+But if we type this on the second page: <nowiki>{{Name-example | firstName=John | lastName=Smith}}</nowiki> 
+
+The result will looks like this:<br>
+:I am a template example, my first name is '''John''' and my last name is '''Smith'''.
+:
+:You can reference my page at [[Smith, John]].
+
+To analyse the working, one can apply [[Special:ExpandTemplates]] to see the expanded wikitext as intermediate result:
+
+<pre>
+:I am a template example, my first name is '''John''' and my last name is '''Smith'''.
+:
+:You can reference my page at [[Smith, John]].
+</pre>
+
+When this wikitext is applied directly the resulting rendering is the same.
+
+===Example: numeric parameter substitution===
+An example of how the contents of a parameter function.
+
+====The simplest case====
+Let us first ''define'' a template with the name ''t0'', which will 
+*expect a single argument
+*give back the text of that argument, with no spaces before or after it, between "start-" and "-end":
+:'''<nowiki>start-{{{1}}}-end</nowiki>'''
+the definition of course being on page '''[[Template:t0]]'''.
+
+#Calling the template named ''t0'' with a parameter value of "''a''", i.e., 
+#::<nowiki>{{t0|a}}</nowiki> 
+#:gives 
+#::"start-a-end"
+#Calling the template named ''t0'' with a parameter value of " " (a blank space), i.e., 
+#::<nowiki>{{t0| }}</nowiki>
+#:gives 
+#::"start- -end" .
+#Calling the template named ''t0'' with a parameter value of "" (an empty string), i.e., 
+#::<nowiki>{{t0|}}</nowiki> 
+#:gives 
+#::"start--end".
+#Calling the template named ''t0'' and not passing any parameters, i.e., 
+#::<nowiki>{{t0}}</nowiki> 
+#:gives 
+#::"start-{{{1}}}-end".
+If something like '''{{{1}}}''' or in fact any '''{{{name}}}''' is visible on an ordinary page it typically indicates that a mandatory parameter of a template used on this page isn't defined.
+
+Calling the template named ''t0'' with a parameter which consists of two newlines, i.e.,
+
+ <nowiki> {{t0|     </nowiki>}}
+
+gives 
+
+ start-     -end
+
+<nowiki>{{t0|</nowiki>
+
+}}
+
+gives 
+
+start-
+
+-end.
+
+Thus, unlike in the case of parser functions, there are no complications with spaces and newlines, compare [[ParserFunctions#Conditional_whitespace|conditional whitespace]].
+
+====Declaring a default value====
+Now let us ''define'' a similar template with the name ''t'' which contains a single numbered parameter 1 with a default of ''pqr''. The only difference between the effects of t and t0 appears when they are called with no parameter (and no "|"):
+
+:'''<nowiki>start-{{{1|pqr}}}-end</nowiki>'''<br>
+the definition of course being on page '''[[Template:t]]'''.<br>
+#Calling the template named ''t'' with a parameter value of "''a''", i.e.,
+#::<nowiki>{{t|a}}</nowiki> 
+#:gives 
+#::"start-a-end".
+#Calling the template named ''t'' with a parameter value of " ", i.e.,
+#::<nowiki>{{t| }}</nowiki> 
+#:gives 
+#::"start- -end".
+#Calling the template named ''t'' with a parameter value of "", i.e.,
+#::<nowiki>{{t|}}</nowiki> 
+#:gives 
+#::"start--end".
+#Calling the template named ''t'' with named parameter '''1=''', i.e.,
+#::<nowiki>{{t|1=no surprise}}</nowiki> 
+#:gives
+#::"start-no surprise-end".
+#Calling the template named ''t'' with '''1=''' after an unnamed parameter, i.e.,
+#::<nowiki>{{t|no|1=surprise}}</nowiki> 
+#:gives
+#::"start-surprise-end".
+#Calling the template named ''t'' with '''1=''' before an unnamed parameter, i.e.,
+#::<nowiki>{{t|1=no|surprise}}</nowiki> 
+#:gives
+#::"start-surprise-end".
+#Calling the template named ''t'' and no parameter at all, i.e.,
+#::<nowiki>{{t}}</nowiki> 
+#:gives
+#::"start-pqr-end".
+#Calling the template named ''t'' and no named or unnamed parameter '''1''', i.e.,
+#::<nowiki>{{t|2=two}}</nowiki> 
+#:gives
+#::"start-pqr-end".
+
+===Restrictions on parameter values===
+* If a parameter value contains an equals sign, the parameter name must be put explicitly, even when it is 1, 2, 3, etc.
+
+* If the expression for a parameter value contains two consecutive closing braces which are not part of a variable or parameter tag, they have to be put in nowiki tags.
+
+* The expression for a parameter value cannot contain the variable localurl with query string, due to the pipe character. 
+
+*A parameter value can be quite long, see [[m:Help:Long parameter demo|Help:Long parameter demo]].
+
+*A parameter value can contain pairs of square brackets or text to be used within a link, but not a closing part of one link and an opening part of another link: <nowiki>{{</nowiki>tlis|abc]]def[[ghi}} using [[Template:tlis]] ([[Template talk:tlis|talk]], [[Special:Whatlinkshere/Template:tlis|backlinks]], [http://en.wikipedia.org../../../t/l/i/Template%7ETlis_0fae.html edit]) containing "<code>&#91;&#91;a&#123;&#123;{1}}}b]]&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;</code>" gives {{tlis|abc]]def[[ghi}} rather than the expected aabc]]def[[ghib.
+
+====Pipe character====
+To define a parameter value containing a pipe character (|) which is not part of a template call, parser function call, piped link or image tag, use [[Template:!]] containing "<span style="background-color:#c8f0ff; padding:0 3px 2px 3px;">|</span>". Using [[Template:t0]] containing "<span style="background-color:#c8f0ff; padding:0 3px 2px 3px;">start-&#123;&#123;{1}}}-end&lt;noinclude&gt;
+&#91;&#91;Category:Demo template]]
+&lt;/noinclude&gt;</span>"
+, compare <nowiki>{{t0|a{{!}}b}}</nowiki> giving start-a|b-end, <nowiki>{{t0|a&amp;#124;b}}</nowiki> giving start-a&#124;b-end and <nowiki>{{t0|a|b}}</nowiki> giving start-a-end. The difference between the first and the second is that in the first case the expanded wikitext is start-a|b-end, while in the second case it is start-a&amp;#124;b-end. This is rendered the same in final output but makes a difference when used in table syntax: this requires the "real" pipe character.  
+
+<pre>{{x2|{{{!}} 
+{{!}} A 
+{{!}} B
+{{!}}- 
+{{!}} C
+{{!}} D
+{{!}}}
+}}</pre>
+
+gives
+
+This sandbox is itself a template.  This sandbox is for experimenting with templates.
+
+{| style="background-color:transparent; border:1px dotted #000000; padding:2px; margin:2px;"
+| ''Welcome to the '''Wikipedia Sandbox'''! This page allows you to carry out experiments. To edit, <span class="plainlinks">'''[http://en.wikipedia.org../../../t/e/m/Help%7ETemplate_43b9.html click here]'''</span> or click '''edit this page''' above (or the views section for obscure browsers), make your changes and click the '''Save page''' button when finished. Content will '''not''' stay permanently; this page is '''automatically cleaned''' every 12 hours.'' 
+
+''This page is a virtual sandbox on Wikipedia.  For uses of sandboxes, see the article [[sandbox]].
+
+''Please do not place copyrighted, offensive, slanderous, or libelous content in the sandboxes. If you have any questions regarding [[Wikipedia]], please ask them at the [[Wikipedia:Help desk|help desk]] or the [[Wikipedia:Village pump|village pump]]. Thanks!'' 
+
+''You may also use the templates'' [[Template:X1|X1]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x1.cgi (reset)], [[Template:X2|X2]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x2.cgi (reset)], [[Template:X3|X3]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x3.cgi (reset)], [[Template:X4|X4]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x4.cgi (reset)], [[Template:X5|X5]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x5.cgi (reset)], [[Template:X6|X6]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x6.cgi (reset)], [[Template:X7|X7]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x7.cgi (reset)], [[Template:X8|X8]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x8.cgi (reset)], ''and'' [[Template:X9|X9]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x9.cgi (reset)]   
+''for experimental purposes.''
+
+''Try other sandboxes:'' <font style="font-size: 12px;">[[Wikipedia:Sandbox|Main Sandbox]] | [[Wikipedia:Tutorial (Editing)/sandbox|Tutorial Sandbox 1]] | [[Wikipedia:Tutorial (Formatting)/sandbox|Tutorial Sandbox 2]] | [[Wikipedia:Tutorial (Wikipedia links)/sandbox|Tutorial Sandbox 3]] | [[Wikipedia:Tutorial (Related site links)/sandbox|Tutorial Sandbox 4]] | [[Wikipedia:Tutorial (External links)/sandbox|Tutorial Sandbox 5]]</font><br/>''For a sandbox of your own, create a [[Wikipedia:User page|user subpage]].''
+
+''[http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/Help/Template.cgi Click here to reset the sandbox.]''
+|
+{| style="background-color: transparent;"
+|-
+|
+|-
+|<div class="toccolours" style="text-align:center; padding:5px; font-size:small; white-space:nowrap;"> 
+'''More info'''<br/>
+[[Wikipedia:Introduction|Introduction to Wikipedia]]<br/>
+[[Wikipedia:About the Sandbox|About the Sandbox]]<br/> 
+[[Wikipedia:Tutorial|Editing tutorial]]<br/>
+
+'''Sandbox Projects'''<br/><sub>[[Wikipedia:Sandbox/Word Association|Word Association]]<br/>
+[[Wikipedia:Sandbox/Dead End|Dead End]]<br/>
+[[Wikipedia:Sandbox/Storytelling|Storytelling]]<br/>
+[[Wikipedia:Sandbox/World's Longest Poem|World's Longest Poem]]
+</div>
+|}
+|}
+</sub>
+<div>
+</div>
+
+If you defined parameters such as <tt><nowiki>{{Template sandbox|First|Second|name="Named"}}</nowiki></tt>:
+;First:{| 
+| A 
+| B
+|- 
+| C
+| D
+|}
+
+;Second:{{{2}}}
+;Name:{{{name}}}
+
+----
+
+
+while
+
+<pre>{{x2|{&amp;#124; 
+&amp;#124; A 
+&amp;#124; B
+&amp;#124;- 
+&amp;#124; C
+&amp;#124; D
+&amp;#124;}
+
+}}</pre>
+
+gives 
+
+This sandbox is itself a template.  This sandbox is for experimenting with templates.
+
+{| style="background-color:transparent; border:1px dotted #000000; padding:2px; margin:2px;"
+| ''Welcome to the '''Wikipedia Sandbox'''! This page allows you to carry out experiments. To edit, <span class="plainlinks">'''[http://en.wikipedia.org../../../t/e/m/Help%7ETemplate_43b9.html click here]'''</span> or click '''edit this page''' above (or the views section for obscure browsers), make your changes and click the '''Save page''' button when finished. Content will '''not''' stay permanently; this page is '''automatically cleaned''' every 12 hours.'' 
+
+''This page is a virtual sandbox on Wikipedia.  For uses of sandboxes, see the article [[sandbox]].
+
+''Please do not place copyrighted, offensive, slanderous, or libelous content in the sandboxes. If you have any questions regarding [[Wikipedia]], please ask them at the [[Wikipedia:Help desk|help desk]] or the [[Wikipedia:Village pump|village pump]]. Thanks!'' 
+
+''You may also use the templates'' [[Template:X1|X1]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x1.cgi (reset)], [[Template:X2|X2]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x2.cgi (reset)], [[Template:X3|X3]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x3.cgi (reset)], [[Template:X4|X4]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x4.cgi (reset)], [[Template:X5|X5]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x5.cgi (reset)], [[Template:X6|X6]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x6.cgi (reset)], [[Template:X7|X7]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x7.cgi (reset)], [[Template:X8|X8]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x8.cgi (reset)], ''and'' [[Template:X9|X9]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x9.cgi (reset)]   
+''for experimental purposes.''
+
+''Try other sandboxes:'' <font style="font-size: 12px;">[[Wikipedia:Sandbox|Main Sandbox]] | [[Wikipedia:Tutorial (Editing)/sandbox|Tutorial Sandbox 1]] | [[Wikipedia:Tutorial (Formatting)/sandbox|Tutorial Sandbox 2]] | [[Wikipedia:Tutorial (Wikipedia links)/sandbox|Tutorial Sandbox 3]] | [[Wikipedia:Tutorial (Related site links)/sandbox|Tutorial Sandbox 4]] | [[Wikipedia:Tutorial (External links)/sandbox|Tutorial Sandbox 5]]</font><br/>''For a sandbox of your own, create a [[Wikipedia:User page|user subpage]].''
+
+''[http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/Help/Template.cgi Click here to reset the sandbox.]''
+|
+{| style="background-color: transparent;"
+|-
+|
+|-
+|<div class="toccolours" style="text-align:center; padding:5px; font-size:small; white-space:nowrap;"> 
+'''More info'''<br/>
+[[Wikipedia:Introduction|Introduction to Wikipedia]]<br/>
+[[Wikipedia:About the Sandbox|About the Sandbox]]<br/> 
+[[Wikipedia:Tutorial|Editing tutorial]]<br/>
+
+'''Sandbox Projects'''<br/><sub>[[Wikipedia:Sandbox/Word Association|Word Association]]<br/>
+[[Wikipedia:Sandbox/Dead End|Dead End]]<br/>
+[[Wikipedia:Sandbox/Storytelling|Storytelling]]<br/>
+[[Wikipedia:Sandbox/World's Longest Poem|World's Longest Poem]]
+</div>
+|}
+|}
+</sub>
+<div>
+</div>
+
+If you defined parameters such as <tt><nowiki>{{Template sandbox|First|Second|name="Named"}}</nowiki></tt>:
+;First:{&#124; 
+&#124; A 
+&#124; B
+&#124;- 
+&#124; C
+&#124; D
+&#124;}
+
+;Second:{{{2}}}
+;Name:{{{name}}}
+
+----
+
+
+and
+
+<pre>{{x2|{| 
+| A 
+| B
+|- 
+| C
+| D
+|}
+}}</pre>
+
+gives
+
+This sandbox is itself a template.  This sandbox is for experimenting with templates.
+
+{| style="background-color:transparent; border:1px dotted #000000; padding:2px; margin:2px;"
+| ''Welcome to the '''Wikipedia Sandbox'''! This page allows you to carry out experiments. To edit, <span class="plainlinks">'''[http://en.wikipedia.org../../../t/e/m/Help%7ETemplate_43b9.html click here]'''</span> or click '''edit this page''' above (or the views section for obscure browsers), make your changes and click the '''Save page''' button when finished. Content will '''not''' stay permanently; this page is '''automatically cleaned''' every 12 hours.'' 
+
+''This page is a virtual sandbox on Wikipedia.  For uses of sandboxes, see the article [[sandbox]].
+
+''Please do not place copyrighted, offensive, slanderous, or libelous content in the sandboxes. If you have any questions regarding [[Wikipedia]], please ask them at the [[Wikipedia:Help desk|help desk]] or the [[Wikipedia:Village pump|village pump]]. Thanks!'' 
+
+''You may also use the templates'' [[Template:X1|X1]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x1.cgi (reset)], [[Template:X2|X2]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x2.cgi (reset)], [[Template:X3|X3]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x3.cgi (reset)], [[Template:X4|X4]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x4.cgi (reset)], [[Template:X5|X5]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x5.cgi (reset)], [[Template:X6|X6]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x6.cgi (reset)], [[Template:X7|X7]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x7.cgi (reset)], [[Template:X8|X8]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x8.cgi (reset)], ''and'' [[Template:X9|X9]] [http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/reset-x9.cgi (reset)]   
+''for experimental purposes.''
+
+''Try other sandboxes:'' <font style="font-size: 12px;">[[Wikipedia:Sandbox|Main Sandbox]] | [[Wikipedia:Tutorial (Editing)/sandbox|Tutorial Sandbox 1]] | [[Wikipedia:Tutorial (Formatting)/sandbox|Tutorial Sandbox 2]] | [[Wikipedia:Tutorial (Wikipedia links)/sandbox|Tutorial Sandbox 3]] | [[Wikipedia:Tutorial (Related site links)/sandbox|Tutorial Sandbox 4]] | [[Wikipedia:Tutorial (External links)/sandbox|Tutorial Sandbox 5]]</font><br/>''For a sandbox of your own, create a [[Wikipedia:User page|user subpage]].''
+
+''[http://www.cs.ucr.edu/~jylee/cgi-bin/sandbot/Help/Template.cgi Click here to reset the sandbox.]''
+|
+{| style="background-color: transparent;"
+|-
+|
+|-
+|<div class="toccolours" style="text-align:center; padding:5px; font-size:small; white-space:nowrap;"> 
+'''More info'''<br/>
+[[Wikipedia:Introduction|Introduction to Wikipedia]]<br/>
+[[Wikipedia:About the Sandbox|About the Sandbox]]<br/> 
+[[Wikipedia:Tutorial|Editing tutorial]]<br/>
+
+'''Sandbox Projects'''<br/><sub>[[Wikipedia:Sandbox/Word Association|Word Association]]<br/>
+[[Wikipedia:Sandbox/Dead End|Dead End]]<br/>
+[[Wikipedia:Sandbox/Storytelling|Storytelling]]<br/>
+[[Wikipedia:Sandbox/World's Longest Poem|World's Longest Poem]]
+</div>
+|}
+|}
+</sub>
+<div>
+</div>
+
+If you defined parameters such as <tt><nowiki>{{Template sandbox|First|Second|name="Named"}}</nowiki></tt>:
+;First:{
+;Second: 
+
+;Name:{{{name}}}
+
+----
+
+
+===Equals sign in parameter value===
+When a parameter value contains an equals sign, the parameter name must be stated explicitly, otherwise the part of the parameter value before the equals sign is taken as the parameter name. If that happens accidentally, this parameter is likely to be unused, hence harmless, but the intended implicit parameter 1, 2, or 3, etc., gets no value. 
+
+:Example: <nowiki>{{TTT|a=b|c}}</nowiki> (using [[Template:TTT]] containing "{{{1}}}{{{2}}}")  gives c{{{2}}} (unused parameter a is assigned the value b, the first parameter value for which no parameter name is specified is assigned to  the parameter with the implicit name "1" &mdash;   it reads like so: Use template TTT, assign "b" to the parameter "a", use the value "c" for your first ''implicit'' parameter <nowiki>{{{1}}}</nowiki>.), while <nowiki>{{TTT|1=a=b|2=c}}</nowiki> gives a=bc (the first parameter is assigned the value "a=b" &mdash; it reads like so: Use template TTT, assign "a=b" to the ''expressed'' parameter "1", assign "c" to the ''expressed'' parameter "2"). <nowiki>{{TTT|1=a=b|2=c|d}}</nowiki> gives dc, "d" is assigned to "1" as first ''implicit'' parameter, overwriting the value "a=b".
+
+A parameter definition (between pipe characters or a pipe character and template end tags) may depend on a template, parser function, variable, or template parameter. The explicit or implicit name of the parameter is determined after expansion. For example, a template call  <nowiki>{{t2|{{{a}}}}}</nowiki> assigns the value of {{{a}}} to implicit parameter 1 if that value does not contain an equals sign, but if it has the value "b=c", c is assigned to b. If we anyway want to assign the value of {{{a}}} to 1 we have to use an explicit parameter 1: <nowiki>{{t2|1={{{a}}}}}</nowiki>.
+
+Compare:
+
+*<nowiki>{{t2a1|1=x=y}}</nowiki> (using [[Template:t2a1]] containing "<span style="background-color:#c8f0ff; padding:0 3px 2px 3px;">&#123;&#123;t2demo&#124;a&#124;&#123;&#123;{1}}}}}&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;</span>"
+) gives start-a-middle-{{{2}}}-end.
+*<nowiki>{{t2a2|1=x=y}}</nowiki> (using [[Template:t2a2]] containing "<span style="background-color:#c8f0ff; padding:0 3px 2px 3px;">&#123;&#123;t2demo&#124;a&#124;2=&#123;&#123;{1}}}}}&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;</span>"
+) gives start-a-middle-x=y-end.
+
+Similarly, parameter definition {{{a}}}=b where {{{a}}} has value "c=d" results in "d=b" being assigned to c, for example:
+*<nowiki>{{t5|a=2=d}}</nowiki> (using [[Template:t5]] containing "<span style="background-color:#c8f0ff; padding:0 3px 2px 3px;">&#123;&#123;t2demo&#124;&#123;&#123;{a}}}=b}}&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;</span>"
+) gives start-{{{1}}}-middle-d=b-end.
+
+===Mix of named and unnamed parameters===
+In the case of a mix of named and unnamed parameters in a template tag, the unnamed parameters are numbered 1,2,3,.., so they are ''not'' numbered according to the position in the mixed list as a whole.
+
+For example, <nowiki>{{</nowiki>t sup|3=1|2|1=3|4|5|6|7}} using [[Template:t sup]] containing "<span style="background-color:#c8f0ff; padding:0 3px 2px 3px;">&#123;&#123;{1}}}-&#123;&#123;{2}}}-&#123;&#123;{3}}}&lt;noinclude&gt;&#91;&#91;category:Demo template]]&lt;/noinclude&gt;</span>"
+ gives 3-4-5.
+
+===When parameters do not expand===
+
+{| style="float:right; clear:right; margin:0.5ex 0ex 0.5ex 0.5ex; padding: 0.2ex 0.3ex; border:1px solid #888888; background-color:#FFFFEE; font-size:80%;"
+| style="font-size:100%; padding-right:1ex; vertical-align:bottom;" | MediaWiki version:
+| style="font-size:180%; font-weight:bold; " | 1.6
+| style="font-size:100%; padding-right:1ex; vertical-align:bottom;" | (for parameters defaults)
+|}
+Parameters do not get expanded when they are inside tags (HTML, wiki, or extension),
+or between <nowiki><html></html></nowiki> tags
+
+The following will not work within a template, because the parameter is not expanded
+
+ <nowiki>
+ <myextension xparam={{{tparam}}}> ... </myextension>
+ <html><span onmouseover="return escape('foobar')"> {{{1}}} </span></html>
+ </nowiki>
+
+This continues to be true into version 1.8.2, though [[Template:Hidden]] provides a puzzling exception.  Any explanation?
+
+==Template mechanism==
+The template mechanism involves the following steps:
+
+*The pipe characters in template calls determine the separation into template name and parameter definitions. This separation does not depend on possible pipe characters in the expanded form of the text between the opening and closing braces of the template. For example, <nowiki>{{ {{t6}} }}</nowiki> using [[Template:t6]] containing "<span style="background-color:#c8f0ff; padding:0 3px 2px 3px;">t2&#124;a&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;</span>"
+ gives {{ t2|a }}, not the result of <nowiki>{{ t2demo|a }}</nowiki> which is start-a -middle-{{{2}}}-end. This is because "t2demo|a" is not a valid template name (not to be confused with a template with a valid name that does not exist), so the template call is not expanded.
+
+::Note that in this case partial or successive substitution does not give the same result as without substitution: <nowiki>{{ {{subst:t6}} }}</nowiki> gives the wikitext <nowiki>{{ t2demo|a }}</nowiki>, rendered as start-a -middle-{{{2}}}-end.
+
+*The template name and each of the parameter definitions is evaluated. The leftmost equals sign, if any, in each parameter definition separates the parameter name from the parameter value.
+*The values are assigned to the parameters from left to right (the result can not be directly viewed), meaning that a named or numbered parameter may be specified several times, the last one being the actual value that will be kept when passing the parameter during the final instantiation of the template below.
+*Template calls are replaced by template content, where the parameter tags with matching names are replaced by their values or defaults (the result of this step can be viewed by applying subst either again, or directly to the template and the variables).
+
+The process is applied recursively until there are no more template calls to replace.
+
+All whitespaces before and after a parameter value are ignored if "=" is used.
+
+:<nowiki>"{{t|1= a}}"</nowiki> gives "start-a-end".
+:<nowiki>"{{t|1=a }}"</nowiki> gives "start-a-end".
+:<nowiki>"{{t| a}}"</nowiki> gives "start- a-end".
+:<nowiki>"{{t|a }}"</nowiki> gives "start-a -end".
+
+A parameter value can contain a piped link; the "|" in such a link is not taken as parameter separator.
+
+:Example: <nowiki>"{{t|[[a|b]]}}"</nowiki> gives "start-[[a|b]]-end".
+:Example: <nowiki>"{{t|[[a|b]] }}"</nowiki> gives "start-[[a|b]] -end".
+
+(In this case the space ''has'' effect.)
+
+On rendering, surplus parameter values (including named parameters that do not occur in the template) are ignored: <nowiki>{{t|a|b}}</nowiki> gives start-a-end.
+
+Parameters without names (i.e. that don't contain an equal sign) are numbered implicitly starting by 1, from left to right.
+
+:Example: <nowiki>"{{t|a|b|c}}"</nowiki> is equivalent to <nowiki>"{{t|1=a|2=b|3=c}}"</nowiki>
+
+Numbered parameters can also be skipped or can be specified in alternate order by numbering them explicitly.
+
+:Example: <nowiki>"{{t|3=c|2=b|1=a}}"</nowiki> is equivalent to <nowiki>"{{t|1=a|2=b|3=c}}"</nowiki>
+:Example: <nowiki>"{{t|a|b|c|10=j}}"</nowiki> is equivalent to <nowiki>"{{t|1=a|2=b|3=c|10=j}}"</nowiki>
+
+This also makes it possible to apply a default value for parameter 1, while specifying a value for parameter 2:
+
+<nowiki>{{t2d|2=a}}</nowiki>, using [[Template:t2d]] ([[Template talk:t2d|talk]], [[Special:Whatlinkshere/Template:t2d|backlinks]], [http://en.wikipedia.org../../../t/2/d/Template%7ET2d_801f.html edit]) containing "<code>start-&#123;&#123;{1&#124;p}}}-middle-&#123;&#123;{2&#124;q}}}-end&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;</code>", gives start-p-middle-a-end.
+
+Template calls can contain multiple occurrences of the same named parameter, and a numbered parameter can be specified multiple times by using its number explicitly. The effective value of parameters is the value of the last occurrence (from left to right) of the parameter with the same name, once the parameter names have been evaluated.
+
+:Example: <nowiki>"{{t|a|b|c|2=B}}"</nowiki> is equivalent to <nowiki>"{{t|a|B|c}}"</nowiki>
+
+The final list of formal parameters before the template itself is instantiated is then unordered because the list is indexed by the evaluated parameter named (this list is an [[:en:Associative array|associative array]]).
+
+When [[m:ParserFunctions|ParserFunctions]] were not available yet, multiple assignments of parameters with the same name (and thus allowing parameter overrides) were ingeniously used to perform branching, e.g. in the now deleted [[:en:Template:If defined]]. 
+
+See also [[Help:Parameter default]].
+
+== Template tag lay-out ==
+
+To have a desired template tag lay-out, especially in the case of many parameters, additional dummy parameters can be used with a newline, spaces, and/or comments. In the case of unnamed parameters, this means that some parameter numbers are not used in the template content, so that their values, present in the template tag, do not affect the rendering of the template. For example, using [[Template:t3d]] containing "<span style="background-color:#c8f0ff; padding:0 3px 2px 3px;">&#123;&#123;{1}}} &#123;&#123;{2}}} &#123;&#123;{3}}}&lt;br /&gt;
+&#123;&#123;{5}}} &#123;&#123;{6}}} &#123;&#123;{7}}}&lt;br /&gt;
+&#123;&#123;{9}}} &#123;&#123;{10}}} &#123;&#123;{11}}}&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;</span>"
+,
+
+<pre>
+{{t3d |a|b|c| 1
+      |d|e|f| 2
+      |g|h|i| 3
+}}
+</pre>
+
+gives:
+
+a b c<br />
+d e f<br />
+g h i
+
+If parameters are named, dummy parameters can easily be inserted at any time. If they are unnamed, then, to avoid renumbering, one can insert named parameters: any text including an equals sign will do, if the text on the left is not one of the parameter numbers: this text is interpreted as the name of an unused parameter, hence ignored.
+
+Example:
+
+Using [[m:Template:Chess position]] ([[m:Template talk:Chess position|talk]], [[m:Special:Whatlinkshere/Template:Chess position|backlinks]], [http://meta.wikimedia.org/wiki/Template:Chess_position?action=edit edit])
+
+<pre>
+{{chess position|=
+
+ 8 |rd|nd|bd|qd|kd|bd|nd|rd|=
+ 7 |  |pd|pd|pd|pd|pd|pd|pd|=
+ 6 |pd|  |  |  |  |  |  |  |=
+ 5 |  |  |  |  |  |  |  |  |=
+ 4 |  |pl|  |  |  |  |pl|  |=
+ 3 |  |  |  |  |  |  |  |bl|=
+ 2 |pl|  |pl|pl|pl|pl|  |pl|=
+ 1 |rl|nl|bl|ql|kl|  |nl|rl|=
+    a  b  c  d  e  f  g  h
+
+|30}}
+</pre>
+
+which gives
+
+
+{| cellspacing="0" cellpadding="0" style="border-collapse: collapse; background-color:{{{66}}};"
+|-
+| style="text-align: center; font-family: monospace; border-top: none; padding-right: 2px;" | 8
+| style="border-top: solid thin; border-left: solid thin;" |[[Image:chess_rdl40.png|30px]]
+| style="border-top: solid thin;" |[[Image:chess_ndd40.png|30px]]
+| style="border-top: solid thin;" |[[Image:chess_bdl40.png|30px]]
+| style="border-top: solid thin;" |[[Image:chess_qdd40.png|30px]]
+| style="border-top: solid thin;" |[[Image:chess_kdl40.png|30px]]
+| style="border-top: solid thin;" |[[Image:chess_bdd40.png|30px]]
+| style="border-top: solid thin;" |[[Image:chess_ndl40.png|30px]]
+| style="border-top: solid thin; border-right: solid thin;" |[[Image:chess_rdd40.png|30px]]
+|-
+| style="text-align: center; font-family: monospace; padding-right: 2px;" | 7
+| style="border-left: solid thin;" |[[Image:chess_  d40.png|30px]]
+| [[Image:chess_pdl40.png|30px]]
+| [[Image:chess_pdd40.png|30px]]
+| [[Image:chess_pdl40.png|30px]]
+| [[Image:chess_pdd40.png|30px]]
+| [[Image:chess_pdl40.png|30px]]
+| [[Image:chess_pdd40.png|30px]]
+| style="border-right: solid thin;" |[[Image:chess_pdl40.png|30px]]
+|-
+| style="text-align: center; font-family: monospace; padding-right: 2px;" | 6
+| style="border-left: solid thin;" |[[Image:chess_pdl40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| style="border-right: solid thin;" |[[Image:chess_  d40.png|30px]]
+|-
+| style="text-align: center; font-family: monospace; padding-right: 2px;" | 5
+| style="border-left: solid thin;" |[[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| style="border-right: solid thin;" |[[Image:chess_  l40.png|30px]]
+|-
+| style="text-align: center; font-family: monospace; padding-right: 2px;" | 4
+| style="border-left: solid thin;" |[[Image:chess_  l40.png|30px]]
+| [[Image:chess_pld40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_pll40.png|30px]]
+| style="border-right: solid thin;" |[[Image:chess_  d40.png|30px]]
+|-
+| style="text-align: center; font-family: monospace; padding-right: 2px;" | 3
+| style="border-left: solid thin;" |[[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| style="border-right: solid thin;" |[[Image:chess_bll40.png|30px]]
+|-
+| style="text-align: center; font-family: monospace; padding-right: 2px;" | 2
+| style="border-left: solid thin;" |[[Image:chess_pll40.png|30px]]
+| [[Image:chess_  d40.png|30px]]
+| [[Image:chess_pll40.png|30px]]
+| [[Image:chess_pld40.png|30px]]
+| [[Image:chess_pll40.png|30px]]
+| [[Image:chess_pld40.png|30px]]
+| [[Image:chess_  l40.png|30px]]
+| style="border-right: solid thin;" |[[Image:chess_pld40.png|30px]]
+|-
+| style="text-align: center; font-family: monospace; padding-right: 2px;" | 1
+| style="border-bottom: solid thin; border-left: solid thin;" |[[Image:chess_rld40.png|30px]]
+| style="border-bottom: solid thin;" |[[Image:chess_nll40.png|30px]]
+| style="border-bottom: solid thin;" |[[Image:chess_bld40.png|30px]]
+| style="border-bottom: solid thin;" |[[Image:chess_qll40.png|30px]]
+| style="border-bottom: solid thin;" |[[Image:chess_kld40.png|30px]]
+| style="border-bottom: solid thin;" |[[Image:chess_  l40.png|30px]]
+| style="border-bottom: solid thin;" |[[Image:chess_nld40.png|30px]]
+| style="border-right: solid thin; border-bottom: solid thin;" |[[Image:chess_rll40.png|30px]]
+|- style="text-align: center; font-family: monospace; font-size: 100%;"
+|
+|a
+|b
+|c
+|d
+|e
+|f
+|g
+|h
+|}
+
+In this example, the 1 to 8 row numbers and a to h column numbers (as well as their surrounding spaces and newlines) in the parameter list are hidden within a dummy parameter (with an empty name before the equal sign).
+
+The template generates a HTML table where each cell contains an image whose name is dynamically generated from the 64 first automatically numbered parameters (there are intermediate parameters within the numbered list, but as these dummy parameters are named explicitly, they don't increment the parameter number used to generate default parameter names. So the parameter with autogenerated name "1" effectively contains the "rd" value).
+
+The template is then called with a parameter list that contains:
+* 65 parameters automatically named from "1" to "65" (64 parameters for the cells content, and the 65th for the image width),
+* and a dummy named parameter (whose name is an empty string, and whose effective value results from the last assignment with the chessboard column names a to h and the surrounding spaces and newlines), which is not used in the internal template content.
+
+Note also that all parameters are trimmed, so the parameter with autogenerated name "9" (at position a7 on the chessboard above) is assigned the empty string value.
+
+==Template page==
+Without noinclude and includeonly parts the following are identical:
+*the rendering of the wikitext of the template (this is on the template page, and would be the same in other pages with that wikitext, except for page-dependent variables)
+*the rendering of the template on a page that calls it without parameters
+
+Thus the defaults are shown, e.g. [[Template:T 1]] ([[Template talk:T 1|talk]], [[Special:Whatlinkshere/Template:T 1|backlinks]], [http://en.wikipedia.org../../../t/_/1/Template%7ET_1_7f70.html edit]) containing "<code>test&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;</code>" shows the same as <nowiki>{{</nowiki>t 1}}: "test".
+
+===Template page if no defaults have been specified===
+In simple cases this corresponds to treating the parameter tags as ordinary text, for example:
+
+<nowiki>"{{t2demo}}"</nowiki> (using [[Template:t2demo]] containing &lt;!--t2--&gt;start-&#123;&#123;{1}}}-middle-&#123;&#123;{2}}}-end&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;) gives start-{{{1}}}-middle-{{{2}}}-end
+
+Similarly, if part of the parameters is undefined, only those show up as {{{''parameter number or name''}}}. 
+
+However, some templates produce an error message when called without parameters, so unless includeonly is used (see below) the template page also shows this message, suggesting that there is something wrong with the template. For example, a template that doubles parameter {{{1}}} with the wikitext <nowiki>{{#expr:2*{{{1}}}}}</nowiki> gives Expression error: Unrecognised punctuation character "{". In such cases includeonly can be used to avoid uninformative and messy rendering on the template page, but either way a disadvantage during template development is that preview does not (meaningfully) reflect changes in the parts of the page outside the noinclude tags (i.e. the included parts). Therefore it can be useful to provide representative default values, even if that is only done temporarily during development of the template.
+
+Note also that variable tags are not shown, but evaluated.
+
+With noinclude an informative template page can be produced, containing more demos and test cases than just the single default set. Typically, the noinclude-part of a template page contains examples including or [[Help:substitution|substituting]] the template. Changes in the working of the template (i.e. changes outside the noinclude-part) are not yet effective in these examples in preview and, in the case of [[Help:substitution|substitution]], in "show changes".
+However, they are reflected in the rendered page after saving.
+
+Some formatting aspects may show up which are not readily seen from the edit box.
+
+==A parameter value depending on parameters==
+As mentioned above, if a parameter is left undefined, the triple braced parameter name in the result does not function as a parameter if the page is called as a template from another page; if it should, do not omit the parameter value but specify it in terms of a parameter of the calling page; compare:
+*<nowiki>{{t2ademo|b}}</nowiki> (using [[Template:t2ademo]] containing &#123;&#123;t2demo&#124;a}}&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;) gives start-a-middle-{{{2}}}-end
+*<nowiki>{{t2a1|b}}</nowiki> (using [[Template:t2a1]] containing &#123;&#123;t2demo&#124;a&#124;&#123;&#123;{1}}}}}&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;) gives start-a-middle-b-end.
+*Similarly, <nowiki>{{t2a2|b}}</nowiki> (using [[Template:t2a2]] containing &#123;&#123;t2demo&#124;a&#124;2=&#123;&#123;{1}}}}}&lt;noinclude&gt;&#91;&#91;Category:Demo template]]&lt;/noinclude&gt;) gives start-a-middle-b-end. See also below.
+
+The most straightforward way of expressing a parameter value in terms of a parameter is using the same name and making it equal, e.g. <nowiki>{{</nowiki>Lan is|lr=af|le={{{le}}}}} in [[Template:Lan is mr]].
+
+==Empty vs. undefined==
+<nowiki>{{t2demo||a}}</nowiki> makes the first parameter equal to the empty string rather than leaving it undefined: it gives start--middle-a-end. By treating the second unnamed parameter as a parameter with the name "2", the first unnamed parameter can be left undefined.
+
+:Example: <nowiki>{{t2demo|2=a}}</nowiki>  gives start-{{{1}}}-middle-a-end.
+
+If the parameter is used in a tag like <nowiki><font size></nowiki> the default text may give invalid code that is conveniently ignored, rather than resulting in perhaps ugly code being rendered (but this may depend on the browser). See e.g. [[Template talk:Fontsize]].
+
+Parameter names (as opposed to template names) are case-sensitive, even with respect to the first letter, and spaces are distinguished from underscores. The [[w:en:String_%28computer_science%29#Formal_theory|empty string]] is also a valid parameter name, see [[Template:T empty string as parameter name]].
+
+Parameter 02 is distinguished from parameter 2: using [[Template:t pl0]] ([[Template talk:t pl0|talk]], [[Special:Whatlinkshere/Template:t pl0|backlinks]], [http://en.wikipedia.org../../../t/_/p/Template%7ET_pl0_777e.html edit]) containing "<code>&#91;&#91;:Template:T pl0]]</code>", <nowiki>{{</nowiki>t pl0|5|6|7}} gives [[:Template:T pl0]] 
+
+Note that parameters in the [[MediaWiki namespace]] (interface messages) are written differently: as $1, $2, etc., see [[Meta-Wikimedia:MediaWiki namespace text]].
+
+==msgnw==
+
+The prefix '''msgnw''' (short for "message, nowiki") is used to display the uninterpreted wikitext of a template (the same thing you'd see if you were editing the page) on another page. An exception is that numbered and unnumbered lists are rendered as such instead of displaying # or * signs. Parameter values are ignored.
+
+With the introduction of noinclude and includeonly tags, allowing template pages to take care of definition as well as displaying information, msgnw displays no longer just the technical information about what the template does when included, but a mix of that with wikitext for rendering the template page itself, with the tags. This limits the usefulness of applying this.
+
+Examples:
+
+[[Template:en]]
+*<nowiki>{{msgnw:en}}</nowiki> gives &#123;&#123;Languageicon&#124;en&#124;English}}&lt;noinclude&gt;
+&#123;&#123;protected template}}
+&#123;&#123;Template:En icon/doc}}
+&lt;!-- Add cats and interwikis to the /doc subpage, not here! --&gt;
+&lt;/noinclude&gt; 
+*<nowiki>{{en}}</nowiki> gives <span style="font-size: 0.95em; font-weight: bold; color:#555; position: relative;">(English)</span>
+
+[[m:Template:t]] ([[m:Template talk:t|talk]], [[m:Special:Whatlinkshere/Template:t|backlinks]], [http://meta.wikimedia.org/wiki/Template:t?action=edit edit])
+
+<nowiki>{{msgnw:t|a}}</nowiki> gives 
+*&lt;includeonly&gt;&lt;!--t--&gt;start-&#123;&#123;{1&#124;pqr}}}-end&lt;/includeonly&gt;&lt;noinclude&gt;&lt;nowiki&gt;start-&#123;&#123;{1&#124;pqr}}}-end&lt;/nowiki&gt;
+
+&#61;= Examples ==
+{&#124; class=&quot;wikitable&quot;
+! Code
+! Result
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;abc}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;abc}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;abc&#124;def}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;abc&#124;def}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;1=abc&#124;1=def}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;1=abc&#124;1=def}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;abc&#124;1=def}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;abc&#124;1=def}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;1=abc&#124;def}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;1=abc&#124;def}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;&#123;&#123;T}}}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;&#123;&#123;T}}}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;&#123;&#123;T&#124;&#123;&#123;T}}}}}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;&#123;&#123;T&#124;&#123;&#123;T}}}}}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;&#123;&#123;T&#124;&#123;&#123;T&#124;&#123;&#123;T}}}}}}}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;&#123;&#123;T&#124;&#123;&#123;T&#124;&#123;&#123;T}}}}}}}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;a&#123;&#123;t&#124;b}}}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;a&#123;&#123;t&#124;b}}}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;&#123;&#123;T&#124;a&lt;nowiki&gt;=&lt;/nowiki&gt;b}}}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;&#123;&#123;T&#124;a=b}}}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;&lt;nowiki&gt;a=b&lt;/nowiki&gt;}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;a=b}}
+&#124;- style=&quot;vertical-align:top;&quot;
+&#124; &lt;pre&gt;
+&#123;&#123;T&#124;1&lt;nowiki&gt;=a=b&lt;/nowiki&gt;}}
+&lt;/pre&gt;
+&#124;&#124;&#123;&#123;T&#124;1=a=b}}
+&#124;}
+&#91;&#91;Category:Demo template]]
+&lt;/noinclude&gt; 
+<br />...which is much more than just the formal info about what the template does when included:
+*<nowiki>start-{{{1|pqr}}}-end</nowiki>
+
+[[Template:Numbered list demo]]
+
+<nowiki>{{msgnw:Numbered list demo}}</nowiki> gives:
+#Amsterdam
+#Rotterdam
+#The Hague
+&lt;noinclude&gt;
+&#91;&#91;Category:Demo template]]
+&lt;/noinclude&gt; 
+
+<nowiki>{{Numbered list demo}}</nowiki> gives:
+#Amsterdam
+#Rotterdam
+#The Hague
+
+
+The edit box for [[Template:Numbered list demo]] shows:
+<pre>
+#Amsterdam
+#Rotterdam
+#The Hague
+</pre>
+
+==Usage==
+
+Templates are useful for any text for which one wants a copy in two or more pages, and there is no need for each copy to be edited independently to adapt it to the page it is in. Since parameters can be used, versions may to that extent even be different, and parameter values can be edited independently for each. Templates are not only convenient, but they can also "force" a useful uniformity. See also [[w:en:Subroutine|advantages of subprograms]].
+
+Typical applications are:
+*[[w:Wikipedia:Template messages|template messages]] such as [[w:en:Template:stub]]
+*[[m:help:Navigational template|Navigational template]]s such as [[w:en:Template:europe]], sometimes listed in a directory such as [[w:Wikipedia:navigational templates]]
+*[[w:Wikipedia:Infobox|infoboxes]], each time showing the same kind of information in the same format, but each time for a different case, using parameters, e.g. the [[w:en:Template:Infobox Countries]].
+*provide cross-language portability of texts which are largely internationally the same, but contain some standard terms different in each language; the standard terms are replaced by {{..}} referring to template pages which have the same name but localised content in each language. This is [[m:Using templates in Wiktionary|applied in Wiktionaries]] for names of languages, terms like "noun", etc.; it is also [[w:Wikipedia:Template messages#Taxobox_components_.28Taxons.29|applied for taxoboxes]], see e.g. [[w:en:Template:Familia]] and [[w:fr:Modèle:Familia]].
+*allow a composite image, composed of a table of images, to be specified by a template tag which itself has a corresponding table-like lay-out, see [[w:Template:Chess position]] and [[w:Template:Game of Go Position]] (the latter example also shows that the number of parameters a template can have is quite large, in this case 362). Newlines in parameter values provide the lay-out of the template tag, but they are not allowed in image names, therefore they are put within comment tags; alternatively, dummy parameters could be used on these positions.
+
+Various combinations are possible. E.g., the last two could be combined, so that e.g. every language version of Wikipedia has the same Infobox Countries template (for each project a copy, because the template mechanism can not import across projects), which has parameters for the data, and refers to templates with translations of standard terms.
+
+See also '''[[Help:Advanced templates]]'''.
+
+===Composite pages===
+The wikitext of a page may (partly or fully) consist of tags for the inclusion of component pages. The "templates" are not necessarily in the template namespace, and may be more or less self-contained pages by themselves. An advantage of putting the components in the template namespace is that they are then included in the list of templates used on the composite page, all with links, on its edit page. On the other hand, the component page may, by itself, be of a nature that it belongs in e.g. the main namespace, while the prefix would suggest otherwise; also the prefix would clutter the pagename.
+
+Examples are:
+*[[m:Help:A simple composite example]]
+*[[w:Wikipedia:Village pump]] with six component pages, e.g. [[w:Wikipedia:Village pump (technical)]]
+*daily a page like [[w:en:Wikipedia:Votes for deletion/Log/2005 May 31]] where each component page consists of the discussion on the deletion of one Wikipedia page, e.g. [[w:en:Wikipedia:Votes for deletion/Sp3tt]] (for this day there are 75 of such component pages)
+*[[m:Meta:Translation/Coordination]], mainly containing 
+**[[m:Meta:Translation/Coordination/List/Meta]]
+**[[m:Meta:Translation/Coordination/List/Main]]
+*[http://en.wikipedia.org/w/index.php?title=2005_English_cricket_season_%281-14_June%29&diff=27917447&oldid=27330886] - rejection of composite page by w:en
+
+This allows the user the choice between viewing the component pages separately or combinedly. One may want to view a page separately if one has a slow connection; also sometimes people have sentimental reasons for having a separate page about a topic, e.g. a village. Viewing the combined page is much more convenient if there are many small component pages; even if a subbtopic page does not provide additional info, if it exists anyway, and is linked to, it is useful to display the content (making clear that the whole content is shown), it saves the trouble of checking the contents by following the link.
+
+In the latter case the search function of the browser can be used for searching in the combined page. Similar to the section editing feature, it allows editing a component page; however, there is no possibility to have the combined wikitext in the edit box.
+
+Edit history, recent changes, watching pages, and "what links here" work separately for the component pages and the ''composition'' page, not for the ''composite'' page. Related changes works for the component pages and for the composite page. Page protection can be set for selected component pages and for the composition page, not directly for the composite page.
+
+The talk page of a composition page is used to talk about the composition and the page in general, and could in addition be a composite page of the talk pages of the component pages.
+
+A composite page has an integrated TOC and section numbering; the numbering is not reset for each component page.
+
+Editing a section of a component page can be done directly from the composite page, see [[Help:Section#Editing sections of included templates|editing sections of included templates]]. After saving, one ends up at the page for the component page to which the section belongs.
+
+On projects with the [[Help:Interwiki linking#Interlanguage_link_.28software_feature.29|interlanguage link feature]] the composite page shows the combined  interlanguage links of all component pages, hence possibly multiple links for one language or even for one page.
+
+For easy access to the component pages, links to them on the composite page (for example by self-links on the component pages) are convenient. Alternatively, access is through section editing, or, if the component pages are in the template namespace, through the list of templates called from the composite page, at its edit page.
+
+Conversely, for easy access from a component page to the composite page(s) that call(s) it (if there are not too many of them) it is convenient to link the component page to them (on a composite page one becomes a self-link).
+
+See also [[w:Wikipedia talk:Template namespace#transcluding prose]].
+
+===Pages with a common section===
+A section on the relationship of the subjects A and B, or a subtopic equally relevant for A as for B, can be put both in page A and in page  B, by making it a separate page C, called as a template from A and B.
+ 
+Remarks:
+*For readers reading both A and B, it is useful that the duplication be indicated by a message or a special lay-out; otherwise it is confusing and inconvenient. One can for example use [[m:Template:cs]] ([[m:Template talk:cs|talk]], [[m:Special:Whatlinkshere/Template:cs|backlinks]], [http://meta.wikimedia.org/wiki/Template:cs?action=edit edit]): &clubs;
+*After saving one ends up viewing the template page. For easy access to the calling pages it is convenient to link the called page to them (on a calling page one becomes a self-link). This may well be integrated in the message about the duplication. It is even more convenient than the two-step link as shown above.
+*The section level of the embedded section(s) has to be the same in each embedding page. The same applies to lay-out and style.
+*Pages like C can be put in
+**the same namespace as A and B; advantage:
+***the kind of content of C is the same as that of A and B
+**the template namespace; advantages:
+***C appears in the list of templates called from A and B, at their edit pages
+***C by itself may not satisfy the standards for pages in the namespace of A and B, such as providing context (however, the message about the duplication explains it)
+
+Examples:
+*[[Help:Editing sections of included templates]] ([[Help talk:Editing sections of included templates|talk]], [[Special:Whatlinkshere/Help:Editing sections of included templates|backlinks]], [http://en.wikipedia.org../../../r/e/c/Special%7ERecentchangeslinked_Help%7EEditing_sections_of_included_templates_7707.html], [http://en.wikipedia.org../../../e/d/i/Help%7EEditing_sections_of_included_templates_dae8.html edit])
+*[[Help:Alphabetic order]] ([[Help talk:Alphabetic order|talk]], [[Special:Whatlinkshere/Help:Alphabetic order|backlinks]], [http://en.wikipedia.org../../../r/e/c/Special%7ERecentchangeslinked_Help%7EAlphabetic_order_4762.html], [http://en.wikipedia.org../../../a/l/p/Help%7EAlphabetic_order_d053.html edit])
+
+For various remarks which also apply here, see also the previous section.
+
+===Repetition within a page===
+For a succession of similar pieces of content, as in a list, a computer program would use a [[w:en:Conditional_branching#Loops|loop]]. What comes closest in MediaWiki is putting the loop body in a template, and calling the template repeatedly, usually with a varying parameter value. This is somewhat primitive for a loop:
+*instead of "for i=1 to 5" we need to enumerate the values 1, 2, 3, 4, 5; on the other hand, this gives the versatility to use just as easily less regular values such as de, en, fr ([[w:en:Conditional_branching#Collection-controlled_loops|collection-controlled loop]]).
+*repetition of code is minimized by the template, but the template call itself has to be repeated each time (but see also the next section)
+
+Example:
+*[[Template:List of Languages]] - the "loop body" is in [[Template:Lang def]]; compared with putting the content of the latter directly in the list the advantage is that the variable part (the value of "code")  occurs once each time in the code, although it is used twice. This is important because the fixed part of the list item code can be copied while the variable part is typically inserted manually.
+
+For repetition of the same text the loop body can be a parameter, e.g.  [[Template:X5]] (see [http://meta.wikimedia.org/w/index.php?title=Special%3AAllpages&from=X&namespace=10 list]).
+
+A double loop is achieved by a second template that repeatedly calls the first. Similarly for a triple loop, etc. See e.g. [[w:Template:Ld]], [[w:Template:L2d]], and [[w:Template:L3d]].
+
+An example where the same template is used for different loop levels is [[Template:Loop 2]]. Because the software has a built-in protection against infinite nesting (if there is, there will be an error e.g. <code>Fatal error: Maximum execution time of 30 seconds exceeded in /w/includes/Parser.php on line 775</code>), a redirect is used for each level. The number of levels that the template can handle is determined by the number of parameters specified in the two template calls it comprises (because going up a level requires an extra parameter) and the number of existing redirects.
+
+Similarly [[Template:Lanlp 1]] is used for both the inner and the outer of a double loop. Adding an item (here a language) adds to each row and also adds an extra row.
+
+'''Providing effective repetition without repetition of similar template calls in the wikitext'''
+
+A technique for repetition of similar template calls without actually putting this list in the wikitext is demonstrated in [[m:Template:for]] ([[m:Template talk:for|talk]], [[m:Special:Whatlinkshere/Template:for|backlinks]], [http://meta.wikimedia.org/wiki/Template:for?action=edit edit]), and a more primitive method described below.
+
+Example (using [[Template:t2]] containing "[[w:List of people by name: {{{1}}}{{{2}}}|{{{1}}}{{{2}}}]]
+"):
+
+<nowiki>{{for|call=t2|pc1=constant|abc|def|ghi}}</nowiki> gives:
+
+<div class="dablink">''For abc, see [[def]]&#32;and [[ghi]].''</div>
+
+Description of the old [[m:Template:List of template calls]] ([[m:Template talk:List of template calls|talk]], [[m:Special:Whatlinkshere/Template:List of template calls|backlinks]], [http://meta.wikimedia.org/wiki/Template:List_of_template_calls?action=edit edit]):
+
+For an arbitrary template with up to three nameless parameters, it is equivalent to calling the template repeatedly, with the first parameter varying, and the possible other parameters fixed: one specifies the name, the values of the fixed parameters, and the list of values the first parameter should have in consecutive template calls, with a sequential number each, and ending with "end". The technique requires redirects like [[Template:List of template calls 3]], as many as the maximum number of repetitions.
+
+If e.g. the second parameter varies, or two parameters, then a similar template can be made, but each version requires its own set of redirects.
+
+Example (using [[Template:t2]] containing "[[w:List of people by name: {{{1}}}{{{2}}}|{{{1}}}{{{2}}}]]
+"):
+
+<nowiki>{{List of template calls|t2|constant||abc|1|def|2|ghi|end|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||}}</nowiki>
+
+gives:
+
+[[:Template:List of template calls]]
+
+The empty parameters are needed in accordance with the maximum number of parameters the repeated template can have (currently three) and the maximum number of repetitions. Putting more empty parameters than needed at the end does not matter, but the number of empty parameters in the beginning of the list should be correct.
+
+==Ambiguity of a reference to "this page"==
+If a page is included in another page, a reference to "this page" on the included page is ambiguous. Use noinclude or includeonly tags depending on what is meant. Alternatively, mention the page name explicitly, without using <nowiki>{{</nowiki>PAGENAME}}.
+
+==Internal links==
+
+In the case of an internal link in a template with the target depending on a parameter, and in the case of a link with the target depending on a template, existence detection works as usual. 
+
+Examples:
+ 
+*<nowiki>{{tli|insert in target|insert in label}}</nowiki> (using [[Template:tli]] containing "{{{{{1}}}|Lorem ipsum}}") gives [[:Template:Insert in target]]
+*<nowiki>[[a{{tciit}}b|c{{tciil}}d]]</nowiki> [[:Template:Ut2]] gives [[a[[:Template:Tciit]]b|c[[:Template:Tciil]]d]]
+
+*<nowiki>{{tli|insert also in target|insert in label}}</nowiki> (using [[Template:tli]]) gives [[:Template:Insert also in target]] [[:Template:Ne]]
+*<nowiki>[[a{{tciit}}e|c{{tciil}}d]]</nowiki> (using [[Template:tciit]] and [[Template:tciil]]) gives [[a[[:Template:Tciit]]e|c[[:Template:Tciil]]d]] [[:Template:Ne]]
+
+*<nowiki>{{la|Help:Tabl|tabl}}</nowiki> (using [[Template:la]] containing "<span class="plainlinksneverexpand lx">[[Article]] <tt>(</tt>[http://en.wikipedia.org../../../a/r/t/Article.html edit]<tt>&#124;</tt>[[Talk:Article|talk]]<tt>&#124;</tt>[http://en.wikipedia.org../../../a/r/t/Article.html history]<tt>&#124;</tt>[http://en.wikipedia.org../../../w/h/a/Special%7EWhatlinkshere_Article_7837.html links]<tt>&#124;</tt>[http://en.wikipedia.org../../../a/r/t/Article.html watch]<tt>&#124;</tt>[http://en.wikipedia.org../../../l/o/g/Special%7ELog_01d8.html logs]<tt>)</tt></span>") gives: <span class="plainlinksneverexpand lx">[[Help:Tabl]] <tt>(</tt>[http://en.wikipedia.org../../../t/a/b/Help%7ETabl_9242.html edit]<tt>&#124;</tt>[[Talk:Help:Tabl|talk]]<tt>&#124;</tt>[http://en.wikipedia.org../../../t/a/b/Help%7ETabl_9242.html history]<tt>&#124;</tt>[http://en.wikipedia.org../../../w/h/a/Special%7EWhatlinkshere_Help%7ETabl_1eb9.html links]<tt>&#124;</tt>[http://en.wikipedia.org../../../t/a/b/Help%7ETabl_9242.html watch]<tt>&#124;</tt>[http://en.wikipedia.org../../../l/o/g/Special%7ELog_01d8.html logs]<tt>)</tt></span>
+
+*[[Template:Pvn]]
+
+==Templates and external links==
+
+Examples:
+ 
+*<nowiki>{{tle|insert in target|insert in label}}</nowiki> (using [[Template:tle]] containing "([http://en.wikipedia.org../../../t/e/m/Template%7ETemplate_078f.html Edit&#123;&#123;&nbsp;Template&nbsp;&#125;&#125;&nbsp;])")}  gives ([http://en.wikipedia.org../../../i/n/s/Template%7EInsert_in_target_c41b.html Edit &#123;&#123;&nbsp;insert in label&nbsp;&#125;&#125;&nbsp;])
+*<nowiki>{{tle2|insert in target}}</nowiki> (using [[Template:tle2]] containing "[[:Template:Tle2]]")} gives "[[:Template:Tle2]]"; note that brackets separated from the http:// are not recognized as belonging together:
+**<nowiki>[{{tle2|insert in target}} label]</nowiki> gives [[[:Template:Tle2]] label]
+**<nowiki>[{{tle2|insert in target}}]</nowiki> gives [[[:Template:Tle2]]]
+*<nowiki>{{tle3|insert in target}}</nowiki> (using [[Template:tle3]] containing "[[:Template:Tle3]]")} gives [[:Template:Tle3]]
+*<nowiki>[http://a{{tciit}}b c{{tciil}}d]</nowiki> gives [http://a[[:Template:Tciit]]b c[[:Template:Tciil]]d]
+*<nowiki>http://a{{tciit}}b</nowiki> gives "http://a[[:Template:Tciit]]b"
+*<nowiki>[http://a{{tciit}}b]</nowiki> gives [http://a[[:Template:Tciit]]b]
+
+However, a URL can not be composed of:
+*a first part in a parameter and a second part added by the template (although we have seen above that reversed it works: a second part in a parameter and a first part prefixed by the template) 
+*a first part in a template and a second part after the template (although we have seen above that reversed it works: the second part in a template and the first part before the template) 
+
+Example of first restriction:
+ 
+*<nowiki>{{tae|http://www.}}</nowiki> (using [[Template:tae]] containing "")}  gives 
+
+Examples of second restriction:
+ 
+*<nowiki>[{{th}}add at the end]</nowiki> (using [[Template:th]] containing "<sup>th</sup>")}   gives [<sup>th</sup>add at the end]
+*"<nowiki>{{th}}add at the end</nowiki>" gives "<sup>th</sup>add at the end"
+
+==Noinclude and includeonly==
+
+This feature is not available before version 1.6.
+
+Anything between <nowiki><noinclude> and </noinclude></nowiki> will be processed and displayed only when the page is being viewed directly; it will not be included or substituted.
+Possible applications are:
+
+# Categorising templates, see [[Help:template documentation|template documentation]].
+# [[Help:Interwiki_linking|Interlanguage link]]s to similar templates in other languages.
+# Pages in the [[Help:MediaWiki namespace|MediaWiki namespace]].
+
+<nowiki>The converse is <includeonly>. Text between <includeonly> and
+</includeonly></nowiki> will be processed and displayed only when the page is
+being included. Applications include:
+
+# Adding all pages containing a given template to a category, but not the template itself.
+# Avoiding messy rendering on the template page, e.g. {&#123;<small>&#160;</small><code>#expr:{{{1}}}</code><small>&#160;</small>&#125;} gives Expression error: Unrecognised punctuation character "{".
+
+Note that spaces and newlines between the general content and the tagged part belong to the general content. If they are not desired the include tag should directly follow the content on the same line:
+ &lt;noinclude&gt;this is &lt;/noinclude&gt;fine&lt;includeonly&gt;, closing tags are
+ &lt;/includeonly&gt;&lt;noinclude&gt;
+ less critical, but must be specified.&lt;/noinclude&gt;
+
+Attempts to nest split pairs of these tags, or the similar <tt>&lt;nowiki&gt;</tt> and <tt>&lt;/nowiki&gt;</tt> pair, won't work as expected. If say <tt>&lt;nowiki&gt;</tt> begins within the general content,
+or in a "noinclude" part, or in an "includeonly" part, then it also has to be closed within the same part.
+
+The code <code><nowiki>~<includeonly>~</includeonly>~~</nowiki></code> will be displayed as <nowiki>~~~</nowiki> when the template is not included, <nowiki>~~~~</nowiki> when the template is included, and it will be expanded as the active user when the template is subst'd.
+
+== Wiki markup at the beginning of a template==
+If the first included character of a template is one of the Wiki markup characters '''<tt>:;*#</tt>''', then it's interpreted as being at the begin of the line (even when the template call is not).
+
+To avoid this effect use <tt>&lt;nowiki&gt;#&lt;/nowiki&gt;</tt> or a [[w:en:Numeric character reference|NCR]] like say <tt>&amp;#58;</tt> for a colon, this NCR is also useful in conjunction with definition [[Help:list|list]]s.
+
+==Substitution==
+
+:''Main article: '''[[Help:Substitution]]'''''
+
+Putting "subst:" after the double opening braces causes an [[Help:Automatic conversion of wikitext|automatic conversion of wikitext]] when the referring page is saved: the subst tag is replaced by the wikitext of the template, with the parameter values substituted for the parameters.
+
+==Redirection==
+
+When a page called for inclusion is a redirect page, the redirect target is included instead. As usual, a double redirect does not work.
+
+A page that consists of nothing else than the inclusion of another page as a template, shows similarities to a redirect to that other page, but also many differences, including:
+
+*the result has as header the name of the referring page
+*there is no redirect message
+*the buttons such as edit (for editing the whole page), watch, talk, history, "what links here", and "last modified", etc., refer to the referring page (to go to the target page, a section edit link can be used, from there the whole page can be accessed)
+*the referring page is in the same categories as the target page, except when includeonly and/or noinclude tags are used.
+*"double redirects", with one or both being this kind of "pseudo-redirect", work.
+
+Compare [[Help:Template namespace]] with [[Help:Template namespace - demo of alternative for redirect]].
+
+In a page that in turn includes such a referring page there is no difference.
+
+
+Note that embedding works for all pages where [[Help:Redirect|redirecting]] works, and it also fails for all pages where a redirect won't work.
+
+==Comparison of linking and embedding==
+Linking and embedding have in common:
+*if the page does not exist, a link to the edit page is shown; the links are identical if it is not a piped link; the link does not show parameters and does not show whether, after creation, the new page will be linked or embedded.
+*the name can depend on variables and parameters
+
+==Predefined templates==
+[[Help:Variable|Variable]]s and [[help:parser function|parser function]]s can be considered predefined templates. They do not have a page that defines in terms of wikitext what they do, because their action is something extra that cannot be constructed from more basic wikitext functionality.
+
+Some additional differences:
+*Parser functions use ":" instead of the first "|".
+*An edit page does not list predefined templates used on the page.
+*No "What links here" is available for predefined templates, to find the pages where they are used.
+*Apart from #switch, predefined templates don't allow you to define named parameters, and therefore equal signs generally have no special effect, comparison:
+*:<tt>{&#123; #if: not blank | 2=abc &#125;}</tt> gives '''2=abc'''
+*:<tt>{&#123; ifdef | not blank | 2=abc &#125;}</tt> gives '''[[:Template:Ifdef]]'''
+*It's however possible to corrupt the value shown for undefined parameters without default, for more examples see [[m:Template:ifeq demo]] ([[m:Template talk:ifeq demo|talk]], [[m:Special:Whatlinkshere/Template:ifeq demo|backlinks]], [http://meta.wikimedia.org/wiki/Template:ifeq_demo?action=edit edit]):
+*:<tt>{&#123; #if: {&#123;ns:0&#125;} | 2=xy | {&#123;{2|blank}&#125;} &#125;}</tt> gives '''blank'''
+*:<tt>{&#123; #if: {&#123;ns:0&#125;} | 2=xy | {&#123;{2      }&#125;} &#125;}</tt> gives '''xy'''
+*:<tt>{&#123; #if: {&#123;ns:0&#125;} | oops | {&#123;{1|blank}&#125;} &#125;}</tt> gives '''blank'''
+*:<tt>{&#123; #if: {&#123;ns:0&#125;} | oops | {&#123;{1      }&#125;} &#125;}</tt> gives ''' oops '''
+
+Ordinary and predefined templates have in common that their parameter values can depend on ordinary and predefined templates. In the case of  named parameters, the names used in the template call can also depend on ordinary and predefined templates. This applies also for the named parameters of #switch.
+
+==Code execution==
+"Evaluating" a template call internally involves, to start with, evaluating the template name, the parameter names, and the parameter values. Evaluating a predefined template involves the same, as far as applicable. This is relevant even if the wikitext resulting from these subevaluations cannot have effect on the overall wikitext, as in the case of #ifexpr etc. for either the then-part or the else-part, and in the case of an unused template parameter:
+
+*Subevaluations involving template calls add to the pre-expand include size (see [[w:Wikipedia:Template limits]]).
+*[[w:Side effect (computer science)|Side effects]]:
+**Subevaluations producing links add on the target page to the list of incoming links ([[Help:What links here|What links here]]), based on the [[mw:pagelinks table|pagelinks table]], even if there is no link on the resulting page.
+**Subevaluations involving template calls add on the template page in "What links here" and on the edit page of the page concerned to inclusion items, based on the [[mw:templatelinks table|templatelinks table]].
+**Some extensions may perform some action during a subevaluation, e.g. with [[VariablesExtension]] a subevaluation may involve assignment of a value to a variable. 
+
+Thus <nowiki>{{ #ifexpr:.. | {{a|</nowiki>''parameters''}} | <nowiki>{{</nowiki>b |''parameters''}} }} evaluates <nowiki>{{a|</nowiki>''parameters''}} ''and'' <nowiki>{{b|</nowiki>''parameters''}} regardless of the condition. On the other hand, <nowiki>{{ {{</nowiki>#ifexpr:..|a|b}} | ''parameters'' }} just evaluates the expression for the template ''name'' (by evaluating the condition, and resulting in a or b) and the parameters, and the actually included template.
+
+See also [[ParserFunctions#Code_execution]].
+
+==Templates in different versions of MediaWiki==
+
+===Version 1.6===
+
+* More magic words and the [[Help:parameter default|parameter default]] mechanism were added.
+* <tt>&lt;noinclude&gt;</tt> and <tt>&lt;includeonly&gt;</tt> (see above) were added.
+
+===Version 1.5===
+
+* More [[Help:magic words|magic words]] were added.
+
+===Version 1.4===
+
+*Including the same template more than five times in the same page works from version 1.4, now on all Wikimedia sites. Also new was that subst can be used with parameters.
+
+===Version 1.3===
+
+* See, among other things, [http://meta.wikimedia.org/wiki/Help:Template?oldid=86075#Default_values_of_parameters default values of parameters]. Starting with version 1.3 the prefix "msg:" is generally optional. 
+
+===Version 1.2.6===
+
+* In MediaWiki version 1.2.6, make a page MediaWiki:mytemplate and refer to it with <nowiki>{{msg:mytemplate}}</nowiki>. In this version parameters are not possible.
+* Compatibility with 1.3, in the sense of having the content in Template:mytemplate, is possible with a redirect from MediaWiki:mytemplate to Template:mytemplate on the 1.2.6 project.
+
+== Revision history of pages containing templates ==
+
+Pages in the stored [[Help:Page history|page history]] consist of wikitext with possible ''references'' to templates and images. When viewing an old version of a page, these refer to the current versions of the templates and images, if these still exist. Thus the former composite page is not reconstructed.
+
+==See also==
+*[[m:Help:Advanced templates|Help:Advanced templates]] 
+*[[Help:Calculation]]
+*[[Help:Parser function]] 
+*[[m:ParserFunctions|ParserFunctions]]
+*[[m:Help:Parameter default|Help:Parameter default]]
+*[[Help:Magic words]]
+*[[Help:Substitution]]
+*[[Help:Template documentation]]
+*[[Help:Variable]]
+*[[Help:What links here]]
+*[[mw:Manual:$wgEnableScaryTranscluding|interwiki transclusion]]
+*[[m:Help:MediaWiki help policy|MediaWiki help templates]]
+*[http://en.wikipedia.org../../../a/l/l/Special%7EAllpages_197b.html List of all templates on this server]
+*[[m:Templates of Wikimedia projects]]<span style="display:none">http://meta.wikimedia.org../../../t/e/m/Templates_of_Wikimedia_projects_6a9a.html</span>
+*[[Wikipedia:Template namespace]]<span style="display:none">http://en.wikipedia.org/wiki/Wikipedia:Template namespace</span>
+*[[mw:Extension:ExpandTemplates]]
+*[[mw:Extension:Labeled Section Transclusion]] - transclusion of part of a page
+*[[Wikipedia:Template doc page pattern]]<span style="display:none">http://en.wikipedia.org/wiki/Wikipedia:Template doc page pattern</span>
+*[[Wikipedia:Template_limits]]<span style="display:none">http://en.wikipedia.org/wiki/Wikipedia:Template_limits</span>
+*[[m:DynamicFunctions##arg:]]<span style="display:none">http://meta.wikimedia.org../../../d/y/n/DynamicFunctions_f92f.html#.23arg.3A</span> - instead of ''including'' a page for given parameter values, this allows ''linking'' to a page for given parameter values. Syntax for parameter use: <nowiki>{{</nowiki>arg:''parameter name''|''default''}}. Syntax for linking: external link style with "&''parameter name''=''parameter value''" added to the URL.
+*[[Wikipedia:Anatomy_of_a_template]]<span style="display:none">http://en.wikipedia.org/wiki/Wikipedia:Anatomy_of_a_template</span>
+*[[Wikipedia:Transclusion_costs_and_benefits]]<span style="display:none">http://en.wikipedia.org/wiki/Wikipedia:Transclusion_costs_and_benefits</span>
+*[[mw:Manual:Parser.php]]<span style="display:none">http://www.mediawiki.org../../../p/a/r/Manual%7EParser.php_0cb1.html</span>
+
+
+{| align="right" style="background:transparent;"
+| '''<small class="editlink noprint plainlinksneverexpand">[http://en.wikipedia.org../../../p/h/3A/Template%7EPh%7ETemplate_fb52.html edit ]</small>'''
+|}
+==Wikipedia-specific help==
+See also [[Wikipedia:Template messages]]. <br clear="all" />
+----
+<span style="font-size:0.9em;">''This page is a copy of the [[m:Help:Template|master help page]] at [[Wikipedia:Meta|Meta]] (for general help information all [[Wikimedia Foundation|Wikimedia]] projects can use), with two Wikipedia-specific templates inserted. To update the main text, edit the master help page for all projects at '''[[m:Help:Template]]'''. For Wikipedia-specific issues, use [[Template:Ph:Template]] (the extra text at the bottom of this page) or [[Template:Phh:Template]] for a Wikipedia-specific lead (text appears at the top of this page). You are welcome to copy the exact wikitext from the master page at Meta and paste it into this page at any time. To view this page in other languages see the master page at Meta.''</span>__NOEDITSECTION__

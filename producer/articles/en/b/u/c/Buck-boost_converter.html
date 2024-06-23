@@ -1,0 +1,292 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Buck-boost converter,Boost converter,Buck converter,DC-DC converter,DC to DC converter,Resistivity,Resistor,Smps" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Buck-boost converter - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Buck-boost converter</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>The <b>buck-boost converter</b> is a type of <a href="../../../d/c/_/DC_to_DC_converter_3e6a.html" title="DC to DC converter">DC-DC converter</a> that has an output voltage magnitude that is either greater than or less than the input voltage magnitude. It is a <a href="../../../s/m/p/Smps.html" title="Smps">switch mode power supply</a> with a similar circuit topology to the <a href="../../../b/o/o/Boost_converter.html" title="Boost converter">boost converter</a> and the <a href="../../../b/u/c/Buck_converter.html" title="Buck converter">buck converter</a>. The output voltage is adjustable based on the duty cycle of the switching transistor. One drawback of this converter is that the switch does not have a terminal at ground; this complicates the driving circuitry. Also, the polarity of the output voltage is opposite the input voltage.</p>
+<div class="thumb tnone">
+<div class="thumbinner" style="width:397px;"><a href="../../../b/u/c/Image%7EBuck_boost.png_1de9.html" class="internal" title="The basic schematic of a buck-boost converter."><img src="../../../upload/1/10/Buck_boost.png" alt="The basic schematic of a buck-boost converter." width="395" height="154" longdesc="../../../b/u/c/Image%7EBuck_boost.png_1de9.html" class="thumbimage" /></a>
+<div class="thumbcaption">The basic schematic of a buck-boost converter.</div>
+</div>
+</div>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Principle_of_operation"><span class="tocnumber">1</span> <span class="toctext">Principle of operation</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Continuous_Mode"><span class="tocnumber">1.1</span> <span class="toctext">Continuous Mode</span></a></li>
+<li class="toclevel-2"><a href="#Discontinuous_Mode"><span class="tocnumber">1.2</span> <span class="toctext">Discontinuous Mode</span></a></li>
+<li class="toclevel-2"><a href="#Limit_between_continuous_and_discontinuous_modes"><span class="tocnumber">1.3</span> <span class="toctext">Limit between continuous and discontinuous modes</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Non-ideal_circuit"><span class="tocnumber">2</span> <span class="toctext">Non-ideal circuit</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Effect_of_parasitic_resistances"><span class="tocnumber">2.1</span> <span class="toctext">Effect of parasitic resistances</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">3</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">4</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Principle_of_operation" id="Principle_of_operation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/c/Buck-boost_converter.html" title="Edit section: Principle of operation">edit</a>]</span> <span class="mw-headline">Principle of operation</span></h2>
+<div class="thumb tright">
+<div class="thumbinner" style="width:252px;"><a href="../../../b/u/c/Image%7EBuckboost_conventions.svg_9acb.html" class="internal" title="Fig 1: Schematic of a Buck-Boost converter."><img src="../../../upload/shared/thumb/e/e6/Buckboost_conventions.svg/250px-Buckboost_conventions.svg.png" alt="Fig 1: Schematic of a Buck-Boost converter." width="250" height="110" longdesc="../../../b/u/c/Image%7EBuckboost_conventions.svg_9acb.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/u/c/Image%7EBuckboost_conventions.svg_9acb.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Fig 1: Schematic of a Buck-Boost converter.</div>
+</div>
+</div>
+<div class="thumb tright">
+<div class="thumbinner" style="width:202px;"><a href="../../../b/u/c/Image%7EBuckboost_operating.svg_65de.html" class="internal" title="Fig 2: The two operating states of a buck-boost converter: When the switch is turned-on, the input  voltage source supplies current to the inductor and the capacitor supplies current to the resistor (output load). When the switch is opened (providing energy is stored into the inductor), the inductor supplies current to the load via the diode D."><img src="../../../upload/shared/thumb/8/82/Buckboost_operating.svg/200px-Buckboost_operating.svg.png" alt="Fig 2: The two operating states of a buck-boost converter: When the switch is turned-on, the input  voltage source supplies current to the inductor and the capacitor supplies current to the resistor (output load). When the switch is opened (providing energy is stored into the inductor), the inductor supplies current to the load via the diode D." width="200" height="200" longdesc="../../../b/u/c/Image%7EBuckboost_operating.svg_65de.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/u/c/Image%7EBuckboost_operating.svg_65de.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Fig 2: The two operating states of a buck-boost converter: When the switch is turned-on, the input voltage source supplies current to the inductor and the capacitor supplies current to the resistor (output load). When the switch is opened (providing energy is stored into the inductor), the inductor supplies current to the load via the diode D.</div>
+</div>
+</div>
+<p>The basic principle of the buck-boost converter is fairly simple (see figure 2):</p>
+<ul>
+<li>while in the On-state, the input voltage source is directly connected to the inductor (L). This result in accumulating energy in L. In this stage, the capacitor supplies energy to the output load;</li>
+<li>while in the Off-state, the inductor is connected to the output load and capacitor, so energy is transferred from L to C and R.</li>
+</ul>
+<p>Compared to the <a href="../../../b/u/c/Buck_converter.html" title="Buck converter">buck</a> and <a href="../../../b/o/o/Boost_converter.html" title="Boost converter">boost</a> converters, the characteristics of the buck-boost converter are mainly:</p>
+<ul>
+<li>polarity of the output voltage is opposite to that of the input;</li>
+<li>the output voltage can vary continuously from 0 to <img class='tex' src="../../../math/b/e/a/beab416080922c84a90ba092f7734fe5.png" alt="-\infty" /> (for an ideal converter). The output voltage ranges for a buck and a boost converter are respectively 0 to V<sub>i</sub> and V<sub>i</sub> to <img class='tex' src="../../../math/d/2/4/d245777abca64ece2d5d7ca0d19fddb6.png" alt="\infty" />.</li>
+</ul>
+<p><a name="Continuous_Mode" id="Continuous_Mode"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/c/Buck-boost_converter.html" title="Edit section: Continuous Mode">edit</a>]</span> <span class="mw-headline">Continuous Mode</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:352px;"><a href="../../../b/u/c/Image%7EBuckboost_chronogram.svg_6d7a.html" class="internal" title="Fig 3: Waveforms of current and voltage in a Buck-Boost converter operating in continuous mode."><img src="../../../upload/shared/thumb/4/45/Buckboost_chronogram.svg/350px-Buckboost_chronogram.svg.png" alt="Fig 3: Waveforms of current and voltage in a Buck-Boost converter operating in continuous mode." width="350" height="248" longdesc="../../../b/u/c/Image%7EBuckboost_chronogram.svg_6d7a.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/u/c/Image%7EBuckboost_chronogram.svg_6d7a.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Fig 3: Waveforms of current and voltage in a Buck-Boost converter operating in continuous mode.</div>
+</div>
+</div>
+<p>If the current through the inductor L nevers falls to zero during a commutation cycle, the converter is said to operate in continuous mode. The current and voltage waveforms in an ideal converter can be seen in figure 3.</p>
+<p>From t=0 to D.T, the converter is in On-State, so the switch S is closed. The rate of change in the inductor current (I<sub>L</sub>) is therefore given by:</p>
+<p><img class='tex' src="../../../math/d/b/e/dbed523d44f13cbb286b3e3625b149ad.png" alt="\frac{dI_L}{dt}=\frac{V_i}{L}" /></p>
+<p>At the end of the On-state, the increase of I<sub>L</sub> is therefore:</p>
+<p><img class='tex' src="../../../math/1/e/c/1ec0a55775b552a97387ff7effa38cc7.png" alt="\Delta I_{L_{On}}=\int_0^{D\cdot T}dI_L=\int_0^{D\cdot T}\frac{V_i\cdot dt}{L}=\frac{V_i \cdot D\cdot T}{L}" /></p>
+<p>D is the duty cycle. It represents the fraction of the commutation period T during which the switch is On. Therefore D ranges between 0 (S is never on) and 1 (S is always on).</p>
+<p>During the Off-state, the switch S is open, so the inductor current flows through the load. If we assume zero voltage drop in the diode (we consider an ideal diode), and a capacitor large enough for its voltage to remain constant, the evolution of I<sub>L</sub> is:</p>
+<p><img class='tex' src="../../../math/1/b/9/1b9dced7e72bda6a9268480d9127eb3d.png" alt="\frac{dI_L}{dt}=\frac{V_o}{L}" /></p>
+<p>Therefore, the variation of I<sub>L</sub> during the Off-period is:</p>
+<p><img class='tex' src="../../../math/c/7/f/c7f8d4802d73bbb0c060fcae5e9e55ed.png" alt="\Delta I_{L_{Off}}=\int_0^{\left(1-D\right) T}dI_L=\int_0^{\left(1-D\right) T}\frac{V_o\cdot dt}{L}=\frac{V_o \left(1-D\right) T}{L}" /></p>
+<p>As we consider that the converter operates in steady-state conditions, the amount of energy stored in each of its components has to be the same at the beginning and at the end of a commutation cycle. As the energy in an inductor is given by:</p>
+<p><img class='tex' src="../../../math/c/b/3/cb3295f15f5a3ec5cfb0b7001cecbb86.png" alt="E=\frac{1}{2}L\cdot I_L^2" /></p>
+<p>it is obvious that the value of I<sub>L</sub> at the end of the Off state must be the same as the value of I<sub>L</sub> at the beginning of the On-state, i.e the sum of the variations of I<sub>L</sub> during the on and the off states must be zero:</p>
+<p><img class='tex' src="../../../math/7/f/d/7fd7ca009bed293b29a763290976eee2.png" alt="\Delta I_{L_{On}} + \Delta I_{L_{Off}}=0" /></p>
+<p>Substituting <img class='tex' src="../../../math/9/4/a/94a60055bb94e3eb2e5d05c16a7d37b0.png" alt="\Delta I_{L_{On}}" /> and <img class='tex' src="../../../math/5/8/f/58fc67bc522145c2a50399061f1c05b2.png" alt="\Delta I_{L_{Off}}=0" /> by their expressions yields:</p>
+<p><img class='tex' src="../../../math/1/5/f/15f22cb257e2fa64f0f4a2dc80851c1e.png" alt="\Delta I_{L_{On}} + \Delta I_{L_{Off}}=\frac{V_i \cdot D\cdot T}{L}+\frac{V_o\left(1-D\right)T}{L}=0" /></p>
+<p>This can be written as:</p>
+<p><img class='tex' src="../../../math/e/e/4/ee4dde20a0324285aa08307795dd1d7a.png" alt="\frac{V_o}{V_i}=-\frac{D}{1-D}" /></p>
+<p>From the above expression it can be seen that the polarity of the output voltage is always negative (as the duty cycle goes from 0 to 1), and that its absolute value increases with D, theoritically up to minus infinite as D approaches 1. Apart from the polarity, this converter is either step-up (as a boost converter) or step-down (as a buck converter). This is why it is referred to as a buck-boost converter.</p>
+<p><a name="Discontinuous_Mode" id="Discontinuous_Mode"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/c/Buck-boost_converter.html" title="Edit section: Discontinuous Mode">edit</a>]</span> <span class="mw-headline">Discontinuous Mode</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:352px;"><a href="../../../b/u/c/Image%7EBuckboost_chronogram_discontinuous.png_cf54.html" class="internal" title="Fig 4: Waveforms of current and voltage in a Buck-Boost converter operating in discontinuous mode."><img src="../../../upload/shared/thumb/d/dc/Buckboost_chronogram_discontinuous.png/350px-Buckboost_chronogram_discontinuous.png" alt="Fig 4: Waveforms of current and voltage in a Buck-Boost converter operating in discontinuous mode." width="350" height="270" longdesc="../../../b/u/c/Image%7EBuckboost_chronogram_discontinuous.png_cf54.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/u/c/Image%7EBuckboost_chronogram_discontinuous.png_cf54.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Fig 4: Waveforms of current and voltage in a Buck-Boost converter operating in discontinuous mode.</div>
+</div>
+</div>
+<p>In some cases, the amount of energy required by the load is small enough to be transferred in a time smaller than the whole commutation period. In this case, the current through the inductor falls to zero during part of the period. The only difference in the principle described above is that the inductor is completely discharged at the end of the commutation cycle (see waveforms in figure 4). Although slight, the difference has a strong effect on the output voltage equation. It can be calculated as follows:</p>
+<p>As the inductor current at the beginning of the cycle is zero, its maximum value <img class='tex' src="../../../math/6/f/b/6fba5f2e080618252ab253bc899ca21e.png" alt="I_{L_{Max}}" /> (at t=D.T) is</p>
+<p><img class='tex' src="../../../math/7/a/f/7affb6fe3a649c318845590ffd6fbeb0.png" alt="I_{L_{Max}}=\frac{V_i\cdot D\cdot T}{L}" /></p>
+<p>During the off-period, I<sub>L</sub> falls to zero after δ.T:</p>
+<p><img class='tex' src="../../../math/3/a/1/3a1e2a3ff1c26bbdee2a346b2684dc76.png" alt="I_{L_{Max}}+\frac{-V_o\cdot \delta\cdot T}{L}=0" /></p>
+<p>Using the two previous equations, δ is:</p>
+<p><img class='tex' src="../../../math/c/2/4/c245baeafe5f701d8c8ae3bb4b8929be.png" alt="\delta=\frac{V_i\cdot D}{V_o}" /></p>
+<p>The load current I<sub>o</sub> is equal to the average diode current (I<sub>D</sub>). As can be seen on figure 4, the diode current is equal to the inductor current during the off-state. Therefore, the output current can be written as:</p>
+<p><img class='tex' src="../../../math/3/1/8/3184beba72fa0a47ad34d39c87e8ec78.png" alt="I_o=\bar{I_D}=\frac{I_{L_{max}}}{2}\delta" /></p>
+<p>Replacing I<sub>Lmax</sub> and δ by their respective expressions yields:</p>
+<p><img class='tex' src="../../../math/3/0/f/30feacdf205b8105b18d23e8161923ea.png" alt="I_o=\frac{V_i\cdot D\cdot T}{2L}\frac{V_i\cdot D}{V_o}=\frac{V_i^2\cdot D^2\cdot T}{2L\cdot V_o}" /></p>
+<p>Therefore, the output voltage gain can be written as:</p>
+<p><img class='tex' src="../../../math/7/8/a/78a395db2bfbba90d4cae49c0f4d2124.png" alt="\frac{V_o}{V_i}=\frac{V_i\cdot D^2 \cdot T}{2L\cdot I_o}" /></p>
+<p>Compared to the expression of the output voltage gain for the continuous mode, this expression is much more complicated. Furthermore, in discontinuous operation, the output voltage not only depends on the duty cycle, but also on the inductor value, the input voltage and the output current.</p>
+<p><a name="Limit_between_continuous_and_discontinuous_modes" id="Limit_between_continuous_and_discontinuous_modes"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/c/Buck-boost_converter.html" title="Edit section: Limit between continuous and discontinuous modes">edit</a>]</span> <span class="mw-headline">Limit between continuous and discontinuous modes</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:352px;"><a href="../../../b/u/c/Image%7EBuck-boost_continuous_discontinuous.png_e8a6.html" class="internal" title="Fig 5: Evolution of the normalized output voltage with the normalized output current in a buck-boost converter."><img src="../../../upload/shared/thumb/6/67/Buck-boost_continuous_discontinuous.png/350px-Buck-boost_continuous_discontinuous.png" alt="Fig 5: Evolution of the normalized output voltage with the normalized output current in a buck-boost converter." width="350" height="245" longdesc="../../../b/u/c/Image%7EBuck-boost_continuous_discontinuous.png_e8a6.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/u/c/Image%7EBuck-boost_continuous_discontinuous.png_e8a6.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Fig 5: Evolution of the normalized output voltage with the normalized output current in a buck-boost converter.</div>
+</div>
+</div>
+<p>As told at the beginning of this section, the converter operates in discontinuous mode when low current is drawn by the load, and in continuous mode at higher load current levels. The limit between discontinuous and continuous modes is reached when the inductor current falls to zero exactly at the end of the commutation cycle. with the notations of figure 4, this corresponds to&#160;:</p>
+<p><img class='tex' src="../../../math/7/1/b/71bab9842ae51f44177c98687bddb7fe.png" alt="D\cdot T + \delta \cdot T=T" /></p>
+<p><span class="texhtml"><i>D</i> + δ = 1</span></p>
+<p>In this case, the output current I<sub>olim</sub> (output current at the limit between continuous and discontinuous modes) is given by:</p>
+<p><img class='tex' src="../../../math/b/d/5/bd55fec6af0d78e6b7fc61e91c5d41d6.png" alt="I_{o_{lim}}=\bar{I_D}=\frac{I_{L_{max}}}{2}\left(1-D\right)" /></p>
+<p>Replacing I<sub>Lmax</sub> by the expression given in the <i>discontinuous mode</i> section yields:</p>
+<p><img class='tex' src="../../../math/0/0/2/0026b23a289888b6924a2d13bbe2182d.png" alt="I_{o_{lim}}=\frac{V_i\cdot D\cdot T}{2L}\left(1-D\right)" /></p>
+<p>As I<sub>olim</sub> is the current at the limit between continuous and discontinuous modes of operations, it satisfies the expressions of both modes. Therefore, using the expression of the output voltage in continuous mode, the previous expression can be written as:</p>
+<p><img class='tex' src="../../../math/c/c/b/ccb5e84f42b26614b79534fd2bea7048.png" alt="I_{o_{lim}}=\frac{V_i\cdot D\cdot T}{2L}\frac{V_i}{V_o}\left(-D\right)" /></p>
+<p>Let's now introduce two more notations:</p>
+<ul>
+<li>the normalized voltage, defined by <img class='tex' src="../../../math/6/6/f/66f93fcf0de853460979d4f9fb79e76b.png" alt="\left|V_o\right|=\frac{V_o}{V_i}" />. It corresponds to the gain in voltage of the converter;</li>
+<li>the normalized current, defined by <img class='tex' src="../../../math/c/d/e/cde36b079bb41d5adaf3ce96f019c292.png" alt="\left|I_o\right|=\frac{L}{T\cdot V_i}I_o" />. The term <img class='tex' src="../../../math/f/e/1/fe19d71de25da7b97e62325e4ae5fa80.png" alt="\frac{T\cdot V_i}{L}" /> is equal to the maximum increase of the inductor current during a cycle, i.e the increase of the inductor current with a duty cycle D=1. So, in steady state operation of the converter, this means that <img class='tex' src="../../../math/0/b/c/0bc7a424620e7833f43778dc9fa698ae.png" alt="\left|I_o\right|" /> equals 0 for no output current, and 1 for the maximum current the converter can deliver.</li>
+</ul>
+<p>Using these notations, we have:</p>
+<ul>
+<li>in continuous mode, <img class='tex' src="../../../math/4/a/7/4a7feb6f82680576572353c6554418d9.png" alt="\left|V_o\right|=-\frac{D}{1-D}" />;</li>
+<li>in discontinuous mode, <img class='tex' src="../../../math/4/5/9/45918ffb8653073121e49fdc1ba2fd12.png" alt="\left|V_o\right|=-\frac{D^2}{2\left|I_o\right|}" />;</li>
+<li>the current at the limit between continuous and discontinuous mode is <img class='tex' src="../../../math/d/8/5/d854e61a32591e2524180d0d47c2cdfd.png" alt="I_{o_{lim}}=\frac{V_i\cdot T}{2L}D\left(1-D\right)=\frac{I_{o_{lim}}}{2\left|I_o\right|}D\left(1-D\right)" />. Therefore the locus of the limit between continuous and discontinuous modes is given by <img class='tex' src="../../../math/b/9/c/b9c983ebb6742ef01985a943b1b35f40.png" alt="\frac{1}{2\left|I_o\right|}D\left(1-D\right)=1" />.</li>
+</ul>
+<p>These expression have been plotted in figure 5. The difference in behaviour between the continuous and discontinuous modes can be seen clearly.</p>
+<p><a name="Non-ideal_circuit" id="Non-ideal_circuit"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/c/Buck-boost_converter.html" title="Edit section: Non-ideal circuit">edit</a>]</span> <span class="mw-headline">Non-ideal circuit</span></h2>
+<p><a name="Effect_of_parasitic_resistances" id="Effect_of_parasitic_resistances"></a></p>
+<h3><span class="editsection">[<a href="../../../b/u/c/Buck-boost_converter.html" title="Edit section: Effect of parasitic resistances">edit</a>]</span> <span class="mw-headline">Effect of parasitic resistances</span></h3>
+<div class="thumb tright">
+<div class="thumbinner" style="width:302px;"><a href="../../../b/u/c/Image%7EBuckboost_resistance.png_1e82.html" class="internal" title="Evolution of the output voltage of a buck-boost converter with the duty cycle when the parasitic resistance of the inductor increases."><img src="../../../upload/shared/thumb/b/b4/Buckboost_resistance.png/300px-Buckboost_resistance.png" alt="Evolution of the output voltage of a buck-boost converter with the duty cycle when the parasitic resistance of the inductor increases." width="300" height="210" longdesc="../../../b/u/c/Image%7EBuckboost_resistance.png_1e82.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../b/u/c/Image%7EBuckboost_resistance.png_1e82.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Evolution of the output voltage of a buck-boost converter with the duty cycle when the parasitic resistance of the inductor increases.</div>
+</div>
+</div>
+<p>In the analysis above, no dissipative elements (<a href="../../../r/e/s/Resistor.html" title="Resistor">resistors</a>) have been considered. That means that the power is transmitted without losses from the input voltage source to the load. However, parasitic resistances exist in all circuits, due to the <a href="../../../r/e/s/Resistivity.html" title="Resistivity">resistivity</a> of the materials they are made from. Therefore, a fraction of the power managed by the converter is dissipated by these parasitic resistances.</p>
+<p>For the sake of simplicity, we consider here that the inductor is the only non-ideal component, and that it is equivalent to an inductor and a resistor in series. This assumption is acceptable because as an inductor is made of one long winded piece of wire, it is likely to exhibit a non-negligible parasitic resistance (R<sub>L</sub>). Furthermore, current flows through the inductor both in the on and the off states.</p>
+<p>Using the state-space averaging method, we can write:</p>
+<p><img class='tex' src="../../../math/a/8/c/a8c1af4f3a97011868f4adfcf966fc77.png" alt="V_i=\bar V_L + \bar V_S" /></p>
+<p>where <img class='tex' src="../../../math/9/f/b/9fb8e982c6d578ff343c42a980f651e3.png" alt="\bar V_L" /> and <img class='tex' src="../../../math/5/8/a/58a37e7f10f0a585833afc6643d66125.png" alt="\bar V_S" /> are respectively the average voltage across the inductor and the switch over the commutation cycle. If we consider that the converter operates in steady-state, the average current through the inductor is constant. The average voltage across the inductor is:</p>
+<p><img class='tex' src="../../../math/a/8/8/a8863e2a29891b771802dc1656432f1b.png" alt="\bar V_L=L\frac{\bar{dI_L}}{dt}+R_L\bar I_L=R_L\bar I_L" /></p>
+<p>When the switch is in the on-state, V<sub>S</sub>=0. When it is off, the diode is forward biased (we consider the continuous mode operation), therefore V<sub>S</sub>=V<sub>i</sub>-V<sub>o</sub>. Therefore, the average voltage across the switch is:</p>
+<p><img class='tex' src="../../../math/8/a/a/8aae376491c3311765f506f78e60c441.png" alt="\bar V_S=D\cdot 0 + (1-D)(V_i-V_o)=(1-D)(V_i-V_o)" /></p>
+<p>The output current is the opposite of the inductor current during the off-state. the average inductor current is therefore:</p>
+<p><img class='tex' src="../../../math/6/b/e/6beef67607bde922690c5565ae69c5b8.png" alt="\bar I_L=\frac{-I_o}{1-D}" /></p>
+<p>Assuming the output current and voltage heve negligible ripple, the load of the converter can be considered as purely resistive. If R is the resistance of the load, the above expression becomes:</p>
+<p><img class='tex' src="../../../math/8/4/4/84480fc5f7480c11b790dfdc09a3172f.png" alt="\bar I_L=\frac{-V_o}{(1-D)R}" /></p>
+<p>Using the previous equations, the input voltage becomes:</p>
+<p><img class='tex' src="../../../math/a/5/2/a52a0700f1b847d3b6053fa367e6f218.png" alt="V_i= R_L\frac{-V_o}{(1-D)R}+ (1-D)(V_i-V_o)" /></p>
+<p>This can be written as:</p>
+<p><img class='tex' src="../../../math/f/0/7/f0777e6945de93532f4768bbadc7f8b1.png" alt="\frac{V_o}{V_i}=\frac{-D}{\frac{R_L}{R(1-D)}+1-D}" /></p>
+<p>If the inductor resistance is zero, the equation above becomes equal to the one of the <i>ideal</i> case. But as R<sub>L</sub> increases, the voltage gain of the converter decreases compared to the ideal case. Furthermore, the influence of R<sub>L</sub> increases with the duty cycle. This is summarized in figure 7.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/c/Buck-boost_converter.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<p><a href="../../../b/u/c/Buck_converter.html" title="Buck converter">Buck Converter</a></p>
+<p><a href="../../../b/o/o/Boost_converter.html" title="Boost converter">Boost Converter</a></p>
+<p>General <a href="../../../d/c/-/DC-DC_converter_cc8d.html" title="DC-DC converter">DC-DC converters</a></p>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../b/u/c/Buck-boost_converter.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Daniel W. Hart, "Introduction to Power Electronics", Prentice Hall, Upper Saddle River, New Jersey USA, 1997 <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-02-351182-6</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/u/c/Buck-boost_converter.html">http://en.wikipedia.org../../../b/u/c/Buck-boost_converter.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../p/o/w/Category%7EPower_electronics_442e.html" title="Category:Power electronics">Power electronics</a></span> | <span dir='ltr'><a href="../../../p/o/w/Category%7EPower_supplies_cb2c.html" title="Category:Power supplies">Power supplies</a></span> | <span dir='ltr'><a href="../../../e/l/e/Category%7EElectronics_stubs_8247.html" title="Category:Electronics stubs">Electronics stubs</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../b/u/c/Buck-boost_converter.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../b/u/c/Talk%7EBuck-boost_converter_5024.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Buck-boost_converter">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../fr/c/o/n/Convertisseur_Buck-Boost_d2b7.html">Français</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 19:23, 14 November 2006 by Wikipedia user <a href="../../../c/y/r/User%7ECyrilB_5705.html" title="User:CyrilB">CyrilB</a>. Based on work by Wikipedia user(s) <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../y/v/e/User%7EYves-Laurent_3288.html" title="User:Yves-Laurent">Yves-Laurent</a>, <a href="../../../b/l/u/User%7EBluebot_e595.html" title="User:Bluebot">Bluebot</a>, Nagarroth, <a href="../../../n/a/c/User%7ENaconkantari_d810.html" title="User:Naconkantari">Naconkantari</a>, Hooperbloob, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../m/a/k/User%7EMak17f_f664.html" title="User:Mak17f">Mak17f</a> and Vadim tr and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

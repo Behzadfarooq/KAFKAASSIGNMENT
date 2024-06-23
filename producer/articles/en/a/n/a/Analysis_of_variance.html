@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Analysis of variance,1920s,1930s,ANCOVA,ANORVA,Chi-square distribution,Control group,Degrees of freedom (statistics),Dependent variable,Design of experiments,Duncan's new multiple range test" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Analysis of variance - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Analysis of variance</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    	    <!-- start content -->
+	    <p>In <a href="../../../s/t/a/Statistics.html" title="Statistics">statistics</a>, <b>analysis of variance</b> (<b>ANOVA</b>, or—sometimes—A.N.O.V.A.) is a collection of <a href="../../../s/t/a/Statistical_model.html" title="Statistical model">statistical models</a>, and their associated procedures, in which the observed variance is partitioned into components due to different explanatory variables, usually called <b>factors</b> in <a href="../../../d/e/s/Design_of_experiments.html" title="Design of experiments">design of experiments</a>. The initial techniques of the analysis of variance were developed by the <a href="../../../s/t/a/Statistician.html" title="Statistician">statistician</a> and <a href="../../../g/e/n/Geneticist.html" title="Geneticist">geneticist</a> <a href="../../../r/o/n/Ronald_Fisher_1080.html" title="Ronald Fisher">R. A. Fisher</a> in the <a href="../../../1/9/2/1920s.html" title="1920s">1920s</a> and <a href="../../../1/9/3/1930s.html" title="1930s">1930s</a>, and is sometimes known as <b>Fisher's ANOVA</b> or <b>Fisher's analysis of variance</b>, due to the use of <a href="../../../r/o/n/Ronald_Fisher_1080.html" title="Ronald Fisher">Fisher's</a> <a href="../../../f/-/d/F-distribution.html" title="F-distribution">F-distribution</a> as part of the test of <a href="../../../s/t/a/Statistical_significance.html" title="Statistical significance">statistical significance</a>.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Overview"><span class="tocnumber">1</span> <span class="toctext">Overview</span></a></li>
+<li class="toclevel-1"><a href="#Models"><span class="tocnumber">2</span> <span class="toctext">Models</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Fixed-effects_model"><span class="tocnumber">2.1</span> <span class="toctext">Fixed-effects model</span></a></li>
+<li class="toclevel-2"><a href="#Random-effects_model"><span class="tocnumber">2.2</span> <span class="toctext">Random-effects model</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Assumptions"><span class="tocnumber">3</span> <span class="toctext">Assumptions</span></a></li>
+<li class="toclevel-1"><a href="#Logic_of_ANOVA"><span class="tocnumber">4</span> <span class="toctext">Logic of ANOVA</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Degrees_of_freedom"><span class="tocnumber">4.1</span> <span class="toctext">Degrees of freedom</span></a></li>
+<li class="toclevel-2"><a href="#ANOVA_on_ranks"><span class="tocnumber">4.2</span> <span class="toctext">ANOVA on ranks</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Examples"><span class="tocnumber">5</span> <span class="toctext">Examples</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">6</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">8</span> <span class="toctext">External links</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script>
+<p><a name="Overview" id="Overview"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: Overview">edit</a>]</span> <span class="mw-headline">Overview</span></h2>
+<p>There are three conceptual classes of such models:</p>
+<ul>
+<li><a href="../../../f/i/x/Fixed-effects_model.html" title="Fixed-effects model">Fixed-effects model</a> assumes that the data come from <a href="../../../n/o/r/Normal_distribution.html" title="Normal distribution">normal populations</a> which may differ only in their means. (Model 1)</li>
+<li><a href="../../../r/a/n/Random-effects_models.html" title="Random-effects models">Random-effects models</a> assume that the data describe a hierarchy of different populations whose differences are constrained by the hierarchy. (Model 2)</li>
+<li>Mixed effects models describe situations where both fixed and random effects are present. (Model 3)</li>
+</ul>
+<p>In practice, there are several types of ANOVA depending on the number of treatments and the way they are applied to the subjects in the experiment:</p>
+<ul>
+<li>One-way ANOVA is used to test for differences among three or more <a href="../../../s/t/a/Statistical_independence.html" title="Statistical independence">independent</a> groups.</li>
+<li>One-way ANOVA for repeated measures is used when the subjects are subjected to repeated measures; this means that the same subjects are used for each treatment. Note that this method can be subject to carryover effects.</li>
+<li><a href="../../../f/a/c/Factorial_ANOVA_c0ba.html" title="Factorial ANOVA">Factorial ANOVA</a> is used when the experimenter wants to study the effects of two or more treatment variables. The most commonly used type of factorial ANOVA is the 2x2 (read: two by two) design, where there are two <a href="../../../i/n/d/Independent_variables.html" title="Independent variables">independent variables</a> and each variable has two levels or distinct values. Factorial ANOVA can also be multi-level such as 3×3, etc. or higher order such as 2×2×2, etc. but analyses with higher numbers of factors are rarely done because the calculations are lengthy and the results are hard to interpret.</li>
+<li>When one wishes to test two or more independent groups subjecting the subjects to repeated measures, one may perform a factorial Mixed-Design ANOVA, in which one factor is independent and the other is repeated measures. This is a type of mixed effect model.</li>
+<li>Multivariate analysis of variance (<a href="../../../m/a/n/MANOVA_065f.html" title="MANOVA">MANOVA</a>) is used when there is more than one <a href="../../../d/e/p/Dependent_variable.html" title="Dependent variable">dependent variable</a>.</li>
+</ul>
+<p><a name="Models" id="Models"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: Models">edit</a>]</span> <span class="mw-headline">Models</span></h2>
+<p><a name="Fixed-effects_model" id="Fixed-effects_model"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: Fixed-effects model">edit</a>]</span> <span class="mw-headline">Fixed-effects model</span></h3>
+<p>The fixed-effects model of analysis of variance applies to situations in which the experimenter has subjected the experimental material to several treatments, each of which affects only the mean of the underlying normal distribution of the "response variable".</p>
+<p><a name="Random-effects_model" id="Random-effects_model"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: Random-effects model">edit</a>]</span> <span class="mw-headline">Random-effects model</span></h3>
+<p>Random effects models are used to describe situations in which incomparable differences in experimental material occur. The simplest example is that of estimating the unknown mean of a population whose individuals differ from each other. In this case, the variation between individuals is <i>confounded</i> with that of the observing instrument.</p>
+<p><a name="Assumptions" id="Assumptions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: Assumptions">edit</a>]</span> <span class="mw-headline">Assumptions</span></h2>
+<ul>
+<li><a href="../../../s/t/a/Statistical_independence.html" title="Statistical independence">Independence</a> of cases - this is a requirement of the design.</li>
+<li><a href="../../../n/o/r/Normality.html" title="Normality">Normality</a> - the distributions in each of the groups are <a href="../../../n/o/r/Normal_distribution.html" title="Normal distribution">normal</a> (use the <a href="../../../k/o/l/Kolmogorov-Smirnov_test_d172.html" title="Kolmogorov-Smirnov test">Kolmogorov-Smirnov</a> and <a href="../../../s/h/a/Shapiro-Wilk_test_49b0.html" title="Shapiro-Wilk test">Shapiro-Wilk</a> normality tests to test it). Some say that the <a href="../../../f/-/t/F-test.html" title="F-test">F-test</a> is extremely non-robust to deviations from normality (Lindman, 1974) while others claim otherwise (Ferguson &amp; Takane 2005: 261-2).</li>
+<li><a href="../../../h/o/m/Homoscedasticity.html" title="Homoscedasticity">Homogeneity of variances</a> - the variance of data in groups should be the same (use <a href="../../../l/e/v/Levene%27s_test.html" title="Levene's test">Levene's test</a> for homogeneity of variances).</li>
+</ul>
+<p><a name="Logic_of_ANOVA" id="Logic_of_ANOVA"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: Logic of ANOVA">edit</a>]</span> <span class="mw-headline">Logic of ANOVA</span></h2>
+<p>The fundamental technique is a partitioning of the total sum of squares into components related to the effects in the model used. For example, we show the model for a simplified ANOVA with one type of treatment at different levels. (If the treatment levels are quantitative and the effects are linear, a <a href="../../../l/i/n/Linear_regression.html" title="Linear regression">linear regression</a> analysis may be appropriate.)</p>
+<dl>
+<dd><span class="texhtml"><i>S</i><i>S</i><sub>Total</sub> = <i>S</i><i>S</i><sub>Error</sub> + <i>S</i><i>S</i><sub>Treatments</sub>.</span></dd>
+</dl>
+<p>The number of <a href="../../../d/e/g/Degrees_of_freedom_%28statistics%29.html" title="Degrees of freedom (statistics)">degrees of freedom</a> (abbreviated <span class="texhtml"><i>d</i><i>f</i></span>) can be partitioned in a similar way and specifies the <a href="../../../c/h/i/Chi-square_distribution.html" title="Chi-square distribution">chi-square distribution</a> which describes the associated sums of squares.</p>
+<dl>
+<dd><span class="texhtml"><i>d</i><i>f</i><sub>Total</sub> = <i>d</i><i>f</i><sub>Error</sub> + <i>d</i><i>f</i><sub>Treatments</sub>.</span></dd>
+</dl>
+<p><a name="Degrees_of_freedom" id="Degrees_of_freedom"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: Degrees of freedom">edit</a>]</span> <span class="mw-headline">Degrees of freedom</span></h3>
+<p>Degrees of freedom indicate the effective number of observations which contribute to the sum of squares in an ANOVA, the total number of observations minus the number of linear constraints in the data. The degrees of freedom are the number of participants (for each group) minus 1. This removes the error otherwise produced by the differences in variance of such groups to account for the difference in sample and population variance.</p>
+<p><a name="ANOVA_on_ranks" id="ANOVA_on_ranks"></a></p>
+<h3><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: ANOVA on ranks">edit</a>]</span> <span class="mw-headline">ANOVA on ranks</span></h3>
+<p>As first suggested by Conover and Iman in 1981, in many cases when the data do not meet the assumptions of ANOVA, one can replace each original data value by its rank from 1 for the smallest to N for the largest, then run a standard ANOVA calculation on the rank-transformed data. "Where no equivalent nonparametric methods have yet been developed such as for the two-way design, rank transformation results in tests which are more robust to non-normality, and resistant to outliers and non-constant variance, than is ANOVA without the transformation. (Helsel &amp; Hirsch, 2002, Page 177)." However Seaman <i>et al.</i> (1994) noticed that the rank transformation of Conover and Iman (1981) is not appropriate for testing interactions among effects in a factorial design as it can cause an increase in Type I error (alpha error). Furthermore, if both main factors are significant there is little power to detect interactions</p>
+<ul>
+<li>Conover, W. J., Iman, R. L. (1981). Rank transformations as a bridge between parametric and nonparametric statistics. American Statistician, 35, 124-129. <a href="http://is.ba.ttu.edu/conover/Dr.Conover.htm" class="external autonumber" title="http://is.ba.ttu.edu/conover/Dr.Conover.htm" rel="nofollow">[1]</a> <a href="http://citeseer.ist.psu.edu/context/1743341/0" class="external autonumber" title="http://citeseer.ist.psu.edu/context/1743341/0" rel="nofollow">[2]</a></li>
+</ul>
+<ul>
+<li>Helsel, D.R. and R. M. Hirsch, 2002. Statistical Methods in Water Resources: Techniques of Water Resourses Investigations, Book 4, chapter A3. U.S. Geological Survey. 522 pages.<a href="http://pubs.water.usgs.gov/twri4a3" class="external autonumber" title="http://pubs.water.usgs.gov/twri4a3" rel="nofollow">[3]</a></li>
+</ul>
+<ul>
+<li>Seaman, J. W., Walls, S. C., Wide, S.E. and Jaeger, R.G.(1994) Caveat emptor: rank transform methods and interactions. Trends Ecol. Evol. 9, 261-263.</li>
+</ul>
+<p><a name="Examples" id="Examples"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: Examples">edit</a>]</span> <span class="mw-headline">Examples</span></h2>
+<p>Group A is given vodka, Group B is given gin, and Group C is given a <a href="../../../p/l/a/Placebo.html" title="Placebo">placebo</a>. All groups are then tested with a memory task. A <b>one-way ANOVA</b> can be used to assess the effect of the various treatments (that is, the vodka, gin, and placebo).</p>
+<p>Group A is given vodka and tested on a memory task. The same group is allowed a rest period of five days and then the experiment is repeated with gin. The procedure is repeated using a <a href="../../../p/l/a/Placebo.html" title="Placebo">placebo</a>. A <b>one-way ANOVA with repeated measures</b> can be used to assess the effect of the vodka versus the impact of the placebo.</p>
+<p>In an experiment testing the effects of expectations, subjects are randomly assigned to four groups:</p>
+<ol>
+<li>expect vodka-receive vodka</li>
+<li>expect vodka-receive <a href="../../../p/l/a/Placebo.html" title="Placebo">placebo</a></li>
+<li>expect placebo-receive vodka</li>
+<li>expect placebo-receive placebo (the last group is used as the <a href="../../../c/o/n/Control_group.html" title="Control group">control group</a>)</li>
+</ol>
+<p>Each group is then tested on a memory task. The advantage of this design is that multiple variables can be tested at the same time instead of running two different experiments. Also, the experiment can determine whether one variable affects the other variable (known as interaction effects). A <b>factorial ANOVA (2×2)</b> can be used to assess the effect of expecting vodka or the placebo and the actual reception of either.</p>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../a/n/c/ANCOVA_894e.html" title="ANCOVA">ANCOVA</a></li>
+<li><a href="../../../a/n/o/ANORVA_fb46.html" title="ANORVA">ANORVA</a></li>
+<li><a href="../../../d/u/n/Duncan%27s_new_multiple_range_test.html" title="Duncan's new multiple range test">Duncan's new multiple range test</a></li>
+<li><a href="../../../e/x/p/Explained_variance.html" title="Explained variance">explained variance</a> and <a href="../../../u/n/e/Unexplained_variance.html" title="Unexplained variance">unexplained variance</a></li>
+<li><a href="../../../l/i/s/List_of_publications_in_statistics.html#Analysis_of_variance" title="List of publications in statistics">Important publications in analysis of variance</a></li>
+<li><a href="../../../m/a/n/MANOVA_065f.html" title="MANOVA">MANOVA</a></li>
+<li><a href="../../../m/e/a/Measurement_uncertainty.html" title="Measurement uncertainty">Measurement uncertainty</a></li>
+<li><a href="../../../s/q/u/Squared_deviations.html" title="Squared deviations">Squared deviations</a></li>
+<li><a href="../../../m/u/l/Multiple_comparisons.html" title="Multiple comparisons">Multiple comparisons</a></li>
+<li><a href="../../../t/-/t/T-test.html" title="T-test">T-test</a></li>
+<li><a href="../../../k/r/u/Kruskal-Wallis_test_a124.html" title="Kruskal-Wallis test">Kruskal-Wallis test</a></li>
+<li><a href="../../../f/r/i/Friedman_test.html" title="Friedman test">Friedman test</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>Ferguson, George A., Takane, Yoshio. (2005). "Statistical Analysis in Psychology and Eduction", Sixth Edition. Montréal, Quebec: McGraw-Hill Ryerson Limited.</li>
+<li>King, Bruce M., Minium, Edward W. (2003). <i>Statistical Reasoning in Psychology and Education</i>, Fourth Edition. Hoboken, New Jersey: John Wiley &amp; Sons, Inc. <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-471-21187-7</a></li>
+<li>Lindman, H. R. (1974). Analysis of variance in complex experimental designs. San Francisco: W. H. Freeman &amp; Co.</li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/n/a/Analysis_of_variance.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li><a href="http://www.giacomo.lorenzoni.name/arganprobstat/" class="external text" title="http://www.giacomo.lorenzoni.name/arganprobstat/" rel="nofollow">Analytical argumentations of probability and statistics</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/n/a/Analysis_of_variance.html">http://en.wikipedia.org../../../a/n/a/Analysis_of_variance.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/n/a/Category%7EAnalysis_of_variance_5e75.html" title="Category:Analysis of variance">Analysis of variance</a></span> | <span dir='ltr'><a href="../../../s/t/a/Category%7EStatistical_tests_61dd.html" title="Category:Statistical tests">Statistical tests</a></span> | <span dir='ltr'><a href="../../../p/a/r/Category%7EParametric_statistics_db17.html" title="Category:Parametric statistics">Parametric statistics</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/n/a/Analysis_of_variance.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/n/a/Talk%7EAnalysis_of_variance_87d8.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Analysis_of_variance">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/v/a/r/Varianzanalyse.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/a/n/%C3%A1/An%C3%A1lisis_de_varianza.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/n/a/Analyse_de_la_variance.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../gl/a/n/%C3%A1/An%C3%A1lise_da_varianza.html">Galego</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/a/n/a/Analisi_della_varianza.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../nl/v/a/r/Variantie-analyse.html">Nederlands</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E5%88%86/%E6%95%A3/%E5%88%86/%E5%88%86%E6%95%A3%E5%88%86%E6%9E%90.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../lv/d/i/s/Dispersiju_anal%C4%ABze.html">Latviešu</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/n/a/Analiza_wariancji.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sl/a/n/a/Analiza_variance.html">Slovenščina</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../su/a/n/a/Analisis_varian.html">Basa Sunda</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E8%AE%8A/%E7%95%B0/%E6%95%B8/%E8%AE%8A%E7%95%B0%E6%95%B8%E5%88%86%E6%9E%90.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 20:10, 4 April 2007 by Wikipedia user <a href="../../../b/a/c/User%7EBaccyak4H_9457.html" title="User:Baccyak4H">Baccyak4H</a>. Based on work by Wikipedia user(s) <a href="../../../t/h/e/User%7EThe_Placebo_Effect_8620.html" title="User:The Placebo Effect">The Placebo Effect</a>, <a href="../../../o/r/i/User%7EOrin%5Esoren_483f.html" title="User:Orin^soren">Orin^soren</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, GroverTheGnome, Nevillerichards, <a href="../../../g/i/d/User%7EGideon.fell_900f.html" title="User:Gideon.fell">Gideon.fell</a>, <a href="../../../c/h/r/User%7EChris53516_b595.html" title="User:Chris53516">Chris53516</a>, <a href="../../../p/h/2E/User%7EPh.eyes_64a7.html" title="User:Ph.eyes">Ph.eyes</a>, Gloridrith, <a href="../../../c/m/u/User%7ECMummert_c108.html" title="User:CMummert">CMummert</a>, <a href="../../../c/m/d/User%7ECmdrObot_0605.html" title="User:CmdrObot">CmdrObot</a>, <a href="../../../y/y/y/User%7EYyy_3508.html" title="User:Yyy">Yyy</a>, <a href="../../../p/i/o/User%7EPiotrus_27db.html" title="User:Piotrus">Piotrus</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../a/p/p/User%7EAppleJuggler_4dc6.html" title="User:AppleJuggler">AppleJuggler</a>, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../e/y/k/User%7EEykanal_92ae.html" title="User:Eykanal">Eykanal</a>, Tlesher, <a href="../../../s/a/l/User%7ESalix_alba_9f89.html" title="User:Salix alba">Salix alba</a>, Goskan, <a href="../../../a/b/s/User%7EAbsolutDan_8213.html" title="User:AbsolutDan">AbsolutDan</a>, Glen netherwood, <a href="../../../t/r/a/User%7ETravelbird_9a21.html" title="User:Travelbird">Travelbird</a>, <a href="../../../g/l/o/User%7EGloucks_b013.html" title="User:Gloucks">Gloucks</a>, <a href="../../../t/o/m/User%7ETom_harrison_ffb8.html" title="User:Tom harrison">Tom harrison</a>, Hillel.t, <a href="../../../s/u/s/User%7ESusko_89f4.html" title="User:Susko">Susko</a>, <a href="../../../t/e/d/User%7ETedE_dbe1.html" title="User:TedE">TedE</a>, <a href="../../../g/r/o/User%7EGrover_cleveland_cc48.html" title="User:Grover cleveland">Grover cleveland</a>, <a href="../../../b/u/d/User%7EBuddhaBubba_1b70.html" title="User:BuddhaBubba">BuddhaBubba</a>, <a href="../../../r/e/m/User%7ERemi_Arntzen_d8e3.html" title="User:Remi Arntzen">Remi Arntzen</a>, <a href="../../../n/o/v/User%7ENovasource_f69a.html" title="User:Novasource">Novasource</a>, <a href="../../../s/c/h/User%7ESchwnj_4db6.html" title="User:Schwnj">Schwnj</a>, <a href="../../../c/h/l/User%7EChlewbot_ac63.html" title="User:Chlewbot">Chlewbot</a>, <a href="../../../i/x/f/User%7EIxfd64_14d3.html" title="User:Ixfd64">Ixfd64</a>, Dilipkumar7, <a href="../../../e/x/l/User%7EExlibris_bbef.html" title="User:Exlibris">Exlibris</a>, <a href="../../../j/i/t/User%7EJitse_Niesen_c0c4.html" title="User:Jitse Niesen">Jitse Niesen</a>, <a href="../../../r/o/c/User%7ERocastelo_9595.html" title="User:Rocastelo">Rocastelo</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../k/l/o/User%7EKlonimus_90cc.html" title="User:Klonimus">Klonimus</a>, <a href="../../../r/o/b/User%7ERobotE_6394.html" title="User:RobotE">RobotE</a>, <a href="../../../w/i/k/User%7EWikid_af46.html" title="User:Wikid">Wikid</a>, <a href="../../../d/u/n/User%7EDuncharris_e9cb.html" title="User:Duncharris">Duncharris</a>, <a href="../../../b/r/i/User%7EBrighterorange_f618.html" title="User:Brighterorange">Brighterorange</a>, <a href="../../../j/o/s/User%7EJosephBarillari_83cd.html" title="User:JosephBarillari">JosephBarillari</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../k/l/e/User%7EKlemen_Kocjancic_cbed.html" title="User:Klemen Kocjancic">Klemen Kocjancic</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../h/a/d/User%7EHadal_a4d0.html" title="User:Hadal">Hadal</a>, <a href="../../../l/e/x/User%7ELexor_1be7.html" title="User:Lexor">Lexor</a>, <a href="../../../a/p/h/User%7EAPH_6b7e.html" title="User:APH">APH</a>, <a href="../../../s/l/o/User%7ESlowking_Man_5da9.html" title="User:Slowking Man">Slowking Man</a>, <a href="../../../h/e/n/User%7EHenrygb_9b92.html" title="User:Henrygb">Henrygb</a>, <a href="../../../s/e/g/User%7ESeglea_8627.html" title="User:Seglea">Seglea</a>, <a href="../../../d/y/s/User%7EDysprosia_bc6d.html" title="User:Dysprosia">Dysprosia</a>, <a href="../../../w/i/k/User%7EWikibot_9002.html" title="User:Wikibot">Wikibot</a>, <a href="../../../t/o/m/User%7ETomi_592d.html" title="User:Tomi">Tomi</a>, <a href="../../../a/p/_/User%7EAp_24b6.html" title="User:Ap">Ap</a> and <a href="../../../w/e/s/User%7EWesley_19bf.html" title="User:Wesley">Wesley</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

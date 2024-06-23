@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Approximation theory,Approximation,Approximation error,Approximation theory/proofs,Characterization (mathematics),Chebyshev polynomials,Clenshaw-Curtis quadrature,Computer,Floating point,Function (mathematics),Harmonic analysis" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Approximation theory - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Approximation theory</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p>In <a href="../../../m/a/t/Mathematics.html" title="Mathematics">mathematics</a>, <b>approximation theory</b> is concerned with how <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">functions</a> can best be <a href="../../../a/p/p/Approximation.html" title="Approximation">approximated</a> with simpler <a href="../../../f/u/n/Function_%28mathematics%29.html" title="Function (mathematics)">functions</a>, and with <a href="../../../q/u/a/Quantitative.html" title="Quantitative">quantitatively</a> <a href="../../../c/h/a/Characterization_%28mathematics%29.html" title="Characterization (mathematics)">characterising</a> the <a href="../../../a/p/p/Approximation_error.html" title="Approximation error">errors</a> introduced thereby. Note that what is meant by <i>best</i> and <i>simpler</i> will depend on the application.</p>
+<p>One problem of particular interest is that of approximating a function in a <a href="../../../c/o/m/Computer.html" title="Computer">computer</a> mathematical library, using operations that can be performed on the computer or calculator (e.g. addition and multiplication), such that the result is as close to the actual function as possible. This is typically done with <a href="../../../p/o/l/Polynomial.html" title="Polynomial">polynomial</a> or <a href="../../../r/a/t/Rational_function.html" title="Rational function">rational</a> (ratio of polynomials) approximations.</p>
+<p>The objective is to make the approximation as close as possible to the actual function, typically with an accuracy close to that of the underlying computer's <a href="../../../f/l/o/Floating_point.html" title="Floating point">floating point</a> arithmetic. This is accomplished by using a polynomial of high degree, and/or narrowing the domain over which the polynomial has to approximate the function. Narrowing the domain can often be done though the use of various addition or scaling formulas for the function being approximated. Modern mathematical libraries often reduce the domain into many tiny segments and use a low-degree polynomial for each segment.</p>
+<p>Once the domain and degree of the polynomial are chosen, the polynomial itself is chosen in such a way as to minimize the worst-case error. That is, the goal is to minimize the maximum value of <img class='tex' src="../../../math/5/9/4/5949217b5715c1a7bb7aa4f361efe95c.png" alt="\mid P(x)-f(x)\mid" />, where P(x) is the approximating polynomial and f(x) is the actual function. For well-behaved functions, the optimum N<sup>th</sup> degree polynomial will lead to an error curve that oscillates back and forth between <span class="texhtml">+ ε</span> and <span class="texhtml">− ε</span> a total of N+2 times, giving a worst-case error of <span class="texhtml">ε</span>. (It is possible to make contrived functions f(x) for which this property doesn't hold, but in practice it's generally true.) Example graphs, for N=4, showing the error in approximating log(x) and exp(x), are shown below.</p>
+<div class="thumb tleft">
+<div class="thumbinner" style="width:203px;"><a href="../../../l/o/g/Image%7ELogerror.png_2598.html" class="internal" title="Error between optimal polynomial and log(x) (red), and Chebyshev approximation and log(x) (blue) over the interval [2, 4].  Vertical divisions are 10-5.  Maximum error for the optimal polynomial is 6.07 x 10-5"><img src="../../../upload/9/9f/Logerror.png" alt="Error between optimal polynomial and log(x) (red), and Chebyshev approximation and log(x) (blue) over the interval [2, 4].  Vertical divisions are 10-5.  Maximum error for the optimal polynomial is 6.07 x 10-5" width="201" height="201" longdesc="../../../l/o/g/Image%7ELogerror.png_2598.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../l/o/g/Image%7ELogerror.png_2598.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Error between optimal polynomial and log(x) (red), and Chebyshev approximation and log(x) (blue) over the interval [2, 4]. Vertical divisions are 10<sup>-5</sup>. Maximum error for the optimal polynomial is 6.07 x 10<sup>-5</sup></div>
+</div>
+</div>
+<div class="center">
+<div class="thumb tnone">
+<div class="thumbinner" style="width:203px;"><a href="../../../e/x/p/Image%7EExperror.png_08e0.html" class="internal" title="Error between optimal polynomial and exp(x) (red), and Chebyshev approximation and exp(x) (blue) over the interval [-1, 1].  Vertical divisions are 10-4.  Maximum error for the optimal polynomial is 5.47 x 10-4"><img src="../../../upload/a/af/Experror.png" alt="Error between optimal polynomial and exp(x) (red), and Chebyshev approximation and exp(x) (blue) over the interval [-1, 1].  Vertical divisions are 10-4.  Maximum error for the optimal polynomial is 5.47 x 10-4" width="201" height="201" longdesc="../../../e/x/p/Image%7EExperror.png_08e0.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../e/x/p/Image%7EExperror.png_08e0.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Error between optimal polynomial and exp(x) (red), and Chebyshev approximation and exp(x) (blue) over the interval [-1, 1]. Vertical divisions are 10<sup>-4</sup>. Maximum error for the optimal polynomial is 5.47 x 10<sup>-4</sup></div>
+</div>
+</div>
+</div>
+<p>Note that, in each case, the number of maxima is N+2, that is, 6. Two of the maxima are at the end points. The red curves, for the optimal polynomial, are <b>level</b>, that is, they oscillate between <span class="texhtml">+ ε</span> and <span class="texhtml">− ε</span> exactly.</p>
+<p>If an N<sup>th</sup> degree polynomial leads to an error function that oscillates between maxima at <span class="texhtml">+ ε</span> and <span class="texhtml">− ε</span> N+2 times, that polynomial is optimal. <a href="../../../a/p/p/Approximation_theory_proofs_e6e0.html" title="Approximation theory/proofs">(proof)</a></p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Chebyshev_approximation"><span class="tocnumber">1</span> <span class="toctext">Chebyshev approximation</span></a></li>
+<li class="toclevel-1"><a href="#Remez.27_algorithm"><span class="tocnumber">2</span> <span class="toctext">Remez' algorithm</span></a></li>
+<li class="toclevel-1"><a href="#Main_journals"><span class="tocnumber">3</span> <span class="toctext">Main journals</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">4</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#Links"><span class="tocnumber">5</span> <span class="toctext">Links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">6</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Chebyshev_approximation" id="Chebyshev_approximation"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Approximation_theory.html" title="Edit section: Chebyshev approximation">edit</a>]</span> <span class="mw-headline">Chebyshev approximation</span></h2>
+<p>One can obtain polynomials very close to the optimal one by expanding the given function in terms of <a href="../../../c/h/e/Chebyshev_polynomials.html" title="Chebyshev polynomials">Chebyshev polynomials</a> and then cutting off the expansion at the desired degree. This is similar to the <a href="../../../h/a/r/Harmonic_analysis.html" title="Harmonic analysis">Fourier analysis</a> of the function, using the Chebyshev polynomials instead of the usual trigonometric functions.</p>
+<p>If one calculates the coefficients in the Chebyshev expansion for a function:</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/3/4/63428fc231bfb60c421cd8e0d32be747.png" alt="f(x) \sim \sum_{i=0}^\infty c_i T_i(x)" /></dd>
+</dl>
+<p>and then cuts off the series after the <span class="texhtml"><i>T</i><sub><i>n</i></sub></span> term, one gets an N<sup>th</sup> degree polynomial approximating f(x).</p>
+<p>The reason this polynomial is nearly optimal is that, for functions with rapidly converging power series, if the series is cut off after some term, the total error arising from the cutoff is close to the first term after the cutoff. That is, the first term after the cutoff dominates all later terms. The same is true if the expansion is in terms of Chebyshev polynomials. If a Chebyshev expansion is cut off after <span class="texhtml"><i>T</i><sub><i>n</i></sub></span>, the error will take a form close to a multiple of <span class="texhtml"><i>T</i><sub><i>n</i> + 1</sub></span>. The Chebyshev polynomials have the property that they are level — they oscillate between +1 and -1 in the interval [-1, 1]. <span class="texhtml"><i>T</i><sub><i>n</i> + 1</sub></span> has N+2 level maxima. This means that the error between f(x) and its Chebyshev expansion out to <span class="texhtml"><i>T</i><sub><i>n</i></sub></span> is close to a level function with N+2 maxima, so it is close to the optimal N<sup>th</sup> degree polynomial.</p>
+<p>In the graphs above, note that the blue error function is sometimes better than (inside of) the red function, but sometimes worse, meaning that it is not quite the optimal polynomial. Note also that the discrepancy is relatively less serious for the exp function, which has an extremely rapidly converging power series, than for the log function.</p>
+<p>Chebyshev approximation is the basis for <a href="../../../c/l/e/Clenshaw-Curtis_quadrature_2184.html" title="Clenshaw-Curtis quadrature">Clenshaw-Curtis quadrature</a>, a <a href="../../../n/u/m/Numerical_integration.html" title="Numerical integration">numerical integration</a> technique.</p>
+<p><a name="Remez.27_algorithm" id="Remez.27_algorithm"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Approximation_theory.html" title="Edit section: Remez' algorithm">edit</a>]</span> <span class="mw-headline">Remez' algorithm</span></h2>
+<p>The <a href="../../../r/e/m/Remez_algorithm.html" title="Remez algorithm">Remez algorithm</a> (sometimes spelled Remes) is used to produce an optimal polynomial P(x) approximating a given function f(x) over a given interval. It is an iterative algorithm that converges to a polynomial that has an error function with N+2 level extrema. By the theorem above, that polynomial is optimal.</p>
+<p>Remez' algorithm uses the fact that one can construct an N<sup>th</sup> degree polynomial that leads to level and alternating error values, given N+2 test points.</p>
+<p>Given N+2 test points <span class="texhtml"><i>x</i><sub>1</sub></span>, <span class="texhtml"><i>x</i><sub>2</sub></span> ... <span class="texhtml"><i>x</i><sub><i>n</i> + 2</sub></span> (where <span class="texhtml"><i>x</i><sub>1</sub></span> and <span class="texhtml"><i>x</i><sub><i>n</i> + 2</sub></span> are presumably the end points of the interval of approximation), these equations need to be solved:</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/b/7/0b7e314d5aca16eb0ea7bb58dba1c47a.png" alt="P(x_1) - f(x_1) = + \epsilon\," /></dd>
+<dd><img class='tex' src="../../../math/8/d/6/8d686d7047d45ec6c64ee40d45313b55.png" alt="P(x_2) - f(x_2) = - \epsilon\," /></dd>
+<dd><img class='tex' src="../../../math/6/5/7/657ab6a93d4f6814a3b9404145158db8.png" alt="P(x_3) - f(x_3) = + \epsilon\," /></dd>
+<dd><img class='tex' src="../../../math/7/0/e/70e4c7b983e3bc5849c2cfd6af4a431e.png" alt="\vdots" /></dd>
+<dd><img class='tex' src="../../../math/f/5/c/f5cbcd27265de1c0fbae6330b6e8b52e.png" alt="P(x_{n+2}) - f(x_{n+2}) = \pm \epsilon\," /></dd>
+</dl>
+<p>The right-hand-sides alternate in sign.</p>
+<p>That is,</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/7/1/1710d5e06e6b817d68e97f143846f475.png" alt="P_0 + P_1 x_1 + P_2 x_1^2 + P_3 x_1^3 ... P_n x_1^n - f(x_1) = + \epsilon\," /></dd>
+<dd><img class='tex' src="../../../math/b/8/2/b82cc8c0d60555384895680df2628dfe.png" alt="P_0 + P_1 x_2 + P_2 x_2^2 + P_3 x_2^3 ... P_n x_2^n - f(x_2) = - \epsilon\," /></dd>
+<dd><img class='tex' src="../../../math/7/0/e/70e4c7b983e3bc5849c2cfd6af4a431e.png" alt="\vdots" /></dd>
+</dl>
+<p>Since <span class="texhtml"><i>x</i><sub>1</sub></span> ... <span class="texhtml"><i>x</i><sub><i>n</i> + 2</sub></span> were given, all of their powers are known, and <span class="texhtml"><i>f</i>(<i>x</i><sub>1</sub>)</span> ... <span class="texhtml"><i>f</i>(<i>x</i><sub><i>n</i> + 2</sub>)</span> are also known. That means that the above equations are just n+2 linear equations in the n+2 variables <span class="texhtml"><i>P</i><sub>0</sub></span>, <span class="texhtml"><i>P</i><sub>1</sub></span> ... <span class="texhtml"><i>P</i><sub><i>n</i></sub></span>, and <span class="texhtml">ε</span>. Given the test points <span class="texhtml"><i>x</i><sub>1</sub></span> ... <span class="texhtml"><i>x</i><sub><i>n</i> + 2</sub></span>, one can solve this system to get the polynomial P and the number <span class="texhtml">ε</span>.</p>
+<p>The graph below shows an example of this, producing a 4<sup>th</sup> degree polynomial approximating <span class="texhtml"><i>e</i><sup><i>x</i></sup></span> over [-1, 1]. The test points were set at -1, -0.7, -0.1, +0.4, +0.9, and 1. Those values are shown in green. The resultant value of <span class="texhtml">ε</span> is 4.43 x 10<sup>-4</sup></p>
+<div class="center">
+<div class="thumb tnone">
+<div class="thumbinner" style="width:203px;"><a href="../../../r/e/m/Image%7ERemesdemo.png_a4ad.html" class="internal" title="Error of the polynomial produced by the first step of Remez' algorithm, approximating ex over the interval [-1, 1].  Vertical divisions are 10-4."><img src="../../../upload/5/57/Remesdemo.png" alt="Error of the polynomial produced by the first step of Remez' algorithm, approximating ex over the interval [-1, 1].  Vertical divisions are 10-4." width="201" height="201" longdesc="../../../r/e/m/Image%7ERemesdemo.png_a4ad.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../r/e/m/Image%7ERemesdemo.png_a4ad.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+Error of the polynomial produced by the first step of Remez' algorithm, approximating e<sup>x</sup> over the interval [-1, 1]. Vertical divisions are 10<sup>-4</sup>.</div>
+</div>
+</div>
+</div>
+<p>Note that the error graph does indeed take on the values <img class='tex' src="../../../math/3/c/5/3c5143c4d83b69399ff325fe4b9b74b3.png" alt="\pm \epsilon" /> at the 6 test points, including the end points, but that those points are not extrema. If the 4 interior test points had been extrema (that is, the function P(x)-f(x) had maxima or minima there), the polynomial would be optimal.</p>
+<p>The second step of Remez' algorithm consists of moving the test points to the approximate locations where the error function had its actual local minima or maxima. For example, one can tell from looking at the graph that the point at -0.1 should have been at about -0.28. The way to do this in the algorithm is to use a single round of <a href="../../../n/e/w/Newton%27s_method.html" title="Newton's method">Newton's method</a>. Since one knows the first and second derivatives of P(x)-f(x), one can calculate approximately how far a test point has to be moved so that the derivative will be zero.</p>
+<dl>
+<dd>Calculating the derivatives of a polynomial is straightforward. One must also be able to calculate the first and second derivatives of f(x). Remez' algorithm requires an ability to calculate <img class='tex' src="../../../math/5/5/0/550f51512f9bb16a0f613ae65e1d3088.png" alt="f(x)\," />, <img class='tex' src="../../../math/b/2/b/b2bf76697fa80b174e04943d1777bcf6.png" alt="f'(x)\," />, and <img class='tex' src="../../../math/b/f/8/bf8672798ff24f4d8a9e1c7bc41a04f0.png" alt="f''(x)\," /> to extremely high precision. The entire algorithm must be carried out to higher precision than the desired precision of the result.</dd>
+</dl>
+<p>After moving the test points, the linear equation part is repeated, getting a new polynomial, and Newton's method is used again to move the test points again. This sequence is continued until the result converges to the desired accuracy. The algorithm converges very rapidly. Convergence is quadratic for well-behaved functions—if the test points are within <span class="texhtml">10 <sup>− 15</sup></span> of the correct result, they will be approximately within <span class="texhtml">10 <sup>− 30</sup></span> of the correct result after the next round.</p>
+<p>Remez' algorithm is typically started by choosing the maxima of the Chebyshev polynomial <span class="texhtml"><i>T</i><sub><i>n</i></sub></span> as the initial points, since the final error function will be similar to that polynomial.</p>
+<p><a name="Main_journals" id="Main_journals"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Approximation_theory.html" title="Edit section: Main journals">edit</a>]</span> <span class="mw-headline">Main journals</span></h2>
+<ul>
+<li>Journal on Approximation Theory (English language, abbr. JAT)</li>
+<li>Constructive Approximation</li>
+<li>East Journal on Approximation (English and Russian languges)</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Approximation_theory.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../c/h/e/Chebyshev_polynomials.html" title="Chebyshev polynomials">Chebyshev polynomials</a></li>
+</ul>
+<p><a name="Links" id="Links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Approximation_theory.html" title="Edit section: Links">edit</a>]</span> <span class="mw-headline">Links</span></h2>
+<ul>
+<li>[<a href="http://www.math.technion.ac.il/hat/" class="external text" title="http://www.math.technion.ac.il/hat/" rel="nofollow">History of Approximation Theory (HAT)</a>]</li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/p/p/Approximation_theory.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ul>
+<li>N.I.Achiezer (Akhiezer), Theory of approximation, Translated by Charles J. Hyman Frederick Ungar Publishing Co., New York 1956 x+307 pp.</li>
+</ul>
+<ul>
+<li>C. Hastings, Jr. <i>Approximations for Digital Computers,</i> Princeton University Press, 1955.</li>
+</ul>
+<ul>
+<li>J. F. Hart, E. W. Cheney, C. L. Lawson, H. J. Maehly, C. K. Mesztenyi, J. R. Rice, H. C. Thacher Jr., C. Witzgall <i>Computer Approximations,</i> Wiley, 1968, Lib. Cong. 67-23326.</li>
+</ul>
+<ul>
+<li>W. J. Cody Jr., W. Waite <i>Software Manual for the Elementary Functions,</i> Prentice-Hall, 1980, <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-13-822064-6</a>.</li>
+</ul>
+<ul>
+<li>E. Remes [Remez] <i>Sur le calcul effectif des polynomes d'approximation de Tschebyscheff</i> 1934 C. R. Acad. Sci., Paris, <b>199</b>, 337-340,</li>
+</ul>
+<ul>
+<li>K.-G. Steffens <i>The History of Approximation Theory: From Euler to Bernstein</i> Birkhauser, Boston 2006 <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0817643532</a></li>
+</ul>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/p/p/Approximation_theory.html">http://en.wikipedia.org../../../a/p/p/Approximation_theory.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../a/p/p/Category%7EApproximation_theory_91c4.html" title="Category:Approximation theory">Approximation theory</a></span> | <span dir='ltr'><a href="../../../n/u/m/Category%7ENumerical_analysis_3516.html" title="Category:Numerical analysis">Numerical analysis</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/p/p/Approximation_theory.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/p/p/Talk%7EApproximation_theory_aa10.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Approximation_theory">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../es/t/e/o/Teor%C3%ADa_de_la_aproximaci%C3%B3n.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/t/h/%C3%A9/Th%C3%A9orie_de_l%27approximation.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../he/%D7%AA/%D7%95/%D7%A8/%D7%AA%D7%95%D7%A8%D7%AA_%D7%94%D7%A7%D7%99%D7%A8%D7%95%D7%91%D7%99%D7%9D.html">עברית</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D1%82/%D0%B5/%D0%BE/%D0%A2%D0%B5%D0%BE%D1%80%D0%B8%D1%8F_%D0%BF%D1%80%D0%B8%D0%B1%D0%BB%D0%B8%D0%B6%D0%B5%D0%BD%D0%B8%D0%B9.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../vi/l/%C3%BD/_/L%C3%BD_thuy%E1%BA%BFt_x%E1%BA%A5p_x%E1%BB%89.html">Tiếng Việt</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:59, 13 March 2007 by Wikipedia user <a href="../../../a/b/u/User%7EAbu_ali_1028.html" title="User:Abu ali">Abu ali</a>. Based on work by Wikipedia user(s) Mir76, Sodin, <a href="../../../t/h/i/User%7EThijs%21bot_bdf4.html" title="User:Thijs!bot">Thijs!bot</a>, <a href="../../../w/i/l/User%7EWilliam_Ackerman_4e78.html" title="User:William Ackerman">William Ackerman</a>, <a href="../../../s/t/e/User%7EStevenj_40e5.html" title="User:Stevenj">Stevenj</a>, <a href="../../../e/k/o/User%7EEkotkie_083c.html" title="User:Ekotkie">Ekotkie</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../b/o/b/User%7EBobblehead_bff2.html" title="User:Bobblehead">Bobblehead</a>, <a href="../../../j/j/l/User%7EJJL_7200.html" title="User:JJL">JJL</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../p/i/e/User%7EPiet_Delport_08f7.html" title="User:Piet Delport">Piet Delport</a>, <a href="../../../u/n/y/User%7EUnyoyega_ed0f.html" title="User:Unyoyega">Unyoyega</a>, <a href="../../../d/h/n/User%7EDHN_4cb4.html" title="User:DHN">DHN</a>, <a href="../../../l/i/n/User%7ELinas_c62b.html" title="User:Linas">Linas</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a> and <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

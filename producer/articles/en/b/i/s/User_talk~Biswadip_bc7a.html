@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="User talk:Biswadip" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>User talk:Biswadip - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-3">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">User talk:Biswadip</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <p><a name="Introduction_to_JSP_Standard_Template_Library_.28JSTL.29" id="Introduction_to_JSP_Standard_Template_Library_.28JSTL.29"></a></p>
+<h2><span class="editsection">[<a href="../../../b/i/s/User_talk%7EBiswadip_bc7a.html" title="Edit section: Introduction to JSP Standard Template Library (JSTL)">edit</a>]</span> <span class="mw-headline">Introduction to JSP Standard Template Library (JSTL)</span></h2>
+<p><br />
+<b>Introduction</b><br />
+The JSP Standard Template Library (JSTL) is a very new component released by Sun for JSP programming. JSTL allows you to program your JSP pages using tags, rather than the scriptlet code that most JSP programmers are already accustomed to. JSTL can do nearly everything that regular JSP scriptlet code can do. You may be wondering why we need yet another HTML generation programming language.<br />
+<br />
+JSTL was introduced was to allow JSP programmers to program using tags rather than Java code. To show why this is preferable, a quick example is in order. We will examine a very simple JSP page that counts to ten. We will examine this page both as regular scriptlet-based JSP, and then as JSTL. When the count to ten example is programmed using scriptlet based JSP, the JSP page appears as follows.<br />
+<br />
+&lt;html&gt;<br />
+&lt;head&gt;<br />
+&lt;title&gt;Count to 10 in JSP scriptlet&lt;/title&gt;<br />
+&lt;/head&gt;<br />
+&lt;body&gt;<br />
+&lt;%<br />
+for(int i=1;i&lt;=10;i++)<br />
+{%&gt;<br />
+&lt;%=i%&gt;&lt;br/&gt;<br />
+&lt;%<br />
+}<br />
+%&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;<br />
+<br />
+<br />
+As you can see from the preceding example, using scriptlet code produces page source code the contains a mix of HTML tags and Java statements. There are several reasons why this mixing of programming styles is not optimal.<br />
+<br />
+The primary reason that it is not optimal to mix scriptlet and tag-based code is readability. This readability apples both to humans and computers. JSTL allows the human programmer to look at a program that consists entirely of HTML and HTML-like tags.<br />
+<br />
+The readability of JSP scriptlet code does not just apply to human beings. The mixing of scriptlet and HTML code is also hard for computers to read. This is particularly true of HTML authoring tools such as Someone's Dreamweaver and Microsoft FrontPage. Currently, most HTML authoring tools will segregate JSP scriptlet code as non-editable blocks. The HTML authoring tools usually do not modify the JSP scriptlet code directly.<br />
+<br />
+The following code shows how the count to ten example would be written using JSTL. As you can see, this code listing is much more constant, as only tags are used. HTML and JSTL tags are mixed to produce the example.<br />
+<br />
+&lt;%@ taglib uri="<a href="http://java.sun.com/jstl/core" class="external free" title="http://java.sun.com/jstl/core" rel="nofollow">http://java.sun.com/jstl/core</a>" prefix="c"&gt;<br />
+&lt;html&gt;<br />
+&lt;head&gt;<br />
+&lt;title&gt;Count to 10 Example (using JSTL)&lt;/title&gt;<br />
+&lt;/head&gt;<br />
+<br />
+&lt;body&gt;<br />
+&lt;c:forEach var="i" begin="1" end="10" step="1"&gt;<br />
+&lt;c:out value="${i}" /&gt;<br />
+<br />
+&lt;br /&gt;<br />
+&lt;/c:forEach&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;<br />
+<br />
+When you examine the preceding source code, you can see that the JSP page consists entirely of tags. The above code makes use of HTML tags such &lt;head&gt; and &lt;br&gt;. The use of tags is not confined just to HTML tags. This code also makes use of JSTL tags such as &lt;c:forEach&gt; and &lt;c:out&gt;. In this article you will be introduced to some of the basics of JSTL.<br />
+<br />
+<br />
+<b>Installing JSTL</b><br />
+To use JSTL, you must have a JSP 1.2 (or higher) container installed. One of the most commonly used JSP containers is the Apache Tomcat Web server. You can obtain a copy of Tomcat from <a href="http://jakarta.apache.org/tomcat/" class="external free" title="http://jakarta.apache.org/tomcat/" rel="nofollow">http://jakarta.apache.org/tomcat/</a>. Using Tomcat alone will allow you to use regular JSP scriptlet code. To use JSTL, you must install JSTL into Tomcat. JSTL can be obtained from the same source as Tomcat. The main URL for JSTL is <a href="http://java.sun.com/products/jsp/jstl/" class="external free" title="http://java.sun.com/products/jsp/jstl/" rel="nofollow">http://java.sun.com/products/jsp/jstl/</a>. To use JSTL, you must unzip the distribution files and install them into the correct locations within Tomcat.<br />
+<br />
+To properly install JSTL for use with Tomcat, follow these three steps:<br />
+<br />
+<b>1. Copy the JSTL JAR files to Tomcat's lib directory.</b><br />
+If you are using Windows, the likely location of your lib directory is C:\Program Files\Apache Tomcat 4.0\webapps\ROOT\WEB-INF\lib. There are a number of JAR files included with the JSTL release. You should copy each of these JAR files to the Tomcat JAR directory.<br />
+<br />
+<br />
+<b>2. Copy the JSTL TLD files to Tomcat's web-inf directory.</b><br />
+The web-inf directory is likely at this location: C:\Program Files\Apache Tomcat 4.0\webapps\ROOT\WEB-INF. If you examine the JSTL distribution files, you should notice eight files that end with the TLD extension. All eight files should be copied to your web-inf directory.<br />
+<br />
+<br />
+<b>3. Modify the web.xml file to include the TLD files.</b><br />
+Finally, you must modify your web.xml, and add an entry for all eight of the tag libraries that you added. This consists of adding &lt;taglib&gt; directives inside the main &lt;web-app&gt; directive. The entries you should add are listed here.<br />
+<br />
+<br />
+&lt;taglib&gt;<br />
+&lt;taglib-uri&gt;<a href="http://java.sun.com/jstl/fmt" class="external free" title="http://java.sun.com/jstl/fmt" rel="nofollow">http://java.sun.com/jstl/fmt</a>&lt;/taglib-uri&gt;<br />
+&lt;taglib-location&gt;/WEB-INF/fmt.tld&lt;/taglib-location&gt;<br />
+&lt;/taglib&gt;<br />
+<br />
+&lt;taglib&gt;<br />
+&lt;taglib-uri&gt;<a href="http://java.sun.com/jstl/fmt-rt" class="external free" title="http://java.sun.com/jstl/fmt-rt" rel="nofollow">http://java.sun.com/jstl/fmt-rt</a>&lt;/taglib-uri&gt;<br />
+&lt;taglib-location&gt;/WEB-INF/fmt-rt.tld&lt;/taglib-location&gt;<br />
+&lt;/taglib&gt;<br />
+<br />
+&lt;taglib&gt;<br />
+&lt;taglib-uri&gt;<a href="http://java.sun.com/jstl/core" class="external free" title="http://java.sun.com/jstl/core" rel="nofollow">http://java.sun.com/jstl/core</a>&lt;/taglib-uri&gt;<br />
+&lt;taglib-location&gt;/WEB-INF/c.tld&lt;/taglib-location&gt;<br />
+&lt;/taglib&gt;<br />
+<br />
+&lt;taglib&gt;<br />
+&lt;taglib-uri&gt;<a href="http://java.sun.com/jstl/core-rt" class="external free" title="http://java.sun.com/jstl/core-rt" rel="nofollow">http://java.sun.com/jstl/core-rt</a>&lt;/taglib-uri&gt;<br />
+&lt;taglib-location&gt;/WEB-INF/c-rt.tld&lt;/taglib-location&gt;<br />
+&lt;/taglib&gt;<br />
+<br />
+&lt;taglib&gt;<br />
+&lt;taglib-uri&gt;<a href="http://java.sun.com/jstl/sql" class="external free" title="http://java.sun.com/jstl/sql" rel="nofollow">http://java.sun.com/jstl/sql</a>&lt;/taglib-uri&gt;<br />
+&lt;taglib-location&gt;/WEB-INF/sql.tld&lt;/taglib-location&gt;<br />
+&lt;/taglib&gt;<br />
+<br />
+&lt;taglib&gt;<br />
+&lt;taglib-uri&gt;<a href="http://java.sun.com/jstl/sql-rt" class="external free" title="http://java.sun.com/jstl/sql-rt" rel="nofollow">http://java.sun.com/jstl/sql-rt</a>&lt;/taglib-uri&gt;<br />
+&lt;taglib-location&gt;/WEB-INF/sql-rt.tld&lt;/taglib-location&gt;<br />
+&lt;/taglib&gt;<br />
+<br />
+&lt;taglib&gt;<br />
+&lt;taglib-uri&gt;<a href="http://java.sun.com/jstl/x" class="external free" title="http://java.sun.com/jstl/x" rel="nofollow">http://java.sun.com/jstl/x</a>&lt;/taglib-uri&gt;<br />
+&lt;taglib-location&gt;/WEB-INF/x.tld&lt;/taglib-location&gt;<br />
+&lt;/taglib&gt;<br />
+<br />
+&lt;taglib&gt;<br />
+&lt;taglib-uri&gt;<a href="http://java.sun.com/jstl/x-rt" class="external free" title="http://java.sun.com/jstl/x-rt" rel="nofollow">http://java.sun.com/jstl/x-rt</a>&lt;/taglib-uri&gt;<br />
+&lt;taglib-location&gt;/WEB-INF/x-rt.tld&lt;/taglib-location&gt;<br />
+&lt;/taglib&gt;<br />
+<br />
+After completing the preceding three steps, you are now ready to test your installation of JSTL. This can be done by creating a JSP page that uses JSTL. A very simple example would be the "count to ten" example shown before. You should place your JSP file inside the Webroot directory (C:\Program Files\Apache Tomcat 4.0\webapps\ROOT). Once the Tomcat server is started, you should now be able to browse to <a href="http://127.0.0.1:8080/count.jsp" class="external free" title="http://127.0.0.1:8080/count.jsp" rel="nofollow">http://127.0.0.1:8080/count.jsp</a> to see your page.<br />
+<br />
+If you do not have JSTL installed correctly, there will likely be no error message. If JSTL is not interpreting your tags, they will be passed through directly to the Web browser. The Web browser will interpret these tags as unknown HTML tags. Most browsers simply ignore the unknown HTML tags.<br />
+<br />
+<br />
+<b>The JSTL Tag Libraries</b><br />
+JSTL is often spoken of as a single-tag library. JSTL is actually four tag libraries. These tag libraries are summarized as follows.<br />
+<br />
+<b>1. Core Tag Library—</b>Contains tags that are essential to nearly any Web application. Examples of core tag libraries include looping, expression evaluation, and basic input and output.<br />
+<br />
+<b>2. Formatting/Internationalization Tag Library—</b>Contains tags that are used to and parse data. Some of these tags will parse data, such as dates, differently based on the current locale.<br />
+<br />
+<b>3. Database Tag Library—</b>Contains tags that can be used to access SQL databases. These tags are normally used only to create prototype programs. This is because most programs will not handle database access directly from JSP pages. Database access should be embedded in EJBs that are accessed by the JSP pages.<br />
+<br />
+<b>4. XML Tag Library—</b>Contains tags that can be used to access XML elements. Because XML is used in many Web applications, XML processing is an important feature of JSTL.<br />
+<br />
+In this article, we will only take a brief look at a few of the core tags. We will examine a simple example that shows how to process data that a user enters into a form. Before we examine this program, we must first see how JSTL handles expressions. Expression handling in JSTL is accomplished by using the EL expression language, just as it is done in JSP 2.0. In the next section, we will examine the EL expression language.<br />
+<br />
+<b>The EL Expression Language</b><br />
+One major component of JSP 2.0 is the new expression language named EL. EL is used extensively in JSTL. However, it is important to remember that EL is a feature of JSP and not of JSTL. JSP scriptlet code used with JSP 2.0 can contain EL expressions. The following lines of code demonstrate using EL inside of JSP scriptlet code.<br />
+<br />
+&lt;p&gt;<br />
+Your total, including shipping is ${total+shipping}<br />
+&lt;/p&gt;<br />
+<br />
+As you can see form the preceding code, the values "total" and "shipping" are added and displayed as the HTML is generated. These expressions can be used inside of JSTL tags as well. One important requirement of JSTL 1.0 was that JSTL could be used with JSP 1.2. Because JSP 1.2 does not support EL, it is necessary to provide a few additional JSTL tags that facilitate the use of EL. For example, if you wanted to use JSTL to display the above expression, you would use the following code.<br />
+<br />
+&lt;p&gt;<br />
+Your total, including shipping is &lt;c:out var="${total+shipping"/&gt;<br />
+&lt;/p&gt;<br />
+<br />
+One of the requirements of JSTL was that it not require JSP 2.0 to run. By providing a tag that is capable of displaying EL expressions, this requirement is met.<br />
+<br />
+<b>JSTL Example</b><br />
+We will now examine a simple example that uses JSTL. For this example, we will examine a common procedure that is done by many Web applications. We will see how to POST a form and process the results from that POST. A simple program that is capable of doing this is shown below.<br />
+<br />
+&lt;%@ taglib uri=<a href="http://java.sun.com/jstl/core" class="external free" title="http://java.sun.com/jstl/core" rel="nofollow">http://java.sun.com/jstl/core</a> prefix="c" %&gt;<br />
+&lt;html&gt;<br />
+&lt;head&gt;<br />
+&lt;title&gt;If with Body&lt;/title&gt;<br />
+&lt;/head&gt;<br />
+<br />
+&lt;body&gt;<br />
+&lt;c:if test="${pageContext.request.method=='POST'}"&gt;<br />
+&lt;c:if test="${param.guess=='Java'}"&gt;You guessed it!<br />
+&lt;br /&gt;<br />
+<br />
+&lt;br /&gt;<br />
+<br />
+&lt;br /&gt;<br />
+&lt;/c:if&gt;<br />
+<br />
+&lt;c:if test="${param.guess!='Java'}"&gt;You are wrong<br />
+&lt;br /&gt;<br />
+<br />
+&lt;br /&gt;<br />
+<br />
+&lt;br /&gt;<br />
+&lt;/c:if&gt;<br />
+&lt;/c:if&gt;<br />
+<br />
+&lt;form method="post"&gt;Guess what computer language<br />
+I am thinking of?<br />
+&lt;input type="text" name="guess" /&gt;<br />
+<br />
+&lt;input type="submit" value="Try!" /&gt;<br />
+<br />
+&lt;br /&gt;<br />
+&lt;/form&gt;<br />
+&lt;/body&gt;<br />
+&lt;/html&gt;<br />
+<br />
+This simple Web page will display a form and ask the user to guess what computer language the program is thinking of. Of course, the computer is thinking of "Java." This page begins by checking to see if a POST was done. This allows both the form, and the code that handles the form, to be placed on one single page. This is done with the following JSTL if statement.<br />
+<br />
+&lt;c:if test="${pageContext.request.method=='POST'}"&gt;<br />
+<br />
+Here you can see that the &lt;c:if&gt; tag uses an EL expression to evaluate whether the request method is POST. If data was posted to the page, the value that the user entered for their guess is stored in a parameter named "guess". This is because "guess" was specified as the name of the form input item. We must now check to see whether this parameter is equal to the word "Java". This is done with the following &lt;c:if&gt; tag.<br />
+<br />
+&lt;c:if test="${param.guess=='Java'}"&gt;<br />
+You guessed it!<br />
+&lt;/c:if&gt;<br />
+<br />
+As you can see, the body of the &lt;c:if&gt; tag is executed if the statement evaluates to true. In this article, we began to examine the basics of how JSTL is installed and how it works. There is much more to JSTL than the small example we examined in this article.<br />
+<br />
+The core tags of JSTL also include tags for looping, iteration, and variable handling. By using these tags, you can iterate through collections, access user session data, and perform other core tasks that all Web applications perform. In addition to the core tag library, the XML, database, and formatting tag libraries are also provided for more advanced uses.<br />
+<br />
+<b>Conclusions</b><br />
+This article showed you some of the differences between the JSTL and standard JSP scriptlet programming. As you can see, JSTL allows a more consistent programming environment by allowing both HTML and procedural code to be expressed as tags. JSTL and tag libraries represent a new method of programming Web pages.<br />
+<br />
+JSTL does not provide everything that a programmer would need to create a full-featured Web application. Further, some procedures that could be programmed in JSTL is often best not programmed in JSTL. One perfect example of this is the database JSTL tags. Except for very small Web applications, it is generally considered bad programming practice to embed actual database commands into a JSP page. The proper location for such program code is in Java beans and EJBs that will be used by your Web application. For such routines, you may consider creating your own tag libraries. This way, your JSP pages can use JSTL to perform basic programming procedures that are not unique to your business. You should implement your own tag libraries to implement components, which are unique to your business, which will be used by your Web application.<br />
+<br />
+JSTL allows you to create a very consistent programming JSP-based application. This is done not just through JSTL, but through a combination of JSTL, your own custom tag libraries, and an underlying database. Understanding each of these components allows you to deploy an effective Web application.<br /></p>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/i/s/User_talk%7EBiswadip_bc7a.html">http://en.wikipedia.org../../../b/i/s/User_talk%7EBiswadip_bc7a.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-user"
+	       	       ><a href="../../../b/i/s/User%7EBiswadip_41b5.html">User page</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/i/s/User_talk%7EBiswadip_bc7a.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/User_talk:Biswadip">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 12:35, 30 July 2005 by Wikipedia user Biswadip. </li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Autocorrelation,Autocovariance,Beat (acoustics),Cauchy–Schwarz inequality,Coefficient of determination,Complex conjugate,Complex function,Convolution,Correlation,Cross-correlation,Degree of coherence" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Autocorrelation - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-0">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Autocorrelation</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <div class="thumb tright">
+<div class="thumbinner" style="width:182px;"><a href="../../../a/c/f/Image%7EAcf.svg_5b75.html" class="internal" title="A plot showing 100 random numbers with a &quot;hidden&quot; sine function, and an autocorrelation of the series on the bottom."><img src="../../../upload/thumb/8/84/Acf.svg/180px-Acf.svg.png" alt="A plot showing 100 random numbers with a &quot;hidden&quot; sine function, and an autocorrelation of the series on the bottom." width="180" height="240" longdesc="../../../a/c/f/Image%7EAcf.svg_5b75.html" class="thumbimage" /></a>
+<div class="thumbcaption">
+<div class="magnify" style="float:right"><a href="../../../a/c/f/Image%7EAcf.svg_5b75.html" class="internal" title="Enlarge"><img src="../../../skins/common/images/magnify-clip.png" width="15" height="11" alt="" /></a></div>
+A plot showing 100 random numbers with a "hidden" <a href="../../../s/i/n/Sine.html" title="Sine">sine</a> function, and an autocorrelation of the series on the bottom.</div>
+</div>
+</div>
+<p><b>Autocorrelation</b> is a mathematical tool used frequently in <a href="../../../s/i/g/Signal_processing.html" title="Signal processing">signal processing</a> for analysing functions or series of values, such as <a href="../../../t/i/m/Time_domain.html" title="Time domain">time domain</a> <a href="../../../s/i/g/Signal_%28information_theory%29.html" title="Signal (information theory)">signals</a>. Informally, it is a measure of how well a signal matches a time-shifted version of itself, as a function of the amount of time shift. More precisely, it is the <a href="../../../c/r/o/Cross-correlation.html" title="Cross-correlation">cross-correlation</a> of a signal with itself. Autocorrelation is useful for finding repeating patterns in a signal, such as determining the presence of a periodic signal which has been buried under noise, or identifying the <a href="../../../m/i/s/Missing_fundamental.html" title="Missing fundamental">missing fundamental</a> frequency in a signal implied by its <a href="../../../h/a/r/Harmonic.html" title="Harmonic">harmonic</a> frequencies.</p>
+<table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Definitions"><span class="tocnumber">1</span> <span class="toctext">Definitions</span></a>
+<ul>
+<li class="toclevel-2"><a href="#Statistics"><span class="tocnumber">1.1</span> <span class="toctext">Statistics</span></a></li>
+<li class="toclevel-2"><a href="#Signal_processing"><span class="tocnumber">1.2</span> <span class="toctext">Signal processing</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1"><a href="#Properties"><span class="tocnumber">2</span> <span class="toctext">Properties</span></a></li>
+<li class="toclevel-1"><a href="#Autocorrelation_in_regression_analysis"><span class="tocnumber">3</span> <span class="toctext">Autocorrelation in regression analysis</span></a></li>
+<li class="toclevel-1"><a href="#Applications"><span class="tocnumber">4</span> <span class="toctext">Applications</span></a></li>
+<li class="toclevel-1"><a href="#See_also"><span class="tocnumber">5</span> <span class="toctext">See also</span></a></li>
+<li class="toclevel-1"><a href="#External_links"><span class="tocnumber">6</span> <span class="toctext">External links</span></a></li>
+<li class="toclevel-1"><a href="#References"><span class="tocnumber">7</span> <span class="toctext">References</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Definitions" id="Definitions"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Autocorrelation.html" title="Edit section: Definitions">edit</a>]</span> <span class="mw-headline">Definitions</span></h2>
+<p>Different definitions of autocorrelation are in use depending on the field of study which is being considered and not all of them are equivalent. In some fields, the term is used interchangeably with <a href="../../../a/u/t/Autocovariance.html" title="Autocovariance">autocovariance</a>.</p>
+<p><a name="Statistics" id="Statistics"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/t/Autocorrelation.html" title="Edit section: Statistics">edit</a>]</span> <span class="mw-headline">Statistics</span></h3>
+<p>In <a href="../../../s/t/a/Statistics.html" title="Statistics">statistics</a>, the autocorrelation function (ACF) of a random process describes the <a href="../../../c/o/r/Correlation.html" title="Correlation">correlation</a> between the process at different points in time. Let <i>X</i><sub><i>t</i></sub> be the value of the process at time <i>t</i> (where <i>t</i> may be an integer for a discrete-time process or a real number for a continuous-time process). If <i>X</i><sub><i>t</i></sub> has <a href="../../../m/e/a/Mean.html" title="Mean">mean</a> μ and <a href="../../../v/a/r/Variance.html" title="Variance">variance</a> σ<sup>2</sup> then the definition of the ACF is</p>
+<dl>
+<dd><img class='tex' src="../../../math/1/8/7/1870707bdfb3085f6153a459cace087c.png" alt="R(t,s) = \frac{E[(X_t - \mu)(X_s - \mu)]}{\sigma^2}\, ," /></dd>
+</dl>
+<p>where <i>E</i> is the <a href="../../../e/x/p/Expected_value.html" title="Expected value">expected value</a> operator. Note that this expression is not well-defined for all time series or processes, since the variance σ<sup>2</sup> may be zero (for a constant process) or infinite. If the function <i>R</i> is well-defined its value must lie in the range [−1,&#160;1], with 1 indicating perfect correlation and −1 indicating perfect anti-correlation.</p>
+<p>If <i>X</i><sub><i>t</i></sub> is <a href="../../../s/t/a/Stationary_process.html" title="Stationary process">second-order stationary</a> then the ACF depends only on the difference between <i>t</i> and <i>s</i> and can be expressed as a function of a single variable. This gives the more familiar form</p>
+<dl>
+<dd><img class='tex' src="../../../math/f/2/c/f2ce7ff91435cba638cff350138eda27.png" alt="R(k) = \frac{E[(X_i - \mu)(X_{i+k} - \mu)]}{\sigma^2}\, ," /></dd>
+</dl>
+<p>where <i>k</i> is the lag, | <i>t</i>&#160;−&#160;<i>s</i> |. It is common practice in many disciplines to drop the normalization by σ<sup>2</sup> and use the term <i>autocorrelation</i> interchangeably with <i>autocovariance</i>.</p>
+<p>For a discrete time series of length <i>n</i> {<i>X</i><sub>1</sub>,&#160;<i>X</i><sub>2</sub>,&#160;…&#160;<i>X</i><sub><i>n</i></sub>} with known mean and variance, an estimate of the autocorrelation may be obtained as</p>
+<dl>
+<dd><img class='tex' src="../../../math/6/0/0/600adb5b439214396da5ffa48c3cb338.png" alt="\hat{R}(k)=\frac{1}{(n-k) \sigma^2} \sum_{t=1}^{n-k} [X_t-\mu][X_{t+k}-\mu]" /></dd>
+</dl>
+<p>for any positive integer <i>k</i>&#160;&lt;&#160;<i>n</i>.</p>
+<p>If the true mean and variance of the process are not known then μ and σ<sup>2</sup> may be replaced by the standard formulae for sample mean and sample variance, although this leads to a biased estimator.<sup id="_ref-0" class="reference"><a href="#_note-0" title="">[1]</a></sup></p>
+<p><a name="Signal_processing" id="Signal_processing"></a></p>
+<h3><span class="editsection">[<a href="../../../a/u/t/Autocorrelation.html" title="Edit section: Signal processing">edit</a>]</span> <span class="mw-headline">Signal processing</span></h3>
+<p>In <a href="../../../s/i/g/Signal_processing.html" title="Signal processing">signal processing</a>, the above definition is often used without the normalization, that is, without subtracting the mean and dividing by the variance. When the autocorrelation function is normalized by mean and variance, it is sometimes referred to as the <b>autocorrelation coefficient</b>.<sup id="_ref-dunn_0" class="reference"><a href="#_note-dunn" title="">[2]</a></sup></p>
+<p>Given a signal <i>f</i>(<i>t</i>), the continuous autocorrelation <i>R<sub>ff</sub></i>(τ) is most often defined as the continuous cross-correlation integral of <i>f</i>(<i>t</i>) with itself, at lag <i>τ</i>.</p>
+<dl>
+<dd><img class='tex' src="../../../math/0/c/2/0c2a9e81042ea2abd9ca7169dadc0290.png" alt="R_{ff}(\tau) = \overline{f}(-\tau) * f(\tau) = \int_{-\infty}^{\infty} f(t+\tau)\overline{f}(t)\, dt = \int_{-\infty}^{\infty} f(t)\overline{f}(t-\tau)\, dt" /></dd>
+</dl>
+<p>where <img class='tex' src="../../../math/b/a/7/ba7df4029f7555aa75a54841de17a30e.png" alt="\bar f" /> represents the <a href="../../../c/o/m/Complex_conjugate.html" title="Complex conjugate">complex conjugate</a> and <span class="texhtml">*</span> represents <a href="../../../c/o/n/Convolution.html" title="Convolution">convolution</a>. For a <a href="../../../r/e/a/Real_function.html" title="Real function">real function</a>, <img class='tex' src="../../../math/d/9/0/d9097324dbc7abf5838db245091ce8ae.png" alt="\bar f = f" />.</p>
+<p>The discrete autocorrelation <i>R</i> at lag <i>j</i> for a discrete signal <i>x<sub>n</sub></i> is</p>
+<dl>
+<dd><img class='tex' src="../../../math/a/c/2/ac22f01bb96c04a10d485a8f8219ff75.png" alt="R_{xx}(j) = \sum_n x_n \overline{x}_{n-j} \  ." /></dd>
+</dl>
+<p>The above definitions work for signals that are square integrable, or square summable, that is, of finite energy. Signals that "last forever" are treated instead as random processes, in which case different definitions are needed, based on expected values. For <a href="../../../s/t/a/Stationary_process.html" title="Stationary process">wide-sense-stationary random processes</a>, the autocorrelations are defined as</p>
+<dl>
+<dd><img class='tex' src="../../../math/5/1/6/516d368ab679927a5c0d64e2d85395df.png" alt="R_{ff}(\tau) = E\left[f(t)\overline{f}(t-\tau)\right]" /></dd>
+<dd><img class='tex' src="../../../math/c/5/d/c5d5cfd611f4ed155d59d12a1a38a0b9.png" alt="R_{xx}(j) = E\left[x_n \overline{x}_{n-j}\right]" /></dd>
+</dl>
+<p>For processes that are not <a href="../../../s/t/a/Stationary.html" title="Stationary">stationary</a>, these will also be functions of <i>t</i>, or <i>n</i>.</p>
+<p>For processes that are also <a href="../../../e/r/g/Ergodic.html" title="Ergodic">ergodic</a>, the expectation can be replaced by the limit of a time average. The autocorrelation of an ergodic process is sometimes defined as or equated to<sup id="_ref-dunn_1" class="reference"><a href="#_note-dunn" title="">[2]</a></sup></p>
+<dl>
+<dd><img class='tex' src="../../../math/6/c/6/6c6fa56d1c630acb771c1e1b67a8c9f2.png" alt="R_{ff}(\tau) = \lim_{T \rightarrow \infty} {1 \over T} \int_{0}^{T} f(t+\tau)\overline{f}(t)\, dt" /></dd>
+<dd><img class='tex' src="../../../math/6/7/b/67bbd9c8432511cf4b90cb620086f775.png" alt="R_{xx}(j) = \lim_{N \rightarrow \infty} {1 \over N} \sum_{n=0}^{N-1}x_n \overline{x}_{n-j}" /></dd>
+</dl>
+<p>These definitions have the advantage that they give sensible well-defined single-parameter results for periodic functions, even when those functions are not the output of stationary ergodic processes.</p>
+<p>Alternatively, signals that <i>last forever</i> can be treated by a short-time autocorrelation function analysis, using finite time integrals. (See <a href="../../../s/h/o/Short-time_Fourier_transform_ebb5.html" title="Short-time Fourier transform">short-time Fourier transform</a> for a related process.)</p>
+<p>Multi-<a href="../../../d/i/m/Dimension.html" title="Dimension">dimensional</a> autocorrelation is defined similarly. For example, in <a href="../../../t/h/r/Three-dimensional_space.html" title="Three-dimensional space">three dimensions</a> the autocorrelation of a square-summable <a href="../../../d/i/s/Discrete_signal.html" title="Discrete signal">discrete signal</a> would be</p>
+<dl>
+<dd><img class='tex' src="../../../math/9/0/6/906bc95889d56ad9dfb6d1ea0923bcb4.png" alt="R(j,k,\ell) = \sum_{n,q,r} (x_{n,q,r})(x_{n-j,q-k,r-\ell})." /></dd>
+</dl>
+<p>When mean values are subtracted from signals before computing an autocorrelation function, the resulting function is usually called an auto-covariance function.</p>
+<p><a name="Properties" id="Properties"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Autocorrelation.html" title="Edit section: Properties">edit</a>]</span> <span class="mw-headline">Properties</span></h2>
+<p>In the following, we will describe properties of one-dimensional autocorrelations only, since most properties are easily transferred from the one-dimensional case to the multi-dimensional cases.</p>
+<ul>
+<li>A fundamental property of the autocorrelation is symmetry, <i>R</i>(<i>i</i>)&#160;=&#160;<i>R</i>(−<i>i</i>), which is easy to prove from the definition. In the continuous case, the autocorrelation is an <a href="../../../e/v/e/Even_function.html" title="Even function">even function</a></li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/a/b/d/abd8da04d1eaad633e29f41c9a74e655.png" alt="R_f(-\tau) = R_f(\tau)\," /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>when <i>f</i> is a real function and the autocorrelation is a <a href="../../../h/e/r/Hermitian.html" title="Hermitian">Hermitian</a> function</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/2/8/b/28b7dc68f25dac34520549659a1354d6.png" alt="R_f(-\tau) = R_f^*(\tau)\," /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>when <i>f</i> is a <a href="../../../c/o/m/Complex_function.html" title="Complex function">complex function</a>.</dd>
+</dl>
+<ul>
+<li>The continuous autocorrelation function reaches its peak at the origin, where it takes a real value, i.e. for any delay <i>τ</i>, <img class='tex' src="../../../math/d/9/9/d99f67bdd96b68c50e9e65e622b82853.png" alt="|R_f(\tau)| \leq R_f(0)" />. This is a consequence of the <a href="../../../c/a/u/Cauchy%E2%80%93Schwarz_inequality_0be5.html" title="Cauchy–Schwarz inequality">Cauchy–Schwarz inequality</a>. The same result holds in the discrete case.</li>
+</ul>
+<ul>
+<li>The autocorrelation of a <a href="../../../p/e/r/Periodic_function.html" title="Periodic function">periodic function</a> is, itself, periodic with the very same period.</li>
+</ul>
+<ul>
+<li>The autocorrelation of the sum of two completely uncorrelated functions (the cross-correlation is zero for all τ) is the sum of the autocorrelations of each function separately.</li>
+</ul>
+<ul>
+<li>Since autocorrelation is a specific type of <a href="../../../c/r/o/Cross-correlation.html" title="Cross-correlation">cross-correlation</a>, it maintains all the properties of cross-correlation.</li>
+</ul>
+<ul>
+<li>The autocorrelation of a <a href="../../../w/h/i/White_noise.html" title="White noise">white noise</a> signal will have a strong peak (represented by a <a href="../../../d/i/r/Dirac_delta_function.html" title="Dirac delta function">Dirac delta function</a>) at τ&#160;=&#160;0 and will be absolutely 0 for all other τ. This shows that a sampled instance of a white noise signal is not statistically correlated to a sample instance of the same white noise signal at another time.</li>
+</ul>
+<ul>
+<li>The <a href="../../../w/i/e/Wiener%E2%80%93Khinchin_theorem_9ac8.html" title="Wiener–Khinchin theorem">Wiener–Khinchin theorem</a> relates the autocorrelation function to the <a href="../../../s/p/e/Spectral_density.html" title="Spectral density">power spectral density</a> via the <a href="../../../f/o/u/Fourier_transform.html" title="Fourier transform">Fourier transform</a>:</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/8/c/f/8cf3336cea1f2be4ae65647151af4cce.png" alt="R(\tau) = \int_{-\infty}^\infty S(f) e^{j 2 \pi f \tau} \, df" /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/e/1/1/e1104259b1b8ea4926308e3c01d26a40.png" alt="S(f) = \int_{-\infty}^\infty R(\tau) e^{- j 2 \pi f \tau} \, d\tau." /></dd>
+</dl>
+</dd>
+</dl>
+<ul>
+<li>For real-valued functions, the symmetric autocorrelation function has a real symmetric transform, so the <a href="../../../w/i/e/Wiener%E2%80%93Khinchin_theorem_9ac8.html" title="Wiener–Khinchin theorem">Wiener–Khinchin theorem</a> can be re-expressed in terms of real cosines only:</li>
+</ul>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/7/4/3/743c753f5199fa79a91aa3e460f9ec39.png" alt="R(\tau) = \int_{-\infty}^\infty S(f) \cos(2 \pi f \tau) \, df" /></dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd><img class='tex' src="../../../math/d/3/9/d3914c97f141713120f4dc19d0556f80.png" alt="S(f) = \int_{-\infty}^\infty R(\tau) \cos(2 \pi f \tau) \, d\tau." /></dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Autocorrelation_in_regression_analysis" id="Autocorrelation_in_regression_analysis"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Autocorrelation.html" title="Edit section: Autocorrelation in regression analysis">edit</a>]</span> <span class="mw-headline">Autocorrelation in regression analysis</span></h2>
+<p>In <a href="../../../r/e/g/Regression_analysis.html" title="Regression analysis">regression analysis</a> using <a href="../../../t/i/m/Time_series_analysis.html" title="Time series analysis">time series data</a>, autocorrelation of the residuals ("error terms", in <a href="../../../e/c/o/Econometrics.html" title="Econometrics">econometrics</a>) is a problem, and leads to an upward bias in estimates of the <a href="../../../s/t/a/Statistical_significance.html" title="Statistical significance">statistical significance</a> of coefficient estimates, such as the <a href="../../../t/_/s/T_statistic.html" title="T statistic">t statistic</a>. The traditional test for the presence of first-order autocorrelation is the <a href="../../../d/u/r/Durbin-Watson_statistic_5b43.html" title="Durbin-Watson statistic">Durbin-Watson statistic</a> or, if the explanatory variables include a lagged dependent variable, <a href="../../../d/u/r/Durbin-Watson_statistic_5b43.html#Durbin_h-statistic" title="Durbin-Watson statistic">Durbin's h statistic</a>. A more flexible test, covering autocorrelation of higher orders and applicable whether or not the regressors include lags of the dependent variable, is the Breusch-Godfrey test. This involves an auxiliary regression, wherein the residuals obtained from estimating the model of interest are regressed on (a) the original regressors and (b) <i>k</i> lags of the residuals, where <i>k</i> is the order of the test. The simplest version of the test statistic from this auxiliary regression is <i>TR</i><sup>2</sup>, where <i>T</i> is the sample size and <i>R</i><sup>2</sup> is the <a href="../../../c/o/e/Coefficient_of_determination.html" title="Coefficient of determination">coefficient of determination</a>. Under the null hypothesis of no autocorrelation, this statistic is asymptotically distributed as Χ<sup>2</sup> with <i>k</i> degrees of freedom.</p>
+<p>Responses to autocorrelation include <a href="../../../d/i/f/Difference_operator.html" title="Difference operator">differencing</a> of the data and the use of lag structures in estimation.</p>
+<p><a name="Applications" id="Applications"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Autocorrelation.html" title="Edit section: Applications">edit</a>]</span> <span class="mw-headline">Applications</span></h2>
+<ul>
+<li>One application of autocorrelation is the measurement of <a href="../../../o/p/t/Optical_spectrum.html" title="Optical spectrum">optical spectra</a> and the measurement of very-short-duration <a href="../../../l/i/g/Light.html" title="Light">light</a> <a href="../../../u/l/t/Ultrashort_pulse.html" title="Ultrashort pulse">pulses</a> produced by <a href="../../../l/a/s/Laser.html" title="Laser">lasers</a>, both using <a href="../../../o/p/t/Optical_autocorrelation.html" title="Optical autocorrelation">optical autocorrelators</a>.</li>
+</ul>
+<ul>
+<li>In optics, normalized autocorrelations and cross-correlations give the <a href="../../../d/e/g/Degree_of_coherence.html" title="Degree of coherence">degree of coherence</a> of an electromagnetic field.</li>
+</ul>
+<ul>
+<li>In <a href="../../../s/i/g/Signal_processing.html" title="Signal processing">signal processing</a>, autocorrelation can give information about repeating events like <a href="../../../m/u/s/Music.html" title="Music">musical</a> <a href="../../../b/e/a/Beat_%28acoustics%29.html" title="Beat (acoustics)">beats</a> or <a href="../../../p/u/l/Pulsar.html" title="Pulsar">pulsar</a> <a href="../../../f/r/e/Frequency.html" title="Frequency">frequencies</a>, though it cannot tell the position in time of the beat.</li>
+</ul>
+<p><a name="See_also" id="See_also"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Autocorrelation.html" title="Edit section: See also">edit</a>]</span> <span class="mw-headline">See also</span></h2>
+<ul>
+<li><a href="../../../c/r/o/Cross-correlation.html" title="Cross-correlation">Cross-correlation</a></li>
+<li><a href="../../../o/p/t/Optical_autocorrelation.html" title="Optical autocorrelation">Optical autocorrelation</a></li>
+</ul>
+<p><a name="External_links" id="External_links"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Autocorrelation.html" title="Edit section: External links">edit</a>]</span> <span class="mw-headline">External links</span></h2>
+<ul>
+<li>Eric W. Weisstein, <i><a href="http://mathworld.wolfram.com/Autocorrelation.html" class="external text" title="http://mathworld.wolfram.com/Autocorrelation.html" rel="nofollow">Autocorrelation</a></i> at <a href="../../../m/a/t/MathWorld_3918.html" title="MathWorld">MathWorld</a>.</li>
+<li><a href="http://www.dsprelated.com/comp.dsp/keyword/Autocorrelation.php" class="external text" title="http://www.dsprelated.com/comp.dsp/keyword/Autocorrelation.php" rel="nofollow">Autocorrelation articles in Comp.DSP (DSP usenet group).</a></li>
+</ul>
+<p><a name="References" id="References"></a></p>
+<h2><span class="editsection">[<a href="../../../a/u/t/Autocorrelation.html" title="Edit section: References">edit</a>]</span> <span class="mw-headline">References</span></h2>
+<ol class="references">
+<li id="_note-0"><b><a href="#_ref-0" title="">^</a></b> <i>Spectral analysis and time series</i>, M.B. Priestley (London, New York&#160;: Academic Press, 1982)</li>
+<li id="_note-dunn">^ <a href="#_ref-dunn_0" title=""><sup><i><b>a</b></i></sup></a> <a href="#_ref-dunn_1" title=""><sup><i><b>b</b></i></sup></a> Patrick F. Dunn, <i>Measurement and Data Analysis for Engineering and Science,</i> New York: McGraw–Hill, 2005 <a href="../../../b/o/o/Special%7EBooksources_ed7b.html" class="internal">ISBN 0-07-282538-3</a></li>
+</ol>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../a/u/t/Autocorrelation.html">http://en.wikipedia.org../../../a/u/t/Autocorrelation.html</a>"</div>
+	    <div id="catlinks"><p class='catlinks'><a href="../../../c/a/t/Special%7ECategories_101d.html" title="Special:Categories">Categories</a>: <span dir='ltr'><a href="../../../c/o/v/Category%7ECovariance_and_correlation_5648.html" title="Category:Covariance and correlation">Covariance and correlation</a></span> | <span dir='ltr'><a href="../../../f/o/u/Category%7EFourier_analysis_d7ac.html" title="Category:Fourier analysis">Fourier analysis</a></span> | <span dir='ltr'><a href="../../../r/e/g/Category%7ERegression_analysis_604d.html" title="Category:Regression analysis">Regression analysis</a></span> | <span dir='ltr'><a href="../../../s/i/g/Category%7ESignal_processing_58c0.html" title="Category:Signal processing">Signal processing</a></span> | <span dir='ltr'><a href="../../../t/i/m/Category%7ETime_series_analysis_6778.html" title="Category:Time series analysis">Time series analysis</a></span></p></div>	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="../../../a/u/t/Autocorrelation.html">Article</a></li><li id="ca-talk"
+	       	       ><a href="../../../a/u/t/Talk%7EAutocorrelation_2732.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Autocorrelation">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	<div id="p-lang" class="portlet">
+	  <h5>In other languages</h5>
+	  <div class="pBody">
+	    <ul>
+	      	      <li>
+	      <a href="../../../../de/a/u/t/Autokorrelation.html">Deutsch</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../es/a/u/t/Autocorrelaci%C3%B3n.html">Español</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../fr/a/u/t/Autocorr%C3%A9lation.html">Français</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../gl/a/u/t/Autocorrelaci%C3%B3n.html">Galego</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../it/a/u/t/Autocorrelazione.html">Italiano</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ja/%E8%87%AA/%E5%B7%B1/%E7%9B%B8/%E8%87%AA%E5%B7%B1%E7%9B%B8%E9%96%A2.html">日本語</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pl/a/u/t/Autokorelacja.html">Polski</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../pt/a/u/t/Autocorrela%C3%A7%C3%A3o.html">Português</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../ru/%D0%B0/%D0%B2/%D1%82/%D0%90%D0%B2%D1%82%D0%BE%D0%BA%D0%BE%D1%80%D1%80%D0%B5%D0%BB%D1%8F%D1%86%D0%B8%D0%BE%D0%BD%D0%BD%D0%B0%D1%8F_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F.html">Русский</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../su/a/u/t/Autokor%C3%A9lasi.html">Basa Sunda</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../sv/a/u/t/Autokorrelation.html">Svenska</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../tr/o/t/o/Otokorelasyon.html">Türkçe</a>
+	      </li>
+	      	      <li>
+	      <a href="../../../../zh/%E8%87%AA/%E7%9B%B8/%E5%85%B3/%E8%87%AA%E7%9B%B8%E5%85%B3%E5%87%BD%E6%95%B0.html">中文</a>
+	      </li>
+	      	    </ul>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 16:16, 24 March 2007 by Wikipedia user <a href="../../../w/i/k/User%7EWikih_66_d140.html" title="User:Wikih 66">Wikih 66</a>. Based on work by Wikipedia user(s) <a href="../../../a/r/t/User%7EARTE_db92.html" title="User:ARTE">ARTE</a>, <a href="../../../l/u/n/User%7ELunch_e74c.html" title="User:Lunch">Lunch</a>, <a href="../../../d/a/v/User%7EDavidCBryant_f1d6.html" title="User:DavidCBryant">DavidCBryant</a>, <a href="../../../d/i/c/User%7EDicklyon_1405.html" title="User:Dicklyon">Dicklyon</a>, <a href="../../../a/d/a/User%7EAdambro_fced.html" title="User:Adambro">Adambro</a>, Slippens, <a href="../../../b/o/t/User%7EBOT-Superzerocool_f6ae.html" title="User:BOT-Superzerocool">BOT-Superzerocool</a>, Robgomez, <a href="../../../r/a/k/User%7ERaker_9c52.html" title="User:Raker">Raker</a>, <a href="../../../s/m/a/User%7ESmackBot_cc7a.html" title="User:SmackBot">SmackBot</a>, <a href="../../../e/s/p/User%7EEsprit15d_69ef.html" title="User:Esprit15d">Esprit15d</a>, <a href="../../../m/w/t/User%7EMwtoews_d43c.html" title="User:Mwtoews">Mwtoews</a>, Cottrellnc, Albmont, <a href="../../../v/i/r/User%7EVirga_1e2e.html" title="User:Virga">Virga</a>, <a href="../../../r/g/c/User%7ERgclegg_deb7.html" title="User:Rgclegg">Rgclegg</a>, <a href="../../../m/e/b/User%7EMebden_709b.html" title="User:Mebden">Mebden</a>, <a href="../../../t/w/e/User%7ETwelvethirteen_db89.html" title="User:Twelvethirteen">Twelvethirteen</a>, <a href="../../../j/e/f/User%7EJeff3000_72a5.html" title="User:Jeff3000">Jeff3000</a>, <a href="../../../d/e/n/User%7EDen_fj%C3%A4ttrade_ankan_996f.html" title="User:Den fjättrade ankan">Den fjättrade ankan</a>, <a href="../../../y/u/r/User%7EYurikBot_b393.html" title="User:YurikBot">YurikBot</a>, <a href="../../../h/a/n/User%7EHannes_Eder_3b19.html" title="User:Hannes Eder">Hannes Eder</a>, Vini.rn, <a href="../../../o/m/e/User%7EOmegatron_4264.html" title="User:Omegatron">Omegatron</a>, Mtalexan, <a href="../../../j/o/h/User%7EJohn_Quiggin_69ce.html" title="User:John Quiggin">John Quiggin</a>, <a href="../../../n/o/v/User%7ENova77_f477.html" title="User:Nova77">Nova77</a>, <a href="../../../m/i/c/User%7EMichael_Hardy_e932.html" title="User:Michael Hardy">Michael Hardy</a>, <a href="../../../w/h/o/User%7EWho_d957.html" title="User:Who">Who</a>, <a href="../../../d/a/m/User%7EDamian_Yerrick_2a18.html" title="User:Damian Yerrick">Damian Yerrick</a>, <a href="../../../h/g/f/User%7EHgfernan_df96.html" title="User:Hgfernan">Hgfernan</a>, <a href="../../../r/b/j/User%7ERbj_42ae.html" title="User:Rbj">Rbj</a>, <a href="../../../w/r/i/User%7EWricardoh_8abf.html" title="User:Wricardoh">Wricardoh</a>, <a href="../../../f/l/a/User%7EFlaBot_747f.html" title="User:FlaBot">FlaBot</a>, <a href="../../../i/s/n/User%7EIsnow_53d9.html" title="User:Isnow">Isnow</a>, <a href="../../../m/a/t/User%7EMathbot_604f.html" title="User:Mathbot">Mathbot</a>, <a href="../../../p/a/r/User%7EPAR_bf60.html" title="User:PAR">PAR</a>, <a href="../../../s/m/a/User%7ESmack_b8c7.html" title="User:Smack">Smack</a>, <a href="../../../c/h/a/User%7ECharles_Matthews_cceb.html" title="User:Charles Matthews">Charles Matthews</a>, <a href="../../../o/l/e/User%7EOleg_Alexandrov_8bb5.html" title="User:Oleg Alexandrov">Oleg Alexandrov</a>, <a href="../../../j/_/s/User%7EJ_S_Lundeen_9399.html" title="User:J S Lundeen">J S Lundeen</a>, <a href="../../../b/o/o/User%7EBookandcoffee_bb60.html" title="User:Bookandcoffee">Bookandcoffee</a>, <a href="../../../p/g/a/User%7EPgabolde_08d1.html" title="User:Pgabolde">Pgabolde</a>, <a href="../../../m/e/r/User%7EMerovingian_a210.html" title="User:Merovingian">Merovingian</a>, Just Another Dan, <a href="../../../d/r/b/User%7EDrBob_cf29.html" title="User:DrBob">DrBob</a>, <a href="../../../j/s/c/User%7EJschwa1_7101.html" title="User:Jschwa1">Jschwa1</a> and <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>

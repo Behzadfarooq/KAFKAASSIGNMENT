@@ -1,0 +1,929 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    		<meta name="keywords" content="Talk:Brainfuck,Brainfork,Corrado Böhm,End-of-file,Evil,False,Inetd,Large number,Mac OS X,Operating system,P Prime Prime" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="search" type="application/opensearchdescription+xml" href="/w/opensearch_desc.php" title="Wikipedia (English)" />
+		<link rel="copyright" href="../../../COPYING.html" />
+    <title>Talk:Brainfuck - Wikipedia, the free encyclopedia</title>
+    <style type="text/css">/*<![CDATA[*/ @import "../../../skins/htmldump/main.css"; /*]]>*/</style>
+    <link rel="stylesheet" type="text/css" media="print" href="../../../skins/common/commonPrint.css" />
+    <!--[if lt IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE50Fixes.css";</style><![endif]-->
+    <!--[if IE 5.5000]><style type="text/css">@import "../../../skins/monobook/IE55Fixes.css";</style><![endif]-->
+    <!--[if IE 6]><style type="text/css">@import "../../../skins/monobook/IE60Fixes.css";</style><![endif]-->
+    <!--[if IE]><script type="text/javascript" src="../../../skins/common/IEFixes.js"></script>
+    <meta http-equiv="imagetoolbar" content="no" /><![endif]-->
+    <script type="text/javascript" src="../../../skins/common/wikibits.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/md5.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/utf8.js"></script>
+    <script type="text/javascript" src="../../../skins/htmldump/lookup.js"></script>
+    <script type="text/javascript" src="../../../raw/gen.js"></script>        <style type="text/css">/*<![CDATA[*/
+@import "../../../raw/MediaWiki%7ECommon.css";
+@import "../../../raw/MediaWiki%7EMonobook.css";
+@import "../../../raw/gen.css";
+/*]]>*/</style>          </head>
+  <body
+    class="ns-1">
+    <div id="globalWrapper">
+      <div id="column-content">
+	<div id="content">
+	  <a name="top" id="contentTop"></a>
+	        <h1 class="firstHeading">Talk:Brainfuck</h1>
+	  <div id="bodyContent">
+	    <h3 id="siteSub">From Wikipedia, the free encyclopedia</h3>
+	    <div id="contentSub"></div>
+	    	    <div class="usermessage">You have <a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">new messages</a> (<a href="../../../1/2/7/User_talk%7E127.0.0.1.html" title="User talk:127.0.0.1">last change</a>).</div>	    <!-- start content -->
+	    <table id="toc" class="toc" summary="Contents">
+<tr>
+<td>
+<div id="toctitle">
+<h2>Contents</h2>
+</div>
+<ul>
+<li class="toclevel-1"><a href="#Linefeeds_and_EOFs"><span class="tocnumber">1</span> <span class="toctext">Linefeeds and EOFs</span></a></li>
+<li class="toclevel-1"><a href="#Doing_away_with_.27.3E.27"><span class="tocnumber">2</span> <span class="toctext">Doing away with '&gt;'</span></a></li>
+<li class="toclevel-1"><a href="#Confusion_over_.27.5B.27_and_.27.5D.27"><span class="tocnumber">3</span> <span class="toctext">Confusion over '[' and ']'</span></a></li>
+<li class="toclevel-1"><a href="#Tweaks.2C_comments.2C_and_capitalisation"><span class="tocnumber">4</span> <span class="toctext">Tweaks, comments, and capitalisation</span></a></li>
+<li class="toclevel-1"><a href="#Conversion_to_C"><span class="tocnumber">5</span> <span class="toctext">Conversion to C</span></a></li>
+<li class="toclevel-1"><a href="#.22No_change_to_cell.22"><span class="tocnumber">6</span> <span class="toctext">"No change to cell"</span></a></li>
+<li class="toclevel-1"><a href="#Turing_completeness"><span class="tocnumber">7</span> <span class="toctext">Turing completeness</span></a></li>
+<li class="toclevel-1"><a href="#Dialects"><span class="tocnumber">8</span> <span class="toctext">Dialects</span></a></li>
+<li class="toclevel-1"><a href="#BF_HTTP_Server"><span class="tocnumber">9</span> <span class="toctext">BF HTTP Server</span></a></li>
+<li class="toclevel-1"><a href="#Doublefuck"><span class="tocnumber">10</span> <span class="toctext">Doublefuck</span></a></li>
+<li class="toclevel-1"><a href="#Notes_on_3.2F05_revision."><span class="tocnumber">11</span> <span class="toctext">Notes on 3/05 revision.</span></a></li>
+<li class="toclevel-1"><a href="#Question."><span class="tocnumber">12</span> <span class="toctext">Question.</span></a></li>
+<li class="toclevel-1"><a href="#Notes_on_4.2F05_changes."><span class="tocnumber">13</span> <span class="toctext">Notes on 4/05 changes.</span></a></li>
+<li class="toclevel-1"><a href="#Notes_on_5.2F05_changes."><span class="tocnumber">14</span> <span class="toctext">Notes on 5/05 changes.</span></a></li>
+<li class="toclevel-1"><a href="#Brainfuck.27s_.22formal_parent.22_--_P.E2.80.B2.E2.80.B2"><span class="tocnumber">15</span> <span class="toctext">Brainfuck's "formal parent" -- P′′</span></a></li>
+<li class="toclevel-1"><a href="#subroutines"><span class="tocnumber">16</span> <span class="toctext">subroutines</span></a></li>
+<li class="toclevel-1"><a href="#Portability_and_cell_size."><span class="tocnumber">17</span> <span class="toctext">Portability and cell size.</span></a></li>
+<li class="toclevel-1"><a href="#http:.2F.2Fshadowzerosoftware.ath.cx.2Fprogramming.2Fbrainfuck.php"><span class="tocnumber">18</span> <span class="toctext">http://shadowzerosoftware.ath.cx/programming/brainfuck.php</span></a></li>
+<li class="toclevel-1"><a href="#http:.2F.2Fmartin.egy.nu.2Findex.php.3Fpage.3Dbfcomp"><span class="tocnumber">19</span> <span class="toctext">http://martin.egy.nu/index.php?page=bfcomp</span></a></li>
+<li class="toclevel-1"><a href="#Clarification_about_speed."><span class="tocnumber">20</span> <span class="toctext">Clarification about speed.</span></a></li>
+<li class="toclevel-1"><a href="#BF_in_evolutionary_computation"><span class="tocnumber">21</span> <span class="toctext">BF in evolutionary computation</span></a></li>
+<li class="toclevel-1"><a href="#External_Links"><span class="tocnumber">22</span> <span class="toctext">External Links</span></a></li>
+<li class="toclevel-1"><a href="#Lowercase"><span class="tocnumber">23</span> <span class="toctext">Lowercase</span></a></li>
+<li class="toclevel-1"><a href="#mistake"><span class="tocnumber">24</span> <span class="toctext">mistake</span></a></li>
+<li class="toclevel-1"><a href="#Discussion_on_merging_Brainfuck.2B.2B"><span class="tocnumber">25</span> <span class="toctext">Discussion on merging Brainfuck++</span></a></li>
+<li class="toclevel-1"><a href="#Better_Addition_Program.3F"><span class="tocnumber">26</span> <span class="toctext">Better Addition Program?</span></a></li>
+<li class="toclevel-1"><a href="#Strange_Moving_the_pointer"><span class="tocnumber">27</span> <span class="toctext">Strange Moving the pointer</span></a></li>
+<li class="toclevel-1"><a href="#Pascal.2FDelphi_Implementation"><span class="tocnumber">28</span> <span class="toctext">Pascal/Delphi Implementation</span></a></li>
+<li class="toclevel-1"><a href="#removing_Pascal_Delphi_implementation"><span class="tocnumber">29</span> <span class="toctext">removing Pascal Delphi implementation</span></a></li>
+</ul>
+</td>
+</tr>
+</table>
+<p><script type="text/javascript">
+//<![CDATA[
+ if (window.showTocToggle) { var tocShowText = "show"; var tocHideText = "hide"; showTocToggle(); } 
+//]]>
+</script><a name="Linefeeds_and_EOFs" id="Linefeeds_and_EOFs"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Linefeeds and EOFs">edit</a>]</span> <span class="mw-headline">Linefeeds and EOFs</span></h2>
+<p>Besides adding a couple new examples, I've rewritten the previous ones. Two, like my revised versions, assumed EOF translated as 0, but they nonetheless echoed the 0 to output before quitting. A third was needlessly complex.</p>
+<p>In redoing the third, I stated that 10 (line feed) was the ASCII for return. This is the case on Unix machines, and brainfuck is far more common on them than on Macs, which use 13 (carriage return) for return. (Looking at brainfuck and at the Mac ethos, it seems very natural that it's not a common combination.) -Daniel.</p>
+<dl>
+<dd>As a minor observation, while <a href="../../../e/v/i/Evil.html" title="Evil">MacOS 9</a> and below use <tt>13</tt>, <a href="../../../m/a/c/Mac_OS_X_b8d4.html" title="Mac OS X">Mac OS X</a> uses <tt>10</tt> because it is a <a href="../../../u/n/i/Unix.html" title="Unix">unix</a> based <a href="../../../o/p/e/Operating_system.html" title="Operating system">operating system</a>. — <a href="../../../d/a/r/User%7EDarco_711e.html" title="User:Darco">Darco</a> 03:27, 20 Nov 2004 (UTC)</dd>
+</dl>
+<hr />
+<p>Of course, 13 is the return Key on win/MSDOS machines, for which most BF interpreters/compilers are available. ... By the way, thanks for making the examples contain more crap than they needed to get the point across succinctly.</p>
+<hr />
+<p>Hmm...</p>
+<p>A. Windows and DOS machines represent a return with a carriage return (13) FOLLOWED BY a linefeed (10). Which is ugly. I grant it does warrant a mention on the page, and I'll add one.</p>
+<p>(Actually, it's worse than that; in Windows, the representation is different in different programming environments, e.g. assembler vs. C, and may even be different on input than on output.)</p>
+<p>B. I don't know about "most interpreters/compilers", not having done a survey. I do know that most brainfuck programs and most brainfuck programmers assume a return is 10. I did a fairly thorough check of existing brainfuck programs, both at the archive site and elsewhere, and none use a 13 as a return. Three do use 13 followed by 10: Ben Olmstead's "99 bottles" program, and Roland Illig's "Towers of Hanoi" and "Hello World". And one, Jim Fowler's "Pi" program, uses a 10 followed by a 13, which was probably an error. In any case, the 10s have an easy majority, which includes Urban Müller's programs, incidentally.</p>
+<p>C. The examples I altered, I simplified and tidied if anything. I grant I could have been briefer in some of the description, and I'll try to improve that now. If what bothers you is my adding two new examples, my defense is that the previous ones contained no arithmetic and no nested loops, and I thought both should be demonstrated.</p>
+<p>-Daniel.</p>
+<p><a name="Doing_away_with_.27.3E.27" id="Doing_away_with_.27.3E.27"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Doing away with '&amp;gt;'">edit</a>]</span> <span class="mw-headline">Doing away with '&gt;'</span></h2>
+<p>For what it's worth, I just noticed that one could do away with the &gt; command, if one redefines + as "increment location at pointer, then increment pointer". <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a>, Tuesday, May 21, 2002</p>
+<dl>
+<dd>Mathematicians&#160;;-) <a href="../../../f/v/d/User%7EFvdP_984c.html" title="User:FvdP">--FvdP</a></dd>
+</dl>
+<hr />
+<p>Hm, sure. Then to get &gt; one would do -+ and to get a + one would do &gt;&lt;?</p>
+<dl>
+<dd>You mean -+&lt; probably. Wouldn't this result to bigger code anyway? (<a href="../../../a/g/o/User%7EAgorf_4be2.html" title="User:Agorf">Aggelos I. Orfanakos</a> | <a href="../../../a/g/o/User_talk%7EAgorf_483c.html" title="User talk:Agorf">Talk</a> | <a href="../../../c/o/n/Special%7EContributions_Agorf_5337.html" title="Special:Contributions/Agorf">Contributions</a>) 10:14, Mar 14, 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Actually I meant +&lt;. Don't know what I was thinking. And yes, it would make programs longer, besides wrecking the symmetry of the language. -Daniel.</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<p>You can also get rid of the - command. Just + 127 times. <a href="../../../e/x/o/User%7EExomnium_75ae.html" title="User:Exomnium">--Exomnium</a></p>
+<p><a name="Confusion_over_.27.5B.27_and_.27.5D.27" id="Confusion_over_.27.5B.27_and_.27.5D.27"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Confusion over '[' and ']'">edit</a>]</span> <span class="mw-headline">Confusion over '[' and ']'</span></h2>
+<p>I just replaced the hello world on both this page and the hello world page with Müller's own version, which is more concise. Also I rewrote the textual descriptions of brainfuck semantics. There are at least six equivalent combinations of semantics for [ and ] but the one I used is the most direct, symmetrical, and time-efficient. -Daniel.</p>
+<p>I don't understand this. If all the bytes are initialised to zero, where is the program stored? Also, the correspondence between:</p>
+<dl>
+<dd>] jump back to the statement after the corresponding [ if the byte at the pointer is nonzero.</dd>
+</dl>
+<p>and C } doesn't seem right. In C there isn't a test at the end of the while loop, only the beginning.</p>
+<dl>
+<dd>The program is stored outside of the data area, it cannot be modified. As for the difference between the two definitions, if you think about it, it's just apparent. The two definitions behave the same (this should be noted in the article, I guess). <a href="../../../f/v/d/User%7EFvdP_984c.html" title="User:FvdP">--FvdP</a></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Thanks, although as it is now, it looks like it's defining an infinite loop. This language is potentially confusing&#160;:-)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>[ jump forward to the statement after the corresponding ] if the byte at the pointer is zero.</dd>
+<dd>] jump back to the statement after the corresponding [.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Okay. Let me try to clarify this.</dd>
+<dd>The two meanings for ] in question are those found on the pages of Brian Raiter and Frans Faase respectively, both of which can be found in the links section.</dd>
+<dd>In C, as written, the test condition is stated at the top of the loop; in brainfuck, as written, the test condition is not stated at all, since it's always the same.</dd>
+<dd>In C as compiled by an optimizing compiler, the test will be made at both the top and the bottom; it would be inefficient to use a jump instruction to jump to another jump instruction; it's faster to jump directly to the target of that second jump instruction. In any brainfuck compiler or interpreter concerned with time-efficiency, testing at top and bottom is also the right move.</dd>
+<dd>In describing brainfuck as a theoretical construct, both semantics for ] produce equivalent results (as do another four versions I can think of offhand): namely, that the the loop is exited if the cell holds a zero, and executed another time if it holds a nonzero value.</dd>
+<dd>Raiter's version uses two jumps to accomplish this effect; Faase's uses one, and is therefore more time-efficient. Raiter's, however, uses shorter code, and is therefore better suited for tiny compilers, which are an important part of brainfuck culture. However, Faase's version preserves the symmetry of the language, which is one of its most distinctive and appealing features. So I think Faase's is the better description for general expository purposes. Anyone who plans to make a tiny compiler will find the required tricks without our help; it's meant to be a challenge anyway.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Now, as for the "infinite loop" issue: The version you quote does indeed produce an infinite loop. It is a bastard version, a combination of aspects of Raiter's and Faase's semantics, that flatly does not work; it was produced by an incautious editor of this page. The progression of semantics on this page has gone: Raiter, Faase, bastard, Raiter. Now I am going to put it back to Faase, with Raiter's mentioned in a note, and hope people will consider the above discussion enough justification to leave it that way.</dd>
+<dd>-Daniel Cristofani.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Not having fully thought this through, nor checked the references (Muller, Faase, Raiter), I decline to edit this myself. Seeing what I perceive to be an error, I mention it here in the likely case my attention wanders. In the definition of the ']' keyword, it says the pointer will jump if "the byte at the pointer is non-zero". Byte at what pointer? I mean, the only pointer talked about at any other time is presumably still at the ']' character. Should the program "+[&gt;]" really terminate (after 4 or so instructions)? Anyway, even if the listed semantics are correct, I disagree with "Both versions produce equivalent behavior from every Brainfuck program", since the program "+[&gt;]" is a valid brainfuck program.--jholman 12:14, 20 Jan 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>No, the "pointer" referred to is not to do with the instructions, but the internal <i>data</i> - the one-dimensional array of bytes which is the "machine" represented inside brainfuck. The '[' and ']' operators control the order in which an <i>unmodifiable</i> sequence of instructions are executed, based on <i>modifiable</i> data (just like <code>if</code>, <code>while</code>, etc, in more conventional languages); the "pointer" at any time is pointing at one byte in the data array, and is "moved" back and forth by the '&lt;' and '&gt;' operators. So , assuming the pointer starts at element 0, and the array is full of 0s, "+[&gt;]" means either:
+<dl>
+<dd>
+<ul>
+<li>increment data byte at pointer (so, data[0]=1); jump to after matching ']' if data at pointer is 0, which it isn't; move pointer (to data[1]); jump to after matching '[' if data at pointer is non-zero - data[1] is checked, found to be 0, and we reach the end of the program.</li>
+<li>or, if ']' is just "jump back to matching '['", there is an extra step where we jump back to '[', test the current data byte, and find that it's 0 (the pointer being at data[1] remember); so we jump to after the ']', and have reached the end of the program. As Daniel says, this is equivalent but slightly less efficient.</li>
+<li>or, if we use the third interpretation, we will get: increment data byte at pointer; jump to matching ']'; jump to after matching '[' if current data byte is non-zero - the pointer's at data[0], which we just incremented, so we jump back; this brings us to the '&gt;', which moves the pointer as before; now, reaching the ']' again, the pointer is at data[1], which is 0, so we don't jump. End of program.</li>
+</ul>
+</dd>
+</dl>
+</dd>
+<dd>I don't know how well I've explained those, but hopefully if you think them through you'll see that the end result of all three is identical - namely, that data[0]=1, data[1]=0, and the pointer is pointing to data[1]. - <a href="../../../i/m/s/User%7EIMSoP_6779.html" title="User:IMSoP">IMSoP</a> 15:45, 20 Jan 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<p><a name="Tweaks.2C_comments.2C_and_capitalisation" id="Tweaks.2C_comments.2C_and_capitalisation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Tweaks, comments, and capitalisation">edit</a>]</span> <span class="mw-headline">Tweaks, comments, and capitalisation</span></h2>
+<p>Just made a few tweaks. To explain:</p>
+<p>-Decapitalized "brainfuck" in the middle of sentences, since that's Müller's original usage. Actually he put it in single quotes as well, like "the 'brainfuck' language", but I think that'd be overdoing it.</p>
+<p>-Fixed "Hello World!" a couple places to have capital W and no comma, like the program.</p>
+<p>-Moved the old comment about it up to the right place, and removed the part about its length--I don't think 111 characters is long at all. The comment was originally made before I put Müller's concise version in place of a less concise version.</p>
+<p>-In the "Pointer Manipulation" example we'd better leave a 0 at the start of the sequence of letters if we want to be able to find the start again.</p>
+<p>-Changed the comment on return; the behavior of implementations is not neatly split along platform lines, since some implementations for DOS/Windows translate return to 10 for compatibility with most brainfuck programs--or have an option to do so--and that's probably the best move anyway, in the name of consistency. I think a full explanation here would be too much, but I'll be interested to see what other people think.</p>
+<p>-Two things I'll leave for other people to think about: one, whether all these examples (I added the last two to what was then a separate page) are now too much for the main page, and some of them should be trimmed; and two, whether brainfuck has enough in common with INTERCAL to warrant a "See also". Maybe do a "see also" linking to the wikipedia page on "esoteric programming language" instead?</p>
+<p>-Daniel Cristofani.</p>
+<p><br />
+Okay, now I have to decapitalize "brainfuck" again--see above. The original docs should take precedence. In fact, capitalizing it even broke the link to the original implementation on Aminet.</p>
+<p>-Daniel Cristofani.</p>
+<dl>
+<dd>Sorry about that. I take full responsibility.&#160;:-p -- <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a> 21:29 21 Jun 2003 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>&#160;:) -Daniel.</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Conversion_to_C" id="Conversion_to_C"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Conversion to C">edit</a>]</span> <span class="mw-headline">Conversion to C</span></h2>
+<p>Hrmm, I converted the Hello World! program to C as per the instructions, but had to make ptr an int rather than a char to make it work (else I just got garbage characters). Also, I got a triangle instead of a space, and no exclamation mark. Am I doing something wrong? The code I got to work partially is:</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>int main (void) {</p>
+<p>int * ptr;</p>
+<p>*ptr = 0;</p>
+<p>++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; while (*ptr) {++ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++ptr; ++*ptr; ++*ptr; ++*ptr; ++ptr; ++*ptr; --ptr; --ptr; --ptr; --ptr; --*ptr; } ++ptr; ++*ptr; ++*ptr; putchar(*ptr); ++ptr; ++*ptr; putchar(*ptr); ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; putchar(*ptr); putchar(*ptr); ++*ptr; ++*ptr; ++*ptr; putchar(*ptr); ++ptr; ++*ptr; ++*ptr; putchar(*ptr); --ptr; --ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; ++*ptr; putchar(*ptr); ++ptr; putchar(*ptr); ++*ptr; ++*ptr; ++*ptr; putchar(*ptr); --*ptr; --*ptr; --*ptr; --*ptr; --*ptr; --*ptr; putchar(*ptr); --*ptr; --*ptr; --*ptr; --*ptr; --*ptr; --*ptr; --*ptr; --*ptr; putchar(*ptr); ++ptr; ++*ptr; putchar(*ptr); ++ptr; putchar(*ptr);</p>
+<p>}</p>
+<p><a href="../../../e/v/e/User%7EEvercat_8d16.html" title="User:Evercat">Evercat</a> 21:33 28 Jul 2003 (UTC)</p>
+<p><br /></p>
+<dl>
+<dd>The problem is that in C you have to define the array before you can use it. The original size for the brainfuck array is 30,000 bytes. So replace the initial code with this:</dd>
+</dl>
+<dl>
+<dd>#include &lt;stdio.h&gt;</dd>
+</dl>
+<dl>
+<dd>char array[30000], *ptr=array;</dd>
+</dl>
+<dl>
+<dd>int main (void) {</dd>
+</dl>
+<dl>
+<dd>++*ptr; ++*ptr; etc. etc.</dd>
+</dl>
+<p><br /></p>
+<dl>
+<dd>Defining the array outside main means it's initialized to be full of zeroes automatically, so you don't have to zero them all yourself.</dd>
+</dl>
+<dl>
+<dd>-Daniel Cristofani.</dd>
+</dl>
+<p><a name=".22No_change_to_cell.22"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: &quot;No change to cell&quot;">edit</a>]</span> <span class="mw-headline">"No change to cell"</span></h2>
+<p>",[.[-],]" is a correct copy-(text)-input-to-output program for an implementation that does no-change-on-EOF; the cell always holds 0 before a comma is executed, so on EOF it will remain zero and the loop will be skipped or exited. Granted, it will also do this if a zero is input, so it's worth adding the word "text" for clarification. If we want to distinguish EOF from every byte value on a no-change implementation, we just have to set the cell to some value distinct from every byte value before each comma. Whether this is even possible depends on the implementation; for some it can be done like "-,+[-.[-]-,+]".</p>
+<p>-Daniel Cristofani.</p>
+<dl>
+<dd>The description of this as "no change to cell" is rather confusing - I couldn't work out what was meant until I put it through an interpreter. I'm not sure what a better description is though, so I'll leave it as a challenge for somebody else [what a BFed language, even commentaries are awkward!] - <a href="../../../i/m/s/User%7EIMSoP_6779.html" title="User:IMSoP">IMSoP</a> 19:26, 27 Jan 2004 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I tried to improve it a while ago. I think it's okay now.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>-Daniel Cristofani.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Ah, yes, so it is. Thanks, and sorry I didn't acknowledge the change earlier. - <a href="../../../i/m/s/User%7EIMSoP_6779.html" title="User:IMSoP">IMSoP</a> 21:44, 22 Apr 2004 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>No problem whatsoever. -Daniel.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Turing_completeness" id="Turing_completeness"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Turing completeness">edit</a>]</span> <span class="mw-headline">Turing completeness</span></h2>
+<p>The brainfuck language is Turing-complete either with an unlimited number of cells with range at least 0-23, OR with at least five cells with unlimited range. In the latter case, a Turing machine can be simulated using two cells to store the left and right halves of the Turing machine tape. I'll put a detailed explanation on my web page when I get around to it.</p>
+<p>-Daniel Cristofani.</p>
+<dl>
+<dd>The language is specified such that every cell contains an 8 bit value. So speculating about cells that have an infinite range of values is talking about a change that would have to made from the standard specification of the language, just like the change to have a finite tape.</dd>
+</dl>
+<dl>
+<dd>If I'm not mistaken, the language specification allows an infinite tape.</dd>
+</dl>
+<dl>
+<dd>So, the wording of the last paragraph is confusing. You could remove the - or + operation (but not both) right now, and leave the language turing complete. Or, you could define it as having a circular tape, but change the cell specification to allow an infinite range of values with no wrapping, and also have it be turing complete.</dd>
+</dl>
+<dl>
+<dd>-Eric Hopper</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>The closest thing to a language specification is the original README file, which specifies a 30,000-cell array; so an infinite array is a change too. Now that I think about it, that means that the version I reverted it to was doubly wrong--either modification alone would make the language non-Turing-complete, unless other modifications were done too, and indeed the language as originally defined is non-Turing-complete. Now I've just tried to fix it--hope it's clear now.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>-Daniel.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Yes, it is now clear. &#160;:-) Thanks.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>-Eric Hopper</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><br /></p>
+<dl>
+<dd>The 0-23 restriction is a bit wide. The language is Turing complete even with an infinite array of cells that range from 0-1, for any 0-255 based Brainfuck program can be translated to the Boolfuck language, as shown <a href="http://www.rpi.edu/~hughes/boof/" class="external text" title="http://www.rpi.edu/~hughes/boof/" rel="nofollow">here</a>.</dd>
+</dl>
+<dl>
+<dd>-<a href="../../../s/a/m/User%7ESam_Hughes_b513.html" title="User:Sam Hughes">Sam Hughes</a></dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Agreed--0-23 is a loose upper bound on the required range, and in fact 0-1 is sufficient. As a matter of detail, note that the proof for 0-23 doesn't assume wraparound, and Boolfuck does...but proving Turing-completeness for a 1-bit version of brainfuck that doesn't assume wraparound is trivial. Here's a mapping from normal (but non-wrapping) brainfuck to 1-bit brainfuck that should work.</dd>
+</dl>
+</dd>
+</dl>
+<p>Start the program with a &gt;</p>
+<p>+ maps to [&gt;]+[&lt;]&gt;</p>
+<p>- maps to [&gt;]&lt;-&lt;[&lt;]&gt;</p>
+<p>[ maps to [</p>
+<p>] maps to ]</p>
+<p>&gt; maps to &gt;&gt;&gt;... (*256)</p>
+<p>&lt; maps to &lt;&lt;&lt;... (*256)</p>
+<p>, maps to [&gt;]&lt;[-&lt;]&gt;,[&gt;,]&lt;[&lt;]&gt;</p>
+<p>. maps to [.&gt;]&lt;[&lt;].&gt;</p>
+<p><a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 05:44, 20 Apr 2005 (UTC)</p>
+<p><br /></p>
+<p><a name="Dialects" id="Dialects"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Dialects">edit</a>]</span> <span class="mw-headline">Dialects</span></h2>
+<p>Some mention of the different dialects of 'brainfuck' should probably be covered, specificly:</p>
+<ul>
+<li>Original brainfuck (8 bit)</li>
+<li>16-bit, and 32-bit dialects</li>
+<li><a href="../../../l/a/r/Large_number.html" title="Large number">Large number</a> dialects</li>
+<li><a href="../../../e/n/d/End-of-file.html" title="End-of-file">EOF</a> support (ie: reading a -1 from the input stream) (Not supported in original brainfuck)</li>
+<li>Symmetric data-space (ie: the ability to move the pointer behind its initial position, or negative indices)</li>
+</ul>
+<p><br /></p>
+<dl>
+<dd>Okay, done.</dd>
+<dd><a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 10:35, 30 Apr 2005 (UTC)</dd>
+</dl>
+<p><a name="BF_HTTP_Server" id="BF_HTTP_Server"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: BF HTTP Server">edit</a>]</span> <span class="mw-headline">BF HTTP Server</span></h2>
+<p>It's painfully simple at the moment, but I'm working on a <a href="http://deepdarc.dnsalias.net:85/" class="external text" title="http://deepdarc.dnsalias.net:85/" rel="nofollow">httpd server written in brainfuck</a>. — <a href="../../../d/a/r/User%7EDarco_711e.html" title="User:Darco">Darco</a> 04:13, 2 Feb 2005 (UTC)</p>
+<dl>
+<dd>I'd love to see the source for this, if possible. It sounds crazy. -Dom
+<dl>
+<dd>Heh, well, it's not nearly as scary as it might seem. Serving up one page is quite simple, as long as you have a grasp for the protocol. All of the network stuff is handled by <a href="../../../i/n/e/Inetd.html" title="Inetd">xinetd</a>, which hands off control to my BF HTTP server after a client connects to port 85. The BF app then records all of the data it receives until it receives two line feed characters in a row. It then prints out some stuff to describe the mime type and then it outputs the page itself. After it does all of this, it goes back and prints out all the data that the browser told it (mostly just to satisfy my curiosity as to what all the browser was telling my BF program). Getting it to serve up multiple pages is a bit more difficult, but certainly doable. — <a href="../../../d/a/r/User%7EDarco_711e.html" title="User:Darco">Darco</a> 01:53, 6 Feb 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Doublefuck" id="Doublefuck"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Doublefuck">edit</a>]</span> <span class="mw-headline">Doublefuck</span></h2>
+<p><small>(I moved this from my talk page because it seemed like something that should be here instead — <a href="../../../d/a/r/User%7EDarco_711e.html" title="User:Darco">Darco</a> 04:13, 2 Feb 2005 (UTC))</small></p>
+<p>Are you certain the origin of the name isn't worth mentioning? I'd say calling it "nothing of value" is a bit hasty. <a href="../../../c/x/i/User%7ECXI_62c6.html" title="User:CXI">CXI</a> 13:59, 24 Jan 2005 (UTC)</p>
+<dl>
+<dd>Origins are different than pointing out lude puns. Doublefuck is a clever name given what makes the language unique and what it was derived from, and I think most people will realize this without having to have it spelled out for them. — <a href="../../../d/a/r/User%7EDarco_711e.html" title="User:Darco">Darco</a> 04:13, 2 Feb 2005 (UTC)</dd>
+</dl>
+<p><br /></p>
+<p><a name="Notes_on_3.2F05_revision." id="Notes_on_3.2F05_revision."></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Notes on 3/05 revision.">edit</a>]</span> <span class="mw-headline">Notes on 3/05 revision.</span></h2>
+<p>I'm going back to lowercase except at the starts of sentences and in headings, to be closer to Müller's usage.</p>
+<p>"statements" strongly connotes something with more internal structure than these have. I think "commands" is more like it; "instructions" would be fine too.</p>
+<p>I'm trying to be a little more concise while keeping all important content and also smoothing out a few small inaccuracies. I want to maybe move the article a little closer to "featured article" level.</p>
+<p>-Daniel.</p>
+<p>About the C++ translations:</p>
+<p>Using cin &gt;&gt; *ptr is flat-out wrong; it won't read in whitespace.</p>
+<p>Beyond that, I think newline translation is important for portability.</p>
+<p>Translating EOF as "no change to cell" is somewhat more controversial, but given that it can easily coexist with either of the other popular EOF behaviors in any brainfuck program (i.e. that a program that expects EOF=0 or a program that expects EOF=-1 can trivially be made to accept EOF -&gt; "no change" as well, by setting the cell just before a ',' command) it seems like the best chance for a unified practice. Also, it's the behavior of two of Müller's three implementations.</p>
+<p>I'm changing it back to C like it was before someone randomly changed it... - 郵便箱 03:43, Mar 31, 2005 (UTC)</p>
+<p>That's sensible. I wondered why it got changed to C++. I still think it's important to translate newlines, naturally. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 10:43, 4 Apr 2005 (UTC)</p>
+<p>I removed that "Commentary" because the important part--i.e., brainfuck would be Turing-complete if given unlimited memory--was added near the start of the article. Also, two of the "See Also"s were actually brainfuck descendents and the other was not particularly similar to brainfuck.</p>
+<p>With as many links as this I thought they needed sub-categorizing. I labeled one implementation as "broken" and moved it to the bottom; I've emailed its author a list of bugs: -translates [ and ] like a "do while" -tries to check &gt; and &lt; for syntax, e.g. it thinks +&gt;+&lt;[&gt;]&lt;&lt; will move the pointer left of its original position and calls it a syntax error; -false and insulting statements about all other compilers, in the readme -no linefeed translation.</p>
+<p><a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 03:23, 6 Apr 2005 (UTC)</p>
+<dl>
+<dd>The author has now fixed these problems, and has correctly relabeled his compiler as "compatible".</dd>
+</dl>
+<dl>
+<dd><a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 23:32, 1 May 2005 (UTC)</dd>
+</dl>
+<p><a name="Question." id="Question."></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Question.">edit</a>]</span> <span class="mw-headline">Question.</span></h2>
+<p>Maybe instead of a long string of trivial examples it would be better to have "Hello World" and then one medium-sized example program, examined in detail? Some desiderata for this would be:</p>
+<p>-input -nested loops -non-arbitrary task -use of nondestructive flow control -medium complexity/subtlety level</p>
+<p>I think a rot13 program might be suitable and I've written one on what seems to me to be about the right level. But I'd like to know what other people think about this idea first.</p>
+<pre>
+&gt;-,+[
+        -&gt;++++++++[&gt;++++++++&lt;-]&gt;[&lt;&lt;[-&lt;+&gt;&gt;]&gt;[&lt;]&gt;-]&gt;++[
+                &lt;+&lt;&lt;[&lt;+++++++++++++&gt;&gt;]&gt;[&lt;]
+                &gt;++++++++++++[&lt;&lt;[-&lt;+&gt;&gt;]&gt;[&lt;]&gt;-]
+                +&lt;&lt;[&gt;++[&lt;&lt;-------------&gt;&gt;-]]&gt;[&lt;]
+                &gt;++++++++++++[&lt;&lt;[-&lt;+&gt;&gt;]&gt;[&lt;]&gt;-]
+                 +&lt;&lt;[&lt;+++++++++++++&gt;&gt;]&gt;[&lt;]
+                &gt;+++++[&lt;&lt;[-&lt;+&gt;&gt;]&gt;[&lt;]&gt;-]
+                &gt;-
+        ]&lt;&lt;&lt;[&lt;+&gt;-]&lt;.[-]&gt;-,+
+]
+</pre>
+<p><a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 02:21, 6 Apr 2005 (UTC)</p>
+<p><br />
+Actually, maybe one like this instead. It demonstrates a greater range of techniques.</p>
+<pre>
+&gt;&gt;&gt;&gt;&gt;-,+[
+        -[
+                -&lt;++++[&lt;++++++++&gt;-]
+                &gt;[-&lt;+&lt;-[&lt;&lt;&lt;]&gt;[[&lt;+&gt;-]&lt;&lt;+&lt;]&gt;&gt;&gt;&gt;]
+                &lt;&lt;[-]&lt;[&lt;+&gt;-[&lt;+&gt;&gt;+&lt;-[&lt;+&gt;-[&gt;-&lt;[&lt;+&gt;-]]]]]&gt;[
+                        -&gt;&gt;&gt;+++++++++++++&lt;&lt;[-&gt;+&gt;-[&gt;&gt;&gt;]&lt;[[&gt;+&lt;-]&gt;&gt;+&gt;]&lt;&lt;&lt;&lt;]
+                        &gt;&gt;[-]+&gt;[&lt;-&gt;-[&lt;++&gt;-]]&lt;[&lt;+++++++++++++&gt;-]&lt;[&lt;+&gt;-]&lt;&lt;
+                ]&lt;&lt;[&gt;&gt;++++&lt;&lt;-]&gt;&gt;[&gt;++++++++&lt;-]&gt;+&gt;
+        ]&lt;.[-]&gt;-,+
+]
+</pre>
+<p>130.94.161.238 06:07, 8 Apr 2005 (UTC)</p>
+<p><a name="Notes_on_4.2F05_changes." id="Notes_on_4.2F05_changes."></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Notes on 4/05 changes.">edit</a>]</span> <span class="mw-headline">Notes on 4/05 changes.</span></h2>
+<p>The new notes about the semantics were incorrect.</p>
+<p>-It is not correct merely to replace a conditional jump with an unconditional jump; it is also necessary to change the jump's destination. I don't think adding that to the new phrasing would result in a better sentence than the one that's there now. Of course other people may disagree.</p>
+<p>-The C translation does NOT specify that the test is performed at the top of the loop and not the bottom! C is not like assembly language in specifying which statements are to be placed where in the final executable. A standards-compliant C compiler can translate "while (*ptr){}" into an executable with the test at the top, at the bottom, both, or somewhere else entirely. Moreover, "while" is not an imperative verb, so even reading the English connotations doesn't suggest putting the test at the top, the way it would if the translation were</p>
+<p>label1: if (!*ptr) goto label2;</p>
+<p>goto label1;</p>
+<p>label2:</p>
+<p><a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 06:46, 12 Apr 2005 (UTC)</p>
+<dl>
+<dd>Who says the final executable has the test at the top? I was just saying of the 2 tests for the value only one is used in the C translation. -- <a href="../../../p/a/d/User%7EPaddu_be1f.html" title="User:Paddu">Paddu</a> 14:36, 13 Apr 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>What you said was "(Note that testing the pointer at the byte has been omitted for the <code>]</code> command.)". This sounded to me like it meant the C translation of <code>[</code> performs a test and the C translation of <code>]</code> doesn't perform a test; but unlike the brainfuck commands, <code>while(*ptr){</code> and <code>}</code> cannot accurately be described as performing actions individually; the fact that the test condition is described in the former does not mean a test is performed at the <code>while</code> and not at the <code>}</code>. Notice further that <code>}</code> is not any kind of command but merely a statement-grouper, and can be omitted when the "while" governs only one statement. So it certainly does not represent any kind of jump, conditional or unconditional; whereas the "while" represents all jumps that the loop involves...</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>In mentioning executables, I think I was trying to say in an indirect way that it is only when C is translated to executable form that C semantics are reduced to individual actions taken at different places in the program. At the level of C source code, it does not always make sense to talk about where in the source code things are done, and in particular it does not make sense to talk about whether the test of a loop is performed at the top or the bottom, or even to say that it is performed in only one place, or that "only one test is used" as you just phrased it.</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>The final executable need not even have a loop as e.g. that could have been (fully) unrolled. So does that mean a while statement shouldn't be called a loop unless you're sure it is complex enough to have a loop in the final executable? Well, the final executable doesn't even have a "while statement"... :) -- <a href="../../../p/a/d/User%7EPaddu_be1f.html" title="User:Paddu">Paddu</a> 14:39, 13 Apr 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>I see "loop" as a source-level concept, unlike the ones I was complaining about. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 11:30, 14 Apr 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<hr />
+<p>About "more complex and no more correct", I would like to see what other people think. Without the changes I made to the C translations, not only Urban Müller's original example programs but many other valuable programs will not run correctly on some popular platforms. On the other hand, those C translations certainly were more complex--though not nearly complex enough that the whole set wouldn't fit in the palm of your hand. Maybe we just want to explain elsewhere in the article that the C translations are not definitive?</p>
+<p><a name="Notes_on_5.2F05_changes." id="Notes_on_5.2F05_changes."></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Notes on 5/05 changes.">edit</a>]</span> <span class="mw-headline">Notes on 5/05 changes.</span></h2>
+<p>The paragraph beginning "A brainfuck program consists of" may seem like it's stating the obvious, but I wanted to briefly nail down that:</p>
+<p>-This is an imperative language, not (say) a functional one</p>
+<p>-There are no declarations or program headers or variable names or any such apparatus, just a bare sequence of commands</p>
+<p>-There is no gathering code from several files together to make a program</p>
+<p>Now, about the examples. I've worked on this more and am now thinking to use this rot13 program. It's originally by Bertram Felgenhauer, with a few subsequent improvements by me. He's given permission.</p>
+<pre>
+-,+[
+    -[
+        -&gt;+&gt;++++[&gt;++++++++&lt;-]
+        &lt;&lt;[&gt;+&gt;+&gt;-[&gt;&gt;&gt;]&lt;[[&gt;+&lt;-]&gt;&gt;+&gt;]&lt;&lt;&lt;&lt;&lt;-]
+    ]&gt;&gt;&gt;[-]+&gt;--[-[&lt;-&gt;+++[-]]]&lt;[
+        ++++++++++++&lt;[&gt;-[&gt;+&gt;&gt;]&gt;[+[&lt;+&gt;-]&gt;+&gt;&gt;]&lt;&lt;&lt;&lt;&lt;-]
+        &gt;&gt;[&lt;+&gt;-]&gt;[-[-&lt;&lt;[-]&gt;&gt;]&lt;&lt;[&lt;&lt;-&gt;&gt;-]&gt;&gt;]&lt;&lt;[&lt;&lt;+&gt;&gt;-]
+    ]&lt;[-]&lt;.[-]&lt;-,+
+]
+</pre>
+<p>As soon as I get it fully commented, I will put it in place of all the examples except "hello world".</p>
+<p><br /></p>
+<hr />
+<p>About my big rewrite of 5/5/05.</p>
+<ul>
+<li>changed opening paragraph to be more of a summary.</li>
+<li>rearranged start of "Language design".</li>
+<li>added a few notes to substantiate some statements.</li>
+<li>removed note about Müller "inspired by False"; I think that may be taking Wouter's mention on his False page as meaning more than it necessarily does, and even if fully true it looks like a digression. If someone wants to re-add it, maybe just a phrase like "Inspired by <a href="../../../f/a/l/False.html" title="False">False</a>, Urban Müller created brainfuck around 1993 etc."</li>
+<li>rephrased semantics of some commands, to make them maybe clearer to the general public</li>
+<li>made part about alternate [] semantics more concise but hopefully still accurate and readable.</li>
+<li>Moved and elaborated "difficult to understand, but Turing-complete". I think it's more suitable there. The danger is that it will look like part of "Commands", but I don't think it really does, and I think giving it its own subheading like "Scope" or "Limitations" or the like might perhaps be a bit too much.</li>
+<li>fixed a couple external links, and the Icelandic version link.</li>
+</ul>
+<p>Incidentally, the article on "state" is unclear-to-wrong, and "initialization" now links to "booting", which is misleading. I'll fix both soon probably, if nobody else does.</p>
+<p><a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 09:30, 5 May 2005 (UTC)</p>
+<p><br /></p>
+<p><a name="Brainfuck.27s_.22formal_parent.22_--_P.E2.80.B2.E2.80.B2" id="Brainfuck.27s_.22formal_parent.22_--_P.E2.80.B2.E2.80.B2"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Brainfuck's &quot;formal parent&quot; -- P&amp;prime;&amp;prime;">edit</a>]</span> <span class="mw-headline">Brainfuck's "formal parent" -- P′′</span></h2>
+<p>Brainfuck appears to be a minor variation of the formal programming language <a href="../../../p/_/p/P_Prime_Prime_cba9.html" title="P Prime Prime">P′′</a>, introduced by <a href="../../../c/o/r/Corrado_B%C3%B6hm_f29b.html" title="Corrado Böhm">Corrado Böhm</a> in 1964 to describe a class of Turing machines, and proved by him to be capable of computing any partial recursive function. (Thus providing a formal proof of brainfuck's Turing completeness.) Böhm's language <a href="../../../p/_/p/P_Prime_Prime_cba9.html" title="P Prime Prime">P′′</a> has only four instructions -- the equivalents of <tt>'+&lt;', '&gt;', '[', ']'</tt>, and no i/o instructions (since he was describing single-tape TMs).</p>
+<p>--<a href="../../../r/2E/e/User%7ER.e.s._9f77.html" title="User:R.e.s.">r.e.s.</a> 11:40, 10 July 2005 (UTC)</p>
+<p><a name="subroutines" id="subroutines"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: subroutines">edit</a>]</span> <span class="mw-headline">subroutines</span></h2>
+<p>I always wonder, in Turing tarpits like this, is there an easy way to call/include a subroutine? This would help in writing large programs. <a href="../../../s/a/m/User%7ESamohyl_Jan_6337.html" title="User:Samohyl Jan">Samohyl Jan</a> 00:15, 19 August 2005 (UTC)</p>
+<dl>
+<dd>No subroutines. Not in brainfuck. You're stuck with a bunch of "while" loops. In <a href="../../../b/r/a/Brainfork.html" title="Brainfork">brainfork</a> however, you *could* fork a thread and constantly check a cell for non-zero, then set it to 1 to run the "subroutine"... I think. :P - <a href="../../../b/o/d/User%7EBodyTag_ffc4.html" title="User:BodyTag">BodyTag</a> 15:41, 19 August 2005 (UTC) EDIT:</dd>
+<dd>Something like</dd>
+<dd><code>&gt;&gt;Y[-&lt;+&lt;]&gt;[-[&gt;</code></dd>
+<dd><code>subroutine code here</code></dd>
+<dd><code>&lt;[-]]+]</code></dd>
+<dd><code>code</code></dd>
+<dd><code>&lt; move to the subroutine trigger</code></dd>
+<dd><code>+[] call it and wait for it to end</code></dd>
+<dd><code>&gt; move back to wherever you want</code></dd>
+<dd><code>code</code></dd>
+<dd>It ended up messier than I would have thought. It *should* work. XD -<a href="../../../b/o/d/User%7EBodyTag_ffc4.html" title="User:BodyTag">BodyTag</a> 11:41, 20 August 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>pbrain is a brainfuck extension with procedures. But if you want to write really large programs you will probably want some kind of macro language built on top of brainfuck. There have been several including a version of BASIC.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>The SNUSP programming language is also like having brainfuck with procedures. The 2-D code space makes the procedures look like boxed annotations. --<a href="../../../i/a/n/User%7EIanOsgood_81a9.html" title="User:IanOsgood">IanOsgood</a> 21:05, 11 July 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="Portability_and_cell_size." id="Portability_and_cell_size."></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Portability and cell size.">edit</a>]</span> <span class="mw-headline">Portability and cell size.</span></h2>
+<p>Every reasonable brainfuck implementation uses at least byte cells. Thus, decrementing a -128 has the same effect regardless of cell size, i.e. it produces a nonzero value which, if output, will come out as a byte with bits 01111111, and which will need to be incremented 129 times to produce a zero. Similarly, incrementing a 127 will produce a nonzero value which if output will come out as a byte with bits 10000000, and which will need to be decremented 128 times to produce a zero.</p>
+<p>Decrementing a -255, on the other hand, will produce a zero on implementations with byte cells, and a nonzero number on implementations with larger cells.</p>
+<p>If I'm wrong it should be easy to show it: just produce a brainfuck program which does not increment a 255 or decrement a -255, and yet behaves differently depending on the cell size of the interpreter.</p>
+<dl>
+<dd>The same challenge applies to a claim that decrementing a 0 will produce different effects with different cell sizes. Certainly it is possible to find interpreters that will react badly to decrementing a zero. Rarely, this is because they are built in some language where integers do not exist and need to be synthesized, and where wraparound integers are hard to synthesize. Much more commonly it is because someone is trying to enforce absolute portability, i.e. to make sure programs will run on one of the rare interpreters mentioned just above. None of this adds up to an interpreter that treats decrementing a zero differently based on cell size, though. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 03:04, 6 November 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Since my careful statement has been replaced with one that is wrong for the third time now, I suppose I should expand it to make it more obvious why it is correct. I will have to think about how to rephrase it in the article. And I will leave further explanation here:</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>IF YOU WRITE A BRAINFUCK PROGRAM THAT DECREMENTS A CELL DOWN TO -255, and run it on any brainfuck interpreter written straightforwardly in a commonly-used programming language, IT WILL NOT COMPLAIN, NOR WILL IT BEHAVE DIFFERENTLY BASED ON WHETHER THE CELLS ARE BYTES OR LONGWORDS, unless the writer of the interpreter deliberately and explicitly programmed it to complain in that case. The same is true of compiling brainfuck to any commonly-used programming language.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>I think what confuses people is that they are thinking something like "If you can safely and portably decrement a byte to -255 AND increment it to +255, doesn't that mean you can hold 511 different values in a byte, which is clearly impossible?" No, it doesn't mean that; in order to avoid incrementing a 255 or decrementing a -255, the program (or the programmer) must keep track of which values a cell may have, and the set of possible values of a given cell at a given time cannot include more than 256 values. HOWEVER, with fancy programming, these values can be (say) -100 to 155, or they could be even numbers from 0 up to 254 and odd numbers from -1 down to -255. And this is independent of whether the interpreter thinks of the cells as being signed or unsigned (again, unless the interpreter writer has deliberately programmed the interpreter to, say, give an error message when a 0 is decremented).</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>Once again, anyone who disagrees should show me a brainfuck program that does not decrement a -255 or increment a 255, combined with a compiler or interpreter on which that program displays different behavior depending on the size of the cells. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 04:02, 28 November 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>The compiler I've written in PHP and other PHP compilers, and because PHP is fairly flexible, makes it possible to increment up and well over 255 and down and less than -255 and give me the exact behavior expected. 72.137.43.90 00:11, 22 June 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>That's good, but a lot of compilers can do that, and it's not what I asked about... <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 02:18, 22 June 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="http:.2F.2Fshadowzerosoftware.ath.cx.2Fprogramming.2Fbrainfuck.php" id="http:.2F.2Fshadowzerosoftware.ath.cx.2Fprogramming.2Fbrainfuck.php"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: http://shadowzerosoftware.ath.cx/programming/brainfuck.php">edit</a>]</span> <span class="mw-headline"><a href="http://shadowzerosoftware.ath.cx/programming/brainfuck.php" class="external free" title="http://shadowzerosoftware.ath.cx/programming/brainfuck.php" rel="nofollow">http://shadowzerosoftware.ath.cx/programming/brainfuck.php</a></span></h2>
+<p>At the moment it won't successfully run even fairly simple programs such as:</p>
+<pre>
++++[&gt;+++++&lt;-]&gt;[&gt;+&gt;+++&gt;+&gt;++&gt;+++++&gt;++&lt;[++&lt;]&gt;---]&gt;-&gt;-.[&gt;++&gt;+&lt;&lt;--]&gt;--.--.+.&gt;
+ &gt;&gt;++.&lt;&lt;.&lt;------.+.+++++.&gt;&gt;-.&lt;++++.&lt;--.&gt;&gt;&gt;.&lt;&lt;---.&lt;.--&gt;-.&gt;+.[+++++.---&lt;]&gt;&gt;
+ [.---&gt;]&lt;&lt;.&lt;+.++.++&gt;+++[.&lt;][http://www.hevanet.com/cristofd/brainfuck/]&lt;.
+</pre>
+<p>Hopefully it can be fixed soon and then put back up. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 08:45, 22 October 2005 (UTC)</p>
+<p><a name="http:.2F.2Fmartin.egy.nu.2Findex.php.3Fpage.3Dbfcomp" id="http:.2F.2Fmartin.egy.nu.2Findex.php.3Fpage.3Dbfcomp"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: http://martin.egy.nu/index.php?page=bfcomp">edit</a>]</span> <span class="mw-headline"><a href="http://martin.egy.nu/index.php?page=bfcomp" class="external free" title="http://martin.egy.nu/index.php?page=bfcomp" rel="nofollow">http://martin.egy.nu/index.php?page=bfcomp</a></span></h2>
+<p>The link for "A Brainfuck Computer With a Brainfuck CPU" in Hardware section seems to be broken at the moment.</p>
+<p><a href="../../../a/p/a/User%7EApankrat_f950.html" title="User:Apankrat">Alex</a> / Oct 26, 2005</p>
+<p><a name="Clarification_about_speed." id="Clarification_about_speed."></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Clarification about speed.">edit</a>]</span> <span class="mw-headline">Clarification about speed.</span></h2>
+<p>For the most part, brainfuck interpreters and compilers execute one command at a time, or maybe one string of consecutive identical commands at a time. For a test case, let's compute the Fibonacci number F(32) or 2,178,309. I would do it with a program like</p>
+<p>++++[&gt;++++++++&lt;-]&gt;&gt;+&gt;+&lt;&lt;[ &gt;&gt;[ [-]&lt;[&gt;+&lt;-]&gt;&gt;[&lt;&lt;+&gt;+&gt;-]&lt;[&gt;+&lt;-[&gt;+&lt;-[&gt;+&lt;-[&gt;+&lt;-[&gt;+&lt;-[&gt;+&lt;- [&gt;+&lt;-[&gt;+&lt;-[&gt;+&lt;-[&gt;[-]&gt;+&gt;+&lt;&lt;&lt;-[&gt;+&lt;-]]]]]]]]]]]+&gt;&gt;&gt; ]&lt;&lt;&lt;[&lt;&lt;&lt;]&gt;- ]&gt;&gt;[&gt;&gt;&gt;]&lt;&lt;&lt;[+++++[&gt;++++++++&lt;-]&gt;.&lt;&lt;&lt;&lt;]++++++++++.</p>
+<p>which executes 15,792 commands to output the right answer. This program puts one digit of the numbers in each cell, and thus takes time proportional to the square of the logarithm of the number we are looking for. It only needs byte cells; in fact I think it would work with 6-bit cells.</p>
+<p>Any program that computes F(32) by putting F(32) in a single cell, on the other hand, will take at least F(32) commands to pump the cell up to F(32), and another 2*F(32) commands to decrement it down to zero and check it against zero after every decrement (necessary to see what its value is in order to output it). So at least 6,534,927 command-executions, or more than 400 times as slow as the program above. In fact it will probably be at least a thousand times as slow; you might try to see how fast you can do it.</p>
+<p>In short, a program only needs big cells if it is going to put big values in them; and producing, moving, and using big cell-values is a very slow process in brainfuck. Yes, some compilers can optimize out simple inner loops, but any mathematical operation more complicated than addition or subtraction is still probably going to take an amount of time that is at least proportional to the size of the cell values involved, and outputting values may also.</p>
+<p><a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 11:35, 23 November 2005 (UTC)</p>
+<dl>
+<dd>You can do it the O(exp(n)) way regardless of what the cell size is, and you can do it efficiently by ignoring the extra cell size. So full range utilization is the result of choosing a poor algorithm, not the other way around. Saying that big cells make programs slower would therefore be incorrect, though that is merely how I misread it. <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a> | <a href="../../../f/r/e/User_talk%7EFredrik_61e6.html" title="User talk:Fredrik">t</a><a href="../../../c/o/n/Special%7EContributions_Fredrik_fb54.html" title="Special:Contributions/Fredrik">c</a> 14:31, 23 November 2005 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>"Full range utilization is the result of choosing a poor algorithm"--yes; and since producing and using large cell values is slow enough to cripple even an otherwise good algorithm, we can also say "full range use makes an algorithm poor (for brainfuck)" or "full range use makes a program slow". I think we're on the same page though: the actions needed to USE the high-order bits make a program slow, not their mere presence. I hope the article is clear now.</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>About "FALSE"'s influence, that story seems to come from <a href="http://strlen.com/false/" class="external text" title="http://strlen.com/false/" rel="nofollow">here</a>. Although Wouter seems impressed by the size of Urban Müller's compiler, he doesn't say that it was the size of the FALSE compiler that impressed Müller, although that's a reasonable guess. Given that Befunge is also listed as inspired by FALSE, Wouter may not be claiming anything more than (say) that FALSE made some people aware that anyone can make a language at any time without regard for practical utility. Even then, he could be guessing based on the fact that his language was released before these others. Dunno. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 12:10, 24 November 2005 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="BF_in_evolutionary_computation" id="BF_in_evolutionary_computation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: BF in evolutionary computation">edit</a>]</span> <span class="mw-headline">BF in evolutionary computation</span></h2>
+<p>Given that we have an external link to Nanopond, would it be reasonable to write a brief section about how and why BF gets used for that (and similar) uses? <a href="../../../t/h/s/User%7EThsgrn_05b9.html" title="User:Thsgrn">Michael Ralston</a> 07:47, 24 February 2006 (UTC)</p>
+<dl>
+<dd>I think that would make sense if brainfuck were a useful language for evolutionary computation, but I don't think it is. I will have a look at Nanopond and see what kinds of things have evolved, though. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 00:42, 26 February 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>It works quite well for examining simple diversity - it's a simple enough language that it's not difficult to make a VM that never has illegal operations, and the limited execution space helps quite a bit as well. <a href="../../../t/h/s/User%7EThsgrn_05b9.html" title="User:Thsgrn">Michael Ralston</a> 01:00, 26 February 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="External_Links" id="External_Links"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: External Links">edit</a>]</span> <span class="mw-headline">External Links</span></h2>
+<p>I am just wondering if the Interpreter I once wrote in PHP is worthy of a link. It does have much use different from the other links, but it just offers an overview of what happens through your application. <a href="http://sviip.dk/phpi/brainfuck/interpreter.php" class="external text" title="http://sviip.dk/phpi/brainfuck/interpreter.php" rel="nofollow">Here is the link.</a> I original made it due to the fact I had problems overviewing my own brainfuck applications, so I assumed I could fix it by getting some verbose. --<a href="../../../s/v/i/User%7ESvippong_4313.html" title="User:Svippong">Svippong</a> 00:19, 25 March 2006 (UTC)</p>
+<dl>
+<dd>Sure. I think it would be a nice addition. —<a href="../../../b/e/n/User%7EBenjamin_Mako_Hill_1ad0.html" title="User:Benjamin Mako Hill">mako</a> 22:06, 25 March 2006 (UTC)</dd>
+</dl>
+<p><a name="Lowercase" id="Lowercase"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Lowercase">edit</a>]</span> <span class="mw-headline">Lowercase</span></h2>
+<p>None of the web references seem to use this affectation of lowercasing "brainfuck" at the start of a sentence. The mere fact that it's not capitalized <i>in the middle</i> of a sentence, in spite of being a proper noun, is not sufficient to use the "wrongtitle" or "lowercase" templates, or to lowercase it at the start of the article. Also the <i>rest</i> of the article uses uppercase at the start of a sentence. Therefore I'm restoring the capital and removing the template. --<a href="../../../t/r/o/User%7ETrovatore_c393.html" title="User:Trovatore">Trovatore</a> 05:34, 30 March 2006 (UTC)</p>
+<dl>
+<dd>Actually, I was just heading back to the article to do a self-revert on that change, so I have no problem with that. You're right, it shouldn't use {{<a href="../../../w/r/o/Template%7EWrongtitle_7b78.html" title="Template:Wrongtitle">wrongtitle</a>}} (or even {{<a href="../../../l/o/w/Template%7ELowercase_bff2.html" title="Template:Lowercase">lowercase</a>}}). <a href="../../../c/r/g/User%7ECRGreathouse_d93e.html" title="User:CRGreathouse">CRGreathouse</a> 20:45, 24 May 2006 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>It seems wrong to me either way; wrong to change the case of a proper noun (even a lowercase one) and wrong to start a sentence with a lowercase letter. I suggest that in addition to not using the templates, we also move the word away from the start of the sentence (at least, at the very start of the article) in order to defuse the issue a bit. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 09:00, 26 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>For future reference, here are the five uses of the word in the classic distribution. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 09:10, 26 May 2006 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>The brainfuck compiler knows the following instructions:</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>The compiler for the 'brainfuck' language (240 bytes!)</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>The interpreter for the 'brainfuck' language</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>Some example programs in 'brainfuck'</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>
+<dl>
+<dd>The language 'brainfuck' knows the following commands:</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+<p><a name="mistake" id="mistake"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: mistake">edit</a>]</span> <span class="mw-headline">mistake</span></h2>
+<p>Would a mistake in here be called a "fuck-up"?</p>
+<p><a name="Discussion_on_merging_Brainfuck.2B.2B" id="Discussion_on_merging_Brainfuck.2B.2B"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Discussion on merging Brainfuck++">edit</a>]</span> <span class="mw-headline">Discussion on merging Brainfuck++</span></h2>
+<p>Probably thirty people have made brainfuck variants with one implementation and one to three tiny example programs. Most of these seem to be in the nature of self-assigned first exercises in language design. As such, they serve a purpose, but if we include their specifications on this page it will sink under the weight. I think listing them, with links, was a fair compromise. Any that cannot stand as independent articles should probably not be detailed in Wikipedia, since there may not be enough editors to keep them accurate.</p>
+<p>(For the same reason, I think I'll remove the feckfeck spec from this page.)<a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 21:18, 27 August 2006 (UTC)</p>
+<p><a name="Better_Addition_Program.3F" id="Better_Addition_Program.3F"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Better Addition Program?">edit</a>]</span> <span class="mw-headline">Better Addition Program?</span></h2>
+<p>I'm new to Brainfuck, but I wrote a program that accomplishes the same thing as the example. It is both shorter and takes less calculations. Here is is:</p>
+<p>,&gt;++++++[&lt;--------&gt;-],&lt;[&gt;+&lt;-]&gt;.</p>
+<p>--Spikeman 12:08, 10 November 2006 (UTC)</p>
+<p><a name="Strange_Moving_the_pointer" id="Strange_Moving_the_pointer"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Strange Moving the pointer">edit</a>]</span> <span class="mw-headline">Strange Moving the pointer</span></h2>
+<p>Why isn't it</p>
+<pre>
+,[.&gt;,]
+</pre>
+<p>? I think the first "&gt;" in the article should not be there.</p>
+<dl>
+<dd>That would leave no way to get back to the start of the input. <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a> 01:14, 1 December 2006 (UTC)</dd>
+</dl>
+<p><a name="Pascal.2FDelphi_Implementation" id="Pascal.2FDelphi_Implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: Pascal/Delphi Implementation">edit</a>]</span> <span class="mw-headline">Pascal/Delphi Implementation</span></h2>
+<p>I reverted edits by [[User:158.195.101.120|158.195.101.120] and <a href="../../../r/j/w/User%7ERjwilmsi_027f.html" title="User:Rjwilmsi">Rjwilmsi</a> that added "Pascal/Delphi Implementation" section. The article is language-agnostic at the moment, Delphi implementation has no notability whatsoever (especially if compared to a canonical C implementation that is not mentioned here either). The reverted edit also bloated the article significantly. <a href="../../../a/p/a/User%7EApankrat_f950.html" title="User:Apankrat">Alex Pankratov</a> 17:19, 22 February 2007 (UTC)</p>
+<p><a name="removing_Pascal_Delphi_implementation" id="removing_Pascal_Delphi_implementation"></a></p>
+<h2><span class="editsection">[<a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html" title="Edit section: removing Pascal Delphi implementation">edit</a>]</span> <span class="mw-headline">removing Pascal Delphi implementation</span></h2>
+<p>hey why did you removed the pascal/delphi implem. ? its great when you try to understand how it works, so you dont need to read tons of text, its just understandable from the algorithm, yes, its taking some space (about 25 lines), but its helping much, like you understand frmo it that 256 -&gt; 0 (when i was writing it, it took me a bit longer to get that fact, cause nowhere was smt. like that algoritm (i had to crub from a lot of long junk code l i found it), also you understand whats the condition of the loop (before i was not sure if its when ord(a[p])=0 or a[p]=0 or what ever)) delphi is an easy understandable language also for nocoder, and i think the implementation is a good addision to the text, cause on it you can understand fast and easy whats all about... and in school when we had to understand brainfuck (its learned on one hour lesson!) this help much, not only for me, but also for many of my schoolmates <small>—The preceding <a href="../../../s/i/g/Wikipedia%7ESign_your_posts_on_talk_pages_ee53.html" title="Wikipedia:Sign your posts on talk pages">unsigned</a> comment was added by Nonename (talk • <a href="../../../c/o/n/Special%7EContributions_Nonename_6653.html" title="Special:Contributions/Nonename">contribs</a>) 16:52, 25 February 2007 (UTC).</small></p>
+<dl>
+<dd>In short - I reverted your edit, because it was not of an encyclopedic quality. This is not as bad as it sounds :) I agree that the information you added is helpful to people starting with the Brainf*ck and who are familiar with Pascal. Wikipedia however is not meant to be a textbook. Also, other people might prefer other languages (say, Java, Erlang or Petrovich), so assuming that Delphi would work for everyone is not right thing to do. This is what I meant that by "language-agnostic" comment above. I appreciate your contribution and I completely understand where you are coming from (as I am sure do all other editors of this page). I also hope you can also understand my rationale and this revert won't discourage you from further contributions. Not to see you effort go into a void, I would suggest creating a web page on an external to Wikipedia server and then linking to it from "External links" section. <a href="../../../a/p/a/User%7EApankrat_f950.html" title="User:Apankrat">Alex Pankratov</a> 19:57, 25 February 2007 (UTC)</dd>
+</dl>
+<dl>
+<dd>
+<dl>
+<dd>The interpreter doesn't work correctly. You have forgotten this "[ jump forward to the command after the corresponding ] if the byte at the pointer is zero". For example this brainfuck program "++++++++++[&gt;++++++++++&lt;-]&gt;&gt;[&lt;.&gt;]&lt;." prints "dd" instead of only one d. <a href="../../../p/o/w/User%7EPowPit_dc11.html" title="User:PowPit">PowPit</a> 13:51, 28 February 2007 (UTC)</dd>
+</dl>
+</dd>
+</dl>
+
+<div class="printfooter">
+Retrieved from "<a href="http://en.wikipedia.org../../../b/r/a/Talk%7EBrainfuck_bee7.html">http://en.wikipedia.org../../../b/r/a/Talk%7EBrainfuck_bee7.html</a>"</div>
+	    	    <!-- end content -->
+	    <div class="visualClear"></div>
+	  </div>
+	</div>
+      </div>
+      <div id="column-one">
+	<div id="p-cactions" class="portlet">
+	  <h5>Views</h5>
+	  <ul>
+	    <li id="ca-nstab-main"
+	       	       ><a href="../../../b/r/a/Brainfuck.html">Article</a></li><li id="ca-talk"
+	       class="selected"	       ><a href="../../../b/r/a/Talk%7EBrainfuck_bee7.html">Discussion</a></li><li id="ca-current"
+	       	       ><a href="http://en.wikipedia.org/wiki/Talk:Brainfuck">Current revision</a></li>	  </ul>
+	</div>
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(../../../images/wiki-en.png);"
+	    href="../../../index.html"
+	    title="Main Page"></a>
+	</div>
+	<script type="text/javascript"> if (window.isMSIE55) fixalpha(); </script>
+		<div class='portlet' id='p-navigation'>
+	  <h5>Navigation</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-Main-page"><a href="../../../index.html">Main page</a></li>
+	     	      <li id="n-Contents"><a href="../../../c/o/n/Wikipedia%7EContents_3181.html">Contents</a></li>
+	     	      <li id="n-Featured-content"><a href="../../../f/e/a/Wikipedia%7EFeatured_content_24ba.html">Featured content</a></li>
+	     	      <li id="n-currentevents"><a href="../../../c/u/r/Portal%7ECurrent_events_bb60.html">Current events</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div class='portlet' id='p-interaction'>
+	  <h5>interaction</h5>
+	  <div class='pBody'>
+	    <ul>
+	    	      <li id="n-About-Wikipedia"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html">About Wikipedia</a></li>
+	     	      <li id="n-portal"><a href="../../../c/o/m/Wikipedia%7ECommunity_Portal_6a3c.html">Community portal</a></li>
+	     	      <li id="n-contact"><a href="../../../c/o/n/Wikipedia%7EContact_us_afd6.html">Contact us</a></li>
+	     	      <li id="n-sitesupport"><a href="http://wikimediafoundation.org/wiki/Fundraising">Make a donation</a></li>
+	     	      <li id="n-help"><a href="../../../c/o/n/Help%7EContents_22de.html">Help</a></li>
+	     	    </ul>
+	  </div>
+	</div>
+		<div id="p-search" class="portlet">
+	  <h5><label for="searchInput">Search</label></h5>
+	  <div id="searchBody" class="pBody">
+	    <form action="javascript:goToStatic(3)" id="searchform"><div>
+	      <input id="searchInput" name="search" type="text"
+	        accesskey="f" value="" />
+	      <input type='submit' name="go" class="searchButton" id="searchGoButton"
+	        value="Go" />
+	    </div></form>
+	  </div>
+	</div>
+	      </div><!-- end of the left (by default at least) column -->
+      <div class="visualClear"></div>
+      <div id="footer">
+    <div id="f-poweredbyico"><a href="http://www.mediawiki.org/"><img src="../../../skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" /></a></div>	<div id="f-copyrightico"><a href="http://wikimediafoundation.org/"><img src="../../../images/wikimedia-button.png" border="0" alt="Wikimedia Foundation"/></a></div>	<ul id="f-list">
+	  	  	  <li id="f-credits">This page was last modified 13:51, 28 February 2007 by Wikipedia user <a href="../../../p/o/w/User%7EPowPit_dc11.html" title="User:PowPit">PowPit</a>. Based on work by Wikipedia user(s) <a href="../../../a/p/a/User%7EApankrat_f950.html" title="User:Apankrat">Apankrat</a>, Nonename, <a href="../../../h/a/g/User%7EHagermanBot_d869.html" title="User:HagermanBot">HagermanBot</a>, <a href="../../../d/a/n/User%7EDanielCristofani_92da.html" title="User:DanielCristofani">DanielCristofani</a>, Spikeman, <a href="../../../g/w/e/User%7EGwern_2189.html" title="User:Gwern">Gwern</a>, <a href="../../../i/a/n/User%7EIanOsgood_81a9.html" title="User:IanOsgood">IanOsgood</a>, <a href="../../../k/o/o/User%7EKookoo275_0bc7.html" title="User:Kookoo275">Kookoo275</a>, <a href="../../../c/r/g/User%7ECRGreathouse_d93e.html" title="User:CRGreathouse">CRGreathouse</a>, <a href="../../../t/r/o/User%7ETrovatore_c393.html" title="User:Trovatore">Trovatore</a>, <a href="../../../b/e/n/User%7EBenjamin_Mako_Hill_1ad0.html" title="User:Benjamin Mako Hill">Benjamin Mako Hill</a>, <a href="../../../s/v/i/User%7ESvippong_4313.html" title="User:Svippong">Svippong</a>, <a href="../../../t/h/s/User%7EThsgrn_05b9.html" title="User:Thsgrn">Thsgrn</a>, <a href="../../../f/r/e/User%7EFredrik_8a6d.html" title="User:Fredrik">Fredrik</a>, <a href="../../../g/t/r/User%7EGtrmp_2ffc.html" title="User:Gtrmp">Gtrmp</a>, <a href="../../../f/l/a/User%7EFlarn2005_c400.html" title="User:Flarn2005">Flarn2005</a>, <a href="../../../e/x/o/User%7EExomnium_75ae.html" title="User:Exomnium">Exomnium</a>, <a href="../../../b/o/d/User%7EBodyTag_ffc4.html" title="User:BodyTag">BodyTag</a>, <a href="../../../s/a/m/User%7ESamohyl_Jan_6337.html" title="User:Samohyl Jan">Samohyl Jan</a>, <a href="../../../r/2E/e/User%7ER.e.s._9f77.html" title="User:R.e.s.">R.e.s.</a>, <a href="../../../s/a/m/User%7ESam_Hughes_b513.html" title="User:Sam Hughes">Sam Hughes</a>, <a href="../../../p/a/d/User%7EPaddu_be1f.html" title="User:Paddu">Paddu</a>, Yuubinbako, <a href="../../../a/g/o/User%7EAgorf_4be2.html" title="User:Agorf">Agorf</a>, <a href="../../../d/a/r/User%7EDarco_711e.html" title="User:Darco">Darco</a>, <a href="../../../i/m/s/User%7EIMSoP_6779.html" title="User:IMSoP">IMSoP</a>, JHolman, <a href="../../../t/r/i/User%7ETriskaideka_72fe.html" title="User:Triskaideka">Triskaideka</a>, <a href="../../../f/a/l/User%7EFalsifian_bc6d.html" title="User:Falsifian">Falsifian</a>, <a href="../../../r/a/u/User%7ERaul654_54a3.html" title="User:Raul654">Raul654</a>, <a href="../../../z/e/r/User%7EZeroOne_fb52.html" title="User:ZeroOne">ZeroOne</a>, <a href="../../../t/a/_/User%7ETa_bu_shi_da_yu_9191.html" title="User:Ta bu shi da yu">Ta bu shi da yu</a>, <a href="../../../g/u/a/User%7EGuanabot_b902.html" title="User:Guanabot">Guanabot</a>, <a href="../../../i/a/i/User%7EIainscott_79a1.html" title="User:Iainscott">Iainscott</a>, <a href="../../../t/e/x/User%7ETexture_fd4f.html" title="User:Texture">Texture</a>, <a href="../../../e/v/e/User%7EEvercat_8d16.html" title="User:Evercat">Evercat</a>, <a href="../../../t/i/m/User%7ETimwi_eb8f.html" title="User:Timwi">Timwi</a>, (, <a href="../../../f/v/d/User%7EFvdP_984c.html" title="User:FvdP">FvdP</a> and <a href="../../../a/x/e/User%7EAxelBoldt_4306.html" title="User:AxelBoldt">AxelBoldt</a> and Anonymous user(s) of Wikipedia.</li>	  <li id="f-copyright">All text is available under the terms of the <a class='internal' href="../../../t/e/x/Wikipedia%7EText_of_the_GNU_Free_Documentation_License_702a.html" title="Wikipedia:Text of the GNU Free Documentation License">GNU Free Documentation License</a>. (See <b><a class='internal' href="../../../c/o/p/Wikipedia%7ECopyrights_92c4.html" title="Wikipedia:Copyrights">Copyrights</a></b> for details.) <br /> Wikipedia&reg; is a registered trademark of the <a href="http://www.wikimediafoundation.org">Wikimedia Foundation, Inc</a>., a US-registered <a class='internal' href="../../../5/0/1/501%28c%29.html#501.28c.29.283.29" title="501(c)(3)">501(c)(3)</a> <a href="http://wikimediafoundation.org/wiki/Deductibility_of_donations">tax-deductible</a> <a class='internal' href="../../../n/o/n/Non-profit_organization.html" title="Non-profit organization">nonprofit</a> <a href="../../../c/h/a/Charitable_organization.html" title="Charitable organization">charity</a>.<br /></li>	  <li id="f-about"><a href="../../../a/b/o/Wikipedia%7EAbout_8d82.html" title="Wikipedia:About">About Wikipedia</a></li>	  <li id="f-disclaimer"><a href="../../../g/e/n/Wikipedia%7EGeneral_disclaimer_3e44.html" title="Wikipedia:General disclaimer">Disclaimers</a></li>	  	</ul>
+      </div>
+    </div>
+  </body>
+</html>
